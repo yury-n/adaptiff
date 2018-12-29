@@ -16,6 +16,8 @@
   margin-right: 0;
   width: 33px;
   cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid #dededf;
 }
 
 .color-picker {
@@ -29,4 +31,12 @@
 
 .flexbox-fix:last-child {
   display: none !important;
+}
+
+.flexbox-fix:first-child > div:first-child {
+  display: none;
+}
+
+.saturation-black {
+  height: calc(100% + 1px); /* I have no fucking idea, CSS */
 }

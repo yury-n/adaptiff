@@ -27,8 +27,9 @@ class ColorInput extends Component {
           ref={this.inputRef}
           onFocus={this.showColorPicker}
           onBlur={this.hideColorPicker}
+          onChange={event => onChange(event.target.value)}
           labelPosition="right"
-          defaultValue={color}
+          value={color}
         />
         <div
           class="ui label"
@@ -36,7 +37,11 @@ class ColorInput extends Component {
           onClick={this.setInputFocus}
         />
         {showColorPicker && (
-          <ChromePicker className="color-picker" onChange={onChange} />
+          <ChromePicker
+            color={color}
+            className="color-picker"
+            onChangeComplete={({ hex }) => onChange(hex)}
+          />
         )}
       </div>
     );

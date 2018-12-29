@@ -54,7 +54,7 @@ class App extends Component {
                 <div className="modal-sidebar">
                   <div className="title-container">Linear Gradient</div>
                   <div className="config-container">
-                    <label for="type" className="form-label">
+                    <label htmlFor="type" className="form-label">
                       Type
                     </label>
                     <Dropdown
@@ -72,12 +72,15 @@ class App extends Component {
                     </label>
                     <ColorInput
                       color={color1}
-                      onChange={({ hex }) => this.setState({ color1: hex })}
+                      onChange={value => this.setState({ color1: value })}
                     />
                     <label for="type" className="form-label">
                       Second color
                     </label>
-                    <ColorInput color={color2} />
+                    <ColorInput
+                      color={color2}
+                      onChange={value => this.setState({ color2: value })}
+                    />
                     {/* <label for="type" className="form-label">
                     Distance
                   </label>
@@ -91,7 +94,12 @@ class App extends Component {
                   </div>
                 </div>
                 <div className="modal-preview">
-                  <div className="preview" />
+                  <div
+                    className="preview"
+                    style={{
+                      background: `linear-gradient(to bottom, ${color1}, ${color2})`
+                    }}
+                  />
                 </div>
               </Modal.Content>
             </Modal>
