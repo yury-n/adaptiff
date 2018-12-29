@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 import Header from "./Header/Header";
 import ColorInput from "./ColorInput/ColorInput";
-import { Card, Icon, Image, Modal, Input, Dropdown } from "semantic-ui-react";
+import { Card, Icon, Image, Modal, Dropdown } from "semantic-ui-react";
 import "./App.css";
 
 class App extends Component {
   state = {
+    type: 'vertical',
     color1: "#4da0b0",
     color2: "#d39d38"
   };
   render() {
-    const { color1, color2 } = this.state;
+    const { type, color1, color2 } = this.state;
+
+    console.log('type', type);
+    const direction = type === 'vertical' ? 'bottom' : 'right';
+
     return (
       <div className="App">
         <Header />
@@ -60,11 +65,11 @@ class App extends Component {
                     <Dropdown
                       id="type"
                       options={[
-                        { key: 1, text: "Choice 1", value: 1 },
-                        { key: 2, text: "Choice 2", value: 2 },
-                        { key: 3, text: "Choice 3", value: 3 }
+                        { key: 1, text: "Vertical", value: 'vertical' },
+                        { key: 2, text: "Horizontal", value: 'horizontal' },
                       ]}
-                      defaultValue={1}
+                      onChange={(target, { value }) => this.setState({ type: value })}
+                      defaultValue={type}
                       selection
                     />
                     <label for="type" className="form-label">
@@ -97,7 +102,7 @@ class App extends Component {
                   <div
                     className="preview"
                     style={{
-                      background: `linear-gradient(to bottom, ${color1}, ${color2})`
+                      background: `linear-gradient(to ${direction}, ${color1}, ${color2})`
                     }}
                   />
                 </div>
