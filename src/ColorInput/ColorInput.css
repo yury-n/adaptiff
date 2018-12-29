@@ -1,0 +1,32 @@
+.color-input-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.color-input-wrapper .input input {
+  width: 171px;
+  border-right: none;
+}
+
+.color-input-wrapper .label {
+  border-radius: 30px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 33px;
+  cursor: pointer;
+}
+
+.color-picker {
+  position: absolute;
+  top: 50px;
+  left: -7px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 2px, rgba(0, 0, 0, 0) 0px 4px 8px !important;
+  padding-bottom: 10px;
+  z-index: 1;
+}
+
+.flexbox-fix:last-child {
+  display: none !important;
+}

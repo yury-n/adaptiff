@@ -1,32 +1,112 @@
-.App {
-  text-align: center;
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+a {
+  text-decoration: none;
+  color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.user.icon {
+  margin-right: 6px;
+}
+
+.form-label {
+  margin-top: 25px;
+  margin-bottom: 5px;
+  display: block;
+}
+.form-label:first-child {
+  margin-top: 5px;
+}
+
+.restricted-width-area {
+  width: 100%;
+  max-width: 1220px;
+  margin: auto;
+}
+
+.cards {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.ui.modal {
+  width: 70vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ui.modal > .close {
+  color: black;
+}
+
+.ui.modal > .content {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-sidebar {
+  position: relative;
+  background: #f9fafb;
+  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  min-width: 250px;
+  height: 70vh;
+  border-top-left-radius: 0.28571429rem;
+  border-bottom-left-radius: 0.28571429rem;
+  box-sizing: border-box;
+}
+
+.modal-sidebar .dropdown {
+  width: 100%;
+}
+
+.modal-sidebar .input {
+  width: 100%;
+}
+
+.modal-preview {
+  width: 100%;
+  height: 70vh;
+  box-sizing: border-box;
+  padding: 40px;
+}
+
+.preview {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #4da0b0, #d39d38);
+}
+
+.title-container {
+  box-sizing: border-box;
+  padding: 20px;
+  padding-top: 30px;
+  font-size: 15px;
+  background: #fcfcfd;
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-top-left-radius: 0.28571429rem;
+  font-weight: 600;
+}
+
+.config-container {
+  padding: 20px;
+}
+
+.author-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #fcfcfd;
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom-left-radius: 0.28571429rem;
 }
