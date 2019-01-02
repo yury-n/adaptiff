@@ -86,6 +86,19 @@ class App extends Component {
                       color={color2}
                       onChange={value => this.setState({ color2: value })}
                     />
+                    <label for="type" className="form-label">
+                      Palette
+                    </label>
+                    <Dropdown
+                      id="type"
+                      options={[
+                        { key: 1, label: <div class="mini-color-container"><div class="mini-color" style={{background: '#d39d38'}} /><div class="mini-color" style={{background: '#4da0b0'}} /></div> },
+                        { key: 1, label: <div class="mini-color-container"><div class="mini-color" style={{background: '#c8f6ff'}} /><div class="mini-color" style={{background: '#b438d3'}} /></div> },
+                      ]}
+                      onChange={(target, { value }) => this.setState({ type: value })}
+                      defaultValue={type}
+                      selection
+                    />
                     {/* <label for="type" className="form-label">
                     Distance
                   </label>
