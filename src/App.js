@@ -6,58 +6,53 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    type: 'vertical',
+    type: "vertical",
     color1: "#4da0b0",
     color2: "#d39d38"
   };
   render() {
     const { type, color1, color2 } = this.state;
 
-    console.log('type', type);
-    const direction = type === 'vertical' ? 'bottom' : 'right';
+    console.log("type", type);
+    const direction = type === "vertical" ? "bottom" : "right";
 
     return (
       <div className="App">
         <Header />
         <div class="restricted-width-area">
           <Card.Group className="cards">
-            <Card>
+            <Card link={false}>
               <Image src="https://mir-s3-cdn-cf.behance.net/projects/404/2d38cc73343905.Y3JvcCwxMzgwLDEwODAsMjcwLDA.jpg" />
               <Card.Content>
-                <a>
-                  <Icon name="user" />
-                  Danielle
-                </a>
+                <a>Danielle</a>
               </Card.Content>
             </Card>
             <Card>
               <Image src="https://mir-s3-cdn-cf.behance.net/projects/404/eac13142003297.Y3JvcCwxMTIwLDg3NiwwLDUyMQ.jpg" />
               <Card.Content>
-                <a>
-                  <Icon name="user" />
-                  Superrare
-                </a>
+                <a>Superrare</a>
               </Card.Content>
             </Card>
             <Modal
-              open
-              dimmer="inverted"
               closeIcon
               trigger={
-                <Card>
+                <Card as="div">
                   <Image src="https://mir-s3-cdn-cf.behance.net/projects/404/d0abd171491073.Y3JvcCwxNDIyLDExMTIsOTgsNDk.jpg" />
                   <Card.Content>
-                    <a>
-                      <Icon name="user" />
-                      Something
-                    </a>
+                    <a>Something</a>
                   </Card.Content>
                 </Card>
               }
             >
               <Modal.Content className="modal-content">
                 <div className="modal-sidebar">
-                  <div className="title-container">Linear Gradient</div>
+                  <div className="title-container">
+                    <span className="title">Linear Gradient</span>
+                    <br />
+                    <a className="author" href="twitter.com/user">
+                      Something
+                    </a>
+                  </div>
                   <div className="config-container">
                     <label htmlFor="type" className="form-label">
                       Type
@@ -65,10 +60,12 @@ class App extends Component {
                     <Dropdown
                       id="type"
                       options={[
-                        { key: 1, text: "Vertical", value: 'vertical' },
-                        { key: 2, text: "Horizontal", value: 'horizontal' },
+                        { key: 1, text: "Vertical", value: "vertical" },
+                        { key: 2, text: "Horizontal", value: "horizontal" }
                       ]}
-                      onChange={(target, { value }) => this.setState({ type: value })}
+                      onChange={(target, { value }) =>
+                        this.setState({ type: value })
+                      }
                       defaultValue={type}
                       selection
                     />
@@ -92,10 +89,40 @@ class App extends Component {
                     <Dropdown
                       id="type"
                       options={[
-                        { key: 1, label: <div class="mini-color-container"><div class="mini-color" style={{background: '#d39d38'}} /><div class="mini-color" style={{background: '#4da0b0'}} /></div> },
-                        { key: 1, label: <div class="mini-color-container"><div class="mini-color" style={{background: '#c8f6ff'}} /><div class="mini-color" style={{background: '#b438d3'}} /></div> },
+                        {
+                          key: 1,
+                          label: (
+                            <div class="mini-color-container">
+                              <div
+                                class="mini-color"
+                                style={{ background: "#d39d38" }}
+                              />
+                              <div
+                                class="mini-color"
+                                style={{ background: "#4da0b0" }}
+                              />
+                            </div>
+                          )
+                        },
+                        {
+                          key: 1,
+                          label: (
+                            <div class="mini-color-container">
+                              <div
+                                class="mini-color"
+                                style={{ background: "#c8f6ff" }}
+                              />
+                              <div
+                                class="mini-color"
+                                style={{ background: "#b438d3" }}
+                              />
+                            </div>
+                          )
+                        }
                       ]}
-                      onChange={(target, { value }) => this.setState({ type: value })}
+                      onChange={(target, { value }) =>
+                        this.setState({ type: value })
+                      }
                       defaultValue={type}
                       selection
                     />
@@ -103,12 +130,6 @@ class App extends Component {
                     Distance
                   </label>
                   <Checkbox slider /> */}
-                  </div>
-                  <div className="author-container">
-                    <a href="twitter.com/user">
-                      <Icon name="user" />
-                      Something
-                    </a>
                   </div>
                 </div>
                 <div className="modal-preview">

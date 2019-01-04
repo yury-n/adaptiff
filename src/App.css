@@ -15,7 +15,13 @@ a:hover {
   text-decoration: underline;
 }
 
+.ui.selection.dropdown,
+.ui.input > input {
+  border-color: rgba(34, 36, 38, 0.35);
+}
+
 .user.icon {
+  transform: scale(0.9);
   margin-right: 6px;
 }
 
@@ -23,6 +29,7 @@ a:hover {
   margin-top: 25px;
   margin-bottom: 5px;
   display: block;
+  font-weight: 600;
 }
 .form-label:first-child {
   margin-top: 5px;
@@ -42,9 +49,9 @@ a:hover {
   width: 70vw;
 }
 
-.ui.modal > .close {
+/* .ui.modal > .close {
   color: black;
-}
+} */
 
 .ui.modal > .content {
   padding: 0;
@@ -55,8 +62,7 @@ a:hover {
 .modal-sidebar {
   position: relative;
   background: #f9fafb;
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
-  min-width: 250px;
+  width: 260px;
   height: 70vh;
   border-top-left-radius: 0.28571429rem;
   border-bottom-left-radius: 0.28571429rem;
@@ -104,27 +110,27 @@ a:hover {
 
 .title-container {
   box-sizing: border-box;
-  padding: 20px;
-  padding-top: 30px;
-  font-size: 15px;
-  background: #fcfcfd;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  padding: 30px;
+  font-size: 17px;
+  background: white;
   border-top-left-radius: 0.28571429rem;
   font-weight: 600;
 }
 
 .config-container {
-  padding: 20px;
+  padding: 30px;
 }
 
-.author-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 20px;
-  background: #fcfcfd;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
-  border-bottom-left-radius: 0.28571429rem;
+.title {
+  display: inline-block;
+  margin-bottom: 2px;
+}
+
+.author {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.card {
+  cursor: pointer;
 }
