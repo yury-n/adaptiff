@@ -16,8 +16,10 @@ a:hover {
 }
 
 .ui.selection.dropdown,
+.ui.selection.dropdown:hover,
 .ui.input > input {
   border-color: rgba(34, 36, 38, 0.35);
+  box-shadow: 0 3px 4px 0px #d4d4d5c9;
 }
 
 .user.icon {
@@ -41,6 +43,10 @@ a:hover {
   margin: auto;
 }
 
+.ui.card, .ui.cards>.card {
+  box-shadow: 0 1px 6px 0px #d4d4d5c9, 0 0 0 1px #e3e3e5;
+}
+
 .cards {
   justify-content: center;
 }
@@ -61,7 +67,8 @@ a:hover {
 
 .modal-sidebar {
   position: relative;
-  background: #f9fafb;
+  display: flex;
+  flex-direction: column;  
   width: 260px;
   height: 70vh;
   border-top-left-radius: 0.28571429rem;
@@ -118,7 +125,12 @@ a:hover {
 }
 
 .config-container {
-  padding: 30px;
+  padding: 25px 30px;
+  padding-bottom: 50px;
+  border-radius: 0 4px 0 0;
+  background: #f9fafb;
+  height: 100%;
+  overflow: auto;
 }
 
 .title {
@@ -126,11 +138,45 @@ a:hover {
   margin-bottom: 2px;
 }
 
+.mini-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.mini-author {
+  font-size: 13px;
+  color: #000000b0;
+}
+
+.by-author {
+  font-size: 13px;
+  font-weight: normal;
+  margin-right: 4px;
+  color: #b3b3b3;
+}
+
 .author {
   font-size: 14px;
   font-weight: normal;
+  color: #000000b0;
 }
 
 .card {
   cursor: pointer;
+}
+
+.palette-dropdown-wrapper {
+  position: relative;
+}
+
+.palette-dropdown-wrapper .selected-value {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  z-index: 100;
 }

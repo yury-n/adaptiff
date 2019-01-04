@@ -8,7 +8,7 @@ class App extends Component {
   state = {
     type: "vertical",
     color1: "#4da0b0",
-    color2: "#d39d38"
+    color2: "#e8e309"
   };
   render() {
     const { type, color1, color2 } = this.state;
@@ -24,22 +24,26 @@ class App extends Component {
             <Card link={false}>
               <Image src="https://mir-s3-cdn-cf.behance.net/projects/404/2d38cc73343905.Y3JvcCwxMzgwLDEwODAsMjcwLDA.jpg" />
               <Card.Content>
-                <a>Danielle</a>
+                <div className="mini-title">Spirals</div>
+                <a className="mini-author">Danielle</a>
               </Card.Content>
             </Card>
             <Card>
               <Image src="https://mir-s3-cdn-cf.behance.net/projects/404/eac13142003297.Y3JvcCwxMTIwLDg3NiwwLDUyMQ.jpg" />
               <Card.Content>
-                <a>Superrare</a>
+              <div className="mini-title">Spread Tech</div>
+                <a className="mini-author">Superrare</a>
               </Card.Content>
             </Card>
             <Modal
               closeIcon
+              dimmer="blurring"
               trigger={
                 <Card as="div">
                   <Image src="https://mir-s3-cdn-cf.behance.net/projects/404/d0abd171491073.Y3JvcCwxNDIyLDExMTIsOTgsNDk.jpg" />
                   <Card.Content>
-                    <a>Something</a>
+                    <div className="mini-title">Circles Here</div>
+                    <a className="mini-author">Something</a>
                   </Card.Content>
                 </Card>
               }
@@ -49,7 +53,8 @@ class App extends Component {
                   <div className="title-container">
                     <span className="title">Linear Gradient</span>
                     <br />
-                    <a className="author" href="twitter.com/user">
+                    <span className="by-author">by</span>
+                    <a className="author" href="twitter.com/user">                      
                       Something
                     </a>
                   </div>
@@ -86,46 +91,59 @@ class App extends Component {
                     <label for="type" className="form-label">
                       Palette
                     </label>
-                    <Dropdown
-                      id="type"
-                      options={[
-                        {
-                          key: 1,
-                          label: (
-                            <div class="mini-color-container">
-                              <div
-                                class="mini-color"
-                                style={{ background: "#d39d38" }}
-                              />
-                              <div
-                                class="mini-color"
-                                style={{ background: "#4da0b0" }}
-                              />
-                            </div>
-                          )
-                        },
-                        {
-                          key: 1,
-                          label: (
-                            <div class="mini-color-container">
-                              <div
-                                class="mini-color"
-                                style={{ background: "#c8f6ff" }}
-                              />
-                              <div
-                                class="mini-color"
-                                style={{ background: "#b438d3" }}
-                              />
-                            </div>
-                          )
+                    <div className="palette-dropdown-wrapper">
+                      <div class="mini-color-container selected-value">
+                        <div
+                          class="mini-color"
+                          style={{ background: "#e8e309" }}
+                        />
+                        <div
+                          class="mini-color"
+                          style={{ background: "#4da0b0" }}
+                        />
+                      </div>
+                      <Dropdown
+                        id="type"
+                        value={3}
+                        options={[
+                          {
+                            key: 1,
+                            label: (
+                              <div class="mini-color-container">
+                                <div
+                                  class="mini-color"
+                                  style={{ background: "#d39d38" }}
+                                />
+                                <div
+                                  class="mini-color"
+                                  style={{ background: "#4da0b0" }}
+                                />
+                              </div>
+                            )
+                          },
+                          {
+                            key: 1,
+                            label: (
+                              <div class="mini-color-container">
+                                <div
+                                  class="mini-color"
+                                  style={{ background: "#c8f6ff" }}
+                                />
+                                <div
+                                  class="mini-color"
+                                  style={{ background: "#b438d3" }}
+                                />
+                              </div>
+                            )
+                          }
+                        ]}
+                        onChange={(target, { value }) =>
+                          this.setState({ type: value })
                         }
-                      ]}
-                      onChange={(target, { value }) =>
-                        this.setState({ type: value })
-                      }
-                      defaultValue={type}
-                      selection
-                    />
+                        defaultValue={type}
+                        selection
+                      />
+                    </div>
                     {/* <label for="type" className="form-label">
                     Distance
                   </label>
