@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import Header from "./Header/Header";
 import ColorInput from "./ColorInput/ColorInput";
-import { Card, Icon, Image, Modal, Dropdown } from "semantic-ui-react";
+import PaletteDropdown from "./PaletteDropdown/PaletteDropdown";
+import { Card, Image, Modal, Dropdown } from "semantic-ui-react";
+import { numbers } from "./translations";
 import "./App.css";
 
 class App extends Component {
   state = {
     type: "vertical",
-    color1: "#4da0b0",
-    color2: "#e8e309"
+    palette: ["#aaf8ba", "#e8e309"],
+    isSelectingColor: false
   };
   render() {
-    const { type, color1, color2 } = this.state;
+    const { type, palette, isSelectingColor } = this.state;
 
-    console.log("type", type);
     const direction = type === "vertical" ? "bottom" : "right";
 
     return (
@@ -31,13 +32,13 @@ class App extends Component {
             <Card>
               <Image src="https://mir-s3-cdn-cf.behance.net/projects/404/eac13142003297.Y3JvcCwxMTIwLDg3NiwwLDUyMQ.jpg" />
               <Card.Content>
-              <div className="mini-title">Spread Tech</div>
+                <div className="mini-title">Spread Tech</div>
                 <a className="mini-author">Superrare</a>
               </Card.Content>
             </Card>
             <Modal
+              open={isSelectingColor || true || undefined}
               closeIcon
-              dimmer="blurring"
               trigger={
                 <Card as="div">
                   <Image src="https://mir-s3-cdn-cf.behance.net/projects/404/d0abd171491073.Y3JvcCwxNDIyLDExMTIsOTgsNDk.jpg" />
@@ -54,7 +55,7 @@ class App extends Component {
                     <span className="title">Linear Gradient</span>
                     <br />
                     <span className="by-author">by</span>
-                    <a className="author" href="twitter.com/user">                      
+                    <a className="author" href="twitter.com/user">
                       Something
                     </a>
                   </div>
@@ -75,75 +76,42 @@ class App extends Component {
                       selection
                     />
                     <label for="type" className="form-label">
-                      First color
-                    </label>
-                    <ColorInput
-                      color={color1}
-                      onChange={value => this.setState({ color1: value })}
-                    />
-                    <label for="type" className="form-label">
-                      Second color
-                    </label>
-                    <ColorInput
-                      color={color2}
-                      onChange={value => this.setState({ color2: value })}
-                    />
-                    <label for="type" className="form-label">
                       Palette
                     </label>
-                    <div className="palette-dropdown-wrapper">
-                      <div class="mini-color-container selected-value">
-                        <div
-                          class="mini-color"
-                          style={{ background: "#e8e309" }}
-                        />
-                        <div
-                          class="mini-color"
-                          style={{ background: "#4da0b0" }}
-                        />
-                      </div>
-                      <Dropdown
-                        id="type"
-                        value={3}
-                        options={[
-                          {
-                            key: 1,
-                            label: (
-                              <div class="mini-color-container">
-                                <div
-                                  class="mini-color"
-                                  style={{ background: "#d39d38" }}
-                                />
-                                <div
-                                  class="mini-color"
-                                  style={{ background: "#4da0b0" }}
-                                />
-                              </div>
-                            )
-                          },
-                          {
-                            key: 1,
-                            label: (
-                              <div class="mini-color-container">
-                                <div
-                                  class="mini-color"
-                                  style={{ background: "#c8f6ff" }}
-                                />
-                                <div
-                                  class="mini-color"
-                                  style={{ background: "#b438d3" }}
-                                />
-                              </div>
-                            )
+                    <PaletteDropdown
+                      selectedPalette={palette}
+                      palettes={[
+                        ["#aaf8ba", "#e8e309"],
+                        ["#d39d38", "#4da0b0"],
+                        ["#c8f6ff", "#b438d3"]
+                      ]}
+                      onChange={palette => this.setState({ palette })}
+                    />
+                    {palette.map((color, index) => (
+                      <>
+                        <label for="type" className="form-label">
+                          {numbers[index]} color
+                        </label>
+                        <ColorInput
+                          color={color}
+                          onChange={value =>
+                            this.setState({
+                              palette: [
+                                ...palette.slice(0, index),
+                                value,
+                                ...palette.slice(index + 1, palette.length)
+                              ]
+                            })
                           }
-                        ]}
-                        onChange={(target, { value }) =>
-                          this.setState({ type: value })
-                        }
-                        defaultValue={type}
-                        selection
-                      />
-                    </div>
+                          onOpen={() =>
+                            this.setState({ isSelectingColor: true })
+                          }
+                          onClose={() =>
+                            this.setState({ isSelectingColor: false })
+                          }
+                        />
+                      </>
+                    ))}
                     {/* <label for="type" className="form-label">
                     Distance
                   </label>
@@ -154,7 +122,9 @@ class App extends Component {
                   <div
                     className="preview"
                     style={{
-                      background: `linear-gradient(to ${direction}, ${color1}, ${color2})`
+                      background: `linear-gradient(to ${direction}, ${
+                        palette[0]
+                      }, ${palette[1]})`
                     }}
                   />
                 </div>

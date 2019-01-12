@@ -21,6 +21,10 @@
   box-shadow: 0 3px 4px 0px #d4d4d5c9;
 }
 
+.color-input-wrapper.with-picker .label {
+  box-shadow: none;
+}
+
 .color-picker {
   position: absolute;
   top: 48px;

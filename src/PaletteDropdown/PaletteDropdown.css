@@ -1,0 +1,19 @@
+.palette-dropdown-wrapper {
+  position: relative;
+  z-index: 0;
+}
+
+.palette-dropdown-wrapper.active {
+  z-index: 1;
+}
+
+.palette-dropdown-wrapper .selected-value {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  z-index: 100;
+}

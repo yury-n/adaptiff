@@ -43,8 +43,9 @@ a:hover {
   margin: auto;
 }
 
-.ui.card, .ui.cards>.card {
-  box-shadow: 0 1px 6px 0px #d4d4d5c9, 0 0 0 1px #e3e3e5;
+.ui.card,
+.ui.cards > .card {
+  box-shadow: 0 1px 20px 0px #d4d4d5b8, 0 0 0 1px #e3e3e596;
 }
 
 .cards {
@@ -68,7 +69,7 @@ a:hover {
 .modal-sidebar {
   position: relative;
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   width: 260px;
   height: 70vh;
   border-top-left-radius: 0.28571429rem;
@@ -118,7 +119,9 @@ a:hover {
 .title-container {
   box-sizing: border-box;
   padding: 30px;
-  font-size: 17px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  font-size: 18px;
   background: white;
   border-top-left-radius: 0.28571429rem;
   font-weight: 600;
@@ -128,7 +131,6 @@ a:hover {
   padding: 25px 30px;
   padding-bottom: 50px;
   border-radius: 0 4px 0 0;
-  background: #f9fafb;
   height: 100%;
   overflow: auto;
 }
@@ -164,19 +166,4 @@ a:hover {
 
 .card {
   cursor: pointer;
-}
-
-.palette-dropdown-wrapper {
-  position: relative;
-}
-
-.palette-dropdown-wrapper .selected-value {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  padding-left: 16px;
-  z-index: 100;
 }

@@ -29,7 +29,9 @@ class Header extends Component {
           <Button icon basic className="contact-button">
             Contact
           </Button>
-          <Button icon>Submit</Button>
+          <Button icon className="submit-button">
+            Submit
+          </Button>
         </div>
       </header>
     );
