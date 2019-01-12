@@ -3,6 +3,8 @@ import Header from "./Header/Header";
 import ColorInput from "./ColorInput/ColorInput";
 import PaletteDropdown from "./PaletteDropdown/PaletteDropdown";
 import { Card, Image, Modal, Dropdown } from "semantic-ui-react";
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 import { numbers } from "./translations";
 import "./App.css";
 
@@ -112,10 +114,24 @@ class App extends Component {
                         />
                       </>
                     ))}
-                    {/* <label for="type" className="form-label">
+                    <label for="type" className="form-label">
                     Distance
-                  </label>
-                  <Checkbox slider /> */}
+                    </label>
+                    <Slider
+                      defaultValue={30}
+                      maximumTrackStyle={{ backgroundColor: 'rgb(195, 195, 195)', height: 3 }}
+                      minimumTrackStyle={{ backgroundColor: 'rgb(195, 195, 195)', height: 3 }}
+                      handleStyle={{
+                        height: 20,
+                        width: 20,
+                        marginLeft: -10,
+                        marginTop: -10,
+                        backgroundColor: '#fafafa',
+                        borderColor: '#fafafa',
+                        borderWidth: '1px',
+                        boxShadow: '0 3px 4px 0px #d4d4d5c9'
+                      }}
+                    />
                   </div>
                 </div>
                 <div className="modal-preview">
