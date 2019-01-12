@@ -12,16 +12,16 @@ class PaletteDropdown extends Component {
     const { isActive } = this.state;
     const { selectedPalette, palettes } = this.props;
 
-    const palettesWithoutSelected = palettes.filter(palette => {
-      let allColorsMatch = true;
-      palette.forEach((color, index) => {
-        if (color != selectedPalette[index]) {
-          allColorsMatch = false;
-          return;
-        }
-      });
-      return !allColorsMatch;
-    });
+    // const palettesWithoutSelected = palettes.filter(palette => {
+    //   let allColorsMatch = true;
+    //   palette.forEach((color, index) => {
+    //     if (color !== selectedPalette[index]) {
+    //       allColorsMatch = false;
+    //       return;
+    //     }
+    //   });
+    //   return !allColorsMatch;
+    // });
 
     return (
       <div
@@ -34,7 +34,11 @@ class PaletteDropdown extends Component {
         </div>
         <Dropdown
           id="type"
-          options={palettesWithoutSelected.map((palette, index) => ({
+          defaultValue={undefined}
+          value={undefined}
+          selectedLabel={undefined}
+          selectOnBlur={false}
+          options={palettes.map((palette, index) => ({
             key: index,
             value: index,
             label: (
@@ -46,7 +50,7 @@ class PaletteDropdown extends Component {
             )
           }))}
           onChange={(target, { value }) =>
-            this.props.onChange(palettesWithoutSelected[value])
+            this.props.onChange(palettes[value])
           }
           onOpen={() => this.setState({ isActive: true })}
           onClose={() => this.setState({ isActive: false })}
