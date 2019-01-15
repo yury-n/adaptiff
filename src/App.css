@@ -167,3 +167,18 @@ a:hover {
 .card {
   cursor: pointer;
 }
+
+.slider {
+  margin-top: 15px;
+}
+
+.range {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ui.input.range-input {
+  width: 55px;
+  margin-top: 15px;
+  position: relative;
+}

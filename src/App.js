@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header/Header";
 import ColorInput from "./ColorInput/ColorInput";
 import PaletteDropdown from "./PaletteDropdown/PaletteDropdown";
-import { Card, Image, Modal, Dropdown } from "semantic-ui-react";
+import { Input, Card, Image, Modal, Dropdown } from "semantic-ui-react";
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { numbers } from "./translations";
@@ -119,19 +119,30 @@ class App extends Component {
                     </label>
                     <Slider
                       defaultValue={30}
-                      maximumTrackStyle={{ backgroundColor: 'rgb(195, 195, 195)', height: 3 }}
-                      minimumTrackStyle={{ backgroundColor: 'rgb(195, 195, 195)', height: 3 }}
+                      className="slider"
+                      maximumTrackStyle={{ backgroundColor: 'rgb(216, 215, 215)', height: 3 }}
+                      minimumTrackStyle={{ backgroundColor: 'rgb(216, 215, 215)', height: 3 }}
                       handleStyle={{
                         height: 20,
                         width: 20,
                         marginLeft: -10,
                         marginTop: -10,
-                        backgroundColor: '#fafafa',
-                        borderColor: '#fafafa',
+                        backgroundColor: 'white',
+                        borderColor: 'rgb(196, 196, 196)',
                         borderWidth: '1px',
                         boxShadow: '0 3px 4px 0px #d4d4d5c9'
                       }}
                     />
+                    <div className="range">
+                    <Input
+                    className="range-input"
+                      value="10"
+                    />
+                    <Input
+                    className="range-input"
+                      value="100"
+                    />
+                    </div>                    
                   </div>
                 </div>
                 <div className="modal-preview">
