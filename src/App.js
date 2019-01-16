@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Header from "./Header/Header";
 import ColorInput from "./ColorInput/ColorInput";
 import PaletteDropdown from "./PaletteDropdown/PaletteDropdown";
-import { Input, Card, Image, Modal, Dropdown } from "semantic-ui-react";
-import Slider from 'rc-slider';
+import Range from "./Range/Range";
+import { Card, Image, Modal, Dropdown } from "semantic-ui-react";
 import 'rc-slider/assets/index.css';
 import { numbers } from "./translations";
 import "./App.css";
@@ -12,10 +12,11 @@ class App extends Component {
   state = {
     type: "vertical",
     palette: ["#aaf8ba", "#e8e309"],
-    isSelectingColor: false
+    isSelectingColor: false,
+    angle: 180
   };
   render() {
-    const { type, palette, isSelectingColor } = this.state;
+    const { type, palette, angle, isSelectingColor } = this.state;
 
     const direction = type === "vertical" ? "bottom" : "right";
 
@@ -115,41 +116,16 @@ class App extends Component {
                       </>
                     ))}
                     <label for="type" className="form-label">
-                    Distance
+                    Angle
                     </label>
-                    <Slider
-                      defaultValue={30}
-                      className="slider"
-                      maximumTrackStyle={{ backgroundColor: 'rgb(216, 215, 215)', height: 3 }}
-                      minimumTrackStyle={{ backgroundColor: 'rgb(216, 215, 215)', height: 3 }}
-                      handleStyle={{
-                        height: 20,
-                        width: 20,
-                        marginLeft: -10,
-                        marginTop: -10,
-                        backgroundColor: 'white',
-                        borderColor: 'rgb(196, 196, 196)',
-                        borderWidth: '1px',
-                        boxShadow: '0 3px 4px 0px #d4d4d5c9'
-                      }}
-                    />
-                    <div className="range">
-                    <Input
-                    className="range-input"
-                      value="10"
-                    />
-                    <Input
-                    className="range-input"
-                      value="100"
-                    />
-                    </div>                    
+                    <Range min={0} max={360} value={angle} onChange={(value) => this.setState({angle: value})} />                    
                   </div>
                 </div>
                 <div className="modal-preview">
                   <div
                     className="preview"
                     style={{
-                      background: `linear-gradient(to ${direction}, ${
+                      background: `linear-gradient(${angle}deg, ${
                         palette[0]
                       }, ${palette[1]})`
                     }}
