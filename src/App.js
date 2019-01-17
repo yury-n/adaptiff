@@ -4,21 +4,30 @@ import ColorInput from "./ColorInput/ColorInput";
 import PaletteDropdown from "./PaletteDropdown/PaletteDropdown";
 import Range from "./Range/Range";
 import { Card, Image, Modal, Dropdown } from "semantic-ui-react";
-import 'rc-slider/assets/index.css';
+import "rc-slider/assets/index.css";
 import { numbers } from "./translations";
 import "./App.css";
 
 class App extends Component {
   state = {
-    type: "vertical",
+    direction: "right",
     palette: ["#aaf8ba", "#e8e309"],
     isSelectingColor: false,
     angle: 180
   };
   render() {
-    const { type, palette, angle, isSelectingColor } = this.state;
+    const { direction, palette, angle, isSelectingColor } = this.state;
 
-    const direction = type === "vertical" ? "bottom" : "right";
+    let background;
+    if (direction === "custom_angle") {
+      background = `linear-gradient(${angle}deg, ${palette[0]}, ${palette[1]})`;
+    } else {
+      background = `linear-gradient(to ${direction}, ${palette[0]}, ${
+        palette[1]
+      })`;
+    }
+
+    const styledObject = { background };
 
     return (
       <div className="App">
@@ -63,29 +72,40 @@ class App extends Component {
                     </a>
                   </div>
                   <div className="config-container">
-                    <label htmlFor="type" className="form-label">
-                      Type
-                    </label>
+                    <label className="form-label">Direction</label>
                     <Dropdown
                       id="type"
                       options={[
-                        { key: 1, text: "Vertical", value: "vertical" },
-                        { key: 2, text: "Horizontal", value: "horizontal" }
+                        { key: 0, text: "Custom Angle", value: "custom_angle" },
+                        { key: 1, text: "Left to Right", value: "right" },
+                        { key: 2, text: "Right to Left", value: "left" },
+                        { key: 3, text: "Top to Bottom", value: "bottom" },
+                        { key: 4, text: "Bottom to Top", value: "top" }
                       ]}
                       onChange={(target, { value }) =>
-                        this.setState({ type: value })
+                        this.setState({ direction: value })
                       }
-                      defaultValue={type}
+                      defaultValue={direction}
                       selection
                     />
-                    <label for="type" className="form-label">
-                      Palette
-                    </label>
+                    {direction === "custom_angle" && (
+                      <>
+                        <label className="form-label">Angle</label>
+                        <Range
+                          min={0}
+                          max={360}
+                          value={angle}
+                          onChange={value => this.setState({ angle: value })}
+                        />
+                      </>
+                    )}
+                    <label className="form-label">Palette</label>
                     <PaletteDropdown
                       selectedPalette={palette}
                       palettes={[
                         ["#aaf8ba", "#e8e309"],
                         ["#d39d38", "#4da0b0"],
+                        ["#8E2DE2", "#4A00E0"],
                         ["#c8f6ff", "#b438d3"]
                       ]}
                       onChange={palette => this.setState({ palette })}
@@ -115,21 +135,10 @@ class App extends Component {
                         />
                       </>
                     ))}
-                    <label for="type" className="form-label">
-                    Angle
-                    </label>
-                    <Range min={0} max={360} value={angle} onChange={(value) => this.setState({angle: value})} />                    
                   </div>
                 </div>
                 <div className="modal-preview">
-                  <div
-                    className="preview"
-                    style={{
-                      background: `linear-gradient(${angle}deg, ${
-                        palette[0]
-                      }, ${palette[1]})`
-                    }}
-                  />
+                  <div className="preview" style={styledObject} />
                 </div>
               </Modal.Content>
             </Modal>
