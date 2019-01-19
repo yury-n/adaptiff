@@ -5,6 +5,10 @@ html {
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  background: #fdfdfd;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -45,11 +49,12 @@ a:hover {
 
 .ui.card,
 .ui.cards > .card {
-  box-shadow: 0 1px 20px 0px #d4d4d5b8, 0 0 0 1px #e3e3e596;
+  box-shadow: 0 1px 2px rgba(25, 25, 25, 0.2);
 }
 
 .cards {
   justify-content: center;
+  padding-top: 60px;
 }
 
 .ui.modal {
@@ -125,9 +130,8 @@ a:hover {
   position: absolute;
   bottom: 60px;
   right: 60px;
-  background: #ffffffd4 !important;
+  background: white !important;
   border-color: rgba(34, 36, 38, 0.35);
-  box-shadow: 0 3px 4px 0px #d4d4d5c9;
   opacity: 0;
   transition: opacity 300ms;
 }
@@ -167,7 +171,7 @@ a:hover {
 }
 
 .mini-title {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   margin-bottom: 1px;
 }
@@ -181,6 +185,29 @@ a:hover {
   color: #b3b3b3;
   margin-right: 4px;
   font-size: 13px;
+}
+
+.ui.card,
+.ui.cards > .card {
+  width: 260px;
+  overflow: hidden;
+}
+
+.mini-previews-scroller {
+  width: 100%;
+  overflow: auto;
+}
+
+.mini-previews-wrapper {
+  width: calc(260px * 4);
+  overflow-x: auto;
+}
+
+.mini-preview {
+  width: 260px;
+  height: 208px;
+  background-size: cover;
+  float: left;
 }
 
 .by-author {
