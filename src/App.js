@@ -3,9 +3,10 @@ import Header from "./Header/Header";
 import ColorInput from "./ColorInput/ColorInput";
 import PaletteDropdown from "./PaletteDropdown/PaletteDropdown";
 import Range from "./Range/Range";
-import { Card, Image, Modal, Dropdown } from "semantic-ui-react";
+import { Button, Card, Image, Modal, Dropdown } from "semantic-ui-react";
 import "rc-slider/assets/index.css";
 import { numbers } from "./translations";
+import html2canvas from "html2canvas";
 import "./App.css";
 
 class App extends Component {
@@ -38,6 +39,7 @@ class App extends Component {
               <Image src="https://mir-s3-cdn-cf.behance.net/projects/404/2d38cc73343905.Y3JvcCwxMzgwLDEwODAsMjcwLDA.jpg" />
               <Card.Content>
                 <div className="mini-title">Spirals</div>
+                <span className="mini-by-author">by</span>
                 <a className="mini-author">Danielle</a>
               </Card.Content>
             </Card>
@@ -45,17 +47,19 @@ class App extends Component {
               <Image src="https://mir-s3-cdn-cf.behance.net/projects/404/eac13142003297.Y3JvcCwxMTIwLDg3NiwwLDUyMQ.jpg" />
               <Card.Content>
                 <div className="mini-title">Spread Tech</div>
+                <span className="mini-by-author">by</span>
                 <a className="mini-author">Superrare</a>
               </Card.Content>
             </Card>
             <Modal
-              open={isSelectingColor || true || undefined}
+              open={isSelectingColor || undefined}
               closeIcon
               trigger={
                 <Card as="div">
                   <Image src="https://mir-s3-cdn-cf.behance.net/projects/404/d0abd171491073.Y3JvcCwxNDIyLDExMTIsOTgsNDk.jpg" />
                   <Card.Content>
                     <div className="mini-title">Circles Here</div>
+                    <span className="mini-by-author">by</span>
                     <a className="mini-author">Something</a>
                   </Card.Content>
                 </Card>
@@ -138,7 +142,14 @@ class App extends Component {
                   </div>
                 </div>
                 <div className="modal-preview">
-                  <div className="preview" style={styledObject} />
+                  <div id="capture" className="preview" style={styledObject} />
+                  <Button
+                    icon="arrow alternate circle down outline"
+                    basic
+                    className="download-button"
+                    content="Download"
+                    onClick={this.download}
+                  />
                 </div>
               </Modal.Content>
             </Modal>
@@ -147,6 +158,18 @@ class App extends Component {
       </div>
     );
   }
+
+  download = () => {
+    html2canvas(document.getElementById("capture")).then(function(canvas) {
+      const link = document.createElement("a");
+      var image = canvas
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      link.download = "generation.png";
+      link.setAttribute("href", image);
+      link.click();
+    });
+  };
 }
 
 export default App;
