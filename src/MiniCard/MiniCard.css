@@ -1,0 +1,71 @@
+.mini-card {
+  position: relative;
+}
+
+.mini-previews-scroller {
+  width: 100%;
+  overflow: auto;
+  position: relative;
+}
+
+.mini-previews-wrapper {
+  width: calc(260px * 4);
+  overflow-x: auto;
+}
+
+.mini-preview {
+  width: 260px;
+  height: 208px;
+  background-size: cover;
+  float: left;
+}
+
+.mini-preview:nth-child(1) {
+  background: #a3a3a3;
+}
+
+.mini-preview:nth-child(2) {
+  background: #bdbdbd;
+}
+
+.mini-preview:nth-child(3) {
+  background: #d6d6d6;
+}
+
+.mini-preview:nth-child(4) {
+  background: #f0f0f0;
+}
+
+.mini-preview-paddle-prev {
+  position: absolute;
+  left: 0;
+  width: 20%;
+  top: 0;
+  bottom: 0;
+}
+
+.mini-preview-paddle-next {
+  position: absolute;
+  right: 0;
+  width: 20%;
+  top: 0;
+  bottom: 0;
+  cursor: ;
+}
+
+.mini-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 1px;
+}
+
+.mini-author {
+  font-size: 13px;
+  color: #000000b0;
+}
+
+.mini-by-author {
+  color: #b3b3b3;
+  margin-right: 4px;
+  font-size: 13px;
+}

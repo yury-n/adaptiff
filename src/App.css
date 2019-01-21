@@ -170,44 +170,10 @@ a:hover {
   display: inline-block;
 }
 
-.mini-title {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 1px;
-}
-
-.mini-author {
-  font-size: 13px;
-  color: #000000b0;
-}
-
-.mini-by-author {
-  color: #b3b3b3;
-  margin-right: 4px;
-  font-size: 13px;
-}
-
 .ui.card,
 .ui.cards > .card {
   width: 260px;
   overflow: hidden;
-}
-
-.mini-previews-scroller {
-  width: 100%;
-  overflow: auto;
-}
-
-.mini-previews-wrapper {
-  width: calc(260px * 4);
-  overflow-x: auto;
-}
-
-.mini-preview {
-  width: 260px;
-  height: 208px;
-  background-size: cover;
-  float: left;
 }
 
 .by-author {
