@@ -58,17 +58,18 @@ a:hover {
 }
 
 .ui.modal {
-  width: 70vw;
+  width: auto;
 }
 
 /* .ui.modal > .close {
   color: black;
 } */
 
-.ui.modal > .content {
+.ui.modal modal-content.content {
   padding: 0;
   display: flex;
   flex-direction: row;
+  height: 100%;
 }
 
 .modal-sidebar {
@@ -76,7 +77,6 @@ a:hover {
   display: flex;
   flex-direction: column;
   width: 260px;
-  height: 70vh;
   border-top-left-radius: 0.28571429rem;
   border-bottom-left-radius: 0.28571429rem;
   box-sizing: border-box;
@@ -112,7 +112,6 @@ a:hover {
 .modal-preview {
   position: relative;
   width: 100%;
-  height: 70vh;
   box-sizing: border-box;
   padding: 40px;
 }
@@ -191,4 +190,22 @@ a:hover {
 
 .card {
   cursor: pointer;
+}
+
+.react-resizable {
+  position: relative;
+}
+.react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmYwMCIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iNnB4Ij48ZyBvcGFjaXR5PSIwLjMwMiI+PHBhdGggZD0iTSA2IDYgTCAwIDYgTCAwIDQuMiBMIDQgNC4yIEwgNC4yIDQuMiBMIDQuMiAwIEwgNiAwIEwgNiA2IEwgNiA2IFoiIGZpbGw9IiMwMDAwMDAiLz48L2c+PC9zdmc+");
+  background-position: bottom right;
+  padding: 0 3px 3px 0;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  box-sizing: border-box;
+  cursor: se-resize;
 }
