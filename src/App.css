@@ -65,7 +65,7 @@ a:hover {
   color: black;
 } */
 
-.ui.modal modal-content.content {
+.ui.modal .modal-content.content {
   padding: 0;
   display: flex;
   flex-direction: row;
@@ -132,7 +132,7 @@ a:hover {
   background: white !important;
   border-color: rgba(34, 36, 38, 0.35);
   opacity: 0;
-  transition: opacity 300ms;
+  transition: opacity 500ms;
 }
 
 .ui.basic.button.download-button:hover {
@@ -157,8 +157,8 @@ a:hover {
 }
 
 .config-container {
-  padding: 25px 30px;
-  padding-right: 20px;
+  padding: 25px 40px;
+  padding-right: 10px;
   padding-bottom: 50px;
   border-radius: 0 4px 0 0;
   height: 100%;
@@ -167,6 +167,7 @@ a:hover {
 
 .title {
   display: inline-block;
+  margin-bottom: 1px;
 }
 
 .ui.card,
@@ -203,9 +204,16 @@ a:hover {
   right: 0;
   background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmYwMCIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iNnB4Ij48ZyBvcGFjaXR5PSIwLjMwMiI+PHBhdGggZD0iTSA2IDYgTCAwIDYgTCAwIDQuMiBMIDQgNC4yIEwgNC4yIDQuMiBMIDQuMiAwIEwgNiAwIEwgNiA2IEwgNiA2IFoiIGZpbGw9IiMwMDAwMDAiLz48L2c+PC9zdmc+");
   background-position: bottom right;
-  padding: 0 3px 3px 0;
+  padding: 0 10px 10px 0;
+  background-size: 10px;
+  opacity: 0;
+  transition: opacity 300ms;
   background-repeat: no-repeat;
   background-origin: content-box;
   box-sizing: border-box;
   cursor: se-resize;
+}
+
+.react-resizable:hover .react-resizable-handle {
+  opacity: 0.8;
 }

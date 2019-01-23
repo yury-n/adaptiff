@@ -11,6 +11,33 @@ import { numbers } from "./translations";
 import html2canvas from "html2canvas";
 import "./App.css";
 
+const generation = {
+  thumbs: [
+    "https://mir-s3-cdn-cf.behance.net/projects/404/2d38cc73343905.Y3JvcCwxMzgwLDEwODAsMjcwLDA.jpg",
+    "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/37abb01e-9eb0-4ceb-8e7f-c247caed05a6/dcxhgrx-c2da73e5-9323-48c9-87dd-cfb71ec4651c.png",
+    "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/37abb01e-9eb0-4ceb-8e7f-c247caed05a6/dcxhgrd-46697057-35de-4418-893b-470889d04e89.png",
+    "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/37abb01e-9eb0-4ceb-8e7f-c247caed05a6/dcxhgr0-ba93084a-1e69-427b-a2a8-ce5efee44aa8.png"
+  ],
+  config: [
+    {
+      key: "direction",
+      type: "select",
+      options: [
+        { key: 1, text: "Left to Right", value: "right" },
+        { key: 2, text: "Right to Left", value: "left" },
+        { key: 3, text: "Top to Bottom", value: "bottom" },
+        { key: 4, text: "Bottom to Top", value: "top" }
+      ]
+    },
+    {
+      key: "angle",
+      type: "range",
+      min: 0,
+      max: 360
+    }
+  ]
+};
+
 class App extends Component {
   state = {
     direction: "right",
@@ -37,7 +64,7 @@ class App extends Component {
         <Header />
         <div class="restricted-width-area">
           <Card.Group className="cards">
-            <MiniCard />
+            <MiniCard {...generation} />
             <Card>
               <Image src="https://mir-s3-cdn-cf.behance.net/projects/404/eac13142003297.Y3JvcCwxMTIwLDg3NiwwLDUyMQ.jpg" />
               <Card.Content>
@@ -60,7 +87,10 @@ class App extends Component {
                 </Card>
               }
             >
-              <ResizableBox width={640} height={480}>
+              <ResizableBox
+                width={Math.round(window.innerWidth * 0.6)}
+                height={Math.round(window.innerHeight * 0.5)}
+              >
                 <Modal.Content className="modal-content">
                   <div className="modal-sidebar">
                     <div className="title-container">
