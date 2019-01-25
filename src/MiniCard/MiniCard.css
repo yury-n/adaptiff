@@ -9,7 +9,7 @@
 }
 
 .mini-previews-wrapper {
-  width: calc(260px * 4);
+  width: calc(260px * 1);
   overflow-x: auto;
 }
 
@@ -21,19 +21,19 @@
 }
 
 .mini-preview:nth-child(1) {
-  background: #a3a3a3;
+  background-color: #a3a3a3;
 }
 
 .mini-preview:nth-child(2) {
-  background: #bdbdbd;
+  background-color: #bdbdbd;
 }
 
 .mini-preview:nth-child(3) {
-  background: #d6d6d6;
+  background-color: #d6d6d6;
 }
 
 .mini-preview:nth-child(4) {
-  background: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .mini-preview-paddle-prev {

@@ -1,0 +1,13 @@
+.footer {
+  margin-top: 200px;
+  width: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.license {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
