@@ -11,10 +11,8 @@ class Header extends Component {
           <div class="logo-symbol">
             <div class="logo-symbol-block-1" />
             <div class="logo-symbol-block-2" />
-            <div class="logo-symbol-block-3" />
-            <div class="logo-symbol-block-4" />
           </div>
-          <div class="logo-text">generatiff</div>
+          <div class="logo-text">adaptiff</div>
         </a>
         <div class="header-buttons">
           <Button icon basic className="social-button">
