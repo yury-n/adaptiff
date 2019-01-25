@@ -162,7 +162,8 @@ a:hover {
   padding-bottom: 50px;
   border-radius: 0 4px 0 0;
   height: 100%;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .title {

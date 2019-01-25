@@ -27,9 +27,10 @@
 
 .color-picker {
   position: absolute;
-  top: 48px;
-  left: -14px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 27px !important;
+  width: 203px !important;
+  bottom: 46px;
+  left: -5px;
+  box-shadow: 0 -3px 12px 0px #d4d4d5c9 !important;
   border: 1px solid rgba(34, 36, 38, 0.17);
   border-radius: 0.28571429rem !important;
   overflow: hidden;

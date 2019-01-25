@@ -88,8 +88,8 @@ class App extends Component {
               }
             >
               <ResizableBox
-                width={Math.round(window.innerWidth * 0.6)}
-                height={Math.round(window.innerHeight * 0.5)}
+                width={Math.round(window.innerWidth * 0.7)}
+                height={Math.round(window.innerHeight * 0.6)}
               >
                 <Modal.Content className="modal-content">
                   <div className="modal-sidebar">
