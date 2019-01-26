@@ -22,7 +22,7 @@ class TheModal extends Component {
     this.state = state;
   }
   render() {
-    const { title, author, authorLink } = this.props;
+    const { title, author, authorLink, disableDownloads } = this.props;
     const { palette } = this.state;
     return (
       <Modal open closeIcon onClose={this.props.onClose}>
@@ -75,8 +75,8 @@ class TheModal extends Component {
                     case "range":
                       control = (
                         <Range
-                          min={0}
-                          max={360}
+                          min={config.min}
+                          max={config.max}
                           value={this.state[config.key]}
                           onChange={value =>
                             this.setState({ [config.key]: value })
@@ -123,13 +123,15 @@ class TheModal extends Component {
             </div>
             <div className="modal-preview">
               {this.props.generate(this.state)}
-              <Button
-                icon="download"
-                basic
-                className="download-button"
-                content="Download"
-                onClick={this.download}
-              />
+              {!disableDownloads && (
+                <Button
+                  icon="download"
+                  basic
+                  className="download-button"
+                  content="Download"
+                  onClick={this.download}
+                />
+              )}
             </div>
           </Modal.Content>
         </ResizableBox>
