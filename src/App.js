@@ -7,6 +7,7 @@ import "./App.css";
 
 import generation0 from "./_generations/linear_gradient";
 import generation1 from "./_generations/octagonal_star";
+import generation2 from "./_generations/react_kawaii";
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
           <Card.Group className="cards">
             <MiniCard {...generation0} />
             <MiniCard {...generation1} />
+            <MiniCard {...generation2} />
           </Card.Group>
         </div>
         <Footer />

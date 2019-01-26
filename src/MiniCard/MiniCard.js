@@ -10,6 +10,10 @@ class MiniCard extends Component {
     showModal: false,
     isSelectingColor: false
   };
+  constructor(props) {
+    super(props);
+    if (props.showModal) this.state.showModal = true;
+  }
   render() {
     const { author, authorLink, title, thumbs } = this.props;
     return (
@@ -66,7 +70,12 @@ class MiniCard extends Component {
             <div className="mini-title">{title}</div>
             <span className="mini-by-author">by</span>
             {authorLink ? (
-              <a href={authorLink} className="mini-author">
+              <a
+                href={authorLink}
+                className="mini-author"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {author}
               </a>
             ) : (

@@ -37,7 +37,12 @@ class TheModal extends Component {
                 <div>
                   <span className="by-author">by</span>
                   {authorLink ? (
-                    <a href={authorLink} className="author">
+                    <a
+                      href={authorLink}
+                      className="author"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {author}
                     </a>
                   ) : (
