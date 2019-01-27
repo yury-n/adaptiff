@@ -6,6 +6,7 @@ import ColorInput from "../ColorInput/ColorInput";
 import PaletteDropdown from "../PaletteDropdown/PaletteDropdown";
 import Range from "../Range/Range";
 import { numbers } from "../translations";
+import classnames from "classnames";
 
 import "rc-slider/assets/index.css";
 import "./Modal.css";
@@ -14,18 +15,39 @@ class TheModal extends Component {
   constructor(props) {
     super(props);
     const state = {
+      loading: false,
       palette: this.props.palettes[0]
     };
     this.props.config.forEach(config => {
       state[config.key] = config.defaultValue;
     });
+    if (this.props.externalScript) {
+      state.loading = true;
+    }
     this.state = state;
+  }
+  componentDidMount() {
+    if (this.props.externalScript) {
+      const aScript = document.createElement("script");
+      aScript.type = "text/javascript";
+      aScript.src = this.props.externalScript;
+
+      document.head.appendChild(aScript);
+      aScript.onload = () => {
+        this.setState({ loading: false });
+      };
+    }
   }
   render() {
     const { title, author, authorLink, disableDownloads } = this.props;
-    const { palette } = this.state;
+    const { palette, loading } = this.state;
     return (
-      <Modal open closeIcon onClose={this.props.onClose}>
+      <Modal
+        className={classnames(loading && "modal-loading")}
+        open
+        closeIcon
+        onClose={this.props.onClose}
+      >
         <ResizableBox
           width={Math.round(window.innerWidth * 0.8)}
           height={Math.round(window.innerHeight * 0.7)}
@@ -126,8 +148,10 @@ class TheModal extends Component {
                 ))}
               </div>
             </div>
-            <div className="modal-preview">
-              {this.props.generate(this.state)}
+            <div id="preview-wrapper" className="preview-wrapper">
+              {loading
+                ? this.renderLoadingIndicator()
+                : this.props.generate(this.state)}
               {!disableDownloads && (
                 <Button
                   icon="download"
@@ -144,8 +168,26 @@ class TheModal extends Component {
     );
   }
 
+  renderLoadingIndicator() {
+    return (
+      <div className="modal-loading-indicator">
+        <div class="sk-cube-grid">
+          <div class="sk-cube sk-cube1" />
+          <div class="sk-cube sk-cube2" />
+          <div class="sk-cube sk-cube3" />
+          <div class="sk-cube sk-cube4" />
+          <div class="sk-cube sk-cube5" />
+          <div class="sk-cube sk-cube6" />
+          <div class="sk-cube sk-cube7" />
+          <div class="sk-cube sk-cube8" />
+          <div class="sk-cube sk-cube9" />
+        </div>
+      </div>
+    );
+  }
+
   download = () => {
-    html2canvas(document.getElementById("capture")).then(function(canvas) {
+    html2canvas(document.getElementById("preview")).then(function(canvas) {
       const link = document.createElement("a");
       var image = canvas
         .toDataURL("image/png")

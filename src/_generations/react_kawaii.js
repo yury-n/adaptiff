@@ -76,7 +76,7 @@ export default {
     };
     const KawaiiComponent = Kawaii[character];
     return (
-      <div id="capture" className="preview" style={styledObject}>
+      <div id="preview" className="preview" style={styledObject}>
         <KawaiiComponent size={size} mood={mood} color={palette[0]} />
       </div>
     );

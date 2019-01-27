@@ -50,6 +50,6 @@ export default {
       })`;
     }
     const styledObject = { background };
-    return <div id="capture" className="preview" style={styledObject} />;
+    return <div id="preview" className="preview" style={styledObject} />;
   }
 };

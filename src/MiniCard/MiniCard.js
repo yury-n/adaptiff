@@ -15,7 +15,13 @@ class MiniCard extends Component {
     if (props.showModal) this.state.showModal = true;
   }
   render() {
-    const { author, authorLink, title, thumbs } = this.props;
+    const {
+      author,
+      authorLink,
+      title,
+      thumbs,
+      thumbBackgroundSize
+    } = this.props;
     return (
       <>
         <Card
@@ -34,7 +40,8 @@ class MiniCard extends Component {
               <div
                 className="mini-preview"
                 style={{
-                  backgroundImage: `url("${thumbs[0]}")`
+                  backgroundImage: `url("${thumbs[0]}")`,
+                  backgroundSize: thumbBackgroundSize
                 }}
               />
               {thumbs[1] && (

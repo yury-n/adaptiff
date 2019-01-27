@@ -8,6 +8,7 @@ import "./App.css";
 import generation0 from "./_generations/linear_gradient";
 import generation1 from "./_generations/octagonal_star";
 import generation2 from "./_generations/react_kawaii";
+import generation3 from "./_generations/trianglify";
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
             <MiniCard {...generation0} />
             <MiniCard {...generation1} />
             <MiniCard {...generation2} />
+            <MiniCard showModal {...generation3} />
           </Card.Group>
         </div>
         <Footer />

@@ -46,3 +46,24 @@
 .paddle-button:hover {
   text-decoration: underline;
 }
+
+.mini-color-container {
+  display: flex;
+  pointer-events: none;
+}
+
+.mini-color {
+  width: 17px;
+  height: 17px;
+  margin: 0 5px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.mini-color:first-child {
+  margin-left: 0;
+}
+
+.mini-color:last-child {
+  margin-right: 0;
+}
