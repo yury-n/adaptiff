@@ -5,22 +5,24 @@ import { Card } from "semantic-ui-react";
 import MiniCard from "./MiniCard/MiniCard";
 import "./App.css";
 
-import generation0 from "./_generations/linear_gradient";
-import generation1 from "./_generations/octagonal_star";
-import generation2 from "./_generations/react_kawaii";
-import generation3 from "./_generations/trianglify";
+import linearGradient from "./_generations/linear_gradient";
+import octagonalStar from "./_generations/octagonal_star";
+import reactKawaii from "./_generations/react_kawaii";
+import trianglify from "./_generations/trianglify";
+import particles from "./_generations/particles";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Header />
-        <div class="restricted-width-area">
+        <div className="restricted-width-area">
           <Card.Group className="cards">
-            <MiniCard {...generation0} />
-            <MiniCard {...generation1} />
-            <MiniCard {...generation2} />
-            <MiniCard showModal {...generation3} />
+            <MiniCard {...linearGradient} />
+            <MiniCard {...particles} />
+            <MiniCard {...octagonalStar} />
+            <MiniCard {...reactKawaii} />
+            <MiniCard {...trianglify} />
           </Card.Group>
         </div>
         <Footer />

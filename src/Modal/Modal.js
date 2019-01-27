@@ -38,6 +38,9 @@ class TheModal extends Component {
       };
     }
   }
+  componentWillUnmount() {
+    this.props.degenerate && this.props.degenerate();
+  }
   render() {
     const { title, author, authorLink, disableDownloads } = this.props;
     const { palette, loading } = this.state;

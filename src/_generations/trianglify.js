@@ -1,5 +1,3 @@
-import React from "react";
-
 export default {
   author: "qrohlf",
   authorLink: "https://qrohlf.com/",
@@ -24,6 +22,8 @@ export default {
     }
   ],
   palettes: [
+    ["#7f3b14", "#f7b862", "#f7f7f7", "#b2abd2", "#542a87"],
+    ["#fcfbfd", "#dadaeb", "#bcbddc", "#807db9", "#41257d"],
     ["#fffccc", "#fcd975", "#f28b3a", "#ee4a30", "#be3626", "#812326"],
     ["#fef7f3", "#f7c5bf", "#ed66a0", "#af3c7e", "#4a216a"],
     ["#f7fcfd", "#9ebcda", "#8b96c5", "#4e1a4b"],

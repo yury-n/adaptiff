@@ -7,14 +7,14 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-        <a class="logo" href="/">
-          <div class="logo-symbol">
-            <div class="logo-symbol-block-1" />
-            <div class="logo-symbol-block-2" />
+        <a className="logo" href="/">
+          <div className="logo-symbol">
+            <div className="logo-symbol-block-1" />
+            <div className="logo-symbol-block-2" />
           </div>
-          <div class="logo-text">adaptiff</div>
+          <div className="logo-text">adaptiff</div>
         </a>
-        <div class="header-buttons">
+        <div className="header-buttons">
           <Button icon basic className="social-button">
             <Icon name="instagram" />
           </Button>
