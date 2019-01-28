@@ -31,8 +31,9 @@ export default {
     ["#fdf7fb", "#d0d1e6", "#2070b0", "#0d3858"],
     ["#9f2f42", "#fde090", "#fefbbf", "#e0f3f8", "#5d4fa2"]
   ],
-  externalScript:
-    "https://cdnjs.cloudflare.com/ajax/libs/trianglify/2.0.0/trianglify.min.js",
+  externalScripts: [
+    "https://cdnjs.cloudflare.com/ajax/libs/trianglify/2.0.0/trianglify.min.js"
+  ],
   generate: ({ cell_size, variance, palette }) => {
     const previewWrapper = document.querySelector("#preview-wrapper");
     const oldPreview = document.querySelector("#preview");

@@ -5,8 +5,9 @@ export default {
   authorLink: "https://github.com/marcbruederlin",
   title: "Connected particles",
   thumbs: ["/thumbs/particles/1.jpg"],
-  externalScript:
-    "https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js",
+  externalScripts: [
+    "https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"
+  ],
   config: [
     {
       key: "maxParticles",

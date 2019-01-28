@@ -21,22 +21,31 @@ class TheModal extends Component {
     this.props.config.forEach(config => {
       state[config.key] = config.defaultValue;
     });
-    if (this.props.externalScript) {
+    if (this.props.externalScripts) {
       state.loading = true;
     }
     this.state = state;
   }
   componentDidMount() {
-    if (this.props.externalScript) {
+    if (this.props.externalScripts) {
+      const promises = this.props.externalScripts.map(externalScript =>
+        this.loadScript(externalScript)
+      );
+      Promise.all(promises).then(() => {
+        this.setState({ loading: false });
+      });
+    }
+  }
+  async loadScript(externalScript) {
+    return new Promise(resolve => {
       const aScript = document.createElement("script");
       aScript.type = "text/javascript";
-      aScript.src = this.props.externalScript;
-
+      aScript.src = externalScript;
       document.head.appendChild(aScript);
       aScript.onload = () => {
-        this.setState({ loading: false });
+        resolve();
       };
-    }
+    });
   }
   componentWillUnmount() {
     this.props.degenerate && this.props.degenerate();

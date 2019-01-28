@@ -31,9 +31,9 @@ class PaletteDropdown extends Component {
             isActive && "active"
           )}
         >
-          <div class="mini-color-container selected-value">
+          <div className="mini-color-container selected-value">
             {selectedPalette.map(color => (
-              <div class="mini-color" style={{ background: color }} />
+              <div className="mini-color" style={{ background: color }} />
             ))}
           </div>
           <Dropdown
@@ -46,9 +46,9 @@ class PaletteDropdown extends Component {
               key: index,
               value: index,
               label: (
-                <div class="mini-color-container">
+                <div className="mini-color-container">
                   {palette.map(color => (
-                    <div class="mini-color" style={{ background: color }} />
+                    <div className="mini-color" style={{ background: color }} />
                   ))}
                 </div>
               )
@@ -61,11 +61,11 @@ class PaletteDropdown extends Component {
             selection
           />
         </div>
-        <div class="palette-paddles">
-          <div class="paddle-button" onClick={this.changeToPrev}>
+        <div className="palette-paddles">
+          <div className="paddle-button" onClick={this.changeToPrev}>
             &uarr; Prev
           </div>
-          <div class="paddle-button" onClick={this.changeToNext}>
+          <div className="paddle-button" onClick={this.changeToNext}>
             Next &darr;
           </div>
         </div>
