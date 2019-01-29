@@ -40,7 +40,7 @@ class ColorInput extends Component {
           value={color}
         />
         <div
-          class="ui label"
+          className="ui label"
           style={{ background: color }}
           onClick={this.setInputFocus}
         />
