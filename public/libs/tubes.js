@@ -2,7 +2,7 @@ function Tunnel() {
   this.init();
   this.createMesh();
 
-  // this.handleEvents(); TODO map to controls
+  this.handleEvents();
 
   window.requestAnimationFrame(this.render.bind(this));
 }

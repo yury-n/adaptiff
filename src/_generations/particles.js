@@ -23,7 +23,7 @@ export default {
       type: "range",
       defaultValue: 10,
       min: 0,
-      max: 10
+      max: 30
     }
   ],
   palettes: [

@@ -16,7 +16,7 @@ class TheModal extends Component {
     super(props);
     const state = {
       loading: false,
-      palette: this.props.palettes[0]
+      palette: this.props.palettes && this.props.palettes[0]
     };
     this.props.config.forEach(config => {
       state[config.key] = config.defaultValue;
@@ -133,31 +133,38 @@ class TheModal extends Component {
                     </>
                   );
                 })}
-                <label className="form-label">Palette</label>
-                <PaletteDropdown
-                  selectedPalette={palette}
-                  palettes={this.props.palettes}
-                  onChange={palette => this.setState({ palette })}
-                />
-                {palette.map((color, index) => (
-                  <>
-                    <label className="form-label">{numbers[index]} color</label>
-                    <ColorInput
-                      color={color}
-                      onChange={value =>
-                        this.setState({
-                          palette: [
-                            ...palette.slice(0, index),
-                            value,
-                            ...palette.slice(index + 1, palette.length)
-                          ]
-                        })
-                      }
-                      onOpen={this.props.onStartSelectingColor}
-                      onClose={this.props.onStopSelectingColor}
-                    />
-                  </>
-                ))}
+                {this.props.palettes && (
+                  <label className="form-label">Palette</label>
+                )}
+                {this.props.palettes && (
+                  <PaletteDropdown
+                    selectedPalette={palette}
+                    palettes={this.props.palettes}
+                    onChange={palette => this.setState({ palette })}
+                  />
+                )}
+                {palette &&
+                  palette.map((color, index) => (
+                    <>
+                      <label className="form-label">
+                        {numbers[index]} color
+                      </label>
+                      <ColorInput
+                        color={color}
+                        onChange={value =>
+                          this.setState({
+                            palette: [
+                              ...palette.slice(0, index),
+                              value,
+                              ...palette.slice(index + 1, palette.length)
+                            ]
+                          })
+                        }
+                        onOpen={this.props.onStartSelectingColor}
+                        onClose={this.props.onStopSelectingColor}
+                      />
+                    </>
+                  ))}
               </div>
             </div>
             <div id="preview-wrapper" className="preview-wrapper">
