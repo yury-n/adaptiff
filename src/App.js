@@ -7,7 +7,7 @@ import "./App.css";
 
 import linearGradient from "./_generations/linear_gradient";
 import octagonalStar from "./_generations/octagonal_star";
-import reactKawaii from "./_generations/react_kawaii";
+// import reactKawaii from "./_generations/react_kawaii";
 import trianglify from "./_generations/trianglify";
 import particles from "./_generations/particles";
 import tunnel from "./_generations/tunnel";
@@ -22,7 +22,6 @@ class App extends Component {
             <MiniCard {...linearGradient} />
             <MiniCard {...particles} />
             <MiniCard {...octagonalStar} />
-            <MiniCard {...reactKawaii} />
             <MiniCard {...trianglify} />
             <MiniCard {...tunnel} />
           </Card.Group>
