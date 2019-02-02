@@ -16,6 +16,10 @@ let camera;
 let plane;
 let light;
 
+function destroyScene() {
+  renderer.dispose();
+}
+
 function createInstance() {
   const duration = 0.2;
 
@@ -24,8 +28,8 @@ function createInstance() {
   // const multiplier = 50;
 
   const material = new THREE.MeshPhongMaterial({
-    color: "#ff5252",
-    emissive: "#ff5252",
+    color: window.palette[0],
+    emissive: window.palette[0],
     flatShading: false,
     shininess: 100
   });
@@ -265,7 +269,7 @@ function createBaseStructure() {
   plane = new THREE.Mesh(
     new THREE.PlaneGeometry(1000, 1000),
     new THREE.MeshPhongMaterial({
-      emissive: "#8bc34a"
+      emissive: window.palette[1]
     })
   );
   plane.receiveShadow = true;

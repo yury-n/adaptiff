@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button, Dropdown } from "semantic-ui-react";
+import { Modal, Button, Dropdown, Icon } from "semantic-ui-react";
 import { ResizableBox } from "react-resizable";
 import html2canvas from "html2canvas";
 import ColorInput from "../ColorInput/ColorInput";
@@ -16,6 +16,7 @@ class TheModal extends Component {
     super(props);
     const state = {
       loading: false,
+      paused: false,
       palette: this.props.palettes && this.props.palettes[0]
     };
     this.props.config.forEach(config => {
@@ -51,8 +52,8 @@ class TheModal extends Component {
     this.props.degenerate && this.props.degenerate();
   }
   render() {
-    const { title, author, authorLink, disableDownloads } = this.props;
-    const { palette, loading } = this.state;
+    const { title, author, authorLink, pause, disableDownloads } = this.props;
+    const { palette, loading, paused } = this.state;
     return (
       <Modal
         className={classnames(loading && "modal-loading")}
@@ -78,6 +79,11 @@ class TheModal extends Component {
                       rel="noopener noreferrer"
                     >
                       {author}
+                      <Icon
+                        title="codepen"
+                        className="codepen-icon"
+                        name="codepen"
+                      />
                     </a>
                   ) : (
                     <span className="author">{author}</span>
@@ -171,6 +177,14 @@ class TheModal extends Component {
               {loading
                 ? this.renderLoadingIndicator()
                 : this.props.generate(this.state)}
+              {pause && (
+                <Button
+                  basic
+                  className="pause-button"
+                  icon={paused ? "play" : "pause"}
+                  onClick={this.togglePause}
+                />
+              )}
               {!disableDownloads && (
                 <Button
                   icon="download"
@@ -204,6 +218,17 @@ class TheModal extends Component {
       </div>
     );
   }
+
+  togglePause = () => {
+    const { paused } = this.state;
+    if (!paused) {
+      this.props.pause();
+    } else {
+      this.props.unpause();
+    }
+    // problematic, re-renders together with generate()
+    // this.setState({ paused: !paused });
+  };
 
   download = () => {
     html2canvas(document.getElementById("preview")).then(function(canvas) {

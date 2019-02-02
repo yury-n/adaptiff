@@ -19,10 +19,12 @@
   height: 100%;
 }
 
+.preview-wrapper:hover .ui.basic.button.pause-button,
 .preview-wrapper:hover .ui.basic.button.download-button {
   opacity: 1;
 }
 
+.ui.basic.button.pause-button,
 .ui.basic.button.download-button {
   position: absolute;
   bottom: 20px;
@@ -31,6 +33,11 @@
   border-color: rgba(34, 36, 38, 0.35);
   opacity: 0;
   transition: opacity 500ms;
+}
+
+.ui.basic.button.pause-button {
+  bottom: 20px;
+  left: 20px;
 }
 
 .ui.basic.button.download-button:hover {
@@ -65,6 +72,10 @@
   font-size: 14px;
   font-weight: normal;
   color: #000000b0;
+}
+
+i.icon.codepen-icon {
+  margin-left: 4px;
 }
 
 .react-resizable {
