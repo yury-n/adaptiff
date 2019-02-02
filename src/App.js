@@ -10,6 +10,7 @@ import octagonalStar from "./_generations/octagonal_star";
 // import reactKawaii from "./_generations/react_kawaii";
 import trianglify from "./_generations/trianglify";
 import particles from "./_generations/particles";
+import bubbles from "./_generations/bubbles";
 // import tunnel from "./_generations/tunnel";
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
             <MiniCard {...particles} />
             <MiniCard {...octagonalStar} />
             <MiniCard {...trianglify} />
+            <MiniCard {...bubbles} />
           </Card.Group>
         </div>
         <Footer />

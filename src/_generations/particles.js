@@ -44,7 +44,6 @@ export default {
     if (oldPreview) {
       previewWrapper.removeChild(oldPreview);
       particles.destroy();
-      // TODO: should destroy on component unmount!
     }
     const preview = document.createElement("canvas");
     preview.id = "preview";
