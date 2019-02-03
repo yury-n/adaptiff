@@ -34,7 +34,7 @@ function createInstance() {
     shininess: 100
   });
 
-  const castShadow = true;
+  const castShadow = window.castShadow;
 
   const S = 20;
   const positions = [];

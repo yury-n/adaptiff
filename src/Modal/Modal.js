@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button, Dropdown, Icon } from "semantic-ui-react";
+import { Modal, Button, Dropdown, Icon, Checkbox } from "semantic-ui-react";
 import { ResizableBox } from "react-resizable";
 import html2canvas from "html2canvas";
 import ColorInput from "../ColorInput/ColorInput";
@@ -114,6 +114,21 @@ class TheModal extends Component {
                           }
                           value={this.state[config.key]}
                           selection
+                        />
+                      );
+                      break;
+                    case "boolean":
+                      control = (
+                        <Checkbox
+                          checked={this.state[config.key]}
+                          onChange={() => {
+                            setTimeout(() => {
+                              this.setState({
+                                [config.key]: !this.state[config.key]
+                              });
+                            }, 500);
+                          }}
+                          toggle
                         />
                       );
                       break;

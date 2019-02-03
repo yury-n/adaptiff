@@ -47,6 +47,15 @@ a:hover {
   margin: auto;
 }
 
+.ui.toggle.checkbox {
+  margin-top: 4px;
+}
+
+.ui.checkbox input.hidden + label:before {
+  box-shadow: 0 3px 4px 0px #d4d4d5c9;
+  background-color: #d9d9d9;
+}
+
 .ui.card,
 .ui.cards > .card {
   box-shadow: rgba(5, 45, 73, 0.07) 0px 1px 0px 1px;

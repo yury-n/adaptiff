@@ -5,7 +5,14 @@ export default {
   authorLink: "https://codepen.io/cvaneenige/",
   title: "Bubbles",
   thumbs: ["/thumbs/bubbles/1.png"],
-  config: [],
+  config: [
+    {
+      type: "boolean",
+      key: "castShadow",
+      text: "Cast Shadow",
+      defaultValue: false
+    }
+  ],
   palettes: [["#ff5252", "#8bc34a"], ...gradientPalettes],
   externalScripts: [
     "https://unpkg.com/three@0.100.0/build/three.js",
@@ -19,8 +26,9 @@ export default {
     window.pause = false;
     window.animate();
   },
-  generate: ({ palette }) => {
+  generate: ({ palette, castShadow }) => {
     window.palette = palette;
+    window.castShadow = castShadow;
     const previewWrapper = document.querySelector("#preview-wrapper");
     const oldPreview = document.querySelector("#preview");
     if (oldPreview) {
