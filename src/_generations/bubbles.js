@@ -4,7 +4,7 @@ export default {
   author: "Colin van Eenige",
   authorLink: "https://codepen.io/cvaneenige/",
   title: "Bubbles",
-  thumbs: ["/thumbs/bubbles/1.png"],
+  thumbs: ["/thumbs/bubbles/1.jpg"],
   config: [
     {
       type: "boolean",

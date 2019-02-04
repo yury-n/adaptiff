@@ -21,9 +21,9 @@ class App extends Component {
         <div className="restricted-width-area">
           <Card.Group className="cards">
             <MiniCard {...linearGradient} />
-            <MiniCard {...particles} />
             <MiniCard {...octagonalStar} />
             <MiniCard {...trianglify} />
+            <MiniCard {...particles} />
             <MiniCard {...bubbles} />
           </Card.Group>
         </div>
