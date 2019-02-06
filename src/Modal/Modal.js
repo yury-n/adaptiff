@@ -28,6 +28,9 @@ class TheModal extends Component {
     this.state = state;
   }
   componentDidMount() {
+    this.loadExternalScripts();
+  }
+  loadExternalScripts = () => {
     if (this.props.externalScripts) {
       const promises = this.props.externalScripts.map(externalScript =>
         this.loadScript(externalScript)
@@ -36,7 +39,7 @@ class TheModal extends Component {
         this.setState({ loading: false });
       });
     }
-  }
+  };
   async loadScript(externalScript) {
     return new Promise(resolve => {
       const aScript = document.createElement("script");

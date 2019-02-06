@@ -6,10 +6,10 @@ export default {
   title: "Trianglify",
   thumbs: ["/thumbs/trianglify/1.jpg"],
   config: [],
-  palettes: [],
+  // palettes: [],
   generate: ({ palette }) => {
     return (
-      <div id="capture" className="preview">
+      <div id="preview" className="preview">
         ok
       </div>
     );

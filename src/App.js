@@ -12,6 +12,7 @@ import trianglify from "./_generations/trianglify";
 import particles from "./_generations/particles";
 import bubbles from "./_generations/bubbles";
 // import tunnel from "./_generations/tunnel";
+import waves from "./_generations/waves";
 
 class App extends Component {
   render() {
@@ -25,6 +26,7 @@ class App extends Component {
             <MiniCard {...trianglify} />
             <MiniCard {...particles} />
             <MiniCard {...bubbles} />
+            <MiniCard showModal {...waves} />
           </Card.Group>
         </div>
         <Footer />
