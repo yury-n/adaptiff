@@ -26,7 +26,7 @@ class App extends Component {
             <MiniCard {...trianglify} />
             <MiniCard {...particles} />
             <MiniCard {...bubbles} />
-            <MiniCard showModal {...waves} />
+            <MiniCard {...waves} />
           </Card.Group>
         </div>
         <Footer />
