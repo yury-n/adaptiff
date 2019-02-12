@@ -63,10 +63,10 @@ class PaletteDropdown extends Component {
         </div>
         <div className="palette-paddles">
           <div className="paddle-button" onClick={this.changeToPrev}>
-            &uarr; Prev
+            &larr; Prev
           </div>
           <div className="paddle-button" onClick={this.changeToNext}>
-            Next &darr;
+            Next &rarr;
           </div>
         </div>
       </div>

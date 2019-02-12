@@ -26,6 +26,11 @@ a:hover {
   box-shadow: 0 3px 4px 0px #d4d4d5c9;
 }
 
+.ui.modal > .close {
+  top: -2.2rem;
+  right: -2.2rem;
+}
+
 .user.icon {
   transform: scale(0.9);
   margin-right: 6px;
@@ -33,7 +38,7 @@ a:hover {
 
 .form-label {
   margin-top: 25px;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   display: block;
   font-weight: 600;
 }

@@ -169,25 +169,20 @@ class TheModal extends Component {
                 )}
                 {palette &&
                   palette.map((color, index) => (
-                    <>
-                      <label className="form-label">
-                        {numbers[index]} color
-                      </label>
-                      <ColorInput
-                        color={color}
-                        onChange={value =>
-                          this.setState({
-                            palette: [
-                              ...palette.slice(0, index),
-                              value,
-                              ...palette.slice(index + 1, palette.length)
-                            ]
-                          })
-                        }
-                        onOpen={this.props.onStartSelectingColor}
-                        onClose={this.props.onStopSelectingColor}
-                      />
-                    </>
+                    <ColorInput
+                      color={color}
+                      onChange={value =>
+                        this.setState({
+                          palette: [
+                            ...palette.slice(0, index),
+                            value,
+                            ...palette.slice(index + 1, palette.length)
+                          ]
+                        })
+                      }
+                      onOpen={this.props.onStartSelectingColor}
+                      onClose={this.props.onStopSelectingColor}
+                    />
                   ))}
               </div>
             </div>

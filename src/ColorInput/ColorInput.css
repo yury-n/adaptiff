@@ -1,6 +1,7 @@
 .color-input-wrapper {
   display: flex;
   position: relative;
+  margin-bottom: 14px;
 }
 
 .color-input-wrapper .input input {
