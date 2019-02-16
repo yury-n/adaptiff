@@ -52,6 +52,12 @@ a:hover {
   margin: auto;
 }
 
+.main-content-area {
+  min-height: calc(100vh - 116px /* header */ - 123px /* footer */);
+  box-sizing: border-box;
+  padding: 60px 0;
+}
+
 .ui.toggle.checkbox {
   margin-top: 4px;
 }
@@ -78,9 +84,8 @@ a:hover {
   margin: 0.9em 0.6em;
 }
 
-.cards {
+.ui.cards {
   justify-content: center;
-  padding-top: 60px;
 }
 
 .ui.card,

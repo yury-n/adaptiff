@@ -5,7 +5,6 @@ import html2canvas from "html2canvas";
 import ColorInput from "../ColorInput/ColorInput";
 import PaletteDropdown from "../PaletteDropdown/PaletteDropdown";
 import Range from "../Range/Range";
-import { numbers } from "../translations";
 import classnames from "classnames";
 
 import "rc-slider/assets/index.css";

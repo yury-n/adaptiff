@@ -6,8 +6,8 @@ import MiniCard from "./MiniCard/MiniCard";
 import "./App.css";
 
 import linearGradient from "./_generations/linear_gradient";
-import octagonalStar from "./_generations/octagonal_star";
-// import reactKawaii from "./_generations/react_kawaii";
+// import octagonalStar from "./_generations/octagonal_star";
+import reactKawaii from "./_generations/react_kawaii";
 import trianglify from "./_generations/trianglify";
 import particles from "./_generations/particles";
 import bubbles from "./_generations/bubbles";
@@ -19,14 +19,14 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <div className="restricted-width-area">
+        <div className="restricted-width-area main-content-area">
           <Card.Group className="cards">
-            <MiniCard showModal {...linearGradient} />
-            <MiniCard {...octagonalStar} />
+            <MiniCard {...linearGradient} />
             <MiniCard {...trianglify} />
             <MiniCard {...particles} />
             <MiniCard {...bubbles} />
             <MiniCard {...waves} />
+            <MiniCard {...reactKawaii} />
           </Card.Group>
         </div>
         <Footer />
