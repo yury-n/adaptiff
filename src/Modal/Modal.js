@@ -91,6 +91,10 @@ class TheModal extends Component {
                     <span className="author">{author}</span>
                   )}
                 </div>
+                <Button icon labelPosition="left">
+                  <Icon name="plus" />
+                  Add Text
+                </Button>
               </div>
               <div className="config-container">
                 {this.props.config.map(config => {

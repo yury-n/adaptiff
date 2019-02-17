@@ -36,6 +36,19 @@ a:hover {
   margin-right: 6px;
 }
 
+.ui.labeled.icon.button {
+  box-shadow: 0 3px 4px 0px #d4d4d5c9;
+  color: black;
+  padding-left: 3.471429em !important;
+  padding-right: 1.2em !important;
+  background: white none;
+  border: 1px solid rgb(202, 203, 203);
+}
+
+.ui.labeled.icon.button > .icon {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
 .form-label {
   margin-top: 25px;
   margin-bottom: 6px;
