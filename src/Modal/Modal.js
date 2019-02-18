@@ -86,10 +86,6 @@ class TheModal extends Component {
                   <span className="author">{author}</span>
                 )}
               </div>
-              <Button icon labelPosition="left">
-                <Icon name="plus" />
-                Add Text
-              </Button>
             </div>
             <div className="config-container">
               {this.props.config.map(config => {
@@ -184,6 +180,10 @@ class TheModal extends Component {
             </div>
           </div>
           <div id="preview-wrapper" className="preview-wrapper">
+            <Button icon labelPosition="left">
+              <Icon name="plus" />
+              Add Text
+            </Button>
             {loading
               ? this.renderLoadingIndicator()
               : this.props.generate(this.state)}
