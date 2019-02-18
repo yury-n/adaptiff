@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Modal, Button, Dropdown, Icon, Checkbox } from "semantic-ui-react";
-import { ResizableBox } from "react-resizable";
 import html2canvas from "html2canvas";
 import ColorInput from "../ColorInput/ColorInput";
 import PaletteDropdown from "../PaletteDropdown/PaletteDropdown";
@@ -63,156 +62,150 @@ class TheModal extends Component {
         closeIcon
         onClose={this.props.onClose}
       >
-        <ResizableBox
-          width={Math.round(window.innerWidth * 0.8)}
-          height={Math.round(window.innerHeight * 0.7)}
-        >
-          <Modal.Content className="modal-content">
-            <div className="modal-sidebar">
-              <div className="title-container">
-                <div className="title">{title}</div>
-                <div>
-                  <span className="by-author">by</span>
-                  {authorLink ? (
-                    <a
-                      href={authorLink}
-                      className="author"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {author}
-                      <Icon
-                        title="codepen"
-                        className="codepen-icon"
-                        name="codepen"
-                      />
-                    </a>
-                  ) : (
-                    <span className="author">{author}</span>
-                  )}
-                </div>
-                <Button icon labelPosition="left">
-                  <Icon name="plus" />
-                  Add Text
-                </Button>
-              </div>
-              <div className="config-container">
-                {this.props.config.map(config => {
-                  if (config.condition) {
-                    if (
-                      this.state[config.condition.key] !==
-                      config.condition.value
-                    ) {
-                      return null;
-                    }
-                  }
-                  const label = (
-                    <label className="form-label">{config.text}</label>
-                  );
-                  let control;
-                  switch (config.type) {
-                    case "select":
-                      control = (
-                        <Dropdown
-                          options={config.options}
-                          onChange={(target, { value }) =>
-                            this.setState({ [config.key]: value })
-                          }
-                          value={this.state[config.key]}
-                          selection
-                        />
-                      );
-                      break;
-                    case "boolean":
-                      control = (
-                        <Checkbox
-                          checked={this.state[config.key]}
-                          onChange={() => {
-                            setTimeout(() => {
-                              this.setState({
-                                [config.key]: !this.state[config.key]
-                              });
-                            }, 500);
-                          }}
-                          toggle
-                        />
-                      );
-                      break;
-                    case "range":
-                      control = (
-                        <Range
-                          min={config.min}
-                          max={config.max}
-                          value={this.state[config.key]}
-                          onChange={value =>
-                            this.setState({ [config.key]: value })
-                          }
-                        />
-                      );
-                      break;
-                    default:
-                      control = null;
-                  }
-                  return (
-                    <>
-                      {label}
-                      {control}
-                    </>
-                  );
-                })}
-                {this.props.palettes && (
-                  <label className="form-label">Palette</label>
-                )}
-                {this.props.palettes && (
-                  <PaletteDropdown
-                    selectedPalette={palette}
-                    palettes={this.props.palettes}
-                    onChange={palette => this.setState({ palette })}
-                  />
-                )}
-                {palette &&
-                  palette.map((color, index) => (
-                    <ColorInput
-                      color={color}
-                      onChange={value =>
-                        this.setState({
-                          palette: [
-                            ...palette.slice(0, index),
-                            value,
-                            ...palette.slice(index + 1, palette.length)
-                          ]
-                        })
-                      }
-                      onOpen={this.props.onStartSelectingColor}
-                      onClose={this.props.onStopSelectingColor}
+        <Modal.Content className="modal-content">
+          <div className="modal-sidebar">
+            <div className="title-container">
+              <div className="title">{title}</div>
+              <div>
+                <span className="by-author">by</span>
+                {authorLink ? (
+                  <a
+                    href={authorLink}
+                    className="author"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {author}
+                    <Icon
+                      title="codepen"
+                      className="codepen-icon"
+                      name="codepen"
                     />
-                  ))}
+                  </a>
+                ) : (
+                  <span className="author">{author}</span>
+                )}
               </div>
+              <Button icon labelPosition="left">
+                <Icon name="plus" />
+                Add Text
+              </Button>
             </div>
-            <div id="preview-wrapper" className="preview-wrapper">
-              {loading
-                ? this.renderLoadingIndicator()
-                : this.props.generate(this.state)}
-              {pause && (
-                <Button
-                  basic
-                  className="pause-button"
-                  icon={paused ? "play" : "pause"}
-                  onClick={this.togglePause}
+            <div className="config-container">
+              {this.props.config.map(config => {
+                if (config.condition) {
+                  if (
+                    this.state[config.condition.key] !== config.condition.value
+                  ) {
+                    return null;
+                  }
+                }
+                const label = (
+                  <label className="form-label">{config.text}</label>
+                );
+                let control;
+                switch (config.type) {
+                  case "select":
+                    control = (
+                      <Dropdown
+                        options={config.options}
+                        onChange={(target, { value }) =>
+                          this.setState({ [config.key]: value })
+                        }
+                        value={this.state[config.key]}
+                        selection
+                      />
+                    );
+                    break;
+                  case "boolean":
+                    control = (
+                      <Checkbox
+                        checked={this.state[config.key]}
+                        onChange={() => {
+                          setTimeout(() => {
+                            this.setState({
+                              [config.key]: !this.state[config.key]
+                            });
+                          }, 500);
+                        }}
+                        toggle
+                      />
+                    );
+                    break;
+                  case "range":
+                    control = (
+                      <Range
+                        min={config.min}
+                        max={config.max}
+                        value={this.state[config.key]}
+                        onChange={value =>
+                          this.setState({ [config.key]: value })
+                        }
+                      />
+                    );
+                    break;
+                  default:
+                    control = null;
+                }
+                return (
+                  <>
+                    {label}
+                    {control}
+                  </>
+                );
+              })}
+              {this.props.palettes && (
+                <label className="form-label">Palette</label>
+              )}
+              {this.props.palettes && (
+                <PaletteDropdown
+                  selectedPalette={palette}
+                  palettes={this.props.palettes}
+                  onChange={palette => this.setState({ palette })}
                 />
               )}
-              {!disableDownloads && (
-                <Button
-                  icon="download"
-                  basic
-                  className="download-button"
-                  content="Download"
-                  onClick={this.download}
-                />
-              )}
+              {palette &&
+                palette.map((color, index) => (
+                  <ColorInput
+                    color={color}
+                    onChange={value =>
+                      this.setState({
+                        palette: [
+                          ...palette.slice(0, index),
+                          value,
+                          ...palette.slice(index + 1, palette.length)
+                        ]
+                      })
+                    }
+                    onOpen={this.props.onStartSelectingColor}
+                    onClose={this.props.onStopSelectingColor}
+                  />
+                ))}
             </div>
-          </Modal.Content>
-        </ResizableBox>
+          </div>
+          <div id="preview-wrapper" className="preview-wrapper">
+            {loading
+              ? this.renderLoadingIndicator()
+              : this.props.generate(this.state)}
+            {pause && (
+              <Button
+                basic
+                className="pause-button"
+                icon={paused ? "play" : "pause"}
+                onClick={this.togglePause}
+              />
+            )}
+            {!disableDownloads && (
+              <Button
+                icon="download"
+                basic
+                className="download-button"
+                content="Download"
+                onClick={this.download}
+              />
+            )}
+          </div>
+        </Modal.Content>
       </Modal>
     );
   }

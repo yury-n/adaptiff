@@ -5,9 +5,10 @@
 
 .preview-wrapper {
   position: relative;
+  background: #fdfdfd;
   width: 100%;
   box-sizing: border-box;
-  margin: 40px;
+  padding: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,10 +55,11 @@
   padding: 30px;
   padding-top: 40px;
   padding-bottom: 20px;
-  padding-right: 20px;
+  padding-right: 10px;
   font-size: 18px;
   background: white;
   border-top-left-radius: 0.28571429rem;
+  overflow: hidden;
   font-weight: 600;
 }
 
@@ -78,7 +80,7 @@ i.icon.codepen-icon {
   margin-left: 4px;
 }
 
-.react-resizable {
+/* .react-resizable {
   position: relative;
 }
 .react-resizable-handle {
@@ -101,7 +103,7 @@ i.icon.codepen-icon {
 
 .react-resizable:hover .react-resizable-handle {
   opacity: 0.8;
-}
+} */
 
 .ui.modal {
   width: auto;
@@ -112,10 +114,12 @@ i.icon.codepen-icon {
 } */
 
 .ui.modal .modal-content.content {
+  width: calc(100vw - 70px);
+  height: calc(100vh - 70px);
+  overflow: hidden;
   padding: 0;
   display: flex;
   flex-direction: row;
-  height: 100%;
 }
 
 .modal-sidebar {
@@ -137,7 +141,7 @@ i.icon.codepen-icon {
 }
 
 .config-container {
-  padding: 25px 40px;
+  padding: 25px 30px;
   padding-right: 10px;
   padding-bottom: 50px;
   border-radius: 0 4px 0 0;
