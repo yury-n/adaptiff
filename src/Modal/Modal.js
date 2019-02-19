@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Modal, Button, Dropdown, Icon, Checkbox } from "semantic-ui-react";
+import {
+  Modal,
+  Input,
+  Button,
+  Dropdown,
+  Icon,
+  Checkbox
+} from "semantic-ui-react";
 import html2canvas from "html2canvas";
 import ColorInput from "../ColorInput/ColorInput";
 import PaletteDropdown from "../PaletteDropdown/PaletteDropdown";
@@ -53,7 +60,7 @@ class TheModal extends Component {
     this.props.degenerate && this.props.degenerate();
   }
   render() {
-    const { title, author, authorLink, pause, disableDownloads } = this.props;
+    const { title, author, authorLink, pause } = this.props;
     const { palette, loading, paused } = this.state;
     return (
       <Modal
@@ -179,31 +186,29 @@ class TheModal extends Component {
                 ))}
             </div>
           </div>
-          <div id="preview-wrapper" className="preview-wrapper">
-            <Button icon labelPosition="left">
-              <Icon name="plus" />
-              Add Text
-            </Button>
-            {loading
-              ? this.renderLoadingIndicator()
-              : this.props.generate(this.state)}
-            {pause && (
-              <Button
-                basic
-                className="pause-button"
-                icon={paused ? "play" : "pause"}
-                onClick={this.togglePause}
-              />
-            )}
-            {!disableDownloads && (
-              <Button
-                icon="download"
-                basic
-                className="download-button"
-                content="Download"
-                onClick={this.download}
-              />
-            )}
+          <div className="modal-right-side">
+            <div className="config-over-preview">
+              <Button circular icon="plus" />
+              <div className="dimensions">
+                <Input value="2000" className="dimension-input" />
+                <span className="dimension-times">&times;</span>
+                <Input value="2000" className="dimension-input" />
+              </div>
+              <Button circular icon="download" onClick={this.download} />
+            </div>
+            <div id="preview-wrapper" className="preview-wrapper">
+              {loading
+                ? this.renderLoadingIndicator()
+                : this.props.generate(this.state)}
+              {pause && (
+                <Button
+                  basic
+                  className="pause-button"
+                  icon={paused ? "play" : "pause"}
+                  onClick={this.togglePause}
+                />
+              )}
+            </div>
           </div>
         </Modal.Content>
       </Modal>

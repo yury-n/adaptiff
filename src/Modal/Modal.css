@@ -3,12 +3,56 @@
   pointer-events: none;
 }
 
+.config-over-preview {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fdfdfd;
+}
+
+.ui.modal > .close {
+  top: -2.4rem;
+  right: -2.6rem;
+}
+
+.ui.circular.button {
+  position: relative;
+  border-radius: 100%;
+  background: white;
+  color: black;
+  box-shadow: 0 3px 4px 0px #d4d4d5c9;
+}
+
+.dimensions {
+  display: inline-block;
+}
+
+.dimension-times {
+  margin: 0 10px;
+  font-size: 17px;
+}
+
+.dimension-input.ui.input > input {
+  width: 64px;
+  box-shadow: none;
+}
+
+.modal-right-side {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
 .preview-wrapper {
   position: relative;
   background: #fdfdfd;
   width: 100%;
   box-sizing: border-box;
   padding: 140px;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,8 +69,7 @@
   opacity: 1;
 }
 
-.ui.basic.button.pause-button,
-.ui.basic.button.download-button {
+.ui.basic.button.pause-button {
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -114,8 +157,8 @@ i.icon.codepen-icon {
 } */
 
 .ui.modal .modal-content.content {
-  width: calc(100vw - 70px);
-  height: calc(100vh - 70px);
+  width: calc(100vw - 80px);
+  height: calc(100vh - 80px);
   overflow: hidden;
   padding: 0;
   display: flex;
