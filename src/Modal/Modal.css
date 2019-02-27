@@ -13,8 +13,8 @@
 }
 
 .ui.modal > .close {
-  top: -2.4rem;
-  right: -2.6rem;
+  top: -2.5rem;
+  right: -2.5rem;
 }
 
 .ui.circular.button {
@@ -22,7 +22,8 @@
   border-radius: 100%;
   background: white;
   color: black;
-  box-shadow: 0 3px 4px 0px #d4d4d5c9;
+  box-shadow: 0 3px 4px 0px #b7b7b7;
+  opacity: 0.75;
 }
 
 .dimensions {
@@ -32,11 +33,14 @@
 .dimension-times {
   margin: 0 10px;
   font-size: 17px;
+  opacity: 0.7;
 }
 
 .dimension-input.ui.input > input {
   width: 64px;
   box-shadow: none;
+  opacity: 0.75;
+  text-align: center;
 }
 
 .modal-right-side {
@@ -51,7 +55,8 @@
   background: #fdfdfd;
   width: 100%;
   box-sizing: border-box;
-  padding: 140px;
+  padding: 70px 140px;
+  padding-top: calc(70px - 50px); /* - preview panel height / 2 */
   flex: 1;
   display: flex;
   justify-content: center;
