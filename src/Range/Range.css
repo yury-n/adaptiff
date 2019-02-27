@@ -5,6 +5,7 @@
 .range {
   display: flex;
   justify-content: space-between;
+  margin-top: -3px;
 }
 
 .ui.input.range-input {
