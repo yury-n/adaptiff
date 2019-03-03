@@ -26,6 +26,30 @@
   opacity: 0.75;
 }
 
+.ui.circular.button:active {
+  box-shadow: 0 0px 4px 0px #b7b7b7;
+}
+
+.add-menu {
+  position: absolute;
+  left: 270px;
+  top: 80px;
+  z-index: 11;
+}
+
+.ui.labeled.icon.menu.add-menu .item {
+  padding: 10px 1px;
+  min-width: 65px;
+}
+
+.add-text-icon {
+  display: block;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 3px;
+  font-family: "Times New Roman", Times, serif;
+}
+
 .dimensions {
   display: inline-block;
 }

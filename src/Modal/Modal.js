@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {
   Modal,
   Input,
+  Menu,
   Button,
   Dropdown,
   Icon,
@@ -187,6 +188,12 @@ class TheModal extends Component {
             </div>
           </div>
           <div className="modal-right-side">
+            <Menu className="add-menu" icon="labeled" vertical>
+              <Menu.Item onClick={this.handleItemClick}>
+                <div className="add-text-icon">T</div>
+                <div>Text</div>
+              </Menu.Item>
+            </Menu>
             <div className="config-over-preview">
               <Button circular icon="plus" />
               <div className="dimensions">
