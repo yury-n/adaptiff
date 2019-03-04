@@ -185,15 +185,27 @@ class TheModal extends Component {
                     onClose={this.props.onStopSelectingColor}
                   />
                 ))}
+              <button class="ui basic button delete-inserted-text">
+                Delete
+              </button>
             </div>
           </div>
           <div className="modal-right-side">
-            <Menu className="add-menu" icon="labeled" vertical>
-              <Menu.Item onClick={this.handleItemClick}>
-                <div className="add-text-icon">T</div>
-                <div>Text</div>
-              </Menu.Item>
-            </Menu>
+            {false && (
+              <Menu className="add-menu" icon="labeled" vertical>
+                <Menu.Item onClick={this.handleItemClick}>
+                  <div className="add-text-icon">T</div>
+                  <div>Text</div>
+                </Menu.Item>
+              </Menu>
+            )}
+            <div className="inserted-text-block">
+              <div className="inserted-text-block-inner">
+                Sample text goes here
+                <br />
+                more text
+              </div>
+            </div>
             <div className="config-over-preview">
               <Button circular icon="plus" />
               <div className="dimensions">
