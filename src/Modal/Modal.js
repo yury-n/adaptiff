@@ -12,6 +12,7 @@ import html2canvas from "html2canvas";
 import ColorInput from "../ColorInput/ColorInput";
 import PaletteDropdown from "../PaletteDropdown/PaletteDropdown";
 import Range from "../Range/Range";
+import TextConfig from "./TextConfig/TextConfig";
 import classnames from "classnames";
 
 import "rc-slider/assets/index.css";
@@ -95,7 +96,8 @@ class TheModal extends Component {
                 )}
               </div>
             </div>
-            <div className="config-container">
+            <TextConfig />
+            <div style={{ display: "none" }} className="config-container">
               {this.props.config.map(config => {
                 if (config.condition) {
                   if (

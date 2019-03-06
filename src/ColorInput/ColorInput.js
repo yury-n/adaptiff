@@ -6,6 +6,9 @@ import classnames from "classnames";
 import "./ColorInput.css";
 
 class ColorInput extends Component {
+  static defaultProps = {
+    disableAlpha: true
+  };
   state = {
     showColorPicker: false
   };
@@ -22,7 +25,7 @@ class ColorInput extends Component {
     this.inputRef.current.focus();
   };
   render() {
-    const { color, onChange } = this.props;
+    const { color, onChange, disableAlpha } = this.props;
     const { showColorPicker } = this.state;
     return (
       <div
@@ -49,7 +52,7 @@ class ColorInput extends Component {
             color={color}
             className="color-picker"
             onChangeComplete={({ hex }) => onChange(hex)}
-            disableAlpha={true}
+            disableAlpha={disableAlpha}
           />
         )}
       </div>
