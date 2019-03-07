@@ -2,7 +2,7 @@
   margin-top: 10px;
 }
 
-.range {
+.range-inputs {
   display: flex;
   justify-content: space-between;
   margin-top: -3px;
@@ -12,6 +12,10 @@
   width: 55px;
   margin-top: 12px;
   position: relative;
+}
+
+.ui.input.range-input > input {
+  box-shadow: none;
 }
 
 .slider-tooltip {

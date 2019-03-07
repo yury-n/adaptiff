@@ -1,3 +1,20 @@
 .text-config-container {
   padding: 25px 30px;
 }
+
+.ui.buttons > .ui.button:not(.basic):not(.inverted).active {
+  box-shadow: none;
+  background: #cccccc2e;
+}
+
+.ui.basic.buttons .button-bold {
+  font-weight: bold;
+}
+
+.ui.basic.buttons .button-italic {
+  font-style: italic;
+}
+
+.ui.basic.buttons .button-underline {
+  text-decoration: underline;
+}

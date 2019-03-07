@@ -21,7 +21,8 @@ a:hover {
 
 .ui.selection.dropdown,
 .ui.selection.dropdown:hover,
-.ui.input > input {
+.ui.input > input,
+.ui.buttons > .ui.button:not(.basic):not(.inverted) {
   border-color: rgba(34, 36, 38, 0.35);
   box-shadow: 0 3px 4px 0px #d4d4d5c9;
 }
