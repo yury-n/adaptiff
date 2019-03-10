@@ -1,0 +1,18 @@
+.inserted-text-block {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  font-size: 28px;
+  margin-left: -150px;
+  background: #ffffffa1;
+  line-height: 1.2;
+  display: inline-block;
+  border: 1px black dotted;
+}
+
+.inserted-text-block-inner {
+  border: 1px white dotted;
+  padding: 14px;
+  display: inline-block;
+}

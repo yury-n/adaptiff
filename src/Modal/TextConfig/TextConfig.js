@@ -32,5 +32,6 @@ export default props => (
     <ColorInput color={"#000"} onChange={f => f} />
     <label className="form-label">Background Color</label>
     <ColorInput color={"#CCC"} disableAlpha={false} onChange={f => f} />
+    <button class="ui basic button delete-inserted-text">Delete</button>
   </div>
 );

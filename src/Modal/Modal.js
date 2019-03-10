@@ -13,6 +13,7 @@ import ColorInput from "../ColorInput/ColorInput";
 import PaletteDropdown from "../PaletteDropdown/PaletteDropdown";
 import Range from "../Range/Range";
 import TextConfig from "./TextConfig/TextConfig";
+import InsertedText from "./InsertedText/InsertedText";
 import classnames from "classnames";
 
 import "rc-slider/assets/index.css";
@@ -96,8 +97,8 @@ class TheModal extends Component {
                 )}
               </div>
             </div>
-            <TextConfig />
-            <div style={{ display: "none" }} className="config-container">
+            {false && <TextConfig />}
+            <div className="config-container">
               {this.props.config.map(config => {
                 if (config.condition) {
                   if (
@@ -187,9 +188,6 @@ class TheModal extends Component {
                     onClose={this.props.onStopSelectingColor}
                   />
                 ))}
-              <button class="ui basic button delete-inserted-text">
-                Delete
-              </button>
             </div>
           </div>
           <div className="modal-right-side">
@@ -201,13 +199,7 @@ class TheModal extends Component {
                 </Menu.Item>
               </Menu>
             )}
-            <div className="inserted-text-block">
-              <div className="inserted-text-block-inner">
-                Sample text goes here
-                <br />
-                more text
-              </div>
-            </div>
+            {false && <InsertedText />}
             <div className="config-over-preview">
               <Button circular icon="plus" />
               <div className="dimensions">

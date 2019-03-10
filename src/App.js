@@ -21,7 +21,7 @@ class App extends Component {
         <Header />
         <div className="restricted-width-area main-content-area">
           <Card.Group className="cards">
-            <MiniCard showModal {...linearGradient} />
+            <MiniCard {...linearGradient} />
             <MiniCard {...trianglify} />
             <MiniCard {...particles} />
             <MiniCard {...bubbles} />

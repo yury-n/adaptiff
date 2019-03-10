@@ -68,33 +68,6 @@
   text-align: center;
 }
 
-.inserted-text-block {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 2;
-  font-size: 28px;
-  margin-left: -150px;
-  background: #ffffffa1;
-  line-height: 1.2;
-  display: inline-block;
-  border: 1px black dotted;
-}
-
-.ui.basic.button.delete-inserted-text {
-  width: 100%;
-  margin-top: 25px;
-  color: hsla(3, 56%, 52%, 1) !important;
-  border: 1px hsla(3, 56%, 72%, 1) solid;
-  box-shadow: none;
-}
-
-.inserted-text-block-inner {
-  border: 1px white dotted;
-  padding: 14px;
-  display: inline-block;
-}
-
 .modal-right-side {
   position: relative;
   display: flex;
