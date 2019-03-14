@@ -4,7 +4,7 @@ export default {
   author: "Colin van Eenige",
   authorLink: "https://codepen.io/cvaneenige/",
   title: "Bubbles",
-  thumbs: ["/thumbs/bubbles/1.jpg"],
+  thumbs: ["/thumbs/bubbles/1.png"],
   config: [
     {
       type: "boolean",
@@ -13,7 +13,7 @@ export default {
       defaultValue: false
     }
   ],
-  palettes: [["#ff5252", "#8bc34a"], ...gradientPalettes],
+  palettes: [["#09203f", "#537895"], ...gradientPalettes],
   externalScripts: [
     "https://unpkg.com/three@0.100.0/build/three.js",
     "https://unpkg.com/three.phenomenon@1.0.0/dist/three.phenomenon.umd.js",

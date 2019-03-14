@@ -7,12 +7,12 @@ import "./App.css";
 
 import linearGradient from "./_generations/linear_gradient";
 // import octagonalStar from "./_generations/octagonal_star";
-import reactKawaii from "./_generations/react_kawaii";
+// import reactKawaii from "./_generations/react_kawaii";
 import trianglify from "./_generations/trianglify";
 import particles from "./_generations/particles";
 import bubbles from "./_generations/bubbles";
 // import tunnel from "./_generations/tunnel";
-import waves from "./_generations/waves";
+// import waves from "./_generations/waves";
 
 class App extends Component {
   render() {
@@ -25,8 +25,6 @@ class App extends Component {
             <MiniCard {...trianglify} />
             <MiniCard {...particles} />
             <MiniCard {...bubbles} />
-            <MiniCard {...waves} />
-            <MiniCard {...reactKawaii} />
           </Card.Group>
         </div>
         <Footer />
