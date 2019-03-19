@@ -56,6 +56,22 @@
   transform: scale(1.3);
   transform-origin: left;
 }
+.logo-beta {
+  position: absolute;
+  font-weight: normal;
+  font-size: 9px;
+  left: 64px;
+  top: -10px;
+  opacity: 0.5;
+}
+
+.logo-eta {
+  display: none;
+}
+
+.logo:hover .logo-eta {
+  display: inline;
+}
 
 .ui.basic.button.social-button {
   box-shadow: none;

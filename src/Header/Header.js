@@ -13,7 +13,12 @@ class Header extends Component {
               <div className="logo-symbol-block-1" />
               <div className="logo-symbol-block-2" />
             </div>
-            <div className="logo-text">adaptiff</div>
+            <div className="logo-text">
+              adaptiff
+              <span className="logo-beta">
+                β<span className="logo-eta">eta</span>
+              </span>
+            </div>
           </a>
           <div className="header-buttons">
             <Button icon basic className="social-button">

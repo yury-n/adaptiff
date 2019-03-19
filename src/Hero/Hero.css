@@ -1,0 +1,76 @@
+.hero {
+  width: 100%;
+  max-width: 1070px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 90px;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.hero > * {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-text-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hero-text {
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 51px;
+  margin-top: -28px;
+  text-align: right;
+}
+
+.hero-text span {
+  border-bottom: 5px solid #9bffe4;
+}
+
+.hero-preview {
+  position: relative;
+}
+
+.hero-preview .button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
+.ui.card.hero-preview-card {
+  width: 100%;
+  margin: 0;
+}
+
+.create-something {
+  font-size: 17px;
+  line-height: normal;
+  position: relative;
+  top: 3px;
+}
+
+.create-something {
+  position: absolute;
+  font-size: 24px;
+  top: 50px;
+  right: 50px;
+  z-index: 1;
+  line-height: 35px;
+}
+
+.create-something .and {
+  font-size: 17px;
+  line-height: normal;
+  position: relative;
+  top: 3px;
+}
+
+.create-something .unique {
+  font-weight: bold;
+}

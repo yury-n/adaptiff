@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header/Header";
+import Hero from "./Hero/Hero";
 import Footer from "./Footer/Footer";
 import { Card } from "semantic-ui-react";
 import MiniCard from "./MiniCard/MiniCard";
@@ -20,6 +21,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <div className="restricted-width-area main-content-area">
+          <Hero />
           <Card.Group className="cards">
             <MiniCard {...linearGradient} />
             <MiniCard {...trianglify} />
