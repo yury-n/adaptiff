@@ -19,6 +19,7 @@ class MiniCard extends Component {
       author,
       authorLink,
       title,
+      mode,
       thumbs,
       thumbBackgroundSize
     } = this.props;
@@ -26,7 +27,11 @@ class MiniCard extends Component {
       <>
         <Card
           link={false}
-          className={classnames("mini-card", this.props.className)}
+          className={classnames(
+            "mini-card",
+            mode === "hero" && "hero-mode",
+            this.props.className
+          )}
           onClick={this.showModal}
           as="div"
         >
@@ -39,7 +44,9 @@ class MiniCard extends Component {
           />
           <Card.Content>
             <div className="mini-title">{title}</div>
-            <span className="mini-by-author">by</span>
+            <span className="mini-by-author">
+              {mode === "hero" ? "background by" : "by"}
+            </span>
             {authorLink ? (
               <a
                 href={authorLink}

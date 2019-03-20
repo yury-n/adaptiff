@@ -74,3 +74,29 @@
 .create-something .unique {
   font-weight: bold;
 }
+
+.hero-slider-dots {
+  width: 100%;
+  bottom: -30px;
+  height: 10px;
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-slider-dots .slider-dot {
+  width: 6px;
+  height: 6px;
+  display: block;
+  border-radius: 100%;
+  margin: 0 7px;
+}
+
+.slider-dot {
+  background: #c4c4c4;
+}
+
+.active-slider-dot {
+  background: #535252;
+}

@@ -14,7 +14,7 @@ export default () => (
       </div>
     </div>
     <div className="hero-preview">
-      <MiniCard className="hero-preview-card" {...wallPattern} />
+      <MiniCard mode="hero" className="hero-preview-card" {...wallPattern} />
       <button class="ui icon basic button">
         <i aria-hidden="true" class="pencil icon" />
       </button>
@@ -24,6 +24,11 @@ export default () => (
         <span>create something</span>
         <br />
         <span className="unique">unique</span>
+      </div>
+      <div className="hero-slider-dots">
+        <div className="slider-dot active-slider-dot" />
+        <div className="slider-dot" />
+        <div className="slider-dot" />
       </div>
     </div>
   </div>

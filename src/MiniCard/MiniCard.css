@@ -10,6 +10,14 @@
   float: left;
 }
 
+.hero-mode .mini-preview {
+  height: 240px;
+}
+
+.hero-mode .mini-title {
+  display: none;
+}
+
 .mini-title {
   font-size: 15px;
   font-weight: 600;
