@@ -10,7 +10,7 @@ export default () => (
       <div className="hero-text">
         adapt
         <br /> generative arts & designs
-        <br /> to <span>your</span> needs.
+        <br /> to <span>your</span> needs
       </div>
     </div>
     <div className="hero-preview">

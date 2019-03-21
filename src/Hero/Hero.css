@@ -34,6 +34,7 @@
 
 .hero-preview {
   position: relative;
+  overflow: visible;
 }
 
 .hero-preview .button {
@@ -49,19 +50,14 @@
 }
 
 .create-something {
-  font-size: 17px;
-  line-height: normal;
-  position: relative;
-  top: 3px;
-}
-
-.create-something {
   position: absolute;
   font-size: 24px;
-  top: 50px;
-  right: 50px;
+  top: 50%;
+  right: 60px;
   z-index: 1;
   line-height: 35px;
+  margin-top: -74px;
+  cursor: pointer;
 }
 
 .create-something .and {
