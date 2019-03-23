@@ -87,12 +87,6 @@ a:hover {
   background: white;
 }
 
-.ui.card,
-.ui.cards > .card {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.09);
-  margin: 0.9em 0.6em;
-}
-
 .ui.cards {
   justify-content: center;
 }
@@ -101,8 +95,7 @@ a:hover {
 .ui.cards > .card {
   width: 260px;
   overflow: hidden;
-}
-
-.card {
   cursor: pointer;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.09);
+  margin: 0.9em 0.6em;
 }

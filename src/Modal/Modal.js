@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import classnames from "classnames";
 import {
   Modal,
   Input,
@@ -14,10 +15,10 @@ import PaletteDropdown from "../PaletteDropdown/PaletteDropdown";
 import Range from "../Range/Range";
 import TextConfig from "./TextConfig/TextConfig";
 import InsertedText from "./InsertedText/InsertedText";
-import classnames from "classnames";
 
 import "rc-slider/assets/index.css";
-import "./Modal.css";
+import "./global.overrides.css";
+import s from "./Modal.module.css";
 
 class TheModal extends Component {
   constructor(props) {
@@ -63,42 +64,42 @@ class TheModal extends Component {
     this.props.degenerate && this.props.degenerate();
   }
   render() {
-    const { title, author, authorLink, pause } = this.props;
-    const { palette, loading, paused } = this.state;
+    const { title, author, authorLink } = this.props;
+    const { palette, loading } = this.state;
     return (
       <Modal
-        className={classnames(loading && "modal-loading")}
+        className={classnames(loading && s["modal-loading"])}
         open
         closeIcon
         onClose={this.props.onClose}
       >
         <Modal.Content className="modal-content">
-          <div className="modal-sidebar">
-            <div className="title-container">
-              <div className="title">{title}</div>
+          <div className={s["modal-sidebar"]}>
+            <div className={s["title-container"]}>
+              <div className={s["title"]}>{title}</div>
               <div>
-                <span className="by-author">by</span>
+                <span className={s["by-author"]}>by</span>
                 {authorLink ? (
                   <a
                     href={authorLink}
-                    className="author"
+                    className={s["author"]}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     {author}
                     <Icon
                       title="codepen"
-                      className="codepen-icon"
+                      className={s["codepen-icon"]}
                       name="codepen"
                     />
                   </a>
                 ) : (
-                  <span className="author">{author}</span>
+                  <span className={s["author"]}>{author}</span>
                 )}
               </div>
             </div>
             {false && <TextConfig />}
-            <div className="config-container">
+            <div className={s["config-container"]}>
               {this.props.config.map(config => {
                 if (config.condition) {
                   if (
@@ -190,37 +191,32 @@ class TheModal extends Component {
                 ))}
             </div>
           </div>
-          <div className="modal-right-side">
+          <div className={s["modal-right-side"]}>
             {false && (
-              <Menu className="add-menu" icon="labeled" vertical>
-                <Menu.Item onClick={this.handleItemClick}>
-                  <div className="add-text-icon">T</div>
+              <Menu className={s["add-menu"]} icon="labeled" vertical>
+                <Menu.Item
+                  className={s["add-menu-item"]}
+                  onClick={this.handleItemClick}
+                >
+                  <div className={s["add-text-icon"]}>T</div>
                   <div>Text</div>
                 </Menu.Item>
               </Menu>
             )}
             {false && <InsertedText />}
-            <div className="config-over-preview">
+            <div className={s["config-over-preview"]}>
               <Button circular icon="plus" />
-              <div className="dimensions">
-                <Input value="2000" className="dimension-input" />
-                <span className="dimension-times">&times;</span>
-                <Input value="2000" className="dimension-input" />
+              <div className={s["dimensions"]}>
+                <Input value="2000" className={s["dimension-input"]} />
+                <span className={s["dimension-times"]}>&times;</span>
+                <Input value="2000" className={s["dimension-input"]} />
               </div>
               <Button circular icon="download" onClick={this.download} />
             </div>
-            <div id="preview-wrapper" className="preview-wrapper">
+            <div id="preview-wrapper" className={s["preview-wrapper"]}>
               {loading
                 ? this.renderLoadingIndicator()
                 : this.props.generate(this.state)}
-              {pause && (
-                <Button
-                  basic
-                  className="pause-button"
-                  icon={paused ? "play" : "pause"}
-                  onClick={this.togglePause}
-                />
-              )}
             </div>
           </div>
         </Modal.Content>
@@ -253,8 +249,6 @@ class TheModal extends Component {
     } else {
       this.props.unpause();
     }
-    // problematic, re-renders together with generate()
-    // this.setState({ paused: !paused });
   };
 
   download = () => {

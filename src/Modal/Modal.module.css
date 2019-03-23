@@ -1,0 +1,135 @@
+.modal-loading .config-container {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.config-over-preview {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fdfdfd;
+}
+
+.add-menu {
+  position: absolute;
+  left: 15px;
+  top: 80px;
+  z-index: 1;
+}
+
+.add-menu-item {
+  padding: 10px 1px !important;
+  min-width: 65px !important;
+}
+
+.add-text-icon {
+  display: block;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 3px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.dimensions {
+  display: inline-block;
+}
+
+.dimension-times {
+  margin: 0 10px;
+  font-size: 17px;
+  opacity: 0.7;
+}
+
+.dimension-input > input {
+  width: 64px !important;
+  box-shadow: none !important;
+  opacity: 0.75 !important;
+  text-align: center !important;
+}
+
+.modal-right-side {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.preview-wrapper {
+  position: relative;
+  background: #fdfdfd;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 70px 140px;
+  padding-top: calc(70px - 50px); /* - preview panel height / 2 */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.title-container {
+  box-sizing: border-box;
+  padding: 30px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  padding-right: 10px;
+  font-size: 18px;
+  background: white;
+  border-top-left-radius: 0.28571429rem;
+  overflow: hidden;
+  font-weight: 600;
+}
+
+.by-author {
+  font-size: 13px;
+  font-weight: normal;
+  margin-right: 4px;
+  color: #b3b3b3;
+}
+
+.author {
+  font-size: 14px;
+  font-weight: normal;
+  color: #000000b0;
+}
+
+.codepen-icon {
+  margin-left: 4px !important;
+}
+
+.modal-sidebar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  border-top-left-radius: 0.28571429rem;
+  border-bottom-left-radius: 0.28571429rem;
+  box-sizing: border-box;
+}
+
+.modal-sidebar .dropdown {
+  width: 100%;
+}
+
+.modal-sidebar .input {
+  width: 100%;
+}
+
+.config-container {
+  padding: 25px 30px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  border-radius: 0 4px 0 0;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.title {
+  display: inline-block;
+  margin-bottom: 1px;
+}
