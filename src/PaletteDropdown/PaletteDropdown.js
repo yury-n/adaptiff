@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Dropdown } from "semantic-ui-react";
 import classnames from "classnames";
 
-import "./PaletteDropdown.css";
+import s from "./PaletteDropdown.module.css";
 
 class PaletteDropdown extends Component {
   state = {
@@ -12,28 +12,22 @@ class PaletteDropdown extends Component {
     const { isActive } = this.state;
     const { selectedPalette, palettes } = this.props;
 
-    // const palettesWithoutSelected = palettes.filter(palette => {
-    //   let allColorsMatch = true;
-    //   palette.forEach((color, index) => {
-    //     if (color !== selectedPalette[index]) {
-    //       allColorsMatch = false;
-    //       return;
-    //     }
-    //   });
-    //   return !allColorsMatch;
-    // });
-
     return (
-      <div className="root">
+      <div className={s["root"]}>
         <div
           className={classnames(
-            "palette-dropdown-wrapper",
-            isActive && "active"
+            s["palette-dropdown-wrapper"],
+            isActive && s["active"]
           )}
         >
-          <div className="mini-color-container selected-value">
+          <div
+            className={classnames(
+              s["mini-color-container"],
+              s["selected-value"]
+            )}
+          >
             {selectedPalette.map(color => (
-              <div className="mini-color" style={{ background: color }} />
+              <div className={s["mini-color"]} style={{ background: color }} />
             ))}
           </div>
           <Dropdown
@@ -46,9 +40,12 @@ class PaletteDropdown extends Component {
               key: index,
               value: index,
               label: (
-                <div className="mini-color-container">
+                <div className={s["mini-color-container"]}>
                   {palette.map(color => (
-                    <div className="mini-color" style={{ background: color }} />
+                    <div
+                      className={s["mini-color"]}
+                      style={{ background: color }}
+                    />
                   ))}
                 </div>
               )
@@ -61,11 +58,11 @@ class PaletteDropdown extends Component {
             selection
           />
         </div>
-        <div className="palette-paddles">
-          <div className="paddle-button" onClick={this.changeToPrev}>
+        <div className={s["palette-paddles"]}>
+          <div className={s["paddle-button"]} onClick={this.changeToPrev}>
             &larr; Prev
           </div>
-          <div className="paddle-button" onClick={this.changeToNext}>
+          <div className={s["paddle-button"]} onClick={this.changeToNext}>
             Next &rarr;
           </div>
         </div>
