@@ -62,8 +62,8 @@
   background: #fdfdfd;
   width: 100%;
   box-sizing: border-box;
-  padding: 70px 140px;
-  padding-top: calc(70px - 50px); /* - preview panel height / 2 */
+  padding: 50px;
+  padding-top: 0;
   flex: 1;
   display: flex;
   justify-content: center;

@@ -2,10 +2,12 @@ import React from "react";
 import { Button } from "semantic-ui-react";
 import ColorInput from "../../ColorInput/ColorInput";
 import Range from "../../Range/Range";
-import "./TextConfig.css";
+
+import "./global.overrides.css";
+import s from "./TextConfig.module.css";
 
 export default props => (
-  <div className="text-config-container">
+  <div className={s["text-config-container"]}>
     <label className="form-label">Font Style</label>
     <Button.Group basic>
       <Button className="button-bold">B</Button>
@@ -32,6 +34,6 @@ export default props => (
     <ColorInput color={"#000"} onChange={f => f} />
     <label className="form-label">Background Color</label>
     <ColorInput color={"#CCC"} disableAlpha={false} onChange={f => f} />
-    <button class="ui basic button delete-inserted-text">Delete</button>
+    <Button className={s["delete-inserted-text"]}>Delete</Button>
   </div>
 );

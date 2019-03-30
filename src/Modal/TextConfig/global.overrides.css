@@ -1,0 +1,4 @@
+.ui.buttons > .ui.button:not(.basic):not(.inverted).active {
+  box-shadow: none;
+  background: #cccccc2e;
+}

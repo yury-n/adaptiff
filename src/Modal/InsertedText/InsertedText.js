@@ -1,9 +1,9 @@
 import React from "react";
-import "./InsertedText.css";
+import s from "./InsertedText.module.css";
 
 export default props => (
-  <div className="inserted-text-block">
-    <div className="inserted-text-block-inner">
+  <div className={s["inserted-text-block"]}>
+    <div className={s["inserted-text-block-inner"]}>
       Sample text goes here
       <br />
       more text

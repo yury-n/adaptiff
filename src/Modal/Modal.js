@@ -26,10 +26,12 @@ class TheModal extends Component {
     const state = {
       loading: false,
       paused: false,
-      palette: this.props.palettes && this.props.palettes[0]
+      config: {
+        palette: this.props.palettes && this.props.palettes[0]
+      }
     };
     this.props.config.forEach(config => {
-      state[config.key] = config.defaultValue;
+      state.config[config.key] = config.defaultValue;
     });
     if (this.props.externalScripts) {
       state.loading = true;
@@ -65,7 +67,7 @@ class TheModal extends Component {
   }
   render() {
     const { title, author, authorLink } = this.props;
-    const { palette, loading } = this.state;
+    const { loading } = this.state;
     return (
       <Modal
         className={classnames(loading && s["modal-loading"])}
@@ -99,97 +101,7 @@ class TheModal extends Component {
               </div>
             </div>
             {false && <TextConfig />}
-            <div className={s["config-container"]}>
-              {this.props.config.map(config => {
-                if (config.condition) {
-                  if (
-                    this.state[config.condition.key] !== config.condition.value
-                  ) {
-                    return null;
-                  }
-                }
-                const label = (
-                  <label className="form-label">{config.text}</label>
-                );
-                let control;
-                switch (config.type) {
-                  case "select":
-                    control = (
-                      <Dropdown
-                        options={config.options}
-                        onChange={(target, { value }) =>
-                          this.setState({ [config.key]: value })
-                        }
-                        value={this.state[config.key]}
-                        selection
-                      />
-                    );
-                    break;
-                  case "boolean":
-                    control = (
-                      <Checkbox
-                        checked={this.state[config.key]}
-                        onChange={() => {
-                          setTimeout(() => {
-                            this.setState({
-                              [config.key]: !this.state[config.key]
-                            });
-                          }, 500);
-                        }}
-                        toggle
-                      />
-                    );
-                    break;
-                  case "range":
-                    control = (
-                      <Range
-                        min={config.min}
-                        max={config.max}
-                        value={this.state[config.key]}
-                        onChange={value =>
-                          this.setState({ [config.key]: value })
-                        }
-                      />
-                    );
-                    break;
-                  default:
-                    control = null;
-                }
-                return (
-                  <>
-                    {label}
-                    {control}
-                  </>
-                );
-              })}
-              {this.props.palettes && (
-                <label className="form-label">Palette</label>
-              )}
-              {this.props.palettes && (
-                <PaletteDropdown
-                  selectedPalette={palette}
-                  palettes={this.props.palettes}
-                  onChange={palette => this.setState({ palette })}
-                />
-              )}
-              {palette &&
-                palette.map((color, index) => (
-                  <ColorInput
-                    color={color}
-                    onChange={value =>
-                      this.setState({
-                        palette: [
-                          ...palette.slice(0, index),
-                          value,
-                          ...palette.slice(index + 1, palette.length)
-                        ]
-                      })
-                    }
-                    onOpen={this.props.onStartSelectingColor}
-                    onClose={this.props.onStopSelectingColor}
-                  />
-                ))}
-            </div>
+            {this.renderConfig()}
           </div>
           <div className={s["modal-right-side"]}>
             {false && (
@@ -216,13 +128,120 @@ class TheModal extends Component {
             <div id="preview-wrapper" className={s["preview-wrapper"]}>
               {loading
                 ? this.renderLoadingIndicator()
-                : this.props.generate(this.state)}
+                : this.props.generate(this.state.config)}
             </div>
           </div>
         </Modal.Content>
       </Modal>
     );
   }
+
+  renderConfig = () => {
+    const props = this.props;
+    const state = this.state;
+    return (
+      <div className={s["config-container"]}>
+        {props.config.map(config => {
+          if (config.condition) {
+            if (state.config[config.condition.key] !== config.condition.value) {
+              return null;
+            }
+          }
+          const label = <label className="form-label">{config.text}</label>;
+          let control;
+          switch (config.type) {
+            case "select":
+              control = (
+                <Dropdown
+                  options={config.options}
+                  onChange={(target, { value }) =>
+                    this.setState({
+                      config: { ...state.config, [config.key]: value }
+                    })
+                  }
+                  value={state.config[config.key]}
+                  selection
+                />
+              );
+              break;
+            case "boolean":
+              control = (
+                <Checkbox
+                  checked={state.config[config.key]}
+                  onChange={() => {
+                    setTimeout(() => {
+                      this.setState({
+                        config: {
+                          ...state.config,
+                          [config.key]: !state.config[config.key]
+                        }
+                      });
+                    }, 500);
+                  }}
+                  toggle
+                />
+              );
+              break;
+            case "range":
+              control = (
+                <Range
+                  min={config.min}
+                  max={config.max}
+                  value={state.config[config.key]}
+                  onChange={value =>
+                    this.setState({
+                      config: { ...state.config, [config.key]: value }
+                    })
+                  }
+                />
+              );
+              break;
+            default:
+              control = null;
+          }
+          return (
+            <>
+              {label}
+              {control}
+            </>
+          );
+        })}
+        {props.palettes && <label className="form-label">Palette</label>}
+        {props.palettes && (
+          <PaletteDropdown
+            selectedPalette={state.config.palette}
+            palettes={props.palettes}
+            onChange={palette =>
+              this.setState({ config: { ...state.config, palette } })
+            }
+          />
+        )}
+        {state.config.palette &&
+          state.config.palette.map((color, index) => (
+            <ColorInput
+              color={color}
+              onChange={value =>
+                this.setState({
+                  config: {
+                    ...state.config,
+                    palette: [
+                      ...state.config.palette.slice(0, index),
+                      value,
+                      ...state.config.palette.slice(
+                        index + 1,
+                        state.config.palette.length
+                      )
+                    ]
+                  }
+                })
+              }
+              onOpen={props.onStartSelectingColor}
+              onClose={props.onStopSelectingColor}
+            />
+          ))}
+      </div>
+    );
+  };
 
   renderLoadingIndicator() {
     return (
