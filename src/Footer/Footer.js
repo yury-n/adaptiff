@@ -1,13 +1,14 @@
 import React, { Component } from "react";
+import classnames from "classnames";
 
-import "./Footer.css";
+import s from "./Footer.module.css";
 
 class Footer extends Component {
   render() {
     return (
-      <footer className="footer">
-        <div className="footer-inner restricted-width-area">
-          <div className="license">License</div>
+      <footer className={s["footer"]}>
+        <div className={classnames(s["footer-inner"], "restricted-width-area")}>
+          <div className={s["license"]}>License</div>
           All images generated on Adaptiff can be used for free. You can use
           them for commercial and noncommercial purposes.
         </div>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Slider, { createSliderWithTooltip } from "rc-slider";
 import { Input } from "semantic-ui-react";
 
-import "./Range.css";
+import s from "./Range.module.css";
 
 const SliderWithTooltip = createSliderWithTooltip(Slider);
 
@@ -40,7 +40,7 @@ class Range extends Component {
           value={this.props.value}
           min={this.state.min}
           max={this.state.max}
-          className="slider"
+          className={s["slider"]}
           maximumTrackStyle={{
             backgroundColor: "rgb(216, 215, 215)",
             height: 3
@@ -60,19 +60,22 @@ class Range extends Component {
             boxShadow: "0 3px 4px 0px #d4d4d5c9"
           }}
           onChange={this.props.onChange}
-          tipProps={{ placement: "bottom", overlayClassName: "slider-tooltip" }}
+          tipProps={{
+            placement: "bottom",
+            overlayClassName: s["slider-tooltip"]
+          }}
         />
         {this.props.withRangeInputs && (
-          <div className="range-inputs">
+          <div className={s["range-inputs"]}>
             <Input
               disabled={this.props.disabledRangeInputs}
-              className="range-input"
+              className={s["range-input"]}
               value={this.state.min}
               onChange={this.onMinChange}
             />
             <Input
               disabled={this.props.disabledRangeInputs}
-              className="range-input"
+              className={s["range-input"]}
               value={this.state.max}
               onChange={this.onMaxChange}
             />

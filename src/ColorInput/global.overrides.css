@@ -1,0 +1,10 @@
+.saturation-black {
+  height: calc(100% + 1px); /* I have no fucking idea, CSS */
+}
+.flexbox-fix:last-child {
+  display: none !important;
+}
+
+.flexbox-fix:first-child > div:first-child {
+  display: none;
+}

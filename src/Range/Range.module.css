@@ -8,16 +8,16 @@
   margin-top: -3px;
 }
 
-.ui.input.range-input {
+.range-input {
   width: 55px;
   margin-top: 12px;
   position: relative;
 }
 
-.ui.input.range-input > input {
-  box-shadow: none;
+.range-input > input {
+  box-shadow: none !important;
 }
 
 .slider-tooltip {
-  z-index: 1111;
+  z-index: 1000;
 }

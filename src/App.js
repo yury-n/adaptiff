@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import classnames from "classnames";
 import Header from "./Header/Header";
 import Hero from "./Hero/Hero";
 import Footer from "./Footer/Footer";
 import { Card } from "semantic-ui-react";
 import MiniCard from "./MiniCard/MiniCard";
-import "./App.css";
+
+import "./global.overrides.css";
+import s from "./App.module.css";
 
 import linearGradient from "./_generations/linear_gradient";
 // import octagonalStar from "./_generations/octagonal_star";
@@ -20,7 +23,12 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <div className="restricted-width-area main-content-area">
+        <div
+          className={classnames(
+            s["main-content-area"],
+            "restricted-width-area"
+          )}
+        >
           <Hero />
           <Card.Group className="cards">
             <MiniCard {...linearGradient} />

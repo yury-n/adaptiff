@@ -16,7 +16,7 @@ export default {
       key: "direction",
       text: "Direction",
       type: "select",
-      defaultValue: "right",
+      defaultValue: "custom_angle",
       options: [
         {
           key: 0,

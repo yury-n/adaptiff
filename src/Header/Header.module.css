@@ -73,24 +73,27 @@
   display: inline;
 }
 
-.ui.basic.button.social-button {
-  box-shadow: none;
-  font-size: 18px;
-  padding: 0 12px;
+.social-button {
+  box-shadow: none !important;
+  font-size: 18px !important;
+  padding: 0 12px !important;
   color: #2e2e2e !important;
+  background: none !important;
 }
 
-.ui.basic.button.contact-button {
-  margin-left: 9px;
-  margin-right: 15px;
+.contact-button {
+  font-weight: 400 !important;
+  margin-left: 9px !important;
+  margin-right: 15px !important;
   color: #0f0f0f !important;
-  box-shadow: none;
-  border: none;
+  box-shadow: none !important;
+  border: none !important;
+  background: none !important;
 }
 
-.ui.button.submit-button {
-  color: white;
-  background: #0f0f0f;
-  padding-right: 15px;
-  padding-left: 15px;
+.submit-button {
+  color: white !important;
+  background: #0f0f0f !important;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
 }

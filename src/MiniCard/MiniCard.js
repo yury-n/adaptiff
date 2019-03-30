@@ -3,7 +3,7 @@ import classnames from "classnames";
 import { Card } from "semantic-ui-react";
 import Modal from "../Modal/Modal";
 
-import "./MiniCard.css";
+import s from "./MiniCard.module.css";
 
 class MiniCard extends Component {
   state = {
@@ -28,36 +28,36 @@ class MiniCard extends Component {
         <Card
           link={false}
           className={classnames(
-            "mini-card",
-            mode === "hero" && "hero-mode",
+            s["mini-card"],
+            mode === "hero" && s["hero-mode"],
             this.props.className
           )}
           onClick={this.showModal}
           as="div"
         >
           <div
-            className="mini-preview"
+            className={s["mini-preview"]}
             style={{
               backgroundImage: `url("${thumbs[0]}")`,
               backgroundSize: thumbBackgroundSize
             }}
           />
           <Card.Content>
-            <div className="mini-title">{title}</div>
-            <span className="mini-by-author">
+            <div className={s["mini-title"]}>{title}</div>
+            <span className={s["mini-by-author"]}>
               {mode === "hero" ? "background by" : "by"}
             </span>
             {authorLink ? (
               <a
                 href={authorLink}
-                className="mini-author"
+                className={s["mini-author"]}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {author}
               </a>
             ) : (
-              <span className="mini-author">{author}</span>
+              <span className={s["mini-author"]}>{author}</span>
             )}
           </Card.Content>
         </Card>

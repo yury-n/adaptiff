@@ -3,7 +3,8 @@ import { ChromePicker } from "react-color";
 import { Input } from "semantic-ui-react";
 import classnames from "classnames";
 
-import "./ColorInput.css";
+import "./global.overrides.css";
+import s from "./ColorInput.module.css";
 
 class ColorInput extends Component {
   static defaultProps = {
@@ -30,8 +31,8 @@ class ColorInput extends Component {
     return (
       <div
         className={classnames(
-          "color-input-wrapper",
-          showColorPicker && "with-picker"
+          s["color-input-wrapper"],
+          showColorPicker && s["with-picker"]
         )}
       >
         <Input
@@ -43,14 +44,14 @@ class ColorInput extends Component {
           value={color}
         />
         <div
-          className="ui label"
+          className={classnames("ui", "label", s["color-swatch"])}
           style={{ background: color }}
           onClick={this.setInputFocus}
         />
         {showColorPicker && (
           <ChromePicker
             color={color}
-            className="color-picker"
+            className={s["color-picker"]}
             onChangeComplete={({ hex }) => onChange(hex)}
             disableAlpha={disableAlpha}
           />

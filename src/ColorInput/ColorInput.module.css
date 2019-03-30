@@ -4,12 +4,12 @@
   margin-bottom: 14px;
 }
 
-.color-input-wrapper .input input {
+.color-input-wrapper input {
   width: 171px;
   border-right: none;
 }
 
-.color-input-wrapper .label {
+.color-input-wrapper .color-swatch {
   border-radius: 30px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -22,7 +22,7 @@
   box-shadow: 0 3px 4px 0px #d4d4d5c9;
 }
 
-.color-input-wrapper.with-picker .label {
+.color-input-wrapper.with-picker .color-swatch {
   box-shadow: none;
 }
 
@@ -37,16 +37,4 @@
   overflow: hidden;
   padding-bottom: 10px;
   z-index: 1;
-}
-
-.flexbox-fix:last-child {
-  display: none !important;
-}
-
-.flexbox-fix:first-child > div:first-child {
-  display: none;
-}
-
-.saturation-black {
-  height: calc(100% + 1px); /* I have no fucking idea, CSS */
 }
