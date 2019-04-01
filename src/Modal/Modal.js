@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import qs from "qs";
 import classnames from "classnames";
 import {
   Modal,
@@ -126,9 +127,18 @@ class TheModal extends Component {
               <Button circular icon="download" onClick={this.download} />
             </div>
             <div id="preview-wrapper" className={s["preview-wrapper"]}>
-              {loading
+              <iframe
+                id="preview"
+                className="preview"
+                title="preview"
+                src={`/adaptation.html?${new URLSearchParams(
+                  this.state.config
+                ).toString()}`}
+                frameBorder="0"
+              />
+              {/* {loading
                 ? this.renderLoadingIndicator()
-                : this.props.generate(this.state.config)}
+                : this.props.generate(this.state.config)} */}
             </div>
           </div>
         </Modal.Content>
