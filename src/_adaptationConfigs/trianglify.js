@@ -1,7 +1,8 @@
 export default {
+  title: "Trianglify",
+  fileName: "trianglify",
   author: "qrohlf",
   authorLink: "https://qrohlf.com/",
-  title: "Trianglify",
   thumbs: ["/thumbs/trianglify/1.png"],
   config: [
     {

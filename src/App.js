@@ -9,14 +9,14 @@ import MiniCard from "./MiniCard/MiniCard";
 import "./global.overrides.css";
 import s from "./App.module.css";
 
-import linearGradient from "./_generations/linear_gradient";
-// import octagonalStar from "./_generations/octagonal_star";
-// import reactKawaii from "./_generations/react_kawaii";
-import trianglify from "./_generations/trianglify";
-import particles from "./_generations/particles";
-import bubbles from "./_generations/bubbles";
-// import tunnel from "./_generations/tunnel";
-// import waves from "./_generations/waves";
+import linearGradient from "./_adaptationConfigs/linear_gradient";
+// import octagonalStar from "./_adaptationConfigs/octagonal_star";
+// import reactKawaii from "./_adaptationConfigs/react_kawaii";
+import trianglify from "./_adaptationConfigs/trianglify";
+import particles from "./_adaptationConfigs/particles";
+import bubbles from "./_adaptationConfigs/bubbles";
+// import tunnel from "./_adaptationConfigs/tunnel";
+// import waves from "./_adaptationConfigs/waves";
 
 class App extends Component {
   render() {

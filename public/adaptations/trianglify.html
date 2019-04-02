@@ -1,0 +1,29 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
+</head>
+<body>
+  <div id="preview"></div>
+  <script>
+    function render(config) {
+      var oldPreview = document.querySelector("#preview");
+      if (oldPreview) {
+        window.document.body.removeChild(oldPreview);
+      }
+      var preview = document.createElement("div");
+      preview.id = "preview";
+      preview.classList.add("preview");
+      var pattern = window.Trianglify({
+        width: window.innerWidth,
+        height: window.innerHeight,
+        cell_size: config.cell_size,
+        variance: config.variance / 100,
+        x_colors: config.palette
+      });
+      preview.appendChild(pattern.canvas());
+      window.document.body.appendChild(preview);
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/2.0.0/trianglify.min.js"></script>
+  <script src="_common.js"></script>
+</body>

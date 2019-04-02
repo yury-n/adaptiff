@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import qs from "qs";
 import classnames from "classnames";
 import {
   Modal,
@@ -10,12 +9,12 @@ import {
   Icon,
   Checkbox
 } from "semantic-ui-react";
-import html2canvas from "html2canvas";
 import ColorInput from "../ColorInput/ColorInput";
 import PaletteDropdown from "../PaletteDropdown/PaletteDropdown";
 import Range from "../Range/Range";
 import TextConfig from "./TextConfig/TextConfig";
 import InsertedText from "./InsertedText/InsertedText";
+import IframePreview from "./IframePreview/IframePreview";
 
 import "rc-slider/assets/index.css";
 import "./global.overrides.css";
@@ -24,6 +23,7 @@ import s from "./Modal.module.css";
 class TheModal extends Component {
   constructor(props) {
     super(props);
+    this.previewIframeRef = React.createRef();
     const state = {
       loading: false,
       paused: false,
@@ -41,6 +41,9 @@ class TheModal extends Component {
   }
   componentDidMount() {
     this.loadExternalScripts();
+  }
+  componentDidUpdate() {
+    this.postConfigToIframe();
   }
   loadExternalScripts = () => {
     if (this.props.externalScripts) {
@@ -127,14 +130,11 @@ class TheModal extends Component {
               <Button circular icon="download" onClick={this.download} />
             </div>
             <div id="preview-wrapper" className={s["preview-wrapper"]}>
-              <iframe
-                id="preview"
-                className="preview"
-                title="preview"
-                src={`/adaptation.html?${new URLSearchParams(
-                  this.state.config
-                ).toString()}`}
-                frameBorder="0"
+              <IframePreview
+                fileName={this.props.fileName}
+                ref={this.previewIframeRef}
+                onLoad={this.postConfigToIframe}
+                className={s["preview"]}
               />
               {/* {loading
                 ? this.renderLoadingIndicator()
@@ -253,6 +253,10 @@ class TheModal extends Component {
     );
   };
 
+  postConfigToIframe = () => {
+    this.previewIframeRef.current.contentWindow.postMessage(this.state.config);
+  };
+
   renderLoadingIndicator() {
     return (
       <div className="modal-loading-indicator">
@@ -281,15 +285,15 @@ class TheModal extends Component {
   };
 
   download = () => {
-    html2canvas(document.getElementById("preview")).then(function(canvas) {
-      const link = document.createElement("a");
-      var image = canvas
-        .toDataURL("image/png")
-        .replace("image/png", "image/octet-stream");
-      link.download = "download.png";
-      link.setAttribute("href", image);
-      link.click();
-    });
+    // html2canvas(document.getElementById("preview")).then(function(canvas) {
+    //   const link = document.createElement("a");
+    //   var image = canvas
+    //     .toDataURL("image/png")
+    //     .replace("image/png", "image/octet-stream");
+    //   link.download = "download.png";
+    //   link.setAttribute("href", image);
+    //   link.click();
+    // });
   };
 }
 

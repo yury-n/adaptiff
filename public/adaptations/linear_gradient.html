@@ -1,0 +1,28 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
+</head>
+<body>
+  <div id="preview"></div>
+  <script>
+    function render(config) {
+      let palette = config.palette;
+      let angle = config.angle;
+      let direction = config.direction;
+
+      let background;
+      if (direction === "custom_angle") {
+        background = `linear-gradient(${angle}deg, ${palette[0]}, ${
+          palette[1]
+        })`;
+      } else {
+        background = `linear-gradient(to ${direction}, ${palette[0]}, ${
+          palette[1]
+        })`;
+      }
+      var preview = document.getElementById("preview");
+      preview.style.background = background;
+    }
+  </script>
+  <script src="_common.js"></script>
+</body>
