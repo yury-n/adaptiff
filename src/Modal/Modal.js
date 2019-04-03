@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import classnames from "classnames";
 import {
   Modal,
   Input,
@@ -24,9 +23,9 @@ class TheModal extends Component {
   constructor(props) {
     super(props);
     this.previewIframeRef = React.createRef();
+    // for config.refreshIframe = true
+    this.iframeStateVersion = 0;
     const state = {
-      loading: false,
-      paused: false,
       config: {
         palette: this.props.palettes && this.props.palettes[0]
       }
@@ -34,51 +33,17 @@ class TheModal extends Component {
     this.props.config.forEach(config => {
       state.config[config.key] = config.defaultValue;
     });
-    if (this.props.externalScripts) {
-      state.loading = true;
-    }
     this.state = state;
   }
-  componentDidMount() {
-    this.loadExternalScripts();
-  }
   componentDidUpdate() {
-    this.postConfigToIframe();
-  }
-  loadExternalScripts = () => {
-    if (this.props.externalScripts) {
-      const promises = this.props.externalScripts.map(externalScript =>
-        this.loadScript(externalScript)
-      );
-      Promise.all(promises).then(() => {
-        this.setState({ loading: false });
-      });
+    if (!this.props.refreshIframe) {
+      this.postConfigToIframe();
     }
-  };
-  async loadScript(externalScript) {
-    return new Promise(resolve => {
-      const aScript = document.createElement("script");
-      aScript.type = "text/javascript";
-      aScript.src = externalScript;
-      document.head.appendChild(aScript);
-      aScript.onload = () => {
-        resolve();
-      };
-    });
-  }
-  componentWillUnmount() {
-    this.props.degenerate && this.props.degenerate();
   }
   render() {
-    const { title, author, authorLink } = this.props;
-    const { loading } = this.state;
+    const { title, fileName, refreshIframe, author, authorLink } = this.props;
     return (
-      <Modal
-        className={classnames(loading && s["modal-loading"])}
-        open
-        closeIcon
-        onClose={this.props.onClose}
-      >
+      <Modal open closeIcon onClose={this.props.onClose}>
         <Modal.Content className="modal-content">
           <div className={s["modal-sidebar"]}>
             <div className={s["title-container"]}>
@@ -131,14 +96,12 @@ class TheModal extends Component {
             </div>
             <div id="preview-wrapper" className={s["preview-wrapper"]}>
               <IframePreview
-                fileName={this.props.fileName}
+                version={refreshIframe ? this.iframeStateVersion++ : 1}
+                fileName={fileName}
                 ref={this.previewIframeRef}
                 onLoad={this.postConfigToIframe}
                 className={s["preview"]}
               />
-              {/* {loading
-                ? this.renderLoadingIndicator()
-                : this.props.generate(this.state.config)} */}
             </div>
           </div>
         </Modal.Content>
@@ -254,46 +217,16 @@ class TheModal extends Component {
   };
 
   postConfigToIframe = () => {
-    this.previewIframeRef.current.contentWindow.postMessage(this.state.config);
-  };
-
-  renderLoadingIndicator() {
-    return (
-      <div className="modal-loading-indicator">
-        <div class="sk-cube-grid">
-          <div class="sk-cube sk-cube1" />
-          <div class="sk-cube sk-cube2" />
-          <div class="sk-cube sk-cube3" />
-          <div class="sk-cube sk-cube4" />
-          <div class="sk-cube sk-cube5" />
-          <div class="sk-cube sk-cube6" />
-          <div class="sk-cube sk-cube7" />
-          <div class="sk-cube sk-cube8" />
-          <div class="sk-cube sk-cube9" />
-        </div>
-      </div>
-    );
-  }
-
-  togglePause = () => {
-    const { paused } = this.state;
-    if (!paused) {
-      this.props.pause();
-    } else {
-      this.props.unpause();
-    }
+    this.previewIframeRef.current.contentWindow.postMessage({
+      type: "render",
+      payload: this.state.config
+    });
   };
 
   download = () => {
-    // html2canvas(document.getElementById("preview")).then(function(canvas) {
-    //   const link = document.createElement("a");
-    //   var image = canvas
-    //     .toDataURL("image/png")
-    //     .replace("image/png", "image/octet-stream");
-    //   link.download = "download.png";
-    //   link.setAttribute("href", image);
-    //   link.click();
-    // });
+    this.previewIframeRef.current.contentWindow.postMessage({
+      type: "download"
+    });
   };
 }
 

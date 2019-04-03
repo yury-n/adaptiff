@@ -31,28 +31,5 @@ export default {
     ["#fffde5", "#78c679", "#1c4529"],
     ["#fdf7fb", "#d0d1e6", "#2070b0", "#0d3858"],
     ["#9f2f42", "#fde090", "#fefbbf", "#e0f3f8", "#5d4fa2"]
-  ],
-  externalScripts: [
-    "https://cdnjs.cloudflare.com/ajax/libs/trianglify/2.0.0/trianglify.min.js"
-  ],
-  generate: ({ cell_size, variance, palette }) => {
-    const previewWrapper = document.querySelector("#preview-wrapper");
-    const oldPreview = document.querySelector("#preview");
-    if (oldPreview) {
-      previewWrapper.removeChild(oldPreview);
-    }
-    const preview = document.createElement("div");
-    preview.id = "preview";
-    preview.classList.add("preview");
-    const pattern = window.Trianglify({
-      width: previewWrapper.offsetWidth,
-      height: previewWrapper.offsetHeight,
-      cell_size,
-      variance: variance / 100,
-      x_colors: palette
-    });
-    preview.appendChild(pattern.canvas());
-    previewWrapper.appendChild(preview);
-    return null;
-  }
+  ]
 };

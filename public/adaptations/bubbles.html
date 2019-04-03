@@ -1,0 +1,49 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
+</head>
+<body>
+  <script>
+    let lastConfig;
+    let paused = false;
+    function adaptiffRender(config) {
+      lastConfig = config;
+      var oldPreview = document.querySelector("#preview");
+      if (oldPreview) {
+        window.document.body.removeChild(oldPreview);
+        window.destroyScene();
+      }
+      const preview = document.createElement("canvas");
+      preview.id = "preview";
+      window.document.body.appendChild(preview);
+
+      window.palette = config.palette;
+      window.castShadow = config.castShadow;
+
+      window.createBaseStructure();
+      window.createInstance();
+      window.animate();
+    }
+    function adaptiffCanvasClick() {
+      if (!paused) {
+        window.pause = true;
+      } else {
+        // ??
+      }
+    }
+    function adaptiffDownload() {
+      var link = document.createElement("a");
+      var image = document
+        .querySelector("#preview")
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      link.download = "download.png";
+      link.setAttribute("href", image);
+      link.click();
+    }
+  </script>
+  <script src="https://unpkg.com/three@0.100.0/build/three.js"></script>
+  <script src="https://unpkg.com/three.phenomenon@1.0.0/dist/three.phenomenon.umd.js"></script>
+  <script src="bubbles_phenomenon.js"></script>
+  <script src="_common.js"></script>
+</body>

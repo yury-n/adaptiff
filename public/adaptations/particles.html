@@ -1,0 +1,52 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
+</head>
+<body>
+  <script>
+    let lastConfig;
+    let paused = false;
+    function adaptiffRender(config) {
+      lastConfig = config;
+      var oldPreview = document.querySelector("#preview");
+      if (oldPreview) {
+        window.document.body.removeChild(oldPreview);
+        window.particles.destroy();
+      }
+      const preview = document.createElement("canvas");
+      preview.id = "preview";
+      preview.style.backgroundColor = config.palette[0];
+      window.document.body.appendChild(preview);
+      preview.addEventListener("click", adaptiffCanvasClick);
+
+      window.particles = window.Particles.init({
+        selector: "#preview",
+        color: config.palette.slice(1, config.palette.length),
+        maxParticles: config.maxParticles,
+        sizeVariations: config.sizeVariations,
+        connectParticles: true
+      });
+    }
+    function adaptiffCanvasClick() {
+      if (!paused) {
+        window.particles.pauseAnimation();
+        paused = true;
+      } else {
+        adaptiffRender(lastConfig);
+        paused = false;
+      }
+    }
+    function adaptiffDownload() {
+      var link = document.createElement("a");
+      var image = document
+        .querySelector("#preview")
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      link.download = "download.png";
+      link.setAttribute("href", image);
+      link.click();
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
+  <script src="_common.js"></script>
+</body>

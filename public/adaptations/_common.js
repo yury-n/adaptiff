@@ -1,7 +1,11 @@
 window.addEventListener(
   "message",
   function(event) {
-    window.render(event.data);
+    if (event.data.type === "render") {
+      window.adaptiffRender(event.data.payload);
+    } else if (event.data.type === "download") {
+      window.adaptiffDownload();
+    }
   },
   false
 );

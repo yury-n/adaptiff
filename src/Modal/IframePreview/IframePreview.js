@@ -7,7 +7,7 @@ export default React.memo(
       ref={ref}
       className={props.className}
       title="preview"
-      src={`adaptations/${props.fileName}.html`}
+      src={`adaptations/${props.fileName}.html?v=${props.version}`}
       frameBorder="0"
       onLoad={props.onLoad}
     />

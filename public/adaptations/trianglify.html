@@ -5,14 +5,12 @@
 <body>
   <div id="preview"></div>
   <script>
-    function render(config) {
+    function adaptiffRender(config) {
       var oldPreview = document.querySelector("#preview");
       if (oldPreview) {
         window.document.body.removeChild(oldPreview);
       }
-      var preview = document.createElement("div");
-      preview.id = "preview";
-      preview.classList.add("preview");
+
       var pattern = window.Trianglify({
         width: window.innerWidth,
         height: window.innerHeight,
@@ -20,8 +18,20 @@
         variance: config.variance / 100,
         x_colors: config.palette
       });
-      preview.appendChild(pattern.canvas());
-      window.document.body.appendChild(preview);
+      var canvas = pattern.canvas();
+      canvas.id = "preview";
+
+      window.document.body.appendChild(canvas);
+    }
+    function adaptiffDownload() {
+      var link = document.createElement("a");
+      var image = document
+        .querySelector("#preview")
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      link.download = "download.png";
+      link.setAttribute("href", image);
+      link.click();
     }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/2.0.0/trianglify.min.js"></script>
