@@ -3,18 +3,26 @@
   <link rel="stylesheet" href="_common.css" />
 </head>
 <body>
+  <div id="preview"></div>
+  <script src="https://unpkg.com/three@0.100.0/build/three.js"></script>
+  <script src="https://unpkg.com/three.phenomenon@1.0.0/dist/three.phenomenon.umd.js"></script>
+  <script src="bubbles_phenomenon.js"></script>
+  <script src="_common.js"></script>
   <script>
     let lastConfig;
-    let paused = false;
-    function adaptiffRender(config) {
+    let initialized = false;
+    // debug: aff_render();
+    function aff_render(config) {
+      // debug: config = JSON.parse();
       lastConfig = config;
       var oldPreview = document.querySelector("#preview");
       if (oldPreview) {
         window.document.body.removeChild(oldPreview);
-        window.destroyScene();
+        initialized && window.destroyScene();
       }
       const preview = document.createElement("canvas");
       preview.id = "preview";
+      preview.addEventListener("click", aff_canvasClick);
       window.document.body.appendChild(preview);
 
       window.palette = config.palette;
@@ -23,15 +31,17 @@
       window.createBaseStructure();
       window.createInstance();
       window.animate();
+      initialized = true;
     }
-    function adaptiffCanvasClick() {
-      if (!paused) {
-        window.pause = true;
+    function aff_canvasClick() {
+      if (!window.paused) {
+        window.paused = true;
       } else {
-        // ??
+        window.paused = false;
+        window.animate();
       }
     }
-    function adaptiffDownload() {
+    function aff_download() {
       var link = document.createElement("a");
       var image = document
         .querySelector("#preview")
@@ -42,8 +52,4 @@
       link.click();
     }
   </script>
-  <script src="https://unpkg.com/three@0.100.0/build/three.js"></script>
-  <script src="https://unpkg.com/three.phenomenon@1.0.0/dist/three.phenomenon.umd.js"></script>
-  <script src="bubbles_phenomenon.js"></script>
-  <script src="_common.js"></script>
 </body>

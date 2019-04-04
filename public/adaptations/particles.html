@@ -6,7 +6,7 @@
   <script>
     let lastConfig;
     let paused = false;
-    function adaptiffRender(config) {
+    function aff_render(config) {
       lastConfig = config;
       var oldPreview = document.querySelector("#preview");
       if (oldPreview) {
@@ -16,8 +16,8 @@
       const preview = document.createElement("canvas");
       preview.id = "preview";
       preview.style.backgroundColor = config.palette[0];
+      preview.addEventListener("click", aff_canvasClick);
       window.document.body.appendChild(preview);
-      preview.addEventListener("click", adaptiffCanvasClick);
 
       window.particles = window.Particles.init({
         selector: "#preview",
@@ -27,16 +27,16 @@
         connectParticles: true
       });
     }
-    function adaptiffCanvasClick() {
+    function aff_canvasClick() {
       if (!paused) {
         window.particles.pauseAnimation();
         paused = true;
       } else {
-        adaptiffRender(lastConfig);
+        aff_render(lastConfig);
         paused = false;
       }
     }
-    function adaptiffDownload() {
+    function aff_download() {
       var link = document.createElement("a");
       var image = document
         .querySelector("#preview")

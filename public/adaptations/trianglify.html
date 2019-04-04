@@ -5,7 +5,7 @@
 <body>
   <div id="preview"></div>
   <script>
-    function adaptiffRender(config) {
+    function aff_render(config) {
       var oldPreview = document.querySelector("#preview");
       if (oldPreview) {
         window.document.body.removeChild(oldPreview);
@@ -23,7 +23,7 @@
 
       window.document.body.appendChild(canvas);
     }
-    function adaptiffDownload() {
+    function aff_download() {
       var link = document.createElement("a");
       var image = document
         .querySelector("#preview")

@@ -2,9 +2,9 @@ window.addEventListener(
   "message",
   function(event) {
     if (event.data.type === "render") {
-      window.adaptiffRender(event.data.payload);
+      window.aff_render(event.data.payload);
     } else if (event.data.type === "download") {
-      window.adaptiffDownload();
+      window.aff_download();
     }
   },
   false

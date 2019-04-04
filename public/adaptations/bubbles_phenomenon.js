@@ -241,7 +241,8 @@ function createBaseStructure() {
 
   renderer = new THREE.WebGLRenderer({
     antialias: true,
-    canvas: document.querySelector("#preview")
+    canvas: document.querySelector("#preview"),
+    preserveDrawingBuffer: true
   });
 
   renderer.shadowMap.enabled = true;
@@ -289,7 +290,7 @@ function createBaseStructure() {
 }
 
 function animate() {
-  if (window.pause) {
+  if (window.paused) {
     return;
   }
   requestAnimationFrame(animate);

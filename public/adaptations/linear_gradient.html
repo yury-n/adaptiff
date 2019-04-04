@@ -5,7 +5,7 @@
 <body>
   <div id="preview"></div>
   <script>
-    function adaptiffRender(config) {
+    function aff_render(config) {
       let palette = config.palette;
       let angle = config.angle;
       let direction = config.direction;
@@ -23,7 +23,7 @@
       var preview = document.getElementById("preview");
       preview.style.background = background;
     }
-    function adaptiffDownload() {
+    function aff_download() {
       html2canvas(document.getElementById("preview")).then(function(canvas) {
         const link = document.createElement("a");
         var image = canvas
