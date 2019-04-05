@@ -27,7 +27,7 @@ class PaletteDropdown extends Component {
             )}
           >
             {selectedPalette.map(color => (
-              <div className={s["mini-color"]} style={{ background: color }} />
+              <div className={s["mini-color"]} style={{ background: color }} key={color} />
             ))}
           </div>
           <Dropdown
@@ -43,6 +43,7 @@ class PaletteDropdown extends Component {
                 <div className={s["mini-color-container"]}>
                   {palette.map(color => (
                     <div
+                      key={color}
                       className={s["mini-color"]}
                       style={{ background: color }}
                     />
