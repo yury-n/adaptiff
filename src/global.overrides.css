@@ -19,6 +19,12 @@ a:hover {
   text-decoration: underline;
 }
 
+#counter {
+  position: absolute;
+  left: -1000px;
+  top: -1000px;
+}
+
 .ui.selection.dropdown,
 .ui.selection.dropdown:hover,
 .ui.input > input,
