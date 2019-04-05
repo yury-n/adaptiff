@@ -115,10 +115,8 @@ class TheModal extends Component {
     return (
       <div className={s["config-container"]}>
         {props.config.map(config => {
-          if (config.condition) {
-            if (state.config[config.condition.key] !== config.condition.value) {
-              return null;
-            }
+          if (config.condition && state.config[config.condition.key] !== config.condition.value) {
+            return null
           }
           const label = <label className="form-label">{config.text}</label>;
           let control;
@@ -172,11 +170,12 @@ class TheModal extends Component {
             default:
               control = null;
           }
+
           return (
-            <>
+            <div key={config.key}>
               {label}
               {control}
-            </>
+            </div>
           );
         })}
         {props.palettes && <label className="form-label">Palette</label>}
@@ -192,6 +191,7 @@ class TheModal extends Component {
         {state.config.palette &&
           state.config.palette.map((color, index) => (
             <ColorInput
+              key={`pallete-${color}`}
               color={color}
               onChange={value =>
                 this.setState({
