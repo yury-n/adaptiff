@@ -1,13 +1,10 @@
-let particles;
-
 export default {
   title: "Connected particles",
   fileName: "particles",
   author: "marcbruederlin",
   authorLink: "https://github.com/marcbruederlin",
   thumbs: ["/thumbs/particles/1.png"],
-  config: [
-    {
+  config: [{
       key: "maxParticles",
       text: "Number of particles",
       type: "range",
