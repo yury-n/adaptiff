@@ -41,7 +41,7 @@ class App extends Component {
             <MiniCard {...bubbles} />
             <MiniCard {...perfectPurple} />
             <MiniCard {...wallPattern} />
-            <MiniCard {...strings25} showModal />
+            <MiniCard {...strings25} />
           </Card.Group>
         </div>
         <Footer />
