@@ -1,0 +1,56 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
+</head>
+<body>
+  <div id="preview"></div>
+  <script src="https://unpkg.com/three@0.100.0/build/three.js"></script>
+  <script src="perfect_purple.js"></script>
+  <script src="_common.js"></script>
+  <script>
+    let lastConfig;
+    let initialized = false;
+    // debug: aff_render();
+    function aff_render(config) {
+      // debug: config = JSON.parse();
+      lastConfig = config;
+      var oldPreview = document.querySelector("#preview");
+      if (oldPreview) {
+        window.document.body.removeChild(oldPreview);
+        initialized && window.destroyScene();
+      }
+      const preview = document.createElement("canvas");
+      preview.id = "preview";
+      preview.addEventListener("click", aff_canvasClick);
+      window.document.body.appendChild(preview);
+
+      window.palette = config.palette;
+      window.metalness = config.metalness;
+      window.size = config.size;
+      window.weight = config.weight;
+      window.distortion = config.distortion;
+
+      window.create();
+      initialized = true;
+    }
+
+    function aff_canvasClick() {
+      if (!window.isPaused) {
+        window.isPaused = true;
+      } else {
+        window.isPaused = false;
+      }
+    }
+
+    function aff_download() {
+      var link = document.createElement("a");
+      var image = document
+        .querySelector("#preview")
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      link.download = "download.png";
+      link.setAttribute("href", image);
+      link.click();
+    }
+  </script>
+</body>

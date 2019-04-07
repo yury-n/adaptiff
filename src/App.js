@@ -15,6 +15,7 @@ import linearGradient from "./_adaptationConfigs/linear_gradient";
 import trianglify from "./_adaptationConfigs/trianglify";
 import particles from "./_adaptationConfigs/particles";
 import bubbles from "./_adaptationConfigs/bubbles";
+import perfectPurple from "./_adaptationConfigs/perfect_purple";
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
 
@@ -35,6 +36,7 @@ class App extends Component {
             <MiniCard {...trianglify} />
             <MiniCard {...particles} />
             <MiniCard {...bubbles} />
+            <MiniCard {...perfectPurple} />
           </Card.Group>
         </div>
         <Footer />
