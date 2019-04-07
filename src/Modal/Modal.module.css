@@ -109,6 +109,9 @@
   border-top-left-radius: 0.28571429rem;
   border-bottom-left-radius: 0.28571429rem;
   box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-shrink: 0;
 }
 
 .modal-sidebar .dropdown {
@@ -125,8 +128,6 @@
   padding-bottom: 50px;
   border-radius: 0 4px 0 0;
   height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .title {
