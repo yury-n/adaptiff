@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import MiniCard from "../MiniCard/MiniCard";
-import wallPattern from "../_adaptationConfigs/wall_pattern";
+import wallPattern from "../_adaptationConfigs/wallPattern";
 import { Button, Icon } from "semantic-ui-react";
 
 import s from "./Hero.module.css";

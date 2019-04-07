@@ -115,8 +115,11 @@ class TheModal extends Component {
     return (
       <div className={s["config-container"]}>
         {props.config.map(config => {
-          if (config.condition && state.config[config.condition.key] !== config.condition.value) {
-            return null
+          if (
+            config.condition &&
+            state.config[config.condition.key] !== config.condition.value
+          ) {
+            return null;
           }
           const label = <label className="form-label">{config.text}</label>;
           let control;
@@ -217,7 +220,6 @@ class TheModal extends Component {
   };
 
   postConfigToIframe = () => {
-    console.log(">>>", JSON.stringify(this.state.config));
     this.previewIframeRef.current.contentWindow.postMessage({
       type: "render",
       payload: this.state.config
