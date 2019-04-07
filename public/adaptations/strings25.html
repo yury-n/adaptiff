@@ -1,0 +1,100 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
+</head>
+<body>
+  <script src="_common.js"></script>
+  <script>
+    var backgroundColor = "#ccc";
+    var strokeColor = "#000";
+    var oldCanvas = null;
+    var shapes = [];
+    function aff_render(config) {
+      if (oldCanvas) {
+        remove();
+        shapes = [];
+        // document.body.removeChild(oldCanvas.canvas);
+      }
+      backgroundColor = config.palette[0];
+      strokeColor = config.palette[1];
+      var s = document.createElement("script");
+      s.type = "text/javascript";
+      s.src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/p5.min.js";
+      document.body.append(s);
+    }
+    function aff_download() {
+      var link = document.createElement("a");
+      var image = document
+        .querySelector("#preview")
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      link.download = "download.png";
+      link.setAttribute("href", image);
+      link.click();
+    }
+
+    function vmin(viewport_percent) {
+      var viewport_min_size =
+        windowWidth > windowHeight ? windowHeight : windowWidth;
+      viewport_min_size -= viewport_min_size * ((100 - viewport_percent) / 100);
+      return Math.floor(viewport_min_size);
+    }
+
+    function setup() {
+      // createCanvas(1400, 1400);
+      oldCanvas = createCanvas(vmin(80), vmin(80));
+      colorMode(HSB, 360);
+      init();
+      noFill();
+      stroke(strokeColor);
+      noLoop();
+    }
+
+    function init() {
+      var size = 50;
+      while (size <= width - width / 1.5) {
+        shapes.push(buildShape(size));
+        size += 10;
+      }
+    }
+
+    function buildShape(size) {
+      var shape = [];
+      for (var i = 0; i <= TAU; i += 0.3) {
+        shape.push({ x: size * sin(i), y: size * cos(i) });
+      }
+      return shape;
+    }
+
+    function draw() {
+      background(backgroundColor);
+      translate(width / 2, height / 2);
+
+      for (var i = 0; i < shapes.length; i++) {
+        beginShape();
+        curveVertex(
+          shapes[i][shapes[i].length - 1].x,
+          shapes[i][shapes[i].length - 1].y
+        );
+        for (var j = 0; j < shapes[i].length; j++) {
+          var range = i * 0.1 + 0.1;
+          var offsetX = map(random([-1, 1]), -1, 1, -range, range);
+          var offsetY = map(random([-1, 1]), -1, 1, -range, range);
+          var strength = floor(random(50, 200));
+
+          for (var k = 0; k < strength; k++) {
+            offsetX = map(random([-1, 1]), -1, 1, -range, range);
+            offsetY = map(random([-1, 1]), -1, 1, -range, range);
+            shapes[i][j].x += offsetX;
+            shapes[i][j].y += offsetY;
+          }
+
+          curveVertex(shapes[i][j].x, shapes[i][j].y);
+        }
+        curveVertex(shapes[i][0].x, shapes[i][0].y);
+        curveVertex(shapes[i][1].x, shapes[i][1].y);
+        endShape();
+      }
+    }
+  </script>
+</body>

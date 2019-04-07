@@ -9,12 +9,14 @@ import MiniCard from "./MiniCard/MiniCard";
 import "./global.overrides.css";
 import s from "./App.module.css";
 
-import linearGradient from "./_adaptationConfigs/linear_gradient";
+import linearGradient from "./_adaptationConfigs/linearGradient";
 // import octagonalStar from "./_adaptationConfigs/octagonal_star";
 // import reactKawaii from "./_adaptationConfigs/react_kawaii";
 import trianglify from "./_adaptationConfigs/trianglify";
 import particles from "./_adaptationConfigs/particles";
 import bubbles from "./_adaptationConfigs/bubbles";
+import wallPattern from "./_adaptationConfigs/wallPattern";
+import strings25 from "./_adaptationConfigs/strings25";
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
 
@@ -35,6 +37,8 @@ class App extends Component {
             <MiniCard {...trianglify} />
             <MiniCard {...particles} />
             <MiniCard {...bubbles} />
+            <MiniCard {...wallPattern} />
+            <MiniCard {...strings25} />
           </Card.Group>
         </div>
         <Footer />
