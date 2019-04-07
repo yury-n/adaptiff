@@ -35,11 +35,7 @@
     }
 
     function aff_canvasClick() {
-      if (!window.isPaused) {
-        window.isPaused = true;
-      } else {
-        window.isPaused = false;
-      }
+        window.isPaused = !window.isPaused;     
     }
 
     function aff_download() {
