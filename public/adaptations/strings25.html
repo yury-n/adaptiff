@@ -33,17 +33,8 @@
       link.click();
     }
 
-    function vmin(viewport_percent) {
-      var viewport_min_size =
-        windowWidth > windowHeight ? windowHeight : windowWidth;
-      viewport_min_size -= viewport_min_size * ((100 - viewport_percent) / 100);
-      return Math.floor(viewport_min_size);
-    }
-
     function setup() {
-      // createCanvas(1400, 1400);
-      oldCanvas = createCanvas(vmin(80), vmin(80));
-      colorMode(HSB, 360);
+      oldCanvas = createCanvas(window.innerWidth, window.innerHeight);
       init();
       noFill();
       stroke(strokeColor);
@@ -51,8 +42,9 @@
     }
 
     function init() {
-      var size = 50;
-      while (size <= width - width / 1.5) {
+      var size = width * 0.05; // TODO: make configurable
+      while (size <= width * 0.2) {
+        // TODO: ^
         shapes.push(buildShape(size));
         size += 10;
       }

@@ -194,7 +194,7 @@ class TheModal extends Component {
         {state.config.palette &&
           state.config.palette.map((color, index) => (
             <ColorInput
-              key={`pallete-${color}`}
+              key={`color-${index}`}
               color={color}
               onChange={value =>
                 this.setState({

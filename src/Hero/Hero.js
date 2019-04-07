@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import MiniCard from "../MiniCard/MiniCard";
-import wallPattern from "../_adaptationConfigs/wallPattern";
+import hero from "../_adaptationConfigs/hero";
 import { Button, Icon } from "semantic-ui-react";
 
 import s from "./Hero.module.css";
@@ -17,11 +17,7 @@ export default () => (
     </div>
     <div className={s["hero-preview-and-dots"]}>
       <div className={s["hero-preview"]}>
-        <MiniCard
-          mode="hero"
-          className={s["hero-preview-card"]}
-          {...wallPattern}
-        />
+        <MiniCard mode="hero" className={s["hero-preview-card"]} {...hero} />
         <Button icon className={s["edit-button"]} title="edit">
           <Icon name="pencil" />
         </Button>
