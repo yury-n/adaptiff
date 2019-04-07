@@ -175,10 +175,10 @@ class TheModal extends Component {
           }
 
           return (
-            <div key={config.key}>
+            <React.Fragment key={config.key}>
               {label}
               {control}
-            </div>
+            </React.Fragment>
           );
         })}
         {props.palettes && <label className="form-label">Palette</label>}
