@@ -18,6 +18,7 @@ import bubbles from "./_adaptationConfigs/bubbles";
 import perfectPurple from "./_adaptationConfigs/perfect_purple";
 import wallPattern from "./_adaptationConfigs/wallPattern";
 import strings25 from "./_adaptationConfigs/strings25";
+import generateArt from "./_adaptationConfigs/generateArt";
 
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
@@ -42,6 +43,7 @@ class App extends Component {
             <MiniCard {...perfectPurple} />
             <MiniCard {...wallPattern} />
             <MiniCard {...strings25} />
+            <MiniCard {...generateArt} />
           </Card.Group>
         </div>
         <Footer />

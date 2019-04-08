@@ -1,0 +1,72 @@
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="_common.css" />
+	<link rel="stylesheet" href="generateArt.css" />
+</head>
+<body>
+	<div id="preview"></div>
+	<script src="./generate_art.js"></script>
+	<script src="_common.js"></script>
+	<script>
+		let button = null;
+		let helper = null;
+		let lastConfig;
+		let initialized = false;
+		// debug: aff_render();
+		function aff_render(config) {
+			// debug: config = JSON.parse();
+			lastConfig = config;
+			var oldPreview = document.querySelector("#preview");
+
+			if (oldPreview) {
+				window.document.body.removeChild(oldPreview);
+			}
+
+			const preview = document.createElement("canvas");
+
+			preview.id = "preview";
+
+			if(!localStorage.getItem('isHelperAppeared')) {
+				const helper = createHelper();
+				window.document.body.appendChild(helper);
+				localStorage.setItem('isHelperAppeared', 'yeap!');
+			}
+
+			window.document.body.appendChild(preview);
+
+			window.shape = config.shape;
+			window.hasColor = config.hasColor;
+
+			window.create();
+			initialized = true;
+		}
+
+		function closeHelper() {
+			helper.className = 'hidden';
+		}
+
+		function createHelper() {
+			helper = document.createElement("div");
+
+			button = document.createElement("button");
+			button.innerText = "Let's go!";
+			helper.className = "text-helper";
+			helper.innerText = "Click and create your art!";
+			helper.appendChild(button);
+
+			button.addEventListener("click", closeHelper);
+			return helper;
+		}
+
+		function aff_download() {
+			var link = document.createElement("a");
+			var image = document
+				.querySelector("#preview")
+				.toDataURL("image/png")
+				.replace("image/png", "image/octet-stream");
+			link.download = "download.png";
+			link.setAttribute("href", image);
+			link.click();
+		}
+	</script>
+</body>
