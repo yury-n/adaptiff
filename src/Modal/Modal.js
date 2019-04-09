@@ -22,7 +22,7 @@ import s from "./Modal.module.css";
 class TheModal extends Component {
   constructor(props) {
     super(props);
-    this.previewIframeRef = React.createRef();
+    this.iframeRef = React.createRef();
     // for config.refreshIframe = true
     this.iframeStateVersion = 0;
     const state = {
@@ -34,6 +34,17 @@ class TheModal extends Component {
       state.config[config.key] = config.defaultValue;
     });
     this.state = state;
+
+    this.iframeMaxWidth = null;
+    this.iframeMaxHeight = null;
+  }
+  componentDidMount() {
+    this.iframeMaxWidth = this.iframeRef.current.offsetWidth;
+    this.iframeMaxHeight = this.iframeRef.current.offsetHeight;
+    this.setState({
+      iframeWidth: this.iframeMaxWidth,
+      iframeHeight: this.iframeMaxHeight
+    });
   }
   componentDidUpdate() {
     if (!this.props.refreshIframe) {
@@ -42,6 +53,16 @@ class TheModal extends Component {
   }
   render() {
     const { title, fileName, refreshIframe, author, authorLink } = this.props;
+    const { iframeWidth, iframeHeight } = this.state;
+    let scaleToFitWidth = 1;
+    let scaleToFitHeight = 1;
+    if (iframeWidth && iframeWidth > this.iframeMaxWidth) {
+      scaleToFitWidth = this.iframeMaxWidth / iframeWidth;
+    }
+    if (iframeHeight && iframeHeight > this.iframeMaxHeight) {
+      scaleToFitHeight = this.iframeMaxHeight / iframeHeight;
+    }
+    const scaleToFullyFit = Math.min(scaleToFitWidth, scaleToFitHeight);
     return (
       <Modal open closeIcon onClose={this.props.onClose}>
         <Modal.Content className="modal-content">
@@ -88,19 +109,35 @@ class TheModal extends Component {
             <div className={s["config-over-preview"]}>
               <Button circular icon="plus" />
               <div className={s["dimensions"]}>
-                <Input value="2000" className={s["dimension-input"]} />
+                <Input
+                  defaultValue={iframeWidth}
+                  className={s["dimension-input"]}
+                  onKeyPress={this.onInputKeyPress("iframeWidth")}
+                />
                 <span className={s["dimension-times"]}>&times;</span>
-                <Input value="2000" className={s["dimension-input"]} />
+                <Input
+                  defaultValue={iframeHeight}
+                  className={s["dimension-input"]}
+                  onKeyPress={this.onInputKeyPress("iframeHeight")}
+                />
               </div>
               <Button circular icon="download" onClick={this.download} />
             </div>
-            <div id="preview-wrapper" className={s["preview-wrapper"]}>
+            <div className={s["iframe-wrapper"]}>
               <IframePreview
                 version={refreshIframe ? this.iframeStateVersion++ : 1}
                 fileName={fileName}
-                ref={this.previewIframeRef}
+                ref={this.iframeRef}
                 onLoad={this.postConfigToIframe}
-                className={s["preview"]}
+                className={s["iframe"]}
+                style={{
+                  width: iframeWidth,
+                  height: iframeHeight,
+                  transform:
+                    scaleToFullyFit < 1
+                      ? `scale(${scaleToFullyFit})`
+                      : undefined
+                }}
               />
             </div>
           </div>
@@ -219,15 +256,21 @@ class TheModal extends Component {
     );
   };
 
+  onInputKeyPress = stateKey => event => {
+    if (event.key === "Enter") {
+      this.setState({ [stateKey]: +event.target.value });
+    }
+  };
+
   postConfigToIframe = () => {
-    this.previewIframeRef.current.contentWindow.postMessage({
+    this.iframeRef.current.contentWindow.postMessage({
       type: "render",
       payload: this.state.config
     });
   };
 
   download = () => {
-    this.previewIframeRef.current.contentWindow.postMessage({
+    this.iframeRef.current.contentWindow.postMessage({
       type: "download"
     });
   };
