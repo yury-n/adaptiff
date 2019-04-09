@@ -32,5 +32,14 @@ export default {
 				{key: 4, text: "Quarter Arc", value: 'quarterArc'},
 			],
 		},
+
+		{
+      key: "iteration",
+      text: "Iteration",
+      type: "range",
+      defaultValue: 15,
+      min: 1,
+      max: 30,
+    },
 	],
 };
