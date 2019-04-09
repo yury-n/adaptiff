@@ -4,7 +4,7 @@ import { Input } from "semantic-ui-react";
 
 import s from "./Range.module.css";
 
-const SliderWithTooltip = createSliderWithTooltip(Slider);
+let SliderWithTooltip;
 
 class Range extends Component {
   static defaultProps = {
@@ -21,6 +21,10 @@ class Range extends Component {
       min: props.min,
       max: props.max
     };
+
+    SliderWithTooltip = createSliderWithTooltip(
+      Array.isArray(props.value) ? Slider.Range : Slider
+    );
   }
 
   onMinChange = e => {
@@ -45,10 +49,12 @@ class Range extends Component {
             backgroundColor: "rgb(216, 215, 215)",
             height: 3
           }}
-          trackStyle={{
-            backgroundColor: "rgb(216, 215, 215)",
-            height: 3
-          }}
+          trackStyle={[
+            {
+              backgroundColor: "rgb(216, 215, 215)",
+              height: 3
+            }
+          ]}
           handleStyle={{
             height: 20,
             width: 20,

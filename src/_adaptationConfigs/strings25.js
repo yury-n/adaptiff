@@ -8,22 +8,13 @@ export default {
   thumbs: ["/thumbs/strings25/1.png"],
   thumbBackgroundSize: 280,
   config: [
-    // TODO: this should be just one control
     {
-      key: "startSizePercent",
-      text: "Start at % width",
+      key: "sizePercent",
+      text: "Lines start/end at % width",
       type: "range",
-      defaultValue: 10,
+      defaultValue: [10, 20],
       min: 0,
       max: 50
-    },
-    {
-      key: "endSizePercent",
-      text: "End at % width",
-      type: "range",
-      defaultValue: 20,
-      min: 0,
-      max: 100
     }
   ],
   palettes: [

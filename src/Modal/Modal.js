@@ -263,6 +263,7 @@ class TheModal extends Component {
   };
 
   postConfigToIframe = () => {
+    console.log(">>>", this.state.config);
     this.iframeRef.current.contentWindow.postMessage({
       type: "render",
       payload: this.state.config
