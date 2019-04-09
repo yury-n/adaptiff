@@ -7,7 +7,7 @@ function create() {
 	const ctx = canvas.getContext("2d");
 	const width = canvas.width;
 	const height = canvas.height;
-	let iteration = 0;
+	let iteration = window.iteration;
 	let numSquares, diffx, diffy, coordGrid;
 	let pattern, colourful, oddRowColour, eventRowColour;
 
@@ -147,7 +147,7 @@ function create() {
 
 		// Reset iteration if pattern changed
 		if (dropdownValue !== pattern) {
-			iteration = 0;
+			iteration = window.iteration;
 			pattern = dropdownValue;
 		}
 		colourful = isColourful;
