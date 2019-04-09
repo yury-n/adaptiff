@@ -36,13 +36,13 @@ class App extends Component {
         >
           <Hero />
           <Card.Group className="cards">
-            <MiniCard showModal {...linearGradient} />
+            <MiniCard {...linearGradient} />
             <MiniCard {...trianglify} />
             <MiniCard {...particles} />
             <MiniCard {...bubbles} />
             <MiniCard {...perfectPurple} />
             <MiniCard {...wallPattern} />
-            <MiniCard {...strings25} />
+            <MiniCard showModal {...strings25} />
             <MiniCard {...generateArt} />
           </Card.Group>
         </div>

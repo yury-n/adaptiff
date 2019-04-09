@@ -7,7 +7,25 @@ export default {
   authorLink: "https://codepen.io/derekmorash",
   thumbs: ["/thumbs/strings25/1.png"],
   thumbBackgroundSize: 280,
-  config: [],
+  config: [
+    // TODO: this should be just one control
+    {
+      key: "startSizePercent",
+      text: "Start at % width",
+      type: "range",
+      defaultValue: 10,
+      min: 0,
+      max: 50
+    },
+    {
+      key: "endSizePercent",
+      text: "End at % width",
+      type: "range",
+      defaultValue: 20,
+      min: 0,
+      max: 100
+    }
+  ],
   palettes: [
     ["#ffefd8", "#000"],
     ["#d8e3ff", "#000"],
