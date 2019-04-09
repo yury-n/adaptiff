@@ -112,13 +112,15 @@ class TheModal extends Component {
                 <Input
                   defaultValue={iframeWidth}
                   className={s["dimension-input"]}
-                  onKeyPress={this.onInputKeyPress("iframeWidth")}
+                  onKeyPress={this.setStateOnEnter("iframeWidth")}
+                  onBlur={this.setStateOnBlur("iframeWidth")}
                 />
                 <span className={s["dimension-times"]}>&times;</span>
                 <Input
                   defaultValue={iframeHeight}
                   className={s["dimension-input"]}
-                  onKeyPress={this.onInputKeyPress("iframeHeight")}
+                  onKeyPress={this.setStateOnEnter("iframeHeight")}
+                  onBlur={this.setStateOnBlur("iframeHeight")}
                 />
               </div>
               <Button circular icon="download" onClick={this.download} />
@@ -256,14 +258,18 @@ class TheModal extends Component {
     );
   };
 
-  onInputKeyPress = stateKey => event => {
+  setStateOnEnter = stateKey => event => {
     if (event.key === "Enter") {
       this.setState({ [stateKey]: +event.target.value });
     }
   };
 
+  setStateOnBlur = stateKey => event => {
+    this.setState({ [stateKey]: +event.target.value });
+  };
+
   postConfigToIframe = () => {
-    console.log(">>>", this.state.config);
+    // console.log("config", this.state.config);
     this.iframeRef.current.contentWindow.postMessage({
       type: "render",
       payload: this.state.config
