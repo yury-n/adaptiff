@@ -1,5 +1,7 @@
 import { gradientPalettes } from "../palettes";
 
+const palettes = [["#09203f", "#537895"], ...gradientPalettes];
+
 export default {
   title: "Bubbles",
   fileName: "bubbles",
@@ -13,7 +15,13 @@ export default {
       key: "castShadow",
       text: "Cast Shadow",
       defaultValue: false
+    },
+    {
+      key: "palette",
+      text: "Palettes",
+      type: "palette",
+      defaultValue: palettes[0],
+      options: palettes
     }
-  ],
-  palettes: [["#09203f", "#537895"], ...gradientPalettes]
+  ]
 };

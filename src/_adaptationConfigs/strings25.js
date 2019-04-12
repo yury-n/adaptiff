@@ -1,5 +1,15 @@
 import { gradientPalettes } from "../palettes";
 
+const palettes = [
+  ["#ffefd8", "#000"],
+  ["#d8e3ff", "#000"],
+  ["#d8fff8", "#000"],
+  ["#d8ffea", "#000"],
+  ["#ffd8e0", "#000"],
+  ["#d8f1ff", "#000"],
+  ...gradientPalettes
+];
+
 export default {
   title: "Strings 2.5",
   fileName: "strings25",
@@ -15,15 +25,13 @@ export default {
       defaultValue: [10, 20],
       min: 0,
       max: 50
+    },
+    {
+      key: "palette",
+      text: "Palettes",
+      type: "palette",
+      defaultValue: palettes[0],
+      options: palettes
     }
-  ],
-  palettes: [
-    ["#ffefd8", "#000"],
-    ["#d8e3ff", "#000"],
-    ["#d8fff8", "#000"],
-    ["#d8ffea", "#000"],
-    ["#ffd8e0", "#000"],
-    ["#d8f1ff", "#000"],
-    ...gradientPalettes
   ]
 };

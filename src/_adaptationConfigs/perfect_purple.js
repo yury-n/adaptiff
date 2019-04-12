@@ -1,4 +1,4 @@
-import {gradientPalettes} from "../palettes";
+import { gradientPalettes } from "../palettes";
 
 export default {
   title: "Perfect Purples",
@@ -16,9 +16,9 @@ export default {
       defaultValue: 0,
 
       options: [
-        {key: 0, text: "Off", value: 0},
-        {key: 1, text: "On", value: 1},
-      ],
+        { key: 0, text: "Off", value: 0 },
+        { key: 1, text: "On", value: 1 }
+      ]
     },
 
     {
@@ -27,7 +27,7 @@ export default {
       type: "range",
       defaultValue: 100,
       min: 2,
-      max: 100,
+      max: 100
     },
 
     {
@@ -36,7 +36,7 @@ export default {
       type: "range",
       defaultValue: 60,
       min: 20,
-      max: 150,
+      max: 150
     },
 
     {
@@ -45,10 +45,14 @@ export default {
       type: "range",
       defaultValue: 8,
       min: 2,
-      max: 20,
+      max: 20
     },
-  ],
-
-  palettes: [...gradientPalettes],
-  externalScripts: ["https://unpkg.com/three@0.100.0/build/three.js"],
+    {
+      key: "palette",
+      text: "Palettes",
+      type: "palette",
+      defaultValue: gradientPalettes[0],
+      options: gradientPalettes
+    }
+  ]
 };

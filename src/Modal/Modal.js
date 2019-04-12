@@ -16,7 +16,8 @@ class TheModal extends Component {
     // for config.refreshIframe = true
     this.iframeStateVersion = 0;
     const state = {
-      config: {}
+      config: {},
+      isAddMenuOpen: false
     };
     this.props.config.forEach(config => {
       state.config[config.key] = config.defaultValue;
@@ -82,20 +83,24 @@ class TheModal extends Component {
             {this.renderConfig()}
           </div>
           <div className={s["modal-right-side"]}>
-            {false && (
+            {this.state.isAddMenuOpen && (
               <Menu className={s["add-menu"]} icon="labeled" vertical>
                 <Menu.Item
                   className={s["add-menu-item"]}
-                  onClick={this.handleItemClick}
+                  onClick={this.addText}
                 >
                   <div className={s["add-text-icon"]}>T</div>
                   <div>Text</div>
                 </Menu.Item>
               </Menu>
             )}
-            {false && <InsertedText />}
             <div className={s["config-over-preview"]}>
-              <Button circular icon="plus" />
+              <Button
+                circular
+                icon="plus"
+                onBlur={this.closeAddMenu}
+                onClick={this.openAddMenu}
+              />
               <div className={s["dimensions"]}>
                 <Input
                   defaultValue={iframeWidth}
@@ -129,6 +134,8 @@ class TheModal extends Component {
                       : undefined
                 }}
               />
+              <div className={s["opaque-overlay"]} />
+              <InsertedText />
             </div>
           </div>
         </Modal.Content>
@@ -166,6 +173,10 @@ class TheModal extends Component {
   setStateOnBlur = stateKey => event => {
     this.setState({ [stateKey]: +event.target.value });
   };
+
+  openAddMenu = () => this.setState({ isAddMenuOpen: true });
+
+  closeAddMenu = () => this.setState({ isAddMenuOpen: false });
 
   postConfigToIframe = () => {
     // console.log("config", this.state.config);
