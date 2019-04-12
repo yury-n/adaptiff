@@ -1,19 +1,9 @@
 import React, { Component } from "react";
-import {
-  Modal,
-  Input,
-  Menu,
-  Button,
-  Dropdown,
-  Icon,
-  Checkbox
-} from "semantic-ui-react";
-import ColorInput from "../ColorInput/ColorInput";
-import PaletteDropdown from "../PaletteDropdown/PaletteDropdown";
-import Range from "../Range/Range";
+import { Modal, Input, Menu, Button, Icon } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
 import InsertedText from "./InsertedText/InsertedText";
 import IframePreview from "./IframePreview/IframePreview";
+import ConfigControls from "./ConfigControls/ConfigControls";
 
 import "rc-slider/assets/index.css";
 import "./global.overrides.css";
@@ -26,9 +16,7 @@ class TheModal extends Component {
     // for config.refreshIframe = true
     this.iframeStateVersion = 0;
     const state = {
-      config: {
-        palette: this.props.palettes && this.props.palettes[0]
-      }
+      config: {}
     };
     this.props.config.forEach(config => {
       state.config[config.key] = config.defaultValue;
@@ -149,113 +137,24 @@ class TheModal extends Component {
   }
 
   renderConfig = () => {
-    const props = this.props;
-    const state = this.state;
     return (
       <div className={s["config-container"]}>
-        {props.config.map(config => {
-          if (
-            config.condition &&
-            state.config[config.condition.key] !== config.condition.value
-          ) {
-            return null;
-          }
-          const label = <label className="form-label">{config.text}</label>;
-          let control;
-          switch (config.type) {
-            case "select":
-              control = (
-                <Dropdown
-                  options={config.options}
-                  onChange={(target, { value }) =>
-                    this.setState({
-                      config: { ...state.config, [config.key]: value }
-                    })
-                  }
-                  value={state.config[config.key]}
-                  selection
-                />
-              );
-              break;
-            case "boolean":
-              control = (
-                <Checkbox
-                  checked={state.config[config.key]}
-                  onChange={() => {
-                    setTimeout(() => {
-                      this.setState({
-                        config: {
-                          ...state.config,
-                          [config.key]: !state.config[config.key]
-                        }
-                      });
-                    }, 500);
-                  }}
-                  toggle
-                />
-              );
-              break;
-            case "range":
-              control = (
-                <Range
-                  min={config.min}
-                  max={config.max}
-                  value={state.config[config.key]}
-                  onChange={value =>
-                    this.setState({
-                      config: { ...state.config, [config.key]: value }
-                    })
-                  }
-                />
-              );
-              break;
-            default:
-              control = null;
-          }
-
-          return (
-            <React.Fragment key={config.key}>
-              {label}
-              {control}
-            </React.Fragment>
-          );
-        })}
-        {props.palettes && <label className="form-label">Palette</label>}
-        {props.palettes && (
-          <PaletteDropdown
-            selectedPalette={state.config.palette}
-            palettes={props.palettes}
-            onChange={palette =>
-              this.setState({ config: { ...state.config, palette } })
-            }
-          />
-        )}
-        {state.config.palette &&
-          state.config.palette.map((color, index) => (
-            <ColorInput
-              key={`color-${index}`}
-              color={color}
-              onChange={value =>
-                this.setState({
-                  config: {
-                    ...state.config,
-                    palette: [
-                      ...state.config.palette.slice(0, index),
-                      value,
-                      ...state.config.palette.slice(
-                        index + 1,
-                        state.config.palette.length
-                      )
-                    ]
-                  }
-                })
-              }
-              onOpen={props.onStartSelectingColor}
-              onClose={props.onStopSelectingColor}
-            />
-          ))}
+        <ConfigControls
+          config={this.props.config}
+          configValues={this.state.config}
+          setConfigValue={this.setConfigValue}
+          onStartSelectingColor={this.props.onStartSelectingColor}
+          onStopSelectingColor={this.props.onStopSelectingColor}
+        />
       </div>
     );
+  };
+
+  setConfigValue = (configKey, configValue) => {
+    const { config } = this.state;
+    this.setState({
+      config: { ...config, [configKey]: configValue }
+    });
   };
 
   setStateOnEnter = stateKey => event => {

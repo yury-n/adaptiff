@@ -31,7 +31,13 @@ export default {
       condition: { key: "direction", value: "custom_angle" },
       min: 0,
       max: 360
+    },
+    {
+      key: "palette",
+      text: "Palettes",
+      type: "palette",
+      defaultValue: gradientPalettes[0],
+      options: gradientPalettes
     }
-  ],
-  palettes: gradientPalettes
+  ]
 };
