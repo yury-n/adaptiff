@@ -72,6 +72,14 @@
   height: calc(100% - 100px);
 }
 
+.capture-frame {
+  position: absolute;
+  background: yellow;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
 .opaque-overlay {
   /* needed for draggable to not leak mouse event and stop */
   position: absolute;

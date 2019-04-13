@@ -164,6 +164,17 @@ class TheModal extends Component {
                   onClick={() => this.setActiveTextBlockIndex(index)}
                 />
               ))}
+              {false && (
+                <div
+                  className={s["capture-frame"]}
+                  style={{
+                    width: iframeWidth,
+                    height: iframeHeight
+                  }}
+                >
+                  <span>123</span>
+                </div>
+              )}
             </div>
           </div>
         </Modal.Content>
