@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import classnames from "classnames";
+import html2canvas from "html2canvas";
 import { Modal, Input, Menu, Button, Icon } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
 import InsertedText from "./InsertedText/InsertedText";
@@ -14,6 +15,8 @@ class TheModal extends Component {
   constructor(props) {
     super(props);
     this.iframeRef = React.createRef();
+    this.textBlocksRefs = {};
+    this.captureFrameRef = React.createRef();
     // for config.refreshIframe = true
     this.iframeStateVersion = 0;
     const state = {
@@ -40,10 +43,31 @@ class TheModal extends Component {
       iframeWidth: this.iframeMaxWidth,
       iframeHeight: this.iframeMaxHeight
     });
+    window.addEventListener("message", this.onWindowMessage);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("message", this.onWindowMessage);
   }
   componentDidUpdate() {
     if (!this.props.refreshIframe) {
       this.postConfigToIframe();
+    }
+    if (this.state.captureConfig) {
+      if (!this.state.captureImage) {
+        this.iframeRef.current.contentWindow.postMessage({
+          type: "download"
+        });
+      } else {
+        html2canvas(this.captureFrameRef.current).then(canvas => {
+          const link = document.createElement("a");
+          var image = canvas
+            .toDataURL("image/png")
+            .replace("image/png", "image/octet-stream");
+          link.download = "download.png";
+          link.setAttribute("href", image);
+          link.click();
+        });
+      }      
     }
   }
   render() {
@@ -52,7 +76,9 @@ class TheModal extends Component {
       iframeWidth,
       iframeHeight,
       textBlocks,
-      activeTextBlockIndex
+      activeTextBlockIndex,
+      captureConfig,
+      captureImage
     } = this.state;
     let scaleToFitWidth = 1;
     let scaleToFitHeight = 1;
@@ -162,17 +188,29 @@ class TheModal extends Component {
                   isActive={index === activeTextBlockIndex}
                   config={textBlock.config}
                   onClick={() => this.setActiveTextBlockIndex(index)}
+                  ref={ref => {
+                    this.textBlocksRefs[index] = ref;
+                  }}
                 />
               ))}
-              {false && (
+              {captureConfig && (
                 <div
                   className={s["capture-frame"]}
                   style={{
                     width: iframeWidth,
                     height: iframeHeight
                   }}
+                  ref={this.captureFrameRef}
                 >
-                  <span>123</span>
+                  {captureImage && <img alt="" src={captureImage} />}
+                  {textBlocks.map((textBlock, index) => (
+                    <InsertedText
+                      key={textBlock.id}
+                      isDraggable={false}
+                      config={textBlock.config}
+                      initialPosition={captureConfig[index]}
+                    />
+                  ))}
                 </div>
               )}
             </div>
@@ -181,6 +219,12 @@ class TheModal extends Component {
       </Modal>
     );
   }
+
+  onWindowMessage = event => {
+    if (event.data.type === "download") {
+      this.setState({ captureImage: event.data.image });
+    }
+  };
 
   onStartSelectingColor = () => {
     this.setState({ isSelectingColor: true });
@@ -309,9 +353,16 @@ class TheModal extends Component {
   };
 
   download = () => {
-    this.iframeRef.current.contentWindow.postMessage({
-      type: "download"
+    const iframeRect = this.iframeRef.current.getBoundingClientRect();
+    const captureConfig = this.state.textBlocks.map((textBlock, index) => {
+      const textBlockRect = this.textBlocksRefs[index].getBoundingClientRect();
+      return {
+        left: textBlockRect.left - iframeRect.left,
+        top: textBlockRect.top - iframeRect.top
+      };
     });
+    this.setState({ captureConfig });
+    // console.log("captureConfig", captureConfig);
   };
 }
 
