@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import classnames from "classnames";
 import { Modal, Input, Menu, Button, Icon } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
 import InsertedText from "./InsertedText/InsertedText";
 import IframePreview from "./IframePreview/IframePreview";
-import ConfigControls from "./ConfigControls/ConfigControls";
+import ArtConfig from "./ArtConfig/ArtConfig";
 
 import "rc-slider/assets/index.css";
 import "./global.overrides.css";
@@ -17,7 +18,10 @@ class TheModal extends Component {
     this.iframeStateVersion = 0;
     const state = {
       config: {},
-      isAddMenuOpen: false
+      textBlocks: [],
+      activeTextBlockIndex: null,
+      isAddMenuOpen: false,
+      isSelectingColor: false
     };
     this.props.config.forEach(config => {
       state.config[config.key] = config.defaultValue;
@@ -26,6 +30,8 @@ class TheModal extends Component {
 
     this.iframeMaxWidth = null;
     this.iframeMaxHeight = null;
+
+    this.textBlockId = 0;
   }
   componentDidMount() {
     this.iframeMaxWidth = this.iframeRef.current.offsetWidth;
@@ -42,7 +48,12 @@ class TheModal extends Component {
   }
   render() {
     const { title, fileName, refreshIframe, author, authorLink } = this.props;
-    const { iframeWidth, iframeHeight } = this.state;
+    const {
+      iframeWidth,
+      iframeHeight,
+      textBlocks,
+      activeTextBlockIndex
+    } = this.state;
     let scaleToFitWidth = 1;
     let scaleToFitHeight = 1;
     if (iframeWidth && iframeWidth > this.iframeMaxWidth) {
@@ -56,7 +67,13 @@ class TheModal extends Component {
       <Modal open closeIcon onClose={this.props.onClose}>
         <Modal.Content className="modal-content">
           <div className={s["modal-sidebar"]}>
-            <div className={s["title-container"]}>
+            <div
+              className={classnames(
+                s["title-container"],
+                activeTextBlockIndex !== null && s["blurred"]
+              )}
+              onClick={this.unsetActiveTextBlockIndex}
+            >
               <div className={s["title"]}>{title}</div>
               <div>
                 <span className={s["by-author"]}>by</span>
@@ -79,15 +96,16 @@ class TheModal extends Component {
                 )}
               </div>
             </div>
-            {false && <TextConfig />}
-            {this.renderConfig()}
+            {activeTextBlockIndex !== null
+              ? this.renderTextConfig()
+              : this.renderArtConfig()}
           </div>
           <div className={s["modal-right-side"]}>
             {this.state.isAddMenuOpen && (
               <Menu className={s["add-menu"]} icon="labeled" vertical>
                 <Menu.Item
                   className={s["add-menu-item"]}
-                  onClick={this.addText}
+                  onMouseDown={this.addTextBlock}
                 >
                   <div className={s["add-text-icon"]}>T</div>
                   <div>Text</div>
@@ -134,8 +152,17 @@ class TheModal extends Component {
                       : undefined
                 }}
               />
-              <div className={s["opaque-overlay"]} />
-              <InsertedText />
+              <div
+                className={s["opaque-overlay"]}
+                onClick={this.onOpaqueOverlayClick}
+              />
+              {textBlocks.map((textBlock, index) => (
+                <InsertedText
+                  key={textBlock.id}
+                  config={textBlock.config}
+                  onMouseDown={() => this.setActiveTextBlockIndex(index)}
+                />
+              ))}
             </div>
           </div>
         </Modal.Content>
@@ -143,21 +170,104 @@ class TheModal extends Component {
     );
   }
 
-  renderConfig = () => {
+  onStartSelectingColor = () => {
+    this.setState({ isSelectingColor: true });
+    this.props.onStartSelectingColor();
+  };
+
+  onStopSelectingColor = () => {
+    setTimeout(() => {
+      this.setState({ isSelectingColor: false });
+      this.props.onStopSelectingColor();
+    }, 100); // prevent onOpaqueOverlayClick closing TextConfig
+  };
+
+  onOpaqueOverlayClick = () => {
+    if (!this.state.isSelectingColor) {
+      this.unsetActiveTextBlockIndex();
+    }
+  };
+
+  addTextBlock = () => {
+    this.setState({
+      textBlocks: [
+        ...this.state.textBlocks,
+        {
+          id: this.textBlockId++,
+          config: {
+            fontSize: 28,
+            padding: 10,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0.5 }
+          }
+        }
+      ],
+      activeTextBlockIndex: this.state.textBlocks.length
+    });
+  };
+
+  setActiveTextBlockIndex = index => {
+    this.setState({ activeTextBlockIndex: index });
+  };
+
+  unsetActiveTextBlockIndex = () => {
+    this.setState({ activeTextBlockIndex: null });
+  };
+
+  deleteCurrentTextBlock = () => {
+    const { textBlocks, activeTextBlockIndex } = this.state;
+    const updatedTextBlocks = [...textBlocks];
+    updatedTextBlocks.splice(activeTextBlockIndex, 1);
+    this.setState({
+      textBlocks: updatedTextBlocks,
+      activeTextBlockIndex: null
+    });
+  };
+
+  renderTextConfig = () => {
+    const { textBlocks, activeTextBlockIndex } = this.state;
+    return (
+      <TextConfig
+        config={textBlocks[activeTextBlockIndex].config}
+        setConfigValue={this.setTextConfigValue}
+        onDelete={this.deleteCurrentTextBlock}
+        onStartSelectingColor={this.onStartSelectingColor}
+        onStopSelectingColor={this.onStopSelectingColor}
+      />
+    );
+  };
+
+  renderArtConfig = () => {
     return (
       <div className={s["config-container"]}>
-        <ConfigControls
+        <ArtConfig
           config={this.props.config}
           configValues={this.state.config}
-          setConfigValue={this.setConfigValue}
-          onStartSelectingColor={this.props.onStartSelectingColor}
-          onStopSelectingColor={this.props.onStopSelectingColor}
+          setConfigValue={this.setArtConfigValue}
+          onStartSelectingColor={this.onStartSelectingColor}
+          onStopSelectingColor={this.onStopSelectingColor}
         />
       </div>
     );
   };
 
-  setConfigValue = (configKey, configValue) => {
+  setTextConfigValue = (configKey, configValue) => {
+    const { textBlocks, activeTextBlockIndex } = this.state;
+    const activeTextBlock = textBlocks[activeTextBlockIndex];
+    const newTextBlocks = [...textBlocks];
+    newTextBlocks[activeTextBlockIndex] = {
+      ...activeTextBlock,
+      config: {
+        ...activeTextBlock.config,
+        [configKey]: configValue
+      }
+    };
+    this.setState({
+      textBlocks: newTextBlocks
+    });
+  };
+
+  setArtConfigValue = (configKey, configValue) => {
     const { config } = this.state;
     this.setState({
       config: { ...config, [configKey]: configValue }

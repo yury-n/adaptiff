@@ -11,7 +11,7 @@
   position: absolute;
   left: 15px;
   top: 80px;
-  z-index: 1;
+  z-index: 10;
   border-radius: 6px !important;
 }
 
@@ -94,6 +94,12 @@
   overflow: hidden;
   font-weight: 600;
   flex-shrink: 0;
+}
+
+.title-container.blurred {
+  filter: blur(3px);
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .by-author {

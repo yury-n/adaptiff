@@ -1,26 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import Draggable from "react-draggable";
+import { colorObjToString } from "../../_utils";
 
 import s from "./InsertedText.module.css";
 
-export default props => {
-  const [isDraggable, setIsDraggable] = useState(true);
-  const renderTextBlock = () => (
-    <div className={s["root"]}>
-      <div
-        onClick={() => setIsDraggable(false)}
-        className={s["inserted-text-block"]}
-      >
-        <div
-          contentEditable={!isDraggable}
+export default ({ config, onMouseDown }) => (
+  <Draggable bounds="parent" cancel="span">
+    <div className={s["root"]} onClick={onMouseDown}>
+      <div className={s["inserted-text-block"]} style={{}}>
+        <span
+          contentEditable={true}
+          suppressContentEditableWarning={true}
           className={s["inserted-text-block-inner"]}
+          style={{
+            fontSize: config.fontSize,
+            color: config.color,
+            backgroundColor: colorObjToString(config.backgroundColor),
+            padding: config.padding,
+            fontWeight: config.isBold ? "bold" : "normal",
+            textDecoration: config.isUnderlined ? "underline" : "none",
+            fontStyle: config.isItalic ? "italic" : undefined
+          }}
         >
           Sample text goes here
           <br />
           more text
-        </div>
+        </span>
       </div>
     </div>
-  );
-  return <Draggable disabled={!isDraggable}>{renderTextBlock()}</Draggable>;
-};
+  </Draggable>
+);

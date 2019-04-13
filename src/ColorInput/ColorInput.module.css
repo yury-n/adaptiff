@@ -5,7 +5,8 @@
 }
 
 .color-input-wrapper input {
-  width: 171px;
+  width: 176px;
+  padding-right: 5px !important;
   border-right: none;
 }
 
@@ -15,7 +16,7 @@
   border-bottom-left-radius: 0;
   margin-left: 0;
   margin-right: 0;
-  width: 25px;
+  width: 24px;
   cursor: pointer;
   box-sizing: border-box;
   border: 1px solid rgb(178, 178, 179);

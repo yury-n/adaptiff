@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ChromePicker } from "react-color";
 import { Input } from "semantic-ui-react";
 import classnames from "classnames";
+import { colorObjToString, stringToColorObj } from "../_utils";
 
 import "./global.overrides.css";
 import s from "./ColorInput.module.css";
@@ -25,6 +26,13 @@ class ColorInput extends Component {
   setInputFocus = () => {
     this.inputRef.current.focus();
   };
+
+  onChange = event => {
+    const { onChange } = this.props;
+    const { value } = event.target;
+    onChange(!value.includes("rgb") ? value : stringToColorObj(value));
+  };
+
   render() {
     const { color, onChange, disableAlpha } = this.props;
     const { showColorPicker } = this.state;
@@ -39,20 +47,22 @@ class ColorInput extends Component {
           ref={this.inputRef}
           onFocus={this.showColorPicker}
           onBlur={this.hideColorPicker}
-          onChange={event => onChange(event.target.value)}
+          onChange={this.onChange}
           labelPosition="right"
-          value={color}
+          value={colorObjToString(color)}
         />
         <div
           className={classnames("ui", "label", s["color-swatch"])}
-          style={{ background: color }}
+          style={{ background: colorObjToString(color) }}
           onClick={this.setInputFocus}
         />
         {showColorPicker && (
           <ChromePicker
             color={color}
             className={s["color-picker"]}
-            onChangeComplete={({ hex }) => onChange(hex)}
+            onChangeComplete={({ hex, rgb }) => {
+              onChange(rgb.a !== 1 ? rgb : hex);
+            }}
             disableAlpha={disableAlpha}
           />
         )}
