@@ -9,11 +9,13 @@
 }
 
 .root:hover,
-.root:hover .inserted-text-block {
+.root:hover .inserted-text-block,
+.root.active .inserted-text-block {
   border-color: black;
 }
 
-.root:hover .inserted-text-block-inner {
+.root:hover .inserted-text-block-inner,
+.root.active .inserted-text-block-inner {
   border-color: white;
 }
 
@@ -27,4 +29,5 @@
 .inserted-text-block-inner {
   border: 1px transparent dotted;
   display: inline-block;
+  outline: none;
 }

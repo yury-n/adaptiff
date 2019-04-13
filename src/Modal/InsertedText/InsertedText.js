@@ -1,12 +1,16 @@
 import React from "react";
+import classnames from "classnames";
 import Draggable from "react-draggable";
 import { colorObjToString } from "../../_utils";
 
 import s from "./InsertedText.module.css";
 
-export default ({ config, onMouseDown }) => (
+export default ({ isActive, config, onClick }) => (
   <Draggable bounds="parent" cancel="span">
-    <div className={s["root"]} onClick={onMouseDown}>
+    <div
+      className={classnames(s["root"], isActive && s["active"])}
+      onClick={onClick}
+    >
       <div className={s["inserted-text-block"]} style={{}}>
         <span
           contentEditable={true}

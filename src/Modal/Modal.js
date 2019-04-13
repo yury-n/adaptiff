@@ -159,8 +159,9 @@ class TheModal extends Component {
               {textBlocks.map((textBlock, index) => (
                 <InsertedText
                   key={textBlock.id}
+                  isActive={index === activeTextBlockIndex}
                   config={textBlock.config}
-                  onMouseDown={() => this.setActiveTextBlockIndex(index)}
+                  onClick={() => this.setActiveTextBlockIndex(index)}
                 />
               ))}
             </div>
