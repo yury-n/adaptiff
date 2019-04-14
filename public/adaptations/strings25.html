@@ -7,15 +7,15 @@
   <script>
     var backgroundColor = "#ccc";
     var strokeColor = "#000";
-    var oldCanvas = null;
+    var currentCanvas = null;
     var shapes = [];
     var startSizePercent = 5;
     var endSizePercent = 20;
     function aff_render(config) {
-      if (oldCanvas) {
+      if (currentCanvas) {
         remove();
         shapes = [];
-        // document.body.removeChild(oldCanvas.canvas);
+        // document.body.removeChild(currentCanvas.canvas);
       }
       backgroundColor = config.palette[0];
       strokeColor = config.palette[1];
@@ -28,15 +28,14 @@
     }
     function aff_download() {
       var link = document.createElement("a");
-      var image = document
-        .querySelector("#preview")
+      var image = currentCanvas
         .toDataURL("image/png")
         .replace("image/png", "image/octet-stream");
       window.parent.postMessage({ type: "download", image });
     }
 
     function setup() {
-      oldCanvas = createCanvas(window.innerWidth, window.innerHeight);
+      currentCanvas = createCanvas(window.innerWidth, window.innerHeight);
       init();
       noFill();
       stroke(strokeColor);
