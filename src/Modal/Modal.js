@@ -66,8 +66,12 @@ class TheModal extends Component {
           link.download = "download.png";
           link.setAttribute("href", image);
           link.click();
+          this.setState({
+            captureConfig: null,
+            captureImage: null
+          });
         });
-      }      
+      }
     }
   }
   render() {
