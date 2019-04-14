@@ -30,9 +30,6 @@
           .toDataURL("image/png")
           .replace("image/png", "image/octet-stream");
         window.parent.postMessage({ type: "download", image });
-        // link.download = "download.png";
-        // link.setAttribute("href", image);
-        // link.click();
       });
     }
   </script>

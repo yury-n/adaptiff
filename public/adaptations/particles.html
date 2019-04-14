@@ -42,9 +42,7 @@
         .querySelector("#preview")
         .toDataURL("image/png")
         .replace("image/png", "image/octet-stream");
-      link.download = "download.png";
-      link.setAttribute("href", image);
-      link.click();
+      window.parent.postMessage({ type: "download", image });
     }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>

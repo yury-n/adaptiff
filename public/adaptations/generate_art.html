@@ -1,43 +1,41 @@
 <head>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="_common.css" />
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
 </head>
 <body>
-	<div id="preview"></div>
-	<script src="./generate_art.js"></script>
-	<script src="_common.js"></script>
-	<script>
-		let lastConfig;
-		let initialized = false;
-		// debug: aff_render();
-		function aff_render(config) {
-			// debug: config = JSON.parse();
-			lastConfig = config;
-			var oldPreview = document.querySelector("#preview");
+  <div id="preview"></div>
+  <script src="./generate_art.js"></script>
+  <script src="_common.js"></script>
+  <script>
+    let lastConfig;
+    let initialized = false;
+    // debug: aff_render();
+    function aff_render(config) {
+      // debug: config = JSON.parse();
+      lastConfig = config;
+      var oldPreview = document.querySelector("#preview");
 
-			if (oldPreview) {
-				window.document.body.removeChild(oldPreview);
-			}
+      if (oldPreview) {
+        window.document.body.removeChild(oldPreview);
+      }
 
-			const preview = document.createElement("canvas");
-			preview.id = "preview";
-			window.document.body.appendChild(preview);
-			window.shape = config.shape;
-			window.iteration = config.iteration;
-			window.hasColor = config.hasColor;
-			window.create();
-			initialized = true;
-		}
+      const preview = document.createElement("canvas");
+      preview.id = "preview";
+      window.document.body.appendChild(preview);
+      window.shape = config.shape;
+      window.iteration = config.iteration;
+      window.hasColor = config.hasColor;
+      window.create();
+      initialized = true;
+    }
 
-		function aff_download() {
-			var link = document.createElement("a");
-			var image = document
-				.querySelector("#preview")
-				.toDataURL("image/png")
-				.replace("image/png", "image/octet-stream");
-			link.download = "download.png";
-			link.setAttribute("href", image);
-			link.click();
-		}
-	</script>
+    function aff_download() {
+      var link = document.createElement("a");
+      var image = document
+        .querySelector("#preview")
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      window.parent.postMessage({ type: "download", image });
+    }
+  </script>
 </body>
