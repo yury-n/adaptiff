@@ -8,7 +8,14 @@ import s from "./InsertedText.module.css";
 export default React.memo(
   React.forwardRef(
     (
-      { isActive, initialPosition, isDraggable = true, config, onClick },
+      {
+        isActive,
+        initialValue,
+        initialPosition,
+        isDraggable = true,
+        config,
+        onClick
+      },
       ref
     ) => {
       const renderTextBlock = () => (
@@ -43,9 +50,7 @@ export default React.memo(
                 fontStyle: config.isItalic ? "italic" : undefined
               }}
             >
-              Sample text goes here
-              <br />
-              more text
+              {initialValue}
             </span>
           </div>
         </div>

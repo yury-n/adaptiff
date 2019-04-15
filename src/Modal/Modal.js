@@ -195,6 +195,7 @@ class TheModal extends Component {
                   ref={ref => {
                     this.textBlocksRefs[index] = ref;
                   }}
+                  initialValue="Some sample text"
                 />
               ))}
               {captureConfig && (
@@ -212,7 +213,8 @@ class TheModal extends Component {
                       key={textBlock.id}
                       isDraggable={false}
                       config={textBlock.config}
-                      initialPosition={captureConfig[index]}
+                      initialValue={captureConfig[index].text}
+                      initialPosition={captureConfig[index].position}
                     />
                   ))}
                 </div>
@@ -360,9 +362,13 @@ class TheModal extends Component {
     const iframeRect = this.iframeRef.current.getBoundingClientRect();
     const captureConfig = this.state.textBlocks.map((textBlock, index) => {
       const textBlockRect = this.textBlocksRefs[index].getBoundingClientRect();
+      const text = this.textBlocksRefs[0].children[0].innerText;
       return {
-        left: textBlockRect.left - iframeRect.left,
-        top: textBlockRect.top - iframeRect.top
+        text,
+        position: {
+          left: textBlockRect.left - iframeRect.left,
+          top: textBlockRect.top - iframeRect.top
+        }
       };
     });
     this.setState({ captureConfig });
