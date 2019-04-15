@@ -17,10 +17,9 @@ class TheModal extends Component {
     this.iframeRef = React.createRef();
     this.textBlocksRefs = {};
     this.captureFrameRef = React.createRef();
-    // for config.refreshIframe = true
-    this.iframeStateVersion = 0;
     const state = {
       config: {},
+      iframeVersion: 0, // for props.config.refreshIframe = true
       textBlocks: [],
       activeTextBlockIndex: null,
       isAddMenuOpen: false,
@@ -48,8 +47,8 @@ class TheModal extends Component {
   componentWillUnmount() {
     window.removeEventListener("message", this.onWindowMessage);
   }
-  componentDidUpdate() {
-    if (!this.props.refreshIframe) {
+  componentDidUpdate(nextProps, nextState) {
+    if (!this.props.refreshIframe && nextState.config !== this.state.config) {
       this.postConfigToIframe();
     }
     if (this.state.captureConfig) {
@@ -82,17 +81,9 @@ class TheModal extends Component {
       textBlocks,
       activeTextBlockIndex,
       captureConfig,
-      captureImage
+      captureImage,
+      iframeVersion
     } = this.state;
-    let scaleToFitWidth = 1;
-    let scaleToFitHeight = 1;
-    if (iframeWidth && iframeWidth > this.iframeMaxWidth) {
-      scaleToFitWidth = this.iframeMaxWidth / iframeWidth;
-    }
-    if (iframeHeight && iframeHeight > this.iframeMaxHeight) {
-      scaleToFitHeight = this.iframeMaxHeight / iframeHeight;
-    }
-    const scaleToFullyFit = Math.min(scaleToFitWidth, scaleToFitHeight);
     return (
       <Modal open closeIcon onClose={this.props.onClose}>
         <Modal.Content className="modal-content">
@@ -168,19 +159,15 @@ class TheModal extends Component {
             </div>
             <div className={s["iframe-wrapper"]}>
               <IframePreview
-                version={refreshIframe ? this.iframeStateVersion++ : 1}
+                version={refreshIframe ? iframeVersion : 1}
                 fileName={fileName}
                 ref={this.iframeRef}
                 onLoad={this.postConfigToIframe}
                 className={s["iframe"]}
-                style={{
-                  width: iframeWidth,
-                  height: iframeHeight,
-                  transform:
-                    scaleToFullyFit < 1
-                      ? `scale(${scaleToFullyFit})`
-                      : undefined
-                }}
+                width={iframeWidth}
+                height={iframeHeight}
+                maxWidth={this.iframeMaxWidth}
+                maxHeight={this.iframeMaxHeight}
               />
               <div
                 className={s["opaque-overlay"]}
@@ -330,9 +317,10 @@ class TheModal extends Component {
   };
 
   setArtConfigValue = (configKey, configValue) => {
-    const { config } = this.state;
+    const { config, iframeVersion } = this.state;
     this.setState({
-      config: { ...config, [configKey]: configValue }
+      config: { ...config, [configKey]: configValue },
+      iframeVersion: iframeVersion + 1
     });
   };
 
