@@ -8,7 +8,7 @@ import s from "./InsertedText.module.css";
 export default React.memo(
   React.forwardRef(
     (
-      { isActive, initialPosition, isDraggable = true, config, onClick },
+      { isActive, initialPosition, isDraggable = true, config, onClick, setValue },
       ref
     ) => {
       const renderTextBlock = () => (
@@ -32,6 +32,7 @@ export default React.memo(
               contentEditable={true}
               suppressContentEditableWarning={true}
               className={s["inserted-text-block-inner"]}
+              onInput={setValue}
               style={{
                 fontSize: config.fontSize,
                 fontFamily: "sans-serif",
@@ -43,9 +44,7 @@ export default React.memo(
                 fontStyle: config.isItalic ? "italic" : undefined
               }}
             >
-              Sample text goes here
-              <br />
-              more text
+              {config.text}
             </span>
           </div>
         </div>

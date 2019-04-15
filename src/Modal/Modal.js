@@ -190,6 +190,13 @@ class TheModal extends Component {
                 <InsertedText
                   key={textBlock.id}
                   isActive={index === activeTextBlockIndex}
+                  setValue={evt => {
+                    evt.persist();
+                    this.setInsertedTextValue({
+                      value: evt.target.innerText,
+                      id: textBlock.id,
+                    });
+                  }}
                   config={textBlock.config}
                   onClick={() => this.setActiveTextBlockIndex(index)}
                   ref={ref => {
@@ -258,7 +265,8 @@ class TheModal extends Component {
             fontSize: 28,
             padding: 10,
             color: "#000",
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0.5 }
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0.5 },
+            typedText: 'Enter a some text',
           }
         }
       ],
@@ -268,6 +276,26 @@ class TheModal extends Component {
 
   setActiveTextBlockIndex = index => {
     this.setState({ activeTextBlockIndex: index });
+  };
+
+  setInsertedTextValue = params => {
+    const compact = arr => arr.filter(Boolean);
+
+    let editableBlock = this.state.textBlocks.find(
+      textBlock => textBlock.id === params.id,
+    );
+
+    editableBlock.config.typedText = params.value;
+
+    this.setState({
+      textBlocks: [
+        ...compact(this.state.textBlocks.map(
+          textBlock => editableBlock.id === textBlock.id ? null : textBlock
+        )),
+
+        editableBlock,
+      ]
+    });
   };
 
   unsetActiveTextBlockIndex = () => {
@@ -366,7 +394,7 @@ class TheModal extends Component {
       };
     });
     this.setState({ captureConfig });
-    // console.log("captureConfig", captureConfig);
+    //console.log("captureConfig", captureConfig);
   };
 }
 
