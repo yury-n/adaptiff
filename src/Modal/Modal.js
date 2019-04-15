@@ -193,7 +193,7 @@ class TheModal extends Component {
                   setValue={evt => {
                     evt.persist();
                     this.setInsertedTextValue({
-                      value: evt.target.innerText,
+                      value: evt.target.value,
                       id: textBlock.id,
                     });
                   }}

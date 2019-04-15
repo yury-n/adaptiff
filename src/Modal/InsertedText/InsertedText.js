@@ -28,11 +28,10 @@ export default React.memo(
           }
         >
           <div ref={ref} className={s["inserted-text-block"]}>
-            <span
-              contentEditable={true}
-              suppressContentEditableWarning={true}
+            <textarea
+              onChange={setValue}
+              value={config.typedText}
               className={s["inserted-text-block-inner"]}
-              onInput={setValue}
               style={{
                 fontSize: config.fontSize,
                 fontFamily: "sans-serif",
@@ -43,9 +42,7 @@ export default React.memo(
                 textDecoration: config.isUnderlined ? "underline" : "none",
                 fontStyle: config.isItalic ? "italic" : undefined
               }}
-            >
-              {config.text}
-            </span>
+            />
           </div>
         </div>
       );
@@ -58,7 +55,7 @@ export default React.memo(
             }
           }
           bounds="parent"
-          cancel="span"
+          cancel="textarea"
         >
           {renderTextBlock()}
         </Draggable>
