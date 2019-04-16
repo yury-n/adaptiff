@@ -1,0 +1,24 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
+</head>
+<body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.5/p5.min.js"></script>
+  <script src="_common.js"></script>
+  <script>
+    function aff_render(config) {
+			window.setup(config);
+		}
+
+    function aff_download() {
+      var link = document.createElement("a");
+      var image = document
+        .querySelector("#preview")
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      window.parent.postMessage({ type: "download", image });
+    }
+	</script>
+
+  <script src="./pulse.js"></script>
+</body>
