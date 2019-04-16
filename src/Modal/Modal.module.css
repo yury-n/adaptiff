@@ -7,6 +7,22 @@
   align-items: center;
 }
 
+.config-over-right-buttons {
+  display: inline-flex;
+}
+
+.config-over-right-buttons > * {
+  margin-right: 14px !important;
+}
+
+.config-over-right-buttons > *:last-child {
+  margin-right: 0 !important;
+}
+
+.pause-button i {
+  color: #000000d9 !important;
+}
+
 .add-menu {
   position: absolute;
   left: 15px;
@@ -30,6 +46,9 @@
 }
 
 .dimensions {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: inline-block;
 }
 

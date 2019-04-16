@@ -5,7 +5,6 @@
 <body>
   <script>
     let lastConfig;
-    let paused = false;
     function aff_render(config) {
       lastConfig = config;
       var oldPreview = document.querySelector("#preview");
@@ -16,7 +15,6 @@
       const preview = document.createElement("canvas");
       preview.id = "preview";
       preview.style.backgroundColor = config.palette[0];
-      preview.addEventListener("click", aff_canvasClick);
       window.document.body.appendChild(preview);
 
       window.particles = window.Particles.init({
@@ -27,14 +25,11 @@
         connectParticles: true
       });
     }
-    function aff_canvasClick() {
-      if (!paused) {
-        window.particles.pauseAnimation();
-        paused = true;
-      } else {
-        aff_render(lastConfig);
-        paused = false;
-      }
+    function aff_pause() {
+      window.particles.pauseAnimation();
+    }
+    function aff_unpause() {
+      aff_render(lastConfig);
     }
     function aff_download() {
       var link = document.createElement("a");

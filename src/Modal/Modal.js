@@ -18,6 +18,7 @@ class TheModal extends Component {
     this.textBlocksRefs = {};
     this.captureFrameRef = React.createRef();
     const state = {
+      isPaused: false,
       config: {},
       iframeVersion: 0, // for props.config.refreshIframe = true
       textBlocks: [],
@@ -74,7 +75,14 @@ class TheModal extends Component {
     }
   }
   render() {
-    const { title, fileName, refreshIframe, author, authorLink } = this.props;
+    const {
+      title,
+      fileName,
+      refreshIframe,
+      author,
+      authorLink,
+      isPausable
+    } = this.props;
     const {
       iframeWidth,
       iframeHeight,
@@ -82,7 +90,8 @@ class TheModal extends Component {
       activeTextBlockIndex,
       captureConfig,
       captureImage,
-      iframeVersion
+      iframeVersion,
+      isPaused
     } = this.state;
     return (
       <Modal open closeIcon onClose={this.props.onClose}>
@@ -155,7 +164,23 @@ class TheModal extends Component {
                   onBlur={this.setStateOnBlur("iframeHeight")}
                 />
               </div>
-              <Button circular icon="download" onClick={this.download} />
+              <div className={s["config-over-right-buttons"]}>
+                {isPausable && (
+                  <Button
+                    title={isPaused ? "Unpause" : "Pause"}
+                    circular
+                    icon={isPaused ? "play" : "pause"}
+                    onClick={isPaused ? this.unpause : this.pause}
+                    className={s["pause-button"]}
+                  />
+                )}
+                <Button
+                  title="Download"
+                  circular
+                  icon="download"
+                  onClick={this.download}
+                />
+              </div>
             </div>
             <div className={s["iframe-wrapper"]}>
               <IframePreview
@@ -344,6 +369,20 @@ class TheModal extends Component {
       type: "render",
       payload: this.state.config
     });
+  };
+
+  pause = () => {
+    this.iframeRef.current.contentWindow.postMessage({
+      type: "pause"
+    });
+    this.setState({ isPaused: true });
+  };
+
+  unpause = () => {
+    this.iframeRef.current.contentWindow.postMessage({
+      type: "unpause"
+    });
+    this.setState({ isPaused: false });
   };
 
   download = () => {

@@ -17,6 +17,7 @@ export default {
   author: "marcbruederlin",
   authorLink: "https://github.com/marcbruederlin",
   thumbs: ["/thumbs/particles/1.png"],
+  isPausable: true,
   config: [
     {
       key: "maxParticles",
