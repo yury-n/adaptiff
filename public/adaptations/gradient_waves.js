@@ -1,8 +1,8 @@
 function create() {
     /*--------------------
-  SETTINGS
-  --------------------*/
-  let settings = {
+SETTINGS
+--------------------*/
+let settings = {
     amplitudeX: window.amplituteX,
     amplitudeY: window.amplituteY,
     lines: window.lines,
@@ -16,13 +16,13 @@ function create() {
     offsetX: 10,
     fill: true,
     crazyness: window.crazyness,
-  }
+}
 
 
-  /*--------------------
-  VARS
-  --------------------*/
-  let svg = document.getElementById('preview'),
+/*--------------------
+VARS
+--------------------*/
+let svg = document.getElementById('preview'),
     winW = window.innerWidth,
     winH = window.innerHeight,
     Colors = [],
@@ -37,10 +37,10 @@ function create() {
     gui;
 
 
-  /*--------------------
-  PATH
-  --------------------*/
-  class Path {
+/*--------------------
+PATH
+--------------------*/
+class Path {
     constructor (y, fill, offsetX) {
         this.rootY = y;
         this.fill = fill;
@@ -165,13 +165,13 @@ function create() {
 
         path.setAttribute('d', d);
     };
-  };
+};
 
 
-  /*--------------------
-  INIT
-  --------------------*/
-  function init(){
+/*--------------------
+INIT
+--------------------*/
+function init(){
     // Overflow
     overflow = Math.abs(settings.lines * settings.offsetX);
 
@@ -204,24 +204,24 @@ function create() {
     Paths.forEach(function(path) {
         path.createPath();
     });
-  };
-  init();
+};
+init();
 
 
-  /*--------------------
-  WIN RESIZE
-  --------------------*/
-  window.addEventListener('resize', function() {
+/*--------------------
+WIN RESIZE
+--------------------*/
+window.addEventListener('resize', function() {
     winW = window.innerWidth;
     winH = window.innerHeight;
     init();
-  });
+});
 
 
     /*--------------------
-  RANDOMIZE
-  --------------------*/
-  function randomize(){
+RANDOMIZE
+--------------------*/
+function randomize(){
     settings = {
         lines: parseInt(5 + Math.random() * 45),
         amplitudeX: parseInt(20 + Math.random()* 300),
@@ -239,5 +239,5 @@ function create() {
     }
     init();
     gui.destroy();
-  }
+}
 }

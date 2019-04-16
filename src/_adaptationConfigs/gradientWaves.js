@@ -3,7 +3,6 @@ export default {
 	fileName: "gradient_waves",
 	author: "Fabio Ottaviani",
   authorLink: "https://codepen.io/supah/",
-  artLink: "https://codepen.io/supah/pen/prVVOx?editors=0110",
   thumbs: ["/thumbs/gradientWaves/1.png"],
   refreshIframe: true,
 
