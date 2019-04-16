@@ -22,6 +22,7 @@ import generateArt from "./_adaptationConfigs/generateArt";
 
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
+import gradientWaves from "./_adaptationConfigs/gradientWaves";
 
 class App extends Component {
   render() {
@@ -44,6 +45,7 @@ class App extends Component {
             <MiniCard {...wallPattern} />
             <MiniCard {...strings25} />
             <MiniCard {...generateArt} />
+            <MiniCard {...gradientWaves} />
           </Card.Group>
         </div>
         <Footer />
