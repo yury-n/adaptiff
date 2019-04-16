@@ -18,6 +18,14 @@ export default React.memo(
       },
       ref
     ) => {
+      const initialValueParts = initialValue ? initialValue.split(/\n/) : [];
+      const initialValuePartsWithBRs = []; // with <br/>s in between
+      initialValueParts.forEach(part => {
+        initialValuePartsWithBRs.push(part);
+        initialValuePartsWithBRs.push(<br />);
+      });
+      initialValuePartsWithBRs.pop();
+
       const renderTextBlock = () => (
         <div
           className={classnames(
@@ -50,7 +58,7 @@ export default React.memo(
                 fontStyle: config.isItalic ? "italic" : undefined
               }}
             >
-              {initialValue}
+              {initialValuePartsWithBRs}
             </span>
           </div>
         </div>
