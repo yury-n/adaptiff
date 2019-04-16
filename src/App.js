@@ -19,9 +19,13 @@ import perfectPurple from "./_adaptationConfigs/perfect_purple";
 import wallPattern from "./_adaptationConfigs/wallPattern";
 import strings25 from "./_adaptationConfigs/strings25";
 import generateArt from "./_adaptationConfigs/generateArt";
+import gradientWaves from "./_adaptationConfigs/gradientWaves";
+import pulse from "./_adaptationConfigs/pulse";
 
-// import tunnel from "./_adaptationConfigs/tunnel"; import waves from
-// "./_adaptationConfigs/waves";
+// import tunnel from "./_adaptationConfigs/tunnel"; 
+// import waves from "./_adaptationConfigs/waves";
+// import tunnel from "./_adaptationConfigs/tunnel";
+// import waves from "./_adaptationConfigs/waves";
 
 class App extends Component {
   render() {
@@ -31,14 +35,16 @@ class App extends Component {
         <div className={classnames(s["main-content-area"], "restricted-width-area")}>
           <Hero/>
           <Card.Group className="cards">
-            <MiniCard {...linearGradient}/>
-            <MiniCard {...trianglify}/>
-            <MiniCard {...particles}/>
-            <MiniCard {...bubbles}/>
-            <MiniCard {...perfectPurple}/>
-            <MiniCard {...wallPattern}/>
-            <MiniCard {...strings25}/>
-            <MiniCard {...generateArt}/>
+            <MiniCard {...linearGradient} />
+            <MiniCard {...trianglify} />
+            <MiniCard {...particles} />
+            <MiniCard {...bubbles} />
+            <MiniCard {...perfectPurple} />
+            <MiniCard {...wallPattern} />
+            <MiniCard {...strings25} />
+            <MiniCard {...generateArt} />
+            <MiniCard {...gradientWaves} />
+            <MiniCard {...pulse} />
           </Card.Group>
         </div>
         <Footer/>
