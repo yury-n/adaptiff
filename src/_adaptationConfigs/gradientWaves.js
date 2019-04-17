@@ -1,3 +1,5 @@
+import {gradientPalettes} from "../palettes";
+
 export default {
 	title: "Gradient Waves",
 	fileName: "gradient_waves",
@@ -54,5 +56,13 @@ export default {
       min: 1,
       max: 100,
     },
+
+    {
+      key: "palette",
+      text: "Palettes",
+      type: "palette",
+      defaultValue: gradientPalettes[0],
+      options: gradientPalettes
+    }
 	],
 };

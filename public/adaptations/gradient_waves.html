@@ -3,6 +3,7 @@
   <link rel="stylesheet" href="_common.css" />
   <link rel="stylesheet" href="_gradientWaves.css" />
 </head>
+
 <body>
   <svg id="preview">
   </svg>
@@ -27,12 +28,13 @@
       preview.id = "preview";
       window.document.body.appendChild(preview);
 
-
       window.crazyness = config.crazyness;
       window.smoothness = config.smoothness;
       window.lines = config.lines;
       window.amplituteX = config.amplituteX;
       window.amplituteY = config.amplituteY;
+      window.startColor = config.palette[0];
+      window.endColor = config.palette[1];
 
       window.create();
       initialized = true;
@@ -48,21 +50,24 @@
         canvas.width = svgElement.clientWidth;
         canvas.height = svgElement.clientHeight;
 
-        image.onload = function(){
-          ctx.drawImage(this, 0,0);
+        image.onload = function () {
+          ctx.drawImage(this, 0, 0);
 
           startToLoad(
             canvas
-              .toDataURL("image/png")
-              .replace("image/png", "image/octet-stream")
+            .toDataURL("image/png")
+            .replace("image/png", "image/octet-stream")
           );
         }
 
-        image.src = 'data:image/svg+xml; charset=utf8, '+encodeURIComponent(svgURL);
+        image.src = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgURL);
       });
 
       function startToLoad(image) {
-        window.parent.postMessage({ type: "download", image });
+        window.parent.postMessage({
+          type: "download",
+          image
+        });
       }
     }
   </script>
