@@ -93,6 +93,7 @@ class TheModal extends Component {
       iframeVersion,
       isPaused
     } = this.state;
+    const scaleToFullyFit = this.getScaleToFullyFit();
     return (
       <Modal open closeIcon onClose={this.props.onClose}>
         <Modal.Content className="modal-content">
@@ -191,8 +192,7 @@ class TheModal extends Component {
                 className={s["iframe"]}
                 width={iframeWidth}
                 height={iframeHeight}
-                maxWidth={this.iframeMaxWidth}
-                maxHeight={this.iframeMaxHeight}
+                scale={scaleToFullyFit}
               />
               <div
                 className={s["opaque-overlay"]}
@@ -208,6 +208,7 @@ class TheModal extends Component {
                     this.textBlocksRefs[index] = ref;
                   }}
                   initialValue="Some sample text"
+                  scale={scaleToFullyFit}
                 />
               ))}
               {captureConfig && (
@@ -237,6 +238,20 @@ class TheModal extends Component {
       </Modal>
     );
   }
+
+  getScaleToFullyFit = () => {
+    const { iframeWidth, iframeHeight } = this.state;
+    let scaleToFitWidth = 1;
+    let scaleToFitHeight = 1;
+    if (iframeWidth && iframeWidth > this.iframeMaxWidth) {
+      scaleToFitWidth = this.iframeMaxWidth / iframeWidth;
+    }
+    if (iframeHeight && iframeHeight > this.iframeMaxHeight) {
+      scaleToFitHeight = this.iframeMaxHeight / iframeHeight;
+    }
+    const scaleToFullyFit = Math.min(scaleToFitWidth, scaleToFitHeight);
+    return scaleToFullyFit;
+  };
 
   onWindowMessage = event => {
     if (event.data.type === "download") {
@@ -386,6 +401,7 @@ class TheModal extends Component {
   };
 
   download = () => {
+    const scale = this.getScaleToFullyFit();
     const iframeRect = this.iframeRef.current.getBoundingClientRect();
     const captureConfig = this.state.textBlocks.map((textBlock, index) => {
       const textBlockRect = this.textBlocksRefs[index].getBoundingClientRect();
@@ -393,8 +409,8 @@ class TheModal extends Component {
       return {
         text,
         position: {
-          left: textBlockRect.left - iframeRect.left,
-          top: textBlockRect.top - iframeRect.top
+          left: (textBlockRect.left - iframeRect.left) / (scale || 1),
+          top: (textBlockRect.top - iframeRect.top) / (scale || 1)
         }
       };
     });

@@ -30,14 +30,16 @@
 }
 
 .inserted-text-block {
+  float: left;
   cursor: text;
   line-height: 1.2;
-  display: inline-block;
+  display: block;
   border: 1px transparent dotted;
+  white-space: nowrap;
 }
 
 .inserted-text-block-inner {
   border: 1px transparent dotted;
-  display: inline-block;
+  display: block;
   outline: none;
 }

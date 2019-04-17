@@ -71,7 +71,7 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background: #fdfdfd;
+  background: #f7f7fa;
 }
 
 .iframe-wrapper {
@@ -93,6 +93,7 @@
 
 .capture-frame {
   position: absolute;
+  top: 0;
 }
 
 .capture-frame img {

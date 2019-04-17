@@ -14,6 +14,7 @@ export default React.memo(
         initialPosition,
         isDraggable = true,
         config,
+        scale,
         onClick
       },
       ref
@@ -48,14 +49,15 @@ export default React.memo(
               suppressContentEditableWarning={true}
               className={s["inserted-text-block-inner"]}
               style={{
-                fontSize: config.fontSize,
+                fontSize: `${config.fontSize * (scale || 1)}px`,
                 fontFamily: "sans-serif",
                 color: config.color,
                 backgroundColor: colorObjToString(config.backgroundColor),
-                padding: config.padding,
+                padding: `${config.padding * (scale || 1)}px`,
                 fontWeight: config.isBold ? "bold" : "normal",
                 textDecoration: config.isUnderlined ? "underline" : "none",
                 fontStyle: config.isItalic ? "italic" : undefined
+                // transform: scale < 1 ? `scale(${scale})` : undefined,
               }}
             >
               {initialValuePartsWithBRs}
