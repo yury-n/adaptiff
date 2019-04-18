@@ -15,34 +15,39 @@ class TheModal extends Component {
   constructor(props) {
     super(props);
     this.iframeRef = React.createRef();
+    this.iframeWrapperRef = React.createRef();
     this.textBlocksRefs = {};
     this.captureFrameRef = React.createRef();
+    const initState = props.initState || {};
     const state = {
       isPaused: false,
       config: {},
       iframeVersion: 0, // for props.config.refreshIframe = true
-      textBlocks: [],
+      iframeWidth: initState.width,
+      iframeHeight: initState.height,
+      textBlocks: initState.textBlocks || [],
       activeTextBlockIndex: null,
       isAddMenuOpen: false,
       isSelectingColor: false
     };
     this.props.config.forEach(config => {
-      state.config[config.key] = config.defaultValue;
+      state.config[config.key] =
+        initState.config[config.key] || config.defaultValue;
     });
     this.state = state;
-
-    this.iframeMaxWidth = null;
-    this.iframeMaxHeight = null;
 
     this.textBlockId = 0;
   }
   componentDidMount() {
-    this.iframeMaxWidth = this.iframeRef.current.offsetWidth;
-    this.iframeMaxHeight = this.iframeRef.current.offsetHeight;
-    this.setState({
-      iframeWidth: this.iframeMaxWidth,
-      iframeHeight: this.iframeMaxHeight
-    });
+    const newState = {
+      iframeMaxWidth: this.iframeRef.current.offsetWidth,
+      iframeMaxHeight: this.iframeRef.current.offsetHeight
+    };
+    if (!this.state.iframeWidth || !this.state.iframeHeight) {
+      newState.iframeWidth = this.iframeMaxWidth;
+      newState.iframeHeight = this.iframeMaxHeight;
+    }
+    this.setState(newState);
     window.addEventListener("message", this.onWindowMessage);
   }
   componentWillUnmount() {
@@ -183,7 +188,7 @@ class TheModal extends Component {
                 />
               </div>
             </div>
-            <div className={s["iframe-wrapper"]}>
+            <div ref={this.iframeWrapperRef} className={s["iframe-wrapper"]}>
               <IframePreview
                 version={refreshIframe ? iframeVersion : 1}
                 fileName={fileName}
@@ -207,7 +212,10 @@ class TheModal extends Component {
                   ref={ref => {
                     this.textBlocksRefs[index] = ref;
                   }}
-                  initialValue="Some sample text"
+                  initialValue={textBlock.text || "Some sample text"}
+                  initialPosition={this.makePositionRelativeToEditContainer(
+                    textBlock.position
+                  )}
                   scale={scaleToFullyFit}
                 />
               ))}
@@ -240,14 +248,19 @@ class TheModal extends Component {
   }
 
   getScaleToFullyFit = () => {
-    const { iframeWidth, iframeHeight } = this.state;
+    const {
+      iframeWidth,
+      iframeHeight,
+      iframeMaxWidth,
+      iframeMaxHeight
+    } = this.state;
     let scaleToFitWidth = 1;
     let scaleToFitHeight = 1;
-    if (iframeWidth && iframeWidth > this.iframeMaxWidth) {
-      scaleToFitWidth = this.iframeMaxWidth / iframeWidth;
+    if (iframeWidth && iframeWidth > iframeMaxWidth) {
+      scaleToFitWidth = iframeMaxWidth / iframeWidth;
     }
-    if (iframeHeight && iframeHeight > this.iframeMaxHeight) {
-      scaleToFitHeight = this.iframeMaxHeight / iframeHeight;
+    if (iframeHeight && iframeHeight > iframeMaxHeight) {
+      scaleToFitHeight = iframeMaxHeight / iframeHeight;
     }
     const scaleToFullyFit = Math.min(scaleToFitWidth, scaleToFitHeight);
     return scaleToFullyFit;
@@ -301,6 +314,20 @@ class TheModal extends Component {
 
   unsetActiveTextBlockIndex = () => {
     this.setState({ activeTextBlockIndex: null });
+  };
+
+  makePositionRelativeToEditContainer = position => {
+    if (!this.iframeRef.current) {
+      return null;
+    }
+    const iframeRect = this.iframeRef.current.getBoundingClientRect();
+    const iframeWrapperRect = this.iframeWrapperRef.current.getBoundingClientRect();
+    if (position.left && position.top) {
+      return {
+        left: iframeRect.left - iframeWrapperRect.left + position.left,
+        top: iframeRect.top - iframeWrapperRect.top + position.top
+      };
+    }
   };
 
   deleteCurrentTextBlock = () => {
@@ -414,8 +441,10 @@ class TheModal extends Component {
         }
       };
     });
-    this.setState({ captureConfig });
-    // console.log("captureConfig", captureConfig);
+    // this.setState({ captureConfig });
+    console.log("config", this.state.config);
+    console.log("captureConfig", captureConfig);
+    console.log("textBlocks", this.state.textBlocks);
   };
 }
 

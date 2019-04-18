@@ -68,10 +68,12 @@ export default React.memo(
       return isDraggable ? (
         <Draggable
           defaultPosition={
-            initialPosition && {
-              x: initialPosition.left,
-              y: initialPosition.top
-            }
+            initialPosition
+              ? {
+                  x: initialPosition.left,
+                  y: initialPosition.top
+                }
+              : undefined
           }
           bounds="parent"
           cancel="span"
