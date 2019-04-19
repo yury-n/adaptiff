@@ -1,9 +1,13 @@
-import React, {Component} from "react";
+import React, {
+  Component
+} from "react";
 import classnames from "classnames";
 import Header from "./Header/Header";
 import Hero from "./Hero/Hero";
 import Footer from "./Footer/Footer";
-import {Card} from "semantic-ui-react";
+import {
+  Card
+} from "semantic-ui-react";
 import MiniCard from "./MiniCard/MiniCard";
 
 import "./global.overrides.css";
@@ -30,27 +34,68 @@ import abstractParticles from "./_adaptationConfigs/abstractParticles";
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <Header/>
-        <div className={classnames(s["main-content-area"], "restricted-width-area")}>
-          <Hero/>
-          <Card.Group className="cards">
-            <MiniCard {...linearGradient} />
-            <MiniCard {...trianglify} />
-            <MiniCard {...particles} />
-            <MiniCard {...bubbles} />
-            <MiniCard {...perfectPurple} />
-            <MiniCard {...wallPattern} />
-            <MiniCard {...strings25} />
-            <MiniCard {...generateArt} />
-            <MiniCard {...gradientWaves} />
-            <MiniCard {...pulse} />
-            <MiniCard showModal {...abstractParticles} />
-          </Card.Group>
-        </div>
-        <Footer/>
-      </div>
+    return ( <
+      div className = "App" >
+      <
+      Header / >
+      <
+      div className = {
+        classnames(s["main-content-area"], "restricted-width-area")
+      } >
+      <
+      Hero / >
+      <
+      Card.Group className = "cards" >
+      <
+      MiniCard {
+        ...linearGradient
+      }
+      /> <
+      MiniCard {
+        ...trianglify
+      }
+      /> <
+      MiniCard {
+        ...particles
+      }
+      /> <
+      MiniCard {
+        ...bubbles
+      }
+      /> <
+      MiniCard {
+        ...perfectPurple
+      }
+      /> <
+      MiniCard {
+        ...wallPattern
+      }
+      /> <
+      MiniCard {
+        ...strings25
+      }
+      /> <
+      MiniCard {
+        ...generateArt
+      }
+      /> <
+      MiniCard {
+        ...gradientWaves
+      }
+      /> <
+      MiniCard {
+        ...pulse
+      }
+      /> <
+      MiniCard {
+        ...abstractParticles
+      }
+      /> <
+      /Card.Group> <
+      /div> <
+      Footer / >
+      <
+      /div>
     );
   }
 }
