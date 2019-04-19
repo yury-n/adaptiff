@@ -21,8 +21,9 @@ import strings25 from "./_adaptationConfigs/strings25";
 import generateArt from "./_adaptationConfigs/generateArt";
 import gradientWaves from "./_adaptationConfigs/gradientWaves";
 import pulse from "./_adaptationConfigs/pulse";
+import abstractParticles from "./_adaptationConfigs/abstractParticles";
 
-// import tunnel from "./_adaptationConfigs/tunnel"; 
+// import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
@@ -45,6 +46,7 @@ class App extends Component {
             <MiniCard {...generateArt} />
             <MiniCard {...gradientWaves} />
             <MiniCard {...pulse} />
+            <MiniCard {...abstractParticles} />
           </Card.Group>
         </div>
         <Footer/>

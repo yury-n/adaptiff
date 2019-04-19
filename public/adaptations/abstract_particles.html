@@ -1,0 +1,52 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
+</head>
+<body>
+  <canvas id="preview"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.3.0/simplex-noise.min.js"></script>
+  <script src="./abstractParticles.js"></script>
+  <script src="_common.js"></script>
+  <script>
+    let lastConfig;
+    let initialized = false;
+    // debug: aff_render();
+    function aff_render(config) {
+      // debug: config = JSON.parse();
+      lastConfig = config;
+      var oldPreview = document.querySelector("#preview");
+
+      if (oldPreview) {
+        window.document.body.removeChild(oldPreview);
+      }
+
+      const preview = document.createElement("canvas");
+      preview.id = "preview";
+      window.document.body.appendChild(preview);
+
+      window.size = config.size;
+      window.step = config.step;
+      window.quantity = config.quantity;
+      window.theme = config.theme;
+
+      window.create();
+      initialized = true;
+    }
+
+    function aff_pause() {
+      window.pause();
+    }
+    function aff_unpause() {
+      window.unpause();
+    }
+
+    function aff_download() {
+      var link = document.createElement("a");
+      var image = document
+        .querySelector("#preview")
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      window.parent.postMessage({ type: "download", image });
+    }
+  </script>
+</body>
