@@ -85,3 +85,22 @@
 .active-slider-dot {
   background: #535252;
 }
+
+.paddle-button {
+  position: absolute;
+  top: -8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.paddle-button.left {
+  left: 0;
+}
+
+.paddle-button.right {
+  right: 0;
+}
+
+.paddle-button:hover {
+  text-decoration: underline;
+}

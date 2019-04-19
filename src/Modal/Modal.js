@@ -18,7 +18,7 @@ class TheModal extends Component {
     this.iframeWrapperRef = React.createRef();
     this.textBlocksRefs = {};
     this.captureFrameRef = React.createRef();
-    const initState = props.initState || {};
+    const initState = props.initState || { config: {} };
     const state = {
       isPaused: false,
       config: {},
@@ -44,8 +44,8 @@ class TheModal extends Component {
       iframeMaxHeight: this.iframeRef.current.offsetHeight
     };
     if (!this.state.iframeWidth || !this.state.iframeHeight) {
-      newState.iframeWidth = this.iframeMaxWidth;
-      newState.iframeHeight = this.iframeMaxHeight;
+      newState.iframeWidth = newState.iframeMaxWidth;
+      newState.iframeHeight = newState.iframeMaxHeight;
     }
     this.setState(newState);
     window.addEventListener("message", this.onWindowMessage);
