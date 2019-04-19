@@ -46,7 +46,7 @@ class App extends Component {
             <MiniCard {...generateArt} />
             <MiniCard {...gradientWaves} />
             <MiniCard {...pulse} />
-            <MiniCard {...abstractParticles} />
+            <MiniCard showModal {...abstractParticles} />
           </Card.Group>
         </div>
         <Footer/>

@@ -1,3 +1,13 @@
+
+function pause() {
+    window.isPaused = true;
+}
+
+function unpause() {
+    window.isPaused = false;
+    window.create();
+}
+
 function create() {
     var Configs = {
         backgroundColor: window.theme,
@@ -8,7 +18,7 @@ function create() {
     };
 
     // Vars
-    var fadeTime = 200; // in ms
+    var fadeTime = 0; // in ms
     var fadeTimeStart;
 
     var canvas;
@@ -21,11 +31,11 @@ function create() {
     var hueBase = 0;
     var simplexNoise;
     var zoff = 0;
-    var gui;
     var can2;
     var ctx2;
 
     // Initialize
+
 
     function init() {
         canvas = document.getElementById('preview');
@@ -48,6 +58,7 @@ function create() {
         ctx.lineCap = ctx.lineJoin = 'round';
         ctx.fillStyle = Configs.backgroundColor;
         ctx.fillRect(0, 0, screenWidth, screenHeight);
+
     }
 
     // Event listeners
@@ -72,8 +83,8 @@ function create() {
     // Functions
 
     function getNoise(x, y, z) {
-        var octaves = 2,
-            fallout = 0.5,
+        var octaves = 50,
+            fallout = 0.9,
             amp = 1, f = 1, sum = 1,
             i;
 
@@ -99,6 +110,9 @@ function create() {
     // Update
 
     function update(time) {
+        if(window.isPaused) {
+            return;
+        }
         var step = Configs.step;
         var base = Configs.base;
         var i, p, angle;
@@ -126,7 +140,7 @@ function create() {
             }
         }
 
-        hueBase += 0.4;
+        hueBase += 0.8;
         zoff += Configs.zInc;
 
         // Code to fade in the view
@@ -139,7 +153,7 @@ function create() {
             ctx2.clearRect(0,0,canvas.width,canvas.height);
             ctx2.drawImage(can2,0,0);
         }else{
-            ctx2.globalAlpha = 1;
+            ctx2.globalAlpha = 10;
             ctx2.drawImage(can2,0,0);
         }
 
