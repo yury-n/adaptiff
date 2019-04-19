@@ -90,6 +90,7 @@ export default () => {
                 s["slider-dot"],
                 index === activeCardIndex && s["active-slider-dot"]
               )}
+              onClick={() => setActiveCardIndex(index)}
             />
           ))}
           <div

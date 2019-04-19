@@ -80,10 +80,12 @@
 
 .slider-dot {
   background: #c4c4c4;
+  cursor: pointer;
 }
 
 .active-slider-dot {
   background: #535252;
+  cursor: default;
 }
 
 .paddle-button {
