@@ -7,20 +7,8 @@ export default {
   authorLink: "https://codepen.io/leviboenish/",
   thumbs: ["/thumbs/perfect_purple/1.png"],
   refreshIframe: true,
-
+  isPausable: true,
   config: [
-    {
-      key: "metalness",
-      text: "Metalness",
-      type: "select",
-      defaultValue: 0,
-
-      options: [
-        { key: 0, text: "Off", value: 0 },
-        { key: 1, text: "On", value: 1 }
-      ]
-    },
-
     {
       key: "distortion",
       text: "Distortion",

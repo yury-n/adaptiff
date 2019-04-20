@@ -22,7 +22,6 @@
       }
       const preview = document.createElement("canvas");
       preview.id = "preview";
-      preview.addEventListener("click", aff_canvasClick);
       window.document.body.appendChild(preview);
 
       window.palette = config.palette;
@@ -33,13 +32,12 @@
       window.animate();
       initialized = true;
     }
-    function aff_canvasClick() {
-      if (!window.paused) {
-        window.paused = true;
-      } else {
-        window.paused = false;
-        window.animate();
-      }
+    function aff_pause() {
+      window.paused = true;
+    }
+    function aff_unpause() {
+      window.paused = false;
+      window.animate();
     }
     function aff_download() {
       var link = document.createElement("a");

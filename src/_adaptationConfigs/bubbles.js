@@ -9,6 +9,7 @@ export default {
   authorLink: "https://codepen.io/cvaneenige/",
   thumbs: ["/thumbs/bubbles/1.png"],
   refreshIframe: true,
+  isPausable: true,
   config: [
     {
       type: "boolean",

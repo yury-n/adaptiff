@@ -213,9 +213,10 @@ class TheModal extends Component {
                     this.textBlocksRefs[index] = ref;
                   }}
                   initialValue={textBlock.text || "Some sample text"}
-                  initialPosition={this.makePositionRelativeToEditContainer(
-                    textBlock.position
-                  )}
+                  initialPosition={
+                    textBlock.position &&
+                    this.makePositionRelativeToEditContainer(textBlock.position)
+                  }
                   scale={scaleToFullyFit}
                 />
               ))}
@@ -384,10 +385,12 @@ class TheModal extends Component {
   };
 
   setArtConfigValue = (configKey, configValue) => {
-    const { config, iframeVersion } = this.state;
+    const { refreshIframe } = this.props;
+    const { config, iframeVersion, isPaused } = this.state;
     this.setState({
       config: { ...config, [configKey]: configValue },
-      iframeVersion: iframeVersion + 1
+      iframeVersion: iframeVersion + 1,
+      isPaused: refreshIframe ? false : isPaused
     });
   };
 
@@ -421,10 +424,13 @@ class TheModal extends Component {
   };
 
   unpause = () => {
-    this.iframeRef.current.contentWindow.postMessage({
-      type: "unpause"
-    });
-    this.setState({ isPaused: false });
+    const { iframeVersion } = this.state;
+    if (!this.props.refreshIframe) {
+      this.iframeRef.current.contentWindow.postMessage({
+        type: "unpause"
+      });
+    }
+    this.setState({ isPaused: false, iframeVersion: iframeVersion + 1 });
   };
 
   download = () => {
@@ -432,7 +438,7 @@ class TheModal extends Component {
     const iframeRect = this.iframeRef.current.getBoundingClientRect();
     const captureConfig = this.state.textBlocks.map((textBlock, index) => {
       const textBlockRect = this.textBlocksRefs[index].getBoundingClientRect();
-      const text = this.textBlocksRefs[0].children[0].innerText;
+      const text = this.textBlocksRefs[index].children[0].innerText;
       return {
         text,
         position: {
@@ -441,7 +447,8 @@ class TheModal extends Component {
         }
       };
     });
-    // this.setState({ captureConfig });
+    this.setState({ captureConfig });
+    // console.log("config", JSON.stringify(this.state.config));
     console.log("config", this.state.config);
     console.log("captureConfig", captureConfig);
     console.log("textBlocks", this.state.textBlocks);

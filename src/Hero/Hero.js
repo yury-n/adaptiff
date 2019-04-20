@@ -9,39 +9,52 @@ import s from "./Hero.module.css";
 const cards = [
   {
     ...strings25,
-    thumbs: ["/thumbs/hero/1.png"],
-    thumbBackgroundSize: "cover"
-  },
-  {
-    ...strings25,
-    thumbs: ["/thumbs/hero/2.png"],
+    thumbs: ["/thumbs/hero/strings25.png"],
     thumbBackgroundSize: "cover",
     initState: {
-      width: 400,
-      height: 300,
+      width: 742,
+      height: 361,
       config: {
-        palette: ["#d8fff8", "#000"],
-        sizePercent: [10, 20]
+        palette: ["#d8f1ff", "#000"],
+        sizePercent: [19, 29]
       },
       textBlocks: [
         {
           id: 0,
           config: {
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0.9 },
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
-            fontSize: 22,
+            fontSize: 35,
             padding: 3
           },
-          position: { left: 2, top: 6 },
-          text: "Just text..."
+          position: { left: 280, top: 108 },
+          text: `create
+something`
+        },
+        {
+          id: 1,
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            color: "#000",
+            isBold: true,
+            fontSize: 43,
+            padding: 3
+          },
+          position: { left: 281, top: 196.5 },
+          text: "unique"
         }
       ]
     }
   },
   {
     ...strings25,
-    thumbs: ["/thumbs/hero/1.png"],
-    thumbBackgroundSize: "cover"
+    thumbs: ["/thumbs/hero/todo.png"],
+    thumbBackgroundSize: "20px"
+  },
+  {
+    ...strings25,
+    thumbs: ["/thumbs/hero/todo.png"],
+    thumbBackgroundSize: "20px"
   }
 ];
 

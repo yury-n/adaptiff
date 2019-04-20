@@ -21,11 +21,9 @@
       }
       const preview = document.createElement("canvas");
       preview.id = "preview";
-      preview.addEventListener("click", aff_canvasClick);
       window.document.body.appendChild(preview);
 
       window.palette = config.palette;
-      window.metalness = config.metalness;
       window.size = config.size;
       window.weight = config.weight;
       window.distortion = config.distortion;
@@ -34,8 +32,12 @@
       initialized = true;
     }
 
-    function aff_canvasClick() {
-      window.isPaused = !window.isPaused;
+    function aff_pause() {
+      window.isPaused = true;
+    }
+    function aff_unpause() {
+      window.isPaused = false;
+      aff_render(lastConfig);
     }
 
     function aff_download() {

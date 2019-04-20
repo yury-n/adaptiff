@@ -32,14 +32,16 @@
       aff_render(lastConfig);
     }
     function aff_download() {
-      var link = document.createElement("a");
-      var image = document
-        .querySelector("#preview")
-        .toDataURL("image/png")
-        .replace("image/png", "image/octet-stream");
-      window.parent.postMessage({ type: "download", image });
+      html2canvas(document.getElementById("preview")).then(function(canvas) {
+        const link = document.createElement("a");
+        var image = canvas
+          .toDataURL("image/png")
+          .replace("image/png", "image/octet-stream");
+        window.parent.postMessage({ type: "download", image });
+      });
     }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
+  <script src="https://unpkg.com/html2canvas@1.0.0-alpha.12/dist/html2canvas.min.js"></script>
   <script src="_common.js"></script>
 </body>
