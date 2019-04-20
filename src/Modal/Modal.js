@@ -292,20 +292,23 @@ class TheModal extends Component {
   };
 
   addTextBlock = () => {
+    const { textBlocks } = this.state;
+    const lastTextBlock = textBlocks[textBlocks.length - 1] || {};
+    const defaultConfig = {
+      fontSize: 28,
+      padding: 10,
+      color: "#000",
+      backgroundColor: { r: 255, g: 255, b: 255, a: 0.5 }
+    };
     this.setState({
       textBlocks: [
-        ...this.state.textBlocks,
+        ...textBlocks,
         {
           id: this.textBlockId++,
-          config: {
-            fontSize: 28,
-            padding: 10,
-            color: "#000",
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0.5 }
-          }
+          config: lastTextBlock.config || defaultConfig
         }
       ],
-      activeTextBlockIndex: this.state.textBlocks.length
+      activeTextBlockIndex: textBlocks.length
     });
   };
 
