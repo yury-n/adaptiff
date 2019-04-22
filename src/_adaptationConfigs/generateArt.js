@@ -1,3 +1,5 @@
+import {gradientPalettes} from "../palettes";
+
 export default {
 	title: "Generate Art",
 	fileName: "generate_art",
@@ -11,7 +13,7 @@ export default {
 			key: "hasColor",
 			text: "Has color",
 			type: "select",
-			defaultValue: false,
+			defaultValue: true,
 
 			options: [
 				{key: 0, text: "Off", value: false},
@@ -23,7 +25,7 @@ export default {
 			key: "shape",
 			text: "Shape",
 			type: "select",
-			defaultValue: 'diagonal',
+			defaultValue: 'orthogonals',
 
 			options: [
 				{key: 0, text: "Diagonals", value: 'diagonal'},
@@ -37,9 +39,17 @@ export default {
       key: "iteration",
       text: "Iteration",
       type: "range",
-      defaultValue: 15,
+      defaultValue: 30,
       min: 1,
-      max: 30,
-    },
+      max: 100,
+		},
+
+		{
+      key: "palette",
+      text: "Palettes",
+      type: "palette",
+      defaultValue: gradientPalettes[0],
+      options: gradientPalettes
+    }
 	],
 };

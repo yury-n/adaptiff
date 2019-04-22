@@ -1,5 +1,12 @@
 import {gradientPalettes} from "../palettes";
 
+const ownPallete = [
+  ['#f3bae3', '#4a6289'],
+  ['#00c9ff', '#367e3c'],
+  ['#8e2de2', '#21045b'],
+  ...gradientPalettes,
+];
+
 export default {
 	title: "Gradient Waves",
 	fileName: "gradient_waves",
@@ -13,7 +20,7 @@ export default {
       key: "amplituteY",
       text: "Amplitude Y",
       type: "range",
-      defaultValue: 30,
+      defaultValue: 60,
       min: 30,
       max: 150,
     },
@@ -22,7 +29,7 @@ export default {
       key: "amplituteX",
       text: "Amplitude X",
       type: "range",
-      defaultValue: 30,
+      defaultValue: 60,
       min: 30,
       max: 150,
     },
@@ -61,8 +68,8 @@ export default {
       key: "palette",
       text: "Palettes",
       type: "palette",
-      defaultValue: gradientPalettes[0],
-      options: gradientPalettes
+      defaultValue: ownPallete[0],
+      options: ownPallete
     }
 	],
 };

@@ -12,7 +12,7 @@ export default {
 			key: "theme",
 			text: "Theme",
 			type: "select",
-			defaultValue: 1,
+			defaultValue: 255,
 
 			options: [
         { key: 0, text: "Light", value: 255 },

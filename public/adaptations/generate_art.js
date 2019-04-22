@@ -185,7 +185,12 @@ function create() {
 
 		for (var i = 0; i < coordGrid.length; i++) {
 			if (isColourful) {
-				ctx.strokeStyle = "#" + Math.floor(Math.random() * 16777215).toString(16);
+				if(i % 2 === 1) {
+					ctx.strokeStyle = window.palette[0];
+				} else {
+					ctx.strokeStyle = window.palette[1];
+				}
+
 			}
 
 			const startCoord = coordGrid[i];
