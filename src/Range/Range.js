@@ -4,7 +4,8 @@ import { Input } from "semantic-ui-react";
 
 import s from "./Range.module.css";
 
-let SliderWithTooltip;
+const SliderWithTooltip = createSliderWithTooltip(Slider);
+const RangeWithTooltip = createSliderWithTooltip(Slider);
 
 class Range extends Component {
   static defaultProps = {
@@ -21,10 +22,6 @@ class Range extends Component {
       min: props.min,
       max: props.max
     };
-
-    SliderWithTooltip = createSliderWithTooltip(
-      Array.isArray(props.value) ? Slider.Range : Slider
-    );
   }
 
   onMinChange = e => {
@@ -38,9 +35,12 @@ class Range extends Component {
     });
   };
   render() {
+    const SliderComponent = Array.isArray(this.props.value)
+      ? RangeWithTooltip
+      : SliderWithTooltip;
     return (
       <>
-        <SliderWithTooltip
+        <SliderComponent
           value={this.props.value}
           min={this.state.min}
           max={this.state.max}
