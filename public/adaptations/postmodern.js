@@ -18,7 +18,7 @@ function create() {
   var max_h = 80;
   var count = window.count;
   var solidPercent = 10;
-  var lineWidth = 2;
+  var lineWidth = window.lineWidth;
 
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);

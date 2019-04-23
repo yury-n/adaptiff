@@ -6,16 +6,25 @@ export default {
 	author: "Kentskyo",
 	authorLink: "https://codepen.io/kentskyo/",
 	artLink: "https://codepen.io/kentskyo/pen/ojLyzg?editors=1010",
-	thumbs: ["/thumbs/abstractParticles/1.png"],
+	thumbs: ["/thumbs/postmodern/1.png"],
 
 	config: [
 		{
 			key: "count",
 			text: "Count of Elements",
 			type: "range",
-			defaultValue: 20,
+			defaultValue: 30,
 			min: 1,
 			max: 100,
+		},
+
+		{
+			key: "lineWidth",
+			text: "Line width",
+			type: "range",
+			defaultValue: 1,
+			min: 1,
+			max: 20,
 		},
 
 		{
