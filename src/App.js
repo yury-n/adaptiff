@@ -22,6 +22,7 @@ import generateArt from "./_adaptationConfigs/generateArt";
 import gradientWaves from "./_adaptationConfigs/gradientWaves";
 import pulse from "./_adaptationConfigs/pulse";
 import abstractParticles from "./_adaptationConfigs/abstractParticles";
+import postmodern from './_adaptationConfigs/postmodern';
 
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
@@ -47,6 +48,7 @@ class App extends Component {
             <MiniCard {...gradientWaves} />
             <MiniCard {...pulse} />
             <MiniCard {...abstractParticles} />
+            <MiniCard {...postmodern} />
           </Card.Group>
         </div>
         <Footer/>
