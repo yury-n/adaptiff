@@ -87,7 +87,6 @@ export default () => {
             mode="hero"
             className={s["hero-preview-card"]}
             {...cards[activeCardIndex]}
-            showModal
           />
           <Button icon className={s["edit-button"]} title="edit">
             <Icon name="pencil" />
