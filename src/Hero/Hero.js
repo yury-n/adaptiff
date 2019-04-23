@@ -22,6 +22,7 @@ const cards = [
         {
           id: 0,
           config: {
+            fontFamily: "helvetica",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
             fontSize: 35,
@@ -34,6 +35,7 @@ something`
         {
           id: 1,
           config: {
+            fontFamily: "helvetica",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
             isBold: true,
@@ -85,6 +87,7 @@ export default () => {
             mode="hero"
             className={s["hero-preview-card"]}
             {...cards[activeCardIndex]}
+            showModal
           />
           <Button icon className={s["edit-button"]} title="edit">
             <Icon name="pencil" />

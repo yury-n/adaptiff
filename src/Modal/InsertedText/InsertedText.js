@@ -50,7 +50,7 @@ export default React.memo(
               className={s["inserted-text-block-inner"]}
               style={{
                 fontSize: `${config.fontSize * (scale || 1)}px`,
-                fontFamily: "sans-serif",
+                fontFamily: config.fontFamily,
                 color: config.color,
                 backgroundColor: colorObjToString(config.backgroundColor),
                 padding: `${config.padding * (scale || 1)}px`,

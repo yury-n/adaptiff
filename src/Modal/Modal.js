@@ -295,6 +295,7 @@ class TheModal extends Component {
     const { textBlocks } = this.state;
     const lastTextBlock = textBlocks[textBlocks.length - 1] || {};
     const defaultConfig = {
+      fontFamily: "helvetica",
       fontSize: 28,
       padding: 10,
       color: "#000",
