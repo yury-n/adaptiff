@@ -1,3 +1,15 @@
+.the-modal::before {
+  display: block;
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  left: -40px;
+  z-index: 1;
+}
+
 .config-over-preview {
   width: 100%;
   padding: 30px;

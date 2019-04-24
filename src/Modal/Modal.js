@@ -100,7 +100,12 @@ class TheModal extends Component {
     } = this.state;
     const scaleToFullyFit = this.getScaleToFullyFit();
     return (
-      <Modal open closeIcon onClose={this.props.onClose}>
+      <Modal
+        open
+        closeIcon
+        onClose={this.props.onClose}
+        className={s["the-modal"]}
+      >
         <Modal.Content className="modal-content">
           <div className={s["modal-sidebar"]}>
             <div
