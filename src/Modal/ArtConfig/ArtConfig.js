@@ -55,11 +55,11 @@ export default ({
             />
           );
           break;
-        case "single-palette":
+        case "single-color":
           control = (
             <>
               <ColorInput
-                key="single-palette"
+                key="single-color"
                 color={configValues.backgroundColor}
                 onChange={value => setConfigValue(config.key, value)}
                 onOpen={onStartSelectingColor}
