@@ -26,8 +26,6 @@ class TheModal extends Component {
       textBlocks: this.props.customConfig.textBlocks,
       captureConfig: this.props.customConfig.captureConfig,
     } : {size: {width: null, height: null}, config: {}, textBlocks: null, captureConfig: []};
-
-    console.log(customConfig);
     
     const state = {
       isPaused: false,
