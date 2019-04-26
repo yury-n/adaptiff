@@ -24,7 +24,8 @@ class TheModal extends Component {
       size: this.props.customConfig.size,
       config: this.props.customConfig.config,
       textBlocks: this.props.customConfig.textBlocks,
-    } : {size: {width: null, height: null}, config: {}, textBlocks: null};
+      captureConfig: this.props.customConfig.captureConfig,
+    } : {size: {width: null, height: null}, config: {}, textBlocks: null, captureConfig: []};
 
     console.log(customConfig);
     
@@ -491,7 +492,11 @@ class TheModal extends Component {
       },
       config: this.state.config,
       captureConfig,
-      textBlocks: this.state.textBlocks,
+      textBlocks: this.state.textBlocks.map((textBlock, idx) => ({
+        ...textBlock,
+        text: captureConfig[idx].text,
+        position: captureConfig[idx].position,
+      })),
     });
   };
 }
