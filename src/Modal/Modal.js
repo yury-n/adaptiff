@@ -475,6 +475,10 @@ class TheModal extends Component {
 
     this.saveConfigToDB({
       title: this.props.title,
+      size: {
+        width: this.state.iframeWidth,
+        height: this.state.iframeHeight,
+      },
       config: this.state.config,
       captureConfig,
       textBlocks: this.state.textBlocks,
