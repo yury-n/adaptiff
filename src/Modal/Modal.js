@@ -442,6 +442,17 @@ class TheModal extends Component {
     this.setState({ isPaused: false, iframeVersion: iframeVersion + 1 });
   };
 
+  saveConfigToDB = (config) => fetch('http://localhost:9000/config',
+    {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+
+        method: "POST",
+        body: JSON.stringify(config)
+    })
+
   download = () => {
     const scale = this.getScaleToFullyFit();
     const iframeRect = this.iframeRef.current.getBoundingClientRect();
@@ -461,6 +472,13 @@ class TheModal extends Component {
     console.log("config", this.state.config);
     console.log("captureConfig", captureConfig);
     console.log("textBlocks", this.state.textBlocks);
+
+    this.saveConfigToDB({
+      title: this.props.title,
+      config: this.state.config,
+      captureConfig,
+      textBlocks: this.state.textBlocks,
+    });
   };
 }
 
