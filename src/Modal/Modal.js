@@ -5,6 +5,7 @@ import { Modal, Input, Button, Icon } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
 import InsertButton from "./InsertButton/InsertButton";
 import InsertedText from "./InsertedText/InsertedText";
+import InsertedImage from "./InsertedImage/InsertedImage";
 import IframePreview from "./IframePreview/IframePreview";
 import ArtConfig from "./ArtConfig/ArtConfig";
 
@@ -27,6 +28,7 @@ class TheModal extends Component {
       iframeWidth: initState.width,
       iframeHeight: initState.height,
       textBlocks: initState.textBlocks || [],
+      imageBlocks: initState.imageBlocks || [],
       activeTextBlockIndex: null,
       isAddMenuOpen: false,
       isSelectingColor: false
@@ -37,7 +39,7 @@ class TheModal extends Component {
     });
     this.state = state;
 
-    this.textBlockId = 0;
+    this.insertedBlockId = 0;
   }
   componentDidMount() {
     const newState = {
@@ -93,6 +95,7 @@ class TheModal extends Component {
       iframeWidth,
       iframeHeight,
       textBlocks,
+      imageBlocks,
       activeTextBlockIndex,
       captureConfig,
       captureImage,
@@ -144,7 +147,10 @@ class TheModal extends Component {
           </div>
           <div className={s["modal-right-side"]}>
             <div className={s["config-over-preview"]}>
-              <InsertButton />
+              <InsertButton
+                onInsertText={this.insertTextBlock}
+                onInsertImage={this.insertImage}
+              />
               <div className={s["dimensions"]}>
                 <Input
                   defaultValue={iframeWidth}
@@ -209,6 +215,9 @@ class TheModal extends Component {
                   }
                   scale={scaleToFullyFit}
                 />
+              ))}
+              {imageBlocks.map(({ id, imageUrl }) => (
+                <InsertedImage key={id} imageUrl={imageUrl} />
               ))}
               {captureConfig && (
                 <div
@@ -281,7 +290,7 @@ class TheModal extends Component {
     }
   };
 
-  addTextBlock = () => {
+  insertTextBlock = () => {
     const { textBlocks } = this.state;
     const lastTextBlock = textBlocks[textBlocks.length - 1] || {};
     const defaultConfig = {
@@ -295,11 +304,27 @@ class TheModal extends Component {
       textBlocks: [
         ...textBlocks,
         {
-          id: this.textBlockId++,
+          id: this.insertedBlockId++,
           config: lastTextBlock.config || defaultConfig
         }
       ],
       activeTextBlockIndex: textBlocks.length
+    });
+  };
+
+  insertImage = ({ imageUrl }) => {
+    const { imageBlocks } = this.state;
+    if (!imageUrl) {
+      return;
+    }
+    this.setState({
+      imageBlocks: [
+        ...imageBlocks,
+        {
+          id: this.insertedBlockId++,
+          imageUrl
+        }
+      ]
     });
   };
 
