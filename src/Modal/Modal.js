@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import html2canvas from "html2canvas";
-import { Modal, Input, Menu, Button, Icon } from "semantic-ui-react";
+import { Modal, Input, Button, Icon } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
+import InsertButton from "./InsertButton/InsertButton";
 import InsertedText from "./InsertedText/InsertedText";
 import IframePreview from "./IframePreview/IframePreview";
 import ArtConfig from "./ArtConfig/ArtConfig";
@@ -142,24 +143,8 @@ class TheModal extends Component {
               : this.renderArtConfig()}
           </div>
           <div className={s["modal-right-side"]}>
-            {this.state.isAddMenuOpen && (
-              <Menu className={s["add-menu"]} icon="labeled" vertical>
-                <Menu.Item
-                  className={s["add-menu-item"]}
-                  onMouseDown={this.addTextBlock}
-                >
-                  <div className={s["add-text-icon"]}>T</div>
-                  <div>Text</div>
-                </Menu.Item>
-              </Menu>
-            )}
             <div className={s["config-over-preview"]}>
-              <Button
-                circular
-                icon="plus"
-                onBlur={this.closeAddMenu}
-                onClick={this.openAddMenu}
-              />
+              <InsertButton />
               <div className={s["dimensions"]}>
                 <Input
                   defaultValue={iframeWidth}
@@ -442,16 +427,16 @@ class TheModal extends Component {
     this.setState({ isPaused: false, iframeVersion: iframeVersion + 1 });
   };
 
-  saveConfigToDB = (config) => fetch('http://localhost:9000/config',
-    {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
+  saveConfigToDB = config =>
+    fetch("http://localhost:9000/config", {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
 
-        method: "POST",
-        body: JSON.stringify(config)
-    })
+      method: "POST",
+      body: JSON.stringify(config)
+    });
 
   download = () => {
     const scale = this.getScaleToFullyFit();
@@ -477,11 +462,11 @@ class TheModal extends Component {
       title: this.props.title,
       size: {
         width: this.state.iframeWidth,
-        height: this.state.iframeHeight,
+        height: this.state.iframeHeight
       },
       config: this.state.config,
       captureConfig,
-      textBlocks: this.state.textBlocks,
+      textBlocks: this.state.textBlocks
     });
   };
 }
