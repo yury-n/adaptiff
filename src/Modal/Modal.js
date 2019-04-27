@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import html2canvas from "html2canvas";
-import { Modal, Input, Menu, Button, Icon } from "semantic-ui-react";
+import { Modal, Input, Button, Icon } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
+import InsertButton from "./InsertButton/InsertButton";
 import InsertedText from "./InsertedText/InsertedText";
+import InsertedImage from "./InsertedImage/InsertedImage";
 import IframePreview from "./IframePreview/IframePreview";
 import ArtConfig from "./ArtConfig/ArtConfig";
 
@@ -35,6 +37,7 @@ class TheModal extends Component {
       iframeWidth: customConfig.size.width || initState.width,
       iframeHeight: customConfig.size.height || initState.height,
       textBlocks: customConfig.textBlocks || initState.textBlocks || [],
+      imageBlocks: initState.imageBlocks || [],
       activeTextBlockIndex: null,
       isAddMenuOpen: false,
       isSelectingColor: false
@@ -45,7 +48,7 @@ class TheModal extends Component {
     });
     this.state = state;
 
-    this.textBlockId = 0;
+    this.insertedBlockId = 0;
   }
   componentDidMount() {
     const newState = {
@@ -101,6 +104,7 @@ class TheModal extends Component {
       iframeWidth,
       iframeHeight,
       textBlocks,
+      imageBlocks,
       activeTextBlockIndex,
       captureConfig,
       captureImage,
@@ -151,23 +155,10 @@ class TheModal extends Component {
               : this.renderArtConfig()}
           </div>
           <div className={s["modal-right-side"]}>
-            {this.state.isAddMenuOpen && (
-              <Menu className={s["add-menu"]} icon="labeled" vertical>
-                <Menu.Item
-                  className={s["add-menu-item"]}
-                  onMouseDown={this.addTextBlock}
-                >
-                  <div className={s["add-text-icon"]}>T</div>
-                  <div>Text</div>
-                </Menu.Item>
-              </Menu>
-            )}
             <div className={s["config-over-preview"]}>
-              <Button
-                circular
-                icon="plus"
-                onBlur={this.closeAddMenu}
-                onClick={this.openAddMenu}
+              <InsertButton
+                onInsertText={this.insertTextBlock}
+                onInsertImage={this.insertImage}
               />
               <div className={s["dimensions"]}>
                 <Input
@@ -233,6 +224,9 @@ class TheModal extends Component {
                   }
                   scale={scaleToFullyFit}
                 />
+              ))}
+              {imageBlocks.map(({ id, imageUrl }) => (
+                <InsertedImage key={id} imageUrl={imageUrl} />
               ))}
               {captureConfig && (
                 <div
@@ -305,7 +299,7 @@ class TheModal extends Component {
     }
   };
 
-  addTextBlock = () => {
+  insertTextBlock = () => {
     const { textBlocks } = this.state;
     const lastTextBlock = textBlocks[textBlocks.length - 1] || {};
     const defaultConfig = {
@@ -319,11 +313,27 @@ class TheModal extends Component {
       textBlocks: [
         ...textBlocks,
         {
-          id: this.textBlockId++,
+          id: this.insertedBlockId++,
           config: lastTextBlock.config || defaultConfig
         }
       ],
       activeTextBlockIndex: textBlocks.length
+    });
+  };
+
+  insertImage = ({ imageUrl }) => {
+    const { imageBlocks } = this.state;
+    if (!imageUrl) {
+      return;
+    }
+    this.setState({
+      imageBlocks: [
+        ...imageBlocks,
+        {
+          id: this.insertedBlockId++,
+          imageUrl
+        }
+      ]
     });
   };
 
@@ -451,16 +461,16 @@ class TheModal extends Component {
     this.setState({ isPaused: false, iframeVersion: iframeVersion + 1 });
   };
 
-  saveConfigToDB = (config) => fetch('http://localhost:9000/config',
-    {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
+  saveConfigToDB = config =>
+    fetch("http://localhost:9000/config", {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
 
-        method: "POST",
-        body: JSON.stringify(config)
-    })
+      method: "POST",
+      body: JSON.stringify(config)
+    });
 
   download = () => {
     const scale = this.getScaleToFullyFit();
@@ -486,7 +496,7 @@ class TheModal extends Component {
       title: this.props.fileName,
       size: {
         width: this.state.iframeWidth,
-        height: this.state.iframeHeight,
+        height: this.state.iframeHeight
       },
       config: this.state.config,
       captureConfig,

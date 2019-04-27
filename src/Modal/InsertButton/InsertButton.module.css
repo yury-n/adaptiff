@@ -1,0 +1,40 @@
+.add-menu {
+  position: absolute;
+  left: 15px;
+  top: 70px;
+  z-index: 10;
+  border-radius: 6px !important;
+}
+
+.add-menu-item {
+  position: relative;
+  padding: 10px 1px !important;
+  min-width: 65px !important;
+  cursor: pointer;
+}
+
+.add-text-icon {
+  display: block;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 3px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.file-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.file-input-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+}
