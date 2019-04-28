@@ -30,7 +30,7 @@ export default React.memo(
       const renderTextBlock = () => (
         <div
           className={classnames(
-            s["root"],
+            s["content-outer-wrapper"],
             isActive && s["active"],
             isDraggable && s["draggable"],
             initialPosition && s["with-initial-position"]
@@ -43,11 +43,11 @@ export default React.memo(
             }
           }
         >
-          <div ref={ref} className={s["inserted-text-block"]}>
+          <div ref={ref} className={s["content-inner-wrapper"]}>
             <span
               contentEditable={true}
               suppressContentEditableWarning={true}
-              className={s["inserted-text-block-inner"]}
+              className={s["content"]}
               style={{
                 fontSize: `${config.fontSize * (scale || 1)}px`,
                 fontFamily: config.fontFamily,

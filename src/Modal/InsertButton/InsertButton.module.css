@@ -12,6 +12,9 @@
   min-width: 65px !important;
   cursor: pointer;
 }
+.add-menu-item:hover {
+  background: none !important;
+}
 
 .add-text-icon {
   display: block;
