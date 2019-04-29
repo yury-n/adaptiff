@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "classnames": "^2.2.6",
     "html2canvas": "^1.0.0-rc.1",
     "rc-slider": "^8.6.8",

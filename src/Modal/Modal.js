@@ -21,13 +21,23 @@ class TheModal extends Component {
     this.textBlocksRefs = {};
     this.captureFrameRef = React.createRef();
     const initState = props.initState || { config: {} };
+    console.log(this.props.customConfig)
+
+    const customConfig = this.props.customConfig ? {
+      size: this.props.customConfig.size,
+      config: this.props.customConfig.config,
+      textBlocks: this.props.customConfig.textBlocks,
+      captureConfig: this.props.customConfig.captureConfig,
+    } : {size: {width: null, height: null}, config: {}, textBlocks: null, captureConfig: []};
+
     const state = {
       isPaused: false,
       config: {},
       iframeVersion: 0, // for props.config.refreshIframe = true
-      iframeWidth: initState.width,
-      iframeHeight: initState.height,
-      textBlocks: initState.textBlocks || [],
+      // Check for custom properties first
+      iframeWidth: customConfig.size.width || initState.width,
+      iframeHeight: customConfig.size.height || initState.height,
+      textBlocks: customConfig.textBlocks || initState.textBlocks || [],
       imageBlocks:
         initState.imageBlocks ||
         [
@@ -44,7 +54,7 @@ class TheModal extends Component {
     };
     this.props.config.forEach(config => {
       state.config[config.key] =
-        initState.config[config.key] || config.defaultValue;
+        customConfig.config[config.key] || initState.config[config.key] || config.defaultValue;
     });
     this.state = state;
 
@@ -497,14 +507,18 @@ class TheModal extends Component {
     console.log("textBlocks", this.state.textBlocks);
 
     this.saveConfigToDB({
-      title: this.props.title,
+      title: this.props.fileName,
       size: {
         width: this.state.iframeWidth,
         height: this.state.iframeHeight
       },
       config: this.state.config,
       captureConfig,
-      textBlocks: this.state.textBlocks
+      textBlocks: this.state.textBlocks.map((textBlock, idx) => ({
+        ...textBlock,
+        text: captureConfig[idx].text,
+        position: captureConfig[idx].position,
+      })),
     });
   };
 }
