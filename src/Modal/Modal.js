@@ -8,6 +8,7 @@ import InsertedText from "./InsertedText/InsertedText";
 import InsertedImage from "./InsertedImage/InsertedImage";
 import IframePreview from "./IframePreview/IframePreview";
 import ArtConfig from "./ArtConfig/ArtConfig";
+import settings from '../settings';
 
 import "rc-slider/assets/index.css";
 import "./global.overrides.css";
@@ -476,7 +477,7 @@ class TheModal extends Component {
   };
 
   saveConfigToDB = config =>
-    fetch("http://localhost:9000/config", {
+    fetch(`${settings.API_PATH_PROD}/config`, {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"

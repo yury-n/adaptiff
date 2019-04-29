@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Modal from '../Modal/Modal';
+import settings from '../settings';
 
 // import linearGradient from "../_adaptationConfigs/linearGradient";
 // import trianglify from "../_adaptationConfigs/trianglify";
@@ -19,7 +20,7 @@ const ConfigPage = (props) => {
   const [newConfig, setNewConfig] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:9000/configs/${configId}`)
+    fetch(`${settings.API_PATH_PROD}/configs/${configId}`)
       .then(res => res.json())
       .then(data => setNewConfig(data));
   }, []);
@@ -33,7 +34,7 @@ const ConfigPage = (props) => {
 
   return (
     newConfig && <Modal {...getArt(newConfig)} customConfig={newConfig} />
-  ); 
+  );
 };
 
 export default ConfigPage;
