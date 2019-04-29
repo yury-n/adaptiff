@@ -1,16 +1,16 @@
-.content-outer-wrapper {
+.root {
   position: absolute;
   left: 50%;
   top: 50%;
   z-index: 10;
 }
 
-.content-outer-wrapper.with-initial-position {
+.root.with-initial-position {
   left: 0;
   top: 0;
 }
 
-.content-outer-wrapper.draggable {
+.root.draggable {
   padding: 8px;
   border: 1px transparent dotted;
   margin-left: -8px;
@@ -18,15 +18,14 @@
   cursor: move;
 }
 
-.content-outer-wrapper:hover,
-.content-outer-wrapper:hover .content-inner-wrapper,
-.content-outer-wrapper.active,
-.content-outer-wrapper.active .content-inner-wrapper {
+.root:hover,
+.root:hover .content-inner-wrapper,
+.root.active .content-inner-wrapper {
   border-color: black;
 }
 
-.content-outer-wrapper:hover .content,
-.content-outer-wrapper.active .content {
+.root:hover .content,
+.root.active .content {
   border-color: white;
 }
 
@@ -43,4 +42,8 @@
   border: 1px transparent dotted;
   display: block;
   outline: none;
+}
+
+.image {
+  display: block;
 }
