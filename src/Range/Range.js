@@ -5,7 +5,7 @@ import { Input } from "semantic-ui-react";
 import s from "./Range.module.css";
 
 const SliderWithTooltip = createSliderWithTooltip(Slider);
-const RangeWithTooltip = createSliderWithTooltip(Slider);
+const RangeWithTooltip = createSliderWithTooltip(Slider.Range);
 
 class Range extends Component {
   static defaultProps = {
