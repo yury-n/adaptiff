@@ -35,7 +35,7 @@ export default () => (
     <div className={classnames(s["main-content-area"], "restricted-width-area")}>
       <Hero/>
       <Card.Group className="cards">
-        <MiniCard {...linearGradient} />
+        <MiniCard showModal {...linearGradient} />
         <MiniCard {...trianglify} />
         <MiniCard {...particles} />
         <MiniCard {...bubbles} />

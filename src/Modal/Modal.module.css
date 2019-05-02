@@ -21,6 +21,7 @@
 
 .config-over-right-buttons {
   display: inline-flex;
+  align-items: center;
 }
 
 .config-over-right-buttons > * {

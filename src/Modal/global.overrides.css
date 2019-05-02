@@ -31,11 +31,17 @@
   background: white;
   color: black;
   box-shadow: 0 3px 4px 0px #b7b7b7;
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
 .ui.circular.button:active {
   box-shadow: 0 0px 4px 0px #b7b7b7;
+}
+
+.ui.loading.button {
+  height: 36px;
+  width: 36px;
+  padding: 0;
 }
 
 .ui.labeled.icon.button {

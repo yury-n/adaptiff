@@ -69,16 +69,36 @@ a:hover {
   z-index: 0;
 }
 
-.ui.checkbox input.hidden + label:before {
+.ui.toggle.checkbox input.hidden + label:before {
   background-color: #d9d9d9;
+}
+
+.ui.checkbox {
+  opacity: 0.7;
+  margin-right: 30px !important;
+}
+
+.ui.toggle.checkbox {
+  opacity: 1;
 }
 
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after,
-.ui.checkbox input.hidden + label:after {
+.ui.toggle.checkbox input.hidden + label:after {
   box-shadow: 0 3px 8px 0px #a5a5a5c9;
   top: -1px;
   background: white;
+}
+
+.ui.checkbox label:before {
+  top: -1px;
+}
+
+.ui.checkbox input[type=checkbox], .ui.checkbox input[type=radio],
+.ui.checkbox label:before,
+.ui.checkbox label:after {
+  width: 19px;
+  height: 19px;
 }
 
 .ui.cards {

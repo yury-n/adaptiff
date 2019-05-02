@@ -31,7 +31,7 @@
 
 .content-inner-wrapper {
   float: left;
-  cursor: text;
+  cursor: move;
   line-height: 1.2;
   display: block;
   border: 1px transparent dotted;

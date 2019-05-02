@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import html2canvas from "html2canvas";
-import { Modal, Input, Button, Icon } from "semantic-ui-react";
+import { Modal, Input, Button, Icon, Checkbox } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
 import InsertButton from "./InsertButton/InsertButton";
 import InsertedText from "./InsertedText/InsertedText";
@@ -33,6 +33,8 @@ class TheModal extends Component {
 
     const state = {
       isPaused: false,
+      isPreparingDownload: false,
+      isPublic: localStorage.getItem('modal.isPublic') === 'false' ? false : true,
       config: {},
       iframeVersion: 0, // for props.config.refreshIframe = true
       // Check for custom properties first
@@ -96,7 +98,8 @@ class TheModal extends Component {
           link.click();
           this.setState({
             captureConfig: null,
-            capturedIframe: null
+            capturedIframe: null,
+            isPreparingDownload: false
           });
         });
       }
@@ -120,7 +123,9 @@ class TheModal extends Component {
       captureConfig,
       capturedIframe,
       iframeVersion,
-      isPaused
+      isPaused,
+      isPreparingDownload,
+      isPublic
     } = this.state;
     const scaleToFullyFit = this.getScaleToFullyFit();
     return (
@@ -187,6 +192,7 @@ class TheModal extends Component {
                 />
               </div>
               <div className={s["config-over-right-buttons"]}>
+                <Checkbox checked={isPublic} onChange={this.toggleIsPublic} label='public' />
                 {isPausable && (
                   <Button
                     title={isPaused ? "Unpause" : "Pause"}
@@ -199,7 +205,8 @@ class TheModal extends Component {
                 <Button
                   title="Download"
                   circular
-                  icon="download"
+                  icon={!isPreparingDownload ? 'download' : undefined}
+                  loading={isPreparingDownload}
                   onClick={this.download}
                 />
               </div>
@@ -312,6 +319,13 @@ class TheModal extends Component {
       this.unsetActiveTextBlockIndex();
     }
   };
+
+  toggleIsPublic = () => {
+    const { isPublic } = this.state;
+    const newIsPublic = !isPublic;
+    this.setState({ isPublic: newIsPublic });
+    localStorage.setItem('modal.isPublic', newIsPublic);
+  }
 
   insertTextBlock = () => {
     const { textBlocks } = this.state;
@@ -501,26 +515,28 @@ class TheModal extends Component {
         }
       };
     });
-    this.setState({ captureConfig });
+    this.setState({ captureConfig, isPreparingDownload: true });
     // console.log("config", JSON.stringify(this.state.config));
     console.log("config", this.state.config);
     console.log("captureConfig", captureConfig);
     console.log("textBlocks", this.state.textBlocks);
 
-    this.saveConfigToDB({
-      title: this.props.fileName,
-      size: {
-        width: this.state.iframeWidth,
-        height: this.state.iframeHeight
-      },
-      config: this.state.config,
-      captureConfig,
-      textBlocks: this.state.textBlocks.map((textBlock, idx) => ({
-        ...textBlock,
-        text: captureConfig[idx].text,
-        position: captureConfig[idx].position,
-      })),
-    });
+    if (this.state.isPublic) {
+      this.saveConfigToDB({
+        title: this.props.fileName,
+        size: {
+          width: this.state.iframeWidth,
+          height: this.state.iframeHeight
+        },
+        config: this.state.config,
+        captureConfig,
+        textBlocks: this.state.textBlocks.map((textBlock, idx) => ({
+          ...textBlock,
+          text: captureConfig[idx].text,
+          position: captureConfig[idx].position,
+        })),
+      });
+    }    
   };
 }
 

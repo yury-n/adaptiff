@@ -13,12 +13,12 @@ export default () => {
   }, []);
 
   return (
-    <ul>
+    <ol>
       {configs.map(config => (
         <li key={config._id}>
           <Link to={`/configs/${config._id}`}>{config.title}</Link>
         </li>
       ))}
-    </ul>
+    </ol>
   )
 }
