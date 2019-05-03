@@ -2,16 +2,16 @@ import React, {useEffect, useState} from 'react';
 import Modal from '../Modal/Modal';
 import settings from '../settings';
 
-// import linearGradient from "../_adaptationConfigs/linearGradient";
-// import trianglify from "../_adaptationConfigs/trianglify";
-// import particles from "../_adaptationConfigs/particles";
-// import bubbles from "../_adaptationConfigs/bubbles";
-// import perfectPurple from "../_adaptationConfigs/perfect_purple";
-// import wallPattern from "../_adaptationConfigs/wallPattern";
-// import strings25 from "../_adaptationConfigs/strings25";
+import linearGradient from "../_adaptationConfigs/linearGradient";
+import trianglify from "../_adaptationConfigs/trianglify";
+import particles from "../_adaptationConfigs/particles";
+import bubbles from "../_adaptationConfigs/bubbles";
+import perfectPurple from "../_adaptationConfigs/perfect_purple";
+import wallPattern from "../_adaptationConfigs/wallPattern";
+import strings25 from "../_adaptationConfigs/strings25";
 import generateArt from "../_adaptationConfigs/generateArt";
 import gradientWaves from "../_adaptationConfigs/gradientWaves";
-// import pulse from "../_adaptationConfigs/pulse";
+import pulse from "../_adaptationConfigs/pulse";
 import abstractParticles from "../_adaptationConfigs/abstractParticles";
 import postmodern from '../_adaptationConfigs/postmodern';
 
@@ -22,14 +22,23 @@ const ConfigPage = (props) => {
   useEffect(() => {
     fetch(`${settings.API_PATH_PROD}/configs/${configId}`)
       .then(res => res.json())
-      .then(data => setNewConfig(data));
+      .then(data => setNewConfig(data))
+      .catch(err => console.error(err.message))
   }, []);
 
   const getArt = newConfig  => ({
     [abstractParticles.fileName]: abstractParticles,
+    [trianglify.fileName]: trianglify,
+    [particles.fileName]: particles,
+    [bubbles.fileName]: bubbles,
+    [perfectPurple.fileName]: perfectPurple,
+    [linearGradient.fileName]: linearGradient,
+    [wallPattern.fileName]: wallPattern,
     [generateArt.fileName]: generateArt,
     [postmodern.fileName]: postmodern,
     [gradientWaves.fileName]: gradientWaves,
+    [strings25.fileName]: strings25,
+    [pulse.fileName]: pulse,
   })[newConfig.title];
 
   return (

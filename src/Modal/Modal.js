@@ -22,7 +22,6 @@ class TheModal extends Component {
     this.textBlocksRefs = {};
     this.captureFrameRef = React.createRef();
     const initState = props.initState || { config: {} };
-    console.log(this.props.customConfig)
 
     const customConfig = this.props.customConfig ? {
       size: this.props.customConfig.size,
@@ -490,16 +489,17 @@ class TheModal extends Component {
     this.setState({ isPaused: false, iframeVersion: iframeVersion + 1 });
   };
 
-  saveConfigToDB = config =>
-    fetch(`${settings.API_PATH_PROD}/config`, {
+  saveConfigToDB = config => {
+    return fetch(`${settings.API_PATH_PROD}/config`, {
       headers: {
-        Accept: "application/json",
+        "Accept": "application/json",
         "Content-Type": "application/json"
       },
 
       method: "POST",
       body: JSON.stringify(config)
     });
+  }
 
   download = () => {
     const scale = this.getScaleToFullyFit();
@@ -529,14 +529,13 @@ class TheModal extends Component {
           height: this.state.iframeHeight
         },
         config: this.state.config,
-        captureConfig,
         textBlocks: this.state.textBlocks.map((textBlock, idx) => ({
           ...textBlock,
           text: captureConfig[idx].text,
           position: captureConfig[idx].position,
         })),
       });
-    }    
+    }
   };
 }
 
