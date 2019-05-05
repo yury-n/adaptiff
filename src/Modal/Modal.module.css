@@ -87,7 +87,7 @@
   top: 0;
 }
 
-.capture-frame img {
+.captured-iframe {
   position: absolute;
   width: 100%;
   height: 100%;

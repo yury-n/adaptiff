@@ -1,0 +1,43 @@
+.root {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  padding: 8px;
+  border: 1px transparent dotted;
+  margin-left: -9px;
+  margin-top: -9px;
+  cursor: move;
+  z-index: 10;
+}
+
+.root.with-initial-position {
+  left: 0;
+  top: 0;
+}
+
+.root:hover,
+.root.active,
+.root:hover .content-inner-wrapper,
+.root.active .content-inner-wrapper {
+  border-color: black;
+}
+
+.root:hover .content,
+.root.active .content {
+  border-color: white;
+}
+
+.content-inner-wrapper {
+  float: left;
+  cursor: move;
+  line-height: 1.2;
+  display: block;
+  border: 1px transparent dotted;
+  white-space: nowrap;
+}
+
+.content {
+  border: 1px transparent dotted;
+  display: block;
+  outline: none;
+}

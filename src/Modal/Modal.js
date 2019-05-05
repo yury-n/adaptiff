@@ -5,10 +5,11 @@ import { Modal, Input, Button, Icon, Checkbox } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
 import InsertButton from "./InsertButton/InsertButton";
 import InsertedText from "./InsertedText/InsertedText";
+import DraggableItem from "./DraggableItem/DraggableItem";
 import InsertedImage from "./InsertedImage/InsertedImage";
 import IframePreview from "./IframePreview/IframePreview";
 import ArtConfig from "./ArtConfig/ArtConfig";
-import settings from '../settings';
+import settings from "../settings";
 
 import "rc-slider/assets/index.css";
 import "./global.overrides.css";
@@ -23,17 +24,25 @@ class TheModal extends Component {
     this.captureFrameRef = React.createRef();
     const initState = props.initState || { config: {} };
 
-    const customConfig = this.props.customConfig ? {
-      size: this.props.customConfig.size,
-      config: this.props.customConfig.config,
-      textBlocks: this.props.customConfig.textBlocks,
-      captureConfig: this.props.customConfig.captureConfig,
-    } : {size: {width: null, height: null}, config: {}, textBlocks: null, captureConfig: []};
+    const customConfig = this.props.customConfig
+      ? {
+          size: this.props.customConfig.size,
+          config: this.props.customConfig.config,
+          textBlocks: this.props.customConfig.textBlocks,
+          captureConfig: this.props.customConfig.captureConfig
+        }
+      : {
+          size: { width: null, height: null },
+          config: {},
+          textBlocks: null,
+          captureConfig: []
+        };
 
     const state = {
       isPaused: false,
       isPreparingDownload: false,
-      isPublic: localStorage.getItem('modal.isPublic') === 'false' ? false : true,
+      isPublic:
+        localStorage.getItem("modal.isPublic") === "false" ? false : true,
       config: {},
       iframeVersion: 0, // for props.config.refreshIframe = true
       // Check for custom properties first
@@ -56,7 +65,9 @@ class TheModal extends Component {
     };
     this.props.config.forEach(config => {
       state.config[config.key] =
-        customConfig.config[config.key] || initState.config[config.key] || config.defaultValue;
+        customConfig.config[config.key] ||
+        initState.config[config.key] ||
+        config.defaultValue;
     });
     this.state = state;
 
@@ -191,7 +202,11 @@ class TheModal extends Component {
                 />
               </div>
               <div className={s["config-over-right-buttons"]}>
-                <Checkbox checked={isPublic} onChange={this.toggleIsPublic} label='public' />
+                <Checkbox
+                  checked={isPublic}
+                  onChange={this.toggleIsPublic}
+                  label="public"
+                />
                 {isPausable && (
                   <Button
                     title={isPaused ? "Unpause" : "Pause"}
@@ -204,7 +219,7 @@ class TheModal extends Component {
                 <Button
                   title="Download"
                   circular
-                  icon={!isPreparingDownload ? 'download' : undefined}
+                  icon={!isPreparingDownload ? "download" : undefined}
                   loading={isPreparingDownload}
                   onClick={this.download}
                 />
@@ -226,24 +241,30 @@ class TheModal extends Component {
                 onClick={this.onOpaqueOverlayClick}
               />
               {textBlocks.map((textBlock, index) => (
-                <InsertedText
+                <DraggableItem
                   key={textBlock.id}
                   isActive={index === activeTextBlockIndex}
-                  config={textBlock.config}
-                  onClick={() => this.setActiveTextBlockIndex(index)}
-                  ref={ref => {
-                    this.textBlocksRefs[index] = ref;
-                  }}
-                  initialValue={textBlock.text || "Some sample text"}
                   initialPosition={
                     textBlock.position &&
                     this.makePositionRelativeToEditContainer(textBlock.position)
                   }
-                  scale={scaleToFullyFit}
-                />
+                  onClick={() => this.setActiveTextBlockIndex(index)}
+                >
+                  <InsertedText
+                    key={textBlock.id}
+                    config={textBlock.config}
+                    ref={ref => {
+                      this.textBlocksRefs[index] = ref;
+                    }}
+                    initialValue={textBlock.text || "Some sample text"}
+                    scale={scaleToFullyFit}
+                  />
+                </DraggableItem>
               ))}
               {imageBlocks.map(({ id, imageUrl }) => (
-                <InsertedImage key={id} imageUrl={imageUrl} />
+                <DraggableItem key={id}>
+                  <InsertedImage imageUrl={imageUrl} />
+                </DraggableItem>
               ))}
               {captureConfig && (
                 <div
@@ -254,18 +275,39 @@ class TheModal extends Component {
                   }}
                   ref={this.captureFrameRef}
                 >
-                  {capturedIframe && <img alt="" src={capturedIframe} />}
-                  {textBlocks.map((textBlock, index) => (
-                    <InsertedText
-                      key={textBlock.id}
-                      isDraggable={false}
-                      config={textBlock.config}
-                      initialValue={captureConfig[index].text}
-                      initialPosition={captureConfig[index].position}
+                  {capturedIframe && (
+                    <img
+                      className={s["captured-iframe"]}
+                      alt=""
+                      src={capturedIframe}
                     />
+                  )}
+                  {textBlocks.map((textBlock, index) => (
+                    <div
+                      style={{
+                        position: "absolute",
+                        left: captureConfig[index].position.left,
+                        top: captureConfig[index].position.top
+                      }}
+                    >
+                      <InsertedText
+                        key={textBlock.id}
+                        isDraggable={false}
+                        config={textBlock.config}
+                        initialValue={captureConfig[index].text}
+                      />
+                    </div>
                   ))}
                   {imageBlocks.map(({ id, imageUrl }) => (
-                    <InsertedImage key={id} imageUrl={imageUrl} />
+                    <div
+                      style={{
+                        position: "absolute",
+                        left: 0,
+                        top: 0
+                      }}
+                    >
+                      <InsertedImage key={id} imageUrl={imageUrl} />
+                    </div>
                   ))}
                 </div>
               )}
@@ -323,8 +365,8 @@ class TheModal extends Component {
     const { isPublic } = this.state;
     const newIsPublic = !isPublic;
     this.setState({ isPublic: newIsPublic });
-    localStorage.setItem('modal.isPublic', newIsPublic);
-  }
+    localStorage.setItem("modal.isPublic", newIsPublic);
+  };
 
   insertTextBlock = () => {
     const { textBlocks } = this.state;
@@ -492,21 +534,21 @@ class TheModal extends Component {
   saveConfigToDB = config => {
     return fetch(`${settings.API_PATH_PROD}/config`, {
       headers: {
-        "Accept": "application/json",
+        Accept: "application/json",
         "Content-Type": "application/json"
       },
 
       method: "POST",
       body: JSON.stringify(config)
     });
-  }
+  };
 
   download = () => {
     const scale = this.getScaleToFullyFit();
     const iframeRect = this.iframeRef.current.getBoundingClientRect();
     const captureConfig = this.state.textBlocks.map((textBlock, index) => {
       const textBlockRect = this.textBlocksRefs[index].getBoundingClientRect();
-      const text = this.textBlocksRefs[index].children[0].innerText;
+      const text = this.textBlocksRefs[index].innerText;
       return {
         text,
         position: {
@@ -532,8 +574,8 @@ class TheModal extends Component {
         textBlocks: this.state.textBlocks.map((textBlock, idx) => ({
           ...textBlock,
           text: captureConfig[idx].text,
-          position: captureConfig[idx].position,
-        })),
+          position: captureConfig[idx].position
+        }))
       });
     }
   };

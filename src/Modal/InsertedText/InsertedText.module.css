@@ -1,46 +1,5 @@
-.content-outer-wrapper {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 10;
-}
-
-.content-outer-wrapper.with-initial-position {
-  left: 0;
-  top: 0;
-}
-
-.content-outer-wrapper.draggable {
-  padding: 8px;
-  border: 1px transparent dotted;
-  margin-left: -8px;
-  margin-top: -8px;
-  cursor: move;
-}
-
-.content-outer-wrapper:hover,
-.content-outer-wrapper:hover .content-inner-wrapper,
-.content-outer-wrapper.active,
-.content-outer-wrapper.active .content-inner-wrapper {
-  border-color: black;
-}
-
-.content-outer-wrapper:hover .content,
-.content-outer-wrapper.active .content {
-  border-color: white;
-}
-
-.content-inner-wrapper {
-  float: left;
-  cursor: text;
-  line-height: 1.2;
-  display: block;
-  border: 1px transparent dotted;
-  white-space: nowrap;
-}
-
-.content {
-  border: 1px transparent dotted;
+.text {
   display: block;
   outline: none;
+  cursor: text;
 }
