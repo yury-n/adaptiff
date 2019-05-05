@@ -1,0 +1,12 @@
+.image-config-container {
+  padding: 25px 30px;
+}
+
+.delete-button {
+  width: 100% !important;
+  margin-top: 25px !important;
+  color: hsla(3, 56%, 52%, 1) !important;
+  border: 1px hsla(3, 56%, 72%, 1) solid !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}

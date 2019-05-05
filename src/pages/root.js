@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import classnames from "classnames";
 import Hero from "../Hero/Hero";
-import {Card} from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 import MiniCard from "../MiniCard/MiniCard";
 
 import Header from "../Header/Header";
@@ -22,7 +22,7 @@ import generateArt from "../_adaptationConfigs/generateArt";
 import gradientWaves from "../_adaptationConfigs/gradientWaves";
 import pulse from "../_adaptationConfigs/pulse";
 import abstractParticles from "../_adaptationConfigs/abstractParticles";
-import postmodern from '../_adaptationConfigs/postmodern';
+import postmodern from "../_adaptationConfigs/postmodern";
 
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
@@ -32,10 +32,12 @@ import postmodern from '../_adaptationConfigs/postmodern';
 export default () => (
   <>
     <Header />
-    <div className={classnames(s["main-content-area"], "restricted-width-area")}>
-      <Hero/>
+    <div
+      className={classnames(s["main-content-area"], "restricted-width-area")}
+    >
+      <Hero />
       <Card.Group className="cards">
-        <MiniCard {...linearGradient} />
+        <MiniCard showModal {...linearGradient} />
         <MiniCard {...trianglify} />
         <MiniCard {...particles} />
         <MiniCard {...bubbles} />

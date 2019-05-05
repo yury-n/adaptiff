@@ -119,7 +119,7 @@ export default ({
         onOpen={onStartSelectingColor}
         onClose={onStopSelectingColor}
       />
-      <Button className={s["delete-inserted-text"]} onClick={onDelete}>
+      <Button className={s["delete-button"]} onClick={onDelete}>
         Delete
       </Button>
     </div>
