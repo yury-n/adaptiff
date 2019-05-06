@@ -19,7 +19,17 @@ export default ({ onInsertText, onInsertImage }) => {
   };
 
   const onFileReaderLoad = e => {
-    onInsertImage({ imageUrl: e.target.result });
+    const img = document.createElement("img");
+    img.src = e.target.result;
+    img.onload = () => {
+      onInsertImage({
+        imageUrl: e.target.result,
+        width: img.clientWidth,
+        height: img.clientHeight
+      });
+    };
+    document.body.appendChild(img);
+
     setIsMenuOpen(false);
   };
 
