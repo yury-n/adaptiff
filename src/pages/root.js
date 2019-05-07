@@ -37,7 +37,7 @@ export default () => (
     >
       <Hero />
       <Card.Group className="cards">
-        <MiniCard showModal {...linearGradient} />
+        <MiniCard {...linearGradient} />
         <MiniCard {...trianglify} />
         <MiniCard {...particles} />
         <MiniCard {...bubbles} />
