@@ -49,7 +49,7 @@ class TheModal extends Component {
       // Check for custom properties first
       iframeWidth: customConfig.size.width || initState.width,
       iframeHeight: customConfig.size.height || initState.height,
-      insertedItems: [
+      insertedItems: customConfig.insertedItems || [
         {
           id: 1,
           type: "image",
@@ -312,6 +312,13 @@ class TheModal extends Component {
     const refCallback = ref => {
       this.insertedItemsRefs[index] = ref;
     };
+    const setSizeOfInsertedImage = data => {
+      this.setState(((state, props) => ({
+        insertedItems: state.insertedItems.map((it, idx) => {
+          return idx !== index ? it : {...it, ...data.size};
+        }),
+      })));
+    };
     switch (insertedItem.type) {
       case "text":
         return (
@@ -326,6 +333,7 @@ class TheModal extends Component {
       case "image":
         return (
           <InsertedImage
+            onResize={setSizeOfInsertedImage}
             width={insertedItem.width}
             height={insertedItem.height}
             ref={refCallback}
@@ -592,6 +600,7 @@ class TheModal extends Component {
         const insertedItemRect = this.insertedItemsRefs[
           index
         ].getBoundingClientRect();
+
         const text = this.insertedItemsRefs[index].innerText;
         return {
           text,
