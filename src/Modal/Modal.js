@@ -57,7 +57,7 @@ class TheModal extends Component {
         initState.height ||
         +localStorage.getItem("modal.iframeHeight") ||
         undefined,
-      insertedItems: [
+      insertedItems: customConfig.insertedItems || [
         // {
         //   id: 1,
         //   type: "image",
@@ -598,6 +598,7 @@ class TheModal extends Component {
         const insertedItemRect = this.insertedItemsRefs[
           index
         ].getBoundingClientRect();
+
         const text = this.insertedItemsRefs[index].innerText;
         return {
           text,
@@ -626,6 +627,8 @@ class TheModal extends Component {
         config: this.state.config,
         insertedItems: this.state.insertedItems.map((insertedItem, idx) => ({
           ...insertedItem,
+          width: captureConfig[idx].width,
+          height: captureConfig[idx].height,
           text: captureConfig[idx].text,
           position: captureConfig[idx].position
         }))
