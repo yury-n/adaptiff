@@ -12,3 +12,10 @@
   cursor: pointer;
   margin-bottom: 8px;
 }
+
+.delete-config-button {
+  z-index: 1000000;
+  position: absolute;
+  background: #ffffff;
+  margin-left: 40px !important;
+}

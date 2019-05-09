@@ -14,6 +14,9 @@ import gradientWaves from "../_adaptationConfigs/gradientWaves";
 import pulse from "../_adaptationConfigs/pulse";
 import abstractParticles from "../_adaptationConfigs/abstractParticles";
 import postmodern from '../_adaptationConfigs/postmodern';
+import {Button} from 'semantic-ui-react';
+
+import s from './Configs.module.css';
 
 const ConfigPage = (props) => {
   const {configId} = props;
@@ -25,6 +28,14 @@ const ConfigPage = (props) => {
       .then(data => setNewConfig(data))
       .catch(err => console.error(err.message))
   }, []);
+
+  const deleteOne = () => {
+    fetch(`${settings.API_PATH_PROD}/configs/deleteOne/${configId}`, {
+      method: "POST",
+    })
+      .then(() => window.location.href = '/configs')
+      .catch(error => console.error(error.message))
+  };
 
   const getArt = newConfig  => ({
     [abstractParticles.fileName]: abstractParticles,
@@ -42,7 +53,12 @@ const ConfigPage = (props) => {
   })[newConfig.title];
 
   return (
-    newConfig && <Modal {...getArt(newConfig)} customConfig={newConfig} />
+    newConfig && (
+      <>
+        <Button className={s["delete-config-button"]} onClick={deleteOne}>Delete</Button>
+        <Modal {...getArt(newConfig)} customConfig={newConfig} />
+      </>
+    )
   );
 };
 

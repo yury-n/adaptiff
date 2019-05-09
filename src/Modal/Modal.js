@@ -579,9 +579,9 @@ class TheModal extends Component {
   };
 
   saveConfigToDB = config => {
-    return fetch(`${settings.API_PATH_PROD}/config`, {
+    return fetch(`${settings.API_PATH_PROD}/configs/add`, {
       headers: {
-        Accept: "application/json",
+        "Accept": "application/json",
         "Content-Type": "application/json"
       },
 
