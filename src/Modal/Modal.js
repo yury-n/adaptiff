@@ -22,6 +22,7 @@ class TheModal extends Component {
   constructor(props) {
     super(props);
     this.iframeRef = React.createRef();
+    this.iframeTop = 0;
     this.iframeWrapperRef = React.createRef();
     this.insertedItemsRefs = {};
     this.captureFrameRef = React.createRef();
@@ -68,6 +69,7 @@ class TheModal extends Component {
     this.insertedBlockId = 0;
   }
   componentDidMount() {
+    this.updateIframeTop();
     const newState = {
       iframeMaxWidth: this.iframeWrapperRef.current.offsetWidth - IFRAME_MARGIN,
       iframeMaxHeight:
@@ -79,13 +81,16 @@ class TheModal extends Component {
     }
     this.setState(newState);
     window.addEventListener("message", this.onWindowMessage);
+    window.addEventListener("resize", this.onWindowResize);
     window.addEventListener("keyup", this.onKeyUp);
   }
   componentWillUnmount() {
     window.removeEventListener("message", this.onWindowMessage);
+    window.removeEventListener("resize", this.onWindowResize);
     window.removeEventListener("keyup", this.onKeyUp);
   }
   componentDidUpdate(nextProps, prevState) {
+    this.updateIframeTop();
     if (!this.props.refreshIframe && prevState.config !== this.state.config) {
       this.postConfigToIframe();
     }
@@ -358,6 +363,20 @@ class TheModal extends Component {
     }
   };
 
+  onWindowResize = () => {
+    if (!this.insertedItemsRefs || !this.insertedItemsRefs.length) {
+      return;
+    }
+    const newIframeTop = this.iframeRef.current.getBoundingClientRect().top;
+    const iframeTopDelta = this.iframeTop - newIframeTop;
+    this.insertedItemsRefs.forEach(insertedItemsRef => {
+      const oldMarginTop = parseInt(insertedItemsRef.current.style.marginTop);
+      insertedItemsRef.current.style.marginTop = `${oldMarginTop +
+        iframeTopDelta}px`;
+    });
+    this.updateIframeTop();
+  };
+
   onKeyUp = event => {
     if (
       (event.key === "Backspace" || event.key === "Delete") &&
@@ -573,6 +592,10 @@ class TheModal extends Component {
       });
     }
     this.setState({ isPaused: false, iframeVersion: iframeVersion + 1 });
+  };
+
+  updateIframeTop = () => {
+    this.iframeTop = this.iframeRef.current.getBoundingClientRect().top;
   };
 
   saveConfigToDB = config => {
