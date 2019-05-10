@@ -79,9 +79,11 @@ class TheModal extends Component {
     }
     this.setState(newState);
     window.addEventListener("message", this.onWindowMessage);
+    window.addEventListener("keyup", this.onKeyUp);
   }
   componentWillUnmount() {
     window.removeEventListener("message", this.onWindowMessage);
+    window.removeEventListener("keyup", this.onKeyUp);
   }
   componentDidUpdate(nextProps, prevState) {
     if (!this.props.refreshIframe && prevState.config !== this.state.config) {
@@ -189,14 +191,14 @@ class TheModal extends Component {
                 <Input
                   defaultValue={iframeWidth}
                   className={s["dimension-input"]}
-                  onKeyPress={this.setStateOnEnter("iframeWidth")}
+                  onKeyUp={this.setStateOnEnter("iframeWidth")}
                   onBlur={this.setStateOnBlur("iframeWidth")}
                 />
                 <span className={s["dimension-times"]}>&times;</span>
                 <Input
                   defaultValue={iframeHeight}
                   className={s["dimension-input"]}
-                  onKeyPress={this.setStateOnEnter("iframeHeight")}
+                  onKeyUp={this.setStateOnEnter("iframeHeight")}
                   onBlur={this.setStateOnBlur("iframeHeight")}
                 />
               </div>
@@ -356,6 +358,15 @@ class TheModal extends Component {
     }
   };
 
+  onKeyUp = event => {
+    if (
+      (event.key === "Backspace" || event.key === "Delete") &&
+      event.target.contentEditable !== "true"
+    ) {
+      this.deleteCurrentInsertedItem();
+    }
+  };
+
   onStartSelectingColor = () => {
     this.setState({ isSelectingColor: true });
     this.props.onStartSelectingColor();
@@ -443,7 +454,7 @@ class TheModal extends Component {
     }
   };
 
-  deleteCurrentinsertedItem = () => {
+  deleteCurrentInsertedItem = () => {
     const { insertedItems, activeInsertedItemIndex } = this.state;
     const updatedinsertedItems = [...insertedItems];
     updatedinsertedItems.splice(activeInsertedItemIndex, 1);
@@ -469,7 +480,7 @@ class TheModal extends Component {
       <TextConfig
         config={insertedItems[activeInsertedItemIndex].config}
         setConfigValue={this.setTextConfigValue}
-        onDelete={this.deleteCurrentinsertedItem}
+        onDelete={this.deleteCurrentInsertedItem}
         onStartSelectingColor={this.onStartSelectingColor}
         onStopSelectingColor={this.onStopSelectingColor}
       />
@@ -482,7 +493,7 @@ class TheModal extends Component {
       <ImageConfig
         config={insertedItems[activeInsertedItemIndex].config}
         setConfigValue={this.setTextConfigValue}
-        onDelete={this.deleteCurrentinsertedItem}
+        onDelete={this.deleteCurrentInsertedItem}
       />
     );
   };
