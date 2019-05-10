@@ -39,6 +39,8 @@ function create() {
 
   function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = window.palette[0];
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
 
   function drawHorizontalLine(coord) {
@@ -187,9 +189,9 @@ function create() {
     for (var i = 0; i < coordGrid.length; i++) {
       if (isColourful) {
         if (i % 2 === 1) {
-          ctx.strokeStyle = window.palette[0];
-        } else {
           ctx.strokeStyle = window.palette[1];
+        } else {
+          ctx.strokeStyle = window.palette[2];
         }
       }
 

@@ -1,5 +1,14 @@
 import { gradientPalettes } from "../palettes";
 
+const palettes = [
+  ["#35003e", "#7600f0"],
+  ["#f96e99", "#ffe239"],
+  ["#6d107e", "#f03358"],
+  ["#0fd850", "#fff31c"],
+  ["#fff9f6", "#ff5e62"],
+  ...gradientPalettes
+];
+
 export default {
   title: "Perfect Purples",
   fileName: "perfect_purple",
@@ -13,16 +22,16 @@ export default {
       key: "distortion",
       text: "Distortion",
       type: "range",
-      defaultValue: 100,
+      defaultValue: 72,
       min: 2,
-      max: 100
+      max: 200
     },
 
     {
       key: "size",
       text: "Size",
       type: "range",
-      defaultValue: 60,
+      defaultValue: 130,
       min: 20,
       max: 150
     },
@@ -31,7 +40,7 @@ export default {
       key: "weight",
       text: "Weight",
       type: "range",
-      defaultValue: 8,
+      defaultValue: 9,
       min: 2,
       max: 20
     },
@@ -39,8 +48,8 @@ export default {
       key: "palette",
       text: "Palettes",
       type: "palette",
-      defaultValue: gradientPalettes[0],
-      options: gradientPalettes
+      defaultValue: palettes[0],
+      options: palettes
     }
   ]
 };

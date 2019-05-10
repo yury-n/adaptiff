@@ -41,11 +41,11 @@ export default () => (
         <MiniCard {...trianglify} />
         <MiniCard {...particles} />
         <MiniCard {...bubbles} />
-        <MiniCard {...perfectPurple} />
         <MiniCard {...wallPattern} />
         <MiniCard {...strings25} />
-        <MiniCard {...generateArt} />
+        <MiniCard {...perfectPurple} />
         <MiniCard {...gradientWaves} />
+        <MiniCard {...generateArt} />
         <MiniCard {...pulse} />
         <MiniCard {...abstractParticles} />
         <MiniCard {...postmodern} />
