@@ -59,7 +59,11 @@ const ConfigPage = props => {
         <Button className={s["delete-config-button"]} onClick={deleteOne}>
           Delete
         </Button>
-        <Modal {...getArt(newConfig)} initConfig={newConfig} />
+        <Modal
+          {...getArt(newConfig)}
+          initConfig={newConfig}
+          withCloseButton={false}
+        />
       </>
     )
   );

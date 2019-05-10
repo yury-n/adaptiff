@@ -123,7 +123,8 @@ class TheModal extends Component {
       refreshIframe,
       author,
       authorLink,
-      isPausable
+      isPausable,
+      withCloseButton = true
     } = this.props;
     const {
       iframeWidth,
@@ -141,7 +142,7 @@ class TheModal extends Component {
     return (
       <Modal
         open
-        closeIcon
+        closeIcon={withCloseButton}
         onClose={this.props.onClose}
         className={s["the-modal"]}
       >
