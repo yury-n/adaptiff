@@ -6,7 +6,7 @@
   <canvas id="preview"></canvas>
   <script>
     aff_render();
-    function aff_render(config) {
+    function aff_render(config = { palette: ["#ffffff", "#66ccf6"] }) {
       var wallPattern = {
         // Settings
         spacingX: 55,

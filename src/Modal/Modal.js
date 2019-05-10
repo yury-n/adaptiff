@@ -11,6 +11,7 @@ import InsertedImage from "./InsertedImage/InsertedImage";
 import IframePreview from "./IframePreview/IframePreview";
 import ArtConfig from "./ArtConfig/ArtConfig";
 import settings from "../settings";
+import { downloadFromDataURL } from "../_utils";
 
 import "rc-slider/assets/index.css";
 import "./global.overrides.css";
@@ -89,9 +90,14 @@ class TheModal extends Component {
     window.removeEventListener("resize", this.onWindowResize);
     window.removeEventListener("keyup", this.onKeyUp);
   }
-  componentDidUpdate(nextProps, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     this.updateIframeTop();
-    if (!this.props.refreshIframe && prevState.config !== this.state.config) {
+    if (
+      !this.props.refreshIframe &&
+      (prevState.config !== this.state.config ||
+        this.state.iframeWidth !== prevState.iframeWidth ||
+        this.state.iframeHeight !== prevState.iframeHeight)
+    ) {
       this.postConfigToIframe();
     }
     if (this.state.captureConfig) {
@@ -100,13 +106,10 @@ class TheModal extends Component {
           type: "download"
         });
       } else {
-        html2canvas(this.captureFrameRef.current).then(canvas => {
+        html2canvas(this.captureFrameRef.current, { scale: 1 }).then(canvas => {
           const link = document.createElement("a");
-          var image = canvas
-            .toDataURL("image/png")
-            .replace("image/png", "image/octet-stream");
-          link.download = "download.png";
-          link.setAttribute("href", image);
+          var imageDataURL = canvas.toDataURL({ format: "png", multiplier: 4 });
+          downloadFromDataURL("download.png", imageDataURL);
           link.click();
           this.setState({
             captureConfig: null,
@@ -557,12 +560,18 @@ class TheModal extends Component {
 
   setStateOnEnter = stateKey => event => {
     if (event.key === "Enter") {
-      this.setState({ [stateKey]: +event.target.value });
+      this.setState({
+        [stateKey]: +event.target.value,
+        iframeVersion: this.state.iframeVersion + 1
+      });
     }
   };
 
   setStateOnBlur = stateKey => event => {
-    this.setState({ [stateKey]: +event.target.value });
+    this.setState({
+      [stateKey]: +event.target.value,
+      iframeVersion: this.state.iframeVersion + 1
+    });
   };
 
   openAddMenu = () => this.setState({ isAddMenuOpen: true });

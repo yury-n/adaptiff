@@ -27,6 +27,7 @@ export default ({ onInsertText, onInsertImage }) => {
         width: img.clientWidth,
         height: img.clientHeight
       });
+      document.body.removeChild(img);
     };
     document.body.appendChild(img);
 
