@@ -19,7 +19,7 @@ export default ({
   // <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
   //}
   return (
-    <div className={s["text-config-container"]}>
+    <div className={s["root"]}>
       <label className="form-label">Font Family</label>
       <Dropdown
         options={[

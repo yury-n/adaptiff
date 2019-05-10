@@ -78,13 +78,14 @@
 
 .iframe {
   position: absolute;
+  /* 100px duplicated in Modal.js as IFRAME_MARGIN */
   width: calc(100% - 100px);
   height: calc(100% - 100px);
 }
 
 .capture-frame {
   position: absolute;
-  top: 0;
+  top: -10000px;
 }
 
 .captured-iframe {
@@ -106,7 +107,6 @@
 .title-container {
   box-sizing: border-box;
   padding: 30px;
-  padding-top: 40px;
   padding-bottom: 20px;
   padding-right: 10px;
   font-size: 18px;
@@ -163,7 +163,7 @@
 }
 
 .config-container {
-  padding: 25px 30px;
+  padding: 20px 30px;
   padding-right: 30px;
   padding-bottom: 50px;
   border-radius: 0 4px 0 0;

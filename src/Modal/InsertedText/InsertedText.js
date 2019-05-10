@@ -7,9 +7,9 @@ export default React.memo(
   React.forwardRef(function InsertedText({ initialValue, config, scale }, ref) {
     const initialValueParts = initialValue ? initialValue.split(/\n/) : [];
     const initialValuePartsWithBRs = [];
-    initialValueParts.forEach(part => {
+    initialValueParts.forEach((part, index) => {
       initialValuePartsWithBRs.push(part);
-      initialValuePartsWithBRs.push(<br />);
+      initialValuePartsWithBRs.push(<br key={index} />);
     });
     initialValuePartsWithBRs.pop();
 

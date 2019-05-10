@@ -12,15 +12,15 @@ const cards = [
     thumbs: ["/thumbs/hero/strings25.png"],
     thumbBackgroundSize: "cover",
     initState: {
-      width: 742,
-      height: 361,
+      size: { width: 742, height: 361 },
       config: {
         palette: ["#d8f1ff", "#000"],
         sizePercent: [19, 29]
       },
-      textBlocks: [
+      insertedItems: [
         {
           id: 0,
+          type: "text",
           config: {
             fontFamily: "helvetica",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
@@ -34,6 +34,7 @@ something`
         },
         {
           id: 1,
+          type: "text",
           config: {
             fontFamily: "helvetica",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
@@ -101,6 +102,7 @@ export default () => {
           </div>
           {cards.map((card, index) => (
             <div
+              key={index}
               className={classnames(
                 s["slider-dot"],
                 index === activeCardIndex && s["active-slider-dot"]
