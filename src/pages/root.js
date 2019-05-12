@@ -20,8 +20,8 @@ import wallPattern from "../_adaptationConfigs/wallPattern";
 import strings25 from "../_adaptationConfigs/strings25";
 import generateArt from "../_adaptationConfigs/generateArt";
 import gradientWaves from "../_adaptationConfigs/gradientWaves";
-import pulse from "../_adaptationConfigs/pulse";
-import abstractParticles from "../_adaptationConfigs/abstractParticles";
+// import pulse from "../_adaptationConfigs/pulse";
+// import abstractParticles from "../_adaptationConfigs/abstractParticles";
 import postmodern from "../_adaptationConfigs/postmodern";
 
 // import tunnel from "./_adaptationConfigs/tunnel";
@@ -46,8 +46,6 @@ export default () => (
         <MiniCard {...perfectPurple} />
         <MiniCard {...gradientWaves} />
         <MiniCard {...generateArt} />
-        <MiniCard {...pulse} />
-        <MiniCard {...abstractParticles} />
         <MiniCard {...postmodern} />
       </Card.Group>
     </div>

@@ -20,7 +20,8 @@ function create() {
 
   renderer = new THREE.WebGLRenderer({
     canvas: document.querySelector("#preview"),
-    antialias: true
+    antialias: true,
+    preserveDrawingBuffer: true
   });
   renderer.setClearColor(window.palette[0]);
   renderer.setPixelRatio(window.devicePixelRatio);
