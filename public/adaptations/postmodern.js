@@ -1,11 +1,11 @@
 function create() {
-  var canvas = document.getElementById('preview');
-  var ctx = canvas.getContext('2d');
+  var canvas = document.getElementById("preview");
+  var ctx = canvas.getContext("2d");
 
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  canvas.style.backgroundColor = window.backgroundColor;
+  canvas.style.backgroundColor = window.palette[0];
 
   var min_x = 80;
   var min_y = 80;
@@ -28,9 +28,10 @@ function create() {
       var y = randomIntBetween(min_y, max_y);
       var w = randomIntBetween(min_w, max_w);
       var h = randomIntBetween(min_h, max_h);
-      var c = window.palette[randomIntBetween(0, 1)];
+      var c = window.palette[randomIntBetween(1, 2)];
 
-      if (randomIntBetween(0, 100) < solidPercent) { // chance of a solid fill
+      if (randomIntBetween(0, 100) < solidPercent) {
+        // chance of a solid fill
         var hex = c;
         ctx.fillStyle = hex;
         ctx.fillRect(x, y, w, h);
@@ -38,7 +39,6 @@ function create() {
         ctx.strokeStyle = c;
         ctx.strokeRect(x, y, w, h);
       }
-
     }
   }
 

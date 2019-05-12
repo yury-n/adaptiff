@@ -1,4 +1,9 @@
-import { gradientPalettes } from "../palettes";
+const palettes = [
+  ["#ffebeb", "#fc6767", "#ec008c"],
+  ["#ffdaf4", "#fa5a5a", "#ef6034"],
+  ["#FDEE82", "#5BB2DD", "#E23C34"],
+  ["#ff5401", "#ffffff", "#001e27"]
+];
 
 export default {
   title: "Postmodern",
@@ -13,9 +18,9 @@ export default {
       key: "count",
       text: "Count of Elements",
       type: "range",
-      defaultValue: 30,
+      defaultValue: 300,
       min: 1,
-      max: 100
+      max: 500
     },
 
     {
@@ -24,23 +29,15 @@ export default {
       type: "range",
       defaultValue: 1,
       min: 1,
-      max: 20
+      max: 100
     },
 
     {
       key: "palette",
       text: "Palettes",
       type: "palette",
-      defaultValue: gradientPalettes[0],
-      options: gradientPalettes
-    },
-
-    {
-      key: "backgroundColor",
-      text: "Backgroud",
-      type: "single-color",
-      defaultValue: "#ffffff",
-      options: gradientPalettes[0][0]
+      defaultValue: palettes[0],
+      options: palettes
     }
   ]
 };

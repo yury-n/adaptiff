@@ -1,4 +1,10 @@
 const palettes = [
+  ["#fff5fe", "#fba1a4", "#ec1d23"],
+  ["#ffffff", "#fba1a4", "#990005"],
+  ["#ffffff", "#ecd6af", "#eba118"],
+  ["#ecd6af", "#ffffff", "#90661b"],
+  ["#edf4fe", "#fe95fe", "#6cb5f6"],
+
   ["#f1eb95", "#3da000", "#d20d91"],
   ["#f4f8eb", "#1cc4f1", "#dc8a05"],
   ["#3c2957", "#fb4c2b", "#0450ff"],
@@ -24,11 +30,10 @@ export default {
       key: "shape",
       text: "Shape",
       type: "select",
-      defaultValue: "orthogonals",
+      defaultValue: "diagonal",
 
       options: [
         { key: 0, text: "Diagonals", value: "diagonal" },
-        { key: 2, text: "Half Arc", value: "halfArc" },
         { key: 3, text: "Orthogonals", value: "orthogonals" },
         { key: 4, text: "Quarter Arc", value: "quarterArc" }
       ]
@@ -36,9 +41,9 @@ export default {
 
     {
       key: "iteration",
-      text: "Iteration",
+      text: "Density",
       type: "range",
-      defaultValue: 30,
+      defaultValue: 50,
       min: 1,
       max: 100
     },
