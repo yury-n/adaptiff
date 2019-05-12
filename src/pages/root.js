@@ -40,12 +40,15 @@ export default () => (
         <MiniCard {...linearGradient} />
         <MiniCard {...trianglify} />
         <MiniCard {...particles} />
-        <MiniCard {...bubbles} />
+        <MiniCard {...gradientWaves} />
         <MiniCard {...wallPattern} />
         <MiniCard {...strings25} />
         <MiniCard {...perfectPurple} />
-        <MiniCard {...gradientWaves} />
-        <MiniCard {...generateArt} />
+        <MiniCard {...bubbles} />
+        <MiniCard
+          initState={{ config: {}, size: { width: 500, height: 500 } }}
+          {...generateArt}
+        />
         <MiniCard {...postmodern} />
       </Card.Group>
     </div>

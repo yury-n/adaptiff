@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Cute+Font|Montserrat|Merriweather");
+@import url("https://fonts.googleapis.com/css?family=Cute+Font|Montserrat|Merriweather|Stylish|Gugi");
 
 .button-bold {
   font-weight: bold !important;
@@ -39,8 +39,22 @@
 
 .font-cute-font {
   font-family: "Cute Font", cursive;
+  font-size: 21px !important;
 }
 
 .font-montserrat {
   font-family: "Montserrat", sans-serif;
+}
+
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+.font-stylish {
+  font-family: "Stylish", sans-serif;
+  font-size: 17px !important;
+}
+
+.font-gugi {
+  font-family: "Gugi", cursive;
 }

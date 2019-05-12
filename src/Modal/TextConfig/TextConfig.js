@@ -58,6 +58,24 @@ export default ({
             text: "Montserrat",
             value: "Montserrat",
             className: s["font-montserrat"]
+          },
+          {
+            key: 6,
+            text: "Poppins",
+            value: "poppins",
+            className: s["font-poppins"]
+          },
+          {
+            key: 7,
+            text: "Stylish",
+            value: "stylish",
+            className: s["font-stylish"]
+          },
+          {
+            key: 8,
+            text: "Gugi",
+            value: "gugi",
+            className: s["font-gugi"]
           }
         ]}
         onChange={(target, { value }) => setConfigValue("fontFamily", value)}

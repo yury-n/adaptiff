@@ -43,7 +43,7 @@ export default {
       key: "iteration",
       text: "Density",
       type: "range",
-      defaultValue: 50,
+      defaultValue: 25,
       min: 1,
       max: 100
     },
