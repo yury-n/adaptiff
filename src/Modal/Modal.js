@@ -39,11 +39,13 @@ class TheModal extends Component {
       // Check for custom properties first
       iframeWidth:
         initState.size.width ||
-        +localStorage.getItem("modal.iframeWidth") ||
+        // do not persist until we have a flush button
+        // +localStorage.getItem("modal.iframeWidth") ||
         undefined,
       iframeHeight:
         initState.size.height ||
-        +localStorage.getItem("modal.iframeHeight") ||
+        // do not persist until we have a flush button
+        // +localStorage.getItem("modal.iframeHeight") ||
         undefined,
       insertedItems:
         initState.insertedItems ||

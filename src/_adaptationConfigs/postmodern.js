@@ -1,8 +1,13 @@
+import { gradientPalettes } from "../palettes";
+
 const palettes = [
+  ["#fff", ...gradientPalettes[0]],
   ["#ffebeb", "#fc6767", "#ec008c"],
   ["#ffdaf4", "#fa5a5a", "#ef6034"],
   ["#FDEE82", "#5BB2DD", "#E23C34"],
-  ["#ff5401", "#ffffff", "#001e27"]
+  ["#ff5401", "#ffffff", "#001e27"],
+  ["#230852", "#8c4fb6", "#fa5a5a"],
+  ...gradientPalettes.map(pattern => ["#fff", ...pattern])
 ];
 
 export default {
@@ -18,9 +23,9 @@ export default {
       key: "count",
       text: "Count of Elements",
       type: "range",
-      defaultValue: 300,
+      defaultValue: 100,
       min: 1,
-      max: 500
+      max: 300
     },
 
     {
