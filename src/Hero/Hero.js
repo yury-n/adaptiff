@@ -101,7 +101,7 @@ const cards = [
     initState: {
       size: { width: 742, height: 361 },
       config: {
-        palette: ["#c4abde", "#693e97", "#2a013e"],
+        palette: ["#dec7f9", "#693e97", "#2a013e"],
         count: 100,
         lineWidth: 28
       },
