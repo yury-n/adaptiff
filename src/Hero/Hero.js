@@ -3,6 +3,7 @@ import classnames from "classnames";
 import MiniCard from "../MiniCard/MiniCard";
 import strings25 from "../_adaptationConfigs/strings25";
 import gradientWaves from "../_adaptationConfigs/gradientWaves";
+import postmodern from "../_adaptationConfigs/postmodern";
 import { Button, Icon } from "semantic-ui-react";
 
 import s from "./Hero.module.css";
@@ -94,9 +95,33 @@ const cards = [
     }
   },
   {
-    ...strings25,
-    thumbs: ["/thumbs/hero/todo.png"],
-    thumbBackgroundSize: "20px"
+    ...postmodern,
+    thumbs: ["/thumbs/hero/postmodern.png"],
+    thumbBackgroundSize: "cover",
+    initState: {
+      size: { width: 742, height: 361 },
+      config: {
+        palette: ["#c4abde", "#693e97", "#2a013e"],
+        count: 100,
+        lineWidth: 28
+      },
+      insertedItems: [
+        {
+          id: 0,
+          type: "text",
+          config: {
+            fontFamily: "Merriweather",
+            backgroundColor: "#693e97",
+            color: "#fff",
+            fontSize: 28,
+            isBold: true,
+            padding: 15
+          },
+          position: { left: 76, top: 191 },
+          text: "créer quelque chose d'unique"
+        }
+      ]
+    }
   }
 ];
 

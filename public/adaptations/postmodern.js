@@ -5,8 +5,6 @@ function create() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  canvas.style.backgroundColor = window.palette[0];
-
   var min_x = 80;
   var min_y = 80;
   var max_x = canvas.width - min_x;
@@ -22,6 +20,8 @@ function create() {
 
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = window.palette[0];
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.lineWidth = lineWidth;
     for (var i = 0; i <= count; i++) {
       var x = randomIntBetween(min_x, max_x);
