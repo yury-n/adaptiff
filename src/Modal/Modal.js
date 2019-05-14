@@ -151,6 +151,17 @@ class TheModal extends Component {
       isPublic
     } = this.state;
     const scaleToFullyFit = this.getScaleToFullyFit();
+    if (
+      scaleToFullyFit !== 1 &&
+      iframeVersion === 0 &&
+      this.props.initState &&
+      this.props.initState.insertedItems &&
+      this.props.initState.insertedItems.length
+    ) {
+      setTimeout(() => {
+        this.setState({ iframeVersion: iframeVersion + 1 });
+      }, 1);
+    }
     return (
       <Modal
         open
@@ -369,15 +380,18 @@ class TheModal extends Component {
   };
 
   onWindowResize = () => {
-    if (!this.insertedItemsRefs || !this.insertedItemsRefs.length) {
+    if (
+      !this.insertedItemsRefs ||
+      !Object.keys(this.insertedItemsRefs).length
+    ) {
       return;
     }
     const newIframeTop = this.iframeRef.current.getBoundingClientRect().top;
     const iframeTopDelta = this.iframeTop - newIframeTop;
-    this.insertedItemsRefs.forEach(insertedItemsRef => {
-      const oldMarginTop = parseInt(insertedItemsRef.current.style.marginTop);
-      insertedItemsRef.current.style.marginTop = `${oldMarginTop +
-        iframeTopDelta}px`;
+    Object.keys(this.insertedItemsRefs).forEach(key => {
+      const insertedItemRef = this.insertedItemsRefs[key];
+      const oldMarginTop = parseFloat(insertedItemRef.style.marginTop) || 0;
+      insertedItemRef.style.marginTop = `${oldMarginTop - iframeTopDelta}px`;
     });
     this.updateIframeTop();
   };
@@ -465,15 +479,20 @@ class TheModal extends Component {
   };
 
   makePositionRelativeToEditContainer = position => {
+    const scale = this.getScaleToFullyFit();
+    console.log("scale", scale);
     if (!this.iframeRef.current) {
       return null;
     }
     const iframeRect = this.iframeRef.current.getBoundingClientRect();
     const iframeWrapperRect = this.iframeWrapperRef.current.getBoundingClientRect();
     if (position.left && position.top) {
+      console.log("iframeRect.left", iframeRect.left);
+      console.log("iframeWrapperRect.left", iframeWrapperRect.left);
       return {
-        left: iframeRect.left - iframeWrapperRect.left + position.left,
-        top: iframeRect.top - iframeWrapperRect.top + position.top
+        left:
+          position.left * scale + (iframeRect.left - iframeWrapperRect.left),
+        top: position.top * scale + (iframeRect.top - iframeWrapperRect.top)
       };
     }
   };

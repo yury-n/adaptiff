@@ -43,7 +43,7 @@ const cards = [
             fontSize: 27,
             padding: 3
           },
-          position: { left: 286, top: 160 },
+          position: { left: 287, top: 160 },
           text: "something"
         },
         {
@@ -57,7 +57,7 @@ const cards = [
             fontSize: 43,
             padding: 3
           },
-          position: { left: 288, top: 200 },
+          position: { left: 287, top: 200 },
           text: "unique"
         }
       ]
