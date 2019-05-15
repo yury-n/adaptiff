@@ -23,10 +23,10 @@
       preview.id = "preview";
       window.document.body.appendChild(preview);
 
-			window.palette = config.palette;
+      window.palette = config.palette;
       window.count = config.count;
       window.lineWidth = config.lineWidth;
-			window.backgroundColor = config.backgroundColor;
+      window.backgroundColor = config.backgroundColor;
 
       window.create();
       initialized = true;
@@ -45,7 +45,7 @@
         .querySelector("#preview")
         .toDataURL("image/png")
         .replace("image/png", "image/octet-stream");
-      window.parent.postMessage({ type: "download", image });
+      window.parent.postMessage({ type: "download", image }, "*");
     }
   </script>
 </body>

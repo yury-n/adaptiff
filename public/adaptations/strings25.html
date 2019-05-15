@@ -31,7 +31,7 @@
       var image = currentCanvas.canvas
         .toDataURL("image/png")
         .replace("image/png", "image/octet-stream");
-      window.parent.postMessage({ type: "download", image });
+      window.parent.postMessage({ type: "download", image }, "*");
     }
 
     function setup() {

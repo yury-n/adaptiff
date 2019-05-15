@@ -45,7 +45,7 @@
         .querySelector("#preview")
         .toDataURL("image/png")
         .replace("image/png", "image/octet-stream");
-      window.parent.postMessage({ type: "download", image });
+      window.parent.postMessage({ type: "download", image }, "*");
     }
   </script>
 </body>

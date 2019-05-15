@@ -104,13 +104,16 @@ class TheModal extends Component {
     }
     if (this.state.captureConfig) {
       if (!this.state.capturedIframe) {
-        this.iframeRef.current.contentWindow.postMessage({
-          type: "download"
-        });
+        this.iframeRef.current.contentWindow.postMessage(
+          {
+            type: "download"
+          },
+          "*"
+        );
       } else {
-        html2canvas(this.captureFrameRef.current, { scale: 1 }).then(canvas => {
+        html2canvas(this.captureFrameRef.current, { scale: 2 }).then(canvas => {
           const link = document.createElement("a");
-          var imageDataURL = canvas.toDataURL({ format: "png", multiplier: 4 });
+          var imageDataURL = canvas.toDataURL("image/png");
           downloadFromDataURL("download.png", imageDataURL);
           link.click();
           this.setState({
@@ -480,15 +483,12 @@ class TheModal extends Component {
 
   makePositionRelativeToEditContainer = position => {
     const scale = this.getScaleToFullyFit();
-    console.log("scale", scale);
     if (!this.iframeRef.current) {
       return null;
     }
     const iframeRect = this.iframeRef.current.getBoundingClientRect();
     const iframeWrapperRect = this.iframeWrapperRef.current.getBoundingClientRect();
     if (position.left && position.top) {
-      console.log("iframeRect.left", iframeRect.left);
-      console.log("iframeWrapperRect.left", iframeWrapperRect.left);
       return {
         left:
           position.left * scale + (iframeRect.left - iframeWrapperRect.left),
@@ -600,26 +600,34 @@ class TheModal extends Component {
   closeAddMenu = () => this.setState({ isAddMenuOpen: false });
 
   postConfigToIframe = () => {
-    // console.log("config", this.state.config);
-    this.iframeRef.current.contentWindow.postMessage({
-      type: "render",
-      payload: this.state.config
-    });
+    this.iframeRef.current.contentWindow.postMessage(
+      {
+        type: "render",
+        payload: this.state.config
+      },
+      "*"
+    );
   };
 
   pause = () => {
-    this.iframeRef.current.contentWindow.postMessage({
-      type: "pause"
-    });
+    this.iframeRef.current.contentWindow.postMessage(
+      {
+        type: "pause"
+      },
+      "*"
+    );
     this.setState({ isPaused: true });
   };
 
   unpause = () => {
     const { iframeVersion } = this.state;
     if (!this.props.refreshIframe) {
-      this.iframeRef.current.contentWindow.postMessage({
-        type: "unpause"
-      });
+      this.iframeRef.current.contentWindow.postMessage(
+        {
+          type: "unpause"
+        },
+        "*"
+      );
     }
     this.setState({ isPaused: false, iframeVersion: iframeVersion + 1 });
   };

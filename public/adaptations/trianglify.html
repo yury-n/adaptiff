@@ -29,7 +29,7 @@
         .querySelector("#preview")
         .toDataURL("image/png")
         .replace("image/png", "image/octet-stream");
-      window.parent.postMessage({ type: "download", image });
+      window.parent.postMessage({ type: "download", image }, "*");
     }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/2.0.0/trianglify.min.js"></script>
