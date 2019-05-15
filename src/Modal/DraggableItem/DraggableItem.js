@@ -12,15 +12,7 @@ export default function DraggableItem({
 }) {
   console.log("initialPosition", initialPosition);
   return (
-    <Draggable
-      bounds="parent"
-      cancel="span"
-      positionOffset={
-        initialPosition
-          ? { x: initialPosition.left, y: initialPosition.top }
-          : {}
-      }
-    >
+    <Draggable bounds="parent" cancel="span">
       <div
         className={classnames(
           s["root"],
@@ -28,6 +20,7 @@ export default function DraggableItem({
           initialPosition && s["with-initial-position"]
         )}
         onClick={onClick}
+        style={initialPosition}
       >
         <div className={s["content-inner-wrapper"]}>
           <div className={s["content"]}>{children}</div>
