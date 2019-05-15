@@ -85,7 +85,7 @@
 
 .capture-frame {
   position: absolute;
-  top: 0;
+  top: -10000px;
 }
 
 .captured-iframe {

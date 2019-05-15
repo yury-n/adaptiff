@@ -25,10 +25,7 @@
     }
     function aff_download() {
       html2canvas(document.getElementById("preview")).then(function(canvas) {
-        const link = document.createElement("a");
-        var image = canvas
-          .toDataURL("image/png")
-          .replace("image/png", "image/octet-stream");
+        var image = canvas.toDataURL("image/png");
         window.parent.postMessage({ type: "download", image }, "*");
       });
     }

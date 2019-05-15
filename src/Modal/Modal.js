@@ -227,11 +227,13 @@ class TheModal extends Component {
                 />
               </div>
               <div className={s["config-over-right-buttons"]}>
-                <Checkbox
-                  checked={isPublic}
-                  onChange={this.toggleIsPublic}
-                  label="public"
-                />
+                {!!Object.keys(insertedItems).length && (
+                  <Checkbox
+                    checked={isPublic}
+                    onChange={this.toggleIsPublic}
+                    label="public"
+                  />
+                )}
                 {isPausable && (
                   <Button
                     title={isPaused ? "Unpause" : "Pause"}
@@ -505,6 +507,7 @@ class TheModal extends Component {
       insertedItems: updatedinsertedItems,
       activeInsertedItemIndex: null
     });
+    delete this.insertedItemsRefs[activeInsertedItemIndex];
   };
 
   renderConfig = () => {

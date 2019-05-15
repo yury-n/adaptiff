@@ -94,7 +94,8 @@ a:hover {
   top: -1px;
 }
 
-.ui.checkbox input[type=checkbox], .ui.checkbox input[type=radio],
+.ui.checkbox input[type="checkbox"],
+.ui.checkbox input[type="radio"],
 .ui.checkbox label:before,
 .ui.checkbox label:after {
   width: 19px;

@@ -22,6 +22,7 @@ class Range extends Component {
       min: props.min,
       max: props.max
     };
+    this.beforeFocus = { min: props.min, max: props.max };
   }
 
   onMinChange = e => {
@@ -33,6 +34,22 @@ class Range extends Component {
     this.setState({
       max: +e.target.value || 100
     });
+  };
+  onInputFocus = () => {
+    this.beforeFocus.min = this.state.min;
+    this.beforeFocus.max = this.state.max;
+  };
+  onInputBlur = type => event => {
+    console.log("this.beforeFocus", this.beforeFocus);
+    console.log("this.state", this.state);
+    if (this.beforeFocus[type] !== this.state[type]) {
+      this.props.onChange(this.state[type]);
+    }
+  };
+  onInputKeyUp = type => event => {
+    if (event.key === "Enter") {
+      this.props.onChange(this.state[type]);
+    }
   };
   render() {
     const SliderComponent = Array.isArray(this.props.value)
@@ -78,12 +95,18 @@ class Range extends Component {
               className={s["range-input"]}
               value={this.state.min}
               onChange={this.onMinChange}
+              onKeyUp={this.onInputKeyUp("min")}
+              onFocus={this.onInputFocus}
+              onBlur={this.onInputBlur("min")}
             />
             <Input
               disabled={this.props.disabledRangeInputs}
               className={s["range-input"]}
               value={this.state.max}
               onChange={this.onMaxChange}
+              onKeyUp={this.onInputKeyUp("max")}
+              onFocus={this.onInputFocus}
+              onBlur={this.onInputBlur("max")}
             />
           </div>
         )}
