@@ -10,7 +10,6 @@ export default function DraggableItem({
   onClick,
   children
 }) {
-  console.log("initialPosition", initialPosition);
   return (
     <Draggable bounds="parent" cancel="span">
       <div

@@ -40,8 +40,6 @@ class Range extends Component {
     this.beforeFocus.max = this.state.max;
   };
   onInputBlur = type => event => {
-    console.log("this.beforeFocus", this.beforeFocus);
-    console.log("this.state", this.state);
     if (this.beforeFocus[type] !== this.state[type]) {
       this.props.onChange(this.state[type]);
     }
