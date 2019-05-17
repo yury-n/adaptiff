@@ -61,7 +61,7 @@ const ConfigPage = props => {
         </Button>
         <Modal
           {...getArt(newConfig)}
-          initConfig={newConfig}
+          initState={newConfig}
           withCloseButton={false}
         />
       </>
