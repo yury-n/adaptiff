@@ -3,3 +3,9 @@
   box-sizing: border-box;
   padding: 60px 0;
 }
+
+@media screen and (max-width: 400px) {
+  .App {
+    padding-top: 90px;
+  }
+}

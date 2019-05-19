@@ -97,3 +97,24 @@
   padding-right: 15px !important;
   padding-left: 15px !important;
 }
+
+@media screen and (max-width: 600px) {
+  .contact-button,
+  .submit-button {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header-inner {
+    padding: 20px;
+  }
+}
