@@ -1,10 +1,12 @@
 const palettes = [
   ["#f4f8eb", "#1cc4f1", "#dc8a05"],
   ["#3c2957", "#fb4c2b", "#0450ff"],
+  ["#273e3a", "#45c41c", "#93d0e0"],
+  ["#a468f9", "#ffffff", "#f2ee0e"],
   ["#e5e5fd", "#5a215e"],
   ["#eafaf8", "#b0d8a2", "#93d0e0"],
   ["#e1d4f4", "#f5b4a8", "#9ab3ec"],
-  ["#f8d5ab", "#a6c4e6", "#ed7f82"],
+  ["#f8d5ab", "#015abe", "#ce0107"],
   ["#cce5c6", "#7abfa6", "#aabde0"],
   ["#b5d2ee", "#6fade2", "#d8b2d4"],
   ["#f1eb95", "#acdb8e", "#f1c4e5"],
