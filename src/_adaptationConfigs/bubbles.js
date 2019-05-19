@@ -1,6 +1,11 @@
 import { gradientPalettes } from "../palettes";
 
-const palettes = [["#09203f", "#537895"], ...gradientPalettes];
+const palettes = [
+  ["#09203f", "#537895"],
+  ["#a915a7", "#ffd62b"],
+  ["#41295a", "#2f0743"],
+  ...gradientPalettes
+];
 
 export default {
   title: "Bubbles",
