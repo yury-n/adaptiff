@@ -122,6 +122,14 @@ export default ({
         value={config.padding}
         onChange={value => setConfigValue("padding", value)}
       />
+      <label className="form-label">Latter Spacing</label>
+      <Range
+        withRangeInputs={false}
+        min={0}
+        max={20}
+        value={config.letterSpacing}
+        onChange={value => setConfigValue("letterSpacing", value)}
+      />
       <label className="form-label">Font Color</label>
       <ColorInput
         color={config.color}

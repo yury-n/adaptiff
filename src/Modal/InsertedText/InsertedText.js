@@ -27,7 +27,8 @@ export default React.memo(
           padding: `${config.padding * (scale || 1)}px`,
           fontWeight: config.isBold ? "bold" : "normal",
           textDecoration: config.isUnderlined ? "underline" : "none",
-          fontStyle: config.isItalic ? "italic" : undefined
+          fontStyle: config.isItalic ? "italic" : undefined,
+          letterSpacing: `${config.letterSpacing}px`
         }}
       >
         {initialValuePartsWithBRs}

@@ -394,8 +394,10 @@ class TheModal extends Component {
     const newIframeTop = this.iframeRef.current.getBoundingClientRect().top;
     const iframeTopDelta = this.iframeTop - newIframeTop;
     Object.keys(this.insertedItemsRefs).forEach(key => {
-      const insertedItemRef = this.insertedItemsRefs[key];
-      const oldMarginTop = parseFloat(insertedItemRef.style.marginTop) || 0;
+      const insertedItemRef = this.insertedItemsRefs[key].closest(
+        ".react-draggable"
+      );
+      const oldMarginTop = parseFloat(insertedItemRef.style.marginTop || 0);
       insertedItemRef.style.marginTop = `${oldMarginTop - iframeTopDelta}px`;
     });
     this.updateIframeTop();
@@ -442,6 +444,7 @@ class TheModal extends Component {
       fontFamily: "helvetica",
       fontSize: 28,
       padding: 10,
+      letterSpacing: 0,
       color: "#000",
       backgroundColor: { r: 255, g: 255, b: 255, a: 0.5 }
     };
