@@ -7,6 +7,7 @@ const palettes = [
   ["#d8ffea", "#000"],
   ["#ffd8e0", "#000"],
   ["#d8f1ff", "#000"],
+  ['#593c2e', '#ffcf2c'],
   ...gradientPalettes
 ];
 
