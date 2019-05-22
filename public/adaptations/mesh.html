@@ -1,0 +1,136 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
+</head>
+<body>
+  <script>
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+
+    let currentCanvas = null;
+
+    let scl = 5;
+    let backgroundColor = "#ccc";
+    let strokeColor = "#000";
+
+    let cols, rows;
+    let xstart, ystart;
+    let zoff = 0;
+    let angleMultiplier;
+
+    let flowfield;
+
+    function setup() {
+      currentCanvas = createCanvas(width, height);
+      cols = round((width - width / 5) / scl);
+      rows = round((height - height / 5) / scl);
+
+      flowfield = new Array();
+      initField();
+
+      xstart = random(500);
+      ystart = random(500);
+      angleMultiplier = floor(random(1, 5));
+    }
+
+    function draw() {
+      background(backgroundColor);
+
+      translate(width / 10 + scl / 2, height / 10 + scl / 2);
+      // translate((scl-25)/2, (scl-25)/2);
+
+      updateField();
+      drawField();
+
+      noLoop();
+    }
+
+    function updateField() {
+      let yoff = ystart;
+
+      for (let y = 0; y < rows; y++) {
+        let xoff = xstart;
+        for (let x = 0; x < cols; x++) {
+          let fieldIndex = x + y * cols;
+
+          let angle =
+            tan(noise(xoff, yoff + frameCount * 0.0009, sin(zoff))) *
+            TWO_PI *
+            5;
+
+          let v = createVector(x + 0.5, y + 0.5).rotate(angle);
+          //PVector v = PVector.fromAngle(angle);
+          v.setMag(cos(noise(xoff, yoff, zoff)) * 15);
+
+          //flowfield[fieldIndex].angle = v;
+          flowfield[fieldIndex].showPos = flowfield[fieldIndex].startPos
+            .copy()
+            .add(v);
+          //flowfield[fieldIndex].showPos.add(v);
+
+          xoff += 0.01;
+        }
+        yoff += 0.01;
+      }
+
+      zoff += 0.01;
+    }
+
+    function drawField() {
+      for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+          let fieldIndex = x + y * cols;
+          flowfield[fieldIndex].show();
+        }
+      }
+    }
+
+    function initField() {
+      for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+          let fieldIndex = x + y * cols;
+          flowfield[fieldIndex] = new GridPoint(createVector(x * scl, y * scl));
+        }
+      }
+    }
+
+    class GridPoint {
+      constructor(newPos) {
+        this.startPos = newPos;
+        this.showPos = newPos;
+        if (window.p5) {
+          this.angle = p5.Vector.fromAngle(1);
+        }
+      }
+
+      show() {
+        noStroke();
+        fill(strokeColor);
+        ellipse(this.showPos.x, this.showPos.y, 3, 3);
+      }
+    }
+
+    function aff_render(config) {
+      if (currentCanvas) {
+        remove();
+      }
+      width = window.innerWidth;
+      height = window.innerHeight;
+      scl = config.distanceBetween;
+      backgroundColor = config.palette[0];
+      strokeColor = config.palette[1];
+
+      var s = document.createElement("script");
+      s.type = "text/javascript";
+      s.src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js";
+      document.body.append(s);
+    }
+    function aff_download() {
+      var image = currentCanvas.canvas
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      window.parent.postMessage({ type: "download", image }, "*");
+    }
+  </script>
+  <script src="_common.js"></script>
+</body>

@@ -17,7 +17,7 @@ export default {
   authorLink: "https://codepen.io/kentskyo/",
   artLink: "https://codepen.io/kentskyo/pen/ojLyzg?editors=1010",
   thumbs: ["/thumbs/postmodern/1.png"],
-
+  hasRandomness: true,
   config: [
     {
       key: "count",

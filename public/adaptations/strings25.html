@@ -15,7 +15,6 @@
       if (currentCanvas) {
         remove();
         shapes = [];
-        // document.body.removeChild(currentCanvas.canvas);
       }
       backgroundColor = config.palette[0];
       strokeColor = config.palette[1];
@@ -27,7 +26,6 @@
       document.body.append(s);
     }
     function aff_download() {
-      var link = document.createElement("a");
       var image = currentCanvas.canvas
         .toDataURL("image/png")
         .replace("image/png", "image/octet-stream");

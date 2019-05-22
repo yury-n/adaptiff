@@ -32,7 +32,8 @@
   margin-right: 0 !important;
 }
 
-.pause-button i {
+.pause-button i,
+.refresh-button i {
   color: #000000d9 !important;
 }
 

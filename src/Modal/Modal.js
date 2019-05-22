@@ -139,6 +139,7 @@ class TheModal extends Component {
       author,
       authorLink,
       isPausable,
+      hasRandomness,
       withCloseButton = true
     } = this.props;
     const {
@@ -241,6 +242,15 @@ class TheModal extends Component {
                     icon={isPaused ? "play" : "pause"}
                     onClick={isPaused ? this.unpause : this.pause}
                     className={s["pause-button"]}
+                  />
+                )}
+                {hasRandomness && (
+                  <Button
+                    title="Refresh"
+                    circular
+                    icon="refresh"
+                    onClick={this.refresh}
+                    className={s["refresh-button"]}
                   />
                 )}
                 <Button
@@ -636,6 +646,10 @@ class TheModal extends Component {
       );
     }
     this.setState({ isPaused: false, iframeVersion: iframeVersion + 1 });
+  };
+
+  refresh = () => {
+    this.postConfigToIframe();
   };
 
   updateIframeTop = () => {

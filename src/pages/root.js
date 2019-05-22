@@ -23,6 +23,7 @@ import gradientWaves from "../_adaptationConfigs/gradientWaves";
 // import pulse from "../_adaptationConfigs/pulse";
 // import abstractParticles from "../_adaptationConfigs/abstractParticles";
 import postmodern from "../_adaptationConfigs/postmodern";
+import mesh from "../_adaptationConfigs/mesh";
 
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
@@ -43,6 +44,7 @@ export default () => (
         <MiniCard {...gradientWaves} />
         <MiniCard {...wallPattern} />
         <MiniCard {...strings25} />
+        <MiniCard {...mesh} />
         <MiniCard {...perfectPurple} />
         <MiniCard {...bubbles} />
         <MiniCard
