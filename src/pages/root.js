@@ -46,7 +46,10 @@ export default () => (
         <MiniCard {...wallPattern} />
         <MiniCard {...strings25} />
         <MiniCard {...mesh} />
-        <MiniCard {...steppedGradient} />
+        <MiniCard
+          initState={{ config: {}, size: { width: 600, height: 600 } }}
+          {...steppedGradient}
+        />
         <MiniCard {...perfectPurple} />
         <MiniCard {...bubbles} />
         <MiniCard
