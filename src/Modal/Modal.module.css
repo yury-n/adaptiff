@@ -1,3 +1,8 @@
+.the-modal :global(.modal-content.content) {
+  width: calc(100vw - 80px);
+  height: calc(100vh - 80px);
+}
+
 .the-modal::before {
   display: block;
   content: "";

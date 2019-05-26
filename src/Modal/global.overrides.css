@@ -11,8 +11,6 @@
 }
 
 .ui.modal .modal-content.content {
-  width: calc(100vw - 80px);
-  height: calc(100vh - 80px);
   overflow: hidden;
   padding: 0;
   display: flex;

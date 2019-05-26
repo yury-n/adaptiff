@@ -149,6 +149,7 @@ export default () => {
       <div className={s["hero-preview-and-dots"]}>
         <div className={s["hero-preview"]}>
           <MiniCard
+            showModal
             mode="hero"
             className={s["hero-preview-card"]}
             {...cards[activeCardIndex]}
