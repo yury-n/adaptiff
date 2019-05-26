@@ -1,7 +1,8 @@
 import React from "react";
-import { Dropdown, Button } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 import ColorInput from "../../ColorInput/ColorInput";
 import Range from "../../Range/Range";
+import FontFamilyDropdown from "./FontFamilyDropdown/FontFamilyDropdown";
 
 import "./global.overrides.css";
 import s from "./TextConfig.module.css";
@@ -18,69 +19,14 @@ export default ({
   //if (areBaseFontsLoaded) {
   // <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
   //}
+  import("./googleFonts").then(module => {
+    console.log("module", module);
+  });
   return (
     <div className={s["root"]}>
-      <label className="form-label">Font Family</label>
-      <Dropdown
-        options={[
-          {
-            key: 0,
-            text: "Arial",
-            value: "arial",
-            className: s["font-arial"]
-          },
-          {
-            key: 1,
-            text: "Helvetica",
-            value: "helvetica",
-            className: s["font-helvetica"]
-          },
-          {
-            key: 2,
-            text: "Times New Roman",
-            value: "Times New Roman",
-            className: s["font-times-new-roman"]
-          },
-          {
-            key: 3,
-            text: "Merriweather",
-            value: "Merriweather",
-            className: s["font-merriweather"]
-          },
-          {
-            key: 4,
-            text: "Cute Font",
-            value: "Cute Font",
-            className: s["font-cute-font"]
-          },
-          {
-            key: 5,
-            text: "Montserrat",
-            value: "Montserrat",
-            className: s["font-montserrat"]
-          },
-          {
-            key: 6,
-            text: "Poppins",
-            value: "poppins",
-            className: s["font-poppins"]
-          },
-          {
-            key: 7,
-            text: "Stylish",
-            value: "stylish",
-            className: s["font-stylish"]
-          },
-          {
-            key: 8,
-            text: "Gugi",
-            value: "gugi",
-            className: s["font-gugi"]
-          }
-        ]}
-        onChange={(target, { value }) => setConfigValue("fontFamily", value)}
+      <FontFamilyDropdown
         value={config.fontFamily}
-        selection
+        onChange={value => setConfigValue("fontFamily", value)}
       />
       <label className="form-label">Font Style</label>
       <Button.Group basic>

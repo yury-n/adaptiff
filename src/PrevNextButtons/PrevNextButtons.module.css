@@ -1,0 +1,24 @@
+.root {
+  position: relative;
+  margin-top: 20px;
+  height: 10px;
+}
+
+.paddle-button {
+  position: absolute;
+  top: -8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.paddle-button.left {
+  left: 0;
+}
+
+.paddle-button.right {
+  right: 0;
+}
+
+.paddle-button:hover {
+  text-decoration: underline;
+}

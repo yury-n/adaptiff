@@ -89,25 +89,6 @@
   cursor: default;
 }
 
-.paddle-button {
-  position: absolute;
-  top: -8px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.paddle-button.left {
-  left: 0;
-}
-
-.paddle-button.right {
-  right: 0;
-}
-
-.paddle-button:hover {
-  text-decoration: underline;
-}
-
 @media screen and (max-width: 800px) {
   .hero {
     flex-direction: column;

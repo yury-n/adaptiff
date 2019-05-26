@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Dropdown } from "semantic-ui-react";
 import classnames from "classnames";
+import PrevNextButtons from "../PrevNextButtons/PrevNextButtons";
 
 import s from "./PaletteDropdown.module.css";
 
@@ -27,7 +28,11 @@ class PaletteDropdown extends Component {
             )}
           >
             {selectedPalette.map(color => (
-              <div className={s["mini-color"]} style={{ background: color }} key={color} />
+              <div
+                className={s["mini-color"]}
+                style={{ background: color }}
+                key={color}
+              />
             ))}
           </div>
           <Dropdown
@@ -59,19 +64,12 @@ class PaletteDropdown extends Component {
             selection
           />
         </div>
-        <div className={s["palette-paddles"]}>
-          <div className={s["paddle-button"]} onClick={this.changeToPrev}>
-            &larr; Prev
-          </div>
-          <div className={s["paddle-button"]} onClick={this.changeToNext}>
-            Next &rarr;
-          </div>
-        </div>
+        <PrevNextButtons goToPrev={this.goToPrev} goToNext={this.goToNext} />
       </div>
     );
   }
 
-  changeToPrev = () => {
+  goToPrev = () => {
     const { palettes } = this.props;
     const selectedPaletteIndex = this.getSelectedPalette();
     const changeToIndex = selectedPaletteIndex - 1;
@@ -80,7 +78,7 @@ class PaletteDropdown extends Component {
     );
   };
 
-  changeToNext = () => {
+  goToNext = () => {
     const { palettes } = this.props;
     const selectedPaletteIndex = this.getSelectedPalette();
     const changeToIndex = selectedPaletteIndex + 1;
