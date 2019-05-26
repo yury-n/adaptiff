@@ -2,6 +2,21 @@
   position: relative;
 }
 
+.add-button {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  font-size: 13px;
+  font-weight: normal;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
 .font-arial {
   font-family: Arial, Helvetica, sans-serif;
 }

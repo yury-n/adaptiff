@@ -23,7 +23,9 @@ export const FontFamilyDropdown = ({ value, onChange }) => {
   };
   return (
     <div className={s["root"]}>
-      <label className="form-label">Font Family</label>
+      <label className="form-label">
+        Font Family <span className={s["add-button"]}>+ Add</span>
+      </label>
       <Dropdown
         options={defaultFonts}
         onChange={(target, { value }) => onChange(value)}
