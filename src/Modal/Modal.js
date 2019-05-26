@@ -344,6 +344,7 @@ class TheModal extends Component {
     const refCallback = ref => {
       this.insertedItemsRefs[index] = ref;
     };
+    const scaleToFit = this.getScaleToFullyFit();
     switch (insertedItem.type) {
       case "text":
         return (
@@ -352,7 +353,7 @@ class TheModal extends Component {
             config={insertedItem.config}
             ref={refCallback}
             initialValue={insertedItem.text || "Some sample text"}
-            scale={this.getScaleToFullyFit()}
+            scale={scaleToFit}
           />
         );
       case "image":
@@ -362,6 +363,7 @@ class TheModal extends Component {
             height={insertedItem.height}
             ref={refCallback}
             imageUrl={insertedItem.imageUrl}
+            scale={scaleToFit}
           />
         );
       default:

@@ -151,7 +151,6 @@ export default () => {
           <MiniCard
             mode="hero"
             className={s["hero-preview-card"]}
-            showModal
             {...cards[activeCardIndex]}
           />
           <Button icon className={s["edit-button"]} title="edit">
