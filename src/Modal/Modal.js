@@ -418,7 +418,8 @@ class TheModal extends Component {
   onKeyUp = event => {
     if (
       (event.key === "Backspace" || event.key === "Delete") &&
-      event.target.contentEditable !== "true"
+      event.target.contentEditable !== "true" &&
+      event.target.tagName !== 'INPUT'
     ) {
       this.deleteCurrentInsertedItem();
     }

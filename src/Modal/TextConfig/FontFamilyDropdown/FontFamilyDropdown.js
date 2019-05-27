@@ -1,27 +1,51 @@
 import React, { useState } from "react";
-import { Modal, Dropdown, Button, Input, Icon } from "semantic-ui-react";
-import defaultFonts from "./defaultFonts";
+import { Dropdown } from "semantic-ui-react";
 import PrevNextButtons from "../../../PrevNextButtons/PrevNextButtons";
+import { GoogleFontModal } from "./GoogleFontModal/GoogleFontModal";
+import WebFont from "webfontloader";
 
 import s from "./FontFamilyDropdown.module.css";
+
+const defaultSystemFonts = ["Helvetica", "Times New Roman"];
+const defaultGoogleFonts = [
+  "Merriweather",
+  "Cute Font",
+  "Montserrat",
+  "Poppins",
+  "Stylish",
+  "Gugi"
+];
+const defaultFonts = [...defaultSystemFonts, ...defaultGoogleFonts];
+
+let customGoogleFontsPersisted = [];
 
 export const FontFamilyDropdown = ({ value, onChange }) => {
   const currentIndex = defaultFonts.findIndex(font => font.value === value);
   const [isAddFontPopupVisible, setAddFontPopupVisible] = useState(false);
+  const [customGoogleFonts, setCustomGoogleFonts] = useState(
+    customGoogleFontsPersisted
+  );
+  const fonts = [...customGoogleFonts, ...defaultFonts];
   const goToPrev = () => {
     let newIndex = currentIndex - 1;
     if (newIndex < 0) {
-      newIndex = defaultFonts.length - 1;
+      newIndex = fonts.length - 1;
     }
-    onChange(defaultFonts[newIndex].value);
+    onChange(fonts[newIndex]);
   };
   const goToNext = () => {
     let newIndex = currentIndex + 1;
-    if (newIndex > defaultFonts.length - 1) {
+    if (newIndex > fonts.length - 1) {
       newIndex = 0;
     }
-    onChange(defaultFonts[newIndex].value);
+    onChange(fonts[newIndex]);
   };
+  const googleFonts = [...defaultGoogleFonts, ...customGoogleFonts];
+  WebFont.load({
+    google: {
+      families: googleFonts
+    }
+  });
   return (
     <>
       <div className={s["root"]}>
@@ -35,7 +59,12 @@ export const FontFamilyDropdown = ({ value, onChange }) => {
           </span>
         </label>
         <Dropdown
-          options={defaultFonts}
+          options={fonts.map(font => ({
+            key: font,
+            text: font,
+            value: font,
+            style: { fontFamily: font }
+          }))}
           onChange={(target, { value }) => onChange(value)}
           value={value}
           selection
@@ -43,44 +72,17 @@ export const FontFamilyDropdown = ({ value, onChange }) => {
         <PrevNextButtons goToPrev={goToPrev} goToNext={goToNext} />
       </div>
       {isAddFontPopupVisible && (
-        <Modal open closeIcon onClose={() => setAddFontPopupVisible(false)}>
-          <Modal.Content className={s["add-font-modal-content"]}>
-            <label className="form-label">Add Google Font</label>
-            <Input
-              autoFocus
-              action={{
-                content: "Search"
-              }}
-              placeholder="Font name"
-              className={s["input-wrapper"]}
-            />
-            {
-              <div className={s["search-result"]}>
-                Ranga
-                <Button basic>
-                  <Icon name="plus" /> Add
-                </Button>
-              </div>
-            }
-            {false && (
-              <div className={s["search-placeholder"]}>
-                <Icon className={s["search-icon"]} name="search" size="big" />
-                <p>
-                  Search for and add a font <br />
-                  from the{" "}
-                  <a
-                    href="https://fonts.google.com/"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    Google Fonts
-                  </a>{" "}
-                  directory
-                </p>
-              </div>
-            )}
-          </Modal.Content>
-        </Modal>
+        <GoogleFontModal
+          onSelect={font => {
+            customGoogleFontsPersisted = [font, ...customGoogleFontsPersisted];
+            setCustomGoogleFonts([
+              ...customGoogleFontsPersisted,
+              ...customGoogleFonts
+            ]);
+            onChange(font);
+          }}
+          onClose={() => setAddFontPopupVisible(false)}
+        />
       )}
     </>
   );

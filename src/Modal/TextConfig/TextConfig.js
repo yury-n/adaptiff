@@ -19,9 +19,6 @@ export default ({
   //if (areBaseFontsLoaded) {
   // <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
   //}
-  import("./googleFonts").then(module => {
-    console.log("module", module);
-  });
   return (
     <div className={s["root"]}>
       <FontFamilyDropdown

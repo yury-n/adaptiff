@@ -35,7 +35,8 @@ export default [
     key: 6,
     text: "Poppins",
     value: "poppins",
-    className: s["font-poppins"]
+    className: s["font-poppins"],
+    style: { fontFamily: "Cute Font" }
   },
   {
     key: 7,

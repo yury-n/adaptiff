@@ -24,7 +24,7 @@ const cards = [
           id: 0,
           type: "text",
           config: {
-            fontFamily: "poppins",
+            fontFamily: "Poppins",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
             fontSize: 27,
@@ -37,7 +37,7 @@ const cards = [
           id: 1,
           type: "text",
           config: {
-            fontFamily: "poppins",
+            fontFamily: "Poppins",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
             fontSize: 27,
@@ -50,7 +50,7 @@ const cards = [
           id: 2,
           type: "text",
           config: {
-            fontFamily: "helvetica",
+            fontFamily: "Helvetica",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
             isBold: true,
@@ -149,7 +149,6 @@ export default () => {
       <div className={s["hero-preview-and-dots"]}>
         <div className={s["hero-preview"]}>
           <MiniCard
-            showModal
             mode="hero"
             className={s["hero-preview-card"]}
             {...cards[activeCardIndex]}
