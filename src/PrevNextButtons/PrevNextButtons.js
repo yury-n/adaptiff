@@ -3,18 +3,18 @@ import classnames from "classnames";
 
 import s from "./PrevNextButtons.module.css";
 
-export const PrevNextButtons = ({ goToNext, goToPrev }) => {
+export const PrevNextButtons = ({ className, goToNext, goToPrev }) => {
   return (
-    <div className={s["root"]}>
+    <div className={classnames(s["root"], className)}>
       <div
         className={classnames(s["paddle-button"], s["left"])}
-        onClick={goToNext}
+        onClick={goToPrev}
       >
         &larr; Prev
       </div>
       <div
         className={classnames(s["paddle-button"], s["right"])}
-        onClick={goToPrev}
+        onClick={goToNext}
       >
         Next &rarr;
       </div>

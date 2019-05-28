@@ -89,6 +89,12 @@
   cursor: default;
 }
 
+.prev-next-buttons {
+  position: absolute;
+  width: 100%;
+  top: -18px;
+}
+
 @media screen and (max-width: 800px) {
   .hero {
     flex-direction: column;

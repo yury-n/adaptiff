@@ -5,6 +5,7 @@ import strings25 from "../_adaptationConfigs/strings25";
 import gradientWaves from "../_adaptationConfigs/gradientWaves";
 import postmodern from "../_adaptationConfigs/postmodern";
 import { Button, Icon } from "semantic-ui-react";
+import PrevNextButtons from "../PrevNextButtons/PrevNextButtons";
 
 import s from "./Hero.module.css";
 
@@ -158,12 +159,6 @@ export default () => {
           </Button>
         </div>
         <div className={s["hero-slider-dots"]}>
-          <div
-            className={classnames(s["paddle-button"], s["left"])}
-            onClick={changeToPrev}
-          >
-            &larr; Prev
-          </div>
           {cards.map((card, index) => (
             <div
               key={index}
@@ -174,12 +169,11 @@ export default () => {
               onClick={() => setActiveCardIndex(index)}
             />
           ))}
-          <div
-            className={classnames(s["paddle-button"], s["right"])}
-            onClick={changeToNext}
-          >
-            Next &rarr;
-          </div>
+          <PrevNextButtons
+            className={s["prev-next-buttons"]}
+            goToPrev={changeToPrev}
+            goToNext={changeToNext}
+          />
         </div>
       </div>
     </div>
