@@ -84,12 +84,10 @@ class TheModal extends Component {
     }
     this.setState(newState);
     window.addEventListener("message", this.onWindowMessage);
-    window.addEventListener("resize", this.onWindowResize);
     window.addEventListener("keyup", this.onKeyUp);
   }
   componentWillUnmount() {
     window.removeEventListener("message", this.onWindowMessage);
-    window.removeEventListener("resize", this.onWindowResize);
     window.removeEventListener("keyup", this.onKeyUp);
   }
   componentDidUpdate(prevProps, prevState) {
@@ -394,25 +392,6 @@ class TheModal extends Component {
     if (event.data.type === "download") {
       this.setState({ capturedIframe: event.data.image });
     }
-  };
-
-  onWindowResize = () => {
-    if (
-      !this.insertedItemsRefs ||
-      !Object.keys(this.insertedItemsRefs).length
-    ) {
-      return;
-    }
-    const newIframeTop = this.iframeRef.current.getBoundingClientRect().top;
-    const iframeTopDelta = this.iframeTop - newIframeTop;
-    Object.keys(this.insertedItemsRefs).forEach(key => {
-      const insertedItemRef = this.insertedItemsRefs[key].closest(
-        ".react-draggable"
-      );
-      const oldMarginTop = parseFloat(insertedItemRef.style.marginTop || 0);
-      insertedItemRef.style.marginTop = `${oldMarginTop - iframeTopDelta}px`;
-    });
-    this.updateIframeTop();
   };
 
   onKeyUp = event => {
