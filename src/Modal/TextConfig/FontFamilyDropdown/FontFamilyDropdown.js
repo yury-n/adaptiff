@@ -9,24 +9,28 @@ import s from "./FontFamilyDropdown.module.css";
 const defaultSystemFonts = ["Helvetica", "Times New Roman"];
 const defaultGoogleFonts = [
   "Merriweather",
-  "Cute Font",
-  "Montserrat",
-  "Poppins",
-  "Stylish",
-  "Gugi",
-  "Limelight"
+  "Neucha",
+  "Comfortaa",
+  "Poiret One",
+  "El Messiri",
+  "Montserrat Alternates",
+  "Bad Script",
+  "Oranienbaum",
+  "Yeseva One",
+  "Rubik Mono One"
 ];
 const defaultFonts = [...defaultSystemFonts, ...defaultGoogleFonts];
 
 let customGoogleFontsPersisted = [];
 
 export const FontFamilyDropdown = ({ value, onChange }) => {
-  const currentIndex = defaultFonts.findIndex(font => font === value);
   const [isAddFontPopupVisible, setAddFontPopupVisible] = useState(false);
   const [customGoogleFonts, setCustomGoogleFonts] = useState(
     customGoogleFontsPersisted
   );
   const fonts = [...customGoogleFonts, ...defaultFonts];
+  const currentIndex = fonts.findIndex(font => font === value);
+
   const goToPrev = () => {
     let newIndex = currentIndex - 1;
     if (newIndex < 0) {
@@ -44,7 +48,7 @@ export const FontFamilyDropdown = ({ value, onChange }) => {
   const googleFonts = [...defaultGoogleFonts, ...customGoogleFonts];
   WebFont.load({
     google: {
-      families: googleFonts
+      families: googleFonts.map(googleFont => `${googleFont}:latin,cyrillic`)
     }
   });
   return (

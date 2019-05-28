@@ -1,5 +1,6 @@
 import React from "react";
 import { colorObjToString } from "../../_utils";
+import WebFont from "webfontloader";
 
 import s from "./InsertedText.module.css";
 
@@ -12,6 +13,14 @@ export default React.memo(
       initialValuePartsWithBRs.push(<br key={index} />);
     });
     initialValuePartsWithBRs.pop();
+
+    if (config.fontFamily !== "Helvetica") {
+      WebFont.load({
+        google: {
+          families: [`${config.fontFamily}:latin,cyrillic`]
+        }
+      });
+    }
 
     return (
       <span
