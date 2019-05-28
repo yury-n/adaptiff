@@ -13,14 +13,15 @@ const defaultGoogleFonts = [
   "Montserrat",
   "Poppins",
   "Stylish",
-  "Gugi"
+  "Gugi",
+  "Limelight"
 ];
 const defaultFonts = [...defaultSystemFonts, ...defaultGoogleFonts];
 
 let customGoogleFontsPersisted = [];
 
 export const FontFamilyDropdown = ({ value, onChange }) => {
-  const currentIndex = defaultFonts.findIndex(font => font.value === value);
+  const currentIndex = defaultFonts.findIndex(font => font === value);
   const [isAddFontPopupVisible, setAddFontPopupVisible] = useState(false);
   const [customGoogleFonts, setCustomGoogleFonts] = useState(
     customGoogleFontsPersisted

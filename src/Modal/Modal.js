@@ -419,7 +419,7 @@ class TheModal extends Component {
     if (
       (event.key === "Backspace" || event.key === "Delete") &&
       event.target.contentEditable !== "true" &&
-      event.target.tagName !== 'INPUT'
+      event.target.tagName !== "INPUT"
     ) {
       this.deleteCurrentInsertedItem();
     }
@@ -454,7 +454,7 @@ class TheModal extends Component {
     const { insertedItems } = this.state;
     const lastinsertedItem = insertedItems[insertedItems.length - 1] || {};
     const defaultConfig = {
-      fontFamily: "helvetica",
+      fontFamily: "Helvetica",
       fontSize: 28,
       padding: 10,
       letterSpacing: 0,
