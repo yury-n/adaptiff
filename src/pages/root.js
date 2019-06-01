@@ -26,6 +26,8 @@ import gradientWaves from "../_adaptationConfigs/gradientWaves";
 import postmodern from "../_adaptationConfigs/postmodern";
 import mesh from "../_adaptationConfigs/mesh";
 import steppedGradient from "../_adaptationConfigs/steppedGradient";
+import ribbons from "../_adaptationConfigs/ribbons";
+
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
 // import tunnel from "./_adaptationConfigs/tunnel";
@@ -46,6 +48,7 @@ export default () => (
         <MiniCard {...wallPattern} />
         <MiniCard {...strings25} />
         <MiniCard {...mesh} />
+        <MiniCard {...ribbons} />
         <MiniCard
           initState={{ config: {}, size: { width: 600, height: 600 } }}
           {...steppedGradient}
