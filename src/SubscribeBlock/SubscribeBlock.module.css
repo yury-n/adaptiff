@@ -1,0 +1,95 @@
+.root {
+  margin-top: 110px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  font-weight: bold;
+  font-size: 30px;
+  letter-spacing: 1px;
+  line-height: 51px;
+  width: 100%;
+  text-align: center;
+}
+
+.description {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.social-buttons {
+  margin-top: 70px;
+}
+
+.social-button {
+  box-shadow: none !important;
+  font-size: 23px !important;
+  padding: 0 11px !important;
+  color: #000000 !important;
+  background: none !important;
+}
+
+.mailchimp-wrapper label {
+  display: none !important;
+}
+
+.mailchimp-wrapper input {
+  margin: 0;
+  max-width: 100%;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  outline: 0;
+  text-align: left;
+  line-height: 1.21428571em;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  padding: 0.67857143em 1em !important;
+  background: #fff !important;
+  border: 1px solid rgba(34, 36, 38, 0.15) !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+  border-radius: 0.28571429rem !important;
+  transition: border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  transition: box-shadow 0.1s ease, border-color 0.1s ease;
+  box-shadow: none !important;
+  border-color: rgba(34, 36, 38, 0.35) !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-right-color: transparent !important;
+  box-shadow: none !important;
+}
+
+:global(#mce-EMAIL) {
+  padding: 13px 20px !important;
+  font-size: 20px !important;
+}
+
+:global(#mc_embed_signup) {
+  background: transparent !important;
+}
+
+:global(#mc_embed_signup form) {
+  padding: 0 !important;
+}
+
+:global(#mc-embedded-subscribe) {
+  border-radius: 0 0.28571429rem 0.28571429rem 0 !important;
+  color: white !important;
+  background: #0f0f0f !important;
+  height: auto !important;
+  line-height: 31px !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  min-width: 105px !important;
+}
+
+:global(#mce-responses) {
+  display: none;
+}
+
+:global(#mc_embed_signup_scroll) {
+  display: flex;
+}

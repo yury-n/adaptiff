@@ -52,8 +52,8 @@ export default ({
       <label className="form-label">Font Size</label>
       <Range
         withRangeInputs={false}
-        min={6}
-        max={50}
+        min={10}
+        max={250}
         value={config.fontSize}
         onChange={value => setConfigValue("fontSize", value)}
       />

@@ -6,6 +6,7 @@ import MiniCard from "../MiniCard/MiniCard";
 
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import SubscribeBlock from "../SubscribeBlock/SubscribeBlock";
 
 import s from "../App.module.css";
 
@@ -25,7 +26,6 @@ import gradientWaves from "../_adaptationConfigs/gradientWaves";
 import postmodern from "../_adaptationConfigs/postmodern";
 import mesh from "../_adaptationConfigs/mesh";
 import steppedGradient from "../_adaptationConfigs/steppedGradient";
-
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
 // import tunnel from "./_adaptationConfigs/tunnel";
@@ -58,6 +58,7 @@ export default () => (
         />
         <MiniCard {...postmodern} />
       </Card.Group>
+      <SubscribeBlock />
     </div>
     <Footer />
   </>

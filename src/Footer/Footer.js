@@ -8,7 +8,7 @@ class Footer extends Component {
     return (
       <footer className={s["footer"]}>
         <div className={classnames(s["footer-inner"], "restricted-width-area")}>
-          <div className={s["license"]}>License</div>
+          <div className={s["license"]}>license</div>
           All images generated on Adaptiff can be used for free. You can use
           them for commercial and noncommercial purposes.
         </div>
