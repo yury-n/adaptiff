@@ -265,7 +265,7 @@ class TheModal extends Component {
                 version={refreshIframe ? iframeVersion : 1}
                 fileName={fileName}
                 ref={this.iframeRef}
-                onLoad={this.postConfigToIframe}
+                onLoad={this.onIframeLoad}
                 className={s["iframe"]}
                 width={iframeWidth}
                 height={iframeHeight}
@@ -632,6 +632,13 @@ class TheModal extends Component {
 
   refresh = () => {
     this.postConfigToIframe();
+  };
+
+  onIframeLoad = () => {
+    setTimeout(() => {
+      this.postConfigToIframe();
+      // this to give react time to mount and attach listeners
+    }, 100);
   };
 
   updateIframeTop = () => {
