@@ -27,6 +27,7 @@ import postmodern from "../_adaptationConfigs/postmodern";
 import mesh from "../_adaptationConfigs/mesh";
 import steppedGradient from "../_adaptationConfigs/steppedGradient";
 // import ribbons from "../_adaptationConfigs/ribbons";
+// import fiberRectangles from "../_adaptationConfigs/fiber_rectangles";
 
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
@@ -48,6 +49,7 @@ export default () => (
         <MiniCard {...wallPattern} />
         <MiniCard {...strings25} />
         <MiniCard {...mesh} />
+        <MiniCard {...fiberRectangles} />
         {/* <MiniCard {...ribbons} /> */}
         <MiniCard
           initState={{ config: {}, size: { width: 600, height: 600 } }}
