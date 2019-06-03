@@ -49,7 +49,7 @@ export default () => (
         <MiniCard {...wallPattern} />
         <MiniCard {...strings25} />
         <MiniCard {...mesh} />
-        <MiniCard {...fiberRectangles} />
+        {/* <MiniCard {...fiberRectangles} /> */}
         {/* <MiniCard {...ribbons} /> */}
         <MiniCard
           initState={{ config: {}, size: { width: 600, height: 600 } }}
