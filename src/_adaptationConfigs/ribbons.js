@@ -34,7 +34,7 @@ export default {
       key: "backgroundColor",
       text: "Background",
       type: "single-color",
-      defaultValue: "#ffffff"
+      defaultValue: "#324444"
     },
     {
       key: "palette",

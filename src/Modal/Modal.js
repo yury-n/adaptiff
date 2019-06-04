@@ -299,6 +299,14 @@ class TheModal extends Component {
                   }}
                   ref={this.captureFrameRef}
                 >
+                  {this.state.config.backgroundColor && (
+                    <div
+                      style={{
+                        backgroundColor: this.state.config.backgroundColor
+                      }}
+                      className={s["captured-background"]}
+                    />
+                  )}
                   {capturedIframe && (
                     <img
                       className={s["captured-iframe"]}
