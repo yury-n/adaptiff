@@ -1,8 +1,8 @@
 const palettes = [
+  ["#fffccc", "#f28b3a", "#ee4a30", "#812326"],
   ["#A2CCB6", "#FCEEB5", "#EE786E", "#e0feff", "#00c9ff", "#92fe9d"],
   ["#8e2de2", "#4a00e0", "#6d107e", "#e0feff", "#00c9ff", "#92fe9d"],
   ["#A2CCB6", "#FCEEB5", "#EE786E", "#f03358", "#00c9ff"],
-  ["#fffccc", "#f28b3a", "#ee4a30", "#812326"],
   ["#f7fcfd", "#9ebcda", "#8b96c5", "#4e1a4b"],
   ["#f029ad", "#d0d1e6", "#0081e7", "#176697"],
   ["#ffebeb", "#fc6767", "#0081e7", "#ec008c"]
@@ -11,9 +11,9 @@ const palettes = [
 export default {
   title: "fiber rectangles",
   fileName: "fiber_rectangles/build/index",
-  author: "test",
-  authorLink: "https://test.com/",
-  thumbs: ["/thumbs/todo.png"],
+  author: "drcmda",
+  authorLink: "https://codesandbox.io/embed/jz9l97qn89",
+  thumbs: ["/thumbs/fiber_rectangles/1.png"],
   isPausable: true,
   config: [
     {
