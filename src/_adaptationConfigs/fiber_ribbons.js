@@ -8,7 +8,7 @@ const palettes = [
 
 export default {
   title: "fiber ribbons",
-  fileName: "ribbons/build/index",
+  fileName: "fiber_ribbons/build/index",
   author: "drcmda",
   authorLink: "https://codesandbox.io/embed/kky7yk087v",
   thumbs: ["/thumbs/fiber_ribbons/1.png"],
