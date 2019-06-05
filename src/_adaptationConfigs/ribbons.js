@@ -7,11 +7,11 @@ const palettes = [
 ];
 
 export default {
-  title: "ribbons",
+  title: "fiber ribbons",
   fileName: "ribbons/build/index",
-  author: "test",
-  authorLink: "https://test.com/",
-  thumbs: ["/thumbs/todo.png"],
+  author: "drcmda",
+  authorLink: "https://codesandbox.io/embed/kky7yk087v",
+  thumbs: ["/thumbs/fiber_ribbons/1.png"],
   isPausable: true,
   config: [
     {
