@@ -20,13 +20,13 @@
     function aff_render(config) {
       // debug: config = JSON.parse();
       lastConfig = config;
-      const oldPreview = document.querySelector("#preview");
+      const oldPreview = document.querySelector("svg");
 
       if (oldPreview) {
         window.document.body.removeChild(oldPreview);
       }
 
-      const preview = document.createElement("canvas");
+      const preview = document.createElement("svg");
       preview.id = "preview";
       window.document.body.appendChild(preview);
 

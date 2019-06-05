@@ -14,7 +14,6 @@ export default {
   author: "Fabio Ottaviani",
   authorLink: "https://codepen.io/supah/",
   thumbs: ["/thumbs/gradientWaves/1.png"],
-  refreshIframe: true,
 
   config: [
     {
