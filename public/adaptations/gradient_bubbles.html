@@ -17,14 +17,12 @@
       const fullWidth = window.innerWidth;
       const fullHeight = window.innerHeight;
 
-      const oneHunredth = Math.round(window.innerWidth / 100);
-
-      const padding = config.padding * oneHunredth;
+      const padding = config.padding;
 
       const fullWidthWithoutPaddings = fullWidth - padding * 2;
       const fullHeightWithoutPaddings = fullHeight - padding * 2;
 
-      const itemSize = config.itemSize * oneHunredth;
+      const itemSize = config.itemSize;
       const itemsNumInRow = config.itemsNumInRow;
       const totalItemsWidth = itemSize * itemsNumInRow;
       const totalFreeSpace = fullWidthWithoutPaddings - totalItemsWidth;

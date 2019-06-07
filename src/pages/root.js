@@ -28,7 +28,7 @@ import mesh from "../_adaptationConfigs/mesh";
 import steppedGradient from "../_adaptationConfigs/steppedGradient";
 import fiberRibbons from "../_adaptationConfigs/fiber_ribbons";
 import fiberRectangles from "../_adaptationConfigs/fiber_rectangles";
-// import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
+import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
 
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
@@ -47,10 +47,12 @@ export default () => (
         <MiniCard {...trianglify} />
         <MiniCard {...particles} />
         <MiniCard {...gradientWaves} />
-        <MiniCard {...wallPattern} />
+        <MiniCard
+          {...gradientBubbles}
+          initState={{ config: {}, size: { width: 600, height: 500 } }}
+        />
         <MiniCard {...strings25} />
         <MiniCard {...mesh} />
-        {/* <MiniCard showModal {...gradientBubbles} /> */}
         <MiniCard {...fiberRibbons} />
         <MiniCard {...bubbles} />
         <MiniCard
@@ -66,6 +68,7 @@ export default () => (
           initState={{ config: {}, size: { width: 500, height: 500 } }}
           {...generateArt}
         />
+        <MiniCard {...wallPattern} />
         <MiniCard {...postmodern} />
       </Card.Group>
       <SubscribeBlock />
