@@ -28,6 +28,7 @@ import mesh from "../_adaptationConfigs/mesh";
 import steppedGradient from "../_adaptationConfigs/steppedGradient";
 import fiberRibbons from "../_adaptationConfigs/fiber_ribbons";
 import fiberRectangles from "../_adaptationConfigs/fiber_rectangles";
+// import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
 
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
@@ -49,6 +50,7 @@ export default () => (
         <MiniCard {...wallPattern} />
         <MiniCard {...strings25} />
         <MiniCard {...mesh} />
+        {/* <MiniCard showModal {...gradientBubbles} /> */}
         <MiniCard {...fiberRibbons} />
         <MiniCard {...bubbles} />
         <MiniCard

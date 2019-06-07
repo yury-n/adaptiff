@@ -1,0 +1,64 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
+</head>
+<body>
+  <script>
+    function aff_render(config) {
+      document.body.innerHTML = "";
+      const backgroundDiv = document.createElement("div");
+      backgroundDiv.style.background = `linear-gradient(${config.angle}deg, ${
+        config.palette[0]
+      }, ${config.palette[1]})`;
+      backgroundDiv.style.width = "100vw";
+      backgroundDiv.style.height = "100vh";
+      document.body.append(backgroundDiv);
+
+      const fullWidth = window.innerWidth;
+      const fullHeight = window.innerHeight;
+
+      const oneHunredth = Math.round(window.innerWidth / 100);
+
+      const padding = config.padding * oneHunredth;
+
+      const fullWidthWithoutPaddings = fullWidth - padding * 2;
+      const fullHeightWithoutPaddings = fullHeight - padding * 2;
+
+      const itemSize = config.itemSize * oneHunredth;
+      const itemsNumInRow = config.itemsNumInRow;
+      const totalItemsWidth = itemSize * itemsNumInRow;
+      const totalFreeSpace = fullWidthWithoutPaddings - totalItemsWidth;
+      const gap = totalFreeSpace / (itemsNumInRow - 1);
+      const itemsNumInColumn = 100;
+
+      for (let y = 0; y < itemsNumInColumn; y++) {
+        const top = padding + itemSize * y + gap * y;
+        if (top >= fullHeight - padding) {
+          break;
+        }
+        for (let x = 0; x < itemsNumInRow; x++) {
+          const left = padding + itemSize * x + gap * x;
+          const innerDiv = document.createElement("div");
+          innerDiv.style.position = "absolute";
+          innerDiv.style.left = `${left}px`;
+          innerDiv.style.top = `${top}px`;
+          innerDiv.style.width = `${itemSize}px`;
+          innerDiv.style.height = `${itemSize}px`;
+          innerDiv.style.background = `linear-gradient(${config.angle}deg, ${
+            config.palette[0]
+          }, ${config.palette[1]})`;
+          innerDiv.style.borderRadius = "100%";
+          document.body.append(innerDiv);
+        }
+      }
+    }
+    function aff_download() {
+      html2canvas(document.body).then(function(canvas) {
+        var image = canvas.toDataURL("image/png");
+        window.parent.postMessage({ type: "download", image }, "*");
+      });
+    }
+  </script>
+  <script src="https://unpkg.com/html2canvas@1.0.0-alpha.12/dist/html2canvas.min.js"></script>
+  <script src="_common.js"></script>
+</body>

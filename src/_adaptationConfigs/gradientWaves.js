@@ -66,7 +66,7 @@ export default {
 
     {
       key: "palette",
-      text: "Palettes",
+      text: "Palette",
       type: "palette",
       defaultValue: ownPallete[0],
       options: ownPallete

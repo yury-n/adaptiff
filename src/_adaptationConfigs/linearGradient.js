@@ -34,7 +34,7 @@ export default {
     },
     {
       key: "palette",
-      text: "Palettes",
+      text: "Palette",
       type: "palette",
       defaultValue: gradientPalettes[0],
       options: gradientPalettes

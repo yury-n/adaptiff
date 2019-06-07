@@ -39,7 +39,7 @@ export default {
     },
     {
       key: "palette",
-      text: "Palettes",
+      text: "Palette",
       type: "palette",
       defaultValue: palettes[0],
       options: palettes
