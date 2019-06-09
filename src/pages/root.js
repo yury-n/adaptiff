@@ -29,7 +29,7 @@ import steppedGradient from "../_adaptationConfigs/steppedGradient";
 import fiberRibbons from "../_adaptationConfigs/fiber_ribbons";
 import fiberRectangles from "../_adaptationConfigs/fiber_rectangles";
 import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
-// import blobmaker from "../_adaptationConfigs/blobmaker";
+import blobmaker from "../_adaptationConfigs/blobmaker";
 
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
@@ -44,7 +44,7 @@ export default () => (
     >
       <Hero />
       <Card.Group className="cards">
-        {/* <MiniCard {...blobmaker} /> */}
+        <MiniCard {...blobmaker} />
         <MiniCard {...linearGradient} />
         <MiniCard {...trianglify} />
         <MiniCard {...particles} />
@@ -56,12 +56,12 @@ export default () => (
         <MiniCard {...strings25} />
         <MiniCard {...mesh} />
         <MiniCard {...fiberRibbons} />
-        <MiniCard {...bubbles} />
         <MiniCard
           initState={{ config: {}, size: { width: 600, height: 600 } }}
           {...steppedGradient}
         />
         <MiniCard {...perfectPurple} />
+        <MiniCard {...bubbles} />
         <MiniCard
           initState={{ config: {}, size: { width: 500, height: 500 } }}
           {...fiberRectangles}

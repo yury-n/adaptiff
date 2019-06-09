@@ -15,7 +15,7 @@ export default {
   fileName: "blobmaker/build/index",
   author: "cristinapoiata",
   authorLink: "http://www.zcreativelabs.com/",
-  thumbs: ["/thumbs/todo.png"],
+  thumbs: ["/thumbs/blobmaker/1.png"],
   hasRandomness: true,
   config: [
     {
@@ -45,7 +45,7 @@ export default {
       key: "angle",
       text: "Gradient Angle",
       type: "range",
-      defaultValue: 200,
+      defaultValue: 0,
       min: 0,
       max: 360
     }

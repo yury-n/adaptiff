@@ -398,7 +398,22 @@ class TheModal extends Component {
 
   onWindowMessage = event => {
     if (event.data.type === "download") {
-      this.setState({ capturedIframe: event.data.image });
+      if (
+        this.state.insertedItems.length ||
+        this.state.config.backgroundColor
+      ) {
+        this.setState({ capturedIframe: event.data.image });
+      } else {
+        const imageType = event.data.imageType || "png";
+        const link = document.createElement("a");
+        downloadFromDataURL(`download.${imageType}`, event.data.image);
+        link.click();
+        this.setState({
+          captureConfig: null,
+          capturedIframe: null,
+          isPreparingDownload: false
+        });
+      }
     }
   };
 
