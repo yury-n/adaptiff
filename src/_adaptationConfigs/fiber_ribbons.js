@@ -18,7 +18,7 @@ export default {
       key: "numLines",
       text: "Number of lines",
       type: "range",
-      defaultValue: 100,
+      defaultValue: 50,
       min: 0,
       max: 200
     },

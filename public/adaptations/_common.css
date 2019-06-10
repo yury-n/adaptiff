@@ -2,6 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  background: transparent;
 }
 #preview {
   position: absolute;
@@ -9,5 +10,4 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: white;
 }

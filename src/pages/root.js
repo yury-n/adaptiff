@@ -63,7 +63,7 @@ export default () => (
         <MiniCard {...perfectPurple} />
         <MiniCard {...bubbles} />
         <MiniCard
-          initState={{ config: {}, size: { width: 500, height: 500 } }}
+          initState={{ config: {}, size: { width: 700, height: 500 } }}
           {...fiberRectangles}
         />
         <MiniCard

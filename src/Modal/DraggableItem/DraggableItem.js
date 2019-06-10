@@ -11,7 +11,7 @@ export default function DraggableItem({
   children
 }) {
   return (
-    <Draggable bounds="parent" cancel="span">
+    <Draggable cancel="span">
       <div
         className={classnames(
           s["root"],

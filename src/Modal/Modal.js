@@ -261,6 +261,11 @@ class TheModal extends Component {
               </div>
             </div>
             <div ref={this.iframeWrapperRef} className={s["iframe-wrapper"]}>
+              <div className={s["spinner-box"]}>
+                <div className={s["circle-border"]}>
+                  <div className={s["circle-core"]} />
+                </div>
+              </div>
               <IframePreview
                 version={refreshIframe ? iframeVersion : 1}
                 fileName={fileName}
