@@ -1,5 +1,5 @@
 const palettes = [
-  ["#A2CCB6", "#FCEEB5", "#EE786E"],
+  ["#A2CCB6", "#FCEEB5", "#fff", "#EE786E"],
   ["#fffccc", "#f28b3a", "#ee4a30", "#812326"],
   ["#f7fcfd", "#9ebcda", "#8b96c5", "#4e1a4b"],
   ["#f029ad", "#d0d1e6", "#0081e7", "#176697"],
@@ -18,7 +18,7 @@ export default {
       key: "numLines",
       text: "Number of lines",
       type: "range",
-      defaultValue: 50,
+      defaultValue: 55,
       min: 0,
       max: 200
     },

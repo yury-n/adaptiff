@@ -2,6 +2,7 @@ import React from "react";
 
 export default React.memo(
   React.forwardRef((props, ref) => {
+    console.log("re-render iframe");
     return (
       <iframe
         ref={ref}
