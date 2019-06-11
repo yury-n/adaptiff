@@ -15,7 +15,7 @@ import linearGradient from "../_adaptationConfigs/linearGradient";
 // reactKawaii from "./_adaptationConfigs/react_kawaii";
 import trianglify from "../_adaptationConfigs/trianglify";
 import particles from "../_adaptationConfigs/particles";
-import bubbles from "../_adaptationConfigs/bubbles";
+// import bubbles from "../_adaptationConfigs/bubbles";
 import perfectPurple from "../_adaptationConfigs/perfect_purple";
 import wallPattern from "../_adaptationConfigs/wallPattern";
 import strings25 from "../_adaptationConfigs/strings25";
@@ -29,6 +29,7 @@ import steppedGradient from "../_adaptationConfigs/steppedGradient";
 import fiberRibbons from "../_adaptationConfigs/fiber_ribbons";
 import fiberRectangles from "../_adaptationConfigs/fiber_rectangles";
 import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
+import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
 import blobmaker from "../_adaptationConfigs/blobmaker";
 
 // import tunnel from "./_adaptationConfigs/tunnel";
@@ -61,7 +62,7 @@ export default () => (
           {...steppedGradient}
         />
         <MiniCard {...perfectPurple} />
-        <MiniCard {...bubbles} />
+        <MiniCard {...chromaticLiquids} />
         <MiniCard
           initState={{ config: {}, size: { width: 700, height: 500 } }}
           {...fiberRectangles}

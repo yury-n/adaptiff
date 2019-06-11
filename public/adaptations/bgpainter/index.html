@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <meta http-equiv="Content-Language" content="zh-cn" />
+    <meta name="”description”" id="description" content="" />
+    <meta name="keywords" id="keywords" content="" />
+    <title>Color Gradient</title>
+
+    <script src="./Color Gradient_files/three.min.js"></script>
+
+    <script src="./Color Gradient_files/CopyShader.js"></script>
+    <script src="./Color Gradient_files/LuminosityHighPassShader.js"></script>
+
+    <script src="./Color Gradient_files/EffectComposer.js"></script>
+    <script src="./Color Gradient_files/RenderPass.js"></script>
+    <script src="./Color Gradient_files/ShaderPass.js"></script>
+    <script src="./Color Gradient_files/UnrealBloomPass.js"></script>
+
+    <script src="./Color Gradient_files/Detector.js"></script>
+    <script src="./Color Gradient_files/stats.min.js"></script>
+    <script src="./Color Gradient_files/OrbitControls.js"></script>
+
+    <script src="./Color Gradient_files/ColorGradient_Influence.js"></script>
+    <script src="./Color Gradient_files/Color.js"></script>
+    <script src="./Color Gradient_files/Util.js"></script>
+    <style>
+      html, body, #container {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <div id="monitor_panel" style="display: none">
+      <div id="canvas2d_wrapper">
+        <canvas id="drawingcanvas" width="1024" height="512"></canvas>
+      </div>
+      <div
+        style="position: fixed; top: 0px; left: 0px; cursor: pointer; opacity: 0.9; z-index: 10000;"
+      >
+        <canvas
+          width="160"
+          height="96"
+          style="width: 80px; height: 48px; display: block;"
+        ></canvas
+        ><canvas
+          width="160"
+          height="96"
+          style="width: 80px; height: 48px; display: none;"
+        ></canvas
+        ><canvas
+          width="160"
+          height="96"
+          style="width: 80px; height: 48px; display: none;"
+        ></canvas>
+      </div>
+    </div>
+
+    <script id="vertexShader" type="x-shader/x-vertex">
+      varying vec2 vUv;
+
+      void main() {
+
+      	vUv = uv;
+
+      	// vUv += vec2( 0.1, 0.1 );
+
+      	gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+      }
+    </script>
+
+    <script id="fragment_shader_screen" type="x-shader/x-fragment">
+      precision highp float;
+
+      uniform sampler2D tDiffuse;
+      uniform float uTime;
+
+      varying vec2 vUv;
+
+      const float speed = 15.0;
+      const float magnitude = 0.15;
+
+      void main() {
+
+      	vec2 wavyCoord;
+
+      	wavyCoord.s = vUv.s + (sin(uTime+vUv.t*speed) * magnitude);
+      	wavyCoord.t = vUv.t + (cos(uTime+vUv.s*speed) * magnitude);
+
+      	vec4 frameColor = texture2D(tDiffuse, wavyCoord);
+
+      	gl_FragColor = frameColor;
+
+
+      	// vec4 frameColor = texture2D(tDiffuse, vUv);
+       //    float luminance = frameColor.r * 0.3 + frameColor.g * 0.59 + frameColor.b * 0.11;
+       //    gl_FragColor = vec4(luminance, luminance, sin(uTime), frameColor.a);
+      }
+    </script>
+
+    <script type="text/javascript">
+      let isPaused = false;
+      window.addEventListener("message", event => {
+        if (event.data.type === "download") {
+          downloadCanvas();
+        } else if (event.data.type === "pause") {
+          isFrameControlling = true;
+        } else if (event.data.type === "unpause") {
+          isFrameControlling = false;
+        }
+      });
+
+      var downloadCanvas = function() {
+        var link = document.createElement("a");
+        var imgData = document.getElementById('canvas_painter').toDataURL({ format: "png" });
+        window.parent.postMessage({ type: 'download', image: imgData }, '*')
+      };
+
+      // Common Template ::
+      // -----------------------------------------------------------------------------------
+
+      if (!Detector.webgl) Detector.addGetWebGLMessage();
+
+      var camera, scene, renderer, composer, stats, gui, controls;
+      var cameraRTT, sceneRTT, rtTexture;
+      var postprocessing = {};
+      var ctx;
+
+      var frame = 0;
+      var isFrameControlling = false;
+
+      var canvasW = window.innerWidth;
+      var canvasH = window.innerHeight;
+      var canvasD = 500;
+      var GLOBAL_SIZE_FACTOR = canvasW / 1400;
+      var GLOBAL_SIZE_BOUNDING = canvasW / 2;
+
+      // Paint Data :: defines the pattern of every paint
+      // -----------------------------------------------------------------------------------
+      var quadRTT, matRTT, quad_geo, quad_mat, quad;
+
+      var PaintData = {
+        // Colors
+        colorTheme: "Fantasy",
+        colorShuffleTheme: "Fantasy",
+        palette: {
+          "color-0": "#ffffff",
+          "color-1": "#ffffff",
+          "color-2": "#ffffff",
+          "color-3": "#ffffff",
+          "color-4": "#ffffff",
+          "color-5": "#ffffff"
+        },
+
+        // Pattern
+        pattern: {
+          sprays: [],
+          morphdata: {
+            "1": {
+              anchorX: 240,
+              anchorY: -200,
+              anchorZ: 0,
+              anchorRadius: 900,
+              moveToX: 260,
+              moveToY: 160,
+              moveToZ: 400
+            },
+            "2": {
+              anchorX: -240,
+              anchorY: 200,
+              anchorZ: 0,
+              anchorRadius: 900,
+              moveToX: -260,
+              moveToY: -160,
+              moveToZ: 400
+            }
+          }
+        },
+
+        // PostEFX
+        postEFX: {
+          effects: true
+        },
+
+        // Controls
+        options: {
+          canColorShuffle: true,
+          canEffectsToggle: true
+        },
+
+        // Methods
+        reset: function() {
+          this.reset2dPattern();
+          this.drawCanvas2d();
+          this.refreshPattern();
+        },
+
+        reset2dPattern: function() {
+          var cWidth = 1024;
+          var cHeight = 512;
+
+          for (var i = 0; i < 2; ++i) {
+            for (var j = 0; j < 2; ++j) {
+              // 随机设定喷圈位置
+              var x = Math.random() * cWidth;
+              var y = Math.random() * cHeight;
+
+              // 随机设定喷圈尺寸
+              var radius_inner = Math.random() * 50 + 40;
+              var radius_outer = Math.random() * 300 + 170;
+
+              // 随机设定喷圈颜色索引
+              var indices = [0, 1, 2, 3, 4, 5];
+              var color_index_0 = this.pick(indices);
+              var color_index_1 = this.pick(indices);
+              var color_index_2 = this.pick(indices);
+
+              // 产生pattern子集
+              this.pattern.sprays.push({
+                x: x,
+                y: y,
+                radius_inner: radius_inner,
+                radius_outer: radius_outer,
+                color_indices: [color_index_0, color_index_1, color_index_2]
+              });
+            }
+          }
+        },
+
+        drawCanvas2d: function() {
+          // 先绘制出背景底色
+          ctx = drawingcanvas.getContext("2d");
+          var grd = ctx.createLinearGradient(0, 0, 0, 512);
+          grd.addColorStop(0.0, this.palette["color-" + 0].colorRgb(1.0));
+          grd.addColorStop(0.3, this.palette["color-" + 1].colorRgb(1.0));
+          grd.addColorStop(0.7, this.palette["color-" + 2].colorRgb(1.0));
+          grd.addColorStop(1.0, this.palette["color-" + 3].colorRgb(1.0));
+          ctx.fillStyle = grd;
+          ctx.fillRect(0, 0, 1024, 512);
+
+          // 然后绘制主体圆圈颜色
+          for (var i = 0; i < this.pattern.sprays.length; ++i) {
+            var spray = this.pattern.sprays[i];
+            var grd = ctx.createRadialGradient(
+              spray.x,
+              spray.y,
+              spray.radius_inner,
+              spray.x,
+              spray.y,
+              spray.radius_outer
+            );
+
+            grd.addColorStop(
+              0.0,
+              this.palette["color-" + spray.color_indices[0]]
+            );
+            grd.addColorStop(
+              0.2,
+              this.palette["color-" + spray.color_indices[1]]
+            );
+            grd.addColorStop(
+              1.0,
+              this.palette["color-" + spray.color_indices[2]].colorRgb(0.0)
+            );
+
+            ctx.fillStyle = grd;
+            ctx.fillRect(0, 0, 1024, 512);
+          }
+        },
+
+        refreshPattern: function() {
+          var index = 0;
+          for (var i = 0; i < 2; i++) {
+            for (var j = 0; j < 2; j++) {
+              // 方向
+              var direction = Math.random() > 0.5 ? 1 : -1;
+
+              var ax = ((Math.random() * canvasW) / 2) * Math.pow(-1, i);
+              var ay = ((Math.random() * canvasH) / 2) * Math.pow(-1, j);
+              var az = 0;
+              var radius = Math.random() * 300 + 450;
+
+              var mx = ax + direction * (Math.random() * 300 + 150);
+              var my = ay + direction * (Math.random() * 200 + 100);
+
+              this.pattern.morphdata["" + index++] = {
+                anchorX: ax,
+                anchorY: ay,
+                anchorZ: az,
+                anchorRadius: radius,
+                moveToX: mx,
+                moveToY: my
+              };
+            }
+          }
+
+          deleteObjects();
+          buildObjects();
+        },
+
+        updateColors: function() {
+          this.drawCanvas2d();
+        },
+
+        pick: function(array) {
+          var rand = Math.floor(Math.random() * array.length);
+
+          var result = array[rand];
+
+          array.splice(rand, 1);
+
+          return result;
+        }
+      };
+
+      // get Colors and init
+      // fetch( './data/Color.json' ).then( res => {
+      // 	return res.json().then( json => {
+
+      // 		var theme = PaintData.colorTheme;
+      // 		var colors = json['Colors'][ theme ];
+      // 		var tempColors = [];
+
+      // 		// 从Colors -> Fantasy 中获取2组16个颜色，随机地放8个颜色在color_scheme中
+      // 		for( var i in colors ) {
+      // 			colors[i].forEach( function( item, index ) {
+      // 				tempColors.push( '#'+item );
+      // 			})
+      // 		}
+
+      // 		// 随机打乱排序
+      // 		tempColors = _.shuffle(tempColors);
+
+      // 		// 装填入colortheme中
+      // 		for( var i=0; i<8; i++ ){
+      // 			PaintData.palette[ 'color-' + i ]= tempColors[i];
+      // 		}
+      // 	});
+      // }).then( () => {
+      // 	initPaint();
+      // 	animate();
+      // });
+
+      // Color Data and Start initPaint
+      // -----------------------------------------------------------------------------------
+      loadPaintData(initPaint, animate);
+
+      function initPaint() {
+        initRenderer(); // Scene | Camera | Renderer
+        initRendererToTexture(); // render texuture with shader, if use RTT texture
+
+        PaintData.reset2dPattern();
+        PaintData.drawCanvas2d();
+
+        initWindowMessageListeners();
+
+        // build scene and controls
+        buildResources();
+        buildObjects();
+        buildPostEFX();
+      }
+
+      function initRenderer() {
+        // Camera
+        camera = new THREE.OrthographicCamera(
+          canvasW / -2,
+          canvasW / 2,
+          canvasH / 2,
+          canvasH / -2,
+          1,
+          4000
+        );
+        // camera = new THREE.PerspectiveCamera( 50, canvasW / canvasH, 1, 10 );
+        camera.position.z = 2400;
+
+        // scene
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x000000);
+        // scene.fog = new THREE.Fog( 0x000000, 900, 1200 );
+
+        // helper
+        var axesHelper = new THREE.AxesHelper(25);
+        // scene.add( axesHelper );
+        var gridHelper = new THREE.GridHelper(100, 10);
+        // scene.add( gridHelper );
+
+        // Renderer
+        renderer = new THREE.WebGLRenderer({
+          antialias: true,
+          preserveDrawingBuffer: true
+        });        
+        renderer.domElement.setAttribute("id", "canvas_painter");
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        // renderer.gammaInput = true
+        // renderer.gammaOutput = true;
+
+        // control and monitor
+        // controls = new THREE.OrbitControls( camera, renderer.domElement );
+        stats = new Stats();
+
+        // dom
+        monitor_panel.appendChild(stats.dom);
+        container.appendChild(renderer.domElement);
+
+        // window
+        window.addEventListener("resize", onWindowResize, false);
+      }
+
+      function initRendererToTexture() {
+        // camera rendering texture
+        cameraRTT = new THREE.OrthographicCamera(
+          canvasW / -2,
+          canvasW / 2,
+          canvasH / 2,
+          canvasH / -2,
+          -10000,
+          10000
+        );
+        cameraRTT.position.z = 400;
+
+        sceneRTT = new THREE.Scene(); // scene rendered to texture
+
+        rtTexture = new THREE.WebGLRenderTarget(canvasW, canvasH, {
+          minFilter: THREE.LinearFilter,
+          magFilter: THREE.NearestFilter,
+          format: THREE.RGBFormat
+        }); // render target texture
+
+        // things on the texture
+        matRTT = new THREE.MeshBasicMaterial({
+          map: new THREE.Texture(drawingcanvas)
+        });
+        quadRTT = new THREE.Mesh(
+          new THREE.PlaneBufferGeometry(canvasW, canvasH),
+          matRTT
+        );
+
+        sceneRTT.add(quadRTT);
+      }
+
+      function buildResources() {
+        // Material
+        quad_mat = new THREE.ShaderMaterial({
+          uniforms: {
+            tDiffuse: { value: rtTexture.texture },
+            uTime: { value: 0.0 }
+          },
+          vertexShader: document.getElementById("vertexShader").textContent,
+          fragmentShader: document.getElementById("fragment_shader_screen")
+            .textContent,
+
+          depthWrite: false
+        });
+      }
+
+      function buildObjects() {
+        // Geometry
+        quad_geo = new THREE.PlaneGeometry(canvasW, canvasH, 99, 59);
+
+        // Mesh
+        quad = new THREE.Mesh(quad_geo, quad_mat);
+        scene.add(quad);
+
+        // morph the quad
+        var morphdata = PaintData.pattern.morphdata;
+
+        for (var index in morphdata) {
+          var data = morphdata[index];
+
+          // 这里的influence是一个只存在于当前作用域下的对象，并非挂载在window全局中
+          var influence = new Influence(
+            data.anchorX,
+            data.anchorY,
+            data.anchorZ,
+            data.anchorRadius
+          );
+          influence.surround(quad_geo);
+          influence.moveTo(data.moveToX, data.moveToY, 400);
+        }
+      }
+
+      function deleteObjects() {
+        // clear scene
+        scene.remove(quad);
+      }
+
+      function buildPostEFX() {
+        var renderPass = new THREE.RenderPass(scene, camera);
+        var effect_bloom = new THREE.UnrealBloomPass(
+          new THREE.Vector2(canvasW, canvasH),
+          0.2,
+          0.17,
+          0.13
+        );
+
+        // define which pass is the final pass
+        effect_bloom.renderToScreen = true;
+
+        composer = new THREE.EffectComposer(renderer);
+        composer.addPass(renderPass);
+        composer.addPass(effect_bloom);
+      }
+
+      function onWindowResize() {
+        camera.aspect = canvasW / canvasH;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(canvasW, canvasH);
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+        stats.update();
+        render();
+      }
+
+      function render() {
+        // frame control
+        if (!isFrameControlling) {
+          frame++;
+          // frame_control_slider.value = frame*100/314;
+
+          if (frame == 314) frame = 0;
+        }
+
+        var uTime = frame / 50;
+
+        quad_mat.uniforms.uTime.value = uTime;
+        quad_mat.needsUpdate = true;
+
+        quad_geo.verticesNeedUpdate = true;
+
+        matRTT.map.needsUpdate = true;
+
+        // render
+        // ------------------------------------------------------------
+        renderer.clear();
+        renderer.render(sceneRTT, cameraRTT, rtTexture, true);
+
+        if (PaintData.postEFX.effects) {
+          composer.render(0.1);
+        } else {
+          renderer.render(scene, camera);
+        }
+      }
+    </script>
+  </body>
+</html>
