@@ -206,10 +206,21 @@ class TheModal extends Component {
           </div>
           <div className={s["modal-right-side"]}>
             <div className={s["config-over-preview"]}>
-              <InsertButton
-                onInsertText={this.insertText}
-                onInsertImage={this.insertImage}
-              />
+              <div className={s["config-over-left-buttons"]}>
+                <InsertButton
+                  onInsertText={this.insertText}
+                  onInsertImage={this.insertImage}
+                />
+                {hasRandomness && (
+                  <Button
+                    title="Refresh"
+                    circular
+                    icon="refresh"
+                    onClick={this.refresh}
+                    className={s["refresh-button"]}
+                  />
+                )}
+              </div>
               <div className={s["dimensions"]}>
                 <Input
                   defaultValue={iframeWidth}
@@ -240,15 +251,6 @@ class TheModal extends Component {
                     icon={isPaused ? "play" : "pause"}
                     onClick={isPaused ? this.unpause : this.pause}
                     className={s["pause-button"]}
-                  />
-                )}
-                {hasRandomness && (
-                  <Button
-                    title="Refresh"
-                    circular
-                    icon="refresh"
-                    onClick={this.refresh}
-                    className={s["refresh-button"]}
                   />
                 )}
                 <Button
@@ -660,6 +662,12 @@ class TheModal extends Component {
 
   refresh = () => {
     this.postConfigToIframe();
+    this.iframeRef.current.contentWindow.postMessage(
+      {
+        type: "randomize"
+      },
+      "*"
+    );
   };
 
   onIframeLoad = () => {

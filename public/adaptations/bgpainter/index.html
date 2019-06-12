@@ -23,14 +23,15 @@
     <script src="./Color Gradient_files/UnrealBloomPass.js"></script>
 
     <script src="./Color Gradient_files/Detector.js"></script>
-    <script src="./Color Gradient_files/stats.min.js"></script>
     <script src="./Color Gradient_files/OrbitControls.js"></script>
 
     <script src="./Color Gradient_files/ColorGradient_Influence.js"></script>
     <script src="./Color Gradient_files/Color.js"></script>
     <script src="./Color Gradient_files/Util.js"></script>
     <style>
-      html, body, #container {
+      html,
+      body,
+      #container {
         padding: 0;
         margin: 0;
         width: 100vw;
@@ -123,8 +124,10 @@
 
       var downloadCanvas = function() {
         var link = document.createElement("a");
-        var imgData = document.getElementById('canvas_painter').toDataURL({ format: "png" });
-        window.parent.postMessage({ type: 'download', image: imgData }, '*')
+        var imgData = document
+          .getElementById("canvas_painter")
+          .toDataURL({ format: "png" });
+        window.parent.postMessage({ type: "download", image: imgData }, "*");
       };
 
       // Common Template ::
@@ -132,7 +135,7 @@
 
       if (!Detector.webgl) Detector.addGetWebGLMessage();
 
-      var camera, scene, renderer, composer, stats, gui, controls;
+      var camera, scene, renderer, composer, gui, controls;
       var cameraRTT, sceneRTT, rtTexture;
       var postprocessing = {};
       var ctx;
@@ -399,19 +402,13 @@
         renderer = new THREE.WebGLRenderer({
           antialias: true,
           preserveDrawingBuffer: true
-        });        
+        });
         renderer.domElement.setAttribute("id", "canvas_painter");
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
         // renderer.gammaInput = true
         // renderer.gammaOutput = true;
 
-        // control and monitor
-        // controls = new THREE.OrbitControls( camera, renderer.domElement );
-        stats = new Stats();
-
-        // dom
-        monitor_panel.appendChild(stats.dom);
         container.appendChild(renderer.domElement);
 
         // window
@@ -522,7 +519,6 @@
 
       function animate() {
         requestAnimationFrame(animate);
-        stats.update();
         render();
       }
 

@@ -71,24 +71,18 @@ const dataPoints = {
 // 加载颜色和样式数据: color | paint data
 function loadPaintData(init, animate) {
   // 首先获取颜色数据
+  const colors = [
+    "#00005e",
+    "#21267a",
+    "#285189",
+    "#285189",
+    "#16b793",
+    "#16b793"
+  ];
 
-  // set paint data
-  PaintData.pattern = dataPoints.standard.pattern;
-
-  // set model path if it exists
-  if (dataPoints.hasOwnProperty("instances")) {
-    var key = window.location.href.split("#")[1];
-    PaintData.modelPath = dataPoints.instances[key].model;
-    PaintData.colorTheme = dataPoints.instances[key].theme;
-  }
-
-  var colorList = globalColors.Fantasy;
-
-  var random = Math.floor(Math.random() * colorList.length);
-
-  for (var i in colorList[random]) {
+  for (var i in colors) {
     // set color theme
-    PaintData.palette["color-" + i] = "#" + colorList[random][i];
+    PaintData.palette["color-" + i] = colors[i];
   }
 
   init();
@@ -142,18 +136,6 @@ function loadShaderFromFile(filename, onLoadShader) {
 }
 
 function initWindowMessageListeners() {
-  // 重建样式
-  var resetPattern = document.createElement("DIV");
-  resetPattern.setAttribute("id", "reset_pattern");
-  resetPattern.setAttribute("class", "dot-btn");
-  resetPattern.addEventListener(
-    "click",
-    function() {
-      PaintData.reset();
-    },
-    false
-  );
-
   window.addEventListener("message", event => {
     if (event.data.type === "render") {
       colors = event.data.payload.palette;
@@ -161,6 +143,8 @@ function initWindowMessageListeners() {
         PaintData.palette["color-" + i] = colors[i];
       }
       PaintData.updateColors();
+    } else if (event.data.type === "randomize") {
+      PaintData.reset();
     }
   });
 

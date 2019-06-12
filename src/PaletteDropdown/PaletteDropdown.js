@@ -27,11 +27,11 @@ class PaletteDropdown extends Component {
               s["selected-value"]
             )}
           >
-            {selectedPalette.map(color => (
+            {selectedPalette.map((color, index) => (
               <div
                 className={s["mini-color"]}
                 style={{ background: color }}
-                key={color}
+                key={`${index}-${color}`}
               />
             ))}
           </div>
@@ -46,9 +46,9 @@ class PaletteDropdown extends Component {
               value: index,
               label: (
                 <div className={s["mini-color-container"]}>
-                  {palette.map(color => (
+                  {palette.map((color, index) => (
                     <div
-                      key={color}
+                      key={`${index}-${color}`}
                       className={s["mini-color"]}
                       style={{ background: color }}
                     />

@@ -24,15 +24,18 @@
   align-items: center;
 }
 
+.config-over-left-buttons,
 .config-over-right-buttons {
   display: inline-flex;
   align-items: center;
 }
 
+.config-over-left-buttons > *,
 .config-over-right-buttons > * {
   margin-right: 14px !important;
 }
 
+.config-over-left-buttons > *:last-child,
 .config-over-right-buttons > *:last-child {
   margin-right: 0 !important;
 }

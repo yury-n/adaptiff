@@ -62,7 +62,10 @@ export default () => (
           {...steppedGradient}
         />
         <MiniCard {...perfectPurple} />
-        <MiniCard {...chromaticLiquids} />
+        <MiniCard
+          {...chromaticLiquids}
+          initState={{ config: {}, size: { width: 1000, height: 660 } }}
+        />
         <MiniCard
           initState={{ config: {}, size: { width: 700, height: 500 } }}
           {...fiberRectangles}
