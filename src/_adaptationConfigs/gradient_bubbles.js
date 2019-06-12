@@ -15,6 +15,7 @@ export default {
   fileName: "gradient_bubbles",
   author: "yury-n",
   thumbs: ["/thumbs/gradient_bubbles/1.png"],
+  hasRandomness: true,
   config: [
     {
       key: "itemSize",
@@ -23,12 +24,6 @@ export default {
       defaultValue: 10,
       min: 0,
       max: 100
-    },
-    {
-      type: "boolean",
-      key: "withRandomness",
-      text: "With Randomness",
-      defaultValue: false
     },
     {
       key: "itemsNumInRow",
@@ -60,6 +55,12 @@ export default {
       defaultValue: 200,
       min: 0,
       max: 360
+    },
+    {
+      type: "boolean",
+      key: "withRandomness",
+      text: "With Randomness",
+      defaultValue: false
     }
   ]
 };
