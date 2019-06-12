@@ -1,5 +1,6 @@
 .ui.active.dimmer {
   cursor: pointer;
+  z-index: 1000001; /* overcome crisp */
 }
 
 .ui.active.modal {

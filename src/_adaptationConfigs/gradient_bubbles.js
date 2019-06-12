@@ -25,6 +25,12 @@ export default {
       max: 100
     },
     {
+      type: "boolean",
+      key: "withRandomness",
+      text: "With Randomness",
+      defaultValue: false
+    },
+    {
       key: "itemsNumInRow",
       text: "Items Per Row",
       type: "range",
