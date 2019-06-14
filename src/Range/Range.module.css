@@ -1,4 +1,5 @@
-.slider {
+.slider-wrapper {
+  position: relative;
   margin-top: 10px;
 }
 
@@ -8,14 +9,29 @@
   margin-top: -3px;
 }
 
-.range-input {
+.input {
   width: 55px;
   margin-top: 12px;
   position: relative;
 }
 
-.range-input > input {
+.input > input {
   box-shadow: none !important;
+}
+
+.value-input {
+}
+
+.value-input-wrapper {
+  position: absolute !important;
+  left: 30px;
+  margin-left: -18px;
+  top: -58px;
+  z-index: 1;
+}
+
+.value-input-wrapper input {
+  text-align: center !important;
 }
 
 .slider-tooltip {
