@@ -15,6 +15,8 @@ class Range extends Component {
     withRangeInputs: false
   };
   state = {
+    showValueInput: false,
+    isDragging: false,
     min: 0,
     max: 100
   };
@@ -34,11 +36,6 @@ class Range extends Component {
     this.handle = this.sliderWrapperRef.current.querySelector(
       ".rc-slider-handle"
     );
-    this.updateValueInputPosition();
-  }
-
-  componentDidUpdate() {
-    this.updateValueInputPosition();
   }
 
   updateValueInputPosition() {
@@ -76,13 +73,36 @@ class Range extends Component {
       this.props.onChange(this.state[type]);
     }
   };
+  hideValueInput = () => {
+    this.setState({ showValueInput: false });
+  };
+  showValueInput = () => {
+    if (!this.state.isDragging) {
+      this.setState({ showValueInput: true });
+      // this.updateValueInputPosition();
+    }
+  };
+  onMouseDown = () => {
+    this.setState({ isDragging: true });
+    this.hideValueInput();
+  };
+  onMouseUp = () => {
+    this.setState({ isDragging: false });
+  };
   render() {
     const SliderComponent = Array.isArray(this.props.value)
       ? RangeWithTooltip
       : SliderWithTooltip;
     return (
       <>
-        <div ref={this.sliderWrapperRef} className={s["slider-wrapper"]}>
+        <div
+          ref={this.sliderWrapperRef}
+          className={s["slider-wrapper"]}
+          onMouseDown={this.onMouseDown}
+          onMouseUp={this.onMouseUp}
+          onMouseEnter={this.showValueInput}
+          onMouseLeave={this.hideValueInput}
+        >
           <SliderComponent
             value={this.props.value}
             min={this.state.min}
@@ -114,7 +134,7 @@ class Range extends Component {
               overlayClassName: s["slider-tooltip"]
             }}
           />
-          {
+          {false && this.state.showValueInput && !this.state.isDragging && (
             <div
               ref={this.valueInputWrapperRef}
               className={s["value-input-wrapper"]}
@@ -125,7 +145,7 @@ class Range extends Component {
                 onChange={this.props.onChange}
               />
             </div>
-          }
+          )}
         </div>
         {this.props.withRangeInputs && (
           <div className={s["range-inputs"]}>
