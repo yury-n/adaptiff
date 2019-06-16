@@ -3,14 +3,16 @@ import React, { Component } from "react";
 import Slider, { createSliderWithTooltip } from "rc-slider";
 import { Input } from "semantic-ui-react";
 
+import "./global.overrides.css";
 import s from "./Range.module.css";
+import NumberInput from "../NumberInput/NumberInput";
 
 const SliderWithTooltip = createSliderWithTooltip(Slider);
 const RangeWithTooltip = createSliderWithTooltip(Slider.Range);
 
 class Range extends Component {
   static defaultProps = {
-    withRangeInputs: true
+    withRangeInputs: false
   };
   state = {
     min: 0,
@@ -32,11 +34,11 @@ class Range extends Component {
     this.handle = this.sliderWrapperRef.current.querySelector(
       ".rc-slider-handle"
     );
-    // this.updateValueInputPosition();
+    this.updateValueInputPosition();
   }
 
   componentDidUpdate() {
-    // this.updateValueInputPosition();
+    this.updateValueInputPosition();
   }
 
   updateValueInputPosition() {
@@ -112,18 +114,18 @@ class Range extends Component {
               overlayClassName: s["slider-tooltip"]
             }}
           />
-          {false && (
+          {
             <div
               ref={this.valueInputWrapperRef}
               className={s["value-input-wrapper"]}
             >
-              <Input
+              <NumberInput
                 className={s["input"]}
                 value={this.props.value}
-                onChange={this.onChange}
+                onChange={this.props.onChange}
               />
             </div>
-          )}
+          }
         </div>
         {this.props.withRangeInputs && (
           <div className={s["range-inputs"]}>

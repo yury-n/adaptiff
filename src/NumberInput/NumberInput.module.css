@@ -1,0 +1,8 @@
+.input > input {
+  box-shadow: none !important;
+  text-align: center !important;
+}
+
+.input > input::selection {
+  background: #d1e9f9;
+}

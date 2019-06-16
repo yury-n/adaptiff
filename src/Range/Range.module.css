@@ -1,6 +1,7 @@
 .slider-wrapper {
   position: relative;
   margin-top: 10px;
+  top: 5px;
 }
 
 .range-inputs {
@@ -15,10 +16,6 @@
   position: relative;
 }
 
-.input > input {
-  box-shadow: none !important;
-}
-
 .value-input {
 }
 
@@ -27,11 +24,13 @@
   left: 30px;
   margin-left: -18px;
   top: -58px;
+  padding-bottom: 13px;
   z-index: 1;
+  opacity: 0;
 }
 
-.value-input-wrapper input {
-  text-align: center !important;
+.slider-wrapper:hover .value-input-wrapper {
+  opacity: 1;
 }
 
 .slider-tooltip {
