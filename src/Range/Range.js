@@ -10,7 +10,7 @@ const RangeWithTooltip = createSliderWithTooltip(Slider.Range);
 
 class Range extends Component {
   static defaultProps = {
-    withRangeInputs: false
+    withRangeInputs: true
   };
   state = {
     min: 0,
@@ -32,11 +32,11 @@ class Range extends Component {
     this.handle = this.sliderWrapperRef.current.querySelector(
       ".rc-slider-handle"
     );
-    this.updateValueInputPosition();
+    // this.updateValueInputPosition();
   }
 
   componentDidUpdate() {
-    this.updateValueInputPosition();
+    // this.updateValueInputPosition();
   }
 
   updateValueInputPosition() {
@@ -112,16 +112,18 @@ class Range extends Component {
               overlayClassName: s["slider-tooltip"]
             }}
           />
-          <div
-            ref={this.valueInputWrapperRef}
-            className={s["value-input-wrapper"]}
-          >
-            <Input
-              className={s["input"]}
-              value={this.props.value}
-              onChange={this.onChange}
-            />
-          </div>
+          {false && (
+            <div
+              ref={this.valueInputWrapperRef}
+              className={s["value-input-wrapper"]}
+            >
+              <Input
+                className={s["input"]}
+                value={this.props.value}
+                onChange={this.onChange}
+              />
+            </div>
+          )}
         </div>
         {this.props.withRangeInputs && (
           <div className={s["range-inputs"]}>
