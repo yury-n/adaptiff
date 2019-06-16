@@ -23,10 +23,38 @@
   position: absolute !important;
   left: 30px;
   margin-left: -18px;
-  top: -58px;
+  top: -62px;
   padding-bottom: 13px;
   z-index: 1;
   opacity: 0;
+}
+
+.value-input-wrapper:before {
+  display: block;
+  content: "";
+  bottom: 8px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 6px 0 6px;
+  border-color: #b2b2b3 transparent transparent transparent;
+  position: absolute;
+  margin-left: -5px;
+}
+
+.value-input-wrapper:after {
+  display: block;
+  content: "";
+  bottom: 9px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 6px 0 6px;
+  border-color: white transparent transparent transparent;
+  position: absolute;
+  margin-left: -5px;
 }
 
 .slider-wrapper:hover .value-input-wrapper {

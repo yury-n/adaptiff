@@ -53,7 +53,7 @@ export default ({
       <Range
         withRangeInputs={false}
         min={10}
-        max={250}
+        max={100}
         value={config.fontSize}
         onChange={value => setConfigValue("fontSize", value)}
       />

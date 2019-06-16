@@ -36,16 +36,23 @@ class Range extends Component {
     this.handle = this.sliderWrapperRef.current.querySelector(
       ".rc-slider-handle"
     );
+    window.addEventListener("mouseup", this.onMouseUp);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("mouseup", this.onMouseUp);
   }
 
   updateValueInputPosition() {
     window.requestAnimationFrame(() => {
       const sliderWrapper = this.sliderWrapperRef.current;
       const valueInput = this.valueInputWrapperRef.current;
+      if (!sliderWrapper || !valueInput) {
+        return;
+      }
       const sliderWrapperLeft = sliderWrapper.getBoundingClientRect().left;
       const handleLeft = this.handle.getBoundingClientRect().left;
       valueInput.style.left = `${handleLeft - sliderWrapperLeft}px`;
-      valueInput.style.top = "-58px";
     });
   }
 
@@ -79,15 +86,23 @@ class Range extends Component {
   showValueInput = () => {
     if (!this.state.isDragging) {
       this.setState({ showValueInput: true });
-      // this.updateValueInputPosition();
+      this.updateValueInputPosition();
     }
   };
-  onMouseDown = () => {
-    this.setState({ isDragging: true });
-    this.hideValueInput();
+  onMouseDown = event => {
+    if (!this.valueInputWrapperRef.current.contains(event.target)) {
+      this.setState({ isDragging: true });
+      this.hideValueInput();
+    }
   };
   onMouseUp = () => {
-    this.setState({ isDragging: false });
+    this.updateValueInputPosition();
+    this.setState({ isDragging: false, showValueInput: true });
+  };
+  onNumberInputChange = value => {
+    this.props.onChange(value);
+    this.setState({ showValueInput: false });
+    // this.updateValueInputPosition();
   };
   render() {
     const SliderComponent = Array.isArray(this.props.value)
@@ -99,7 +114,6 @@ class Range extends Component {
           ref={this.sliderWrapperRef}
           className={s["slider-wrapper"]}
           onMouseDown={this.onMouseDown}
-          onMouseUp={this.onMouseUp}
           onMouseEnter={this.showValueInput}
           onMouseLeave={this.hideValueInput}
         >
@@ -134,7 +148,7 @@ class Range extends Component {
               overlayClassName: s["slider-tooltip"]
             }}
           />
-          {false && this.state.showValueInput && !this.state.isDragging && (
+          {this.state.showValueInput && !this.state.isDragging && (
             <div
               ref={this.valueInputWrapperRef}
               className={s["value-input-wrapper"]}
@@ -142,7 +156,7 @@ class Range extends Component {
               <NumberInput
                 className={s["input"]}
                 value={this.props.value}
-                onChange={this.props.onChange}
+                onChange={this.onNumberInputChange}
               />
             </div>
           )}
