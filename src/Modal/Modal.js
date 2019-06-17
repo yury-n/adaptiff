@@ -32,6 +32,7 @@ class TheModal extends Component {
     const state = {
       isPaused: false,
       isPreparingDownload: false,
+      isLoadingIframe: true,
       isPublic:
         localStorage.getItem("modal.isPublic") === "false" ? false : true,
       config: {},
@@ -150,6 +151,7 @@ class TheModal extends Component {
       iframeVersion,
       isPaused,
       isPreparingDownload,
+      isLoadingIframe,
       isPublic
     } = this.state;
     const scaleToFullyFit = this.getScaleToFullyFit();
@@ -282,21 +284,22 @@ class TheModal extends Component {
                 className={s["opaque-overlay"]}
                 onClick={this.onOpaqueOverlayClick}
               />
-              {insertedItems.map((insertedItem, index) => (
-                <DraggableItem
-                  key={insertedItem.id}
-                  isActive={index === activeInsertedItemIndex}
-                  initialPosition={
-                    insertedItem.position &&
-                    this.makePositionRelativeToEditContainer(
-                      insertedItem.position
-                    )
-                  }
-                  onClick={() => this.setactiveInsertedItemIndex(index)}
-                >
-                  {this.renderInsertedItem(insertedItem, index)}
-                </DraggableItem>
-              ))}
+              {!isLoadingIframe &&
+                insertedItems.map((insertedItem, index) => (
+                  <DraggableItem
+                    key={insertedItem.id}
+                    isActive={index === activeInsertedItemIndex}
+                    initialPosition={
+                      insertedItem.position &&
+                      this.makePositionRelativeToEditContainer(
+                        insertedItem.position
+                      )
+                    }
+                    onClick={() => this.setactiveInsertedItemIndex(index)}
+                  >
+                    {this.renderInsertedItem(insertedItem, index)}
+                  </DraggableItem>
+                ))}
               {captureConfig && (
                 <div
                   className={s["capture-frame"]}
@@ -671,9 +674,11 @@ class TheModal extends Component {
   };
 
   onIframeLoad = () => {
+    this.setState({ isLoadingIframe: false });
     setTimeout(() => {
       this.postConfigToIframe();
       // this to give react time to mount and attach listeners
+      // not really sure if still needed, react should call load on mount?
     }, 100);
   };
 
