@@ -12,9 +12,9 @@ SETTINGS
     hueEndColor: 0,
     saturationEndColor: 100,
     lightnessEndColor: 7,
-    smoothness: window.smoothness,
+    smoothness: window.smoothness / 10,
     offsetX: 10,
-    fill: true,
+    fill: window.fill,
     crazyness: window.crazyness
   };
 
@@ -114,14 +114,19 @@ PATH
         "http://www.w3.org/2000/svg",
         "path"
       );
-      path.setAttribute("fill", fill);
-      path.setAttribute("stroke", fill);
-      svg.appendChild(path);
       if (settings.fill) {
-        svg.setAttribute("class", "path");
+        path.setAttribute("fill", fill);
+        path.setAttribute("stroke", "none");
       } else {
-        svg.setAttribute("class", "stroke");
+        path.setAttribute("stroke", fill);
+        path.setAttribute("fill", "none");
       }
+      svg.appendChild(path);
+      // if (settings.fill) {
+      //   svg.setAttribute("class", "path");
+      // } else {
+      //   svg.setAttribute("class", "stroke");
+      // }
 
       // first & second points
       let d = `M -${overflow} ${winH + overflow}`;
@@ -254,8 +259,6 @@ INIT
     // Background
     if (settings.fill) {
       svg.style.backgroundColor = Colors[0];
-    } else {
-      svg.style.backgroundColor = "#000";
     }
 
     // Lines

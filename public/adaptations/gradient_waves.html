@@ -1,7 +1,6 @@
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="_common.css" />
-  <link rel="stylesheet" href="_gradientWaves.css" />
 </head>
 
 <body>
@@ -21,6 +20,7 @@
       lastConfig = config;
 
       window.crazyness = config.crazyness;
+      window.fill = config.fill;
       window.smoothness = config.smoothness;
       window.lines = config.lines;
       window.amplituteX = config.amplituteX;
@@ -33,38 +33,30 @@
     }
 
     function aff_download() {
-      html2canvas(document.body).then(canvas => {
-        const svgElement = document.getElementById("svg");
-        const ctx = canvas.getContext("2d");
-        const svgURL = new XMLSerializer().serializeToString(svgElement);
-        const image = new Image();
+      var canvas = document.createElement("canvas");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      var svg = document.getElementById("svg");
+      var ctx = canvas.getContext("2d");
+      var data = new XMLSerializer().serializeToString(svg);
+      var DOMURL = window.URL || window.webkitURL || window;
 
-        canvas.width = svgElement.clientWidth;
-        canvas.height = svgElement.clientHeight;
+      var img = new Image();
+      var svgBlob = new Blob([data], { type: "image/svg+xml;charset=utf-8" });
+      var url = DOMURL.createObjectURL(svgBlob);
 
-        image.onload = function() {
-          ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+      img.onload = function() {
+        ctx.drawImage(img, 0, 0, window.innerWidth, window.innerHeight);
+        DOMURL.revokeObjectURL(url);
 
-          startToLoad(
-            canvas
-              .toDataURL("image/png")
-              .replace("image/png", "image/octet-stream")
-          );
-        };
+        var imgURI = canvas
+          .toDataURL("image/png")
+          .replace("image/png", "image/octet-stream");
 
-        image.src =
-          "data:image/svg+xml; charset=utf8, " + encodeURIComponent(svgURL);
-      });
+        window.parent.postMessage({ type: "download", image: imgURI }, "*");
+      };
 
-      function startToLoad(image) {
-        window.parent.postMessage(
-          {
-            type: "download",
-            image
-          },
-          "*"
-        );
-      }
+      img.src = url;
     }
   </script>
 </body>

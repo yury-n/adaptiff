@@ -37,13 +37,8 @@ export default {
     {
       key: "crazyness",
       text: "Crazyness",
-      type: "select",
-      defaultValue: true,
-
-      options: [
-        { key: 0, text: "On", value: true },
-        { key: 1, text: "Off", value: false }
-      ]
+      type: "boolean",
+      defaultValue: true
     },
 
     {
@@ -59,17 +54,22 @@ export default {
       key: "smoothness",
       text: "Smoothness",
       type: "range",
-      defaultValue: 1,
+      defaultValue: 10,
       min: 1,
       max: 100
     },
-
     {
       key: "palette",
       text: "Palette",
       type: "palette",
       defaultValue: ownPallete[0],
       options: ownPallete
+    },
+    {
+      type: "boolean",
+      key: "fill",
+      text: "Fill",
+      defaultValue: true
     }
   ]
 };
