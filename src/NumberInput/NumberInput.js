@@ -5,7 +5,13 @@ import { Input } from "semantic-ui-react";
 import s from "./NumberInput.module.css";
 
 const NumberInput = React.memo(
-  ({ className, value: valueProp, onChange: onChangeProp }) => {
+  ({
+    className,
+    value: valueProp,
+    onFocus,
+    onBlur,
+    onChange: onChangeProp
+  }) => {
     const [value, setValue] = useState(valueProp);
     useEffect(() => {
       setValue(valueProp);
@@ -13,6 +19,8 @@ const NumberInput = React.memo(
     return (
       <Input
         value={value}
+        onFocus={onFocus}
+        onBlur={onBlur}
         className={classnames(s["input"], className)}
         onKeyUp={event => {
           if (event.key === "Enter") {
@@ -20,7 +28,6 @@ const NumberInput = React.memo(
           }
         }}
         onChange={event => setValue(+event.target.value)}
-        onBlur={event => onChangeProp(value)}
       />
     );
   }

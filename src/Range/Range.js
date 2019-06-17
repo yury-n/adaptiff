@@ -15,7 +15,8 @@ class Range extends Component {
     withRangeInputs: false
   };
   state = {
-    showValueInput: false,
+    isValueInputFocused: false,
+    isMouseOverRange: false,
     isDragging: false,
     min: 0,
     max: 100
@@ -81,11 +82,11 @@ class Range extends Component {
     }
   };
   hideValueInput = () => {
-    this.setState({ showValueInput: false });
+    this.setState({ isMouseOverRange: false });
   };
-  showValueInput = () => {
+  isMouseOverRange = () => {
     if (!this.state.isDragging) {
-      this.setState({ showValueInput: true });
+      this.setState({ isMouseOverRange: true });
       this.updateValueInputPosition();
     }
   };
@@ -96,13 +97,21 @@ class Range extends Component {
     }
   };
   onMouseUp = () => {
-    this.updateValueInputPosition();
-    this.setState({ isDragging: false, showValueInput: true });
+    if (this.state.isDragging) {
+      this.updateValueInputPosition();
+      this.setState({ isDragging: false, isMouseOverRange: true });
+    }
   };
   onNumberInputChange = value => {
     this.props.onChange(value);
-    this.setState({ showValueInput: false });
-    // this.updateValueInputPosition();
+    this.setState({ isMouseOverRange: false });
+    this.updateValueInputPosition();
+  };
+  onNumberInputFocus = () => {
+    this.setState({ isValueInputFocused: true });
+  };
+  onNumberInputBlur = () => {
+    this.setState({ isValueInputFocused: false });
   };
   render() {
     const SliderComponent = Array.isArray(this.props.value)
@@ -114,7 +123,7 @@ class Range extends Component {
           ref={this.sliderWrapperRef}
           className={s["slider-wrapper"]}
           onMouseDown={this.onMouseDown}
-          onMouseEnter={this.showValueInput}
+          onMouseEnter={this.isMouseOverRange}
           onMouseLeave={this.hideValueInput}
         >
           <SliderComponent
@@ -148,18 +157,21 @@ class Range extends Component {
               overlayClassName: s["slider-tooltip"]
             }}
           />
-          {this.state.showValueInput && !this.state.isDragging && (
-            <div
-              ref={this.valueInputWrapperRef}
-              className={s["value-input-wrapper"]}
-            >
-              <NumberInput
-                className={s["input"]}
-                value={this.props.value}
-                onChange={this.onNumberInputChange}
-              />
-            </div>
-          )}
+          {(this.state.isMouseOverRange || this.state.isValueInputFocused) &&
+            !this.state.isDragging && (
+              <div
+                ref={this.valueInputWrapperRef}
+                className={s["value-input-wrapper"]}
+              >
+                <NumberInput
+                  className={s["input"]}
+                  value={this.props.value}
+                  onChange={this.onNumberInputChange}
+                  onFocus={this.onNumberInputFocus}
+                  onBlur={this.onNumberInputBlur}
+                />
+              </div>
+            )}
         </div>
         {this.props.withRangeInputs && (
           <div className={s["range-inputs"]}>

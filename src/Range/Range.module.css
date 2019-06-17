@@ -26,7 +26,6 @@
   top: -62px;
   padding-bottom: 13px;
   z-index: 1;
-  opacity: 0;
 }
 
 .value-input-wrapper:before {
@@ -55,10 +54,6 @@
   border-color: white transparent transparent transparent;
   position: absolute;
   margin-left: -5px;
-}
-
-.slider-wrapper:hover .value-input-wrapper {
-  opacity: 1;
 }
 
 .slider-tooltip {
