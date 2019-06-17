@@ -11,18 +11,13 @@ import SubscribeBlock from "../SubscribeBlock/SubscribeBlock";
 import s from "../App.module.css";
 
 import linearGradient from "../_adaptationConfigs/linearGradient";
-// import octagonalStar from "./_adaptationConfigs/octagonal_star";
-// reactKawaii from "./_adaptationConfigs/react_kawaii";
 import trianglify from "../_adaptationConfigs/trianglify";
 import particles from "../_adaptationConfigs/particles";
-// import bubbles from "../_adaptationConfigs/bubbles";
 import perfectPurple from "../_adaptationConfigs/perfect_purple";
 import wallPattern from "../_adaptationConfigs/wallPattern";
 import strings25 from "../_adaptationConfigs/strings25";
 import generateArt from "../_adaptationConfigs/generateArt";
 import gradientWaves from "../_adaptationConfigs/gradientWaves";
-// import pulse from "../_adaptationConfigs/pulse";
-// import abstractParticles from "../_adaptationConfigs/abstractParticles";
 import postmodern from "../_adaptationConfigs/postmodern";
 import mesh from "../_adaptationConfigs/mesh";
 import steppedGradient from "../_adaptationConfigs/steppedGradient";
@@ -31,7 +26,30 @@ import fiberRectangles from "../_adaptationConfigs/fiber_rectangles";
 import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
 import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
 import blobmaker from "../_adaptationConfigs/blobmaker";
+export const allAdaptations = [
+  linearGradient,
+  trianglify,
+  particles,
+  perfectPurple,
+  wallPattern,
+  strings25,
+  generateArt,
+  gradientWaves,
+  postmodern,
+  mesh,
+  steppedGradient,
+  fiberRibbons,
+  fiberRectangles,
+  gradientBubbles,
+  chromaticLiquids,
+  blobmaker
+];
 
+// import octagonalStar from "./_adaptationConfigs/octagonal_star";
+// reactKawaii from "./_adaptationConfigs/react_kawaii";
+// import bubbles from "../_adaptationConfigs/bubbles";
+// import pulse from "../_adaptationConfigs/pulse";
+// import abstractParticles from "../_adaptationConfigs/abstractParticles";
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
 // import tunnel from "./_adaptationConfigs/tunnel";
