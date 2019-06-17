@@ -27,7 +27,7 @@ const ConfigPage = props => {
   };
 
   const getArt = newConfig =>
-    allAdaptations.find(adaptation => adaptation.title === newConfig.title);
+    allAdaptations.find(adaptation => adaptation.fileName === newConfig.title);
 
   return (
     newConfig && (
