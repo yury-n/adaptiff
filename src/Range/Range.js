@@ -91,6 +91,9 @@ class Range extends Component {
     }
   };
   onMouseDown = event => {
+    if (!this.valueInputWrapperRef.current) {
+      return;
+    }
     if (!this.valueInputWrapperRef.current.contains(event.target)) {
       this.setState({ isDragging: true });
       this.hideValueInput();
@@ -103,8 +106,13 @@ class Range extends Component {
     }
   };
   onNumberInputChange = value => {
+    const { min, max } = this.state;
     this.props.onChange(value);
-    this.setState({ isMouseOverRange: false });
+    this.setState({
+      isMouseOverRange: false,
+      min: Math.min(min, value),
+      max: Math.max(max, value)
+    });
     this.updateValueInputPosition();
   };
   onNumberInputFocus = () => {
@@ -117,6 +125,11 @@ class Range extends Component {
     const SliderComponent = Array.isArray(this.props.value)
       ? RangeWithTooltip
       : SliderWithTooltip;
+
+    const showValueInput =
+      !Array.isArray(this.props.value) &&
+      !this.state.isDragging &&
+      (this.state.isMouseOverRange || this.state.isValueInputFocused);
     return (
       <>
         <div
@@ -153,21 +166,20 @@ class Range extends Component {
             }}
             onChange={this.props.onChange}
           />
-          {(this.state.isMouseOverRange || this.state.isValueInputFocused) &&
-            !this.state.isDragging && (
-              <div
-                ref={this.valueInputWrapperRef}
-                className={s["value-input-wrapper"]}
-              >
-                <NumberInput
-                  className={s["input"]}
-                  value={this.props.value}
-                  onChange={this.onNumberInputChange}
-                  onFocus={this.onNumberInputFocus}
-                  onBlur={this.onNumberInputBlur}
-                />
-              </div>
-            )}
+          {showValueInput && (
+            <div
+              ref={this.valueInputWrapperRef}
+              className={s["value-input-wrapper"]}
+            >
+              <NumberInput
+                className={s["input"]}
+                value={this.props.value}
+                onChange={this.onNumberInputChange}
+                onFocus={this.onNumberInputFocus}
+                onBlur={this.onNumberInputBlur}
+              />
+            </div>
+          )}
         </div>
         {this.props.withRangeInputs && (
           <div className={s["range-inputs"]}>
