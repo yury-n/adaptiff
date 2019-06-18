@@ -2,6 +2,7 @@
   position: relative;
   margin-top: 10px;
   top: 5px;
+  z-index: 0;
 }
 
 .range-inputs {
@@ -54,8 +55,4 @@
   border-color: white transparent transparent transparent;
   position: absolute;
   margin-left: -5px;
-}
-
-.slider-tooltip {
-  z-index: 1000;
 }

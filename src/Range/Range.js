@@ -152,10 +152,6 @@ class Range extends Component {
               boxShadow: "0 3px 4px 0px #d4d4d5c9"
             }}
             onChange={this.props.onChange}
-            tipProps={{
-              placement: "bottom",
-              overlayClassName: s["slider-tooltip"]
-            }}
           />
           {(this.state.isMouseOverRange || this.state.isValueInputFocused) &&
             !this.state.isDragging && (
