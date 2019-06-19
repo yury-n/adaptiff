@@ -4,6 +4,29 @@
   padding: 60px 0;
 }
 
+.subheader {
+  position: relative;
+  width: 100%;
+  max-width: 1084px;
+  font-weight: bold;
+  margin: auto;
+  margin-bottom: 30px;
+  left: 16px;
+  font-size: 17px;
+}
+
+.subheader:before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #9bffe4;
+  position: absolute;
+  left: -20px;
+  top: 4px;
+  border-radius: 50%;
+}
+
 @media screen and (max-width: 400px) {
   .App {
     padding-top: 90px;

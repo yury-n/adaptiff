@@ -18,6 +18,14 @@
   display: none;
 }
 
+.preset-mode .content {
+  display: none;
+}
+
+.preset-mode .mini-preview {
+  height: 130px;
+}
+
 .mini-title {
   font-size: 15px;
   font-weight: 600;

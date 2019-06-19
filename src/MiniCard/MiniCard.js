@@ -21,7 +21,8 @@ class MiniCard extends Component {
       title,
       mode,
       thumbs,
-      thumbBackgroundSize
+      thumbBackgroundSize,
+      thumbWidth
     } = this.props;
     return (
       <>
@@ -29,11 +30,12 @@ class MiniCard extends Component {
           link={false}
           className={classnames(
             s["mini-card"],
-            mode === "hero" && s["hero-mode"],
+            mode && s[`${mode}-mode`],
             this.props.className
           )}
           onClick={this.showModal}
           as="div"
+          style={{ width: thumbWidth }}
         >
           <div
             className={s["mini-preview"]}
@@ -42,7 +44,7 @@ class MiniCard extends Component {
               backgroundSize: thumbBackgroundSize
             }}
           />
-          <Card.Content>
+          <Card.Content className={s["content"]}>
             <div className={s["mini-title"]}>{title}</div>
             <span className={s["mini-by-author"]}>
               {mode === "hero" ? "background by" : "by"}
