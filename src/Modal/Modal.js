@@ -66,7 +66,9 @@ class TheModal extends Component {
     };
     this.props.config.forEach(config => {
       state.config[config.key] =
-        initState.config[config.key] || config.defaultValue;
+        initState.config[config.key] !== undefined
+          ? initState.config[config.key]
+          : config.defaultValue;
     });
     this.state = state;
 

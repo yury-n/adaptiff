@@ -76,7 +76,7 @@ const cards = [
         amplituteY: 60,
         crazyness: true,
         lines: 1,
-        smoothness: 1
+        smoothness: 10
       },
       insertedItems: [
         {

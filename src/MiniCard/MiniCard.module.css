@@ -26,6 +26,11 @@
   height: 130px;
 }
 
+:global(.ui.card).preset-mode {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .mini-title {
   font-size: 15px;
   font-weight: 600;
