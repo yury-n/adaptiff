@@ -37,7 +37,10 @@ export default React.memo(
           fontWeight: config.isBold ? "bold" : "normal",
           textDecoration: config.isUnderlined ? "underline" : "none",
           fontStyle: config.isItalic ? "italic" : undefined,
-          letterSpacing: `${config.letterSpacing}px`
+          letterSpacing: `${config.letterSpacing * (scale || 1)}px`,
+          borderWidth: `${config.borderWidth * (scale || 1)}px`,
+          borderStyle: "solid",
+          borderColor: config.color
         }}
       >
         {initialValuePartsWithBRs}

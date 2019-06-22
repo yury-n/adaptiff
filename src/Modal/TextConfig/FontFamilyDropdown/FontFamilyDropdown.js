@@ -17,7 +17,8 @@ const defaultGoogleFonts = [
   "Bad Script",
   "Oranienbaum",
   "Yeseva One",
-  "Rubik Mono One"
+  "Rubik Mono One",
+  "Poppins"
 ];
 const defaultFonts = [...defaultSystemFonts, ...defaultGoogleFonts];
 

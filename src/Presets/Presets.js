@@ -11,6 +11,43 @@ import s from "./Presets.module.css";
 
 const cards = [
   {
+    ...gradientWaves,
+    thumbs: ["/preset_thumbs/9.png"],
+    thumbWidth: 130,
+    initState: {
+      size: { width: 700, height: 700 },
+      config: {
+        amplituteX: 150,
+        amplituteY: 30,
+        crazyness: false,
+        fill: true,
+        lines: 70,
+        palette: ["#00fb94", "#006b65"],
+        smoothness: 98
+      },
+      insertedItems: [
+        {
+          id: 0,
+          type: "text",
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 1,
+            color: "#ffffff",
+            fontFamily: "El Messiri",
+            fontSize: 87,
+            letterSpacing: 0,
+            padding: 50
+          },
+          position: { left: 122, top: 120 },
+          text: `We
+should
+all be
+designers`
+        }
+      ]
+    }
+  },
+  {
     ...fiberRibbons,
     thumbs: ["/preset_thumbs/7.png"],
     thumbWidth: 87,

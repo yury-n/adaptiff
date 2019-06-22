@@ -49,6 +49,21 @@ export default ({
           U
         </Button>
       </Button.Group>
+      <label className="form-label">Font Color</label>
+      <ColorInput
+        color={config.color}
+        onChange={value => setConfigValue("color", value)}
+        onOpen={onStartSelectingColor}
+        onClose={onStopSelectingColor}
+      />
+      <label className="form-label">Background Color</label>
+      <ColorInput
+        disableAlpha={false}
+        color={config.backgroundColor}
+        onChange={value => setConfigValue("backgroundColor", value)}
+        onOpen={onStartSelectingColor}
+        onClose={onStopSelectingColor}
+      />
       <label className="form-label">Font Size</label>
       <Range
         withRangeInputs={false}
@@ -65,6 +80,14 @@ export default ({
         value={config.padding}
         onChange={value => setConfigValue("padding", value)}
       />
+      <label className="form-label">Border Width</label>
+      <Range
+        withRangeInputs={false}
+        min={0}
+        max={20}
+        value={config.borderWidth}
+        onChange={value => setConfigValue("borderWidth", value)}
+      />
       <label className="form-label">Latter Spacing</label>
       <Range
         withRangeInputs={false}
@@ -72,21 +95,6 @@ export default ({
         max={20}
         value={config.letterSpacing}
         onChange={value => setConfigValue("letterSpacing", value)}
-      />
-      <label className="form-label">Font Color</label>
-      <ColorInput
-        color={config.color}
-        onChange={value => setConfigValue("color", value)}
-        onOpen={onStartSelectingColor}
-        onClose={onStopSelectingColor}
-      />
-      <label className="form-label">Background Color</label>
-      <ColorInput
-        disableAlpha={false}
-        color={config.backgroundColor}
-        onChange={value => setConfigValue("backgroundColor", value)}
-        onOpen={onStartSelectingColor}
-        onClose={onStopSelectingColor}
       />
       <Button className={s["delete-button"]} onClick={onDelete}>
         Delete
