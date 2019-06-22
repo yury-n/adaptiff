@@ -511,10 +511,8 @@
       }
 
       function onWindowResize() {
-        camera.aspect = canvasW / canvasH;
         camera.updateProjectionMatrix();
-
-        renderer.setSize(canvasW, canvasH);
+        renderer.setSize(window.innerWidth, window.innerHeight);
       }
 
       function animate() {
