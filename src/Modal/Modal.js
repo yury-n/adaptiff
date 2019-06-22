@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import html2canvas from "html2canvas";
-import { Modal, Input, Button, Icon, Checkbox } from "semantic-ui-react";
+import { Modal, Input, Button, Icon } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
 import ImageConfig from "./ImageConfig/ImageConfig";
 import InsertButton from "./InsertButton/InsertButton";
@@ -33,8 +33,7 @@ class TheModal extends Component {
       isPaused: false,
       isPreparingDownload: false,
       isLoadingIframe: true,
-      isPublic:
-        localStorage.getItem("modal.isPublic") === "false" ? false : true,
+      isPublic: true,
       config: {},
       iframeVersion: 0, // for props.config.refreshIframe = true
       // Check for custom properties first
@@ -153,8 +152,7 @@ class TheModal extends Component {
       iframeVersion,
       isPaused,
       isPreparingDownload,
-      isLoadingIframe,
-      isPublic
+      isLoadingIframe
     } = this.state;
     const scaleToFullyFit = this.getScaleToFullyFit();
     if (
@@ -241,13 +239,6 @@ class TheModal extends Component {
                 />
               </div>
               <div className={s["config-over-right-buttons"]}>
-                {!!Object.keys(insertedItems).length && (
-                  <Checkbox
-                    checked={isPublic}
-                    onChange={this.toggleIsPublic}
-                    label="public"
-                  />
-                )}
                 {isPausable && (
                   <Button
                     title={isPaused ? "Unpause" : "Pause"}
@@ -459,13 +450,6 @@ class TheModal extends Component {
     if (!this.state.isSelectingColor) {
       this.unsetActiveInsertedItemIndex();
     }
-  };
-
-  toggleIsPublic = () => {
-    const { isPublic } = this.state;
-    const newIsPublic = !isPublic;
-    this.setState({ isPublic: newIsPublic });
-    localStorage.setItem("modal.isPublic", newIsPublic);
   };
 
   insertText = () => {
