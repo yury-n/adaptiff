@@ -5,10 +5,57 @@ import mesh from "../_adaptationConfigs/mesh";
 import particles from "../_adaptationConfigs/particles";
 import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
 import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
+import fiberRibbons from "../_adaptationConfigs/fiber_ribbons";
 
 import s from "./Presets.module.css";
 
 const cards = [
+  {
+    ...fiberRibbons,
+    thumbs: ["/preset_thumbs/7.png"],
+    thumbWidth: 87,
+    initState: {
+      size: { width: 800, height: 1200 },
+      config: {
+        backgroundColor: "#324444",
+        fov: 75,
+        numLines: 94,
+        palette: ["#A2CCB6", "#FCEEB5", "#fff", "#EE786E"]
+      },
+      insertedItems: [
+        {
+          id: 0,
+          type: "text",
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            color: "#ffffff",
+            fontFamily: "Playfair Display",
+            fontSize: 220,
+            letterSpacing: 0,
+            padding: 10
+          },
+          position: { left: 115.13, top: 220.66 },
+          text: `React
+Three
+Fiber`
+        }
+      ]
+    }
+  },
+  {
+    ...fiberRibbons,
+    thumbs: ["/preset_thumbs/8.png"],
+    thumbWidth: 130,
+    initState: {
+      size: { width: 700, height: 700 },
+      config: {
+        backgroundColor: "#ffffff",
+        fov: 166,
+        numLines: 158,
+        palette: ["#9b50ed", "#69d5ff", "#ffbd6e", "#ff77bc"]
+      }
+    }
+  },
   {
     ...gradientWaves,
     thumbs: ["/preset_thumbs/1.png"],

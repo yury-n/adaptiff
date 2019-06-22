@@ -341,11 +341,13 @@ class TheModal extends Component {
                           ? {
                               ...insertedItem,
                               width: captureConfig[index].width,
-                              height: captureConfig[index].height
+                              height: captureConfig[index].height,
+                              scale: 1
                             }
                           : {
                               ...insertedItem,
-                              text: captureConfig[index].text
+                              text: captureConfig[index].text,
+                              scale: 1
                             },
                         index
                       )}
@@ -364,7 +366,7 @@ class TheModal extends Component {
     const refCallback = ref => {
       this.insertedItemsRefs[index] = ref;
     };
-    const scaleToFit = this.getScaleToFullyFit();
+    const scaleToFit = insertedItem.scale || this.getScaleToFullyFit();
     switch (insertedItem.type) {
       case "text":
         return (
