@@ -1,0 +1,36 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
+</head>
+<style>
+  #circle {
+    position: absolute;
+    width: 200vw;
+    height: 200vw;
+    left: 40vw;
+    top: -80vw;
+    /* background: #f9c432; */
+    background: linear-gradient(
+      119deg,
+      #f9c432 0%,
+      rgb(252, 214, 51) 40%,
+      rgb(252, 214, 51)
+    );
+    border-radius: 100%;
+  }
+</style>
+<body>
+  <div id="preview">
+    <div id="circle"></div>
+  </div>
+  <script>
+    function aff_render(config) {
+      const preview = document.getElementById("preview");
+      preview.style.background = "#fcd633";
+    }
+    function aff_download() {
+      // window.parent.postMessage({ type: "download", image }, "*");
+    }
+  </script>
+  <script src="_common.js"></script>
+</body>
