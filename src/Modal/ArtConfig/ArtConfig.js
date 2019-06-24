@@ -60,7 +60,7 @@ export default ({
             <>
               <ColorInput
                 key="single-color"
-                color={configValues.backgroundColor}
+                color={configValues[config.key]}
                 onChange={value => setConfigValue(config.key, value)}
                 onOpen={onStartSelectingColor}
                 onClose={onStopSelectingColor}

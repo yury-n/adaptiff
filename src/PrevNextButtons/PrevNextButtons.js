@@ -10,13 +10,13 @@ export const PrevNextButtons = ({ className, goToNext, goToPrev }) => {
         className={classnames(s["paddle-button"], s["left"])}
         onClick={goToPrev}
       >
-        &larr; Prev
+        &larr; prev
       </div>
       <div
         className={classnames(s["paddle-button"], s["right"])}
         onClick={goToNext}
       >
-        Next &rarr;
+        next &rarr;
       </div>
     </div>
   );

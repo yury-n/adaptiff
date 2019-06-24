@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import classnames from "classnames";
 import MiniCard from "../MiniCard/MiniCard";
 import gradientWaves from "../_adaptationConfigs/gradientWaves";
 import mesh from "../_adaptationConfigs/mesh";
@@ -6,10 +7,45 @@ import particles from "../_adaptationConfigs/particles";
 import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
 import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
 import fiberRibbons from "../_adaptationConfigs/fiber_ribbons";
+import subtleRib from "../_adaptationConfigs/subtle_rib";
 
 import s from "./Presets.module.css";
 
 const cards = [
+  {
+    ...subtleRib,
+    thumbs: ["/preset_thumbs/10.png"],
+    thumbWidth: 130,
+    initState: {
+      size: { width: 500, height: 500 },
+      config: {
+        color: "#fcd633",
+        intensity: 22,
+        mode: "vertical"
+      },
+      insertedItems: [
+        {
+          id: 0,
+          type: "text",
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            color: "#000",
+            fontFamily: "Noticia Text",
+            fontSize: 44,
+            isBold: false,
+            isItalic: false,
+            letterSpacing: 4,
+            padding: 10
+          },
+          position: { left: 135, top: 163 },
+          text: `every
+next step
+is simple`
+        }
+      ]
+    }
+  },
   {
     ...gradientWaves,
     thumbs: ["/preset_thumbs/9.png"],
@@ -69,7 +105,8 @@ designers`
             fontFamily: "Playfair Display",
             fontSize: 220,
             letterSpacing: 0,
-            padding: 10
+            padding: 10,
+            borderWidth: 0
           },
           position: { left: 115.13, top: 220.66 },
           text: `React
@@ -88,7 +125,7 @@ Fiber`
       config: {
         backgroundColor: "#ffffff",
         fov: 166,
-        numLines: 158,
+        numLines: 100,
         palette: ["#9b50ed", "#69d5ff", "#ffbd6e", "#ff77bc"]
       }
     }
@@ -189,11 +226,17 @@ Fiber`
 ];
 
 export default () => {
+  const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <div className={s["root"]}>
-      {cards.map((card, index) => (
-        <MiniCard key={index} mode="preset" {...card} />
-      ))}
+    <div className={classnames(s["root-wrapper"], isExpanded && s["expanded"])}>
+      <div className={s["view-all"]} onClick={() => setIsExpanded(true)}>
+        view all
+      </div>
+      <div className={s["root"]}>
+        {cards.map((card, index) => (
+          <MiniCard key={index} mode="preset" {...card} />
+        ))}
+      </div>
     </div>
   );
 };

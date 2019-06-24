@@ -27,7 +27,6 @@ import fiberRectangles from "../_adaptationConfigs/fiber_rectangles";
 import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
 import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
 import blobmaker from "../_adaptationConfigs/blobmaker";
-import subtleRib from "../_adaptationConfigs/subtle_rib";
 export const allAdaptations = [
   linearGradient,
   trianglify,
@@ -68,10 +67,6 @@ export default () => (
       <Presets />
       <div className={s["subheader"]}>backgrounds</div>
       <Card.Group className="cards">
-        <MiniCard
-          {...subtleRib}
-          initState={{ config: {}, size: { width: 500, height: 500 } }}
-        />
         <MiniCard {...blobmaker} />
         <MiniCard {...linearGradient} />
         <MiniCard {...trianglify} />
