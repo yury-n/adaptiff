@@ -23,6 +23,8 @@
       const fullHeightWithoutPaddings = fullHeight - padding * 2;
 
       const itemSize = config.itemSize;
+      const itemType = config.itemType;
+      const rounding = config.rounding;
       const itemsNumInRow = config.itemsNumInRow;
       const totalItemsWidth = itemSize * itemsNumInRow;
       const totalFreeSpace = fullWidthWithoutPaddings - totalItemsWidth;
@@ -53,7 +55,8 @@
           innerDiv.style.background = `linear-gradient(${config.angle}deg, ${
             config.palette[0]
           }, ${config.palette[1]})`;
-          innerDiv.style.borderRadius = "100%";
+          innerDiv.style.borderRadius =
+            itemType === "circle" ? "100%" : `${rounding}%`;
           document.body.append(innerDiv);
         }
       }

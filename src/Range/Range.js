@@ -111,7 +111,7 @@ class Range extends Component {
     this.setState({
       isMouseOverRange: false,
       min: Math.min(min, value),
-      max: Math.max(max, value)
+      max: value > max ? value + Math.round((value - max) / 2) : max
     });
     this.updateValueInputPosition();
   };

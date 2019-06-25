@@ -57,6 +57,25 @@ export default {
       max: 360
     },
     {
+      key: "itemType",
+      text: "Item Type",
+      type: "select",
+      defaultValue: "circle",
+      options: [
+        { key: "circle", text: "Circle", value: "circle" },
+        { key: "square", text: "Square", value: "square" }
+      ]
+    },
+    {
+      key: "rounding",
+      text: "Rounding",
+      type: "range",
+      defaultValue: 20,
+      condition: { key: "itemType", value: "square" },
+      min: 0,
+      max: 100
+    },
+    {
       type: "boolean",
       key: "withRandomness",
       text: "With Randomness",

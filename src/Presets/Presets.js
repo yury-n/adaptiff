@@ -227,13 +227,21 @@ Fiber`
 
 export default () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [allCards, setAllCards] = useState(cards);
+  const onViewAllClick = () => {
+    setIsExpanded(true);
+    import("./loadMore1").then(module => {
+      const moreCards = module.default;
+      setAllCards([...allCards, ...moreCards]);
+    });
+  };
   return (
     <div className={classnames(s["root-wrapper"], isExpanded && s["expanded"])}>
-      <div className={s["view-all"]} onClick={() => setIsExpanded(true)}>
+      <div className={s["view-all"]} onClick={onViewAllClick}>
         view all
       </div>
       <div className={s["root"]}>
-        {cards.map((card, index) => (
+        {allCards.map((card, index) => (
           <MiniCard key={index} mode="preset" {...card} />
         ))}
       </div>

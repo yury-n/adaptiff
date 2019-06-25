@@ -20,7 +20,10 @@ const NumberInput = React.memo(
       <Input
         value={value}
         onFocus={onFocus}
-        onBlur={onBlur}
+        onBlur={() => {
+          onChangeProp(value);
+          onBlur();
+        }}
         className={classnames(s["input"], className)}
         onKeyUp={event => {
           if (event.key === "Enter") {

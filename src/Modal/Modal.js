@@ -716,7 +716,7 @@ class TheModal extends Component {
     console.log("captureConfig", captureConfig);
     console.log("insertedItems", this.state.insertedItems);
 
-    if (this.state.isPublic) {
+    if (this.state.isPublic && this.state.insertedItems.length) {
       this.saveConfigToDB({
         title: this.props.fileName,
         size: {
