@@ -4,10 +4,14 @@ import Draggable from "react-draggable";
 
 import s from "./DraggableItem.module.css";
 
+export const MARGIN_LEFT = -9;
+export const MARGIN_TOP = -9;
+
 export default function DraggableItem({
   isActive,
   initialPosition,
   onClick,
+  className,
   children
 }) {
   return (
@@ -16,7 +20,8 @@ export default function DraggableItem({
         className={classnames(
           s["root"],
           isActive && s["active"],
-          initialPosition && s["with-initial-position"]
+          initialPosition && s["with-initial-position"],
+          className
         )}
         onClick={onClick}
         style={initialPosition}

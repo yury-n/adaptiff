@@ -52,7 +52,7 @@ class Header extends Component {
               target="_blank"
               href="https://docs.google.com/forms/d/e/1FAIpQLSddoo8_28sRF5Pt7AZae5wtTXPH18dNYFoD8kujnf7omcKaDQ/viewform"
             >
-              Contact
+              Feedback
             </Button>
             <Button
               icon

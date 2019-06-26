@@ -3,3 +3,37 @@
   width: 100%;
   height: 100%;
 }
+
+.resizable {
+  position: relative;
+}
+
+.handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 5px 1px rgba(14, 19, 24, 0.15),
+    0 0 0 1px rgba(14, 19, 24, 0.15);
+}
+
+.handle.top-right {
+  top: -16px;
+  right: -16px;
+}
+
+.handle.top-left {
+  top: -16px;
+  left: -16px;
+}
+
+.handle.bottom-left {
+  bottom: -16px;
+  left: -16px;
+}
+
+.handle.bottom-right {
+  bottom: -16px;
+  right: -16px;
+}

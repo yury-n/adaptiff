@@ -4,6 +4,7 @@
   top: 50%;
   padding: 8px;
   border: 1px transparent dotted;
+  /* repeated in DraggableItem.js */
   margin-left: -9px;
   margin-top: -9px;
   cursor: move;
