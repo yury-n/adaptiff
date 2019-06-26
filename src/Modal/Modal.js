@@ -8,7 +8,7 @@ import InsertButton from "./InsertButton/InsertButton";
 import InsertedText from "./InsertedText/InsertedText";
 import InsertedTextDraggable from "./InsertedText/InsertedTextDraggable";
 import InsertedImage from "./InsertedImage/InsertedImage";
-import InsertedImageDraggable from "./InsertedImage/InsertedImageDraggable";
+import InsertedImageRnD from "./InsertedImage/InsertedImageRnD";
 import IframePreview from "./IframePreview/IframePreview";
 import ArtConfig from "./ArtConfig/ArtConfig";
 import settings from "../settings";
@@ -279,7 +279,7 @@ class TheModal extends Component {
                 onClick={this.onOpaqueOverlayClick}
               />
               {!isLoadingIframe &&
-                insertedItems.map(this.renderInsertedDraggableItem)}
+                insertedItems.map(this.renderInsertedRnDItem)}
               {captureConfig && (
                 <div
                   className={s["capture-frame"]}
@@ -338,7 +338,7 @@ class TheModal extends Component {
     );
   }
 
-  renderInsertedDraggableItem = (insertedItem, index) => {
+  renderInsertedRnDItem = (insertedItem, index) => {
     const { activeInsertedItemIndex } = this.state;
     const refCallback = ref => {
       this.insertedItemsRefs[index] = ref;
@@ -350,6 +350,7 @@ class TheModal extends Component {
       scale: scaleToFit,
       isActive: index === activeInsertedItemIndex,
       setActive: () => this.setActiveInsertedItemIndex(index),
+      ref: refCallback,
       initialPosition:
         insertedItem.position &&
         this.makePositionRelativeToEditContainer(insertedItem.position)
@@ -365,11 +366,10 @@ class TheModal extends Component {
         );
       case "image":
         return (
-          <InsertedImageDraggable
+          <InsertedImageRnD
             width={insertedItem.width}
             height={insertedItem.height}
             imageUrl={insertedItem.imageUrl}
-            ref={refCallback}
             {...commonProps}
           />
         );
@@ -378,7 +378,7 @@ class TheModal extends Component {
     }
   };
 
-  renderInsertedItem = (insertedItem, index) => {
+  renderInsertedItem = insertedItem => {
     const scaleToFit = insertedItem.scale || this.getScaleToFullyFit();
     switch (insertedItem.type) {
       case "text":
@@ -393,10 +393,10 @@ class TheModal extends Component {
       case "image":
         return (
           <InsertedImage
-            width={insertedItem.width}
-            height={insertedItem.height}
+            key={insertedItem.id}
+            width={insertedItem.width * scaleToFit}
+            height={insertedItem.height * scaleToFit}
             imageUrl={insertedItem.imageUrl}
-            scale={scaleToFit}
           />
         );
       default:
