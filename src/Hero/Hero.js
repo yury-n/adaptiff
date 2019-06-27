@@ -29,7 +29,8 @@ const cards = [
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
             fontSize: 27,
-            padding: 3
+            padding: 3,
+            borderWidth: 0
           },
           position: { left: 287, top: 120 },
           text: "create"
@@ -42,7 +43,8 @@ const cards = [
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
             fontSize: 27,
-            padding: 3
+            padding: 3,
+            borderWidth: 0
           },
           position: { left: 287, top: 160 },
           text: "something"
@@ -56,7 +58,8 @@ const cards = [
             color: "#000",
             isBold: true,
             fontSize: 43,
-            padding: 3
+            padding: 3,
+            borderWidth: 0
           },
           position: { left: 287, top: 200 },
           text: "unique"
@@ -87,7 +90,8 @@ const cards = [
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#fff",
             fontSize: 34,
-            padding: 13
+            padding: 13,
+            borderWidth: 0
           },
           position: { left: 156, top: 150 },
           text: "create something unique"
@@ -116,7 +120,8 @@ const cards = [
             color: "#fff",
             fontSize: 28,
             isBold: true,
-            padding: 15
+            padding: 15,
+            borderWidth: 0
           },
           position: { left: 76, top: 191 },
           text: "créer quelque chose d'unique"
