@@ -27,6 +27,7 @@ import fiberRectangles from "../_adaptationConfigs/fiber_rectangles";
 import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
 import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
 import blobmaker from "../_adaptationConfigs/blobmaker";
+import subtleRib from "../_adaptationConfigs/subtle_rib";
 export const allAdaptations = [
   linearGradient,
   trianglify,
@@ -43,7 +44,8 @@ export const allAdaptations = [
   fiberRectangles,
   gradientBubbles,
   chromaticLiquids,
-  blobmaker
+  blobmaker,
+  subtleRib
 ];
 
 // import octagonalStar from "./_adaptationConfigs/octagonal_star";
