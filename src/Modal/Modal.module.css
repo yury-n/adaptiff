@@ -74,7 +74,7 @@
   background: #f7f7fa;
 }
 
-.iframe-wrapper {
+.canvas-wrapper {
   position: relative;
   width: 100%;
   box-sizing: border-box;
@@ -85,12 +85,24 @@
   overflow: hidden;
 }
 
-.iframe {
+.canvas,
+.canvas-shadow {
   position: absolute;
   /* 100px duplicated in Modal.js as IFRAME_MARGIN */
   width: calc(100% - 100px);
   height: calc(100% - 100px);
   background: transparent;
+}
+
+.canvas-shadow {
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
 }
 
 .capture-frame {
@@ -122,6 +134,12 @@
   z-index: 5;
 }
 
+.layers {
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 0px;
+}
+
 .title-container {
   box-sizing: border-box;
   padding: 30px;
@@ -134,12 +152,6 @@
   font-weight: 600;
   flex-shrink: 0;
   transition: all 200ms;
-}
-
-.title-container.blurred {
-  filter: blur(3px);
-  opacity: 0.5;
-  cursor: pointer;
 }
 
 .by-author {

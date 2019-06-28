@@ -4,15 +4,27 @@ import DraggableItem from "../DraggableItem/DraggableItem";
 
 export default React.memo(
   React.forwardRef(function InsertedTextDraggable(
-    { key, isActive, initialPosition, initialValue, config, scale, setActive },
+    {
+      className,
+      onDragStart,
+      onDragStop,
+      isActive,
+      initialPosition,
+      initialValue,
+      config,
+      scale,
+      setActive
+    },
     ref
   ) {
     return (
       <DraggableItem
-        key={key}
         isActive={isActive}
         initialPosition={initialPosition}
         onClick={setActive}
+        onDragStart={onDragStart}
+        onDragStop={onDragStop}
+        className={className}
       >
         <InsertedText
           initialValue={initialValue}

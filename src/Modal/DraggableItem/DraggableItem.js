@@ -11,11 +11,13 @@ export default function DraggableItem({
   isActive,
   initialPosition,
   onClick,
+  onDragStart,
+  onDragStop,
   className,
   children
 }) {
   return (
-    <Draggable cancel="span">
+    <Draggable cancel="span" onStart={onDragStart} onStop={onDragStop}>
       <div
         className={classnames(
           s["root"],

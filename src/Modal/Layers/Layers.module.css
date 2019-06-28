@@ -1,0 +1,56 @@
+.root {
+  margin-bottom: 10px;
+}
+
+.form-label {
+  cursor: pointer;
+}
+
+.form-label span {
+  margin-right: 7px;
+}
+
+.layers {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  background: #f7f7fa;
+  border-radius: 0.28571429rem;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.collapse-icon {
+  opacity: 0.4 !important;
+}
+
+.layer {
+  padding: 10px 15px;
+  text-transform: capitalize;
+  cursor: pointer;
+  display: flex;
+}
+
+.label {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.actions {
+  display: none;
+  flex-shrink: 0;
+}
+
+.layer:hover .actions {
+  display: block;
+}
+
+.layer.active {
+  background: #e5e5e6;
+  border-radius: 0.28571429rem;
+}
+
+.arrow-down {
+  position: relative;
+  left: -5px;
+}

@@ -14,7 +14,7 @@ export default ({
   setConfigValue,
   onStartSelectingColor,
   onStopSelectingColor,
-  onDelete
+  onRemove
 }) => {
   //if (areBaseFontsLoaded) {
   // <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
@@ -96,7 +96,7 @@ export default ({
         value={config.letterSpacing}
         onChange={value => setConfigValue("letterSpacing", value)}
       />
-      <Button className={s["delete-button"]} onClick={onDelete}>
+      <Button className={s["delete-button"]} onClick={onRemove}>
         Delete
       </Button>
     </div>

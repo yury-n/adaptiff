@@ -16,13 +16,16 @@ export default React.memo(
   React.forwardRef(function InsertedImageRnD(
     {
       id,
+      className,
       isActive,
       initialPosition,
       width,
       height,
       scale,
       imageUrl,
-      setActive
+      setActive,
+      onDragStart,
+      onDragStop
     },
     ref
   ) {
@@ -38,7 +41,9 @@ export default React.memo(
         isActive={isActive}
         initialPosition={initialPosition}
         onClick={setActive}
-        className={classnames(s["root"], isActive && s["active"])}
+        onDragStart={onDragStart}
+        onDragStop={onDragStop}
+        className={classnames(s["root"], isActive && s["active"], className)}
       >
         <ResizableItem
           width={width * (scale || 1)}

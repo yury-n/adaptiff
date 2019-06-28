@@ -61,6 +61,10 @@ export default ({ onInsertText, onInsertImage }) => {
             <Icon name="image outline" />
             <div>Image</div>
           </Menu.Item>
+          <Menu.Item className={s["add-menu-item"]}>
+            <Icon name="object group outline" />
+            <div>Object</div>
+          </Menu.Item>
         </Menu>
       )}
     </div>
