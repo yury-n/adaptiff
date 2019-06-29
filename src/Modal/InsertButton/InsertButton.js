@@ -3,13 +3,18 @@ import useOnClickOutside from "../../_hooks/useOnClickOutside";
 import { Menu, Button, Icon } from "semantic-ui-react";
 
 import s from "./InsertButton.module.css";
+import { allAdaptations } from "../../pages/root";
+import MiniCard from "../../MiniCard/MiniCard";
 
-export default ({ onInsertText, onInsertImage }) => {
-  const ref = useRef();
+export default ({ onInsertText, onInsertImage, onInsertObject }) => {
+  const menuRef = useRef();
+  const objectSelectorRef = useRef();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isObjectSelectorOpen, setIsObjectSelectorOpen] = useState(false);
 
-  useOnClickOutside(ref, () => setIsMenuOpen(false));
+  useOnClickOutside(menuRef, () => setIsMenuOpen(false));
+  useOnClickOutside(objectSelectorRef, () => setIsObjectSelectorOpen(false));
 
   const onFileChange = e => {
     const file = e.target.files[0];
@@ -35,7 +40,7 @@ export default ({ onInsertText, onInsertImage }) => {
   };
 
   return (
-    <div ref={ref}>
+    <div ref={menuRef}>
       <Button circular icon="plus" onClick={() => setIsMenuOpen(true)} />
       {isMenuOpen && (
         <Menu className={s["add-menu"]} icon="labeled" vertical>
@@ -61,11 +66,35 @@ export default ({ onInsertText, onInsertImage }) => {
             <Icon name="image outline" />
             <div>Image</div>
           </Menu.Item>
-          <Menu.Item className={s["add-menu-item"]}>
+          <Menu.Item
+            className={s["add-menu-item"]}
+            onClick={() => {
+              setIsMenuOpen(false);
+              setIsObjectSelectorOpen(true);
+            }}
+          >
             <Icon name="object group outline" />
             <div>Object</div>
           </Menu.Item>
         </Menu>
+      )}
+      {isObjectSelectorOpen && (
+        <div ref={objectSelectorRef} className={s["add-object-menu"]}>
+          <div className={s["add-object-cards"]}>
+            {allAdaptations.map((adaptation, index) => (
+              <MiniCard
+                key={index}
+                mode="preset"
+                className={s["object-card"]}
+                {...adaptation}
+                onClick={() => {
+                  setIsObjectSelectorOpen(false);
+                  onInsertObject(adaptation);
+                }}
+              />
+            ))}
+          </div>
+        </div>
       )}
     </div>
   );

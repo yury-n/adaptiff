@@ -22,7 +22,8 @@ class MiniCard extends Component {
       mode,
       thumbs,
       thumbBackgroundSize,
-      thumbWidth
+      thumbWidth,
+      onClick
     } = this.props;
     return (
       <>
@@ -33,7 +34,7 @@ class MiniCard extends Component {
             mode && s[`${mode}-mode`],
             this.props.className
           )}
-          onClick={this.showModal}
+          onClick={onClick || this.showModal}
           as="div"
           style={{ width: thumbWidth }}
         >
