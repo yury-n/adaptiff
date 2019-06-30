@@ -11,14 +11,15 @@ export default ({
   resizeHandleClassName,
   onResizeStart,
   onResize,
-  onResizeStop
+  onResizeStop,
+  lockAspectRatio = true
 }) => {
   return (
     <Resizable
       className={s["resizable"]}
       width={width}
       height={height}
-      lockAspectRatio={true}
+      lockAspectRatio={lockAspectRatio}
       enable={{
         top: false,
         right: false,

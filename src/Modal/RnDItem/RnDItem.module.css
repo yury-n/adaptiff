@@ -1,0 +1,8 @@
+.resize-handle {
+  display: none;
+}
+
+.root:hover .resize-handle,
+.root.active .resize-handle {
+  display: block;
+}
