@@ -8,7 +8,7 @@ import ResizableItem from "../ResizableItem/ResizableItem";
 
 import s from "./RnDItem.module.css";
 
-const marginsByItemId = {};
+const initMarginsByItemId = {};
 const defaultMargins = { top: MARGIN_LEFT, left: MARGIN_TOP };
 
 export default React.forwardRef(function(
@@ -22,9 +22,11 @@ export default React.forwardRef(function(
     initialPosition,
     lockAspectRatio,
     scale,
-    setActive,
+    onClick,
     onDragStart,
-    onDragStop
+    onDragStop,
+    onResizeStart,
+    onResizeStop
   },
   ref
 ) {
@@ -39,7 +41,7 @@ export default React.forwardRef(function(
     <DraggableItem
       isActive={isActive}
       initialPosition={initialPosition}
-      onClick={setActive}
+      onClick={onClick}
       onDragStart={onDragStart}
       onDragStop={onDragStop}
       className={classnames(s["root"], isActive && s["active"], className)}
@@ -49,10 +51,11 @@ export default React.forwardRef(function(
         height={height * (scale || 1)}
         lockAspectRatio={lockAspectRatio}
         resizeHandleClassName={s["resize-handle"]}
-        onResizeStart={setActive}
+        onResizeStart={onResizeStart}
         onResize={(e, direction, ref, d) => {
-          const margins = marginsByItemId[id] || defaultMargins;
+          const margins = initMarginsByItemId[id] || defaultMargins;
           switch (direction) {
+            case "top":
             case "topRight": {
               draggableNode.style.marginTop = `${margins.top - d.height}px`;
               break;
@@ -62,6 +65,7 @@ export default React.forwardRef(function(
               draggableNode.style.marginLeft = `${margins.left - d.width}px`;
               break;
             }
+            case "left":
             case "bottomLeft": {
               draggableNode.style.marginLeft = `${margins.left - d.width}px`;
               break;
@@ -70,24 +74,24 @@ export default React.forwardRef(function(
           }
         }}
         onResizeStop={(e, direction, ref, d) => {
-          const margins = marginsByItemId[id] || defaultMargins;
+          const margins = initMarginsByItemId[id] || defaultMargins;
           switch (direction) {
             case "topRight": {
-              marginsByItemId[id] = {
+              initMarginsByItemId[id] = {
                 top: margins.top - d.height,
                 left: margins.left
               };
               break;
             }
             case "topLeft": {
-              marginsByItemId[id] = {
+              initMarginsByItemId[id] = {
                 top: margins.top - d.height,
                 left: margins.left - d.width
               };
               break;
             }
             case "bottomLeft": {
-              marginsByItemId[id] = {
+              initMarginsByItemId[id] = {
                 top: margins.top,
                 left: margins.left - d.width
               };
@@ -95,6 +99,7 @@ export default React.forwardRef(function(
             }
             default:
           }
+          onResizeStop();
         }}
       >
         {React.cloneElement(children, {

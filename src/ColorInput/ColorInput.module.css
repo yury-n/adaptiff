@@ -19,8 +19,8 @@
   width: 24px;
   cursor: pointer;
   box-sizing: border-box;
-  border: 1px solid rgb(178, 178, 179);
-  box-shadow: 0 3px 4px 0px #d4d4d5c9;
+  border: 1px solid rgba(178, 178, 179, 0.4);
+  box-shadow: 0 3px 4px 0px #bebebec9;
 }
 
 .color-input-wrapper.with-picker .color-swatch {

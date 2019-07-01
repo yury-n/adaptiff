@@ -62,7 +62,8 @@ class TheModal extends Component {
       activeInsertedItemIndex: null,
       isAddMenuOpen: false,
       isSelectingColor: false,
-      isDraggingInsertedItem: false
+      isDraggingInsertedItem: false,
+      isResizingInsertedItem: false
     };
     this.props.config.forEach(config => {
       state.config[config.key] =
@@ -95,6 +96,7 @@ class TheModal extends Component {
   }
   componentDidUpdate(prevProps, prevState) {
     this.updateIframeTop();
+    this.captureInsertedObjectIfNeeded(prevProps, prevState);
     const activeInsertedItem = this.getActiveInsertedItem();
     if (
       !this.props.refreshIframe &&
@@ -252,6 +254,7 @@ class TheModal extends Component {
                 }}
               >
                 <IframePreview
+                  showIframe
                   version={refreshIframe ? iframeVersion : 1}
                   fileName={fileName}
                   ref={this.iframeRef}
@@ -338,9 +341,11 @@ class TheModal extends Component {
       className: s[".inserted-item"],
       scale: scaleToFit,
       isActive: index === activeInsertedItemIndex,
-      setActive: () => this.setActiveInsertedItemIndex(index),
+      onClick: () => this.setActiveInsertedItemIndex(index),
       onDragStart: this.onDragStart,
       onDragStop: this.onDragStop,
+      onResizeStart: this.onResizeStart(index),
+      onResizeStop: this.onResizeStop,
       ref: refCallback,
       initialPosition:
         insertedItem.position &&
@@ -368,6 +373,9 @@ class TheModal extends Component {
         return (
           <IframePreviewRnD
             version={1}
+            insertedObjectId={insertedItem.id}
+            showIframe={insertedItem.showIframe}
+            placeholder={insertedItem.capturedIframe}
             fileName={insertedItem.adaptation.fileName}
             onLoad={this.onIframeLoad}
             width={insertedItem.width}
@@ -426,12 +434,25 @@ class TheModal extends Component {
   };
 
   onWindowMessage = event => {
+    const { insertedItems, config } = this.state;
     if (event.data.type === "download") {
-      if (
-        this.state.insertedItems.length ||
-        this.state.config.backgroundColor
-      ) {
-        this.setState({ capturedIframe: event.data.image });
+      if (insertedItems.length || config.backgroundColor) {
+        if (event.data.objectId) {
+          const objectIndex = insertedItems.findIndex(
+            insertedItem => +event.data.objectId === +insertedItem.id
+          );
+          const updatedInsertedItems = [...insertedItems];
+          updatedInsertedItems[objectIndex] = {
+            ...updatedInsertedItems[objectIndex],
+            capturedIframe: event.data.image,
+            showIframe: false
+          };
+          this.setState({
+            insertedItems: updatedInsertedItems
+          });
+        } else {
+          this.setState({ capturedIframe: event.data.image });
+        }
       } else {
         const imageType = event.data.imageType || "png";
         const link = document.createElement("a");
@@ -478,6 +499,19 @@ class TheModal extends Component {
     }, 100); // prevent onModalRightSideClick closing TextConfig
   };
 
+  onResizeStart = insertedItemIndex => () => {
+    this.setState({
+      isResizingInsertedItem: true,
+      activeInsertedItemIndex: insertedItemIndex
+    });
+  };
+
+  onResizeStop = () => {
+    setTimeout(() => {
+      this.setState({ isResizingInsertedItem: false });
+    }, 100); // prevent onModalRightSideClick closing TextConfig
+  };
+
   onModalRightSideClick = event => {
     const { activeInsertedItemIndex } = this.state;
     if (activeInsertedItemIndex === null) {
@@ -486,6 +520,7 @@ class TheModal extends Component {
     if (
       !this.state.isSelectingColor &&
       !this.state.isDraggingInsertedItem &&
+      !this.state.isResizingInsertedItem &&
       !event.target.closest(s[".inserted-item"])
     ) {
       this.unsetActiveInsertedItemIndex();
@@ -537,6 +572,7 @@ class TheModal extends Component {
       type: "object",
       width: Math.round(canvasWidth * 0.5),
       height: Math.round(canvasHeight * 0.5),
+      showIframe: true,
       adaptation,
       configValues
     });
@@ -551,7 +587,19 @@ class TheModal extends Component {
   };
 
   setActiveInsertedItemIndex = index => {
-    this.setState({ activeInsertedItemIndex: index });
+    const { insertedItems } = this.state;
+    const itemToActivate = insertedItems[index];
+
+    const newState = { activeInsertedItemIndex: index };
+
+    if (itemToActivate.type === "object") {
+      newState["insertedItems"] = [...insertedItems];
+      newState["insertedItems"][index] = {
+        ...itemToActivate,
+        showIframe: true
+      };
+    }
+    this.setState(newState);
   };
 
   unsetActiveInsertedItemIndex = () => {
@@ -868,6 +916,27 @@ class TheModal extends Component {
 
   updateIframeTop = () => {
     this.iframeTop = this.iframeRef.current.getBoundingClientRect().top;
+  };
+
+  captureInsertedObjectIfNeeded = (prevProps, prevState) => {
+    if (
+      prevState.activeInsertedItemIndex &&
+      prevState.activeInsertedItemIndex !== this.state.activeInsertedItemIndex
+    ) {
+      const prevActiveInsertedItem = this.state.insertedItems[
+        prevState.activeInsertedItemIndex
+      ];
+      if (prevActiveInsertedItem && prevActiveInsertedItem.type === "object") {
+        const iframe = this.insertedItemsRefs[prevActiveInsertedItem.id];
+        iframe &&
+          iframe.contentWindow.postMessage(
+            {
+              type: "download"
+            },
+            "*"
+          );
+      }
+    }
   };
 
   saveConfigToDB = config => {

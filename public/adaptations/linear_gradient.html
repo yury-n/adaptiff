@@ -26,7 +26,7 @@
     function aff_download() {
       html2canvas(document.getElementById("preview")).then(function(canvas) {
         var image = canvas.toDataURL("image/png");
-        window.parent.postMessage({ type: "download", image }, "*");
+        postDownloadImage({ image });
       });
     }
   </script>

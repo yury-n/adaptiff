@@ -6,15 +6,26 @@ import s from "./IframePreviewRnD.module.css";
 
 export default React.memo(
   React.forwardRef(function IframePreviewRnD(
-    { onLoad, fileName, version, ...restProps },
+    {
+      onLoad,
+      insertedObjectId,
+      showIframe,
+      placeholder,
+      fileName,
+      version,
+      ...restProps
+    },
     ref
   ) {
     return (
       <RnDItem {...restProps} ref={ref} lockAspectRatio={false}>
         <IframePreview
+          showIframe={showIframe}
           className={s["iframe"]}
           fileName={fileName}
           version={version}
+          insertedObjectId={insertedObjectId}
+          placeholder={placeholder}
           onLoad={onLoad}
         />
       </RnDItem>

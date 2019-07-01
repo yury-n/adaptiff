@@ -56,7 +56,6 @@
 .mini-color {
   width: 17px;
   height: 17px;
-  margin: 0 5px;
   border-radius: 50%;
   pointer-events: none;
 }

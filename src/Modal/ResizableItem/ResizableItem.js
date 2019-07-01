@@ -17,23 +17,33 @@ export default ({
   return (
     <Resizable
       className={s["resizable"]}
-      width={width}
-      height={height}
-      lockAspectRatio={lockAspectRatio}
-      enable={{
-        top: false,
-        right: false,
-        bottom: false,
-        left: false,
-        topRight: true,
-        bottomRight: true,
-        bottomLeft: true,
-        topLeft: true
+      defaultSize={{
+        width,
+        height
       }}
+      lockAspectRatio={lockAspectRatio}
+      enable={
+        lockAspectRatio
+          ? {
+              top: false,
+              right: false,
+              bottom: false,
+              left: false,
+              topRight: true,
+              bottomRight: true,
+              bottomLeft: true,
+              topLeft: true
+            }
+          : undefined
+      }
       onResizeStart={onResizeStart}
       onResize={onResize}
       onResizeStop={onResizeStop}
       handleStyles={{
+        top: { top: -20 },
+        bottom: { bottom: -20 },
+        left: { left: -20 },
+        right: { right: -20 },
         topRight: { top: -20, right: -20 },
         bottomRight: { bottom: -20, right: -20 },
         bottomLeft: { bottom: -20, left: -20 },
@@ -68,6 +78,34 @@ export default ({
           resizeHandleClassName
         )}
       />
+      {!lockAspectRatio && (
+        <>
+          <div
+            className={classnames(s["handle"], s["top"], resizeHandleClassName)}
+          />
+          <div
+            className={classnames(
+              s["handle"],
+              s["bottom"],
+              resizeHandleClassName
+            )}
+          />
+          <div
+            className={classnames(
+              s["handle"],
+              s["left"],
+              resizeHandleClassName
+            )}
+          />
+          <div
+            className={classnames(
+              s["handle"],
+              s["right"],
+              resizeHandleClassName
+            )}
+          />
+        </>
+      )}
       {children}
     </Resizable>
   );

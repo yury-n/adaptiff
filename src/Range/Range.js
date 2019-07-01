@@ -162,7 +162,7 @@ class Range extends Component {
               backgroundColor: "white",
               borderColor: "rgb(196, 196, 196)",
               borderWidth: "1px",
-              boxShadow: "0 3px 4px 0px #d4d4d5c9"
+              boxShadow: "rgba(190, 190, 190, 0.79) 0px 3px 4px 0px"
             }}
             onChange={this.props.onChange}
           />

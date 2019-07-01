@@ -113,7 +113,7 @@
         .querySelector("#preview")
         .toDataURL("image/png")
         .replace("image/png", "image/octet-stream");
-      window.parent.postMessage({ type: "download", image }, "*");
+      postDownloadImage({ image });
     }
   </script>
   <script src="_common.js"></script>

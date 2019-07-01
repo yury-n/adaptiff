@@ -14,14 +14,23 @@ export default React.memo(
         }}
         className={props.className}
       >
-        <iframe
-          ref={ref}
-          title="preview"
-          src={`/adaptations/${props.fileName}.html?v=${props.version}`}
-          frameBorder="0"
-          onLoad={props.onLoad}
-          className={s["iframe"]}
-        />
+        {props.placeholder && (
+          <img
+            alt=""
+            src={props.placeholder}
+            className={s["iframe-placeholder"]}
+          />
+        )}
+        {props.showIframe && (
+          <iframe
+            ref={ref}
+            title="preview"
+            src={`/adaptations/${props.fileName}.html?v=${props.version}&object_id=${props.insertedObjectId}`}
+            frameBorder="0"
+            onLoad={props.onLoad}
+            className={s["iframe"]}
+          />
+        )}
         <div className={s["opaque-overlay"]} />
       </div>
     );
