@@ -119,10 +119,8 @@ class TheModal extends Component {
         );
       } else {
         html2canvas(this.captureFrameRef.current, { scale: 2 }).then(canvas => {
-          const link = document.createElement("a");
           var imageDataURL = canvas.toDataURL("image/png");
           downloadFromDataURL("download.png", imageDataURL);
-          link.click();
           this.setState({
             captureConfig: null,
             capturedIframe: null,
@@ -304,7 +302,7 @@ class TheModal extends Component {
                       }}
                     >
                       {this.renderInsertedItem(
-                        insertedItem.type === "image"
+                        ["image", "object"].includes(insertedItem.type)
                           ? {
                               ...insertedItem,
                               width: captureConfig[index].width,
@@ -409,6 +407,15 @@ class TheModal extends Component {
             imageUrl={insertedItem.imageUrl}
           />
         );
+      case "object":
+        return (
+          <InsertedImage
+            key={insertedItem.id}
+            width={insertedItem.width * scaleToFit}
+            height={insertedItem.height * scaleToFit}
+            imageUrl={insertedItem.capturedIframe}
+          />
+        );
       default:
         return null;
     }
@@ -451,6 +458,7 @@ class TheModal extends Component {
             insertedItems: updatedInsertedItems
           });
         } else {
+          console.log(">>capturedIframe");
           this.setState({ capturedIframe: event.data.image });
         }
       } else {

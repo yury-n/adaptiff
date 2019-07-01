@@ -17,6 +17,7 @@ export default React.memo(
         {props.placeholder && (
           <img
             alt=""
+            ref={!props.showIframe ? ref : undefined}
             src={props.placeholder}
             className={s["iframe-placeholder"]}
           />
@@ -25,7 +26,9 @@ export default React.memo(
           <iframe
             ref={ref}
             title="preview"
-            src={`/adaptations/${props.fileName}.html?v=${props.version}&object_id=${props.insertedObjectId}`}
+            src={`/adaptations/${props.fileName}.html?v=${
+              props.version
+            }&object_id=${props.insertedObjectId || ""}`}
             frameBorder="0"
             onLoad={props.onLoad}
             className={s["iframe"]}
