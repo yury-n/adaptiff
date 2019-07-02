@@ -47,7 +47,7 @@ export const allAdaptations = [
   blobmaker,
   subtleRib
 ];
-export const insertableAdaptations = [blobmaker, linearGradient];
+export const insertableAdaptations = [blobmaker, linearGradient, gradientWaves];
 
 // import octagonalStar from "./_adaptationConfigs/octagonal_star";
 // reactKawaii from "./_adaptationConfigs/react_kawaii";

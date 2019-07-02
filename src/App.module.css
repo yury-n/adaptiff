@@ -22,7 +22,7 @@
   height: 12px;
   position: absolute;
   left: -24px;
-  top: 4px;
+  top: 3px;
   border-radius: 50%;
   background: radial-gradient(farthest-corner at 15px 17px, #ffffff, #9bffe4);
 }

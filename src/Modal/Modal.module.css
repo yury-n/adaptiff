@@ -225,6 +225,10 @@
   border-radius: 50%;
 }
 
+.inserted-item {
+  visibility: visible;
+}
+
 @keyframes spin {
   from {
     transform: rotate(0);

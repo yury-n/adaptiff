@@ -4,12 +4,16 @@ import ColorInput from "../../ColorInput/ColorInput";
 import PaletteDropdown from "../../PaletteDropdown/PaletteDropdown";
 import Range from "../../Range/Range";
 
+import s from "./ArtConfig.module.css";
+
 export default ({
   config,
   configValues,
   setConfigValue,
   onStartSelectingColor,
-  onStopSelectingColor
+  onStopSelectingColor,
+  activeInsertedItem,
+  onRemove
 }) => (
   <>
     {config.map(config => {
@@ -150,5 +154,11 @@ export default ({
         </React.Fragment>
       );
     })}
+    {activeInsertedItem && (
+      <Button className={s["delete-button"]} onClick={onRemove}>
+        <Icon name="remove" size="small" />
+        Remove
+      </Button>
+    )}
   </>
 );
