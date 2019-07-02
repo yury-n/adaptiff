@@ -13,7 +13,7 @@ export default React.memo(
       initialValue,
       config,
       scale,
-      setActive
+      onClick
     },
     ref
   ) {
@@ -21,7 +21,7 @@ export default React.memo(
       <DraggableItem
         isActive={isActive}
         initialPosition={initialPosition}
-        onClick={setActive}
+        onClick={onClick}
         onDragStart={onDragStart}
         onDragStop={onDragStop}
         className={className}

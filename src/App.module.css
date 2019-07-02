@@ -18,13 +18,13 @@
 .subheader:before {
   content: "";
   display: block;
-  width: 10px;
-  height: 10px;
-  background: #9bffe4;
+  width: 12px;
+  height: 12px;
   position: absolute;
-  left: -20px;
+  left: -24px;
   top: 4px;
   border-radius: 50%;
+  background: radial-gradient(farthest-corner at 15px 17px, #ffffff, #9bffe4);
 }
 
 @media screen and (max-width: 400px) {

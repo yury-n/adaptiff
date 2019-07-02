@@ -3,7 +3,7 @@ import useOnClickOutside from "../../_hooks/useOnClickOutside";
 import { Menu, Button, Icon } from "semantic-ui-react";
 
 import s from "./InsertButton.module.css";
-import { allAdaptations } from "../../pages/root";
+import { insertableAdaptations } from "../../pages/root";
 import MiniCard from "../../MiniCard/MiniCard";
 
 export default ({ onInsertText, onInsertImage, onInsertObject }) => {
@@ -81,7 +81,7 @@ export default ({ onInsertText, onInsertImage, onInsertObject }) => {
       {isObjectSelectorOpen && (
         <div ref={objectSelectorRef} className={s["add-object-menu"]}>
           <div className={s["add-object-cards"]}>
-            {allAdaptations.map((adaptation, index) => (
+            {insertableAdaptations.map((adaptation, index) => (
               <MiniCard
                 key={index}
                 mode="preset"

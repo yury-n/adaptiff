@@ -14,7 +14,6 @@ export default {
   author: "Fabio Ottaviani",
   authorLink: "https://codepen.io/supah/",
   thumbs: ["/thumbs/gradientWaves/1.png"],
-
   config: [
     {
       key: "amplituteY",
@@ -33,14 +32,6 @@ export default {
       min: 30,
       max: 150
     },
-
-    {
-      key: "crazyness",
-      text: "Crazyness",
-      type: "boolean",
-      defaultValue: true
-    },
-
     {
       key: "lines",
       text: "Lines",
@@ -57,6 +48,14 @@ export default {
       defaultValue: 10,
       min: 1,
       max: 100
+    },
+    {
+      key: "randomValues",
+      type: "randomValues",
+      text: "Randomness",
+      defaultValue: Array(2)
+        .fill()
+        .map(() => Math.random())
     },
     {
       key: "palette",

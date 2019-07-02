@@ -27,6 +27,13 @@ a:hover {
   box-shadow: 0 3px 4px 0px #bebebec9;
 }
 
+.ui.toggle.checkbox input:checked ~ .box:before,
+.ui.toggle.checkbox input:checked ~ label:before,
+.ui.toggle.checkbox input:focus:checked ~ .box:before,
+.ui.toggle.checkbox input:focus:checked ~ label:before {
+  background-color: #9dfae1 !important;
+}
+
 .user.icon {
   transform: scale(0.9);
   margin-right: 6px;

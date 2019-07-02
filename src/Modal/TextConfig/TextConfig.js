@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 import ColorInput from "../../ColorInput/ColorInput";
 import Range from "../../Range/Range";
 import FontFamilyDropdown from "./FontFamilyDropdown/FontFamilyDropdown";
@@ -88,7 +88,7 @@ export default ({
         value={config.borderWidth}
         onChange={value => setConfigValue("borderWidth", value)}
       />
-      <label className="form-label">Latter Spacing</label>
+      <label className="form-label">Letter Spacing</label>
       <Range
         withRangeInputs={false}
         min={0}
@@ -97,7 +97,8 @@ export default ({
         onChange={value => setConfigValue("letterSpacing", value)}
       />
       <Button className={s["delete-button"]} onClick={onRemove}>
-        Delete
+        <Icon name="remove" size="small" />
+        Remove
       </Button>
     </div>
   );

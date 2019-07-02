@@ -1,5 +1,5 @@
 import React from "react";
-import { Dropdown, Checkbox } from "semantic-ui-react";
+import { Dropdown, Checkbox, Button, Icon } from "semantic-ui-react";
 import ColorInput from "../../ColorInput/ColorInput";
 import PaletteDropdown from "../../PaletteDropdown/PaletteDropdown";
 import Range from "../../Range/Range";
@@ -43,6 +43,48 @@ export default ({
                 setConfigValue(config.key, !configValues[config.key])
               }
             />
+          );
+          break;
+        case "randomValues":
+          control = (
+            <div
+              style={{
+                display: "flex"
+              }}
+            >
+              <Checkbox
+                toggle
+                checked={configValues[config.key].length > 0}
+                onChange={() =>
+                  setConfigValue(
+                    config.key,
+                    configValues[config.key].length > 0
+                      ? []
+                      : config.defaultValue
+                  )
+                }
+              />
+              <Button
+                basic
+                style={{
+                  width: "100%",
+                  position: "relative",
+                  top: "-2px",
+                  left: "7px"
+                }}
+                onClick={() =>
+                  setConfigValue(
+                    config.key,
+                    Array(config.defaultValue.length)
+                      .fill()
+                      .map(() => Math.random())
+                  )
+                }
+              >
+                <Icon name="refresh" size="small" />
+                refresh
+              </Button>
+            </div>
           );
           break;
         case "range":

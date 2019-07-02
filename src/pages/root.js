@@ -47,6 +47,7 @@ export const allAdaptations = [
   blobmaker,
   subtleRib
 ];
+export const insertableAdaptations = [blobmaker, linearGradient];
 
 // import octagonalStar from "./_adaptationConfigs/octagonal_star";
 // reactKawaii from "./_adaptationConfigs/react_kawaii";
@@ -70,7 +71,7 @@ export default () => (
       <div className={s["subheader"]}>backgrounds</div>
       <Card.Group className="cards">
         <MiniCard {...blobmaker} />
-        <MiniCard showModal {...linearGradient} />
+        <MiniCard {...linearGradient} />
         <MiniCard {...trianglify} />
         <MiniCard {...particles} />
         <MiniCard {...gradientWaves} />

@@ -15,7 +15,7 @@ SETTINGS
     smoothness: window.smoothness / 10,
     offsetX: 10,
     fill: window.fill,
-    crazyness: window.crazyness
+    randomValues: window.randomValues
   };
 
   /*--------------------
@@ -63,16 +63,17 @@ PATH
       this.root.push({ x: x, y: rootY });
 
       while (x < winW) {
-        let value = Math.random() > 0.5 ? 1 : -1;
+        let value = Math.random() > 0.5 ? 1 : -1; // TODO: explore upsidedown
 
         // Crazyness
-        if (settings.crazyness) {
+        if (settings.randomValues.length > 0) {
           x += parseInt(
-            (Math.random() * settings.amplitudeX) / 2 + settings.amplitudeX / 2
+            (settings.randomValues[0] * settings.amplitudeX) / 2 +
+              settings.amplitudeX / 2
           );
           y =
             parseInt(
-              (Math.random() * settings.amplitudeY) / 2 +
+              (settings.randomValues[1] * settings.amplitudeY) / 2 +
                 settings.amplitudeY / 2
             ) *
               value +

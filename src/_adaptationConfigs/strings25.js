@@ -18,7 +18,7 @@ export default {
   authorLink: "https://codepen.io/derekmorash",
   thumbs: ["/thumbs/strings25/1.png"],
   thumbBackgroundSize: 280,
-  hasRandomness: true,
+  hasRandomness: true, // TODO: replace with config.randomValues
   config: [
     {
       key: "sizePercent",

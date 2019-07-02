@@ -15,7 +15,7 @@ export default {
   fileName: "gradient_bubbles",
   author: "yury-n",
   thumbs: ["/thumbs/gradient_bubbles/1.png"],
-  hasRandomness: true,
+  hasRandomness: true, // TODO: replace with config.randomValues
   config: [
     {
       key: "itemSize",

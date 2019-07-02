@@ -20,7 +20,7 @@ export default {
   author: "Derek Morash",
   authorLink: "https://codepen.io/derekmorash/pen/VdgGXZ",
   thumbs: ["/thumbs/mesh/1.png"],
-  hasRandomness: true,
+  hasRandomness: true, // TODO: replace with config.randomValues
   config: [
     {
       key: "distanceBetween",

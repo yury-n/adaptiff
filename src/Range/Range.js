@@ -145,12 +145,12 @@ class Range extends Component {
             max={this.state.max}
             className={s["slider"]}
             railStyle={{
-              backgroundColor: "rgb(216, 215, 215)",
+              backgroundColor: "rgb(226, 226, 226)",
               height: 3
             }}
             trackStyle={[
               {
-                backgroundColor: "rgb(216, 215, 215)",
+                backgroundColor: "#9dfae1",
                 height: 3
               }
             ]}

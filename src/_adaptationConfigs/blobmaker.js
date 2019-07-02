@@ -16,7 +16,7 @@ export default {
   author: "cristinapoiata",
   authorLink: "http://www.zcreativelabs.com/",
   thumbs: ["/thumbs/blobmaker/1.png"],
-  hasRandomness: true,
+  isTransparent: true,
   config: [
     {
       key: "contrast",
@@ -30,8 +30,9 @@ export default {
       key: "complexity",
       text: "Complexity",
       type: "range",
+      updatesRandomValuesCount: true,
       defaultValue: 10,
-      min: 0,
+      min: 3,
       max: 30
     },
     {
@@ -48,6 +49,14 @@ export default {
       defaultValue: 0,
       min: 0,
       max: 360
+    },
+    {
+      key: "randomValues",
+      type: "randomValues",
+      text: "Randomness",
+      defaultValue: Array(10) // 10 -- is complexity
+        .fill()
+        .map(() => Math.random())
     }
   ]
 };
