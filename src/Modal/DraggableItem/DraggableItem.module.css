@@ -23,11 +23,6 @@
   border-color: black;
 }
 
-.root:hover :global(.react-resizable-handle),
-.root.active :global(.react-resizable-handle) {
-  visibility: visible;
-}
-
 .root:hover .content,
 .root.active .content {
   border-color: white;

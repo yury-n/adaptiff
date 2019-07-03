@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import html2canvas from "html2canvas";
+import ReactDOM from "react-dom";
 import { Modal, Input, Button, Icon } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
 import ImageConfig from "./ImageConfig/ImageConfig";
@@ -118,15 +118,17 @@ class TheModal extends Component {
           "*"
         );
       } else {
-        html2canvas(this.captureFrameRef.current, { scale: 2 }).then(canvas => {
-          var imageDataURL = canvas.toDataURL("image/png");
-          downloadFromDataURL("download.png", imageDataURL);
-          this.setState({
-            captureConfig: null,
-            capturedIframe: null,
-            isPreparingDownload: false
+        window
+          .html2canvas(this.captureFrameRef.current, { scale: 2 })
+          .then(canvas => {
+            var imageDataURL = canvas.toDataURL("image/png");
+            downloadFromDataURL("download.png", imageDataURL);
+            this.setState({
+              captureConfig: null,
+              capturedIframe: null,
+              isPreparingDownload: false
+            });
           });
-        });
       }
     }
     if (this.state.canvasWidth !== prevState.canvasWidth) {
@@ -150,7 +152,6 @@ class TheModal extends Component {
       canvasHeight,
       insertedItems,
       captureConfig,
-      capturedIframe,
       iframeVersion,
       isPaused,
       isPreparingDownload,
@@ -272,63 +273,72 @@ class TheModal extends Component {
               )}
               {!isLoadingIframe &&
                 insertedItems.map(this.renderInsertedRnDItem)}
-              {captureConfig && (
-                <div
-                  className={s["capture-frame"]}
-                  style={{
-                    width: canvasWidth,
-                    height: canvasHeight
-                  }}
-                  ref={this.captureFrameRef}
-                >
-                  {this.state.config.backgroundColor && (
-                    <div
-                      style={{
-                        backgroundColor: this.state.config.backgroundColor
-                      }}
-                      className={s["captured-background"]}
-                    />
-                  )}
-                  {capturedIframe && (
-                    <img
-                      className={s["captured-iframe"]}
-                      alt=""
-                      src={capturedIframe}
-                    />
-                  )}
-                  {insertedItems.map((insertedItem, index) => (
-                    <div
-                      style={{
-                        position: "absolute",
-                        left: captureConfig[index].position.left,
-                        top: captureConfig[index].position.top
-                      }}
-                    >
-                      {this.renderInsertedItem(
-                        ["image", "object"].includes(insertedItem.type)
-                          ? {
-                              ...insertedItem,
-                              width: captureConfig[index].width,
-                              height: captureConfig[index].height,
-                              scale: 1
-                            }
-                          : {
-                              ...insertedItem,
-                              text: captureConfig[index].text,
-                              scale: 1
-                            },
-                        index
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
+              {captureConfig && this.renderCaptureFrame()}
             </div>
           </div>
         </Modal.Content>
       </Modal>
     );
   }
+
+  renderCaptureFrame = () => {
+    const {
+      insertedItems,
+      canvasWidth,
+      canvasHeight,
+      config,
+      capturedIframe,
+      captureConfig
+    } = this.state;
+    return ReactDOM.createPortal(
+      <div
+        className={s["capture-frame"]}
+        style={{
+          width: canvasWidth,
+          height: canvasHeight
+        }}
+        ref={this.captureFrameRef}
+      >
+        {config.backgroundColor && (
+          <div
+            style={{
+              backgroundColor: config.backgroundColor
+            }}
+            className={s["captured-background"]}
+          />
+        )}
+        {capturedIframe && (
+          <img className={s["captured-iframe"]} alt="" src={capturedIframe} />
+        )}
+        {insertedItems.map((insertedItem, index) => (
+          <div
+            style={{
+              position: "absolute",
+              left: captureConfig[index].position.left,
+              top: captureConfig[index].position.top
+            }}
+          >
+            {this.renderInsertedItem(
+              ["image", "object"].includes(insertedItem.type)
+                ? {
+                    ...insertedItem,
+                    width: captureConfig[index].width,
+                    height: captureConfig[index].height,
+                    scale: 1
+                  }
+                : {
+                    ...insertedItem,
+                    text: captureConfig[index].text,
+                    scale: 1
+                  },
+              index
+            )}
+          </div>
+        ))}
+      </div>,
+      document.body
+    );
+  };
 
   renderInsertedRnDItem = (insertedItem, index) => {
     const { activeInsertedItemIndex } = this.state;
