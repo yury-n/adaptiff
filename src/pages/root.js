@@ -71,7 +71,7 @@ export default () => (
       <div className={s["subheader"]}>backgrounds</div>
       <Card.Group className="cards">
         <MiniCard {...blobmaker} />
-        <MiniCard {...linearGradient} />
+        <MiniCard showModal {...linearGradient} />
         <MiniCard {...trianglify} />
         <MiniCard {...particles} />
         <MiniCard {...gradientWaves} />

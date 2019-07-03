@@ -2,13 +2,13 @@ window.addEventListener(
   "message",
   function(event) {
     if (event.data.type === "render") {
-      window.aff_render(event.data.payload);
+      window.aff_render && window.aff_render(event.data.payload);
     } else if (event.data.type === "download") {
-      window.aff_download();
+      window.aff_download && window.aff_download();
     } else if (event.data.type === "pause") {
-      window.aff_pause();
+      window.aff_pause && window.aff_pause();
     } else if (event.data.type === "unpause") {
-      window.aff_unpause();
+      window.aff_unpause && window.aff_unpause();
     }
   },
   false

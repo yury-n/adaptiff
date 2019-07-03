@@ -107,8 +107,9 @@
 
 .capture-frame {
   position: fixed;
-  top: 0;
+  top: -1000000;
   left: 0;
+  z-index: 10000000;
 }
 
 .captured-background {
