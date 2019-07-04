@@ -21,6 +21,14 @@ export default ({
   //}
   return (
     <div className={s["root"]}>
+      <label className="form-label">Font Size</label>
+      <Range
+        withRangeInputs={false}
+        min={10}
+        max={100}
+        value={config.fontSize}
+        onChange={value => setConfigValue("fontSize", value)}
+      />
       <FontFamilyDropdown
         value={config.fontFamily}
         onChange={value => setConfigValue("fontFamily", value)}
@@ -63,14 +71,6 @@ export default ({
         onChange={value => setConfigValue("backgroundColor", value)}
         onOpen={onStartSelectingColor}
         onClose={onStopSelectingColor}
-      />
-      <label className="form-label">Font Size</label>
-      <Range
-        withRangeInputs={false}
-        min={10}
-        max={100}
-        value={config.fontSize}
-        onChange={value => setConfigValue("fontSize", value)}
       />
       <label className="form-label">Padding</label>
       <Range
