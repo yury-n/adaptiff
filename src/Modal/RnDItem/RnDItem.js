@@ -11,6 +11,8 @@ import s from "./RnDItem.module.css";
 const initMarginsByItemId = {};
 const defaultMargins = { top: MARGIN_LEFT, left: MARGIN_TOP };
 
+let iframeNode;
+
 export default React.forwardRef(function(
   {
     id,
@@ -30,13 +32,13 @@ export default React.forwardRef(function(
   },
   ref
 ) {
-  let draggableNode;
   const refCallback = node => {
     if (node) {
-      draggableNode = node.closest(".react-draggable");
+      iframeNode = node;
       ref(node);
     }
   };
+  const draggableNode = iframeNode && iframeNode.closest(".react-draggable");
   return (
     <DraggableItem
       isActive={isActive}

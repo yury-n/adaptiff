@@ -125,11 +125,11 @@ class TheModal extends Component {
           .then(canvas => {
             var imageDataURL = canvas.toDataURL("image/png");
             downloadFromDataURL("download.png", imageDataURL);
-            // this.setState({
-            //   captureConfig: null,
-            //   capturedIframe: null,
-            //   isPreparingDownload: false
-            // });
+            this.setState({
+              captureConfig: null,
+              capturedIframe: null,
+              isPreparingDownload: false
+            });
           });
       }
     }
@@ -919,13 +919,15 @@ class TheModal extends Component {
       iframeNode = this.insertedItemsRefs[activeInsertedItem.id];
       config = activeInsertedItem.configValues;
     }
-    iframeNode.contentWindow.postMessage(
-      {
-        type: "render",
-        payload: config
-      },
-      "*"
-    );
+    iframeNode &&
+      iframeNode.contentWindow &&
+      iframeNode.contentWindow.postMessage(
+        {
+          type: "render",
+          payload: config
+        },
+        "*"
+      );
   };
 
   pause = () => {
@@ -993,6 +995,7 @@ class TheModal extends Component {
       if (prevActiveInsertedItem && prevActiveInsertedItem.type === "object") {
         const iframe = this.insertedItemsRefs[prevActiveInsertedItem.id];
         iframe &&
+          iframe.contentWindow &&
           iframe.contentWindow.postMessage(
             {
               type: "download"
@@ -1028,8 +1031,8 @@ class TheModal extends Component {
         const text = this.insertedItemsRefs[id].innerText;
         return {
           text,
-          width: insertedItemRect.width,
-          height: insertedItemRect.height,
+          width: insertedItemRect.width / (scale || 1),
+          height: insertedItemRect.height / (scale || 1),
           position: {
             left: (insertedItemRect.left - iframeRect.left) / (scale || 1),
             top: (insertedItemRect.top - iframeRect.top) / (scale || 1)

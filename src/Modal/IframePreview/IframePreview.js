@@ -3,7 +3,19 @@ import React from "react";
 import s from "./IframePreview.module.css";
 
 class IframePreview extends React.Component {
-  shouldComponentUpdate(nextProps) {
+  state = {
+    isLoaded: false
+  };
+  static getDerivedStateFromProps(props) {
+    if (!props.showIframe) {
+      return {
+        isLoaded: false
+      };
+    }
+    return null;
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
     let shouldUpdate = false;
     [
       "width",
@@ -20,10 +32,12 @@ class IframePreview extends React.Component {
         shouldUpdate = true;
       }
     });
-    return shouldUpdate;
+    return shouldUpdate || this.state.isLoaded !== nextState.isLoaded;
   }
   render() {
     const props = this.props;
+    const state = this.state;
+    console.log("props.forwardRef", props.forwardRef);
     return (
       <div
         style={{
@@ -34,7 +48,7 @@ class IframePreview extends React.Component {
         }}
         className={props.className}
       >
-        {props.placeholder && (
+        {props.placeholder && !state.isLoaded && (
           <img
             alt=""
             ref={!props.showIframe ? props.forwardRef : undefined}
@@ -50,7 +64,7 @@ class IframePreview extends React.Component {
               props.version
             }&object_id=${props.insertedObjectId || ""}`}
             frameBorder="0"
-            onLoad={props.onLoad}
+            onLoad={this.onLoad}
             className={s["iframe"]}
           />
         )}
@@ -58,6 +72,13 @@ class IframePreview extends React.Component {
       </div>
     );
   }
+
+  onLoad = () => {
+    setTimeout(() => {
+      this.setState({ isLoaded: true });
+    }, 100);
+    this.props.onLoad();
+  };
 }
 
 export default React.forwardRef((props, ref) => (
