@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import classnames from "classnames";
 import ReactDOM from "react-dom";
 import { Modal, Input, Button, Icon } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
@@ -115,26 +116,40 @@ class TheModal extends Component {
       this.postConfigToIframe();
     }
     if (this.state.captureConfig) {
+      let hasNotDownloadedInsertedObjects = false;
+      this.state.insertedItems.forEach(insertedItem => {
+        if (insertedItem.type === "object" && !insertedItem.capturedIframe) {
+          hasNotDownloadedInsertedObjects = true;
+          if (!this.state.hasSentDownloadRequests) {
+            this.sendDownloadRequest(this.insertedItemsRefs[insertedItem.id]);
+          }
+        }
+      });
       if (!this.state.capturedIframe) {
-        this.iframeRef.current.contentWindow.postMessage(
-          {
-            type: "download"
-          },
-          "*"
-        );
-      } else {
-        window
-          .html2canvas(this.captureFrameRef.current, { scale: 2 })
-          .then(canvas => {
-            var imageDataURL = canvas.toDataURL("image/png");
-            downloadFromDataURL("download.png", imageDataURL);
-            this.setState({
-              captureConfig: null,
-              capturedIframe: null,
-              isPreparingDownload: false
-            });
-          });
+        if (!this.state.hasSentDownloadRequests) {
+          this.sendDownloadRequest(this.iframeRef.current);
+        }
       }
+      if (!this.state.capturedIframe || hasNotDownloadedInsertedObjects) {
+        if (!this.state.hasSentDownloadRequests) {
+          this.setState({
+            hasSentDownloadRequests: true
+          });
+        }
+        return;
+      }
+      window
+        .html2canvas(this.captureFrameRef.current, { scale: 2 })
+        .then(canvas => {
+          var imageDataURL = canvas.toDataURL("image/png");
+          downloadFromDataURL("download.png", imageDataURL);
+          this.setState({
+            captureConfig: null,
+            capturedIframe: null,
+            hasSentDownloadRequests: false,
+            isPreparingDownload: false
+          });
+        });
     }
     if (this.state.canvasWidth !== prevState.canvasWidth) {
       localStorage.setItem("modal.canvasWidth", this.state.canvasWidth);
@@ -156,6 +171,7 @@ class TheModal extends Component {
       canvasWidth,
       canvasHeight,
       insertedItems,
+      activeInsertedItemIndex,
       captureConfig,
       iframeVersion,
       isPaused,
@@ -243,7 +259,15 @@ class TheModal extends Component {
                 />
               </div>
             </div>
-            <div ref={this.canvasWrapperRef} className={s["canvas-wrapper"]}>
+            <div
+              ref={this.canvasWrapperRef}
+              className={classnames(
+                s["canvas-wrapper"],
+                "canvas-wrapper" /* global */,
+                activeInsertedItemIndex !== null &&
+                  "has-active-inserted-item" /* global */
+              )}
+            >
               {isLoadingIframe && (
                 <div className={s["spinner-box"]}>
                   <div className={s["circle-border"]}>
@@ -990,6 +1014,17 @@ class TheModal extends Component {
     }, 100);
   };
 
+  sendDownloadRequest = iframeNode => {
+    iframeNode &&
+      iframeNode.contentWindow &&
+      iframeNode.contentWindow.postMessage(
+        {
+          type: "download"
+        },
+        "*"
+      );
+  };
+
   updateIframeTop = () => {
     this.iframeTop = this.iframeRef.current.getBoundingClientRect().top;
   };
@@ -1003,15 +1038,9 @@ class TheModal extends Component {
         prevState.activeInsertedItemIndex
       ];
       if (prevActiveInsertedItem && prevActiveInsertedItem.type === "object") {
-        const iframe = this.insertedItemsRefs[prevActiveInsertedItem.id];
-        iframe &&
-          iframe.contentWindow &&
-          iframe.contentWindow.postMessage(
-            {
-              type: "download"
-            },
-            "*"
-          );
+        this.sendDownloadRequest(
+          this.insertedItemsRefs[prevActiveInsertedItem.id]
+        );
       }
     }
   };

@@ -16,15 +16,17 @@
   top: 0;
 }
 
-.root:hover,
 .root.active,
-.root:hover .content-inner-wrapper,
-.root.active .content-inner-wrapper {
+.root.active .content-inner-wrapper,
+:global(.canvas-wrapper:not(.has-active-inserted-item)) .root:hover,
+:global(.canvas-wrapper:not(.has-active-inserted-item))
+  .root:hover
+  .content-inner-wrapper {
   border-color: black;
 }
 
-.root:hover .content,
-.root.active .content {
+.root.active .content,
+:global(.canvas-wrapper:not(.has-active-inserted-item)) .root:hover .content {
   border-color: white;
 }
 
