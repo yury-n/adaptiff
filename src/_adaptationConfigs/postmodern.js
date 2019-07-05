@@ -17,7 +17,6 @@ export default {
   authorLink: "https://codepen.io/kentskyo/",
   artLink: "https://codepen.io/kentskyo/pen/ojLyzg?editors=1010",
   thumbs: ["/thumbs/postmodern/1.png"],
-  hasRandomness: true, // TODO: replace with config.randomValues
   config: [
     {
       key: "count",
@@ -43,6 +42,16 @@ export default {
       type: "palette",
       defaultValue: palettes[0],
       options: palettes
+    },
+    {
+      key: "randomValues",
+      type: "randomValues",
+      text: "Randomness",
+      isEnabledByDefault: true,
+      isNotSwitchable: true,
+      defaultValue: Array(1)
+        .fill()
+        .map(() => Math.random())
     }
   ]
 };

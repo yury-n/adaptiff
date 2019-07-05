@@ -18,7 +18,6 @@ export default {
   authorLink: "https://codepen.io/derekmorash",
   thumbs: ["/thumbs/strings25/1.png"],
   thumbBackgroundSize: 280,
-  hasRandomness: true, // TODO: replace with config.randomValues
   config: [
     {
       key: "sizePercent",
@@ -34,6 +33,16 @@ export default {
       type: "palette",
       defaultValue: palettes[0],
       options: palettes
+    },
+    {
+      key: "randomValues",
+      type: "randomValues",
+      text: "Randomness",
+      isEnabledByDefault: true,
+      isNotSwitchable: true,
+      defaultValue: Array(1)
+        .fill()
+        .map(() => Math.random())
     }
   ]
 };

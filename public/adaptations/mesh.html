@@ -12,6 +12,7 @@
     let scl = 5;
     let backgroundColor = "#ccc";
     let strokeColor = "#000";
+    let withRandomness = true;
 
     let cols, rows;
     let xstart, ystart;
@@ -27,13 +28,13 @@
 
       flowfield = new Array();
       initField();
-
-      xstart = random(500);
-      ystart = random(500);
-      angleMultiplier = floor(random(1, 5));
     }
 
     function draw() {
+      xstart = withRandomness ? random(500) : 250;
+      ystart = withRandomness ? random(500) : 250;
+      angleMultiplier = withRandomness ? floor(random(1, 5)) : 2;
+
       background(backgroundColor);
 
       translate(width / 10 + scl / 2, height / 10 + scl / 2);
@@ -119,6 +120,7 @@
       scl = config.distanceBetween;
       backgroundColor = config.palette[0];
       strokeColor = config.palette[1];
+      withRandomness = config.randomValues.length > 0;
 
       var s = document.createElement("script");
       s.type = "text/javascript";

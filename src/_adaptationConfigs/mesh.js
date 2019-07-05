@@ -20,7 +20,6 @@ export default {
   author: "Derek Morash",
   authorLink: "https://codepen.io/derekmorash/pen/VdgGXZ",
   thumbs: ["/thumbs/mesh/1.png"],
-  hasRandomness: true, // TODO: replace with config.randomValues
   config: [
     {
       key: "distanceBetween",
@@ -36,6 +35,16 @@ export default {
       type: "palette",
       defaultValue: palettes[0],
       options: palettes
+    },
+    {
+      key: "randomValues",
+      type: "randomValues",
+      text: "Randomness",
+      isEnabledByDefault: true,
+      isNotSwitchable: true,
+      defaultValue: Array(1)
+        .fill()
+        .map(() => Math.random())
     }
   ]
 };

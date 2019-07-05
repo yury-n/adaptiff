@@ -43,7 +43,8 @@ class IframePreview extends React.Component {
           position: "relative",
           width: props.width,
           height: props.height,
-          transform: props.scale < 1 ? `scale(${props.scale})` : undefined
+          transform: props.scale < 1 ? `scale(${props.scale})` : undefined,
+          transformOrigin: "top left"
         }}
         className={props.className}
       >

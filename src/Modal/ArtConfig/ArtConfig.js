@@ -57,16 +57,18 @@ export default ({
                 display: "flex"
               }}
             >
-              <Checkbox
-                toggle
-                checked={isEnabled}
-                onChange={() =>
-                  setConfigValue(
-                    config.key,
-                    isEnabled ? [] : config.defaultValue
-                  )
-                }
-              />
+              {!config.isNotSwitchable && (
+                <Checkbox
+                  toggle
+                  checked={isEnabled}
+                  onChange={() =>
+                    setConfigValue(
+                      config.key,
+                      isEnabled ? [] : config.defaultValue
+                    )
+                  }
+                />
+              )}
               {isEnabled && (
                 <Button
                   basic
@@ -74,7 +76,7 @@ export default ({
                     width: "100%",
                     position: "relative",
                     top: "-2px",
-                    left: "7px"
+                    left: config.isNotSwitchable ? 0 : "7px"
                   }}
                   onClick={() =>
                     setConfigValue(

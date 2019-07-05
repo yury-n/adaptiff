@@ -3,7 +3,6 @@ import classnames from "classnames";
 import MiniCard from "../MiniCard/MiniCard";
 import gradientWaves from "../_adaptationConfigs/gradientWaves";
 import mesh from "../_adaptationConfigs/mesh";
-import particles from "../_adaptationConfigs/particles";
 import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
 import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
 import fiberRibbons from "../_adaptationConfigs/fiber_ribbons";
@@ -15,8 +14,8 @@ import s from "./Presets.module.css";
 const cards = [
   {
     ...gradientBubbles,
-    thumbs: ["/preset_thumbs/5.png"],
-    thumbWidth: 130,
+    thumbs: ["/preset_thumbs/11.png"],
+    thumbWidth: 156,
     initState: {
       size: { width: 600, height: 500 },
       config: {
@@ -31,7 +30,7 @@ const cards = [
       },
       insertedItems: [
         {
-          id: 2,
+          id: 101,
           width: 650,
           height: 468,
           showIframe: true,
@@ -56,6 +55,24 @@ const cards = [
               0.2609440704641621
             ]
           }
+        },
+        {
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            color: "#d7ff00",
+            fontFamily: "Rubik Mono One",
+            fontSize: 43,
+            letterSpacing: 0,
+            padding: 10
+          },
+          id: 102,
+          type: "text",
+          position: { left: 68.75, top: 184.375 },
+          text: `+
+add
+blobs
+anywhere`
         }
       ]
     }
@@ -73,7 +90,7 @@ const cards = [
       },
       insertedItems: [
         {
-          id: 0,
+          id: 100,
           type: "text",
           config: {
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
@@ -111,7 +128,7 @@ is simple`
       },
       insertedItems: [
         {
-          id: 0,
+          id: 100,
           type: "text",
           config: {
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
@@ -145,7 +162,7 @@ designers`
       },
       insertedItems: [
         {
-          id: 0,
+          id: 100,
           type: "text",
           config: {
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
@@ -191,7 +208,8 @@ Fiber`
         fill: true,
         lines: 24,
         palette: ["#ad42a5", "#fad18f"],
-        smoothness: 1
+        smoothness: 1,
+        randomValues: [Math.random(), Math.random()]
       }
     }
   },
@@ -200,7 +218,7 @@ Fiber`
     thumbs: ["/preset_thumbs/2.png"],
     thumbWidth: 130,
     initState: {
-      size: { width: 2000, height: 2000 },
+      size: { width: 1000, height: 1000 },
       config: {
         distanceBetween: 7,
         palette: ["#fff", "#000"]
@@ -222,52 +240,6 @@ Fiber`
           "#7a84a3",
           "#7a84a3"
         ]
-      }
-    }
-  },
-  {
-    ...gradientWaves,
-    thumbs: ["/preset_thumbs/6.png"],
-    thumbWidth: 225,
-    initState: {
-      size: { width: 1040, height: 600 },
-      config: {
-        amplituteX: 300,
-        amplituteY: 30,
-        crazyness: false,
-        fill: false,
-        lines: 100,
-        palette: ["#ff0099", "#ffe000"],
-        smoothness: 17
-      }
-    }
-  },
-  {
-    ...particles,
-    thumbs: ["/preset_thumbs/3.png"],
-    thumbWidth: 65,
-    initState: {
-      size: { width: 300, height: 600 },
-      config: {
-        maxParticles: 79,
-        palette: ["#f46c94", "#fedf35", "#ffffff"],
-        sizeVariations: 24
-      }
-    }
-  },
-  {
-    ...gradientBubbles,
-    thumbs: ["/preset_thumbs/5.png"],
-    thumbWidth: 130,
-    initState: {
-      size: { width: 800, height: 800 },
-      config: {
-        angle: 146,
-        itemSize: 32,
-        itemsNumInRow: 25,
-        padding: 1,
-        palette: ["#6f1fff", "#ffffff"],
-        randomValues: []
       }
     }
   }

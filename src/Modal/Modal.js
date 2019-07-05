@@ -289,6 +289,9 @@ class TheModal extends Component {
                   ref={this.iframeRef}
                   onLoad={this.onIframeLoad}
                   className={s["iframe"]}
+                  width={canvasWidth}
+                  height={canvasHeight}
+                  scale={scaleToFullyFit}
                 />
               </div>
               {!isTransparent && (

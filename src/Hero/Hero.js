@@ -22,7 +22,7 @@ const cards = [
       },
       insertedItems: [
         {
-          id: 0,
+          id: 100,
           type: "text",
           config: {
             fontFamily: "Poppins",
@@ -36,7 +36,7 @@ const cards = [
           text: "create"
         },
         {
-          id: 1,
+          id: 101,
           type: "text",
           config: {
             fontFamily: "Poppins",
@@ -50,7 +50,7 @@ const cards = [
           text: "something"
         },
         {
-          id: 2,
+          id: 102,
           type: "text",
           config: {
             fontFamily: "Helvetica",
@@ -83,7 +83,7 @@ const cards = [
       },
       insertedItems: [
         {
-          id: 0,
+          id: 100,
           type: "text",
           config: {
             fontFamily: "Montserrat",
@@ -112,7 +112,7 @@ const cards = [
       },
       insertedItems: [
         {
-          id: 0,
+          id: 100,
           type: "text",
           config: {
             fontFamily: "Merriweather",
