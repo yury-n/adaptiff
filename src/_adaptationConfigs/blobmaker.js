@@ -54,6 +54,7 @@ export default {
       key: "randomValues",
       type: "randomValues",
       text: "Randomness",
+      isEnabledByDefault: true,
       defaultValue: Array(10) // 10 -- is complexity
         .fill()
         .map(() => Math.random())

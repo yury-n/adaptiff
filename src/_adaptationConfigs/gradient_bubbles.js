@@ -15,7 +15,6 @@ export default {
   fileName: "gradient_bubbles",
   author: "yury-n",
   thumbs: ["/thumbs/gradient_bubbles/1.png"],
-  hasRandomness: true, // TODO: replace with config.randomValues
   config: [
     {
       key: "itemSize",
@@ -76,10 +75,13 @@ export default {
       max: 100
     },
     {
-      type: "boolean",
-      key: "withRandomness",
-      text: "With Randomness",
-      defaultValue: false
+      key: "randomValues",
+      type: "randomValues",
+      text: "Randomness",
+      isEnabledByDefault: false,
+      defaultValue: Array(1)
+        .fill()
+        .map(() => Math.random())
     }
   ]
 };

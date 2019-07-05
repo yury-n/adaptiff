@@ -8,10 +8,58 @@ import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
 import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
 import fiberRibbons from "../_adaptationConfigs/fiber_ribbons";
 import subtleRib from "../_adaptationConfigs/subtle_rib";
+import blobmaker from "../_adaptationConfigs/blobmaker";
 
 import s from "./Presets.module.css";
 
 const cards = [
+  {
+    ...gradientBubbles,
+    thumbs: ["/preset_thumbs/5.png"],
+    thumbWidth: 130,
+    initState: {
+      size: { width: 600, height: 500 },
+      config: {
+        angle: 360,
+        itemSize: 10,
+        itemType: "circle",
+        itemsNumInRow: 16,
+        padding: 50,
+        palette: ["#dba430", "#921000"],
+        randomValues: [],
+        rounding: 20
+      },
+      insertedItems: [
+        {
+          id: 2,
+          width: 650,
+          height: 468,
+          showIframe: true,
+          type: "object",
+          position: { left: -97, top: 55 },
+          adaptation: blobmaker,
+          configValues: {
+            angle: 86,
+            complexity: 11,
+            contrast: 4,
+            palette: ["#921000", "#dba430"],
+            randomValues: [
+              0.3519936882860435,
+              0.5840141658750502,
+              0.08831844898281593,
+              0.9505707548326048,
+              0.3508100193181387,
+              0.4602954235225203,
+              0.9476222836166059,
+              0.45153414683098303,
+              0.7071476224937401,
+              0.2609440704641621
+            ]
+          }
+        }
+      ]
+    }
+  },
   {
     ...subtleRib,
     thumbs: ["/preset_thumbs/10.png"],
@@ -219,7 +267,7 @@ Fiber`
         itemsNumInRow: 25,
         padding: 1,
         palette: ["#6f1fff", "#ffffff"],
-        withRandomness: true
+        randomValues: []
       }
     }
   }

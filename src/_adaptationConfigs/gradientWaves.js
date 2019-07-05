@@ -53,6 +53,7 @@ export default {
       key: "randomValues",
       type: "randomValues",
       text: "Randomness",
+      isEnabledByDefault: true,
       defaultValue: Array(2)
         .fill()
         .map(() => Math.random())

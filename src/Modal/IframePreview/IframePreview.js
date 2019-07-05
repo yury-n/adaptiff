@@ -37,7 +37,6 @@ class IframePreview extends React.Component {
   render() {
     const props = this.props;
     const state = this.state;
-    console.log("props.forwardRef", props.forwardRef);
     return (
       <div
         style={{
@@ -77,7 +76,7 @@ class IframePreview extends React.Component {
     setTimeout(() => {
       this.setState({ isLoaded: true });
     }, 100);
-    this.props.onLoad();
+    this.props.onLoad(this.props.insertedObjectId);
   };
 }
 

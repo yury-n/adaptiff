@@ -24,10 +24,6 @@
   text-align: right;
 }
 
-.hero-text span {
-  border-bottom: 5px solid #9bffe4;
-}
-
 .hero-preview-and-dots {
   width: 100%;
   position: relative;

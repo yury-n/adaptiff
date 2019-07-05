@@ -21,6 +21,10 @@ export default ({
   //}
   return (
     <div className={s["root"]}>
+      <FontFamilyDropdown
+        value={config.fontFamily}
+        onChange={value => setConfigValue("fontFamily", value)}
+      />
       <label className="form-label">Font Size</label>
       <Range
         withRangeInputs={false}
@@ -28,10 +32,6 @@ export default ({
         max={100}
         value={config.fontSize}
         onChange={value => setConfigValue("fontSize", value)}
-      />
-      <FontFamilyDropdown
-        value={config.fontFamily}
-        onChange={value => setConfigValue("fontFamily", value)}
       />
       <label className="form-label">Font Style</label>
       <Button.Group basic>

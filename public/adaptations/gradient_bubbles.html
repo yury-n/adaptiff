@@ -25,6 +25,7 @@
       const itemSize = config.itemSize;
       const itemType = config.itemType;
       const rounding = config.rounding;
+      const withRandomness = config.randomValues.length > 0;
       const itemsNumInRow = config.itemsNumInRow;
       const totalItemsWidth = itemSize * itemsNumInRow;
       const totalFreeSpace = fullWidthWithoutPaddings - totalItemsWidth;
@@ -35,17 +36,17 @@
         const top =
           padding +
           itemSize * y +
-          gap * y * (config.withRandomness ? Math.random() : 1);
+          gap * y * (withRandomness ? Math.random() : 1);
         if (top >= fullHeight - padding) {
           break;
         }
         for (let x = 0; x < itemsNumInRow; x++) {
           const adjustedItemSize =
-            itemSize * (config.withRandomness ? Math.random() : 1);
+            itemSize * (withRandomness ? Math.random() : 1);
           const left =
             padding +
             itemSize * x +
-            gap * x * (config.withRandomness ? Math.random() : 1);
+            gap * x * (withRandomness ? Math.random() : 1);
           const innerDiv = document.createElement("div");
           innerDiv.style.position = "absolute";
           innerDiv.style.left = `${left}px`;

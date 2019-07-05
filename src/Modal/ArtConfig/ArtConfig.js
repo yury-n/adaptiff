@@ -50,6 +50,7 @@ export default ({
           );
           break;
         case "randomValues":
+          const isEnabled = configValues[config.key].length > 0;
           control = (
             <div
               style={{
@@ -58,36 +59,36 @@ export default ({
             >
               <Checkbox
                 toggle
-                checked={configValues[config.key].length > 0}
+                checked={isEnabled}
                 onChange={() =>
                   setConfigValue(
                     config.key,
-                    configValues[config.key].length > 0
-                      ? []
-                      : config.defaultValue
+                    isEnabled ? [] : config.defaultValue
                   )
                 }
               />
-              <Button
-                basic
-                style={{
-                  width: "100%",
-                  position: "relative",
-                  top: "-2px",
-                  left: "7px"
-                }}
-                onClick={() =>
-                  setConfigValue(
-                    config.key,
-                    Array(config.defaultValue.length)
-                      .fill()
-                      .map(() => Math.random())
-                  )
-                }
-              >
-                <Icon name="refresh" size="small" />
-                refresh
-              </Button>
+              {isEnabled && (
+                <Button
+                  basic
+                  style={{
+                    width: "100%",
+                    position: "relative",
+                    top: "-2px",
+                    left: "7px"
+                  }}
+                  onClick={() =>
+                    setConfigValue(
+                      config.key,
+                      Array(config.defaultValue.length)
+                        .fill()
+                        .map(() => Math.random())
+                    )
+                  }
+                >
+                  <Icon name="refresh" size="small" />
+                  refresh
+                </Button>
+              )}
             </div>
           );
           break;

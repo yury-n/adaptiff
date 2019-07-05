@@ -72,6 +72,9 @@ class TheModal extends Component {
         initState.config[config.key] !== undefined
           ? initState.config[config.key]
           : config.defaultValue;
+      if (config.type === "randomValues" && !config.isEnabledByDefault) {
+        state.config[config.key] = [];
+      }
     });
     this.state = state;
 
@@ -533,6 +536,7 @@ class TheModal extends Component {
     setTimeout(() => {
       this.setState({ isResizingInsertedItem: false });
     }, 100); // prevent onModalRightSideClick closing TextConfig
+    this.postConfigToIframe();
   };
 
   onModalRightSideClick = event => {
@@ -911,11 +915,17 @@ class TheModal extends Component {
 
   closeAddMenu = () => this.setState({ isAddMenuOpen: false });
 
-  postConfigToIframe = () => {
+  postConfigToIframe = insertedItemId => {
     const activeInsertedItem = this.getActiveInsertedItem();
     let iframeNode = this.iframeRef.current;
     let config = this.state.config;
-    if (activeInsertedItem && activeInsertedItem.type === "object") {
+    if (insertedItemId !== undefined && insertedItemId !== null) {
+      iframeNode = this.insertedItemsRefs[insertedItemId];
+      const insertedItem = this.state.insertedItems.find(
+        i => i.id === insertedItemId
+      );
+      config = insertedItem && insertedItem.configValues;
+    } else if (activeInsertedItem && activeInsertedItem.type === "object") {
       iframeNode = this.insertedItemsRefs[activeInsertedItem.id];
       config = activeInsertedItem.configValues;
     }
@@ -971,10 +981,10 @@ class TheModal extends Component {
     );
   };
 
-  onIframeLoad = () => {
+  onIframeLoad = insertedItemId => {
     this.setState({ isLoadingIframe: false });
     setTimeout(() => {
-      this.postConfigToIframe();
+      this.postConfigToIframe(insertedItemId);
       // this to give react time to mount and attach listeners
       // not really sure if still needed, react should call load on mount?
     }, 100);
