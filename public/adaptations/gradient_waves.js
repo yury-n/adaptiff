@@ -267,6 +267,7 @@ function init(hexStart, hexEnd) {
     path.createPath();
   });
 }
+window.init = init;
 
 /*--------------------
 WIN RESIZE

@@ -1,0 +1,309 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
+</head>
+<body>
+  <canvas id="preview"></canvas>
+
+  <script id="vertexShader" type="x-shader/x-vertex">
+    attribute vec4 a_position;
+
+    uniform mat4 u_modelViewMatrix;
+    uniform mat4 u_projectionMatrix;
+
+    void main() {
+      gl_Position = a_position;
+    }
+  </script>
+  <script id="fragmentShader" type="x-shader/x-fragment">
+     #extension GL_EXT_shader_texture_lod : enable
+    precision highp float;
+     precision highp int;
+
+     uniform vec2 u_resolution;
+     uniform vec2 u_mouse;
+     uniform float u_time;
+     uniform sampler2D u_noise;
+
+     uniform float u_bump_strength;
+
+     uniform float u_shininess;
+     uniform float u_strength;
+     uniform float u_metalness;
+
+     uniform float u_fresnel_bias;
+     uniform float u_fresnel_scale;
+     uniform float u_fresnel_power;
+
+     uniform float u_light_1_strength;
+     uniform float u_light_2_strength;
+
+     uniform float u_cam_x;
+     uniform float u_cam_y;
+     uniform float u_cam_z;
+     uniform float u_cam_fov;
+     uniform float u_cam_zoom;
+
+     uniform float u_refl_power;
+     uniform float u_refl_blur;
+
+     uniform vec3 u_object_colour;
+     uniform vec3 u_light_colour;
+     uniform vec3 u_bg_colour;
+
+     uniform bool u_spinning;
+     uniform bool u_curling;
+     uniform float u_spin_phase;
+
+     // The texture.
+     uniform samplerCube u_cube_env;
+
+     // movement variables
+     vec3 movement = vec3(.0);
+
+     const int maxIterations = 512;
+     const float stopThreshold = 0.001;
+     const float stepScale = .2;
+     const float eps = 0.005;
+     const vec3 clipColour = vec3(1.);
+     const vec3 fogColour = vec3(0.);
+
+     const vec3 light1_position = vec3(0, 1., -1.);
+     const vec3 light1_colour = vec3(.8, .8, .85);
+
+     struct Surface {
+       int object_id;
+       float distance;
+       vec3 position;
+       vec3 colour;
+       float shininess;
+       float specularStrength;
+       vec3 normal;
+       float steps;
+     };
+     struct Light {
+       vec3 position;
+       vec3 colour;
+       float ambience;
+     };
+
+     const int octaves = 4;
+
+     float bumps(in vec3 p, float phase, float size, vec3 frequency) {
+       return size * sin(p.x * frequency.x + phase) * cos(p.y * frequency.y + phase) * cos(p.z * frequency.z + phase);
+     }
+     float fractalBumps(in vec3 p, float phase, float size, vec3 frequency, float multiplier) {
+       // const float octaves = 2.;
+       float _bumps = bumps(p, phase, size, frequency);
+       for(int i = 1; i < octaves; i++) {
+         float f = float(i);
+         _bumps += bumps(p + f, phase + f * 10., size * multiplier * 1./f, frequency * f);
+       }
+
+       return _bumps * u_bump_strength;
+     }
+
+     vec3 cartesianToSpherical(vec3 p) {
+       float r = length(p);
+       return vec3(r, acos(p.z/r), atan(p.y, p.x));
+     }
+
+     vec3 sphericalToCartesian(vec3 s) {
+       return vec3(s.x * sin(s.y) * cos(s.z), s.x * sin(s.y) * sin(s.z), s.x * cos(s.y));
+     }
+
+     // This function describes the world in distances from any given 3 dimensional point in space
+     float world(vec3 position, inout int object_id, inout float field) {
+       if(u_spinning == true) {
+         float s = sin(u_time);
+         float c = cos(u_time);
+         position.xz *= mat2(c, -s, s, c);
+       }
+       vec3 pos = floor(position * .5);
+       object_id = int(floor(pos.x + pos.y + pos.z));
+
+       vec3 sphere = cartesianToSpherical(position);
+       if(u_curling == true) {
+         sphere.z += sphere.y * sin(u_time + u_spin_phase);
+       } else {
+         sphere.z += sphere.y * sin(u_spin_phase);
+       }
+       field = fractalBumps(sphere, 0., .002, vec3(10.), 20.) * (cos(sphere.y * 2. + 3.14159) * .5 + .5);
+       // sphere.x += (sin(sphere.y * 10.) + sin(sphere.z * 10.)) * sin(sphere.y + 3.1415) * .01;
+       position = sphericalToCartesian(sphere);
+
+       return length(position) - .3 + field;
+     }
+     float world(in vec3 position) {
+       int dummy = 0;
+       float field = 0.;
+       return world(position, dummy, field);
+     }
+
+     // Calculated the normal of any given point in space. Intended to be cast from the point of a surface
+     vec3 calculate_normal(in vec3 position) {
+       vec3 grad = vec3(
+         world(vec3(position.x + eps, position.y, position.z)) - world(vec3(position.x - eps, position.y, position.z)),
+         world(vec3(position.x, position.y + eps, position.z)) - world(vec3(position.x, position.y - eps, position.z)),
+         world(vec3(position.x, position.y, position.z + eps)) - world(vec3(position.x, position.y, position.z - eps))
+       );
+
+       return normalize(grad);
+     }
+
+     Surface getSurface(int object_id, float rayDepth, vec3 sp, float field, vec3 colour) {
+       return Surface(
+         object_id,              // The object ID, used for when we have multiple objects in a scene
+         rayDepth,               // The depth that the view ray travelled to get here
+         sp,                     // The 3D position of the surface
+          colour,                 // The oclour of the surface at this psition
+         u_shininess,            // The shininess of the material
+         u_strength,                     // The specular strength component. For lower shininess values, we normally want much lower values here
+         calculate_normal(sp),   // The normal of the surface
+         field
+       );
+     }
+
+     // The raymarch loop
+     Surface rayMarch(vec3 ro, vec3 rd, float start, float end) {
+       float sceneDist = 1e4;
+       float rayDepth = start;
+       float field = 0.;
+       int object_id = 0;
+       for(int i = 0; i < maxIterations; i++) {
+         sceneDist = world(ro + rd * rayDepth, object_id, field);
+
+         if(sceneDist < stopThreshold || rayDepth > end) {
+           break;
+         }
+
+         field += float(i);
+
+         rayDepth += sceneDist * stepScale;
+       }
+
+       vec3 colour = u_object_colour;
+
+       return getSurface(object_id, rayDepth, ro + rd * rayDepth, field, colour);
+     }
+
+     // This is here to provide a fallback for devices that don't support GL_EXT_shader_texture_lod
+     vec4 cubeTexture(samplerCube map, vec3 uv, float lod) {
+       #ifdef GL_EXT_shader_texture_lod
+       return textureCubeLodEXT(map, uv, lod);
+       #endif
+       return textureCube(map, uv);
+     }
+
+     vec3 lighting(Surface surface_object, vec3 cam, Light light) {
+
+       // start with black
+       vec3 sceneColour = vec3(1);
+
+       // Surface normal
+       vec3 normal = surface_object.normal;
+
+       // Light
+       // Light position
+       vec3 lp = light.position;
+       // Light direction
+       vec3 ld = lp - surface_object.position;
+
+       // Blinn-phong
+       // View direction
+       vec3 vd = normalize(cam - surface_object.position);
+       // The halfway vector
+       vec3 h = normalize(normalize(ld) + vd);
+
+       vec3 I = normalize(surface_object.position - cam);
+       vec3 R = reflect(I, normal);
+       vec3 reflection = cubeTexture(u_cube_env, R, u_refl_blur).rgb;
+
+       // Ambient lighting
+       const float ambientStrength = .1;
+       // Ambient light component
+       vec3 ambient = light.ambience * light.colour;
+
+       // Diffuse component
+       float diff = max(dot(normal, normalize(ld)), 0.);
+       vec3 diffuse = diff * light.colour;
+
+       // Specularity
+       float spec = pow( max(dot(normal, h), 0.), surface_object.shininess );
+       vec3 specular = light.colour * spec * surface_object.specularStrength;
+
+       sceneColour = (diffuse + ambient) * surface_object.colour + specular;
+
+       // Fresnel
+       vec3 bias = mix(surface_object.colour, vec3(u_fresnel_bias), u_metalness);
+       float fresnel = u_fresnel_bias + (u_fresnel_scale * pow(1.0 - dot(vd, surface_object.normal), u_fresnel_power));
+
+       R = refract(I, normal, 1.1);
+       vec3 refraction = cubeTexture(u_cube_env, R, u_refl_blur).rgb;
+
+       sceneColour += refraction * u_refl_power * (fresnel);
+       sceneColour += reflection * u_refl_power * fresnel;
+
+       return sceneColour;
+     }
+
+     vec3 path(float z) {
+       return vec3(0,0,0.);
+       return vec3(0,0,-100.+z);
+     }
+
+     void main() {
+       vec2 uv = (gl_FragCoord.xy - 0.5 * u_resolution.xy) / min(u_resolution.y, u_resolution.x);
+
+       // movement
+       movement = path(u_time);
+
+       // Camera and look-at
+       vec3 cam = vec3(u_cam_x,u_cam_y,u_cam_z);
+       cam += cam * -u_cam_zoom;
+       vec3 lookAt = vec3(0,0,0);
+
+       // add movement
+       lookAt += movement;
+       cam += movement;
+
+       // Unit vectors
+       vec3 forward = normalize(lookAt - cam);
+       vec3 right = normalize(vec3(forward.z, 0., -forward.x));
+       vec3 up = normalize(cross(forward, right));
+
+       gl_FragColor = cubeTexture(u_cube_env, forward + u_cam_fov * uv.x * right + u_cam_fov * uv.y * up, 1.);
+     //  return;
+
+       // FOV
+       float FOV = u_cam_fov;
+
+       // Ray origin and ray direction
+       vec3 ro = cam;
+       vec3 rd = normalize(forward + FOV * uv.x * right + FOV * uv.y * up);
+
+       // Ray marching
+       const float clipNear = 0.;
+       const float clipFar = 32.;
+       Surface objectSurface = rayMarch(ro, rd, clipNear, clipFar);
+       if(objectSurface.distance > clipFar) {
+       gl_FragColor = vec4(u_bg_colour, 1.);
+         return;
+       }
+
+       // With this setup, we can have multiple lights
+       vec3 sceneColour = lighting(objectSurface, cam, Light(cam + vec3(1, 1, 1.5), u_light_colour, .0));
+
+       gl_FragColor = vec4(sceneColour, 1.);
+     }
+  </script>
+  <script src="webtc.js"></script>
+  <script src="clipSpace3d-core.js"></script>
+  <script>
+    function aff_render(config) {}
+    function aff_download() {
+      // postDownloadImage({ image });
+    }
+  </script>
+  <script src="_common.js"></script>
+</body>

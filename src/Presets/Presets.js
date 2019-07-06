@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import classnames from "classnames";
 import MiniCard from "../MiniCard/MiniCard";
 import gradientWaves from "../_adaptationConfigs/gradientWaves";
+import linearGradient from "../_adaptationConfigs/linearGradient";
 import mesh from "../_adaptationConfigs/mesh";
 import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
 import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
@@ -12,6 +13,63 @@ import blobmaker from "../_adaptationConfigs/blobmaker";
 import s from "./Presets.module.css";
 
 const cards = [
+  // {
+  //   ...template,
+  //   thumbs: ["/preset_thumbs/10.png"],
+  //   thumbWidth: 130,
+  //   initState: {
+  //     size: { width: 600, height: 500 },
+  //     config: {
+  //     },
+  //     insertedItems: [
+  //     ]
+  //   }
+  // },
+  {
+    ...linearGradient,
+    thumbs: ["/preset_thumbs/12.png"],
+    thumbWidth: 156,
+    initState: {
+      size: { width: 600, height: 500 },
+      config: {
+        angle: 200,
+        direction: "custom_angle",
+        palette: ["#c95c46", "#511414"]
+      },
+      insertedItems: [
+        {
+          id: 100,
+          type: "object",
+          showIframe: true,
+          adaptation: gradientWaves,
+          width: 571,
+          height: 468,
+          position: { left: 15, top: 16 },
+          configValues: {
+            amplituteX: 60,
+            amplituteY: 60,
+            fill: false,
+            lines: 10,
+            palette: ["#e9db6d", "#c95c46"],
+            randomValues: [0.1329382981666447, 0.5229732095475299],
+            smoothness: 10
+          }
+        }
+      ]
+    }
+  },
+  {
+    ...mesh,
+    thumbs: ["/preset_thumbs/2.png"],
+    thumbWidth: 130,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        distanceBetween: 7,
+        palette: ["#fff", "#000"]
+      }
+    }
+  },
   {
     ...gradientBubbles,
     thumbs: ["/preset_thumbs/11.png"],
@@ -124,7 +182,8 @@ is simple`
         fill: true,
         lines: 70,
         palette: ["#00fb94", "#006b65"],
-        smoothness: 98
+        smoothness: 98,
+        randomValues: []
       },
       insertedItems: [
         {
@@ -210,18 +269,6 @@ Fiber`
         palette: ["#ad42a5", "#fad18f"],
         smoothness: 1,
         randomValues: [Math.random(), Math.random()]
-      }
-    }
-  },
-  {
-    ...mesh,
-    thumbs: ["/preset_thumbs/2.png"],
-    thumbWidth: 130,
-    initState: {
-      size: { width: 1000, height: 1000 },
-      config: {
-        distanceBetween: 7,
-        palette: ["#fff", "#000"]
       }
     }
   },
