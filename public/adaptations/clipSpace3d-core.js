@@ -11,6 +11,8 @@ const twodWebGL = new WTCGL(
 twodWebGL.startTime = -0.5;
 // twodWebGL.startTime = -100 + Math.random() * 50;
 
+window.tdWebGL = twodWebGL;
+
 window.addEventListener("resize", () => {
   twodWebGL.resize(window.innerWidth, window.innerHeight);
 });

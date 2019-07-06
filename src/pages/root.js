@@ -28,7 +28,7 @@ import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
 import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
 import blobmaker from "../_adaptationConfigs/blobmaker";
 import subtleRib from "../_adaptationConfigs/subtle_rib";
-// import clipSpace3d from "../_adaptationConfigs/clipSpace3d";
+import clipSpace3d from "../_adaptationConfigs/clipSpace3d";
 export const allAdaptations = [
   linearGradient,
   trianglify,
@@ -71,9 +71,15 @@ export default () => (
       <Presets />
       <div className={s["subheader"]}>backgrounds</div>
       <Card.Group className="cards">
-        {/* <MiniCard showModal {...clipSpace3d} /> */}
+        <MiniCard {...clipSpace3d} />
         <MiniCard {...blobmaker} />
-        <MiniCard {...linearGradient} />
+        <MiniCard
+          {...subtleRib}
+          initState={{
+            config: { color: "#c1bbf2" },
+            size: { width: 600, height: 500 }
+          }}
+        />
         <MiniCard {...trianglify} />
         <MiniCard {...particles} />
         <MiniCard {...gradientWaves} />
@@ -102,6 +108,7 @@ export default () => (
           {...generateArt}
         />
         <MiniCard {...wallPattern} />
+        <MiniCard {...linearGradient} />
         <MiniCard {...postmodern} />
       </Card.Group>
       <SubscribeBlock />

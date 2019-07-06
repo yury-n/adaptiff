@@ -300,9 +300,101 @@
   <script src="webtc.js"></script>
   <script src="clipSpace3d-core.js"></script>
   <script>
-    function aff_render(config) {}
+    const prevConfig = {};
+    function aff_render(config) {
+      if (prevConfig.bumpStrength !== config.bumpStrength) {
+        window.tdWebGL.addUniform(
+          "bump_strength",
+          WTCGL.TYPE_FLOAT,
+          config.bumpStrength / 10
+        );
+      }
+      if (prevConfig.objectShininess !== config.objectShininess) {
+        window.tdWebGL.addUniform(
+          "shininess",
+          WTCGL.TYPE_FLOAT,
+          config.objectShininess
+        );
+      }
+      if (prevConfig.camX !== config.camX) {
+        window.tdWebGL.addUniform("cam_x", WTCGL.TYPE_FLOAT, config.camX / 10);
+      }
+      if (prevConfig.camY !== config.camY) {
+        window.tdWebGL.addUniform("cam_y", WTCGL.TYPE_FLOAT, config.camY / 10);
+      }
+      if (prevConfig.camZ !== config.camZ) {
+        window.tdWebGL.addUniform("cam_z", WTCGL.TYPE_FLOAT, config.camZ / 10);
+      }
+      if (prevConfig.camZoom !== config.camZoom) {
+        window.tdWebGL.addUniform(
+          "cam_zoom",
+          WTCGL.TYPE_FLOAT,
+          config.camZoom / 10
+        );
+      }
+      if (prevConfig.objectColor !== config.objectColor) {
+        let u = [...hexToRGB(config.objectColor)];
+        u[0] /= 255;
+        u[1] /= 255;
+        u[2] /= 255;
+        twodWebGL.addUniform("object_colour", WTCGL.TYPE_V3, u);
+      }
+      if (prevConfig.lightColor !== config.lightColor) {
+        let u = [...hexToRGB(config.lightColor)];
+        u[0] /= 255;
+        u[1] /= 255;
+        u[2] /= 255;
+        twodWebGL.addUniform("light_colour", WTCGL.TYPE_V3, u);
+      }
+      if (prevConfig.backgroundColor !== config.backgroundColor) {
+        let u = [...hexToRGB(config.backgroundColor)];
+        u[0] /= 255;
+        u[1] /= 255;
+        u[2] /= 255;
+        twodWebGL.addUniform("bg_colour", WTCGL.TYPE_V3, u);
+      }
+      if (prevConfig.envPower !== config.envPower) {
+        window.tdWebGL.addUniform(
+          "refl_power",
+          WTCGL.TYPE_FLOAT,
+          config.envPower / 10
+        );
+      }
+      if (prevConfig.envBlur !== config.envBlur) {
+        window.tdWebGL.addUniform(
+          "refl_blur",
+          WTCGL.TYPE_FLOAT,
+          config.envBlur
+        );
+      }
+      prevConfig = config;
+    }
+    function hexToRGB(h) {
+      let r = 0,
+        g = 0,
+        b = 0;
+
+      // 3 digits
+      if (h.length == 4) {
+        r = "0x" + h[1] + h[1];
+        g = "0x" + h[2] + h[2];
+        b = "0x" + h[3] + h[3];
+
+        // 6 digits
+      } else if (h.length == 7) {
+        r = "0x" + h[1] + h[2];
+        g = "0x" + h[3] + h[4];
+        b = "0x" + h[5] + h[6];
+      }
+
+      return [+r, +g, +b];
+    }
     function aff_download() {
-      // postDownloadImage({ image });
+      var image = document
+        .querySelector("#preview")
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      postDownloadImage({ image });
     }
   </script>
   <script src="_common.js"></script>
