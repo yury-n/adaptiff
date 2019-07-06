@@ -216,7 +216,7 @@ function hexToHSL(hex) {
 /*--------------------
 INIT
 --------------------*/
-function init(hexStart, hexEnd) {
+window.init = function(hexStart, hexEnd) {
   settings = {
     amplitudeX: window.amplituteX,
     amplitudeY: window.amplituteY,
@@ -266,8 +266,7 @@ function init(hexStart, hexEnd) {
   Paths.forEach(function(path) {
     path.createPath();
   });
-}
-window.init = init;
+};
 
 /*--------------------
 WIN RESIZE
