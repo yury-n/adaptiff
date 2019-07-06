@@ -274,7 +274,7 @@ WIN RESIZE
 window.addEventListener("resize", function() {
   winW = window.innerWidth;
   winH = window.innerHeight;
-  init(window.startColor, window.endColor);
+  window.init(window.startColor, window.endColor);
 });
 
 /*--------------------
@@ -296,6 +296,6 @@ function randomize() {
     fill: Math.random() * 1 > 0.3 ? true : false,
     crazyness: Math.random() * 1 > 0.9 ? true : false
   };
-  init(window.startColor, window.endColor);
+  window.init(window.startColor, window.endColor);
   gui.destroy();
 }
