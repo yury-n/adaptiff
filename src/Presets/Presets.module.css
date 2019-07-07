@@ -27,6 +27,10 @@
   flex-shrink: 0;
 }
 
+.root > *:first-child {
+  margin-left: 0 !important;
+}
+
 .expanded .view-all {
   display: none;
 }

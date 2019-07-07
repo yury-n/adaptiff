@@ -1,6 +1,5 @@
 import React from "react";
 import classnames from "classnames";
-import Hero from "../Hero/Hero";
 import { Card } from "semantic-ui-react";
 import MiniCard from "../MiniCard/MiniCard";
 
@@ -66,7 +65,6 @@ export default () => (
     <div
       className={classnames(s["main-content-area"], "restricted-width-area")}
     >
-      <Hero />
       <div className={s["subheader"]}>presets from community</div>
       <Presets />
       <div className={s["subheader"]}>backgrounds</div>

@@ -11,13 +11,13 @@
   font-weight: bold;
   margin: auto;
   margin-bottom: 20px;
-  left: 16px;
+  left: 0px;
   font-size: 17px;
 }
 
 .subheader:before {
   content: "";
-  display: block;
+  display: none;
   width: 12px;
   height: 12px;
   position: absolute;
