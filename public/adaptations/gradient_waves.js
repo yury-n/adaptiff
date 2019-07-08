@@ -272,7 +272,6 @@ window.init = function(hexStart, hexEnd) {
     path.createPath();
   });
 };
-init();
 
 /*--------------------
 WIN RESIZE
@@ -280,105 +279,5 @@ WIN RESIZE
 window.addEventListener("resize", function() {
   winW = window.innerWidth;
   winH = window.innerHeight;
-  init();
+  init(window.startColor, window.endColor);
 });
-
-/*--------------------
-DAT GUI
---------------------*/
-function datgui() {
-  gui = new dat.GUI();
-
-  // Settings
-  let guiSettings = gui.addFolder("Settings");
-  guiSettings
-    .add(settings, "lines", 5, 50)
-    .step(1)
-    .onChange(init);
-  guiSettings
-    .add(settings, "amplitudeX", 20, 300)
-    .step(1)
-    .onChange(init);
-  guiSettings
-    .add(settings, "amplitudeY", 0, 200)
-    .step(1)
-    .onChange(init);
-  guiSettings
-    .add(settings, "offsetX", -20, 20)
-    .step(1)
-    .onChange(init);
-  guiSettings
-    .add(settings, "smoothness", 0.5, 10)
-    .step(0.2)
-    .onChange(init);
-  guiSettings.add(settings, "fill", false).onChange(init);
-  guiSettings.add(settings, "crazyness", false).onChange(init);
-  guiSettings.open();
-
-  // Start Color
-  let guiStartColor = gui.addFolder("Start Color");
-  guiStartColor
-    .add(settings, "hueStartColor", 0, 360)
-    .step(1)
-    .onChange(init);
-  guiStartColor
-    .add(settings, "saturationStartColor", 0, 100)
-    .step(1)
-    .onChange(init);
-  guiStartColor
-    .add(settings, "lightnessStartColor", 0, 100)
-    .step(1)
-    .onChange(init);
-  guiStartColor.open();
-
-  // End Color
-  let guiEndColor = gui.addFolder("End Color");
-  guiEndColor
-    .add(settings, "hueEndColor", 0, 360)
-    .step(1)
-    .onChange(init);
-  guiEndColor
-    .add(settings, "saturationEndColor", 0, 100)
-    .step(1)
-    .onChange(init);
-  guiEndColor
-    .add(settings, "lightnessEndColor", 0, 100)
-    .step(1)
-    .onChange(init);
-  guiEndColor.open();
-
-  // Randomize
-  let guiRandomize = {
-    randomize: function() {
-      randomize();
-    }
-  };
-  gui.add(guiRandomize, "randomize");
-
-  return gui;
-}
-datgui();
-
-/*--------------------
-RANDOMIZE
---------------------*/
-function randomize() {
-  settings = {
-    lines: parseInt(5 + Math.random() * 45),
-    amplitudeX: parseInt(20 + Math.random() * 300),
-    amplitudeY: parseInt(Math.random() * 200),
-    hueStartColor: parseInt(Math.random() * 360),
-    saturationStartColor: 74,
-    lightnessStartColor: 67,
-    hueEndColor: parseInt(Math.random() * 360),
-    saturationEndColor: 90,
-    lightnessEndColor: 14,
-    smoothness: 1 + parseInt(Math.random() * 9),
-    offsetX: parseInt(-20 + Math.random() * 40),
-    fill: Math.random() * 1 > 0.3 ? true : false,
-    crazyness: Math.random() * 1 > 0.9 ? true : false
-  };
-  init();
-  gui.destroy();
-  datgui();
-}

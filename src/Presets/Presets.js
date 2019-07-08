@@ -27,6 +27,70 @@ const cards = [
   // },
   {
     ...linearGradient,
+    thumbs: ["/preset_thumbs/16.png"],
+    thumbWidth: 98,
+    initState: {
+      size: { width: 450, height: 600 },
+      config: {
+        angle: 200,
+        direction: "custom_angle",
+        palette: ["#0b0a21", "#1e1b57"]
+      },
+      insertedItems: [
+        {
+          id: 100,
+          type: "object",
+          showIframe: true,
+          adaptation: linearGradient,
+          width: 398,
+          height: 540,
+          position: { left: 25, top: 31 },
+          configValues: {
+            angle: 31,
+            direction: "custom_angle",
+            palette: ["#a52bf8", "#02d0ea"]
+          }
+        },
+        {
+          id: 101,
+          type: "object",
+          showIframe: true,
+          adaptation: gradientWaves,
+          width: 351,
+          height: 462,
+          position: { left: 48, top: 75 },
+          configValues: {
+            amplituteX: 88,
+            amplituteY: 10,
+            fill: false,
+            lines: 67,
+            palette: ["#cf91f9", "#02d0ea"],
+            randomValues: [0.044420196340127394, 0.22911748347161964],
+            smoothness: 12
+          }
+        },
+        {
+          id: 103,
+          type: "text",
+          position: { left: 81, top: 172 },
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            color: "#ffffff",
+            fontFamily: "Monoton",
+            fontSize: 77,
+            letterSpacing: 0,
+            padding: 10
+          },
+          text: `what
+so
+not`
+        }
+      ]
+    }
+  },
+  {
+    ...linearGradient,
     thumbs: ["/preset_thumbs/12.png"],
     thumbWidth: 156,
     initState: {
