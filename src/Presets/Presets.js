@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import classnames from "classnames";
 import MiniCard from "../MiniCard/MiniCard";
 import gradientWaves from "../_adaptationConfigs/gradientWaves";
+import clipSpace3d from "../_adaptationConfigs/clipSpace3d";
 import linearGradient from "../_adaptationConfigs/linearGradient";
 import mesh from "../_adaptationConfigs/mesh";
 import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
@@ -200,37 +201,24 @@ anywhere`
     }
   },
   {
-    ...subtleRib,
-    thumbs: ["/preset_thumbs/10.png"],
-    thumbWidth: 130,
+    ...clipSpace3d,
+    thumbs: ["/preset_thumbs/16.png"],
+    thumbWidth: 219,
     initState: {
-      size: { width: 500, height: 500 },
+      size: { width: 930, height: 552 },
       config: {
-        color: "#fcd633",
-        intensity: 22,
-        mode: "vertical"
-      },
-      insertedItems: [
-        {
-          id: 100,
-          type: "text",
-          config: {
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
-            borderWidth: 0,
-            color: "#000",
-            fontFamily: "Noticia Text",
-            fontSize: 44,
-            isBold: false,
-            isItalic: false,
-            letterSpacing: 4,
-            padding: 10
-          },
-          position: { left: 135, top: 163 },
-          text: `every
-next step
-is simple`
-        }
-      ]
+        bumpStrength: 88,
+        objectColor: "#050504",
+        objectShininess: 200,
+        lightColor: "#ffffff",
+        backgroundColor: "#ffd1d1",
+        envPower: 2,
+        envBlur: 0,
+        camX: 0,
+        camY: 2,
+        camZ: -30,
+        camZoom: 0
+      }
     }
   },
   {
@@ -334,6 +322,40 @@ Fiber`
         smoothness: 1,
         randomValues: [Math.random(), Math.random()]
       }
+    }
+  },
+  {
+    ...subtleRib,
+    thumbs: ["/preset_thumbs/10.png"],
+    thumbWidth: 130,
+    initState: {
+      size: { width: 500, height: 500 },
+      config: {
+        color: "#fcd633",
+        intensity: 22,
+        mode: "vertical"
+      },
+      insertedItems: [
+        {
+          id: 100,
+          type: "text",
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            color: "#000",
+            fontFamily: "Noticia Text",
+            fontSize: 44,
+            isBold: false,
+            isItalic: false,
+            letterSpacing: 4,
+            padding: 10
+          },
+          position: { left: 135, top: 163 },
+          text: `every
+next step
+is simple`
+        }
+      ]
     }
   },
   {
