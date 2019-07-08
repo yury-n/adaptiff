@@ -202,7 +202,7 @@ anywhere`
   },
   {
     ...clipSpace3d,
-    thumbs: ["/preset_thumbs/16.png"],
+    thumbs: ["/preset_thumbs/17.png"],
     thumbWidth: 219,
     initState: {
       size: { width: 930, height: 552 },
