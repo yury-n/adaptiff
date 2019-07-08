@@ -1,10 +1,66 @@
 let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 svg.setAttribute("id", "svg");
 document.body.appendChild(svg);
+
+function hexToHSL(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  r = parseInt(result[1], 16);
+  g = parseInt(result[2], 16);
+  b = parseInt(result[3], 16);
+  (r /= 255), (g /= 255), (b /= 255);
+  var max = Math.max(r, g, b),
+    min = Math.min(r, g, b);
+  var h,
+    s,
+    l = (max + min) / 2;
+  if (max == min) {
+    h = s = 0; // achromatic
+  } else {
+    var d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r:
+        h = (g - b) / d + (g < b ? 6 : 0);
+        break;
+      case g:
+        h = (b - r) / d + 2;
+        break;
+      case b:
+        h = (r - g) / d + 4;
+        break;
+    }
+    h /= 6;
+  }
+
+  var HSL = new Object();
+  HSL["h"] = h;
+  HSL["s"] = s;
+  HSL["l"] = l;
+
+  HSL["s"] = Math.round(s * 100);
+  HSL["l"] = Math.round(l * 100);
+  HSL["h"] = Math.round(360 * h);
+
+  return "hsl(" + HSL["h"] + ", " + HSL["s"] + "%, " + HSL["l"] + "%)";
+}
 /*--------------------
 SETTINGS
 --------------------*/
-let settings = {};
+let settings = {
+  amplitudeX: 100,
+  amplitudeY: 20,
+  lines: 20,
+  hueStartColor: 53,
+  saturationStartColor: 74,
+  lightnessStartColor: 67,
+  hueEndColor: 216,
+  saturationEndColor: 100,
+  lightnessEndColor: 7,
+  smoothness: 3,
+  offsetX: 10,
+  fill: true,
+  crazyness: false
+};
 
 /*--------------------
 VARS
@@ -43,18 +99,16 @@ class Path {
     this.root.push({ x: x, y: rootY });
 
     while (x < winW) {
-      let value = Math.random() > 0.5 ? 1 : -1; // TODO: explore upsidedown
+      let value = Math.random() > 0.5 ? 1 : -1;
 
       // Crazyness
-      if (settings.randomValues.length > 0) {
+      if (settings.crazyness) {
         x += parseInt(
-          (settings.randomValues[0] * settings.amplitudeX) / 2 +
-            settings.amplitudeX / 2
+          (Math.random() * settings.amplitudeX) / 2 + settings.amplitudeX / 2
         );
         y =
           parseInt(
-            (settings.randomValues[1] * settings.amplitudeY) / 2 +
-              settings.amplitudeY / 2
+            (Math.random() * settings.amplitudeY) / 2 + settings.amplitudeY / 2
           ) *
             value +
           rootY;
@@ -100,11 +154,6 @@ class Path {
       path.setAttribute("fill", "none");
     }
     svg.appendChild(path);
-    // if (settings.fill) {
-    //   svg.setAttribute("class", "path");
-    // } else {
-    //   svg.setAttribute("class", "stroke");
-    // }
 
     // first & second points
     let d = `M -${overflow} ${winH + overflow}`;
@@ -169,50 +218,6 @@ class Path {
   }
 }
 
-// Converter RGB to HSL
-
-function hexToHSL(hex) {
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  r = parseInt(result[1], 16);
-  g = parseInt(result[2], 16);
-  b = parseInt(result[3], 16);
-  (r /= 255), (g /= 255), (b /= 255);
-  var max = Math.max(r, g, b),
-    min = Math.min(r, g, b);
-  var h,
-    s,
-    l = (max + min) / 2;
-  if (max == min) {
-    h = s = 0; // achromatic
-  } else {
-    var d = max - min;
-    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-    switch (max) {
-      case r:
-        h = (g - b) / d + (g < b ? 6 : 0);
-        break;
-      case g:
-        h = (b - r) / d + 2;
-        break;
-      case b:
-        h = (r - g) / d + 4;
-        break;
-    }
-    h /= 6;
-  }
-
-  var HSL = new Object();
-  HSL["h"] = h;
-  HSL["s"] = s;
-  HSL["l"] = l;
-
-  HSL["s"] = Math.round(s * 100);
-  HSL["l"] = Math.round(l * 100);
-  HSL["h"] = Math.round(360 * h);
-
-  return "hsl(" + HSL["h"] + ", " + HSL["s"] + "%, " + HSL["l"] + "%)";
-}
-
 /*--------------------
 INIT
 --------------------*/
@@ -220,6 +225,7 @@ window.init = function(hexStart, hexEnd) {
   settings = {
     amplitudeX: window.amplituteX,
     amplitudeY: window.amplituteY,
+    crazyness: window.crazyness,
     lines: window.lines,
     hueStartColor: 255,
     saturationStartColor: 74,
@@ -229,8 +235,7 @@ window.init = function(hexStart, hexEnd) {
     lightnessEndColor: 7,
     smoothness: window.smoothness / 10,
     offsetX: 10,
-    fill: window.fill,
-    randomValues: window.randomValues
+    fill: window.fill
   };
 
   // Overflow
@@ -267,6 +272,7 @@ window.init = function(hexStart, hexEnd) {
     path.createPath();
   });
 };
+init();
 
 /*--------------------
 WIN RESIZE
@@ -274,8 +280,84 @@ WIN RESIZE
 window.addEventListener("resize", function() {
   winW = window.innerWidth;
   winH = window.innerHeight;
-  window.init(window.startColor, window.endColor);
+  init();
 });
+
+/*--------------------
+DAT GUI
+--------------------*/
+function datgui() {
+  gui = new dat.GUI();
+
+  // Settings
+  let guiSettings = gui.addFolder("Settings");
+  guiSettings
+    .add(settings, "lines", 5, 50)
+    .step(1)
+    .onChange(init);
+  guiSettings
+    .add(settings, "amplitudeX", 20, 300)
+    .step(1)
+    .onChange(init);
+  guiSettings
+    .add(settings, "amplitudeY", 0, 200)
+    .step(1)
+    .onChange(init);
+  guiSettings
+    .add(settings, "offsetX", -20, 20)
+    .step(1)
+    .onChange(init);
+  guiSettings
+    .add(settings, "smoothness", 0.5, 10)
+    .step(0.2)
+    .onChange(init);
+  guiSettings.add(settings, "fill", false).onChange(init);
+  guiSettings.add(settings, "crazyness", false).onChange(init);
+  guiSettings.open();
+
+  // Start Color
+  let guiStartColor = gui.addFolder("Start Color");
+  guiStartColor
+    .add(settings, "hueStartColor", 0, 360)
+    .step(1)
+    .onChange(init);
+  guiStartColor
+    .add(settings, "saturationStartColor", 0, 100)
+    .step(1)
+    .onChange(init);
+  guiStartColor
+    .add(settings, "lightnessStartColor", 0, 100)
+    .step(1)
+    .onChange(init);
+  guiStartColor.open();
+
+  // End Color
+  let guiEndColor = gui.addFolder("End Color");
+  guiEndColor
+    .add(settings, "hueEndColor", 0, 360)
+    .step(1)
+    .onChange(init);
+  guiEndColor
+    .add(settings, "saturationEndColor", 0, 100)
+    .step(1)
+    .onChange(init);
+  guiEndColor
+    .add(settings, "lightnessEndColor", 0, 100)
+    .step(1)
+    .onChange(init);
+  guiEndColor.open();
+
+  // Randomize
+  let guiRandomize = {
+    randomize: function() {
+      randomize();
+    }
+  };
+  gui.add(guiRandomize, "randomize");
+
+  return gui;
+}
+datgui();
 
 /*--------------------
 RANDOMIZE
@@ -296,6 +378,7 @@ function randomize() {
     fill: Math.random() * 1 > 0.3 ? true : false,
     crazyness: Math.random() * 1 > 0.9 ? true : false
   };
-  window.init(window.startColor, window.endColor);
+  init();
   gui.destroy();
+  datgui();
 }

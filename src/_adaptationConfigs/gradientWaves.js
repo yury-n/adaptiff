@@ -16,14 +16,13 @@ export default {
   thumbs: ["/thumbs/gradientWaves/1.png"],
   config: [
     {
-      key: "amplituteY",
-      text: "Amplitude Y",
+      key: "lines",
+      text: "Lines",
       type: "range",
-      defaultValue: 60,
-      min: 30,
-      max: 150
+      defaultValue: 10,
+      min: 1,
+      max: 100
     },
-
     {
       key: "amplituteX",
       text: "Amplitude X",
@@ -33,14 +32,13 @@ export default {
       max: 150
     },
     {
-      key: "lines",
-      text: "Lines",
+      key: "amplituteY",
+      text: "Amplitude Y",
       type: "range",
-      defaultValue: 10,
-      min: 1,
-      max: 100
+      defaultValue: 60,
+      min: 30,
+      max: 150
     },
-
     {
       key: "smoothness",
       text: "Smoothness",

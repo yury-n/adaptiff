@@ -18,7 +18,7 @@
       // debug: config = JSON.parse();
       lastConfig = config;
 
-      window.crazyness = config.crazyness;
+      window.crazyness = config.randomValues.length > 0;
       window.fill = config.fill;
       window.smoothness = config.smoothness;
       window.lines = config.lines;
@@ -26,7 +26,6 @@
       window.amplituteY = config.amplituteY;
       window.startColor = config.palette[0];
       window.endColor = config.palette[1];
-      window.randomValues = config.randomValues;
 
       window.init(window.startColor, window.endColor);
       initialized = true;
@@ -34,19 +33,21 @@
 
     function aff_download() {
       var canvas = document.createElement("canvas");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth * 2;
+      canvas.height = window.innerHeight * 2;
       var svg = document.getElementById("svg");
       var ctx = canvas.getContext("2d");
       var data = new XMLSerializer().serializeToString(svg);
       var DOMURL = window.URL || window.webkitURL || window;
 
       var img = new Image();
-      var svgBlob = new Blob([data], { type: "image/svg+xml;charset=utf-8" });
+      var svgBlob = new Blob([data], {
+        type: "image/svg+xml;base64;charset=utf-8"
+      });
       var url = DOMURL.createObjectURL(svgBlob);
 
       img.onload = function() {
-        ctx.drawImage(img, 0, 0, window.innerWidth, window.innerHeight);
+        ctx.drawImage(img, 0, 0, window.innerWidth * 4, window.innerHeight * 4);
         DOMURL.revokeObjectURL(url);
 
         var imgURI = canvas
