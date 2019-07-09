@@ -6,3 +6,8 @@
   background: transparent !important;
   box-shadow: none !important;
 }
+
+.palette-block,
+.single-color-block {
+  margin-bottom: 50px;
+}

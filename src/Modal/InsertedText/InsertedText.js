@@ -1,11 +1,15 @@
 import React from "react";
+import classnames from "classnames";
 import { colorObjToString } from "../../_utils";
 import WebFont from "webfontloader";
 
 import s from "./InsertedText.module.css";
 
 export default React.memo(
-  React.forwardRef(function InsertedText({ initialValue, config, scale }, ref) {
+  React.forwardRef(function InsertedText(
+    { initialValue, isEditable, config, scale },
+    ref
+  ) {
     const initialValueParts = initialValue ? initialValue.split(/\n/) : [];
     const initialValuePartsWithBRs = [];
     initialValueParts.forEach((part, index) => {
@@ -25,9 +29,9 @@ export default React.memo(
     return (
       <span
         ref={ref}
-        contentEditable={true}
+        contentEditable={isEditable}
         suppressContentEditableWarning={true}
-        className={s["text"]}
+        className={classnames(s["text"], isEditable && s["editable"])}
         style={{
           fontSize: `${config.fontSize * (scale || 1)}px`,
           fontFamily: config.fontFamily,

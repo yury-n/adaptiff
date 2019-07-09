@@ -2,9 +2,6 @@
   display: none;
 }
 
-.root.active .resize-handle,
-:global(.canvas-wrapper:not(.has-active-inserted-item))
-  .root:hover
-  .resize-handle {
+.root.active .resize-handle {
   display: block;
 }

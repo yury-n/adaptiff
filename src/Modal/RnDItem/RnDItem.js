@@ -1,15 +1,15 @@
 import React from "react";
 import classnames from "classnames";
 import DraggableItem, {
-  MARGIN_LEFT,
-  MARGIN_TOP
+  MARGIN_TOP,
+  MARGIN_LEFT
 } from "../DraggableItem/DraggableItem";
 import ResizableItem from "../ResizableItem/ResizableItem";
 
 import s from "./RnDItem.module.css";
 
 const initMarginsByItemId = {};
-const defaultMargins = { top: MARGIN_LEFT, left: MARGIN_TOP };
+const defaultMargins = { top: MARGIN_TOP, left: MARGIN_LEFT };
 
 let iframeNode;
 

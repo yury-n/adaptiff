@@ -13,45 +13,45 @@
 }
 
 .handle.top {
-  top: -16px;
+  top: -6px;
   left: 50%;
   margin-left: -5px;
 }
 
 .handle.bottom {
-  bottom: -16px;
+  bottom: -6px;
   left: 50%;
   margin-left: -5px;
 }
 
 .handle.left {
-  left: -16px;
+  left: -6px;
   top: 50%;
   margin-top: -5px;
 }
 
 .handle.right {
-  right: -16px;
+  right: -6px;
   top: 50%;
   margin-top: -5px;
 }
 
 .handle.top-right {
-  top: -16px;
-  right: -16px;
+  top: -6px;
+  right: -6px;
 }
 
 .handle.top-left {
-  top: -16px;
-  left: -16px;
+  top: -6px;
+  left: -6px;
 }
 
 .handle.bottom-left {
-  bottom: -16px;
-  left: -16px;
+  bottom: -6px;
+  left: -6px;
 }
 
 .handle.bottom-right {
-  bottom: -16px;
-  right: -16px;
+  bottom: -6px;
+  right: -6px;
 }

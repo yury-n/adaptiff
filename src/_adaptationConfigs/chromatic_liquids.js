@@ -39,7 +39,6 @@ export default {
   authorLink: "http://www.fangyexu.com/",
   thumbs: ["/thumbs/chromatic_liquids/1.png"],
   isPausable: true,
-  hasRandomness: true, // TODO: replace with config.randomValues
   config: [
     {
       key: "palette",

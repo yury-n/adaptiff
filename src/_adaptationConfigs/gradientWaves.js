@@ -16,6 +16,13 @@ export default {
   thumbs: ["/thumbs/gradientWaves/1.png"],
   config: [
     {
+      key: "palette",
+      text: "Palette",
+      type: "palette",
+      defaultValue: ownPallete[0],
+      options: ownPallete
+    },
+    {
       key: "lines",
       text: "Lines",
       type: "range",
@@ -48,6 +55,12 @@ export default {
       max: 100
     },
     {
+      type: "boolean",
+      key: "fill",
+      text: "Fill",
+      defaultValue: true
+    },
+    {
       key: "randomValues",
       type: "randomValues",
       text: "Randomness",
@@ -55,19 +68,6 @@ export default {
       defaultValue: Array(2)
         .fill()
         .map(() => Math.random())
-    },
-    {
-      key: "palette",
-      text: "Palette",
-      type: "palette",
-      defaultValue: ownPallete[0],
-      options: ownPallete
-    },
-    {
-      type: "boolean",
-      key: "fill",
-      text: "Fill",
-      defaultValue: true
     }
   ]
 };

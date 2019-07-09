@@ -4,6 +4,14 @@
 .text {
   display: block;
   outline: none;
-  cursor: text;
   line-height: 1.1;
+  user-select: none;
+  pointer-events: none;
+  cursor: inherit;
+}
+
+.text.editable {
+  cursor: text;
+  user-select: auto;
+  pointer-events: all;
 }

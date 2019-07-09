@@ -65,7 +65,7 @@ export default () => (
     <div
       className={classnames(s["main-content-area"], "restricted-width-area")}
     >
-      <div className={s["subheader"]}>presets from community</div>
+      <div className={s["subheader"]}>templates</div>
       <Presets />
       <div className={s["subheader"]}>backgrounds</div>
       <Card.Group className="cards">

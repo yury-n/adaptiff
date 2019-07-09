@@ -106,7 +106,7 @@ export default ({
           break;
         case "single-color":
           control = (
-            <>
+            <div className={s["single-color-block"]}>
               <ColorInput
                 key="single-color"
                 color={configValues[config.key]}
@@ -114,12 +114,12 @@ export default ({
                 onOpen={onStartSelectingColor}
                 onClose={onStopSelectingColor}
               />
-            </>
+            </div>
           );
           break;
         case "palette":
           control = (
-            <>
+            <div className={s["palette-block"]}>
               <PaletteDropdown
                 selectedPalette={configValues.palette}
                 palettes={config.options}
@@ -143,7 +143,7 @@ export default ({
                   onClose={onStopSelectingColor}
                 />
               ))}
-            </>
+            </div>
           );
           break;
         default:

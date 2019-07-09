@@ -40,14 +40,26 @@ export default ({
       onResize={onResize}
       onResizeStop={onResizeStop}
       handleStyles={{
-        top: { top: -20 },
-        bottom: { bottom: -20 },
-        left: { left: -20 },
-        right: { right: -20 },
-        topRight: { top: -20, right: -20 },
-        bottomRight: { bottom: -20, right: -20 },
-        bottomLeft: { bottom: -20, left: -20 },
-        topLeft: { top: -20, left: -20 }
+        top: { top: -7, height: 14, zIndex: 100 },
+        bottom: { bottom: -7, height: 14, zIndex: 100 },
+        left: { left: -7, width: 14, zIndex: 100 },
+        right: { right: -7, width: 14, zIndex: 100 },
+        topRight: { top: -7, width: 14, height: 14, right: -7, zIndex: 100 },
+        bottomRight: {
+          bottom: -7,
+          width: 14,
+          height: 14,
+          right: -7,
+          zIndex: 100
+        },
+        bottomLeft: {
+          bottom: -7,
+          width: 14,
+          height: 14,
+          left: -7,
+          zIndex: 100
+        },
+        topLeft: { top: -7, width: 14, height: 14, left: -7, zIndex: 100 }
       }}
     >
       <div

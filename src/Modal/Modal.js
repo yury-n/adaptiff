@@ -164,7 +164,6 @@ class TheModal extends Component {
       refreshIframe,
       isPausable,
       hasRandomness,
-      isTransparent,
       withCloseButton = true
     } = this.props;
     const {
@@ -294,7 +293,7 @@ class TheModal extends Component {
                   scale={scaleToFullyFit}
                 />
               </div>
-              {!isTransparent && (
+              {/* {!isTransparent && (
                 <div
                   className={s["canvas-shadow"]}
                   style={{
@@ -302,7 +301,7 @@ class TheModal extends Component {
                     height: canvasHeight && canvasHeight * scaleToFullyFit
                   }}
                 />
-              )}
+              )} */}
               {!isLoadingIframe &&
                 insertedItems.map(this.renderInsertedRnDItem)}
               {captureConfig && this.renderCaptureFrame()}
@@ -386,7 +385,7 @@ class TheModal extends Component {
       scale: scaleToFit,
       isActive: index === activeInsertedItemIndex,
       onClick: () => this.setActiveInsertedItemIndex(index),
-      onDragStart: this.onDragStart,
+      onDragStart: this.onDragStart(index),
       onDragStop: this.onDragStop,
       onResizeStart: this.onResizeStart(index),
       onResizeStop: this.onResizeStop,
@@ -542,8 +541,11 @@ class TheModal extends Component {
     }, 100); // prevent onModalRightSideClick closing TextConfig
   };
 
-  onDragStart = () => {
-    this.setState({ isDraggingInsertedItem: true });
+  onDragStart = insertedItemIndex => () => {
+    this.setState({
+      isDraggingInsertedItem: true,
+      activeInsertedItemIndex: insertedItemIndex
+    });
   };
 
   onDragStop = () => {
@@ -610,8 +612,8 @@ class TheModal extends Component {
     this.insertItem({
       id: this.insertedBlockId++,
       type: "image",
-      width: Math.round(canvasWidth * 0.2),
-      height: Math.round((canvasWidth * 0.2) / aspectRatio),
+      width: Math.round(canvasWidth * 0.5),
+      height: Math.round((canvasWidth * 0.5) / aspectRatio),
       imageUrl
     });
   };

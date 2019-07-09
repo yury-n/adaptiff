@@ -5,6 +5,12 @@ export default {
   thumbs: ["/thumbs/subtle_rib/1.png"],
   config: [
     {
+      key: "color",
+      text: "Color",
+      type: "single-color",
+      defaultValue: "#fcd633"
+    },
+    {
       key: "mode",
       text: "Mode",
       type: "select",
@@ -21,12 +27,6 @@ export default {
       defaultValue: 20,
       min: 0,
       max: 50
-    },
-    {
-      key: "color",
-      text: "Color",
-      type: "single-color",
-      defaultValue: "#fcd633"
     }
   ]
 };
