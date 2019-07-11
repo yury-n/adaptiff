@@ -543,9 +543,9 @@ class TheModal extends Component {
 
   onDragStart = insertedItemIndex => () => {
     this.setState({
-      isDraggingInsertedItem: true,
-      activeInsertedItemIndex: insertedItemIndex
+      isDraggingInsertedItem: true
     });
+    this.setActiveInsertedItemIndex(insertedItemIndex);
   };
 
   onDragStop = () => {
@@ -556,9 +556,9 @@ class TheModal extends Component {
 
   onResizeStart = insertedItemIndex => () => {
     this.setState({
-      isResizingInsertedItem: true,
-      activeInsertedItemIndex: insertedItemIndex
+      isResizingInsertedItem: true
     });
+    this.setActiveInsertedItemIndex(insertedItemIndex);
   };
 
   onResizeStop = () => {

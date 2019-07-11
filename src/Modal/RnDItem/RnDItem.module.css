@@ -1,5 +1,6 @@
 .resize-handle {
   display: none;
+  z-index: 100;
 }
 
 .root.active .resize-handle {

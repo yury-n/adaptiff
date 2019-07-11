@@ -28,6 +28,88 @@ const cards = [
   // },
   {
     ...linearGradient,
+    thumbs: ["/preset_thumbs/18.png"],
+    thumbWidth: 130,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        angle: 200,
+        direction: "top",
+        palette: ["#081027", "#0d1f52"]
+      },
+      insertedItems: [
+        {
+          id: 100,
+          type: "object",
+          showIframe: true,
+          adaptation: gradientWaves,
+          width: 1018.9873417721519,
+          height: 373.4177215189874,
+          position: { left: -4.219409282700422, top: -29.535864978902953 },
+          configValues: {
+            amplituteX: 200,
+            amplituteY: 16,
+            fill: false,
+            lines: 10,
+            palette: ["#402eff", "#5c4dfb"],
+            randomValues: [],
+            smoothness: 22
+          }
+        },
+        {
+          id: 101,
+          type: "text",
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            color: "#ffffff",
+            fontFamily: "Prata",
+            fontSize: 96,
+            isBold: false,
+            letterSpacing: 0,
+            padding: 10
+          },
+          text: "Catch the next wave",
+          position: { left: 25.31645569620253, top: 388.18565400843886 }
+        },
+        {
+          id: 102,
+          type: "object",
+          showIframe: true,
+          adaptation: gradientWaves,
+          width: 1002.1097046413503,
+          height: 341.7721518987342,
+          position: { left: 3.3783783783783785, top: 652.0270270270271 },
+          configValues: {
+            amplituteX: 200,
+            amplituteY: 16,
+            fill: false,
+            lines: 10,
+            palette: ["#4937ff", "#e4eef0"],
+            randomValues: [],
+            smoothness: 22
+          }
+        },
+        {
+          id: 103,
+          type: "text",
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            color: "#ffffff",
+            fontFamily: "Helvetica",
+            fontSize: 35,
+            letterSpacing: 0,
+            padding: 10
+          },
+          text: "learn how to catch an unbroken wave",
+          position: { left: 196.20253164556962, top: 529.535864978903 }
+        }
+      ]
+    }
+  },
+  {
+    ...linearGradient,
     thumbs: ["/preset_thumbs/16.png"],
     thumbWidth: 98,
     initState: {

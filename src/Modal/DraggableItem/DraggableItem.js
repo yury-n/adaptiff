@@ -18,7 +18,7 @@ export default function DraggableItem({
 }) {
   return (
     <Draggable
-      cancel={isActive && "span"}
+      cancel={isActive ? "span" : ""}
       onStart={onDragStart}
       onStop={onDragStop}
     >
