@@ -49,7 +49,6 @@ export const allAdaptations = [
 ];
 export const insertableAdaptations = [blobmaker, linearGradient, gradientWaves];
 
-// import octagonalStar from "./_adaptationConfigs/octagonal_star";
 // reactKawaii from "./_adaptationConfigs/react_kawaii";
 // import bubbles from "../_adaptationConfigs/bubbles";
 // import pulse from "../_adaptationConfigs/pulse";
@@ -69,6 +68,17 @@ export default () => (
       <Presets />
       <div className={s["subheader"]}>backgrounds</div>
       <Card.Group className="cards">
+        <MiniCard
+          {...mesh}
+          thumb="/background_thumbs/mesh.png"
+          initState={{
+            size: { width: 1000, height: 1000 },
+            config: {
+              distanceBetween: 7,
+              palette: ["#fff", "#000"]
+            }
+          }}
+        />
         <MiniCard {...clipSpace3d} />
         <MiniCard {...blobmaker} />
         <MiniCard

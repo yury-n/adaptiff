@@ -16,8 +16,15 @@ export default {
   author: "Kentskyo",
   authorLink: "https://codepen.io/kentskyo/",
   artLink: "https://codepen.io/kentskyo/pen/ojLyzg?editors=1010",
-  thumbs: ["/thumbs/postmodern/1.png"],
+  thumb: "/thumbs/postmodern/1.png",
   config: [
+    {
+      key: "palette",
+      text: "Palette",
+      type: "palette",
+      defaultValue: palettes[0],
+      options: palettes
+    },
     {
       key: "count",
       text: "Count of Elements",
@@ -34,14 +41,6 @@ export default {
       defaultValue: 1,
       min: 1,
       max: 100
-    },
-
-    {
-      key: "palette",
-      text: "Palette",
-      type: "palette",
-      defaultValue: palettes[0],
-      options: palettes
     },
     {
       key: "randomValues",

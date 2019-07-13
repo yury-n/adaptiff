@@ -12,22 +12,22 @@ export default {
   fileName: "bubbles",
   author: "Colin van Eenige",
   authorLink: "https://codepen.io/cvaneenige/",
-  thumbs: ["/thumbs/bubbles/1.png"],
+  thumb: "/thumbs/bubbles/1.png",
   refreshIframe: true,
   isPausable: true,
   config: [
-    {
-      type: "boolean",
-      key: "castShadow",
-      text: "Cast Shadow",
-      defaultValue: false
-    },
     {
       key: "palette",
       text: "Palette",
       type: "palette",
       defaultValue: palettes[0],
       options: palettes
+    },
+    {
+      type: "boolean",
+      key: "castShadow",
+      text: "Cast Shadow",
+      defaultValue: false
     }
   ]
 };

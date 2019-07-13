@@ -17,8 +17,15 @@ export default {
   fileName: "stepped_gradient",
   author: "Jase",
   authorLink: "https://codepen.io/jasesmith/pen/rZmKQG",
-  thumbs: ["/thumbs/stepped_gradient/1.png"],
+  thumb: "/thumbs/stepped_gradient/1.png",
   config: [
+    {
+      key: "palette",
+      text: "Palette",
+      type: "palette",
+      defaultValue: palettes[0],
+      options: palettes
+    },
     {
       key: "steps",
       text: "Steps",
@@ -26,13 +33,6 @@ export default {
       defaultValue: 15,
       min: 3,
       max: 30
-    },
-    {
-      key: "palette",
-      text: "Palette",
-      type: "palette",
-      defaultValue: palettes[0],
-      options: palettes
     }
   ]
 };

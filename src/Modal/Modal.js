@@ -712,12 +712,11 @@ class TheModal extends Component {
   };
 
   renderLayers = () => {
-    const { title } = this.props;
     const { insertedItems, activeInsertedItemIndex } = this.state;
     const layers = [
       {
         id: "background",
-        label: title,
+        label: "background",
         isMoveable: false,
         isActive: activeInsertedItemIndex === null,
         insertedItemIndex: null
@@ -1085,10 +1084,34 @@ class TheModal extends Component {
       }
     );
     this.setState({ captureConfig, isPreparingDownload: true });
+    const capturedInsertedItems = this.state.insertedItems.map(
+      (insertedItem, index) => ({
+        ...insertedItem,
+        ...(insertedItem.type === "object"
+          ? { adaptation: insertedItem.adaptation.fileName }
+          : {}),
+        width: captureConfig[index].width,
+        height: captureConfig[index].height,
+        position: captureConfig[index].position,
+        ...(insertedItem.type === "text"
+          ? { text: captureConfig[index].text }
+          : {})
+      })
+    );
     // console.log("config", JSON.stringify(this.state.config));
-    console.log("config", this.state.config);
-    console.log("captureConfig", captureConfig);
-    console.log("insertedItems", this.state.insertedItems);
+    console.log(
+      "config",
+      JSON.stringify({
+        initState: {
+          size: {
+            width: this.state.canvasWidth,
+            height: this.state.canvasHeight
+          },
+          config: this.state.config,
+          insertedItems: capturedInsertedItems
+        }
+      })
+    );
 
     if (this.state.isPublic && this.state.insertedItems.length) {
       this.saveConfigToDB({

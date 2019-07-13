@@ -22,10 +22,17 @@ export default {
   fileName: "generate_art",
   author: "Phillip Broadbent ",
   authorLink: "https://codepen.io/phil_broadbent/",
-  thumbs: ["/thumbs/generateArt/1.png"],
+  thumb: "/thumbs/generateArt/1.png",
   refreshIframe: true,
 
   config: [
+    {
+      key: "palette",
+      text: "Palette",
+      type: "palette",
+      defaultValue: palettes[0],
+      options: palettes
+    },
     {
       key: "shape",
       text: "Shape",
@@ -38,7 +45,6 @@ export default {
         { key: 4, text: "Quarter Arc", value: "quarterArc" }
       ]
     },
-
     {
       key: "iteration",
       text: "Density",
@@ -46,14 +52,6 @@ export default {
       defaultValue: 25,
       min: 1,
       max: 100
-    },
-
-    {
-      key: "palette",
-      text: "Palette",
-      type: "palette",
-      defaultValue: palettes[0],
-      options: palettes
     }
   ]
 };

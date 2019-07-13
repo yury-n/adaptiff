@@ -14,8 +14,15 @@ export default {
   title: "gradient bubbles",
   fileName: "gradient_bubbles",
   author: "yury-n",
-  thumbs: ["/thumbs/gradient_bubbles/1.png"],
+  thumb: "/thumbs/gradient_bubbles/1.png",
   config: [
+    {
+      key: "palette",
+      text: "Palette",
+      type: "palette",
+      defaultValue: palettes[0],
+      options: palettes
+    },
     {
       key: "itemSize",
       text: "Item Size",
@@ -39,13 +46,6 @@ export default {
       defaultValue: 50,
       min: 0,
       max: 100
-    },
-    {
-      key: "palette",
-      text: "Palette",
-      type: "palette",
-      defaultValue: palettes[0],
-      options: palettes
     },
     {
       key: "angle",

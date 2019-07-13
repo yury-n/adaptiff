@@ -16,8 +16,15 @@ export default {
   fileName: "trianglify",
   author: "qrohlf",
   authorLink: "https://qrohlf.com/",
-  thumbs: ["/thumbs/trianglify/1.png"],
+  thumb: "/thumbs/trianglify/1.png",
   config: [
+    {
+      key: "palette",
+      text: "Palette",
+      type: "palette",
+      defaultValue: palettes[0],
+      options: palettes
+    },
     {
       key: "cell_size",
       text: "Cell Size",
@@ -33,13 +40,6 @@ export default {
       defaultValue: 50,
       min: 0,
       max: 100
-    },
-    {
-      key: "palette",
-      text: "Palette",
-      type: "palette",
-      defaultValue: palettes[0],
-      options: palettes
     }
   ]
 };

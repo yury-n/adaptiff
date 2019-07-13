@@ -4,8 +4,15 @@ export default {
   title: "Linear gradient",
   fileName: "linear_gradient",
   author: "yury-n",
-  thumbs: ["/thumbs/linearGradient/1.png"],
+  thumb: "/thumbs/linearGradient/1.png",
   config: [
+    {
+      key: "palette",
+      text: "Palette",
+      type: "palette",
+      defaultValue: gradientPalettes[0],
+      options: gradientPalettes
+    },
     {
       key: "direction",
       text: "Direction",
@@ -31,13 +38,6 @@ export default {
       condition: { key: "direction", value: "custom_angle" },
       min: 0,
       max: 360
-    },
-    {
-      key: "palette",
-      text: "Palette",
-      type: "palette",
-      defaultValue: gradientPalettes[0],
-      options: gradientPalettes
     }
   ]
 };

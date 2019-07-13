@@ -11,9 +11,22 @@ export default {
   fileName: "fiber_ribbons/build/index",
   author: "drcmda",
   authorLink: "https://codesandbox.io/embed/kky7yk087v",
-  thumbs: ["/thumbs/fiber_ribbons/1.png"],
+  thumb: "/thumbs/fiber_ribbons/1.png",
   isPausable: true,
   config: [
+    {
+      key: "backgroundColor",
+      text: "Background",
+      type: "single-color",
+      defaultValue: "#324444"
+    },
+    {
+      key: "palette",
+      text: "Palette",
+      type: "palette",
+      defaultValue: palettes[0],
+      options: palettes
+    },
     {
       key: "numLines",
       text: "Number of lines",
@@ -29,19 +42,6 @@ export default {
       defaultValue: 75,
       min: 0,
       max: 200
-    },
-    {
-      key: "backgroundColor",
-      text: "Background",
-      type: "single-color",
-      defaultValue: "#324444"
-    },
-    {
-      key: "palette",
-      text: "Palette",
-      type: "palette",
-      defaultValue: palettes[0],
-      options: palettes
     }
   ]
 };

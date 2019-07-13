@@ -3,7 +3,7 @@ export default {
   fileName: "clipSpace3d",
   author: "Liam Egan",
   authorLink: "https://codepen.io/shubniggurath",
-  thumbs: ["/thumbs/clip_space_3d/1.png"],
+  thumb: "/thumbs/clip_space_3d/1.png",
   config: [
     {
       key: "bumpStrength",

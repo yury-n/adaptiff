@@ -20,7 +20,7 @@ class MiniCard extends Component {
       authorLink,
       title,
       mode,
-      thumbs,
+      thumb,
       thumbBackgroundSize,
       thumbWidth,
       onClick
@@ -41,7 +41,7 @@ class MiniCard extends Component {
           <div
             className={s["mini-preview"]}
             style={{
-              backgroundImage: `url("${thumbs[0]}")`,
+              backgroundImage: `url("${thumb}")`,
               backgroundSize: thumbBackgroundSize
             }}
           />

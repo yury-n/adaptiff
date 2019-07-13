@@ -4,7 +4,6 @@ import MiniCard from "../MiniCard/MiniCard";
 import gradientWaves from "../_adaptationConfigs/gradientWaves";
 import clipSpace3d from "../_adaptationConfigs/clipSpace3d";
 import linearGradient from "../_adaptationConfigs/linearGradient";
-import mesh from "../_adaptationConfigs/mesh";
 import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
 import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
 import fiberRibbons from "../_adaptationConfigs/fiber_ribbons";
@@ -16,7 +15,7 @@ import s from "./Presets.module.css";
 const cards = [
   // {
   //   ...template,
-  //   thumbs: ["/preset_thumbs/10.png"],
+  //   thumb: "/preset_thumbs/10.png",
   //   thumbWidth: 130,
   //   initState: {
   //     size: { width: 600, height: 500 },
@@ -28,7 +27,7 @@ const cards = [
   // },
   {
     ...linearGradient,
-    thumbs: ["/preset_thumbs/18.png"],
+    thumb: "/preset_thumbs/18.png",
     thumbWidth: 130,
     initState: {
       size: { width: 1000, height: 1000 },
@@ -110,7 +109,7 @@ const cards = [
   },
   {
     ...linearGradient,
-    thumbs: ["/preset_thumbs/16.png"],
+    thumb: "/preset_thumbs/16.png",
     thumbWidth: 98,
     initState: {
       size: { width: 450, height: 600 },
@@ -174,7 +173,7 @@ not`
   },
   {
     ...linearGradient,
-    thumbs: ["/preset_thumbs/12.png"],
+    thumb: "/preset_thumbs/12.png",
     thumbWidth: 156,
     initState: {
       size: { width: 600, height: 500 },
@@ -206,20 +205,8 @@ not`
     }
   },
   {
-    ...mesh,
-    thumbs: ["/preset_thumbs/2.png"],
-    thumbWidth: 130,
-    initState: {
-      size: { width: 1000, height: 1000 },
-      config: {
-        distanceBetween: 7,
-        palette: ["#fff", "#000"]
-      }
-    }
-  },
-  {
     ...gradientBubbles,
-    thumbs: ["/preset_thumbs/11.png"],
+    thumb: "/preset_thumbs/11.png",
     thumbWidth: 156,
     initState: {
       size: { width: 600, height: 500 },
@@ -284,7 +271,7 @@ anywhere`
   },
   {
     ...clipSpace3d,
-    thumbs: ["/preset_thumbs/17.png"],
+    thumb: "/preset_thumbs/17.png",
     thumbWidth: 219,
     initState: {
       size: { width: 930, height: 552 },
@@ -305,7 +292,7 @@ anywhere`
   },
   {
     ...gradientWaves,
-    thumbs: ["/preset_thumbs/9.png"],
+    thumb: "/preset_thumbs/9.png",
     thumbWidth: 130,
     initState: {
       size: { width: 700, height: 700 },
@@ -343,7 +330,7 @@ designers`
   },
   {
     ...fiberRibbons,
-    thumbs: ["/preset_thumbs/7.png"],
+    thumb: "/preset_thumbs/7.png",
     thumbWidth: 87,
     initState: {
       size: { width: 800, height: 1200 },
@@ -376,7 +363,7 @@ Fiber`
   },
   {
     ...fiberRibbons,
-    thumbs: ["/preset_thumbs/8.png"],
+    thumb: "/preset_thumbs/8.png",
     thumbWidth: 130,
     initState: {
       size: { width: 700, height: 700 },
@@ -390,7 +377,7 @@ Fiber`
   },
   {
     ...gradientWaves,
-    thumbs: ["/preset_thumbs/1.png"],
+    thumb: "/preset_thumbs/1.png",
     thumbWidth: 130,
     initState: {
       size: { width: 500, height: 500 },
@@ -408,7 +395,7 @@ Fiber`
   },
   {
     ...subtleRib,
-    thumbs: ["/preset_thumbs/10.png"],
+    thumb: "/preset_thumbs/10.png",
     thumbWidth: 130,
     initState: {
       size: { width: 500, height: 500 },
@@ -442,7 +429,7 @@ is simple`
   },
   {
     ...chromaticLiquids,
-    thumbs: ["/preset_thumbs/4.png"],
+    thumb: "/preset_thumbs/4.png",
     thumbWidth: 197,
     initState: {
       size: { width: 1000, height: 660 },

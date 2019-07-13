@@ -15,9 +15,16 @@ export default {
   fileName: "blobmaker/build/index",
   author: "cristinapoiata",
   authorLink: "http://www.zcreativelabs.com/",
-  thumbs: ["/thumbs/blobmaker/1.png"],
+  thumb: "/thumbs/blobmaker/1.png",
   isTransparent: true,
   config: [
+    {
+      key: "palette",
+      text: "Palette",
+      type: "palette",
+      defaultValue: palettes[0],
+      options: palettes
+    },
     {
       key: "contrast",
       text: "Contrast",
@@ -34,13 +41,6 @@ export default {
       defaultValue: 10,
       min: 3,
       max: 30
-    },
-    {
-      key: "palette",
-      text: "Palette",
-      type: "palette",
-      defaultValue: palettes[0],
-      options: palettes
     },
     {
       key: "angle",

@@ -14,10 +14,17 @@ export default {
   fileName: "perfect_purple",
   author: "Levi Boenish",
   authorLink: "https://codepen.io/leviboenish/",
-  thumbs: ["/thumbs/perfect_purple/1.png"],
+  thumb: "/thumbs/perfect_purple/1.png",
   refreshIframe: true,
   isPausable: true,
   config: [
+    {
+      key: "palette",
+      text: "Palette",
+      type: "palette",
+      defaultValue: palettes[0],
+      options: palettes
+    },
     {
       key: "distortion",
       text: "Distortion",
@@ -43,13 +50,6 @@ export default {
       defaultValue: 9,
       min: 2,
       max: 20
-    },
-    {
-      key: "palette",
-      text: "Palette",
-      type: "palette",
-      defaultValue: palettes[0],
-      options: palettes
     }
   ]
 };

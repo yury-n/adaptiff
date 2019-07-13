@@ -37,7 +37,7 @@ export default {
   fileName: "bgpainter/index",
   author: "Frank Hsu",
   authorLink: "http://www.fangyexu.com/",
-  thumbs: ["/thumbs/chromatic_liquids/1.png"],
+  thumb: "/thumbs/chromatic_liquids/1.png",
   isPausable: true,
   config: [
     {

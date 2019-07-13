@@ -18,9 +18,16 @@ export default {
   fileName: "particles",
   author: "marcbruederlin",
   authorLink: "https://github.com/marcbruederlin",
-  thumbs: ["/thumbs/particles/1.png"],
+  thumb: "/thumbs/particles/1.png",
   isPausable: true,
   config: [
+    {
+      key: "palette",
+      text: "Palette",
+      type: "palette",
+      defaultValue: palettes[0],
+      options: palettes
+    },
     {
       key: "maxParticles",
       text: "Number of particles",
@@ -36,13 +43,6 @@ export default {
       defaultValue: 10,
       min: 0,
       max: 30
-    },
-    {
-      key: "palette",
-      text: "Palette",
-      type: "palette",
-      defaultValue: palettes[0],
-      options: palettes
     }
   ]
 };

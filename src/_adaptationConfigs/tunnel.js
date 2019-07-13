@@ -2,7 +2,7 @@ export default {
   author: "Mamboleoo",
   authorLink: "https://github.com/Mamboleoo",
   title: "Triangle tunnel",
-  thumbs: ["/thumbs/tunnel/1.png"],
+  thumb: "/thumbs/tunnel/1.png",
   config: [],
   externalScripts: [
     "https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js",

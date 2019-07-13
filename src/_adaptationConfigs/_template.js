@@ -3,6 +3,6 @@ export default {
   fileName: "test",
   author: "test",
   authorLink: "https://test.com/",
-  thumbs: ["/thumbs/todo.png"],
+  thumb: "/thumbs/todo.png",
   config: []
 };

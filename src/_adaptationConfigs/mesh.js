@@ -19,8 +19,15 @@ export default {
   fileName: "mesh",
   author: "Derek Morash",
   authorLink: "https://codepen.io/derekmorash/pen/VdgGXZ",
-  thumbs: ["/thumbs/mesh/1.png"],
+  thumb: "/thumbs/mesh/1.png",
   config: [
+    {
+      key: "palette",
+      text: "Palette",
+      type: "palette",
+      defaultValue: palettes[0],
+      options: palettes
+    },
     {
       key: "distanceBetween",
       text: "Distance between dots",
@@ -28,13 +35,6 @@ export default {
       defaultValue: 10,
       min: 5,
       max: 20
-    },
-    {
-      key: "palette",
-      text: "Palette",
-      type: "palette",
-      defaultValue: palettes[0],
-      options: palettes
     },
     {
       key: "randomValues",

@@ -5,7 +5,7 @@ export default {
   author: "Derek Morash",
   authorLink: "https://codepen.io/derekmorash/",
   title: "Waves",
-  thumbs: ["/thumbs/waves/1.png"],
+  thumb: "/thumbs/waves/1.png",
   config: [],
   palettes: gradientPalettes,
   externalScripts: [

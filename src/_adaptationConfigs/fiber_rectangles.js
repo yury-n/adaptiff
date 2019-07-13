@@ -13,9 +13,16 @@ export default {
   fileName: "fiber_rectangles/build/index",
   author: "drcmda",
   authorLink: "https://codesandbox.io/embed/jz9l97qn89",
-  thumbs: ["/thumbs/fiber_rectangles/1.png"],
+  thumb: "/thumbs/fiber_rectangles/1.png",
   isPausable: true,
   config: [
+    {
+      key: "palette",
+      text: "Palette",
+      type: "palette",
+      defaultValue: palettes[0],
+      options: palettes
+    },
     {
       key: "itemsNum",
       text: "Number of items",
@@ -29,13 +36,6 @@ export default {
       text: "Background",
       type: "single-color",
       defaultValue: "#ffffff"
-    },
-    {
-      key: "palette",
-      text: "Palette",
-      type: "palette",
-      defaultValue: palettes[0],
-      options: palettes
     }
   ]
 };

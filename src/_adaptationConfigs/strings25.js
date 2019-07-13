@@ -16,9 +16,16 @@ export default {
   fileName: "strings25",
   author: "Derek Morash",
   authorLink: "https://codepen.io/derekmorash",
-  thumbs: ["/thumbs/strings25/1.png"],
+  thumb: "/thumbs/strings25/1.png",
   thumbBackgroundSize: 280,
   config: [
+    {
+      key: "palette",
+      text: "Palette",
+      type: "palette",
+      defaultValue: palettes[0],
+      options: palettes
+    },
     {
       key: "sizePercent",
       text: "Lines start/end at % width",
@@ -26,13 +33,6 @@ export default {
       defaultValue: [10, 20],
       min: 0,
       max: 50
-    },
-    {
-      key: "palette",
-      text: "Palette",
-      type: "palette",
-      defaultValue: palettes[0],
-      options: palettes
     },
     {
       key: "randomValues",
