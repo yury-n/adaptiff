@@ -14,7 +14,7 @@ export default {
   title: "gradient bubbles",
   fileName: "gradient_bubbles",
   author: "yury-n",
-  thumb: "/thumbs/gradient_bubbles/1.png",
+  thumb: "/background_thumbs/gradient_bubbles.png",
   config: [
     {
       key: "palette",

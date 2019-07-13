@@ -13,7 +13,7 @@ export default {
   fileName: "gradient_waves",
   author: "Fabio Ottaviani",
   authorLink: "https://codepen.io/supah/",
-  thumb: "/thumbs/gradientWaves/1.png",
+  thumb: "/background_thumbs/gradient_waves.png",
   config: [
     {
       key: "palette",

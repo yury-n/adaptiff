@@ -22,7 +22,7 @@ export default {
   fileName: "generate_art",
   author: "Phillip Broadbent ",
   authorLink: "https://codepen.io/phil_broadbent/",
-  thumb: "/thumbs/generateArt/1.png",
+  thumb: "/background_thumbs/8.png",
   refreshIframe: true,
 
   config: [

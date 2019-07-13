@@ -4,7 +4,7 @@ export default {
   title: "Linear gradient",
   fileName: "linear_gradient",
   author: "yury-n",
-  thumb: "/thumbs/linearGradient/1.png",
+  thumb: "/background_thumbs/10.png",
   config: [
     {
       key: "palette",

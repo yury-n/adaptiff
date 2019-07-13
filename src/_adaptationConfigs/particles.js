@@ -18,7 +18,7 @@ export default {
   fileName: "particles",
   author: "marcbruederlin",
   authorLink: "https://github.com/marcbruederlin",
-  thumb: "/thumbs/particles/1.png",
+  thumb: "/background_thumbs/connected_particles.png",
   isPausable: true,
   config: [
     {

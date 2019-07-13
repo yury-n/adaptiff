@@ -17,7 +17,7 @@ export default {
   fileName: "stepped_gradient",
   author: "Jase",
   authorLink: "https://codepen.io/jasesmith/pen/rZmKQG",
-  thumb: "/thumbs/stepped_gradient/1.png",
+  thumb: "/background_thumbs/4.png",
   config: [
     {
       key: "palette",

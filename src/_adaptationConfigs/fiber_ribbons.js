@@ -11,7 +11,7 @@ export default {
   fileName: "fiber_ribbons/build/index",
   author: "drcmda",
   authorLink: "https://codesandbox.io/embed/kky7yk087v",
-  thumb: "/thumbs/fiber_ribbons/1.png",
+  thumb: "/background_thumbs/3.png",
   isPausable: true,
   config: [
     {

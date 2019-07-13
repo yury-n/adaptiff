@@ -2,7 +2,7 @@ export default {
   title: "Subtle Rib",
   fileName: "subtle_rib",
   author: "yury-n",
-  thumb: "/thumbs/subtle_rib/1.png",
+  thumb: "/background_thumbs/subtle_rib.png",
   config: [
     {
       key: "color",
