@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import classnames from "classnames";
 import MiniCard from "../MiniCard/MiniCard";
 import gradientWaves from "../_adaptationConfigs/gradientWaves";
-import clipSpace3d from "../_adaptationConfigs/clipSpace3d";
 import linearGradient from "../_adaptationConfigs/linearGradient";
-import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
 import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
 import fiberRibbons from "../_adaptationConfigs/fiber_ribbons";
 import subtleRib from "../_adaptationConfigs/subtle_rib";
 import blobmaker from "../_adaptationConfigs/blobmaker";
+import postmodern from "../_adaptationConfigs/postmodern";
+import strings25 from "../_adaptationConfigs/strings25";
 
 import s from "./Presets.module.css";
 
@@ -172,39 +172,6 @@ not`
     }
   },
   {
-    ...linearGradient,
-    thumb: "/preset_thumbs/12.png",
-    thumbWidth: 156,
-    initState: {
-      size: { width: 600, height: 500 },
-      config: {
-        angle: 200,
-        direction: "custom_angle",
-        palette: ["#c95c46", "#511414"]
-      },
-      insertedItems: [
-        {
-          id: 100,
-          type: "object",
-          showIframe: true,
-          adaptation: gradientWaves,
-          width: 571,
-          height: 468,
-          position: { left: 15, top: 16 },
-          configValues: {
-            amplituteX: 60,
-            amplituteY: 60,
-            fill: false,
-            lines: 10,
-            palette: ["#e9db6d", "#c95c46"],
-            randomValues: [0.1329382981666447, 0.5229732095475299],
-            smoothness: 10
-          }
-        }
-      ]
-    }
-  },
-  {
     ...gradientBubbles,
     thumb: "/preset_thumbs/11.png",
     thumbWidth: 156,
@@ -267,27 +234,6 @@ blobs
 anywhere`
         }
       ]
-    }
-  },
-  {
-    ...clipSpace3d,
-    thumb: "/preset_thumbs/17.png",
-    thumbWidth: 219,
-    initState: {
-      size: { width: 930, height: 552 },
-      config: {
-        bumpStrength: 88,
-        objectColor: "#050504",
-        objectShininess: 200,
-        lightColor: "#ffffff",
-        backgroundColor: "#ffd1d1",
-        envPower: 2,
-        envBlur: 0,
-        camX: 0,
-        camY: 2,
-        camZ: -30,
-        camZoom: 0
-      }
     }
   },
   {
@@ -362,38 +308,6 @@ Fiber`
     }
   },
   {
-    ...fiberRibbons,
-    thumb: "/preset_thumbs/8.png",
-    thumbWidth: 130,
-    initState: {
-      size: { width: 700, height: 700 },
-      config: {
-        backgroundColor: "#ffffff",
-        fov: 166,
-        numLines: 100,
-        palette: ["#9b50ed", "#69d5ff", "#ffbd6e", "#ff77bc"]
-      }
-    }
-  },
-  {
-    ...gradientWaves,
-    thumb: "/preset_thumbs/1.png",
-    thumbWidth: 130,
-    initState: {
-      size: { width: 500, height: 500 },
-      config: {
-        amplituteX: 60,
-        amplituteY: 60,
-        crazyness: true,
-        fill: true,
-        lines: 24,
-        palette: ["#ad42a5", "#fad18f"],
-        smoothness: 1,
-        randomValues: [Math.random(), Math.random()]
-      }
-    }
-  },
-  {
     ...subtleRib,
     thumb: "/preset_thumbs/10.png",
     thumbWidth: 130,
@@ -428,21 +342,125 @@ is simple`
     }
   },
   {
-    ...chromaticLiquids,
-    thumb: "/preset_thumbs/4.png",
-    thumbWidth: 197,
+    ...strings25,
+    thumb: "/preset_thumbs/15.png",
+    thumbWidth: 267,
+    thumbBackgroundSize: "cover",
     initState: {
-      size: { width: 1000, height: 660 },
+      size: { width: 742, height: 361 },
       config: {
-        palette: [
-          "#1eaa89",
-          "#60d1a3",
-          "#9ef2c4",
-          "#ffff76",
-          "#7a84a3",
-          "#7a84a3"
-        ]
-      }
+        palette: ["#d8f1ff", "#000"],
+        sizePercent: [19, 29]
+      },
+      insertedItems: [
+        {
+          id: 100,
+          type: "text",
+          config: {
+            fontFamily: "Poppins",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            color: "#000",
+            fontSize: 27,
+            padding: 3,
+            borderWidth: 0
+          },
+          position: { left: 287, top: 120 },
+          text: "create"
+        },
+        {
+          id: 101,
+          type: "text",
+          config: {
+            fontFamily: "Poppins",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            color: "#000",
+            fontSize: 27,
+            padding: 3,
+            borderWidth: 0
+          },
+          position: { left: 287, top: 160 },
+          text: "something"
+        },
+        {
+          id: 102,
+          type: "text",
+          config: {
+            fontFamily: "Helvetica",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            color: "#000",
+            isBold: true,
+            fontSize: 43,
+            padding: 3,
+            borderWidth: 0
+          },
+          position: { left: 287, top: 200 },
+          text: "unique"
+        }
+      ]
+    }
+  },
+  {
+    ...gradientWaves,
+    thumb: "/preset_thumbs/13.png",
+    thumbWidth: 267,
+    thumbBackgroundSize: "cover",
+    initState: {
+      size: { width: 742, height: 361 },
+      config: {
+        palette: ["#ff9855", "#bb045d"],
+        amplituteX: 60,
+        amplituteY: 60,
+        crazyness: true,
+        lines: 1,
+        smoothness: 6
+      },
+      insertedItems: [
+        {
+          id: 100,
+          type: "text",
+          config: {
+            fontFamily: "Montserrat",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            color: "#fff",
+            fontSize: 34,
+            padding: 13,
+            borderWidth: 0
+          },
+          position: { left: 156, top: 150 },
+          text: "create something unique"
+        }
+      ]
+    }
+  },
+  {
+    ...postmodern,
+    thumb: "/preset_thumbs/14.png",
+    thumbWidth: 267,
+    thumbBackgroundSize: "cover",
+    initState: {
+      size: { width: 742, height: 361 },
+      config: {
+        palette: ["#dec7f9", "#693e97", "#2a013e"],
+        count: 100,
+        lineWidth: 28
+      },
+      insertedItems: [
+        {
+          id: 100,
+          type: "text",
+          config: {
+            fontFamily: "Merriweather",
+            backgroundColor: "#693e97",
+            color: "#fff",
+            fontSize: 28,
+            isBold: true,
+            padding: 15,
+            borderWidth: 0
+          },
+          position: { left: 76, top: 191 },
+          text: "créer quelque chose d'unique"
+        }
+      ]
     }
   }
 ];

@@ -58,6 +58,207 @@ export const insertableAdaptations = [blobmaker, linearGradient, gradientWaves];
 // import tunnel from "./_adaptationConfigs/tunnel";
 // import waves from "./_adaptationConfigs/waves";
 
+const backgrounds = [
+  {
+    ...gradientBubbles,
+    thumb: "/background_thumbs/21.png",
+    initState: {
+      size: { width: 800, height: 800 },
+      config: {
+        palette: ["#1c004e", "#00aaff"],
+        itemSize: 31,
+        itemsNumInRow: 25,
+        padding: 1,
+        angle: 146,
+        itemType: "circle",
+        rounding: 20,
+        randomValues: [0.34505942052567407]
+      },
+      insertedItems: []
+    }
+  },
+  {
+    ...particles,
+    thumb: "/background_thumbs/20.png",
+    initState: {
+      size: { width: 600, height: 600 },
+      config: {
+        maxParticles: 200,
+        palette: ["#f46c94", "#fedf35", "#ffffff"],
+        sizeVariations: 24
+      }
+    }
+  },
+  {
+    ...gradientWaves,
+    thumb: "/background_thumbs/18.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        amplituteX: 300,
+        amplituteY: 30,
+        crazyness: false,
+        fill: false,
+        lines: 100,
+        palette: ["#ff0099", "#ffe000"],
+        smoothness: 13,
+        randomValues: []
+      }
+    }
+  },
+  {
+    ...chromaticLiquids,
+    thumb: "/background_thumbs/17.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: [
+          "#1eaa89",
+          "#60d1a3",
+          "#9ef2c4",
+          "#ffff76",
+          "#7a84a3",
+          "#7a84a3"
+        ]
+      }
+    }
+  },
+  {
+    ...gradientWaves,
+    thumb: "/background_thumbs/16.png",
+    initState: {
+      size: { width: 500, height: 500 },
+      config: {
+        amplituteX: 60,
+        amplituteY: 60,
+        crazyness: true,
+        fill: true,
+        lines: 24,
+        palette: ["#ad42a5", "#fad18f"],
+        smoothness: 1,
+        randomValues: [Math.random(), Math.random()]
+      }
+    }
+  },
+  {
+    ...fiberRibbons,
+    thumb: "/background_thumbs/15.png",
+    initState: {
+      size: { width: 700, height: 700 },
+      config: {
+        backgroundColor: "#ffffff",
+        fov: 166,
+        numLines: 100,
+        palette: ["#9b50ed", "#69d5ff", "#ffbd6e", "#ff77bc"]
+      }
+    }
+  },
+  {
+    ...clipSpace3d,
+    thumb: "/background_thumbs/14.png",
+    initState: {
+      size: { width: 930, height: 930 },
+      config: {
+        bumpStrength: 88,
+        objectColor: "#050504",
+        objectShininess: 200,
+        lightColor: "#ffffff",
+        backgroundColor: "#ffd1d1",
+        envPower: 2,
+        envBlur: 0,
+        camX: 0,
+        camY: 2,
+        camZ: -30,
+        camZoom: 0
+      }
+    }
+  },
+  {
+    ...linearGradient,
+    title: "multiple objects",
+    author: "multiple authors",
+    thumb: "/background_thumbs/13.png",
+    initState: {
+      size: { width: 600, height: 500 },
+      config: {
+        angle: 200,
+        direction: "custom_angle",
+        palette: ["#c95c46", "#511414"]
+      },
+      insertedItems: [
+        {
+          id: 100,
+          type: "object",
+          showIframe: true,
+          adaptation: gradientWaves,
+          width: 571,
+          height: 468,
+          position: { left: 15, top: 16 },
+          configValues: {
+            amplituteX: 60,
+            amplituteY: 60,
+            fill: false,
+            lines: 10,
+            palette: ["#e9db6d", "#c95c46"],
+            randomValues: [0.1329382981666447, 0.5229732095475299],
+            smoothness: 10
+          }
+        }
+      ]
+    }
+  },
+  {
+    ...mesh,
+    thumb: "/background_thumbs/mesh.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        distanceBetween: 7,
+        palette: ["#fff", "#000"]
+      }
+    }
+  },
+  { ...clipSpace3d },
+  { ...blobmaker },
+  {
+    ...subtleRib,
+    initState: {
+      config: { color: "#c1bbf2" },
+      size: { width: 600, height: 500 }
+    }
+  },
+  { ...trianglify },
+  { ...particles },
+  { ...gradientWaves },
+  {
+    ...gradientBubbles,
+    initState: { config: {}, size: { width: 600, height: 500 } }
+  },
+  { ...strings25 },
+  { ...mesh },
+  { ...fiberRibbons },
+  {
+    ...steppedGradient,
+    initState: { config: {}, size: { width: 600, height: 600 } }
+  },
+  { ...perfectPurple },
+  {
+    ...chromaticLiquids,
+    initState: { config: {}, size: { width: 1000, height: 660 } }
+  },
+  {
+    ...fiberRectangles,
+    initState: { config: {}, size: { width: 700, height: 500 } }
+  },
+  {
+    ...generateArt,
+    initState: { config: {}, size: { width: 500, height: 500 } }
+  },
+  { ...wallPattern },
+  { ...linearGradient },
+  { ...postmodern }
+];
+
 export default () => (
   <>
     <Header />
@@ -68,56 +269,9 @@ export default () => (
       <Presets />
       <div className={s["subheader"]}>backgrounds</div>
       <Card.Group className="cards">
-        <MiniCard
-          {...mesh}
-          thumb="/background_thumbs/mesh.png"
-          initState={{
-            size: { width: 1000, height: 1000 },
-            config: {
-              distanceBetween: 7,
-              palette: ["#fff", "#000"]
-            }
-          }}
-        />
-        <MiniCard {...clipSpace3d} />
-        <MiniCard {...blobmaker} />
-        <MiniCard
-          {...subtleRib}
-          initState={{
-            config: { color: "#c1bbf2" },
-            size: { width: 600, height: 500 }
-          }}
-        />
-        <MiniCard {...trianglify} />
-        <MiniCard {...particles} />
-        <MiniCard {...gradientWaves} />
-        <MiniCard
-          {...gradientBubbles}
-          initState={{ config: {}, size: { width: 600, height: 500 } }}
-        />
-        <MiniCard {...strings25} />
-        <MiniCard {...mesh} />
-        <MiniCard {...fiberRibbons} />
-        <MiniCard
-          initState={{ config: {}, size: { width: 600, height: 600 } }}
-          {...steppedGradient}
-        />
-        <MiniCard {...perfectPurple} />
-        <MiniCard
-          {...chromaticLiquids}
-          initState={{ config: {}, size: { width: 1000, height: 660 } }}
-        />
-        <MiniCard
-          initState={{ config: {}, size: { width: 700, height: 500 } }}
-          {...fiberRectangles}
-        />
-        <MiniCard
-          initState={{ config: {}, size: { width: 500, height: 500 } }}
-          {...generateArt}
-        />
-        <MiniCard {...wallPattern} />
-        <MiniCard {...linearGradient} />
-        <MiniCard {...postmodern} />
+        {backgrounds.map(background => (
+          <MiniCard {...background} />
+        ))}
       </Card.Group>
       <SubscribeBlock />
     </div>

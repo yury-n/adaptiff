@@ -73,7 +73,11 @@ class TheModal extends Component {
         initState.config[config.key] !== undefined
           ? initState.config[config.key]
           : config.defaultValue;
-      if (config.type === "randomValues" && !config.isEnabledByDefault) {
+      if (
+        config.type === "randomValues" &&
+        !initState.config[config.key] &&
+        !config.isEnabledByDefault
+      ) {
         state.config[config.key] = [];
       }
     });
