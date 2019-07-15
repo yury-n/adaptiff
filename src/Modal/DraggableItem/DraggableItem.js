@@ -7,6 +7,8 @@ import s from "./DraggableItem.module.css";
 export const MARGIN_LEFT = -8;
 export const MARGIN_TOP = -8;
 
+let wasDragged = false;
+
 export default function DraggableItem({
   isActive,
   initialPosition,
@@ -20,7 +22,13 @@ export default function DraggableItem({
     <Draggable
       cancel={isActive ? "span" : ""}
       onStart={onDragStart}
-      onStop={onDragStop}
+      onDrag={() => {
+        wasDragged = true;
+      }}
+      onStop={() => {
+        onDragStop(wasDragged);
+        wasDragged = false;
+      }}
     >
       <div
         className={classnames(

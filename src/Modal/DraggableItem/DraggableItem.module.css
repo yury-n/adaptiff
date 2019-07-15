@@ -10,6 +10,14 @@
   z-index: 10;
 }
 
+:global(.canvas-wrapper.is-editing-inserted-text) .root {
+  pointer-events: none;
+}
+
+:global(.canvas-wrapper.is-editing-inserted-text) .root.active {
+  pointer-events: all;
+}
+
 .root.with-initial-position {
   left: 0;
   top: 0;
@@ -17,15 +25,13 @@
 
 .root.active,
 .root.active .content-inner-wrapper,
-:global(.canvas-wrapper:not(.has-active-inserted-item)) .root:hover,
-:global(.canvas-wrapper:not(.has-active-inserted-item))
-  .root:hover
-  .content-inner-wrapper {
+.root:hover,
+.root:hover .content-inner-wrapper {
   border-color: black;
 }
 
 .root.active .content,
-:global(.canvas-wrapper:not(.has-active-inserted-item)) .root:hover .content {
+.root:hover .content {
   border-color: white;
 }
 

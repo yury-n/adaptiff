@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classnames from "classnames";
 import { colorObjToString } from "../../_utils";
 import WebFont from "webfontloader";
@@ -7,9 +7,10 @@ import s from "./InsertedText.module.css";
 
 export default React.memo(
   React.forwardRef(function InsertedText(
-    { initialValue, isEditable, config, scale },
+    { initialValue, isEditable, onFocus, onBlur, config, scale },
     ref
   ) {
+    const [isFocused, setIsFocused] = useState(isEditable);
     const initialValueParts = initialValue ? initialValue.split(/\n/) : [];
     const initialValuePartsWithBRs = [];
     initialValueParts.forEach((part, index) => {
@@ -17,6 +18,12 @@ export default React.memo(
       initialValuePartsWithBRs.push(<br key={index} />);
     });
     initialValuePartsWithBRs.pop();
+
+    useEffect(() => {
+      if (isEditable) {
+        setIsFocused(true);
+      }
+    }, [isEditable]);
 
     if (config.fontFamily !== "Helvetica") {
       WebFont.load({
@@ -26,12 +33,22 @@ export default React.memo(
       });
     }
 
+    const isFocusedAndEditable = isEditable && isFocused;
+
     return (
       <span
         ref={ref}
-        contentEditable={isEditable}
+        contentEditable={isFocusedAndEditable}
+        onClick={() => {
+          onFocus();
+          setIsFocused(true);
+        }}
+        onBlur={() => {
+          onBlur();
+          setIsFocused(false);
+        }}
         suppressContentEditableWarning={true}
-        className={classnames(s["text"], isEditable && s["editable"])}
+        className={classnames(s["text"], isFocusedAndEditable && s["editable"])}
         style={{
           fontSize: `${config.fontSize * (scale || 1)}px`,
           fontFamily: config.fontFamily,

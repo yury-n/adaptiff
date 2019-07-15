@@ -13,7 +13,9 @@ export default React.memo(
       initialValue,
       config,
       scale,
-      onClick
+      onClick,
+      onFocus,
+      onBlur
     },
     ref
   ) {
@@ -22,18 +24,19 @@ export default React.memo(
       <DraggableItem
         isActive={isActive}
         initialPosition={initialPosition}
-        onClick={onClick}
         onDragStart={() => {
           setIsDragged(true);
           onDragStart();
         }}
-        onDragStop={() => {
+        onDragStop={(...args) => {
           setIsDragged(false);
-          onDragStop();
+          onDragStop(...args);
         }}
         className={className}
       >
         <InsertedText
+          onFocus={onFocus}
+          onBlur={onBlur}
           isEditable={isActive && !isDragged}
           initialValue={initialValue}
           config={config}

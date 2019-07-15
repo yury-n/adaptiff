@@ -65,6 +65,7 @@ class TheModal extends Component {
       activeInsertedItemIndex: null,
       isAddMenuOpen: false,
       isSelectingColor: false,
+      isEditingText: false,
       isDraggingInsertedItem: false,
       isResizingInsertedItem: false
     };
@@ -174,7 +175,6 @@ class TheModal extends Component {
       canvasWidth,
       canvasHeight,
       insertedItems,
-      activeInsertedItemIndex,
       captureConfig,
       iframeVersion,
       isPaused,
@@ -267,8 +267,8 @@ class TheModal extends Component {
               className={classnames(
                 s["canvas-wrapper"],
                 "canvas-wrapper" /* global */,
-                activeInsertedItemIndex !== null &&
-                  "has-active-inserted-item" /* global */
+                this.state.isEditingText &&
+                  "is-editing-inserted-text" /* global */
               )}
             >
               {isLoadingIframe && (
@@ -389,8 +389,8 @@ class TheModal extends Component {
       scale: scaleToFit,
       isActive: index === activeInsertedItemIndex,
       onClick: () => this.setActiveInsertedItemIndex(index),
-      onDragStart: this.onDragStart(index),
-      onDragStop: this.onDragStop,
+      onDragStart: this.onDragStart,
+      onDragStop: this.onDragStop(index),
       onResizeStart: this.onResizeStart(index),
       onResizeStop: this.onResizeStop,
       ref: refCallback,
@@ -404,6 +404,8 @@ class TheModal extends Component {
           <InsertedTextDraggable
             config={insertedItem.config}
             initialValue={insertedItem.text || "Some sample text"}
+            onFocus={() => this.setState({ isEditingText: true })}
+            onBlur={() => this.setState({ isEditingText: false })}
             {...commonProps}
           />
         );
@@ -545,14 +547,16 @@ class TheModal extends Component {
     }, 100); // prevent onModalRightSideClick closing TextConfig
   };
 
-  onDragStart = insertedItemIndex => () => {
+  onDragStart = () => {
     this.setState({
       isDraggingInsertedItem: true
     });
-    this.setActiveInsertedItemIndex(insertedItemIndex);
   };
 
-  onDragStop = () => {
+  onDragStop = insertedItemIndex => wasDragged => {
+    if (!wasDragged) {
+      this.setActiveInsertedItemIndex(insertedItemIndex);
+    }
     setTimeout(() => {
       this.setState({ isDraggingInsertedItem: false });
     }, 100); // prevent onModalRightSideClick closing TextConfig
