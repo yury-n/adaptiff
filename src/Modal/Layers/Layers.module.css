@@ -1,5 +1,5 @@
 .root {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .form-label {
@@ -46,7 +46,8 @@
 }
 
 .layer.active {
-  background: #e5e5e6;
+  background: black;
+  color: white;
   border-radius: 0.28571429rem;
 }
 

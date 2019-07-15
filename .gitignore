@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+/public/font_thumbs
+
 # production
 /build
 

@@ -5,6 +5,7 @@
   "dependencies": {
     "@reach/router": "^1.2.1",
     "classnames": "^2.2.6",
+    "lodash.throttle": "^4.1.1",
     "rc-slider": "^8.6.8",
     "re-resizable": "^5.0.1",
     "react": "^16.8.6",

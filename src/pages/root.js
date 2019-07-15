@@ -277,7 +277,7 @@ export default () => (
       <div className={s["subheader"]}>backgrounds</div>
       <Card.Group className="cards">
         {backgrounds.map((background, index) => (
-          <MiniCard key={index} {...background} />
+          <MiniCard showModal={index === 0} key={index} {...background} />
         ))}
       </Card.Group>
       <SubscribeBlock />

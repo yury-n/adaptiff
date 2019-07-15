@@ -9,7 +9,7 @@ export const GoogleFontModal = ({ onClose, onSelect }) => {
   const [searchInput, setSearchInput] = useState("");
   let searchResults = [];
   if (!loadedFontList) {
-    import("./googleFonts").then(module => {
+    import("../googleFonts").then(module => {
       loadedFontList = module.default.items;
     });
   }

@@ -675,31 +675,6 @@ export default {
     },
     {
       kind: "webfonts#webfont",
-      family: "Open Sans Condensed",
-      category: "sans-serif",
-      variants: ["300", "300italic", "700"],
-      subsets: [
-        "latin",
-        "latin-ext",
-        "greek",
-        "greek-ext",
-        "vietnamese",
-        "cyrillic",
-        "cyrillic-ext"
-      ],
-      version: "v13",
-      lastModified: "2019-05-01",
-      files: {
-        "300":
-          "http://fonts.gstatic.com/s/opensanscondensed/v13/z7NFdQDnbTkabZAIOl9il_O6KJj73e7Ff1GhPuLGRpWRyAs.ttf",
-        "300italic":
-          "http://fonts.gstatic.com/s/opensanscondensed/v13/z7NHdQDnbTkabZAIOl9il_O6KJj73e7Fd_-7suDMQreU2AsJSg.ttf",
-        "700":
-          "http://fonts.gstatic.com/s/opensanscondensed/v13/z7NFdQDnbTkabZAIOl9il_O6KJj73e7Ff0GmPuLGRpWRyAs.ttf"
-      }
-    },
-    {
-      kind: "webfonts#webfont",
       family: "Playfair Display",
       category: "serif",
       variants: ["regular", "italic", "700", "700italic", "900", "900italic"],

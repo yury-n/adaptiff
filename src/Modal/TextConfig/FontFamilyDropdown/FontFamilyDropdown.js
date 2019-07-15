@@ -1,95 +1,126 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import throttle from "lodash.throttle";
 import { Dropdown } from "semantic-ui-react";
 import PrevNextButtons from "../../../PrevNextButtons/PrevNextButtons";
-import { GoogleFontModal } from "./GoogleFontModal/GoogleFontModal";
-import WebFont from "webfontloader";
+// import WebFont from "webfontloader";
 
 import s from "./FontFamilyDropdown.module.css";
 
-const defaultSystemFonts = ["Helvetica", "Times New Roman"];
-const defaultGoogleFonts = [
-  "Merriweather",
-  "Neucha",
-  "Comfortaa",
-  "Poiret One",
-  "El Messiri",
-  "Montserrat Alternates",
-  "Bad Script",
-  "Oranienbaum",
-  "Yeseva One",
-  "Rubik Mono One",
-  "Poppins"
-];
-const defaultFonts = [...defaultSystemFonts, ...defaultGoogleFonts];
+const MENU_ITEM_HEIGHT = 30;
 
-let customGoogleFontsPersisted = [];
+// const defaultGoogleFonts = [
+//   "Merriweather",
+//   "Neucha",
+//   "Comfortaa",
+//   "Poiret One",
+//   "El Messiri",
+//   "Montserrat Alternates",
+//   "Bad Script",
+//   "Oranienbaum",
+//   "Yeseva One",
+//   "Rubik Mono One",
+//   "Poppins"
+// ];
 
-export const FontFamilyDropdown = ({ value, onChange }) => {
-  const [isAddFontPopupVisible, setAddFontPopupVisible] = useState(false);
-  const [customGoogleFonts, setCustomGoogleFonts] = useState(
-    customGoogleFontsPersisted
-  );
-  const fonts = [...customGoogleFonts, ...defaultFonts];
-  const currentIndex = fonts.findIndex(font => font === value);
+// let loadedFonts = [];
+let cyrillicFonts = [];
+
+const getFontImage = font =>
+  `/font_thumbs/compressed/${font.family.replace(/\s/g, "")}-400.${
+    font.version
+  }.png`;
+
+export const FontFamilyDropdown = ({
+  value = "Roboto",
+  cyrillicOnly,
+  onChange
+}) => {
+  const rootRef = useRef();
+  const [visibleRange, setVisibleRange] = useState({
+    visibleMenuItemOffset: 0,
+    visibleMenuItemLimit: 15
+  });
+  const [fonts, setFonts] = useState([]);
+
+  if (!fonts.length) {
+    import("./googleFonts").then(module => {
+      setFonts(module.default.items);
+    });
+  }
+
+  console.log({ cyrillicOnly });
+
+  if (cyrillicOnly && !cyrillicFonts.length) {
+    cyrillicFonts = fonts.filter(font => font.subsets.includes("cyrillic"));
+  }
+
+  const currentIndex = fonts.findIndex(font => font.family === value);
+
+  const onMenuScroll = throttle(e => {
+    const visibleMenuItemOffset = Math.floor(
+      e.target.scrollTop / MENU_ITEM_HEIGHT
+    );
+    const visibleMenuItemLimit = Math.ceil(
+      e.target.getBoundingClientRect().height / MENU_ITEM_HEIGHT
+    );
+    setVisibleRange({ visibleMenuItemOffset, visibleMenuItemLimit });
+  }, 100);
+
+  useEffect(() => {
+    const menu = rootRef.current.querySelector(".menu");
+    menu.addEventListener("scroll", onMenuScroll);
+    return () => {
+      menu.removeEventListener("scroll", onMenuScroll);
+    };
+  }, []);
 
   const goToPrev = () => {
     let newIndex = currentIndex - 1;
     if (newIndex < 0) {
       newIndex = fonts.length - 1;
     }
-    onChange(fonts[newIndex]);
+    onChange(fonts[newIndex].family);
   };
   const goToNext = () => {
     let newIndex = currentIndex + 1;
     if (newIndex > fonts.length - 1) {
       newIndex = 0;
     }
-    onChange(fonts[newIndex]);
+    // TODO preload next
+    // WebFont.load({
+    //   google: {
+    //     families: googleFonts.map(googleFont => `${googleFont}:latin,cyrillic`)
+    //   }
+    // });
+    onChange(fonts[newIndex].family);
   };
-  const googleFonts = [...defaultGoogleFonts, ...customGoogleFonts];
-  WebFont.load({
-    google: {
-      families: googleFonts.map(googleFont => `${googleFont}:latin,cyrillic`)
-    }
-  });
   return (
     <>
-      <div className={s["root"]}>
-        <label className="form-label">
-          Font Family{" "}
-          <span
-            className={s["add-button"]}
-            onClick={() => setAddFontPopupVisible(true)}
-          >
-            + Add
-          </span>
-        </label>
+      <div className={s["root"]} ref={rootRef}>
+        <label className="form-label">Font Family</label>
         <Dropdown
-          options={fonts.map(font => ({
-            key: font,
-            text: font,
-            value: font,
-            style: { fontFamily: font }
-          }))}
+          options={(cyrillicOnly ? cyrillicFonts : fonts).map((font, index) => {
+            const isVisible =
+              index >= visibleRange.visibleMenuItemOffset &&
+              index <=
+                visibleRange.visibleMenuItemOffset +
+                  visibleRange.visibleMenuItemLimit;
+            return {
+              key: `${font.family}-${isVisible}`,
+              value: font.family,
+              text: font.family,
+              image: {
+                src: isVisible ? getFontImage(font) : undefined
+              },
+              className: s["menu-item"]
+            };
+          })}
           onChange={(target, { value }) => onChange(value)}
           value={value}
           selection
         />
         <PrevNextButtons goToPrev={goToPrev} goToNext={goToNext} />
       </div>
-      {isAddFontPopupVisible && (
-        <GoogleFontModal
-          onSelect={font => {
-            customGoogleFontsPersisted = [font, ...customGoogleFontsPersisted];
-            setCustomGoogleFonts([
-              ...customGoogleFontsPersisted,
-              ...customGoogleFonts
-            ]);
-            onChange(font);
-          }}
-          onClose={() => setAddFontPopupVisible(false)}
-        />
-      )}
     </>
   );
 };
