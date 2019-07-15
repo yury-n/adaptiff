@@ -89,7 +89,7 @@ export default [
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             borderWidth: 0,
             color: "#ffffff",
-            fontFamily: "Helvetica",
+            fontFamily: "Roboto",
             fontSize: 35,
             letterSpacing: 0,
             padding: 10
@@ -321,7 +321,7 @@ export default [
           id: 3,
           type: "text",
           config: {
-            fontFamily: "Helvetica",
+            fontFamily: "Roboto",
             fontSize: 34,
             padding: 10,
             letterSpacing: 0,
@@ -339,7 +339,7 @@ export default [
           id: 4,
           type: "text",
           config: {
-            fontFamily: "Helvetica",
+            fontFamily: "Roboto",
             fontSize: 72,
             padding: 10,
             letterSpacing: 0,
@@ -357,7 +357,7 @@ export default [
           id: 5,
           type: "text",
           config: {
-            fontFamily: "Helvetica",
+            fontFamily: "Roboto",
             fontSize: 28,
             padding: 10,
             letterSpacing: 0,
@@ -375,7 +375,7 @@ export default [
           id: 6,
           type: "text",
           config: {
-            fontFamily: "Helvetica",
+            fontFamily: "Roboto",
             fontSize: 20,
             padding: 10,
             letterSpacing: 0,
@@ -469,7 +469,7 @@ export default [
           id: 102,
           type: "text",
           config: {
-            fontFamily: "Helvetica",
+            fontFamily: "Roboto",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
             isBold: true,

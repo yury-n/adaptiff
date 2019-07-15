@@ -55,6 +55,7 @@ class TheModal extends Component {
           id: 1,
           type: "text",
           text: "Sample text",
+          hasCyrillic: false,
           config: {
             fontFamily: "Roboto",
             fontSize: 28,
@@ -418,6 +419,9 @@ class TheModal extends Component {
             initialValue={insertedItem.text || "Some sample text"}
             onFocus={() => this.setState({ isEditingText: true })}
             onBlur={() => this.setState({ isEditingText: false })}
+            setHasCyrillic={value =>
+              this.setTextConfigValue("hasCyrillic", value)
+            }
             {...commonProps}
           />
         );
@@ -608,7 +612,7 @@ class TheModal extends Component {
     const { insertedItems } = this.state;
     const lastinsertedItem = insertedItems[insertedItems.length - 1] || {};
     const defaultConfig = {
-      fontFamily: "Helvetica",
+      fontFamily: "Roboto",
       fontSize: 28,
       padding: 10,
       letterSpacing: 0,
@@ -619,6 +623,7 @@ class TheModal extends Component {
     this.insertItem({
       id: this.insertedBlockId++,
       type: "text",
+      hasCyrillic: false,
       config: lastinsertedItem.config || defaultConfig
     });
   };

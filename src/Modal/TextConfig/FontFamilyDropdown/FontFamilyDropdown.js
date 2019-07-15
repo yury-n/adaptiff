@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import throttle from "lodash.throttle";
 import { Dropdown } from "semantic-ui-react";
 import PrevNextButtons from "../../../PrevNextButtons/PrevNextButtons";
-// import WebFont from "webfontloader";
+import WebFont from "webfontloader";
 
 import s from "./FontFamilyDropdown.module.css";
 
@@ -48,8 +48,6 @@ export const FontFamilyDropdown = ({
     });
   }
 
-  console.log({ cyrillicOnly });
-
   if (cyrillicOnly && !cyrillicFonts.length) {
     cyrillicFonts = fonts.filter(font => font.subsets.includes("cyrillic"));
   }
@@ -86,12 +84,14 @@ export const FontFamilyDropdown = ({
     if (newIndex > fonts.length - 1) {
       newIndex = 0;
     }
-    // TODO preload next
-    // WebFont.load({
-    //   google: {
-    //     families: googleFonts.map(googleFont => `${googleFont}:latin,cyrillic`)
-    //   }
-    // });
+    // preload
+    if (fonts[newIndex + 1]) {
+      WebFont.load({
+        google: {
+          families: [`${fonts[newIndex + 1]}:latin,cyrillic`]
+        }
+      });
+    }
     onChange(fonts[newIndex].family);
   };
   return (

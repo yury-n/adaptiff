@@ -13,7 +13,7 @@ export default React.memo(
       initialValue,
       config,
       scale,
-      onClick,
+      setHasCyrillic,
       onFocus,
       onBlur
     },
@@ -37,6 +37,7 @@ export default React.memo(
         <InsertedText
           onFocus={onFocus}
           onBlur={onBlur}
+          setHasCyrillic={setHasCyrillic}
           isEditable={isActive && !isDragged}
           initialValue={initialValue}
           config={config}

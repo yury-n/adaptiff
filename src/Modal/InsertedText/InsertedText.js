@@ -7,10 +7,19 @@ import s from "./InsertedText.module.css";
 
 export default React.memo(
   React.forwardRef(function InsertedText(
-    { initialValue, isEditable, onFocus, onBlur, config, scale },
+    {
+      initialValue,
+      isEditable,
+      onFocus,
+      onBlur,
+      setHasCyrillic,
+      config,
+      scale
+    },
     ref
   ) {
     const [isFocused, setIsFocused] = useState(isEditable);
+    let prevHasCyrillic = /[а-яА-ЯЁё]/.test(initialValue);
     const initialValueParts = initialValue ? initialValue.split(/\n/) : [];
     const initialValuePartsWithBRs = [];
     initialValueParts.forEach((part, index) => {
@@ -46,6 +55,13 @@ export default React.memo(
         onBlur={() => {
           onBlur();
           setIsFocused(false);
+        }}
+        onKeyUp={e => {
+          const hasCyrillic = /[а-яА-ЯЁё]/.test(e.target.innerText);
+          console.log({ hasCyrillic });
+          if (prevHasCyrillic !== hasCyrillic) {
+            setHasCyrillic(hasCyrillic);
+          }
         }}
         suppressContentEditableWarning={true}
         className={classnames(s["text"], isFocusedAndEditable && s["editable"])}

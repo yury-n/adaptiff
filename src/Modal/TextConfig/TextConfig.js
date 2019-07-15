@@ -10,7 +10,6 @@ import s from "./TextConfig.module.css";
 //let areBaseFontsLoaded = false;
 
 export default ({
-  text,
   config,
   setConfigValue,
   onStartSelectingColor,
@@ -20,12 +19,11 @@ export default ({
   //if (areBaseFontsLoaded) {
   // <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
   //}
-  const textContainsCyrillic = /[а-яА-ЯЁё]/.test(text);
   return (
     <div className={s["root"]}>
       <FontFamilyDropdown
         value={config.fontFamily}
-        cyrillicOnly={textContainsCyrillic}
+        cyrillicOnly={config.hasCyrillic}
         onChange={value => setConfigValue("fontFamily", value)}
       />
       <label className="form-label">Font Size</label>
