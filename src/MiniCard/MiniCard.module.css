@@ -4,7 +4,7 @@
 
 .mini-preview {
   width: 100%;
-  height: 160px;
+  height: 208px;
   background-size: cover;
   background-position: center;
   float: left;
@@ -18,17 +18,14 @@
   display: none;
 }
 
-.preset-mode .content {
+.template-mode .content {
   display: none;
 }
 
-.preset-mode .mini-preview {
-  height: 130px;
-}
-
-:global(.ui.card).preset-mode {
-  margin-top: 0;
-  margin-bottom: 20px;
+:global(.ui.cards > .card).template-mode,
+.template-mode .mini-preview {
+  width: 205px;
+  height: 205px;
 }
 
 .mini-title {

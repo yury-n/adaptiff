@@ -4,7 +4,7 @@ import { Card } from "semantic-ui-react";
 import MiniCard from "../MiniCard/MiniCard";
 
 import Header from "../Header/Header";
-import Presets from "../Presets/Presets";
+import Templates from "../Templates/Templates";
 import Footer from "../Footer/Footer";
 import SubscribeBlock from "../SubscribeBlock/SubscribeBlock";
 
@@ -47,7 +47,12 @@ export const allAdaptations = [
   blobmaker,
   subtleRib
 ];
-export const insertableAdaptations = [blobmaker, linearGradient, gradientWaves];
+export const insertableAdaptations = [
+  blobmaker,
+  linearGradient,
+  gradientWaves,
+  subtleRib
+];
 
 // reactKawaii from "./_adaptationConfigs/react_kawaii";
 // import bubbles from "../_adaptationConfigs/bubbles";
@@ -59,36 +64,6 @@ export const insertableAdaptations = [blobmaker, linearGradient, gradientWaves];
 // import waves from "./_adaptationConfigs/waves";
 
 const backgrounds = [
-  {
-    ...gradientBubbles,
-    thumb: "/background_thumbs/21.png",
-    initState: {
-      size: { width: 800, height: 800 },
-      config: {
-        palette: ["#1c004e", "#00aaff"],
-        itemSize: 31,
-        itemsNumInRow: 25,
-        padding: 1,
-        angle: 146,
-        itemType: "circle",
-        rounding: 20,
-        randomValues: [0.34505942052567407]
-      },
-      insertedItems: []
-    }
-  },
-  {
-    ...particles,
-    thumb: "/background_thumbs/20.png",
-    initState: {
-      size: { width: 600, height: 600 },
-      config: {
-        maxParticles: 200,
-        palette: ["#f46c94", "#fedf35", "#ffffff"],
-        sizeVariations: 24
-      }
-    }
-  },
   {
     ...gradientWaves,
     thumb: "/background_thumbs/18.png",
@@ -209,7 +184,7 @@ const backgrounds = [
   },
   {
     ...mesh,
-    thumb: "/background_thumbs/mesh.png",
+    thumb: "/background_thumbs/28.png",
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
@@ -218,20 +193,22 @@ const backgrounds = [
       }
     }
   },
-  { ...clipSpace3d },
-  { ...blobmaker },
+  { ...clipSpace3d, thumb: "/background_thumbs/24.png" },
+  { ...blobmaker, thumb: "/background_thumbs/22.png" },
   {
     ...subtleRib,
+    thumb: "/background_thumbs/23.png",
     initState: {
       config: { color: "#c1bbf2" },
       size: { width: 600, height: 500 }
     }
   },
-  { ...trianglify },
-  { ...particles },
-  { ...gradientWaves },
+  { ...trianglify, thumb: "/background_thumbs/29.png" },
+  { ...particles, thumb: "/background_thumbs/25.png" },
+  { ...gradientWaves, thumb: "/background_thumbs/27.png" },
   {
     ...gradientBubbles,
+    thumb: "/background_thumbs/26.png",
     initState: { config: {}, size: { width: 600, height: 500 } }
   },
   { ...strings25 },
@@ -255,6 +232,36 @@ const backgrounds = [
     initState: { config: {}, size: { width: 500, height: 500 } }
   },
   { ...wallPattern },
+  {
+    ...gradientBubbles,
+    thumb: "/background_thumbs/21.png",
+    initState: {
+      size: { width: 800, height: 800 },
+      config: {
+        palette: ["#1c004e", "#00aaff"],
+        itemSize: 31,
+        itemsNumInRow: 25,
+        padding: 1,
+        angle: 146,
+        itemType: "circle",
+        rounding: 20,
+        randomValues: [0.34505942052567407]
+      },
+      insertedItems: []
+    }
+  },
+  {
+    ...particles,
+    thumb: "/background_thumbs/20.png",
+    initState: {
+      size: { width: 600, height: 600 },
+      config: {
+        maxParticles: 200,
+        palette: ["#f46c94", "#fedf35", "#ffffff"],
+        sizeVariations: 24
+      }
+    }
+  },
   { ...linearGradient },
   { ...postmodern }
 ];
@@ -266,11 +273,11 @@ export default () => (
       className={classnames(s["main-content-area"], "restricted-width-area")}
     >
       <div className={s["subheader"]}>templates</div>
-      <Presets />
+      <Templates />
       <div className={s["subheader"]}>backgrounds</div>
       <Card.Group className="cards">
-        {backgrounds.map(background => (
-          <MiniCard {...background} />
+        {backgrounds.map((background, index) => (
+          <MiniCard key={index} {...background} />
         ))}
       </Card.Group>
       <SubscribeBlock />

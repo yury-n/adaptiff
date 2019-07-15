@@ -1099,7 +1099,8 @@ class TheModal extends Component {
         position: captureConfig[index].position,
         ...(insertedItem.type === "text"
           ? { text: captureConfig[index].text }
-          : {})
+          : {}),
+        capturedIframe: undefined
       })
     );
     // console.log("config", JSON.stringify(this.state.config));

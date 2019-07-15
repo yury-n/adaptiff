@@ -1,6 +1,3 @@
-import React, { useState } from "react";
-import classnames from "classnames";
-import MiniCard from "../MiniCard/MiniCard";
 import gradientWaves from "../_adaptationConfigs/gradientWaves";
 import linearGradient from "../_adaptationConfigs/linearGradient";
 import gradientBubbles from "../_adaptationConfigs/gradient_bubbles";
@@ -10,13 +7,10 @@ import blobmaker from "../_adaptationConfigs/blobmaker";
 import postmodern from "../_adaptationConfigs/postmodern";
 import strings25 from "../_adaptationConfigs/strings25";
 
-import s from "./Presets.module.css";
-
-const cards = [
+export default [
   // {
   //   ...template,
-  //   thumb: "/preset_thumbs/10.png",
-  //   thumbWidth: 130,
+  //   thumb: "/template_thumbs/10.png",
   //   initState: {
   //     size: { width: 600, height: 500 },
   //     config: {
@@ -27,8 +21,7 @@ const cards = [
   // },
   {
     ...linearGradient,
-    thumb: "/preset_thumbs/18.png",
-    thumbWidth: 130,
+    thumb: "/template_thumbs/18.png",
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
@@ -109,14 +102,13 @@ const cards = [
   },
   {
     ...linearGradient,
-    thumb: "/preset_thumbs/16.png",
-    thumbWidth: 98,
+    thumb: "/template_thumbs/16.png",
     initState: {
-      size: { width: 450, height: 600 },
+      size: { width: 1000, height: 1000 },
       config: {
-        angle: 200,
+        palette: ["#0b0a21", "#1e1b57"],
         direction: "custom_angle",
-        palette: ["#0b0a21", "#1e1b57"]
+        angle: 200
       },
       insertedItems: [
         {
@@ -124,9 +116,9 @@ const cards = [
           type: "object",
           showIframe: true,
           adaptation: linearGradient,
-          width: 398,
-          height: 540,
-          position: { left: 25, top: 31 },
+          width: 943.5483870967741,
+          height: 943.5483870967741,
+          position: { left: 23.647513440860216, top: 26.965725806451612 },
           configValues: {
             angle: 31,
             direction: "custom_angle",
@@ -138,9 +130,9 @@ const cards = [
           type: "object",
           showIframe: true,
           adaptation: gradientWaves,
-          width: 351,
-          height: 462,
-          position: { left: 48, top: 75 },
+          width: 885.752688172043,
+          height: 888.4408602150538,
+          position: { left: 50.676243279569896, top: 57.522681451612904 },
           configValues: {
             amplituteX: 88,
             amplituteY: 10,
@@ -154,29 +146,28 @@ const cards = [
         {
           id: 103,
           type: "text",
-          position: { left: 81, top: 172 },
+          position: { left: 235.55107526881721, top: 263.3778561827957 },
           config: {
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             borderWidth: 0,
             color: "#ffffff",
             fontFamily: "Monoton",
-            fontSize: 77,
+            fontSize: 150,
             letterSpacing: 0,
             padding: 10
           },
-          text: `what
-so
-not`
+          text: "what\nso\nnot",
+          width: 527.1337365591398,
+          height: 511.9287634408602
         }
       ]
     }
   },
   {
     ...gradientBubbles,
-    thumb: "/preset_thumbs/11.png",
-    thumbWidth: 156,
+    thumb: "/template_thumbs/11.png",
     initState: {
-      size: { width: 600, height: 500 },
+      size: { width: 600, height: 600 },
       config: {
         angle: 360,
         itemSize: 10,
@@ -229,17 +220,16 @@ not`
           type: "text",
           position: { left: 68.75, top: 184.375 },
           text: `+
-add
-blobs
-anywhere`
+  add
+  blobs
+  anywhere`
         }
       ]
     }
   },
   {
     ...gradientWaves,
-    thumb: "/preset_thumbs/9.png",
-    thumbWidth: 130,
+    thumb: "/template_thumbs/9.png",
     initState: {
       size: { width: 700, height: 700 },
       config: {
@@ -267,24 +257,23 @@ anywhere`
           },
           position: { left: 122, top: 120 },
           text: `We
-should
-all be
-designers`
+  should
+  all be
+  designers`
         }
       ]
     }
   },
   {
     ...fiberRibbons,
-    thumb: "/preset_thumbs/7.png",
-    thumbWidth: 87,
+    thumb: "/template_thumbs/7.png",
     initState: {
-      size: { width: 800, height: 1200 },
+      size: { width: 1000, height: 1000 },
       config: {
         backgroundColor: "#324444",
-        fov: 75,
+        palette: ["#A2CCB6", "#FCEEB5", "#fff", "#EE786E"],
         numLines: 94,
-        palette: ["#A2CCB6", "#FCEEB5", "#fff", "#EE786E"]
+        fov: 75
       },
       insertedItems: [
         {
@@ -299,25 +288,116 @@ designers`
             padding: 10,
             borderWidth: 0
           },
-          position: { left: 115.13, top: 220.66 },
-          text: `React
-Three
-Fiber`
+          position: { left: 166.125, top: 132.65625 },
+          text: "React\nThree\nFiber",
+          width: 600.8125,
+          height: 746
         }
       ]
     }
   },
   {
     ...subtleRib,
-    thumb: "/preset_thumbs/10.png",
-    thumbWidth: 130,
+    thumb: "/template_thumbs/19.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#f9f9f9", "#ffffff"],
+        direction: "left",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          id: 2,
+          type: "object",
+          width: 653,
+          height: 711,
+          showIframe: false,
+          adaptation: "subtle_rib",
+          configValues: { color: "#fcd633", mode: "vertical", intensity: 20 },
+          position: { left: 345, top: 0 }
+        },
+        {
+          id: 3,
+          type: "text",
+          config: {
+            fontFamily: "Helvetica",
+            fontSize: 34,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0.5 },
+            borderWidth: 1,
+            isBold: true
+          },
+          width: 161.875,
+          height: 96,
+          position: { left: 120, top: 60 },
+          text: "Design\nSystems"
+        },
+        {
+          id: 4,
+          type: "text",
+          config: {
+            fontFamily: "Helvetica",
+            fontSize: 72,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isBold: true
+          },
+          width: 620.234375,
+          height: 257,
+          position: { left: 121, top: 455 },
+          text: "A comprehensive\nguide to\niconography"
+        },
+        {
+          id: 5,
+          type: "text",
+          config: {
+            fontFamily: "Helvetica",
+            fontSize: 28,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isBold: false
+          },
+          width: 205.21875,
+          height: 50,
+          position: { left: 123, top: 716 },
+          text: "featured article"
+        },
+        {
+          id: 6,
+          type: "text",
+          config: {
+            fontFamily: "Helvetica",
+            fontSize: 20,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isBold: false
+          },
+          width: 170.078125,
+          height: 42,
+          position: { left: 441, top: 922 },
+          text: "by Steve Robsky"
+        }
+      ]
+    }
+  },
+  {
+    ...subtleRib,
+    thumb: "/template_thumbs/10.png",
     initState: {
       size: { width: 500, height: 500 },
-      config: {
-        color: "#fcd633",
-        intensity: 22,
-        mode: "vertical"
-      },
+      config: { color: "#e2affb", mode: "vertical", intensity: 22 },
       insertedItems: [
         {
           id: 100,
@@ -328,29 +408,29 @@ Fiber`
             color: "#000",
             fontFamily: "Noticia Text",
             fontSize: 44,
-            isBold: false,
+            isBold: true,
             isItalic: false,
             letterSpacing: 4,
             padding: 10
           },
-          position: { left: 135, top: 163 },
-          text: `every
-next step
-is simple`
+          position: { left: 137, top: 165 },
+          text: "every\nnext step\nis simple",
+          width: 242.484375,
+          height: 164
         }
       ]
     }
   },
   {
     ...strings25,
-    thumb: "/preset_thumbs/15.png",
-    thumbWidth: 267,
+    thumb: "/template_thumbs/15.png",
     thumbBackgroundSize: "cover",
     initState: {
-      size: { width: 742, height: 361 },
+      size: { width: 1000, height: 1000 },
       config: {
         palette: ["#d8f1ff", "#000"],
-        sizePercent: [19, 29]
+        sizePercent: [25, 39],
+        randomValues: [0.39245358845393374]
       },
       insertedItems: [
         {
@@ -360,12 +440,14 @@ is simple`
             fontFamily: "Poppins",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
-            fontSize: 27,
+            fontSize: 50,
             padding: 3,
             borderWidth: 0
           },
-          position: { left: 287, top: 120 },
-          text: "create"
+          position: { left: 347.4672379032258, top: 386.1097110215054 },
+          text: "create",
+          width: 170.9719422043011,
+          height: 59.72782258064516
         },
         {
           id: 101,
@@ -374,12 +456,14 @@ is simple`
             fontFamily: "Poppins",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
-            fontSize: 27,
+            fontSize: 64,
             padding: 3,
             borderWidth: 0
           },
-          position: { left: 287, top: 160 },
-          text: "something"
+          position: { left: 344.77906586021504, top: 455.68716397849465 },
+          text: "something",
+          width: 350.44942876344084,
+          height: 75.85685483870968
         },
         {
           id: 102,
@@ -389,60 +473,64 @@ is simple`
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
             isBold: true,
-            fontSize: 43,
+            fontSize: 69,
             padding: 3,
             borderWidth: 0
           },
-          position: { left: 287, top: 200 },
-          text: "unique"
+          position: { left: 346.12315188172045, top: 544.0818212365591 },
+          text: "unique",
+          width: 232.08585349462365,
+          height: 81.23319892473118
         }
       ]
     }
   },
   {
     ...gradientWaves,
-    thumb: "/preset_thumbs/13.png",
-    thumbWidth: 267,
+    thumb: "/template_thumbs/13.png",
     thumbBackgroundSize: "cover",
     initState: {
-      size: { width: 742, height: 361 },
+      size: { width: 1000, height: 1000 },
       config: {
         palette: ["#ff9855", "#bb045d"],
-        amplituteX: 60,
-        amplituteY: 60,
-        crazyness: true,
         lines: 1,
-        smoothness: 6
+        amplituteX: 148,
+        amplituteY: 200,
+        smoothness: 6,
+        fill: true,
+        randomValues: [0.5269907429385214, 0.44993152499044275]
       },
       insertedItems: [
         {
           id: 100,
           type: "text",
           config: {
-            fontFamily: "Montserrat",
+            fontFamily: "Neucha",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#fff",
-            fontSize: 34,
+            fontSize: 100,
             padding: 13,
             borderWidth: 0
           },
-          position: { left: 156, top: 150 },
-          text: "create something unique"
+          position: { left: 44.438844086021504, top: 461.8195564516129 },
+          text: "create something unique",
+          width: 918.5147849462365,
+          height: 134.8706317204301
         }
       ]
     }
   },
   {
     ...postmodern,
-    thumb: "/preset_thumbs/14.png",
-    thumbWidth: 267,
+    thumb: "/template_thumbs/14.png",
     thumbBackgroundSize: "cover",
     initState: {
-      size: { width: 742, height: 361 },
+      size: { width: 1000, height: 1000 },
       config: {
         palette: ["#dec7f9", "#693e97", "#2a013e"],
         count: 100,
-        lineWidth: 28
+        lineWidth: 74,
+        randomValues: [0.9799188025715417]
       },
       insertedItems: [
         {
@@ -452,39 +540,17 @@ is simple`
             fontFamily: "Merriweather",
             backgroundColor: "#693e97",
             color: "#fff",
-            fontSize: 28,
+            fontSize: 55,
             isBold: true,
             padding: 15,
             borderWidth: 0
           },
-          position: { left: 76, top: 191 },
-          text: "créer quelque chose d'unique"
+          position: { left: 104.2086693548387, top: 419.48084677419354 },
+          text: "créer quelque chose d'unique",
+          width: 818.9474126344086,
+          height: 89.12970430107526
         }
       ]
     }
   }
 ];
-
-export default () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [allCards, setAllCards] = useState(cards);
-  const onViewAllClick = () => {
-    setIsExpanded(true);
-    import("./loadMore1").then(module => {
-      const moreCards = module.default;
-      setAllCards([...allCards, ...moreCards]);
-    });
-  };
-  return (
-    <div className={classnames(s["root-wrapper"], isExpanded && s["expanded"])}>
-      <div className={s["view-all"]} onClick={onViewAllClick}>
-        view all
-      </div>
-      <div className={s["root"]}>
-        {allCards.map((card, index) => (
-          <MiniCard key={index} mode="preset" {...card} />
-        ))}
-      </div>
-    </div>
-  );
-};

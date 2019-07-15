@@ -116,9 +116,14 @@ a:hover {
 
 .ui.card,
 .ui.cards > .card {
-  width: 190px;
+  width: 260px;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.09);
   margin: 0.9em 0.6em;
+}
+
+.ui.card > .content,
+.ui.cards > .card > .content {
+  border-top: 0;
 }
