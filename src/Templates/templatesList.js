@@ -6,6 +6,7 @@ import subtleRib from "../_adaptationConfigs/subtle_rib";
 import blobmaker from "../_adaptationConfigs/blobmaker";
 import postmodern from "../_adaptationConfigs/postmodern";
 import strings25 from "../_adaptationConfigs/strings25";
+import blank from "../_adaptationConfigs/blank";
 
 export default [
   // {
@@ -19,6 +20,14 @@ export default [
   //     ]
   //   }
   // },
+  {
+    ...blank,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {},
+      insertedItems: []
+    }
+  },
   {
     ...linearGradient,
     thumb: "/template_thumbs/18.png",

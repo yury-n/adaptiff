@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "semantic-ui-react";
 import MiniCard from "../MiniCard/MiniCard";
 import templatesList from "./templatesList";
+import { backgrounds } from "../pages/adaptationsList";
 
 import s from "./Templates.module.css";
 
@@ -18,7 +19,7 @@ export default () => {
   return (
     <div className={s["root"]}>
       <Card.Group className="cards">
-        {templatesList.map((template, index) => (
+        {[...templatesList, ...backgrounds].map((template, index) => (
           <MiniCard key={index} mode="thumb-only" {...template} />
         ))}
       </Card.Group>

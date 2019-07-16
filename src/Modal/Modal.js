@@ -785,26 +785,28 @@ class TheModal extends Component {
         onClick={this.unsetActiveInsertedItemIndex}
       >
         <div className={s["title"]}>{title}</div>
-        <div>
-          <span className={s["by-author"]}>by</span>
-          {authorLink ? (
-            <a
-              href={authorLink}
-              className={s["author"]}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {author}
-              <Icon
-                title="codepen"
-                className={s["codepen-icon"]}
-                name="codepen"
-              />
-            </a>
-          ) : (
-            <span className={s["author"]}>{author}</span>
-          )}
-        </div>
+        {author && (
+          <div>
+            <span className={s["by-author"]}>by</span>
+            {authorLink ? (
+              <a
+                href={authorLink}
+                className={s["author"]}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {author}
+                <Icon
+                  title="codepen"
+                  className={s["codepen-icon"]}
+                  name="codepen"
+                />
+              </a>
+            ) : (
+              <span className={s["author"]}>{author}</span>
+            )}
+          </div>
+        )}
       </div>
     );
   };
