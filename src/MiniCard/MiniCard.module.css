@@ -18,12 +18,12 @@
   display: none;
 }
 
-.template-mode .content {
+.thumb-only-mode .content {
   display: none;
 }
 
-:global(.ui.cards > .card).template-mode,
-.template-mode .mini-preview {
+:global(.ui.cards > .card).thumb-only-mode,
+.thumb-only-mode .mini-preview {
   width: 205px;
   height: 205px;
 }

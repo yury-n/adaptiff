@@ -15,7 +15,7 @@ export default {
   fileName: "blobmaker/build/index",
   author: "cristinapoiata",
   authorLink: "http://www.zcreativelabs.com/",
-  thumb: "/background_thumbs/blobmaker.png",
+  thumb: "/background_thumbs/22.png",
   isTransparent: true,
   config: [
     {

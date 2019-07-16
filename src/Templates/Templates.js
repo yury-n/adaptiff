@@ -19,7 +19,7 @@ export default () => {
     <div className={s["root"]}>
       <Card.Group className="cards">
         {templatesList.map((template, index) => (
-          <MiniCard key={index} mode="template" {...template} />
+          <MiniCard key={index} mode="thumb-only" {...template} />
         ))}
       </Card.Group>
     </div>

@@ -2,13 +2,13 @@ export default {
   title: "Subtle Rib",
   fileName: "subtle_rib",
   author: "yury-n",
-  thumb: "/background_thumbs/subtle_rib.png",
+  thumb: "/background_thumbs/23.png",
   config: [
     {
       key: "color",
       text: "Color",
       type: "single-color",
-      defaultValue: "#fcd633"
+      defaultValue: "#c1bbf2"
     },
     {
       key: "mode",

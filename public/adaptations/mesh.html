@@ -10,7 +10,7 @@
     let currentCanvas = null;
 
     let scl = 5;
-    let backgroundColor = "#ccc";
+    let backgroundColor;
     let strokeColor = "#000";
     let withRandomness = true;
 
@@ -35,7 +35,9 @@
       ystart = withRandomness ? random(500) : 250;
       angleMultiplier = withRandomness ? floor(random(1, 5)) : 2;
 
-      background(backgroundColor);
+      if (backgroundColor) {
+        background(backgroundColor);
+      }
 
       translate(width / 10 + scl / 2, height / 10 + scl / 2);
       // translate((scl-25)/2, (scl-25)/2);
@@ -118,8 +120,8 @@
       width = window.innerWidth;
       height = window.innerHeight;
       scl = config.distanceBetween;
-      backgroundColor = config.palette[0];
-      strokeColor = config.palette[1];
+      backgroundColor = config.withBackground ? config.palette[0] : null;
+      strokeColor = config.withBackground ? config.palette[1] : config.color;
       withRandomness = config.randomValues.length > 0;
 
       var s = document.createElement("script");

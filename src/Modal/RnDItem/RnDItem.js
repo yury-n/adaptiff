@@ -92,6 +92,13 @@ export default React.forwardRef(function(
               };
               break;
             }
+            case "left": {
+              initMarginsByItemId[id] = {
+                top: margins.top,
+                left: margins.left - d.width
+              };
+              break;
+            }
             case "bottomLeft": {
               initMarginsByItemId[id] = {
                 top: margins.top,

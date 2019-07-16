@@ -22,11 +22,25 @@ export default {
   thumb: "/background_thumbs/2.png",
   config: [
     {
+      type: "boolean",
+      key: "withBackground",
+      text: "With Background",
+      defaultValue: true
+    },
+    {
       key: "palette",
       text: "Palette",
       type: "palette",
       defaultValue: palettes[0],
-      options: palettes
+      options: palettes,
+      condition: { key: "withBackground", value: true }
+    },
+    {
+      key: "color",
+      text: "Color",
+      type: "single-color",
+      defaultValue: "#000",
+      condition: { key: "withBackground", value: false }
     },
     {
       key: "distanceBetween",

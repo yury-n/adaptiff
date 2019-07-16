@@ -4,8 +4,8 @@ import Draggable from "react-draggable";
 
 import s from "./DraggableItem.module.css";
 
-export const MARGIN_LEFT = -8;
-export const MARGIN_TOP = -8;
+export const MARGIN_LEFT = -9;
+export const MARGIN_TOP = -9;
 
 let wasDragged = false;
 
@@ -16,6 +16,7 @@ export default function DraggableItem({
   onDragStart,
   onDragStop,
   className,
+  withOuterFrameWhenActive,
   children
 }) {
   return (
@@ -34,6 +35,7 @@ export default function DraggableItem({
         className={classnames(
           s["root"],
           isActive && s["active"],
+          withOuterFrameWhenActive && s["with-outer-frame-when-active"],
           initialPosition && s["with-initial-position"],
           className
         )}

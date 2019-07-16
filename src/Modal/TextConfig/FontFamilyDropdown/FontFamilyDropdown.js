@@ -52,7 +52,12 @@ export const FontFamilyDropdown = ({
     cyrillicFonts = fonts.filter(font => font.subsets.includes("cyrillic"));
   }
 
-  const currentIndex = fonts.findIndex(font => font.family === value);
+  const currentFonts = cyrillicOnly ? cyrillicFonts : fonts;
+
+  let currentIndex = currentFonts.findIndex(font => font.family === value);
+  if (!currentIndex) {
+    currentIndex = currentFonts.findIndex(font => font.family === "Roboto");
+  }
 
   const onMenuScroll = throttle(e => {
     const visibleMenuItemOffset = Math.floor(
@@ -75,31 +80,31 @@ export const FontFamilyDropdown = ({
   const goToPrev = () => {
     let newIndex = currentIndex - 1;
     if (newIndex < 0) {
-      newIndex = fonts.length - 1;
+      newIndex = currentFonts.length - 1;
     }
-    onChange(fonts[newIndex].family);
+    onChange(currentFonts[newIndex].family);
   };
   const goToNext = () => {
     let newIndex = currentIndex + 1;
-    if (newIndex > fonts.length - 1) {
+    if (newIndex > currentFonts.length - 1) {
       newIndex = 0;
     }
     // preload
-    if (fonts[newIndex + 1]) {
+    if (currentFonts[newIndex + 1]) {
       WebFont.load({
         google: {
-          families: [`${fonts[newIndex + 1]}:latin,cyrillic`]
+          families: [`${currentFonts[newIndex + 1].family}:latin,cyrillic`]
         }
       });
     }
-    onChange(fonts[newIndex].family);
+    onChange(currentFonts[newIndex].family);
   };
   return (
     <>
       <div className={s["root"]} ref={rootRef}>
         <label className="form-label">Font Family</label>
         <Dropdown
-          options={(cyrillicOnly ? cyrillicFonts : fonts).map((font, index) => {
+          options={currentFonts.map((font, index) => {
             const isVisible =
               index >= visibleRange.visibleMenuItemOffset &&
               index <=

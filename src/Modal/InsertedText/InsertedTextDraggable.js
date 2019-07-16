@@ -33,6 +33,7 @@ export default React.memo(
           onDragStop(...args);
         }}
         className={className}
+        withOuterFrameWhenActive={true}
       >
         <InsertedText
           onFocus={onFocus}
