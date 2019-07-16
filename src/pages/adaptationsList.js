@@ -16,6 +16,7 @@ import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
 import blobmaker from "../_adaptationConfigs/blobmaker";
 import subtleRib from "../_adaptationConfigs/subtle_rib";
 import clipSpace3d from "../_adaptationConfigs/clipSpace3d";
+import voronoi from "../_adaptationConfigs/voronoi";
 
 export const allAdaptations = [
   linearGradient,
@@ -35,7 +36,8 @@ export const allAdaptations = [
   chromaticLiquids,
   blobmaker,
   subtleRib,
-  clipSpace3d
+  clipSpace3d,
+  voronoi
 ];
 
 const unfilledGradientWaves = {
@@ -251,7 +253,8 @@ export const backgrounds = [
     }
   },
   { ...linearGradient },
-  { ...postmodern }
+  { ...postmodern },
+  { ...voronoi }
 ];
 
 export const insertables = [
