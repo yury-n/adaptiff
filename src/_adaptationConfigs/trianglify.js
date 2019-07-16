@@ -16,7 +16,7 @@ export default {
   fileName: "trianglify",
   author: "qrohlf",
   authorLink: "https://qrohlf.com/",
-  thumb: "/background_thumbs/trianglify.png",
+  thumb: "/thumbs/btrianglify.png",
   config: [
     {
       key: "palette",

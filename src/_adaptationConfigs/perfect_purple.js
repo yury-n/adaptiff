@@ -14,7 +14,7 @@ export default {
   fileName: "perfect_purple",
   author: "Levi Boenish",
   authorLink: "https://codepen.io/leviboenish/",
-  thumb: "/background_thumbs/5.png",
+  thumb: "/thumbs/b5.png",
   refreshIframe: true,
   isPausable: true,
   config: [

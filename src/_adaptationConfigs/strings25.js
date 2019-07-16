@@ -16,7 +16,7 @@ export default {
   fileName: "strings25",
   author: "Derek Morash",
   authorLink: "https://codepen.io/derekmorash",
-  thumb: "/background_thumbs/1.png",
+  thumb: "/thumbs/b1.png",
   config: [
     {
       key: "palette",

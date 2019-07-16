@@ -3,7 +3,7 @@ import Modal from "../Modal/Modal";
 import settings from "../settings";
 import { Button } from "semantic-ui-react";
 
-import { allAdaptationTypes } from "./adaptationsList";
+import { allAdaptationTypes } from "./adaptations";
 
 import s from "./Configs.module.css";
 

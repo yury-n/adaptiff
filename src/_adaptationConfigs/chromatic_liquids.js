@@ -37,7 +37,7 @@ export default {
   fileName: "bgpainter/index",
   author: "Frank Hsu",
   authorLink: "http://www.fangyexu.com/",
-  thumb: "/background_thumbs/6.png",
+  thumb: "/thumbs/b6.png",
   isPausable: true,
   config: [
     {

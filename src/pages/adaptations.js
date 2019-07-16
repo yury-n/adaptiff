@@ -16,6 +16,7 @@ import chromaticLiquids from "../_adaptationConfigs/chromatic_liquids";
 import blobmaker from "../_adaptationConfigs/blobmaker";
 import subtleRib from "../_adaptationConfigs/subtle_rib";
 import clipSpace3d from "../_adaptationConfigs/clipSpace3d";
+import voronoi from "../_adaptationConfigs/voronoi";
 
 export const allAdaptationTypes = [
   linearGradient,
@@ -35,12 +36,13 @@ export const allAdaptationTypes = [
   chromaticLiquids,
   blobmaker,
   subtleRib,
-  clipSpace3d
+  clipSpace3d,
+  voronoi
 ];
 
 const unfilledGradientWaves = {
   ...gradientWaves,
-  thumb: "/background_thumbs/18.png",
+  thumb: "/thumbs/b18.png",
   initState: {
     size: { width: 1000, height: 1000 },
     config: {
@@ -58,7 +60,7 @@ const unfilledGradientWaves = {
 
 const unfilledMesh = {
   ...mesh,
-  thumb: "/background_thumbs/30.png",
+  thumb: "/thumbs/b30.png",
   initState: {
     config: {
       distanceBetween: 7,
@@ -71,7 +73,7 @@ export const allAdaptations = [
   // 0
   {
     ...linearGradient,
-    thumb: "/template_thumbs/18.png",
+    thumb: "/thumbs/18.png",
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
@@ -153,7 +155,7 @@ export const allAdaptations = [
   // 1
   {
     ...linearGradient,
-    thumb: "/template_thumbs/16.png",
+    thumb: "/thumbs/16.png",
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
@@ -217,7 +219,7 @@ export const allAdaptations = [
   // 2
   {
     ...gradientBubbles,
-    thumb: "/template_thumbs/11.png",
+    thumb: "/thumbs/11.png",
     initState: {
       size: { width: 600, height: 600 },
       config: {
@@ -282,7 +284,7 @@ export const allAdaptations = [
   // 3
   {
     ...gradientWaves,
-    thumb: "/template_thumbs/9.png",
+    thumb: "/thumbs/9.png",
     initState: {
       size: { width: 700, height: 700 },
       config: {
@@ -320,7 +322,7 @@ export const allAdaptations = [
   // 4
   {
     ...fiberRibbons,
-    thumb: "/template_thumbs/7.png",
+    thumb: "/thumbs/7.png",
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
@@ -353,7 +355,7 @@ export const allAdaptations = [
   // 5
   {
     ...linearGradient,
-    thumb: "/template_thumbs/19.png",
+    thumb: "/thumbs/19.png",
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
@@ -450,7 +452,7 @@ export const allAdaptations = [
   // 6
   {
     ...subtleRib,
-    thumb: "/template_thumbs/10.png",
+    thumb: "/thumbs/10.png",
     initState: {
       size: { width: 500, height: 500 },
       config: { color: "#e2affb", mode: "vertical", intensity: 22 },
@@ -480,7 +482,7 @@ export const allAdaptations = [
   // 7
   {
     ...strings25,
-    thumb: "/template_thumbs/15.png",
+    thumb: "/thumbs/15.png",
     thumbBackgroundSize: "cover",
     initState: {
       size: { width: 1000, height: 1000 },
@@ -545,7 +547,7 @@ export const allAdaptations = [
   // 8
   {
     ...gradientWaves,
-    thumb: "/template_thumbs/13.png",
+    thumb: "/thumbs/13.png",
     thumbBackgroundSize: "cover",
     initState: {
       size: { width: 1000, height: 1000 },
@@ -581,7 +583,7 @@ export const allAdaptations = [
   // 9
   {
     ...postmodern,
-    thumb: "/template_thumbs/14.png",
+    thumb: "/thumbs/14.png",
     thumbBackgroundSize: "cover",
     initState: {
       size: { width: 1000, height: 1000 },
@@ -617,7 +619,7 @@ export const allAdaptations = [
   // 11
   {
     ...chromaticLiquids,
-    thumb: "/background_thumbs/17.png",
+    thumb: "/thumbs/b17.png",
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
@@ -635,7 +637,7 @@ export const allAdaptations = [
   // 12
   {
     ...gradientWaves,
-    thumb: "/background_thumbs/16.png",
+    thumb: "/thumbs/b16.png",
     initState: {
       size: { width: 500, height: 500 },
       config: {
@@ -653,7 +655,7 @@ export const allAdaptations = [
   // 13
   {
     ...fiberRibbons,
-    thumb: "/background_thumbs/15.png",
+    thumb: "/thumbs/b15.png",
     initState: {
       size: { width: 700, height: 700 },
       config: {
@@ -667,7 +669,7 @@ export const allAdaptations = [
   // 14
   {
     ...clipSpace3d,
-    thumb: "/background_thumbs/14.png",
+    thumb: "/thumbs/b14.png",
     initState: {
       size: { width: 930, height: 930 },
       config: {
@@ -690,7 +692,7 @@ export const allAdaptations = [
     ...linearGradient,
     title: "multiple objects",
     author: "multiple authors",
-    thumb: "/background_thumbs/13.png",
+    thumb: "/thumbs/b13.png",
     initState: {
       size: { width: 600, height: 500 },
       config: {
@@ -723,7 +725,7 @@ export const allAdaptations = [
   // 16
   {
     ...mesh,
-    thumb: "/background_thumbs/28.png",
+    thumb: "/thumbs/b28.png",
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
@@ -733,28 +735,28 @@ export const allAdaptations = [
     }
   },
   // 17
-  { ...clipSpace3d, thumb: "/background_thumbs/24.png" },
+  { ...clipSpace3d, thumb: "/thumbs/b24.png" },
   // 18
-  { ...blobmaker, thumb: "/background_thumbs/22.png" },
+  { ...blobmaker, thumb: "/thumbs/b22.png" },
   // 19
   {
     ...subtleRib,
-    thumb: "/background_thumbs/23.png",
+    thumb: "/thumbs/b23.png",
     initState: {
       config: { color: "#c1bbf2" },
       size: { width: 600, height: 500 }
     }
   },
   // 20
-  { ...trianglify, thumb: "/background_thumbs/29.png" },
+  { ...trianglify, thumb: "/thumbs/b29.png" },
   // 21
-  { ...particles, thumb: "/background_thumbs/25.png" },
+  { ...particles, thumb: "/thumbs/b25.png" },
   // 22
-  { ...gradientWaves, thumb: "/background_thumbs/27.png" },
+  { ...gradientWaves, thumb: "/thumbs/b27.png" },
   // 23
   {
     ...gradientBubbles,
-    thumb: "/background_thumbs/26.png",
+    thumb: "/thumbs/b26.png",
     initState: { config: {}, size: { width: 600, height: 500 } }
   },
   // 24
@@ -790,7 +792,7 @@ export const allAdaptations = [
   // 33
   {
     ...gradientBubbles,
-    thumb: "/background_thumbs/21.png",
+    thumb: "/thumbs/b21.png",
     initState: {
       size: { width: 800, height: 800 },
       config: {
@@ -809,7 +811,7 @@ export const allAdaptations = [
   // 34
   {
     ...particles,
-    thumb: "/background_thumbs/20.png",
+    thumb: "/thumbs/b20.png",
     initState: {
       size: { width: 600, height: 600 },
       config: {
@@ -822,7 +824,92 @@ export const allAdaptations = [
   // 35
   { ...linearGradient },
   // 36
-  { ...postmodern }
+  { ...postmodern },
+  // 37
+  {
+    ...voronoi,
+    initState: { config: {}, size: { width: 1000, height: 1000 } }
+  },
+  // 38
+  {
+    ...linearGradient,
+    thumb: "/thumbs/38.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: { palette: ["#00040e", "#470090"], direction: "top", angle: 200 },
+      insertedItems: [
+        {
+          id: 302,
+          type: "object",
+          showIframe: true,
+          adaptation: gradientWaves,
+          width: 1002.1029609690444,
+          height: 341.7521870794078,
+          position: { left: -0.9463324360699865, top: 318.703734858681 },
+          configValues: {
+            amplituteX: 200,
+            amplituteY: 16,
+            fill: false,
+            lines: 10,
+            palette: ["#4937ff", "#4937ff"],
+            randomValues: [],
+            smoothness: 22
+          }
+        },
+        {
+          id: 202,
+          type: "object",
+          width: 875.9883916554509,
+          height: 303.98300807537015,
+          showIframe: true,
+          adaptation: voronoi,
+          configValues: {
+            palette: ["#20ff06", "#f9f9f9"],
+            filled: true,
+            lineWidth: 5,
+            minMaxRadius: [2, 6]
+          },
+          position: { left: 61.67984522207268, top: 335.67462987886944 }
+        },
+        {
+          id: 203,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Righteous",
+            fontSize: 100,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0
+          },
+          width: 587.7145020188425,
+          height: 128.9956258411844,
+          position: { left: 201.14821668909826, top: 212.90376850605654 },
+          text: "I don't know"
+        },
+        {
+          id: 204,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Righteous",
+            fontSize: 100,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0
+          },
+          width: 643.3378196500673,
+          height: 128.9956258411844,
+          position: { left: 181.33832436069986, top: 634.3581763122477 },
+          text: "what this is..."
+        }
+      ]
+    }
+  }
 ];
 
 export const insertables = [
@@ -831,5 +918,6 @@ export const insertables = [
   unfilledGradientWaves,
   gradientWaves,
   unfilledMesh,
-  subtleRib
+  subtleRib,
+  allAdaptations[37]
 ];

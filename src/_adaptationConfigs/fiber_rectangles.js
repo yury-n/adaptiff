@@ -13,7 +13,7 @@ export default {
   fileName: "fiber_rectangles/build/index",
   author: "drcmda",
   authorLink: "https://codesandbox.io/embed/jz9l97qn89",
-  thumb: "/background_thumbs/7.png",
+  thumb: "/thumbs/b7.png",
   isPausable: true,
   config: [
     {

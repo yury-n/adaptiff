@@ -16,7 +16,7 @@ export default {
   author: "Kentskyo",
   authorLink: "https://codepen.io/kentskyo/",
   artLink: "https://codepen.io/kentskyo/pen/ojLyzg?editors=1010",
-  thumb: "/background_thumbs/11.png",
+  thumb: "/thumbs/b11.png",
   config: [
     {
       key: "palette",

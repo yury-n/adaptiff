@@ -7,7 +7,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SubscribeBlock from "../SubscribeBlock/SubscribeBlock";
 
-import { allAdaptations } from "./adaptationsList";
+import all from "./allAdaptationsList";
 import templates from "./templatesList";
 import backgrounds from "./backgroundsList";
 
@@ -29,7 +29,7 @@ export default () => {
   switch (selectedTab) {
     default:
     case "all":
-      adaptations = allAdaptations;
+      adaptations = all;
       break;
     case "backgrounds":
       adaptations = backgrounds;

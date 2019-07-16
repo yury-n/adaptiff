@@ -58,7 +58,6 @@ export default React.memo(
         }}
         onKeyUp={e => {
           const hasCyrillic = /[а-яА-ЯЁё]/.test(e.target.innerText);
-          console.log({ hasCyrillic });
           if (prevHasCyrillic !== hasCyrillic) {
             setHasCyrillic(hasCyrillic);
           }

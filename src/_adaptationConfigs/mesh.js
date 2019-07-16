@@ -19,7 +19,7 @@ export default {
   fileName: "mesh",
   author: "Derek Morash",
   authorLink: "https://codepen.io/derekmorash/pen/VdgGXZ",
-  thumb: "/background_thumbs/2.png",
+  thumb: "/thumbs/b2.png",
   config: [
     {
       type: "boolean",

@@ -13,7 +13,7 @@ export default {
   fileName: "wallPattern",
   author: "Tim Holman",
   authorLink: "https://codepen.io/tholman",
-  thumb: "/background_thumbs/9.png",
+  thumb: "/thumbs/b9.png",
   thumbBackgroundSize: 350,
   config: [
     {
