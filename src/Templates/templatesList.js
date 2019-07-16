@@ -297,7 +297,7 @@ export default [
     }
   },
   {
-    ...subtleRib,
+    ...linearGradient,
     thumb: "/template_thumbs/19.png",
     initState: {
       size: { width: 1000, height: 1000 },
@@ -308,20 +308,20 @@ export default [
       },
       insertedItems: [
         {
-          id: 2,
+          id: 102,
           type: "object",
           width: 653,
           height: 711,
-          showIframe: false,
-          adaptation: "subtle_rib",
+          showIframe: true,
+          adaptation: subtleRib,
           configValues: { color: "#fcd633", mode: "vertical", intensity: 20 },
           position: { left: 345, top: 0 }
         },
         {
-          id: 3,
+          id: 103,
           type: "text",
           config: {
-            fontFamily: "Roboto",
+            fontFamily: "Lato",
             fontSize: 34,
             padding: 10,
             letterSpacing: 0,
@@ -336,10 +336,10 @@ export default [
           text: "Design\nSystems"
         },
         {
-          id: 4,
+          id: 104,
           type: "text",
           config: {
-            fontFamily: "Roboto",
+            fontFamily: "Lato",
             fontSize: 72,
             padding: 10,
             letterSpacing: 0,
@@ -357,7 +357,7 @@ export default [
           id: 5,
           type: "text",
           config: {
-            fontFamily: "Roboto",
+            fontFamily: "Lato",
             fontSize: 28,
             padding: 10,
             letterSpacing: 0,
@@ -375,7 +375,7 @@ export default [
           id: 6,
           type: "text",
           config: {
-            fontFamily: "Roboto",
+            fontFamily: "Lato",
             fontSize: 20,
             padding: 10,
             letterSpacing: 0,

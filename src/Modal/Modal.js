@@ -704,13 +704,13 @@ class TheModal extends Component {
     }
     const iframeRect = this.iframeRef.current.getBoundingClientRect();
     const iframeWrapperRect = this.canvasWrapperRef.current.getBoundingClientRect();
-    if (position.left && position.top) {
-      return {
-        left:
-          position.left * scale + (iframeRect.left - iframeWrapperRect.left),
-        top: position.top * scale + (iframeRect.top - iframeWrapperRect.top)
-      };
-    }
+    return {
+      left:
+        (position.left || 0) * scale +
+        (iframeRect.left - iframeWrapperRect.left),
+      top:
+        (position.top || 0) * scale + (iframeRect.top - iframeWrapperRect.top)
+    };
   };
 
   removeCurrentInsertedItem = () => {
@@ -1128,7 +1128,8 @@ class TheModal extends Component {
         ...(insertedItem.type === "text"
           ? { text: captureConfig[index].text }
           : {}),
-        capturedIframe: undefined
+        capturedIframe: undefined,
+        id: insertedItem.id + 100
       })
     );
     // console.log("config", JSON.stringify(this.state.config));
