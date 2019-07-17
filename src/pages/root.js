@@ -1,54 +1,95 @@
-import React from "react";
+import React, { useState } from "react";
 import classnames from "classnames";
-import { Button } from "semantic-ui-react";
-// import MiniCard from "../MiniCard/MiniCard";
+import { Card, Button } from "semantic-ui-react";
+import MiniCard from "../MiniCard/MiniCard";
 
 import Header from "../Header/Header";
-import Templates from "../Templates/Templates";
 import Footer from "../Footer/Footer";
 import SubscribeBlock from "../SubscribeBlock/SubscribeBlock";
 
-// import { backgrounds } from "./adaptationsList";
+import { allAdaptations } from "./adaptationsList";
+import templates from "./templatesList";
+import backgrounds from "./backgroundsList";
 
 import s from "../App.module.css";
 
-// reactKawaii from "./_adaptationConfigs/react_kawaii";
-// import bubbles from "../_adaptationConfigs/bubbles";
-// import pulse from "../_adaptationConfigs/pulse";
-// import abstractParticles from "../_adaptationConfigs/abstractParticles";
-// import tunnel from "./_adaptationConfigs/tunnel";
-// import waves from "./_adaptationConfigs/waves";
-// import tunnel from "./_adaptationConfigs/tunnel";
-// import waves from "./_adaptationConfigs/waves";
+// const [isExpanded, setIsExpanded] = useState(false);
+// const [allCards, setAllCards] = useState(cards);
+// const onViewAllClick = () => {
+//   setIsExpanded(true);
+//   import("./loadMore1").then(module => {
+//     const moreCards = module.default;
+//     setAllCards([...allCards, ...moreCards]);
+//   });
+// };
 
-export default () => (
-  <>
-    <Header />
-    <div
-      className={classnames(s["main-content-area"], "restricted-width-area")}
-    >
-      <div className={s["tabs"]}>
-        <Button.Group size="medium">
-          <Button color="black">All</Button>
-          <Button basic color="black">
-            Backgrounds
-          </Button>
-          <Button basic color="black">
-            Templates
-          </Button>
-        </Button.Group>
-      </div>
-      <Templates />
-      <SubscribeBlock />
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSddoo8_28sRF5Pt7AZae5wtTXPH18dNYFoD8kujnf7omcKaDQ/viewform"
-        className={s["feedback-button"]}
+export default () => {
+  const [selectedTab, setSelectedTab] = useState("all");
+  let adaptations;
+  switch (selectedTab) {
+    default:
+    case "all":
+      adaptations = allAdaptations;
+      break;
+    case "backgrounds":
+      adaptations = backgrounds;
+      break;
+    case "templates":
+      adaptations = templates;
+      break;
+  }
+  return (
+    <>
+      <Header />
+      <div
+        className={classnames(s["main-content-area"], "restricted-width-area")}
       >
-        <span>feedback</span>
-      </a>
-    </div>
-    <Footer />
-  </>
-);
+        <div className={s["tabs"]}>
+          <Button.Group>
+            <Button
+              basic={selectedTab !== "all"}
+              color="black"
+              onClick={() => setSelectedTab("all")}
+            >
+              All
+            </Button>
+            <Button
+              basic={selectedTab !== "backgrounds"}
+              color="black"
+              onClick={() => setSelectedTab("backgrounds")}
+            >
+              Backgrounds
+            </Button>
+            <Button
+              basic={selectedTab !== "templates"}
+              color="black"
+              onClick={() => setSelectedTab("templates")}
+            >
+              Templates
+            </Button>
+          </Button.Group>
+        </div>
+        <Card.Group className={classnames(s["cards"], "cards")}>
+          {adaptations.map((template, index) => (
+            <MiniCard key={index} mode="thumb-only" {...template} />
+          ))}
+        </Card.Group>
+        {/* <div className={s["load-more-wrapper"]}>
+          <Button basic color="black" size="large">
+            Load More
+          </Button>
+        </div> */}
+        <SubscribeBlock />
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSddoo8_28sRF5Pt7AZae5wtTXPH18dNYFoD8kujnf7omcKaDQ/viewform"
+          className={s["feedback-button"]}
+        >
+          <span>feedback</span>
+        </a>
+      </div>
+      <Footer />
+    </>
+  );
+};

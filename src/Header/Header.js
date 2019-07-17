@@ -4,6 +4,8 @@ import throttle from "lodash.throttle";
 import { Button, Icon } from "semantic-ui-react";
 
 import s from "./Header.module.css";
+import blank from "../_adaptationConfigs/blank";
+import MiniCard from "../MiniCard/MiniCard";
 
 class Header extends Component {
   state = {
@@ -76,22 +78,29 @@ class Header extends Component {
             >
               <Icon name="telegram plane" />
             </Button>
-            <Button
+            {/* <Button
               icon
               className={s["contact-button"]}
               target="_blank"
               href="https://docs.google.com/forms/d/e/1FAIpQLSddoo8_28sRF5Pt7AZae5wtTXPH18dNYFoD8kujnf7omcKaDQ/viewform"
             >
               Contact
-            </Button>
-            <Button
-              icon
-              className={s["submit-button"]}
-              target="_blank"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSd7mLAVIt6y3J1GRsKZcVfYApD56TiummXnsFFfNTJQ52Rmtg/viewform?usp=sf_link"
-            >
-              Submit
-            </Button>
+            </Button> */}
+            <div className={s["submit-button-wrapper"]}>
+              <Button
+                icon
+                className={s["submit-button"]}
+                target="_blank"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSd7mLAVIt6y3J1GRsKZcVfYApD56TiummXnsFFfNTJQ52Rmtg/viewform?usp=sf_link"
+              >
+                Create a Design
+              </Button>
+              <MiniCard
+                className={s["blank-card"]}
+                mode="thumb-only"
+                {...blank}
+              />
+            </div>
           </div>
         </div>
       </header>

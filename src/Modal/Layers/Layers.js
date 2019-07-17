@@ -44,7 +44,7 @@ export default function Layers({
                 {item.isMoveable && item.insertedItemIndex !== 0 && (
                   <Icon
                     size="small"
-                    name="long arrow alternate up"
+                    name="long arrow alternate down"
                     onClick={e => {
                       onMove(
                         item.insertedItemIndex,
@@ -57,9 +57,8 @@ export default function Layers({
                 {item.isMoveable &&
                   item.insertedItemIndex !== items.length - 2 && (
                     <Icon
-                      className={s["arrow-down"]}
                       size="small"
-                      name="long arrow alternate down"
+                      name="long arrow alternate up"
                       onClick={e => {
                         onMove(
                           item.insertedItemIndex,
@@ -73,6 +72,7 @@ export default function Layers({
                   <Icon
                     size="small"
                     name="remove"
+                    className={s["remove-icon"]}
                     onClick={e => {
                       onRemove(item.insertedItemIndex);
                       e.stopPropagation();

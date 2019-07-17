@@ -100,10 +100,26 @@
 }
 
 .submit-button {
-  /* color: white !important;
-  background: #0f0f0f !important; */
+  color: #2c2c2c !important;
+  background: #efeff0 !important;
   padding-right: 18px !important;
   padding-left: 18px !important;
+  margin-left: 30px !important;
+}
+
+.submit-button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.blank-card {
+  position: absolute !important;
+  left: 0;
+  top: 0;
+  width: 100% !important;
+  height: 100%;
+  opacity: 0;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 600px) {

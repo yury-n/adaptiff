@@ -9,6 +9,12 @@
   margin: auto;
   display: flex;
   justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 150px;
+}
+
+.load-more-wrapper > button {
+  width: 205px;
 }
 
 .tabs {
@@ -20,6 +26,8 @@
 
 .tabs :global(.ui.black.button) {
   box-shadow: none !important;
+  padding-right: 18px !important;
+  padding-left: 18px !important;
 }
 
 .tabs :global(.ui.basic.black.button) {
@@ -27,6 +35,10 @@
   box-shadow: none !important;
   color: #5a5a5a !important;
   font-weight: bold;
+}
+
+.cards {
+  margin-bottom: 50px;
 }
 
 .feedback-button {

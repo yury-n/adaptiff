@@ -1,5 +1,6 @@
 import React from "react";
 import classnames from "classnames";
+import throttle from "lodash.throttle";
 import Draggable from "react-draggable";
 
 import s from "./DraggableItem.module.css";
@@ -8,6 +9,10 @@ export const MARGIN_LEFT = -9;
 export const MARGIN_TOP = -9;
 
 let wasDragged = false;
+
+const onDragThrottled = throttle(() => {
+  wasDragged = true;
+}, 250);
 
 export default function DraggableItem({
   isActive,
@@ -23,9 +28,7 @@ export default function DraggableItem({
     <Draggable
       cancel={isActive ? "span" : ""}
       onStart={onDragStart}
-      onDrag={() => {
-        wasDragged = true;
-      }}
+      onDrag={onDragThrottled}
       onStop={() => {
         onDragStop(wasDragged);
         wasDragged = false;

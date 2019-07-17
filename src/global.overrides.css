@@ -128,6 +128,7 @@ a:hover {
   border-top: 0;
 }
 
-.ui.black.button {
-  background: black;
+.ui.black.button:not(.basic),
+.ui.black.button:not(.basic):active {
+  background: black !important;
 }

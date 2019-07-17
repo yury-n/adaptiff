@@ -3,7 +3,7 @@ import Modal from "../Modal/Modal";
 import settings from "../settings";
 import { Button } from "semantic-ui-react";
 
-import { allAdaptations } from "./adaptationsList";
+import { allAdaptationTypes } from "./adaptationsList";
 
 import s from "./Configs.module.css";
 
@@ -27,7 +27,9 @@ const ConfigPage = props => {
   };
 
   const getArt = newConfig =>
-    allAdaptations.find(adaptation => adaptation.fileName === newConfig.title);
+    allAdaptationTypes.find(
+      adaptation => adaptation.fileName === newConfig.title
+    );
 
   return (
     newConfig && (

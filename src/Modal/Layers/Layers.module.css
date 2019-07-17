@@ -12,7 +12,7 @@
 
 .layers {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   font-size: 14px;
   background: #f7f7fa;
   border-radius: 0.28571429rem;
@@ -51,7 +51,6 @@
   border-radius: 0.28571429rem;
 }
 
-.arrow-down {
-  position: relative;
-  left: -5px;
+.remove-icon {
+  margin-left: 5px !important;
 }
