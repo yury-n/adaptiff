@@ -127,3 +127,7 @@ a:hover {
 .ui.cards > .card > .content {
   border-top: 0;
 }
+
+.ui.black.button {
+  background: black;
+}

@@ -1,13 +1,43 @@
 import React, { Component } from "react";
 import classnames from "classnames";
+import throttle from "lodash.throttle";
 import { Button, Icon } from "semantic-ui-react";
 
 import s from "./Header.module.css";
 
 class Header extends Component {
+  state = {
+    minimized: false
+  };
+  constructor(props) {
+    super(props);
+    const onScroll = () => {
+      if (window.scrollY > 0) {
+        if (!this.state.minimized) {
+          this.setState({ minimized: true });
+        }
+      } else {
+        if (this.state.minimized) {
+          this.setState({ minimized: false });
+        }
+      }
+    };
+    this.throttledOnScroll = throttle(onScroll, 250);
+  }
+  componentDidMount() {
+    window.addEventListener("scroll", this.throttledOnScroll);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.throttledOnScroll);
+  }
   render() {
     return (
-      <header className={s["header"]}>
+      <header
+        className={classnames(
+          s["header"],
+          this.state.minimized && s["minimized"]
+        )}
+      >
         <div className={classnames(s["header-inner"], "restricted-width-area")}>
           <a className={s["logo"]} href="/">
             <div className={s["logo-symbol"]}>
@@ -52,7 +82,7 @@ class Header extends Component {
               target="_blank"
               href="https://docs.google.com/forms/d/e/1FAIpQLSddoo8_28sRF5Pt7AZae5wtTXPH18dNYFoD8kujnf7omcKaDQ/viewform"
             >
-              Feedback
+              Contact
             </Button>
             <Button
               icon
