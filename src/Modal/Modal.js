@@ -283,8 +283,9 @@ class TheModal extends Component {
               className={classnames(
                 s["canvas-wrapper"],
                 "canvas-wrapper" /* global */,
-                this.state.isEditingText &&
-                  "is-editing-inserted-text" /* global */,
+                // by some reason doesn't work precisely
+                // this.state.isEditingText &&
+                //   "is-editing-inserted-text" /* global */,
                 this.state.highlightInsertedItemIndex !== null &&
                   "has-highlighted-item" /* global */
               )}

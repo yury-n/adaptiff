@@ -1,6 +1,9 @@
 import { allAdaptations } from "./adaptations";
 
 export default [
+  42,
+  41,
+  39,
   37,
   0,
   1,
@@ -39,6 +42,5 @@ export default [
   33,
   34,
   35,
-  36,
-  39,
+  36
 ].map(index => allAdaptations[index]);

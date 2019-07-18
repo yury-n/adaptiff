@@ -23,13 +23,16 @@ import s from "../App.module.css";
 //   });
 // };
 
+const ITEMS_PER_CHUNK = 25;
+
 export default () => {
   const [selectedTab, setSelectedTab] = useState("all");
+  const [page, setPage] = useState(0);
   let adaptations;
   switch (selectedTab) {
     default:
     case "all":
-      adaptations = all;
+      adaptations = all.slice(0, (page + 1) * ITEMS_PER_CHUNK);
       break;
     case "backgrounds":
       adaptations = backgrounds;
@@ -74,11 +77,18 @@ export default () => {
             <MiniCard key={index} mode="thumb-only" {...template} />
           ))}
         </Card.Group>
-        {/* <div className={s["load-more-wrapper"]}>
-          <Button basic color="black" size="large">
-            Load More
-          </Button>
-        </div> */}
+        {selectedTab === "all" && (page + 1) * ITEMS_PER_CHUNK < all.length && (
+          <div className={s["load-more-wrapper"]}>
+            <Button
+              basic
+              color="black"
+              size="large"
+              onClick={() => setPage(page + 1)}
+            >
+              Load More
+            </Button>
+          </div>
+        )}
         <SubscribeBlock />
         <a
           target="_blank"

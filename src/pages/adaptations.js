@@ -17,7 +17,8 @@ import blobmaker from "../_adaptationConfigs/blobmaker";
 import subtleRib from "../_adaptationConfigs/subtle_rib";
 import clipSpace3d from "../_adaptationConfigs/clipSpace3d";
 import voronoi from "../_adaptationConfigs/voronoi";
-import carpet from '../_adaptationConfigs/carpet';
+import carpet from "../_adaptationConfigs/carpet";
+import blank from "../_adaptationConfigs/blank";
 
 export const allAdaptationTypes = [
   linearGradient,
@@ -916,6 +917,200 @@ export const allAdaptations = [
   {
     ...carpet,
     initState: { config: {}, size: { width: 1000, height: 1000 } }
+  },
+  // 40
+  {
+    ...gradientWaves,
+    thumb: "/thumbs/40.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#18faff", "#7b2dd6"],
+        lines: 13,
+        amplituteX: 58,
+        amplituteY: 30,
+        smoothness: 100,
+        fill: true,
+        randomValues: []
+      },
+      insertedItems: [
+        {
+          id: 302,
+          type: "object",
+          width: 994.5652173913043,
+          height: 990.9420289855071,
+          showIframe: true,
+          adaptation: gradientWaves,
+          configValues: {
+            palette: ["#18faff", "#ffffff"],
+            lines: 13,
+            amplituteX: 10,
+            amplituteY: 10,
+            smoothness: 100,
+            fill: false,
+            randomValues: []
+          },
+          position: { left: 2.915534420289855, top: 3.87794384057971 }
+        }
+      ]
+    }
+  },
+  // 41
+  {
+    ...gradientWaves,
+    thumb: "/thumbs/41.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#ef76a7", "#d01200"],
+        lines: 13,
+        amplituteX: 58,
+        amplituteY: 30,
+        smoothness: 100,
+        fill: true,
+        randomValues: []
+      },
+      insertedItems: [
+        {
+          id: 202,
+          type: "object",
+          width: 994.5652173913043,
+          height: 994.5652173913043,
+          showIframe: true,
+          adaptation: gradientWaves,
+          configValues: {
+            palette: ["#ffffff", "#d01200"],
+            lines: 13,
+            amplituteX: 36,
+            amplituteY: 20,
+            smoothness: 100,
+            fill: false,
+            randomValues: []
+          },
+          position: { left: -0.7076539855072463, top: 0.25475543478260865 }
+        },
+        {
+          id: 102,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Oswald",
+            fontSize: 81,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#fefefe",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            hasCyrillic: true
+          },
+          width: 709.6071105072463,
+          height: 375.05661231884056,
+          position: { left: 38.04347826086956, top: 585.1449275362319 },
+          text:
+            "я запускаю\nв проволочный космос\nсвой медный грош, \nувенчанный гербом\n"
+        },
+        {
+          id: 204,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Barriecito",
+            fontSize: 120,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#fefefe",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            hasCyrillic: true
+          },
+          width: 259.97142147117296,
+          height: 151.1555666003976,
+          position: { left: 714.6496023856859, top: 29.230864811133202 },
+          text: "1987"
+        }
+      ]
+    }
+  },
+  // 42
+  {
+    ...blank,
+    thumb: "thumbs/42.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: { transparent: false, color: "#ffffff" },
+      insertedItems: [
+        {
+          id: 303,
+          type: "object",
+          width: 1052.528578528827,
+          height: 1220.9865805168986,
+          showIframe: true,
+          adaptation: mesh,
+          configValues: {
+            withBackground: false,
+            palette: ["#593c2e", "#ffcf2c"],
+            color: "#000",
+            distanceBetween: 17,
+            randomValues: [0.9723743823562034]
+          },
+          position: { left: 87.66153081510934, top: -118.84940357852882 }
+        },
+        {
+          id: 302,
+          type: "object",
+          width: 508.94632206759445,
+          height: 1009.9403578528827,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#fbcd33", "#bb384e"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          position: { left: -1.8327534791252484, top: -3.789761431411531 }
+        },
+        {
+          id: 202,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Seymour One",
+            fontSize: 100,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#6b4a7a",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            hasCyrillic: true,
+            isBold: true
+          },
+          width: 687.0961729622267,
+          height: 129.28677932405566,
+          position: { left: 122.26640159045725, top: 386.67992047713716 },
+          text: "Хаос лиц"
+        },
+        {
+          id: 102,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Seymour One",
+            fontSize: 57,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#fbcd33",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            hasCyrillic: true,
+            isBold: true
+          },
+          width: 739.5004970178926,
+          height: 81.57306163021869,
+          position: { left: 58.64811133200795, top: 492.04771371769385 },
+          text: "и не видно тропы"
+        }
+      ]
+    }
   }
 ];
 

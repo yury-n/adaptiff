@@ -130,7 +130,6 @@ export default React.memo(
                   <ColorInput
                     key={`color-${index}`}
                     color={color}
-                    disableAlpha={false}
                     onChange={value =>
                       setConfigValue(config.key, [
                         ...configValues.palette.slice(0, index),
