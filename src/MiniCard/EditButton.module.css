@@ -1,0 +1,15 @@
+.button--edit {
+  position: absolute;
+  min-width: 100%;
+  height: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  font-size: 16px !important;
+  letter-spacing: 1.12px;
+
+  z-index: 100;
+  color: #fff !important;
+  background: rgba(156, 173, 228, 0.9) !important;
+}

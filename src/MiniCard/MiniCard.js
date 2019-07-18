@@ -3,17 +3,23 @@ import classnames from "classnames";
 import { Card } from "semantic-ui-react";
 import Modal from "../Modal/Modal";
 
+import { EditButton } from './EditButton';
+
 import s from "./MiniCard.module.css";
 
 class MiniCard extends Component {
   state = {
     showModal: false,
-    isSelectingColor: false
+    isSelectingColor: false,
+    isEditButtonShown: false,
   };
   constructor(props) {
     super(props);
     if (props.showModal) this.state.showModal = true;
   }
+
+  toggleEditButtonState = () => this.setState({ isEditButtonShown: !this.state.isEditButtonShown });
+
   render() {
     const {
       author,
@@ -35,6 +41,8 @@ class MiniCard extends Component {
             this.props.className
           )}
           onClick={onClick || this.showModal}
+          onMouseEnter={this.toggleEditButtonState}
+          onMouseLeave={this.toggleEditButtonState}
           as="div"
           style={{ width: thumbWidth }}
         >
@@ -63,6 +71,7 @@ class MiniCard extends Component {
               <span className={s["mini-author"]}>{author}</span>
             )}
           </Card.Content>
+          <EditButton isShown={this.state.isEditButtonShown} />
         </Card>
         {this.state.showModal && (
           <Modal
