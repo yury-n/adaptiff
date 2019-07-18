@@ -41,6 +41,10 @@
   flex-shrink: 0;
 }
 
+.layer:hover {
+  background: #e1e1e3;
+}
+
 .layer:hover .actions {
   display: block;
 }

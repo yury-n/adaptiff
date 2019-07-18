@@ -21,6 +21,7 @@ export default React.forwardRef(function(
     children,
     className,
     isActive,
+    isHighlighted,
     initialPosition,
     lockAspectRatio,
     scale,
@@ -42,6 +43,7 @@ export default React.forwardRef(function(
   return (
     <DraggableItem
       isActive={isActive}
+      isHighlighted={isHighlighted}
       initialPosition={initialPosition}
       onClick={onClick}
       onDragStart={onDragStart}

@@ -14,6 +14,32 @@
   border: 1px black dotted;
   padding: 8px;
 }
+.root.with-outer-frame-when-active.active:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px white dotted;
+  pointer-events: none;
+}
+
+:global(.canvas-wrapper.has-highlighted-item) .root:not(.highlighted).active,
+:global(.canvas-wrapper.has-highlighted-item)
+  .root:not(.highlighted).active
+  .content-inner-wrapper,
+:global(.canvas-wrapper.has-highlighted-item)
+  .root:not(.highlighted).active
+  .content,
+:global(.canvas-wrapper.has-highlighted-item)
+  .root:not(.highlighted).active:before,
+:global(.canvas-wrapper.has-highlighted-item)
+  .root:not(.highlighted).active
+  .content-inner-wrapper {
+  border-color: transparent;
+}
 
 .root.with-outer-frame-when-active.active .content {
   overflow: hidden; /* this is just for Text, really */
@@ -33,13 +59,16 @@
 }
 
 .root.active,
+.root.highlighted,
 .root.active .content-inner-wrapper,
+.root.highlighted .content-inner-wrapper,
 .root:hover,
 .root:hover .content-inner-wrapper {
   border-color: black;
 }
 
 .root.active .content,
+.root.highlighted .content,
 .root:hover .content {
   border-color: white;
 }

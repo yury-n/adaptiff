@@ -78,6 +78,7 @@ class TheModal extends Component {
           // }
         ],
       activeInsertedItemIndex: null,
+      highlightInsertedItemIndex: null,
       isAddMenuOpen: false,
       isSelectingColor: false,
       isEditingText: false,
@@ -283,7 +284,9 @@ class TheModal extends Component {
                 s["canvas-wrapper"],
                 "canvas-wrapper" /* global */,
                 this.state.isEditingText &&
-                  "is-editing-inserted-text" /* global */
+                  "is-editing-inserted-text" /* global */,
+                this.state.highlightInsertedItemIndex !== null &&
+                  "has-highlighted-item" /* global */
               )}
             >
               {isLoadingIframe && (
@@ -392,7 +395,7 @@ class TheModal extends Component {
   };
 
   renderInsertedRnDItem = (insertedItem, index) => {
-    const { activeInsertedItemIndex } = this.state;
+    const { activeInsertedItemIndex, highlightInsertedItemIndex } = this.state;
     const refCallback = ref => {
       this.insertedItemsRefs[insertedItem.id] = ref;
     };
@@ -403,6 +406,7 @@ class TheModal extends Component {
       className: s["inserted-item"],
       scale: scaleToFit,
       isActive: index === activeInsertedItemIndex,
+      isHighlighted: index === highlightInsertedItemIndex,
       onClick: () => this.setActiveInsertedItemIndex(index),
       onDragStart: this.onDragStart,
       onDragStop: this.onDragStop(index),
@@ -773,6 +777,9 @@ class TheModal extends Component {
         onMove={(insertedItemIndex, toIndex) =>
           this.moveInsertedItemToIndex(insertedItemIndex, toIndex)
         }
+        onSetHighlightedInsertedItem={insertedItemIndex =>
+          this.setState({ highlightInsertedItemIndex: insertedItemIndex })
+        }
       />
     );
   };
@@ -1122,7 +1129,7 @@ class TheModal extends Component {
       (insertedItem, index) => ({
         ...insertedItem,
         ...(insertedItem.type === "object"
-          ? { adaptation: insertedItem.adaptation.fileName }
+          ? { adaptation: insertedItem.adaptation.fileName, showIframe: true }
           : {}),
         width: captureConfig[index].width,
         height: captureConfig[index].height,

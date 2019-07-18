@@ -10,12 +10,17 @@ export const MARGIN_TOP = -9;
 
 let wasDragged = false;
 
-const onDragThrottled = throttle(() => {
-  wasDragged = true;
-}, 250);
+const onDragThrottled = throttle(
+  () => {
+    wasDragged = true;
+  },
+  250,
+  { leading: false, trailing: false }
+);
 
 export default function DraggableItem({
   isActive,
+  isHighlighted,
   initialPosition,
   onClick,
   onDragStart,
@@ -38,6 +43,7 @@ export default function DraggableItem({
         className={classnames(
           s["root"],
           isActive && s["active"],
+          isHighlighted && s["highlighted"],
           withOuterFrameWhenActive && s["with-outer-frame-when-active"],
           initialPosition && s["with-initial-position"],
           className

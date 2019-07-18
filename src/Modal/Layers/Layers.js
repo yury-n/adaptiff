@@ -9,7 +9,8 @@ export default function Layers({
   items,
   onSelect,
   onRemove,
-  onMove
+  onMove,
+  onSetHighlightedInsertedItem
 }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   return (
@@ -19,6 +20,7 @@ export default function Layers({
         isCollapsed && s["collapsed"],
         className
       )}
+      onMouseLeave={() => onSetHighlightedInsertedItem(null)}
     >
       <label
         className={classnames("form-label", s["form-label"])}
@@ -38,6 +40,9 @@ export default function Layers({
               key={item.id}
               className={classnames(s["layer"], item.isActive && s["active"])}
               onClick={() => onSelect(item.insertedItemIndex)}
+              onMouseEnter={() =>
+                onSetHighlightedInsertedItem(item.insertedItemIndex)
+              }
             >
               <div className={s["label"]}>{item.label}</div>
               <div className={s["actions"]}>

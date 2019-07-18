@@ -9,6 +9,7 @@ export default React.memo(
       onDragStart,
       onDragStop,
       isActive,
+      isHighlighted,
       initialPosition,
       initialValue,
       config,
@@ -23,6 +24,7 @@ export default React.memo(
     return (
       <DraggableItem
         isActive={isActive}
+        isHighlighted={isHighlighted}
         initialPosition={initialPosition}
         onDragStart={() => {
           setIsDragged(true);
