@@ -39,5 +39,6 @@ export default [
   33,
   34,
   35,
-  36
+  36,
+  39,
 ].map(index => allAdaptations[index]);

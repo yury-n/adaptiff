@@ -17,6 +17,7 @@ import blobmaker from "../_adaptationConfigs/blobmaker";
 import subtleRib from "../_adaptationConfigs/subtle_rib";
 import clipSpace3d from "../_adaptationConfigs/clipSpace3d";
 import voronoi from "../_adaptationConfigs/voronoi";
+import carpet from '../_adaptationConfigs/carpet';
 
 export const allAdaptationTypes = [
   linearGradient,
@@ -37,7 +38,8 @@ export const allAdaptationTypes = [
   blobmaker,
   subtleRib,
   clipSpace3d,
-  voronoi
+  voronoi,
+  carpet
 ];
 
 const unfilledGradientWaves = {
@@ -909,6 +911,11 @@ export const allAdaptations = [
         }
       ]
     }
+  },
+  // 39
+  {
+    ...carpet,
+    initState: { config: {}, size: { width: 1000, height: 1000 } }
   }
 ];
 
