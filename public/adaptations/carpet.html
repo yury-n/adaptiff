@@ -24,8 +24,7 @@
           .match(/.{2}/g)
           .map(x => parseInt(x, 16));
 
-      const colors = config.palette
-        .map(hex => hexToRgb(hex));
+      const colors = config.palette.map(hex => hexToRgb(hex));
 
       var sketch = function(p) {
         p.setup = () => {
@@ -36,218 +35,228 @@
           const y = p.height / 2;
           p.rotate(config.rotate);
           generate(x, y);
-      }
+        };
 
-      keyReleased = () => {
-        if (key === "g") generate();
-      };
+        keyReleased = () => {
+          if (key === "g") generate();
+        };
 
-      const generate = (x, y) => {
-        p.translate(x, y);
-        const borderColors = _.sampleSize(colors, 2);
-        const cellCount = config.cellCount;
-        const cellSide = 560;
-        const startPoint = -(cellSide * (cellCount - 1)) / 2;
-        for (let rowIndex = 0; rowIndex < cellCount; rowIndex += 1) {
-          for (let colIndex = 0; colIndex < cellCount; colIndex += 1) {
-            x = startPoint + colIndex * cellSide;
-            y = startPoint + rowIndex * cellSide;
+        const generate = (x, y) => {
+          p.translate(x, y);
+          const borderColors = _.sampleSize(colors, 2);
+          const cellCount = config.cellCount;
+          const cellSide = 560;
+          const startPoint = -(cellSide * (cellCount - 1)) / 2;
+          for (let rowIndex = 0; rowIndex < cellCount; rowIndex += 1) {
+            for (let colIndex = 0; colIndex < cellCount; colIndex += 1) {
+              x = startPoint + colIndex * cellSide;
+              y = startPoint + rowIndex * cellSide;
 
-            element(x, y, borderColors);
+              element(x, y, borderColors);
+            }
           }
-        }
-      };
+        };
 
-      const element = (x, y, borderColors) => {
-        const ctx = p.drawingContext;
-        const squareSideDotsCount = 30;
-        p.noStroke();
-
-        const squareVertices = [];
-        let startAngle = 45;
-        for (let i = 0; i < 4; i += 1) {
-          squareVertices.push({
-            x: 400 * p.cos(startAngle),
-            y: 400 * p.sin(startAngle)
-          });
-          startAngle += 360 / 4;
-        }
-
-        const square = [];
-        for (let i = 0; i < 4; i += 1) {
-          for (let j = 0; j < squareSideDotsCount; j += 1) {
-            const x = p.lerp(
-              squareVertices[i].x,
-              squareVertices[(i + 1) % squareVertices.length].x,
-              j / squareSideDotsCount
-            );
-            const y = p.lerp(
-              squareVertices[i].y,
-              squareVertices[(i + 1) % squareVertices.length].y,
-              j / squareSideDotsCount
-            );
-            square.push({ x, y });
-          }
-        }
-
-        p.push();
-        p.translate(x, y);
-        for (let i = 0; i < square.length; i += 1) {
-          p.push();
+        const element = (x, y, borderColors) => {
+          const ctx = p.drawingContext;
+          const squareSideDotsCount = 30;
           p.noStroke();
-          if (i % 2 === 0) {
-            p.fill(borderColors[0]);
-          } else {
-            p.fill(borderColors[1]);
-          }
-          p.beginShape();
-          p.vertex(square[i].x, square[i].y);
-          p.vertex(0, 0);
-          p.vertex(
-            square[(i + 1) % square.length].x,
-            square[(i + 1) % square.length].y
-          );
-          p.endShape(p.CLOSE);
-          p.pop();
-        }
 
-        const innerRectSide = config.innerRectSide;
-        const cellCount = config.cellCount;
-        const grid = [];
-        const cellSide = innerRectSide / cellCount;
-        const startPoint = -(cellSide * (cellCount - 1)) / 2;
-        for (let rowIndex = 0; rowIndex < cellCount; rowIndex += 1) {
-          for (let colIndex = 0; colIndex < cellCount; colIndex += 1) {
-            grid.push({
-              x: startPoint + colIndex * cellSide,
-              y: startPoint + rowIndex * cellSide
+          const squareVertices = [];
+          let startAngle = 45;
+          for (let i = 0; i < 4; i += 1) {
+            squareVertices.push({
+              x: 400 * p.cos(startAngle),
+              y: 400 * p.sin(startAngle)
             });
+            startAngle += 360 / 4;
           }
-        }
 
-        for (let rowIndex = 0; rowIndex < cellCount; rowIndex += 1) {
-          for (let colIndex = 0; colIndex < cellCount; colIndex += 1) {
-            const x = grid[rowIndex * cellCount + colIndex].x;
-            const y = grid[rowIndex * cellCount + colIndex].y;
-            const halfWidth = cellSide / 2;
+          const square = [];
+          for (let i = 0; i < 4; i += 1) {
+            for (let j = 0; j < squareSideDotsCount; j += 1) {
+              const x = p.lerp(
+                squareVertices[i].x,
+                squareVertices[(i + 1) % squareVertices.length].x,
+                j / squareSideDotsCount
+              );
+              const y = p.lerp(
+                squareVertices[i].y,
+                squareVertices[(i + 1) % squareVertices.length].y,
+                j / squareSideDotsCount
+              );
+              square.push({ x, y });
+            }
+          }
 
+          p.push();
+          p.translate(x, y);
+          for (let i = 0; i < square.length; i += 1) {
             p.push();
-            p.fill(255);
-            p.rect(x, y, cellSide, cellSide);
+            p.noStroke();
+            if (i % 2 === 0) {
+              p.fill(borderColors[0]);
+            } else {
+              p.fill(borderColors[1]);
+            }
+            p.beginShape();
+            p.vertex(square[i].x, square[i].y);
+            p.vertex(0, 0);
+            p.vertex(
+              square[(i + 1) % square.length].x,
+              square[(i + 1) % square.length].y
+            );
+            p.endShape(p.CLOSE);
             p.pop();
+          }
 
-            if (rowIndex % 2 === 1 && colIndex % 2 === 1) {
-              const r = p.random(10);
+          const innerRectSide = config.innerRectSide;
+          const cellCount = config.cellCount;
+          const grid = [];
+          const cellSide = innerRectSide / cellCount;
+          const startPoint = -(cellSide * (cellCount - 1)) / 2;
+          for (let rowIndex = 0; rowIndex < cellCount; rowIndex += 1) {
+            for (let colIndex = 0; colIndex < cellCount; colIndex += 1) {
+              grid.push({
+                x: startPoint + colIndex * cellSide,
+                y: startPoint + rowIndex * cellSide
+              });
+            }
+          }
+
+          for (let rowIndex = 0; rowIndex < cellCount; rowIndex += 1) {
+            for (let colIndex = 0; colIndex < cellCount; colIndex += 1) {
+              const x = grid[rowIndex * cellCount + colIndex].x;
+              const y = grid[rowIndex * cellCount + colIndex].y;
+              const halfWidth = cellSide / 2;
 
               p.push();
-              p.fill(_.sample(colors));
+              p.fill(255);
               p.rect(x, y, cellSide, cellSide);
               p.pop();
 
-              if (p.random(1) > 0.5) {
-                p.push();
-                p.fill(_.sample(colors.map(c => `rgba(${c}, 0.4)`)));
-                p.rect(x + r, y + r, 25, 25);
-                p.pop();
-              }
+              if (rowIndex % 2 === 1 && colIndex % 2 === 1) {
+                const r = p.random(10);
 
-              p.push();
-              p.fill(_.sample(colors));
-              p.rect(x, y, 25, 25);
-              p.pop();
-
-              p.push();
-              p.fill(_.sample(colors));
-              p.rect(x, y, 2, 2);
-              p.pop();
-            } else {
-              const r = p.random(7);
-              p.noStroke();
-              p.push();
-              const gradientColors = _.sampleSize(
-                colors.map(c => `rgba(${c}, 0.2)`),
-                2
-              );
-              makeLinearGradient(
-                ctx,
-                x - halfWidth,
-                y - halfWidth,
-                x + halfWidth,
-                y - halfWidth,
-                [0, 1],
-                gradientColors
-              );
-              p.triangle(
-                x - halfWidth,
-                y - halfWidth,
-                x + halfWidth,
-                y - halfWidth,
-                x + halfWidth,
-                y + halfWidth
-              );
-              p.pop();
-
-              p.push();
-              p.fill(_.sample(colors.map(c => `rgba(${c}, 0.1)`)));
-              p.triangle(
-                x - halfWidth,
-                y - halfWidth,
-                x - halfWidth,
-                y + halfWidth,
-                x + halfWidth,
-                y + halfWidth
-              );
-              p.pop();
-
-              if (p.random(1) > 0.6) {
-                p.push();
-                p.strokeWeight(2);
-                p.stroke(_.sample(colors));
-                p.line(x - halfWidth, y, x + halfWidth, y);
-                p.pop();
-              }
-
-              if (p.random(1) > 0.7) {
-                p.push();
-                p.strokeWeight(2);
-                p.stroke(_.sample(colors));
-                p.line(x, y - halfWidth, x, y + halfWidth);
-                p.pop();
-              }
-
-              if (p.random(1) > 0.8) {
                 p.push();
                 p.fill(_.sample(colors));
-                p.circle(x, y, 30);
-                p.pop();
-              }
-
-              if (p.random(1) > 0.4) {
-                p.push();
-                p.fill(_.sample(colors));
-                p.circle(x, y, 3);
+                p.rect(x, y, cellSide, cellSide);
                 p.pop();
 
-                if (p.random(1) > 0.3) {
+                if (p.random(1) > 0.5) {
                   p.push();
-                  p.fill(_.sample(colors.map(c => `rgba(${c}, 0.3)`)));
-                  p.circle(x + r, y + r, 5);
+                  p.fill(_.sample(colors.map(c => `rgba(${c}, 0.4)`)));
+                  p.rect(x + r, y + r, 25, 25);
                   p.pop();
+                }
+
+                p.push();
+                p.fill(_.sample(colors));
+                p.rect(x, y, 25, 25);
+                p.pop();
+
+                p.push();
+                p.fill(_.sample(colors));
+                p.rect(x, y, 2, 2);
+                p.pop();
+              } else {
+                const r = p.random(7);
+                p.noStroke();
+                p.push();
+                const gradientColors = _.sampleSize(
+                  colors.map(c => `rgba(${c}, 0.2)`),
+                  2
+                );
+                makeLinearGradient(
+                  ctx,
+                  x - halfWidth,
+                  y - halfWidth,
+                  x + halfWidth,
+                  y - halfWidth,
+                  [0, 1],
+                  gradientColors
+                );
+                p.triangle(
+                  x - halfWidth,
+                  y - halfWidth,
+                  x + halfWidth,
+                  y - halfWidth,
+                  x + halfWidth,
+                  y + halfWidth
+                );
+                p.pop();
+
+                p.push();
+                p.fill(_.sample(colors.map(c => `rgba(${c}, 0.1)`)));
+                p.triangle(
+                  x - halfWidth,
+                  y - halfWidth,
+                  x - halfWidth,
+                  y + halfWidth,
+                  x + halfWidth,
+                  y + halfWidth
+                );
+                p.pop();
+
+                if (p.random(1) > 0.6) {
+                  p.push();
+                  p.strokeWeight(2);
+                  p.stroke(_.sample(colors));
+                  p.line(x - halfWidth, y, x + halfWidth, y);
+                  p.pop();
+                }
+
+                if (p.random(1) > 0.7) {
+                  p.push();
+                  p.strokeWeight(2);
+                  p.stroke(_.sample(colors));
+                  p.line(x, y - halfWidth, x, y + halfWidth);
+                  p.pop();
+                }
+
+                if (p.random(1) > 0.8) {
+                  p.push();
+                  p.fill(_.sample(colors));
+                  p.circle(x, y, 30);
+                  p.pop();
+                }
+
+                if (p.random(1) > 0.4) {
+                  p.push();
+                  p.fill(_.sample(colors));
+                  p.circle(x, y, 3);
+                  p.pop();
+
+                  if (p.random(1) > 0.3) {
+                    p.push();
+                    p.fill(_.sample(colors.map(c => `rgba(${c}, 0.3)`)));
+                    p.circle(x + r, y + r, 5);
+                    p.pop();
+                  }
                 }
               }
             }
           }
-        }
 
-        p.pop();
+          p.pop();
+        };
+        const makeLinearGradient = (
+          ctx,
+          x1,
+          y1,
+          x2,
+          y2,
+          colorStops,
+          colors
+        ) => {
+          const gradient = ctx.createLinearGradient(x1, y1, x2, y2);
+          colorStops.forEach((stop, i) =>
+            gradient.addColorStop(stop, colors[i])
+          );
+          ctx.fillStyle = gradient;
+          return gradient;
+        };
       };
-      const makeLinearGradient = (ctx, x1, y1, x2, y2, colorStops, colors) => {
-        const gradient = ctx.createLinearGradient(x1, y1, x2, y2);
-        colorStops.forEach((stop, i) => gradient.addColorStop(stop, colors[i]));
-        ctx.fillStyle = gradient;
-        return gradient;
-      };
-    }
 
       new window.p5(sketch, node);
     }
@@ -279,9 +288,8 @@
     }
 
     function aff_download() {
-      var link = document.createElement("a");
       var image = document
-        .querySelector("#preview")
+        .getElementById("defaultCanvas0")
         .toDataURL("image/png")
         .replace("image/png", "image/octet-stream");
       postDownloadImage({
