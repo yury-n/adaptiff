@@ -919,5 +919,6 @@ export const insertables = [
   gradientWaves,
   unfilledMesh,
   subtleRib,
-  allAdaptations[37]
+  allAdaptations[37],
+  trianglify
 ];

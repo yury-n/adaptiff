@@ -619,7 +619,7 @@ class TheModal extends Component {
     const lastinsertedItem = insertedItems[insertedItems.length - 1] || {};
     const defaultConfig = {
       fontFamily: "Roboto",
-      fontSize: 28,
+      fontSize: 40,
       padding: 10,
       letterSpacing: 0,
       color: "#000",
