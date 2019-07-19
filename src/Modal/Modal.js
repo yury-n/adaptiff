@@ -625,7 +625,9 @@ class TheModal extends Component {
       letterSpacing: 0,
       color: "#000",
       backgroundColor: { r: 255, g: 255, b: 255, a: 0.5 },
-      borderWidth: 0
+      borderWidth: 0,
+      isInline: false,
+      lineHeight: 12
     };
     this.insertItem({
       id: this.insertedBlockId++,

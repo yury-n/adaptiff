@@ -10,6 +10,7 @@ export const MARGIN_TOP = -9;
 
 let wasDragged = false;
 
+// TODO: derive from x,y delta
 const onDragThrottled = throttle(
   () => {
     wasDragged = true;

@@ -1111,6 +1111,55 @@ export const allAdaptations = [
         }
       ]
     }
+  },
+  // 43
+  {
+    ...linearGradient,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#fbcac4", "#45618a"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          id: 102,
+          type: "object",
+          width: 995,
+          height: 995,
+          showIframe: true,
+          adaptation: mesh,
+          configValues: {
+            withBackground: false,
+            palette: ["#593c2e", "#ffcf2c"],
+            color: "#ffffff",
+            distanceBetween: 7,
+            randomValues: [0.5307371650983657]
+          },
+          position: { left: 1, top: 2 }
+        },
+        {
+          id: 103,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Roboto",
+            fontSize: 41,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0.48 },
+            borderWidth: 0,
+            hasCyrillic: true
+          },
+          width: 800.515625,
+          height: 65,
+          position: { left: 98, top: 446 },
+          text: "Я считал, что лес — только часть полена"
+        }
+      ]
+    }
   }
 ];
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Icon } from "semantic-ui-react";
+import { Button, Icon, Checkbox } from "semantic-ui-react";
 import ColorInput from "../../ColorInput/ColorInput";
 import Range from "../../Range/Range";
 import FontFamilyDropdown from "./FontFamilyDropdown/FontFamilyDropdown";
@@ -74,6 +74,30 @@ export default React.memo(
           onOpen={onStartSelectingColor}
           onClose={onStopSelectingColor}
         />
+        <label className="form-label">Text Alignment</label>
+        <Button.Group basic>
+          <Button
+            icon="align left"
+            active={!config.textAlign || config.textAlign === "left"}
+            onClick={() => setConfigValue("textAlign", "left")}
+          />
+          <Button
+            icon="align center"
+            active={config.textAlign === "center"}
+            onClick={() => setConfigValue("textAlign", "center")}
+          />
+          <Button
+            icon="align left"
+            active={config.textAlign === "right"}
+            onClick={() => setConfigValue("textAlign", "right")}
+          />
+        </Button.Group>
+        <label className="form-label">As a Block</label>
+        <Checkbox
+          toggle
+          checked={!config.isInline}
+          onChange={() => setConfigValue("isInline", !config.isInline)}
+        />
         <label className="form-label">Padding</label>
         <Range
           withRangeInputs={false}
@@ -89,6 +113,14 @@ export default React.memo(
           max={20}
           value={config.borderWidth}
           onChange={value => setConfigValue("borderWidth", value)}
+        />
+        <label className="form-label">Line Height</label>
+        <Range
+          withRangeInputs={false}
+          min={0}
+          max={50}
+          value={config.lineHeight || 12}
+          onChange={value => setConfigValue("lineHeight", value)}
         />
         <label className="form-label">Letter Spacing</label>
         <Range

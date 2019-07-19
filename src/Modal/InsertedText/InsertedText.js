@@ -45,42 +45,57 @@ export default React.memo(
     const isFocusedAndEditable = isEditable && isFocused;
 
     return (
-      <span
-        ref={ref}
-        contentEditable={isFocusedAndEditable}
-        onClick={() => {
-          onFocus();
-          setIsFocused(true);
-        }}
-        onBlur={() => {
-          onBlur();
-          setIsFocused(false);
-        }}
-        onKeyUp={e => {
-          const hasCyrillic = /[а-яА-ЯЁё]/.test(e.target.innerText);
-          if (prevHasCyrillic !== hasCyrillic) {
-            setHasCyrillic(hasCyrillic);
-          }
-        }}
-        suppressContentEditableWarning={true}
-        className={classnames(s["text"], isFocusedAndEditable && s["editable"])}
+      <div
         style={{
-          fontSize: `${config.fontSize * (scale || 1)}px`,
-          fontFamily: config.fontFamily,
-          color: config.color,
-          backgroundColor: colorObjToString(config.backgroundColor),
-          padding: `${config.padding * (scale || 1)}px`,
-          fontWeight: config.isBold ? "bold" : "normal",
-          textDecoration: config.isUnderlined ? "underline" : "none",
-          fontStyle: config.isItalic ? "italic" : undefined,
-          letterSpacing: `${config.letterSpacing * (scale || 1)}px`,
-          borderWidth: `${config.borderWidth * (scale || 1)}px`,
-          borderStyle: "solid",
-          borderColor: config.color
+          display: "inline-block",
+          textAlign: config.textAlign || "left"
         }}
       >
-        {initialValuePartsWithBRs}
-      </span>
+        <span
+          ref={ref}
+          contentEditable={isFocusedAndEditable}
+          onClick={() => {
+            onFocus();
+            setIsFocused(true);
+          }}
+          onBlur={() => {
+            onBlur();
+            setIsFocused(false);
+          }}
+          onKeyUp={e => {
+            const hasCyrillic = /[а-яА-ЯЁё]/.test(e.target.innerText);
+            if (prevHasCyrillic !== hasCyrillic) {
+              setHasCyrillic(hasCyrillic);
+            }
+          }}
+          suppressContentEditableWarning={true}
+          className={classnames(
+            s["text"],
+            isFocusedAndEditable && s["editable"]
+          )}
+          style={{
+            fontSize: `${config.fontSize * (scale || 1)}px`,
+            fontFamily: config.fontFamily,
+            color: config.color,
+            backgroundColor: colorObjToString(config.backgroundColor),
+            padding: `${config.padding * (scale || 1)}px`,
+            fontWeight: config.isBold ? "bold" : "normal",
+            textDecoration: config.isUnderlined ? "underline" : "none",
+            fontStyle: config.isItalic ? "italic" : undefined,
+            letterSpacing: `${config.letterSpacing * (scale || 1)}px`,
+            borderWidth: `${config.borderWidth * (scale || 1)}px`,
+            borderStyle: "solid",
+            borderColor: config.color,
+            display: config.isInline ? "inline" : "inline-block",
+            lineHeight:
+              config.lineHeight !== undefined
+                ? config.lineHeight / 10
+                : "normal"
+          }}
+        >
+          {initialValuePartsWithBRs}
+        </span>
+      </div>
     );
   })
 );
