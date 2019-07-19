@@ -87,18 +87,17 @@ class Header extends Component {
               Contact
             </Button> */}
             <div className={s["submit-button-wrapper"]}>
-              <Button
-                icon
-                className={s["submit-button"]}
-                target="_blank"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSd7mLAVIt6y3J1GRsKZcVfYApD56TiummXnsFFfNTJQ52Rmtg/viewform?usp=sf_link"
-              >
+              <Button icon className={s["submit-button"]} target="_blank">
                 Create a Design
               </Button>
               <MiniCard
                 className={s["blank-card"]}
                 mode="thumb-only"
                 {...blank}
+                initState={{
+                  size: { width: 1080, height: 1080 },
+                  config: {}
+                }}
               />
             </div>
           </div>
