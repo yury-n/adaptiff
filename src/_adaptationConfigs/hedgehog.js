@@ -24,6 +24,17 @@ export default {
       type: "single-color",
       defaultValue: { r: 255, g: 255, b: 255, a: 0.3 },
       allowAlpha: true
+    },
+    {
+      key: "randomValues",
+      type: "randomValues",
+      text: "Randomness",
+      isEnabledByDefault: true,
+      isNotSwitchable: true,
+      defaultValue: Array(1)
+        .fill()
+        .map(() => Math.random())
     }
+    // rgba(255, 158, 34, 0.78) for inline
   ]
 };

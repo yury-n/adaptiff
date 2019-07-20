@@ -16,8 +16,12 @@
       }
       window.backgroundColor = config.backgroundColor;
       window.withBackground = config.withBackground;
-      const { r, g, b, a } = config.strokeColor;
-      window.strokeColor = `rgba(${r}, ${g}, ${b}, ${a})`;
+      let strokeColor = config.strokeColor;
+      if (typeof strokeColor !== "string") {
+        const { r, g, b, a } = config.strokeColor;
+        strokeColor = `rgba(${r}, ${g}, ${b}, ${a})`;
+      }
+      window.strokeColor = strokeColor;
       new p5(sketch);
     }
     function aff_download() {
