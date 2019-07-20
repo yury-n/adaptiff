@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import InsertedText from "./InsertedText";
 import DraggableItem from "../DraggableItem/DraggableItem";
 
@@ -15,33 +15,23 @@ export default React.memo(
       config,
       scale,
       setHasCyrillic,
-      onFocus,
-      onBlur
+      onClick
     },
     ref
   ) {
-    const [isDragged, setIsDragged] = useState(false);
     return (
       <DraggableItem
         isActive={isActive}
         isHighlighted={isHighlighted}
         initialPosition={initialPosition}
-        onDragStart={() => {
-          setIsDragged(true);
-          onDragStart();
-        }}
-        onDragStop={(...args) => {
-          setIsDragged(false);
-          onDragStop(...args);
-        }}
+        onDragStart={onDragStart}
+        onDragStop={onDragStop}
         className={className}
-        withOuterFrameWhenActive={true}
+        withOuterFrame={true}
+        onClick={onClick}
       >
         <InsertedText
-          onFocus={onFocus}
-          onBlur={onBlur}
           setHasCyrillic={setHasCyrillic}
-          isEditable={isActive && !isDragged}
           initialValue={initialValue}
           config={config}
           scale={scale}

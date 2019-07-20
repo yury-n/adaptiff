@@ -3,7 +3,7 @@ import useOnClickOutside from "../../_hooks/useOnClickOutside";
 import { Menu, Button, Icon } from "semantic-ui-react";
 
 import s from "./InsertButton.module.css";
-import { insertables } from "../../pages/adaptations";
+import insertables from "../../pages/insertablesList";
 import MiniCard from "../../MiniCard/MiniCard";
 
 export default ({ onInsertText, onInsertImage, onInsertObject }) => {

@@ -1,23 +1,11 @@
 import React from "react";
 import classnames from "classnames";
-import throttle from "lodash.throttle";
 import Draggable from "react-draggable";
 
 import s from "./DraggableItem.module.css";
 
 export const MARGIN_LEFT = -9;
 export const MARGIN_TOP = -9;
-
-let wasDragged = false;
-
-// TODO: derive from x,y delta
-const onDragThrottled = throttle(
-  () => {
-    wasDragged = true;
-  },
-  250,
-  { leading: false, trailing: false }
-);
 
 export default function DraggableItem({
   isActive,
@@ -27,25 +15,17 @@ export default function DraggableItem({
   onDragStart,
   onDragStop,
   className,
-  withOuterFrameWhenActive,
+  withOuterFrame,
   children
 }) {
   return (
-    <Draggable
-      cancel={isActive ? "span" : ""}
-      onStart={onDragStart}
-      onDrag={onDragThrottled}
-      onStop={() => {
-        onDragStop(wasDragged);
-        wasDragged = false;
-      }}
-    >
+    <Draggable cancel="span" onStart={onDragStart} onStop={onDragStop}>
       <div
         className={classnames(
           s["root"],
           isActive && s["active"],
           isHighlighted && s["highlighted"],
-          withOuterFrameWhenActive && s["with-outer-frame-when-active"],
+          withOuterFrame && s["with-outer-frame"],
           initialPosition && s["with-initial-position"],
           className
         )}

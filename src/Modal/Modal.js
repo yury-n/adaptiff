@@ -20,7 +20,7 @@ import "rc-slider/assets/index.css";
 import "./global.overrides.css";
 import s from "./Modal.module.css";
 
-const CANVAS_MARGIN = 100; //px
+const CANVAS_MARGIN = 50; //px
 
 class TheModal extends Component {
   constructor(props) {
@@ -81,7 +81,6 @@ class TheModal extends Component {
       highlightInsertedItemIndex: null,
       isAddMenuOpen: false,
       isSelectingColor: false,
-      isEditingText: false,
       isDraggingInsertedItem: false,
       isResizingInsertedItem: false
     };
@@ -283,9 +282,6 @@ class TheModal extends Component {
               className={classnames(
                 s["canvas-wrapper"],
                 "canvas-wrapper" /* global */,
-                // by some reason doesn't work precisely
-                // this.state.isEditingText &&
-                //   "is-editing-inserted-text" /* global */,
                 this.state.highlightInsertedItemIndex !== null &&
                   "has-highlighted-item" /* global */
               )}
@@ -424,8 +420,6 @@ class TheModal extends Component {
           <InsertedTextDraggable
             config={insertedItem.config}
             initialValue={insertedItem.text || "Some sample text"}
-            onFocus={() => this.setState({ isEditingText: true })}
-            onBlur={() => this.setState({ isEditingText: false })}
             setHasCyrillic={value =>
               this.setTextConfigValue("hasCyrillic", value)
             }
@@ -576,10 +570,7 @@ class TheModal extends Component {
     });
   };
 
-  onDragStop = insertedItemIndex => wasDragged => {
-    if (!wasDragged) {
-      this.setActiveInsertedItemIndex(insertedItemIndex);
-    }
+  onDragStop = insertedItemIndex => () => {
     setTimeout(() => {
       this.setState({ isDraggingInsertedItem: false });
     }, 100); // prevent onModalRightSideClick closing TextConfig

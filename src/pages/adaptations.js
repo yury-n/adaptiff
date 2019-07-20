@@ -19,6 +19,8 @@ import clipSpace3d from "../_adaptationConfigs/clipSpace3d";
 import voronoi from "../_adaptationConfigs/voronoi";
 import carpet from "../_adaptationConfigs/carpet";
 import blank from "../_adaptationConfigs/blank";
+import simpleRipple from "../_adaptationConfigs/simple_ripple";
+import hedgehog from "../_adaptationConfigs/hedgehog";
 
 export const allAdaptationTypes = [
   linearGradient,
@@ -57,17 +59,6 @@ const unfilledGradientWaves = {
       palette: ["#ff0099", "#ffe000"],
       smoothness: 13,
       randomValues: []
-    }
-  }
-};
-
-const unfilledMesh = {
-  ...mesh,
-  thumb: "/thumbs/b30.png",
-  initState: {
-    config: {
-      distanceBetween: 7,
-      withBackground: false
     }
   }
 };
@@ -957,7 +948,7 @@ export const allAdaptations = [
   },
   // 41
   {
-    ...gradientWaves,
+    ...linearGradient,
     thumb: "/thumbs/41.png",
     initState: {
       size: { width: 1000, height: 1000 },
@@ -972,10 +963,10 @@ export const allAdaptations = [
       },
       insertedItems: [
         {
-          id: 202,
+          id: 302,
           type: "object",
-          width: 994.5652173913043,
-          height: 994.5652173913043,
+          width: 994.5625,
+          height: 994.5625,
           showIframe: true,
           adaptation: gradientWaves,
           configValues: {
@@ -987,10 +978,10 @@ export const allAdaptations = [
             fill: false,
             randomValues: []
           },
-          position: { left: -0.7076539855072463, top: 0.25475543478260865 }
+          position: { left: 1.28125, top: 2.25 }
         },
         {
-          id: 102,
+          id: 202,
           type: "text",
           hasCyrillic: false,
           config: {
@@ -1003,19 +994,19 @@ export const allAdaptations = [
             borderWidth: 0,
             hasCyrillic: true
           },
-          width: 709.6071105072463,
-          height: 375.05661231884056,
-          position: { left: 38.04347826086956, top: 585.1449275362319 },
+          width: 709.640625,
+          height: 376,
+          position: { left: 40.03125, top: 587.140625 },
           text:
             "я запускаю\nв проволочный космос\nсвой медный грош, \nувенчанный гербом\n"
         },
         {
-          id: 204,
+          id: 304,
           type: "text",
           hasCyrillic: false,
           config: {
             fontFamily: "Barriecito",
-            fontSize: 120,
+            fontSize: 100,
             padding: 10,
             letterSpacing: 0,
             color: "#fefefe",
@@ -1023,10 +1014,48 @@ export const allAdaptations = [
             borderWidth: 0,
             hasCyrillic: true
           },
-          width: 259.97142147117296,
-          height: 151.1555666003976,
-          position: { left: 714.6496023856859, top: 29.230864811133202 },
+          width: 220,
+          height: 130,
+          position: { left: 716.640625, top: 28.21875 },
           text: "1987"
+        },
+        {
+          id: 102,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Roboto Condensed",
+            fontSize: 49,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#fefefe",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            hasCyrillic: true
+          },
+          width: 309.921875,
+          height: 73,
+          position: { left: 29, top: 32 },
+          text: "Постскриптум"
+        },
+        {
+          id: 103,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Roboto Condensed",
+            fontSize: 35,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#fefefe",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            hasCyrillic: true
+          },
+          width: 236.515625,
+          height: 58,
+          position: { left: 32, top: 92 },
+          text: "И. А. Бродский"
         }
       ]
     }
@@ -1034,7 +1063,7 @@ export const allAdaptations = [
   // 42
   {
     ...blank,
-    thumb: "thumbs/42.png",
+    thumb: "/thumbs/42.png",
     initState: {
       size: { width: 1000, height: 1000 },
       config: { transparent: false, color: "#ffffff" },
@@ -1108,6 +1137,26 @@ export const allAdaptations = [
           height: 81.57306163021869,
           position: { left: 58.64811133200795, top: 492.04771371769385 },
           text: "и не видно тропы"
+        },
+        {
+          id: 102,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Montserrat",
+            fontSize: 33,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#fefefe",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            hasCyrillic: true,
+            isBold: true
+          },
+          width: 266.49420529801324,
+          height: 55.753311258278146,
+          position: { left: 133.11258278145695, top: 915.8940397350993 },
+          text: "И.А. Бродский"
         }
       ]
     }
@@ -1115,19 +1164,16 @@ export const allAdaptations = [
   // 43
   {
     ...linearGradient,
+    thumb: "/thumbs/43.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
-        palette: ["#fbcac4", "#45618a"],
-        direction: "custom_angle",
-        angle: 200
-      },
+      config: { palette: ["#fbcac4", "#45618a"], direction: "top", angle: 200 },
       insertedItems: [
         {
-          id: 102,
+          id: 302,
           type: "object",
-          width: 995,
-          height: 995,
+          width: 994.984375,
+          height: 994.984375,
           showIframe: true,
           adaptation: mesh,
           configValues: {
@@ -1137,39 +1183,142 @@ export const allAdaptations = [
             distanceBetween: 7,
             randomValues: [0.5307371650983657]
           },
-          position: { left: 1, top: 2 }
+          position: { left: 5.640625, top: 6.625 }
         },
         {
-          id: 103,
+          id: 303,
           type: "text",
           hasCyrillic: false,
           config: {
-            fontFamily: "Roboto",
-            fontSize: 41,
-            padding: 10,
+            fontFamily: "Roboto Mono",
+            fontSize: 70,
+            padding: 0,
             letterSpacing: 0,
-            color: "#000",
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0.48 },
+            color: "#fefefe",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             borderWidth: 0,
-            hasCyrillic: true
+            hasCyrillic: true,
+            isInline: true,
+            textAlign: "center",
+            lineHeight: 11,
+            isItalic: false,
+            isBold: false
           },
-          width: 800.515625,
-          height: 65,
-          position: { left: 98, top: 446 },
-          text: "Я считал, что лес — только часть полена"
+          width: 756.109375,
+          height: 323,
+          position: { left: 104.875, top: 318.046875 },
+          text:
+            "переживи всех\nпереживи вновь\nсловно они — снег\nпляшущий снег снов\n"
+        },
+        {
+          id: 202,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Roboto Mono",
+            fontSize: 37,
+            padding: 0,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            hasCyrillic: true,
+            isInline: true,
+            textAlign: "right",
+            lineHeight: 14,
+            isItalic: false,
+            isBold: false
+          },
+          width: 310.84375,
+          height: 49,
+          position: { left: 344.03125, top: 924.53125 },
+          text: "И. А. Бросдкий"
         }
       ]
     }
+  },
+  // 44
+  {
+    ...blank,
+    thumb: "/thumbs/44.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      config: { transparent: false, color: "#ffffff" },
+      insertedItems: [
+        {
+          id: 202,
+          type: "object",
+          width: 1011,
+          height: 1025,
+          showIframe: true,
+          adaptation: trianglify,
+          configValues: {
+            palette: ["#ffffff", "#ffffff", "#ffffff", "#00ffc5"],
+            cell_size: 72,
+            variance: 100
+          },
+          position: { left: 44, top: 33 }
+        },
+        {
+          id: 203,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Old Standard TT",
+            fontSize: 67,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            hasCyrillic: true,
+            isBold: true
+          },
+          width: 824.28125,
+          height: 312,
+          position: { left: 129, top: 377 },
+          text:
+            "Улиц недвижность идолья,\nкамни, выдолбы…\nЕсли бы их не видел я —\nчто я видел бы?"
+        },
+        {
+          id: 102,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Vollkorn",
+            fontSize: 37,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            hasCyrillic: true,
+            isBold: true
+          },
+          width: 293.25,
+          height: 60,
+          position: { left: 133, top: 92 },
+          text: "Дмитрий Быков"
+        }
+      ]
+    }
+  },
+  // 45
+  {
+    ...simpleRipple,
+    thumb: "/thumbs/45.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      config: {}
+    }
+  },
+  // 46
+  {
+    ...hedgehog,
+    thumb: "/thumbs/46.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      config: {}
+    }
   }
-];
-
-export const insertables = [
-  blobmaker,
-  linearGradient,
-  unfilledGradientWaves,
-  gradientWaves,
-  unfilledMesh,
-  subtleRib,
-  allAdaptations[37],
-  trianglify
 ];

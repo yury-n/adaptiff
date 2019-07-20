@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Icon, Checkbox } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 import ColorInput from "../../ColorInput/ColorInput";
 import Range from "../../Range/Range";
 import FontFamilyDropdown from "./FontFamilyDropdown/FontFamilyDropdown";
@@ -92,12 +92,12 @@ export default React.memo(
             onClick={() => setConfigValue("textAlign", "right")}
           />
         </Button.Group>
-        <label className="form-label">As a Block</label>
+        {/* <label className="form-label">As a Block</label>
         <Checkbox
           toggle
           checked={!config.isInline}
           onChange={() => setConfigValue("isInline", !config.isInline)}
-        />
+        /> */}
         <label className="form-label">Padding</label>
         <Range
           withRangeInputs={false}
@@ -119,7 +119,7 @@ export default React.memo(
           withRangeInputs={false}
           min={0}
           max={50}
-          value={config.lineHeight || 12}
+          value={config.lineHeight || 11}
           onChange={value => setConfigValue("lineHeight", value)}
         />
         <label className="form-label">Letter Spacing</label>

@@ -10,11 +10,13 @@
   z-index: 10;
 }
 
-.root.with-outer-frame-when-active.active {
+.root.with-outer-frame:hover,
+.root.with-outer-frame.active {
   border: 1px black dotted;
   padding: 8px;
 }
-.root.with-outer-frame-when-active.active:before {
+.root.with-outer-frame:hover:before,
+.root.with-outer-frame.active:before {
   content: "";
   display: block;
   position: absolute;
@@ -41,16 +43,8 @@
   border-color: transparent;
 }
 
-.root.with-outer-frame-when-active.active .content {
+.root.with-outer-frame.active .content {
   overflow: hidden; /* this is just for Text, really */
-}
-
-:global(.canvas-wrapper.is-editing-inserted-text) .root {
-  pointer-events: none;
-}
-
-:global(.canvas-wrapper.is-editing-inserted-text) .root.active {
-  pointer-events: all;
 }
 
 .root.with-initial-position {
@@ -86,4 +80,5 @@
   border: 1px transparent dotted;
   display: block;
   outline: none;
+  overflow: hidden;
 }

@@ -88,9 +88,9 @@
 .canvas,
 .canvas-shadow {
   position: absolute;
-  /* 100px duplicated in Modal.js as IFRAME_MARGIN */
-  width: calc(100% - 100px);
-  height: calc(100% - 100px);
+  /* 100px duplicated in Modal.js as CANVAS_MARGIN */
+  width: calc(100% - 50px);
+  height: calc(100% - 50px);
   background: transparent;
 }
 

@@ -33,6 +33,16 @@ class Range extends Component {
     this.beforeFocus = { min: props.min, max: props.max };
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (
+      this.props.value !== nextProps.value ||
+      this.state.isMouseOverRange !== nextState.isMouseOverRange
+    ) {
+      return true;
+    }
+    return false;
+  }
+
   componentDidMount() {
     this.handle = this.sliderWrapperRef.current.querySelector(
       ".rc-slider-handle"

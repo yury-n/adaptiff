@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classnames from "classnames";
 import { Card, Button } from "semantic-ui-react";
 import MiniCard from "../MiniCard/MiniCard";
@@ -26,7 +26,9 @@ import s from "../App.module.css";
 const ITEMS_PER_CHUNK = 25;
 
 export default () => {
-  const [selectedTab, setSelectedTab] = useState("all");
+  const [selectedTab, setSelectedTab] = useState(
+    localStorage.getItem("app.selectedTab") || "all"
+  );
   const [page, setPage] = useState(0);
   let adaptations;
   switch (selectedTab) {
@@ -41,6 +43,9 @@ export default () => {
       adaptations = templates;
       break;
   }
+  useEffect(() => {
+    localStorage.setItem("app.selectedTab", selectedTab);
+  }, [selectedTab]);
   return (
     <>
       <Header />

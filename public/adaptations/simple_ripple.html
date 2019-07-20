@@ -1,0 +1,71 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    function aff_render(config) {
+      const canvas = document.getElementById("canvas");
+      const context = canvas.getContext("2d");
+      context.canvas.width = window.innerWidth;
+      context.canvas.height = window.innerHeight;
+
+      let mainRectWidth = window.innerWidth - config.strokeWidth;
+
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      let canvasWidth =
+        canvas.width > canvas.height ? canvas.height : canvas.width;
+      if (config.fullyFitInside) {
+        mainRectWidth =
+          mainRectWidth > canvas.width || mainRectWidth > canvas.height
+            ? canvasWidth - config.strokeWidth
+            : mainRectWidth;
+      }
+
+      for (let i = 1; i <= config.itemsNum; i++) {
+        let width = (mainRectWidth / config.itemsNum) * i;
+        let height = width;
+        let x = canvas.width / 2 - width / 2;
+        let y = canvas.height / 2 - height / 2;
+
+        let strokeWidth = config.strokeWidth;
+        let radius = (width / 200) * config.radius;
+
+        context.beginPath();
+        context.moveTo(x + radius, y);
+        context.arcTo(x + width, y, x + width, y + height, radius);
+        context.arcTo(x + width, y + height, x, y + height, radius);
+        context.arcTo(x, y + height, x, y, radius);
+        context.arcTo(x, y, x + width, y, radius);
+        context.closePath();
+
+        let my_gradient = context.createRadialGradient(
+          canvas.width / 2,
+          canvas.height / 2,
+          0,
+          canvas.width / 2,
+          canvas.height / 2,
+          width
+        );
+        my_gradient.addColorStop(0, config.palette[0]);
+        my_gradient.addColorStop(0.4, config.palette[0]);
+        my_gradient.addColorStop(0.6, config.palette[1]);
+        my_gradient.addColorStop(1, config.palette[1]);
+        context.strokeStyle = my_gradient;
+        context.lineWidth = config.strokeWidth;
+        context.lineCap = "round";
+        context.stroke();
+      }
+    }
+    function aff_download() {
+      var image = document
+        .querySelector("#canvas")
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      postDownloadImage({ image });
+    }
+  </script>
+  <script src="_common.js"></script>
+</body>

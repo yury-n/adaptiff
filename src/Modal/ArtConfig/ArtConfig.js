@@ -110,6 +110,7 @@ export default React.memo(
               <div className={s["single-color-block"]}>
                 <ColorInput
                   key="single-color"
+                  disableAlpha={!config.allowAlpha}
                   color={configValues[config.key]}
                   onChange={value => setConfigValue(config.key, value)}
                   onOpen={onStartSelectingColor}
