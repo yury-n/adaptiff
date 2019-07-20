@@ -78,14 +78,14 @@ class Header extends Component {
             >
               <Icon name="telegram plane" />
             </Button>
-            {/* <Button
+            <Button
               icon
-              className={s["contact-button"]}
+              className={s["add-code-button"]}
               target="_blank"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSddoo8_28sRF5Pt7AZae5wtTXPH18dNYFoD8kujnf7omcKaDQ/viewform"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSd7mLAVIt6y3J1GRsKZcVfYApD56TiummXnsFFfNTJQ52Rmtg/viewform?usp=sf_link"
             >
-              Contact
-            </Button> */}
+              Add Code
+            </Button>
             <div className={s["submit-button-wrapper"]}>
               <Button icon className={s["submit-button"]} target="_blank">
                 Create a Design

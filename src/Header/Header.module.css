@@ -89,7 +89,7 @@
   background: none !important;
 }
 
-.contact-button {
+.add-code-button {
   font-weight: 400 !important;
   margin-left: 9px !important;
   margin-right: 15px !important;
@@ -97,6 +97,7 @@
   box-shadow: none !important;
   border: none !important;
   background: none !important;
+  margin-left: 20px !important;
 }
 
 .submit-button {
@@ -104,7 +105,6 @@
   background: #efeff0 !important;
   padding-right: 18px !important;
   padding-left: 18px !important;
-  margin-left: 30px !important;
 }
 
 .submit-button-wrapper {
