@@ -1200,7 +1200,6 @@ export const allAdaptations = [
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             borderWidth: 0,
             hasCyrillic: true,
-            isInline: true,
             textAlign: "center",
             lineHeight: 11,
             isItalic: false,

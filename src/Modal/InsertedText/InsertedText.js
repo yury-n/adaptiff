@@ -53,7 +53,7 @@ export default React.memo(
           textAlign: config.textAlign || "left",
           borderStyle: "solid",
           borderColor: config.color,
-          display: config.isInline ? "inline" : "inline-block",
+          display: config.isInline ? "inline" : "block",
           lineHeight:
             config.lineHeight !== undefined ? config.lineHeight / 10 : 1.1
         }}
