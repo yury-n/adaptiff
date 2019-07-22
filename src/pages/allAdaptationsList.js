@@ -2,11 +2,14 @@ import { allAdaptations } from "./adaptations";
 
 export default [
   43,
+  50,
+  49,
+  37,
   42,
   41,
   39,
   44,
-  37,
+  48,
   0,
   46,
   1,
@@ -14,6 +17,7 @@ export default [
   2,
   3,
   4,
+  47,
   5,
   6,
   7,

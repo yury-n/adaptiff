@@ -1,6 +1,6 @@
 window.sketch = function(p) {
-  let width = 1000;
-  let height = 1000;
+  let width = window.innerWidth;
+  let height = window.innerHeight;
   let offset = -100;
   let circular_shape = true;
 

@@ -1322,5 +1322,370 @@ export const allAdaptations = [
       size: { width: 1080, height: 1080 },
       config: {}
     }
+  },
+  // 47
+  {
+    ...carpet,
+    thumb: "/thumbs/47.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#fff", "#256eb0", "#eca5b3"],
+        rotate: 113,
+        cellCount: 5,
+        innerRectSide: 984
+      },
+      insertedItems: [
+        {
+          id: 104,
+          type: "object",
+          width: 13.828125,
+          height: 515,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#3e3c3c", "#537895"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          text: "",
+          position: { left: 492.3125, top: 482 }
+        },
+        {
+          id: 202,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Pattaya",
+            fontSize: 97,
+            padding: 16,
+            letterSpacing: 2,
+            color: "#3e3c3c",
+            backgroundColor: "#ffffff",
+            borderWidth: 5,
+            hasCyrillic: false,
+            isBold: false
+          },
+          width: 784.53125,
+          height: 148,
+          position: { left: 106.421875, top: 342.3125 },
+          text: "Dont't stop me now"
+        }
+      ]
+    }
+  },
+  // 48
+  {
+    ...blank,
+    thumb: "/thumbs/48.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      config: { transparent: false, color: "#ffffff" },
+      insertedItems: [
+        {
+          id: 302,
+          type: "object",
+          width: 1084,
+          height: 562,
+          showIframe: true,
+          adaptation: trianglify,
+          configValues: {
+            palette: ["#fe0057", "#82003b", "#270b1d"],
+            cell_size: 70,
+            variance: 100
+          },
+          position: { left: 2, top: 2 }
+        },
+        {
+          id: 303,
+          type: "object",
+          width: 1086,
+          height: 522,
+          showIframe: true,
+          adaptation: trianglify,
+          configValues: {
+            palette: ["#000e1e", "#0316b0", "#001bff"],
+            cell_size: 50,
+            variance: 100
+          },
+          position: { left: 1, top: 570 }
+        },
+        {
+          id: 304,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Oranienbaum",
+            fontSize: 120,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#fefefe",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true,
+            isBold: false
+          },
+          width: 455,
+          height: 164,
+          position: { left: 323, top: 156 },
+          text: "Alter Ego"
+        },
+        {
+          id: 305,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Oranienbaum",
+            fontSize: 51,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#f9b7cd",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true,
+            isBold: false
+          },
+          width: 449.171875,
+          height: 81,
+          position: { left: 324, top: 319 },
+          text: "Men's clothing brand"
+        },
+        {
+          id: 202,
+          type: "object",
+          width: 1082,
+          height: 518,
+          showIframe: true,
+          adaptation: voronoi,
+          configValues: {
+            palette: ["#3449f7", "#000849"],
+            filled: true,
+            lineWidth: 5,
+            minMaxRadius: [2, 4]
+          },
+          position: { left: 2, top: 573 }
+        },
+        {
+          id: 203,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Lora",
+            fontSize: 120,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12
+          },
+          width: 305.609375,
+          height: 164,
+          position: { left: 388, top: 654 },
+          text: "-70%"
+        },
+        {
+          id: 204,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Oranienbaum",
+            fontSize: 76,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          width: 398.109375,
+          height: 111,
+          position: { left: 353, top: 817 },
+          text: "Ликвидация"
+        },
+        {
+          id: 205,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Oranienbaum",
+            fontSize: 52,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          width: 554.5625,
+          height: 82,
+          position: { left: 278, top: 924 },
+          text: "Всей мужской коллекции"
+        }
+      ]
+    }
+  },
+  // 49
+  {
+    ...hedgehog,
+    thumb: "/thumbs/49.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      config: {
+        withBackground: true,
+        backgroundColor: "#105956",
+        strokeColor: { r: "66", g: "205", b: "166", a: "0.62" },
+        randomValues: [0.3390192027783483]
+      },
+      insertedItems: [
+        {
+          id: 202,
+          type: "object",
+          width: 540,
+          height: 540,
+          showIframe: true,
+          adaptation: simpleRipple,
+          configValues: {
+            palette: ["#105956", "#105956"],
+            itemsNum: 62,
+            strokeWidth: 3,
+            radius: 100,
+            fullyFitInside: true
+          },
+          position: { left: 92.85726127320955, top: 38.85278514588859 }
+        },
+        {
+          id: 203,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Oswald",
+            fontSize: 73,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          width: 649.6875,
+          height: 107.33753315649867,
+          position: { left: 190.86206896551724, top: 243.85941644562334 },
+          text: "Меньше — это больше"
+        },
+        {
+          id: 204,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Oswald",
+            fontSize: 40,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          width: 271.1190318302387,
+          height: 114.49933687002653,
+          position: { left: 199.8590848806366, top: 353.86024535809014 },
+          text: "чистота формы\nв виде принципа"
+        },
+        {
+          id: 205,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Roboto Condensed",
+            fontSize: 27,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          width: 674.6195291777188,
+          height: 51.47546419098143,
+          position: { left: 211.09416445623341, top: 976.1762267904509 },
+          text: "современные технологии способны загромоздить дизайн"
+        }
+      ]
+    }
+  },
+  // 50
+  {
+    ...carpet,
+    thumb: "thumbs/50.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#fff", "#6f86d6", "#48c6ef"],
+        rotate: 113,
+        cellCount: 5,
+        innerRectSide: 1352,
+        randomValues: [0.47419615552278005]
+      },
+      insertedItems: [
+        {
+          id: 302,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Pacifico",
+            fontSize: 51,
+            padding: 33,
+            letterSpacing: 2,
+            color: "#3e3c3c",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            hasCyrillic: true,
+            isBold: false
+          },
+          width: 249.54409814323608,
+          height: 121.684350132626,
+          position: { left: 768.215351458886, top: 883.9522546419098 },
+          text: "И.А.Б."
+        },
+        {
+          id: 102,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Rubik",
+            fontSize: 60,
+            padding: 33,
+            letterSpacing: 2,
+            color: "#3e3c3c",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0.64 },
+            borderWidth: 0,
+            hasCyrillic: true,
+            isBold: false,
+            textAlign: "center"
+          },
+          width: 841.4704907161804,
+          height: 260.9416445623342,
+          position: { left: 88.85941644562334, top: 354.1114058355438 },
+          text:
+            "Остановись мгновение!\nТы не столь прекрасно,\nсколько ты неповторимо."
+        }
+      ]
+    }
   }
 ];

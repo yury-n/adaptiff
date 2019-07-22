@@ -35,6 +35,5 @@ export default {
         .fill()
         .map(() => Math.random())
     }
-    // rgba(255, 158, 34, 0.78) for inline
   ]
 };

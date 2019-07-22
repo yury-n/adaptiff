@@ -48,5 +48,15 @@ export default {
       min: 1,
       max: 1600
     },
+    {
+      key: "randomValues",
+      type: "randomValues",
+      text: "Randomness",
+      isEnabledByDefault: true,
+      isNotSwitchable: true,
+      defaultValue: Array(1)
+        .fill()
+        .map(() => Math.random())
+    }
   ]
 };
