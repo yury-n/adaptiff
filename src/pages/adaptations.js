@@ -42,7 +42,9 @@ export const allAdaptationTypes = [
   subtleRib,
   clipSpace3d,
   voronoi,
-  carpet
+  carpet,
+  blank,
+  hedgehog
 ];
 
 const unfilledGradientWaves = {

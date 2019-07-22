@@ -15,6 +15,7 @@ export default function DraggableItem({
   onDragStart,
   onDragStop,
   className,
+  contentClassName,
   withOuterFrame,
   children
 }) {
@@ -33,7 +34,9 @@ export default function DraggableItem({
         style={initialPosition}
       >
         <div className={s["content-inner-wrapper"]}>
-          <div className={s["content"]}>{children}</div>
+          <div className={classnames(s["content"], contentClassName)}>
+            {children}
+          </div>
         </div>
       </div>
     </Draggable>

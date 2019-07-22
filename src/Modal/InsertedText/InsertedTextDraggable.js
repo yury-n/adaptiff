@@ -2,6 +2,8 @@ import React from "react";
 import InsertedText from "./InsertedText";
 import DraggableItem from "../DraggableItem/DraggableItem";
 
+import s from "./InsertedText.module.css";
+
 export default React.memo(
   React.forwardRef(function InsertedTextDraggable(
     {
@@ -27,6 +29,7 @@ export default React.memo(
         onDragStart={onDragStart}
         onDragStop={onDragStop}
         className={className}
+        contentClassName={s["draggable-content"]}
         withOuterFrame={true}
         onClick={onClick}
       >
