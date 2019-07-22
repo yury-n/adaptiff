@@ -21,6 +21,7 @@ import carpet from "../_adaptationConfigs/carpet";
 import blank from "../_adaptationConfigs/blank";
 import simpleRipple from "../_adaptationConfigs/simple_ripple";
 import hedgehog from "../_adaptationConfigs/hedgehog";
+import weawing from "../_adaptationConfigs/weawing";
 
 export const allAdaptationTypes = [
   linearGradient,
@@ -44,7 +45,8 @@ export const allAdaptationTypes = [
   voronoi,
   carpet,
   blank,
-  hedgehog
+  hedgehog,
+  weawing
 ];
 
 const unfilledGradientWaves = {
@@ -1317,6 +1319,15 @@ export const allAdaptations = [
   // 46
   {
     ...hedgehog,
+    thumb: "/thumbs/46.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      config: {}
+    }
+  },
+  // 47
+  {
+    ...weawing,
     thumb: "/thumbs/46.png",
     initState: {
       size: { width: 1080, height: 1080 },
