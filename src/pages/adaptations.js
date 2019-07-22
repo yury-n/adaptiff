@@ -1111,7 +1111,63 @@ export const allAdaptations = [
         }
       ]
     }
-  }
+  },
+  // 43
+  {
+    ...carpet,
+    thumb: "thumbs/43.png",
+    initState: {
+      "size": {"width":1000,"height":1000},
+      "config": {
+        "palette":["#fff","#6f86d6","#48c6ef"],
+        "rotate":113,
+        "cellCount":5,
+        "innerRectSide":1352
+      },
+      "insertedItems":[
+        {
+          "id":302,
+          "type":"text",
+          "hasCyrillic":false,
+          "config":{
+            "fontFamily":"Rubik",
+            "fontSize":44,
+            "padding":33,
+            "letterSpacing":2,
+            "color":"#3e3c3c",
+            "backgroundColor":"#ffffff",
+            "borderWidth":0,
+            "hasCyrillic":true,
+            "isBold":false
+          },
+          "width":922.570474777448,
+          "height":160.93286350148367,
+          "position":{"left":38.181565281899104,"top":343.0081602373887},
+          "text":"Остановись мгновение! Ты не столь\nпрекрасно, сколько ты неповторимо."
+        },
+        {
+          "id": 202,
+          "type": "text",
+          "hasCyrillic": false,
+          "config":{
+            "fontFamily": "Pacifico",
+            "fontSize": 51,
+            "padding": 33,
+            "letterSpacing": 2,
+            "color": "#3e3c3c",
+            "backgroundColor": {"r":255,"g":255,"b":255,"a":0},
+            "borderWidth": 0,
+            "hasCyrillic": true,
+            "isBold": false
+          },
+          "width": 234.4213649851632,
+          "height": 120.87351632047476,
+          "position": {"left":765.5786350148368,"top":881.3056379821958},
+          "text": "И.А.Б"
+        }
+      ]
+    }
+  },
 ];
 
 export const insertables = [
