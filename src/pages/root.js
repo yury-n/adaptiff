@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import classnames from "classnames";
-import { Card, Button } from "semantic-ui-react";
+import { Card, Checkbox, Button } from "semantic-ui-react";
 import MiniCard from "../MiniCard/MiniCard";
 
 import Header from "../Header/Header";
@@ -76,6 +76,10 @@ export default () => {
               Templates
             </Button>
           </Button.Group>
+        </div>
+        <div className={s["filters"]}>
+          <Checkbox label="generative" checked={true} />
+          <Checkbox label="static" checked={true} />
         </div>
         <Card.Group className={classnames(s["cards"], "cards")}>
           {adaptations.map((template, index) => (

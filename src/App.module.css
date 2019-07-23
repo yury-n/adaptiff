@@ -17,11 +17,23 @@
   width: 205px;
 }
 
+.filters {
+  margin-bottom: 30px;
+  padding-left: 60px;
+}
+
+.filters :global(.ui.toggle.checkbox input:checked ~ .box:before),
+.filters :global(.ui.toggle.checkbox input:checked ~ label:before),
+.filters :global(.ui.toggle.checkbox input:focus:checked ~ .box:before),
+.filters :global(.ui.toggle.checkbox input:focus:checked ~ label:before) {
+  background: black !important;
+}
+
 .tabs {
   margin: auto;
   display: flex;
   justify-content: center;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 }
 
 .tabs :global(.ui.black.button) {
