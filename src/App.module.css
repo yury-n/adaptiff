@@ -20,6 +20,7 @@
 .filters {
   margin-bottom: 30px;
   padding-left: 60px;
+  display: none;
 }
 
 .filters :global(.ui.toggle.checkbox input:checked ~ .box:before),
@@ -33,7 +34,7 @@
   margin: auto;
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 .tabs :global(.ui.black.button) {

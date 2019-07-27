@@ -19,6 +19,64 @@
 }
 
 .thumb-only-mode .content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: flex-end;
+  background: linear-gradient(0deg, white, transparent) !important;
+  opacity: 0;
+  transition: 300ms;
+}
+
+.thumb-only-mode:hover .content,
+.thumb-only-mode:hover :global(.use-button-global) {
+  opacity: 1;
+}
+
+:global(.use-button-global) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 60px;
+  margin-left: -30px;
+  text-align: center;
+  height: 60px;
+  margin-top: -30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50% !important;
+  opacity: 0;
+  transition: 300ms;
+  z-index: 1;
+}
+
+:global(.use-button-global .icon) {
+  margin-right: 0;
+  margin-bottom: 4px;
+  margin-left: 3px;
+}
+
+:global(.ui.cards > .card .use-button-global),
+:global(.ui.card:first-child .use-button-global),
+:global(.ui.cards > .card:first-child .use-button-global) {
+  border-color: transparent !important;
+  border-radius: 50% !important;
+}
+
+.thumb-only-mode .mini-author {
+  color: black;
+}
+
+.thumb-only-mode .mini-by-author {
+  color: #000000b0;
+}
+
+.thumb-only-mode .mini-title {
   display: none;
 }
 
