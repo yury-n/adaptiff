@@ -1686,5 +1686,96 @@ export const allAdaptations = [
         }
       ]
     }
+  },
+  // 51
+  {
+    ...trianglify,
+    thumb: "thumbs/51.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      config: {
+        palette: ["#ffee00", "#0085c7", "#150f49", "#070d40"],
+        cell_size: 80,
+        variance: 100
+      },
+      insertedItems: [
+        {
+          id: 203,
+          type: "object",
+          width: 1074,
+          height: 1076,
+          showIframe: true,
+          adaptation: voronoi,
+          configValues: {
+            palette: ["#ffee00", "#0085c7", "#9cbaed"],
+            filled: true,
+            lineWidth: 5,
+            minMaxRadius: [2, 3]
+          },
+          position: { left: 4, top: 0 }
+        },
+        {
+          id: 202,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Cormorant SC",
+            fontSize: 93,
+            padding: 33,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 21, g: 15, b: 73, a: 0.31 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 9,
+            hasCyrillic: true,
+            textAlign: "center",
+            isBold: false
+          },
+          width: 837.8125,
+          height: 398,
+          position: { left: 127, top: 350.5 },
+          text: "В вечернем свете \nволны \nотчаянно бились \nо берег."
+        }
+      ]
+    }
+  },
+  // 52
+  {
+    ...voronoi,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#230852", "#8c4fb6", "#fa5a5a"],
+        filled: true,
+        lineWidth: 5,
+        minMaxRadius: [2, 76]
+      },
+      insertedItems: [
+        {
+          id: 202,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Yanone Kaffeesatz",
+            fontSize: 80,
+            padding: 86,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: "#ffffff",
+            borderWidth: 0,
+            borderRadius: 100,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true,
+            textAlign: "center"
+          },
+          width: 578,
+          height: 556,
+          position: { left: 224, top: 242 },
+          text: "Обе стороны \nмоей натуры \nобладали \nобщей памятью"
+        }
+      ]
+    }
   }
 ];

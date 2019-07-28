@@ -38,10 +38,6 @@ class MiniCard extends Component {
           as="div"
           style={{ width: thumbWidth }}
         >
-          <button className={s["use-button"]}>
-            <Icon name="edit outline" />
-            Use
-          </button>
           <div
             className={s["mini-preview"]}
             style={{
@@ -49,6 +45,10 @@ class MiniCard extends Component {
               backgroundSize: thumbBackgroundSize
             }}
           />
+          <button className={s["use-button"]}>
+            <Icon name="edit outline" />
+            Use
+          </button>
           <Card.Content className={s["content"]}>
             <div className={s["mini-title"]}>{title}</div>
             <span className={s["mini-by-author"]}>

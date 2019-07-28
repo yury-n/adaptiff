@@ -39,6 +39,15 @@
   animation: hue-spin 10s linear infinite;
 }
 
+.thumb-only-mode:active .use-button {
+  background: radial-gradient(
+    farthest-corner at 7px 6px,
+    #ffffff2b 0%,
+    #ffffff2b 20%,
+    #ffffff 100%
+  );
+}
+
 .use-button {
   position: absolute;
   left: 50%;
@@ -55,7 +64,7 @@
   align-items: center;
   background: rgba(255, 255, 255, 0.6);
   background: radial-gradient(
-    farthest-corner at 7px 6px,
+    farthest-corner at 64px 52px,
     #ffffff2b 0%,
     #ffffff2b 20%,
     #ffffff 100%
@@ -75,6 +84,7 @@
   margin-top: 4px;
 }
 
+.use-button,
 :global(.ui.cards > .card) .use-button,
 :global(.ui.card:first-child) .use-button,
 :global(.ui.cards > .card:first-child) .use-button {

@@ -106,14 +106,6 @@ export default React.memo(
           value={config.padding}
           onChange={value => setConfigValue("padding", value)}
         />
-        <label className="form-label">Border Width</label>
-        <Range
-          withRangeInputs={false}
-          min={0}
-          max={20}
-          value={config.borderWidth}
-          onChange={value => setConfigValue("borderWidth", value)}
-        />
         <label className="form-label">Line Height</label>
         <Range
           withRangeInputs={false}
@@ -129,6 +121,22 @@ export default React.memo(
           max={20}
           value={config.letterSpacing}
           onChange={value => setConfigValue("letterSpacing", value)}
+        />
+        <label className="form-label">Border Width</label>
+        <Range
+          withRangeInputs={false}
+          min={0}
+          max={20}
+          value={config.borderWidth}
+          onChange={value => setConfigValue("borderWidth", value)}
+        />
+        <label className="form-label">Border Radius</label>
+        <Range
+          withRangeInputs={false}
+          min={0}
+          max={100}
+          value={config.borderRadius}
+          onChange={value => setConfigValue("borderRadius", value)}
         />
         <Button className={s["delete-button"]} onClick={onRemove}>
           <Icon name="remove" size="small" />

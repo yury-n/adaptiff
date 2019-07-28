@@ -50,6 +50,7 @@ export default React.memo(
           fontStyle: config.isItalic ? "italic" : undefined,
           letterSpacing: `${config.letterSpacing * (scale || 1)}px`,
           borderWidth: `${config.borderWidth * (scale || 1)}px`,
+          borderRadius: `${config.borderRadius || 0}px`,
           textAlign: config.textAlign || "left",
           borderStyle: "solid",
           borderColor: config.color,
