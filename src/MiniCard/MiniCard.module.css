@@ -30,13 +30,17 @@
   transition: 300ms;
 }
 
+.thumb-only-mode .mini-preview-wrapper {
+  transition: 300ms;
+}
+
+.thumb-only-mode:hover .mini-preview-wrapper {
+  filter: blur(3px);
+}
+
 .thumb-only-mode:hover .content,
 .thumb-only-mode:hover .use-button {
   opacity: 1;
-}
-
-.thumb-only-mode:hover .mini-preview {
-  animation: hue-spin 10s linear infinite;
 }
 
 .thumb-only-mode:active .use-button {
@@ -57,7 +61,7 @@
   text-align: center;
   height: 70px;
   margin-top: -35px;
-  font-size: 15px;
+  font-size: 13px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,7 +83,7 @@
 
 .use-button :global(.icon) {
   margin-right: 0;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   margin-left: 3px;
   margin-top: 4px;
 }
@@ -130,10 +134,4 @@
   color: #b3b3b3;
   margin-right: 4px;
   font-size: 13px;
-}
-
-@keyframes hue-spin {
-  100% {
-    filter: hue-rotate(360deg);
-  }
 }

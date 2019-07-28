@@ -1,0 +1,35 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="../_common.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.10/p5.js"></script>
+  <script src="sketch.js"></script>
+</head>
+<body>
+  <script src="../_common.js"></script>
+  <script>
+    window.backgroundColor = "#222";
+    window.strokeColor = "rgba(255, 255, 255, 0.3)";
+    function aff_render(config) {
+      const canvas = document.getElementById("defaultCanvas0");
+      if (canvas) {
+        document.body.removeChild(canvas);
+      }
+      window.backgroundColor = config.backgroundColor;
+      window.withBackground = config.withBackground;
+      let strokeColor = config.strokeColor;
+      if (typeof strokeColor !== "string") {
+        const { r, g, b, a } = config.strokeColor;
+        strokeColor = `rgba(${r}, ${g}, ${b}, ${a})`;
+      }
+      window.strokeColor = strokeColor;
+      new p5(sketch);
+    }
+    function aff_download() {
+      var image = document
+        .getElementById("defaultCanvas0")
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      postDownloadImage({ image });
+    }
+  </script>
+</body>

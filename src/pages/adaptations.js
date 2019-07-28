@@ -21,6 +21,7 @@ import carpet from "../_adaptationConfigs/carpet";
 import blank from "../_adaptationConfigs/blank";
 import simpleRipple from "../_adaptationConfigs/simple_ripple";
 import hedgehog from "../_adaptationConfigs/hedgehog";
+import tatters from "../_adaptationConfigs/tatters";
 
 export const allAdaptationTypes = [
   linearGradient,
@@ -1742,40 +1743,80 @@ export const allAdaptations = [
   },
   // 52
   {
-    ...voronoi,
+    ...linearGradient,
+    thumb: "thumbs/52.png",
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
-        palette: ["#230852", "#8c4fb6", "#fa5a5a"],
-        filled: true,
-        lineWidth: 5,
-        minMaxRadius: [2, 76]
+        palette: ["#6d107e", "#f03358"],
+        direction: "custom_angle",
+        angle: 200
       },
       insertedItems: [
         {
-          id: 202,
+          id: 301,
+          type: "object",
+          width: 1000,
+          height: 1000,
+          showIframe: true,
+          adaptation: voronoi,
+          configValues: {
+            palette: ["#ffee00", "#f03358", "#cee1ff"],
+            filled: true,
+            lineWidth: 5,
+            minMaxRadius: [9, 25]
+          },
+          position: { left: 3.3222591362126246, top: 3.3222591362126246 }
+        },
+        {
+          id: 102,
+          type: "object",
+          width: 885.3820598006645,
+          height: 784.0531561461794,
+          showIframe: true,
+          adaptation: simpleRipple,
+          configValues: {
+            palette: ["#ffffff", "#ffffff"],
+            itemsNum: 32,
+            strokeWidth: 3,
+            radius: 100,
+            fullyFitInside: true
+          },
+          position: { left: 61.461794019933556, top: 144.51827242524917 }
+        },
+        {
+          id: 302,
           type: "text",
           hasCyrillic: false,
           config: {
             fontFamily: "Yanone Kaffeesatz",
-            fontSize: 80,
-            padding: 86,
+            fontSize: 67,
+            padding: 130,
             letterSpacing: 0,
             color: "#000",
             backgroundColor: "#ffffff",
             borderWidth: 0,
-            borderRadius: 100,
+            borderRadius: 300,
             isInline: false,
             lineHeight: 12,
             hasCyrillic: true,
             textAlign: "center"
           },
-          width: 578,
-          height: 556,
-          position: { left: 224, top: 242 },
+          width: 599.9792358803987,
+          height: 578.9036544850499,
+          position: { left: 207.38164451827242, top: 243.64098837209303 },
           text: "Обе стороны \nмоей натуры \nобладали \nобщей памятью"
         }
       ]
+    }
+  },
+  // 53
+  {
+    ...tatters,
+    thumb: "thumbs/53.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {}
     }
   }
 ];

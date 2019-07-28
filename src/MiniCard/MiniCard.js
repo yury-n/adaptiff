@@ -38,13 +38,15 @@ class MiniCard extends Component {
           as="div"
           style={{ width: thumbWidth }}
         >
-          <div
-            className={s["mini-preview"]}
-            style={{
-              backgroundImage: `url("${thumb}")`,
-              backgroundSize: thumbBackgroundSize
-            }}
-          />
+          <div className={s['mini-preview-wrapper']}>
+            <div
+              className={s["mini-preview"]}
+              style={{
+                backgroundImage: `url("${thumb}")`,
+                backgroundSize: thumbBackgroundSize
+              }}
+            />
+          </div>
           <button className={s["use-button"]}>
             <Icon name="edit outline" />
             Use
