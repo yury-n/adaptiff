@@ -22,7 +22,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 150px;
+  height: 190px;
   display: flex;
   align-items: flex-end;
   background: linear-gradient(0deg, white, transparent) !important;
@@ -31,41 +31,56 @@
 }
 
 .thumb-only-mode:hover .content,
-.thumb-only-mode:hover :global(.use-button-global) {
+.thumb-only-mode:hover .use-button {
   opacity: 1;
 }
 
-:global(.use-button-global) {
+.thumb-only-mode:hover .mini-preview {
+  animation: hue-spin 10s linear infinite;
+}
+
+.use-button {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 60px;
-  margin-left: -30px;
+  width: 70px;
+  margin-left: -35px;
   text-align: center;
-  height: 60px;
-  margin-top: -30px;
+  height: 70px;
+  margin-top: -35px;
+  font-size: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.6);
+  background: radial-gradient(
+    farthest-corner at 7px 6px,
+    #ffffff2b 0%,
+    #ffffff2b 20%,
+    #ffffff 100%
+  );
   border-radius: 50% !important;
   opacity: 0;
   transition: 300ms;
+  cursor: pointer;
+  outline: none;
   z-index: 1;
 }
 
-:global(.use-button-global .icon) {
+.use-button :global(.icon) {
   margin-right: 0;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
   margin-left: 3px;
+  margin-top: 4px;
 }
 
-:global(.ui.cards > .card .use-button-global),
-:global(.ui.card:first-child .use-button-global),
-:global(.ui.cards > .card:first-child .use-button-global) {
+:global(.ui.cards > .card) .use-button,
+:global(.ui.card:first-child) .use-button,
+:global(.ui.cards > .card:first-child) .use-button {
   border-color: transparent !important;
   border-radius: 50% !important;
+  border: 1px solid #ffffff8a !important;
 }
 
 .thumb-only-mode .mini-author {
@@ -105,4 +120,10 @@
   color: #b3b3b3;
   margin-right: 4px;
   font-size: 13px;
+}
+
+@keyframes hue-spin {
+  100% {
+    filter: hue-rotate(360deg);
+  }
 }

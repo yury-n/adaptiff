@@ -38,7 +38,7 @@ class MiniCard extends Component {
           as="div"
           style={{ width: thumbWidth }}
         >
-          <button className={"use-button-global"}>
+          <button className={s["use-button"]}>
             <Icon name="edit outline" />
             Use
           </button>
