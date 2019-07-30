@@ -245,26 +245,7 @@ export const allAdaptations = [
         smoothness: 98,
         randomValues: []
       },
-      insertedItems: [
-        {
-          id: 100,
-          type: "text",
-          config: {
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
-            borderWidth: 1,
-            color: "#ffffff",
-            fontFamily: "El Messiri",
-            fontSize: 87,
-            letterSpacing: 0,
-            padding: 50
-          },
-          position: { left: 122, top: 120 },
-          text: `We
-  should
-  all be
-  designers`
-        }
-      ]
+      insertedItems: []
     }
   },
   // 4
