@@ -475,7 +475,7 @@ export const allAdaptations = [
   // 8
   {
     ...gradientWaves,
-    thumb: "/thumbs/13.png",
+    thumb: "/thumbs/n13.png",
     thumbBackgroundSize: "cover",
     initState: {
       size: { width: 1000, height: 1000 },
@@ -962,7 +962,7 @@ export const allAdaptations = [
   // 42
   {
     ...blank,
-    thumb: "/thumbs/42.png",
+    thumb: "/thumbs/n42.png",
     initState: {
       size: { width: 1000, height: 1000 },
       config: { transparent: false, color: "#ffffff" },
@@ -1003,7 +1003,7 @@ export const allAdaptations = [
   // 43
   {
     ...linearGradient,
-    thumb: "/thumbs/43.png",
+    thumb: "/thumbs/n43.png",
     initState: {
       size: { width: 1000, height: 1000 },
       config: { palette: ["#fbcac4", "#45618a"], direction: "top", angle: 200 },
@@ -1289,7 +1289,7 @@ export const allAdaptations = [
   // 49
   {
     ...hedgehog,
-    thumb: "/thumbs/49.png",
+    thumb: "/thumbs/n49.png",
     initState: {
       size: { width: 1080, height: 1080 },
       config: {
@@ -1380,7 +1380,7 @@ export const allAdaptations = [
   // 51
   {
     ...trianglify,
-    thumb: "thumbs/51.png",
+    thumb: "thumbs/n51.png",
     initState: {
       size: { width: 1080, height: 1080 },
       config: {
@@ -1483,6 +1483,39 @@ export const allAdaptations = [
     initState: {
       size: { width: 1000, height: 1000 },
       config: {}
+    }
+  },
+  // 54
+  {
+    ...linearGradient,
+    thumb: "thumbs/54.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#ff9a8b", "#6148aa"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          id: 402,
+          type: "object",
+          width: 994.5625,
+          height: 994.5625,
+          showIframe: true,
+          adaptation: gradientWaves,
+          configValues: {
+            palette: ["#f6d365", "#fda085"],
+            lines: 38,
+            amplituteX: 36,
+            amplituteY: 20,
+            smoothness: 100,
+            fill: false,
+            randomValues: []
+          },
+          position: { left: 3.28125, top: 4.25 }
+        }
+      ]
     }
   }
 ];

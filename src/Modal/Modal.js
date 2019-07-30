@@ -1151,7 +1151,7 @@ class TheModal extends Component {
       })
     );
 
-    if (this.state.isPublic && this.state.insertedItems.length) {
+    if (this.state.isPublic) {
       this.saveConfigToDB({
         title: this.props.fileName,
         size: {
