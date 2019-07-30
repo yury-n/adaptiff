@@ -1,0 +1,149 @@
+<link
+  href="https://fonts.googleapis.com/css?family=Archivo+Black|Poiret+One&display=swap"
+  rel="stylesheet"
+/>
+
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .logo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    filter: saturate(3);
+    margin-top: 40px;
+  }
+  .number {
+    position: relative;
+    left: 22px;
+    top: -3px;
+    font-size: 46px;
+    font-family: "Poiret One", cursive;
+    font-weight: bold;
+  }
+  .posts {
+    margin-top: -5px;
+    font-size: 35px;
+    font-style: italic;
+    font-family: "Archivo Black", sans-serif;
+  }
+  .bubble {
+    position: absolute;
+    left: 3px;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(
+      farthest-corner at 7px 6px,
+      rgba(255, 255, 255, 0),
+      #00ffba
+    );
+    border-radius: 100%;
+    overflow: hidden;
+  }
+  .bubble-1 {
+    top: -1px;
+  }
+  .bubble-2 {
+    top: 19px;
+    background: radial-gradient(
+      farthest-corner at 7px 6px,
+      rgba(255, 255, 255, 0),
+      #00ffba40
+    );
+  }
+  .download {
+    position: fixed;
+    bottom: 40px;
+    width: calc(100% - 130px);
+    background: black;
+    color: white;
+    height: 80px;
+    border-radius: 53px;
+    font-size: 24px;
+    border: none;
+  }
+  .preview {
+    width: 100vw;
+    height: 100vw;
+    background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/37abb01e-9eb0-4ceb-8e7f-c247caed05a6/ddcttt8-b6dd0a01-b903-4d8d-aff9-21fcf3f3e5a4.jpg/v1/fill/w_1032,h_774,q_70,strp/1_by_yury_n_ddcttt8-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTYwIiwicGF0aCI6IlwvZlwvMzdhYmIwMWUtOWViMC00Y2ViLThlN2YtYzI0N2NhZWQwNWE2XC9kZGN0dHQ4LWI2ZGQwYTAxLWI5MDMtNGQ4ZC1hZmY5LTIxZmNmM2YzZTVhNC5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.GdnvMBQ5gcIOmsCqOmTQssvE1tshV0p_oNvUCm3PE50");
+    background-size: cover;
+    left: 10px;
+    margin-top: 60px;
+    margin-bottom: 100px;
+
+    padding: 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    text-align: center;
+  }
+  .preview span {
+    outline: none;
+  }
+  .navigation-buttons {
+    width: calc(100vw - 130px);
+    margin: 0 auto;
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .navigation-button {
+    width: 150px;
+  }
+  .secondary-button {
+    display: inline-block;
+    padding: 7px 0.9em;
+    border-radius: 42px;
+    border: 2px solid black;
+    background: white;
+    font-size: 36px;
+    height: 80px;
+  }
+  .navigation-button:hover,
+  .navigation-button:active {
+    background: black;
+    color: white;
+  }
+</style>
+<div class="logo">
+  <div class="bubble bubble-1"></div>
+  <div class="bubble bubble-2"></div>
+  <div class="number">99</div>
+  <div class="posts">posts</div>
+</div>
+
+<div class="navigation-buttons">
+  <button class="navigation-button secondary-button prev">←</button>
+  <button class="secondary-button">
+    <svg
+      height="20px"
+      id="Layer_1"
+      style="enable-background:new 0 0 16 16;"
+      version="1.1"
+      viewBox="0 0 16 16"
+      width="20px"
+      xml:space="preserve"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+    >
+      <path
+        d="M3,0H1C0.45,0,0,0.45,0,1v2c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1V1C4,0.45,3.55,0,3,0z M9,0H7C6.45,0,6,0.45,6,1v2  c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1V1C10,0.45,9.55,0,9,0z M15,0h-2c-0.55,0-1,0.45-1,1v2c0,0.55,0.45,1,1,1h2  c0.55,0,1-0.45,1-1V1C16,0.45,15.55,0,15,0z M3,6H1C0.45,6,0,6.45,0,7v2c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1V7C4,6.45,3.55,6,3,6  z M9,6H7C6.45,6,6,6.45,6,7v2c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1V7C10,6.45,9.55,6,9,6z M15,6h-2c-0.55,0-1,0.45-1,1v2  c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1V7C16,6.45,15.55,6,15,6z M3,12H1c-0.55,0-1,0.45-1,1v2c0,0.55,0.45,1,1,1h2  c0.55,0,1-0.45,1-1v-2C4,12.45,3.55,12,3,12z M9,12H7c-0.55,0-1,0.45-1,1v2c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v-2  C10,12.45,9.55,12,9,12z M15,12h-2c-0.55,0-1,0.45-1,1v2c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v-2C16,12.45,15.55,12,15,12z"
+      />
+    </svg>
+  </button>
+  <button class="navigation-button secondary-button next">→</button>
+</div>
+
+<div class="preview">
+  <span contenteditable="true">something cool will definitely happen</span>
+</div>
+
+<button class="download">↓ Download</button>
