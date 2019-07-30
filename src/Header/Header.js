@@ -84,11 +84,11 @@ class Header extends Component {
               target="_blank"
               href="https://docs.google.com/forms/d/e/1FAIpQLSd7mLAVIt6y3J1GRsKZcVfYApD56TiummXnsFFfNTJQ52Rmtg/viewform?usp=sf_link"
             >
-              Add Code
+              Suggest Code
             </Button>
             <div className={s["submit-button-wrapper"]}>
               <Button icon className={s["submit-button"]} target="_blank">
-                Create a Design
+                Create Blank
               </Button>
               <MiniCard
                 className={s["blank-card"]}

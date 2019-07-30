@@ -156,25 +156,11 @@ export const allAdaptations = [
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
-        palette: ["#0b0a21", "#1e1b57"],
+        angle: 31,
         direction: "custom_angle",
-        angle: 200
+        palette: ["#a52bf8", "#02d0ea"]
       },
       insertedItems: [
-        {
-          id: 100,
-          type: "object",
-          showIframe: true,
-          adaptation: linearGradient,
-          width: 943.5483870967741,
-          height: 943.5483870967741,
-          position: { left: 23.647513440860216, top: 26.965725806451612 },
-          configValues: {
-            angle: 31,
-            direction: "custom_angle",
-            palette: ["#a52bf8", "#02d0ea"]
-          }
-        },
         {
           id: 101,
           type: "object",
@@ -192,23 +178,6 @@ export const allAdaptations = [
             randomValues: [0.044420196340127394, 0.22911748347161964],
             smoothness: 12
           }
-        },
-        {
-          id: 103,
-          type: "text",
-          position: { left: 235.55107526881721, top: 263.3778561827957 },
-          config: {
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
-            borderWidth: 0,
-            color: "#ffffff",
-            fontFamily: "Monoton",
-            fontSize: 150,
-            letterSpacing: 0,
-            padding: 10
-          },
-          text: "what\nso\nnot",
-          width: 527.1337365591398,
-          height: 511.9287634408602
         }
       ]
     }
@@ -256,24 +225,6 @@ export const allAdaptations = [
               0.2609440704641621
             ]
           }
-        },
-        {
-          config: {
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
-            borderWidth: 0,
-            color: "#d7ff00",
-            fontFamily: "Rubik Mono One",
-            fontSize: 43,
-            letterSpacing: 0,
-            padding: 10
-          },
-          id: 102,
-          type: "text",
-          position: { left: 68.75, top: 184.375 },
-          text: `+
-  add
-  blobs
-  anywhere`
         }
       ]
     }
@@ -452,28 +403,8 @@ export const allAdaptations = [
     thumb: "/thumbs/10.png",
     initState: {
       size: { width: 500, height: 500 },
-      config: { color: "#e2affb", mode: "vertical", intensity: 22 },
-      insertedItems: [
-        {
-          id: 100,
-          type: "text",
-          config: {
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
-            borderWidth: 0,
-            color: "#000",
-            fontFamily: "Noticia Text",
-            fontSize: 44,
-            isBold: true,
-            isItalic: false,
-            letterSpacing: 4,
-            padding: 10
-          },
-          position: { left: 137, top: 165 },
-          text: "every\nnext step\nis simple",
-          width: 242.484375,
-          height: 164
-        }
-      ]
+      config: { color: "#fcd633", mode: "vertical", intensity: 22 },
+      insertedItems: []
     }
   },
   // 7
@@ -550,31 +481,14 @@ export const allAdaptations = [
       size: { width: 1000, height: 1000 },
       config: {
         palette: ["#ff9855", "#bb045d"],
-        lines: 1,
+        lines: 13,
         amplituteX: 148,
         amplituteY: 200,
         smoothness: 6,
         fill: true,
         randomValues: [0.5269907429385214, 0.44993152499044275]
       },
-      insertedItems: [
-        {
-          id: 100,
-          type: "text",
-          config: {
-            fontFamily: "Neucha",
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
-            color: "#fff",
-            fontSize: 100,
-            padding: 13,
-            borderWidth: 0
-          },
-          position: { left: 44.438844086021504, top: 461.8195564516129 },
-          text: "create something unique",
-          width: 918.5147849462365,
-          height: 134.8706317204301
-        }
-      ]
+      insertedItems: []
     }
   },
   // 9
@@ -590,25 +504,7 @@ export const allAdaptations = [
         lineWidth: 74,
         randomValues: [0.9799188025715417]
       },
-      insertedItems: [
-        {
-          id: 100,
-          type: "text",
-          config: {
-            fontFamily: "Merriweather",
-            backgroundColor: "#693e97",
-            color: "#fff",
-            fontSize: 55,
-            isBold: true,
-            padding: 15,
-            borderWidth: 0
-          },
-          position: { left: 104.2086693548387, top: 419.48084677419354 },
-          text: "créer quelque chose d'unique",
-          width: 818.9474126344086,
-          height: 89.12970430107526
-        }
-      ]
+      insertedItems: []
     }
   },
   // 10
@@ -1100,66 +996,6 @@ export const allAdaptations = [
             angle: 200
           },
           position: { left: -1.8327534791252484, top: -3.789761431411531 }
-        },
-        {
-          id: 202,
-          type: "text",
-          hasCyrillic: false,
-          config: {
-            fontFamily: "Seymour One",
-            fontSize: 100,
-            padding: 10,
-            letterSpacing: 0,
-            color: "#6b4a7a",
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
-            borderWidth: 0,
-            hasCyrillic: true,
-            isBold: true
-          },
-          width: 687.0961729622267,
-          height: 129.28677932405566,
-          position: { left: 122.26640159045725, top: 386.67992047713716 },
-          text: "Хаос лиц"
-        },
-        {
-          id: 102,
-          type: "text",
-          hasCyrillic: false,
-          config: {
-            fontFamily: "Seymour One",
-            fontSize: 57,
-            padding: 10,
-            letterSpacing: 0,
-            color: "#fbcd33",
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
-            borderWidth: 0,
-            hasCyrillic: true,
-            isBold: true
-          },
-          width: 739.5004970178926,
-          height: 81.57306163021869,
-          position: { left: 58.64811133200795, top: 492.04771371769385 },
-          text: "и не видно тропы"
-        },
-        {
-          id: 102,
-          type: "text",
-          hasCyrillic: false,
-          config: {
-            fontFamily: "Montserrat",
-            fontSize: 33,
-            padding: 10,
-            letterSpacing: 0,
-            color: "#fefefe",
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
-            borderWidth: 0,
-            hasCyrillic: true,
-            isBold: true
-          },
-          width: 266.49420529801324,
-          height: 55.753311258278146,
-          position: { left: 133.11258278145695, top: 915.8940397350993 },
-          text: "И.А. Бродский"
         }
       ]
     }
@@ -1187,54 +1023,6 @@ export const allAdaptations = [
             randomValues: [0.5307371650983657]
           },
           position: { left: 5.640625, top: 6.625 }
-        },
-        {
-          id: 303,
-          type: "text",
-          hasCyrillic: false,
-          config: {
-            fontFamily: "Roboto Mono",
-            fontSize: 70,
-            padding: 0,
-            letterSpacing: 0,
-            color: "#fefefe",
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
-            borderWidth: 0,
-            hasCyrillic: true,
-            textAlign: "center",
-            lineHeight: 11,
-            isItalic: false,
-            isBold: false
-          },
-          width: 756.109375,
-          height: 323,
-          position: { left: 104.875, top: 318.046875 },
-          text:
-            "переживи всех\nпереживи вновь\nсловно они — снег\nпляшущий снег снов\n"
-        },
-        {
-          id: 202,
-          type: "text",
-          hasCyrillic: false,
-          config: {
-            fontFamily: "Roboto Mono",
-            fontSize: 37,
-            padding: 0,
-            letterSpacing: 0,
-            color: "#ffffff",
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
-            borderWidth: 0,
-            hasCyrillic: true,
-            isInline: true,
-            textAlign: "right",
-            lineHeight: 14,
-            isItalic: false,
-            isBold: false
-          },
-          width: 310.84375,
-          height: 49,
-          position: { left: 344.03125, top: 924.53125 },
-          text: "И. А. Бросдкий"
         }
       ]
     }
@@ -1335,43 +1123,7 @@ export const allAdaptations = [
         cellCount: 5,
         innerRectSide: 984
       },
-      insertedItems: [
-        {
-          id: 104,
-          type: "object",
-          width: 13.828125,
-          height: 515,
-          showIframe: true,
-          adaptation: linearGradient,
-          configValues: {
-            palette: ["#3e3c3c", "#537895"],
-            direction: "custom_angle",
-            angle: 200
-          },
-          text: "",
-          position: { left: 492.3125, top: 482 }
-        },
-        {
-          id: 202,
-          type: "text",
-          hasCyrillic: false,
-          config: {
-            fontFamily: "Pattaya",
-            fontSize: 97,
-            padding: 16,
-            letterSpacing: 2,
-            color: "#3e3c3c",
-            backgroundColor: "#ffffff",
-            borderWidth: 5,
-            hasCyrillic: false,
-            isBold: false
-          },
-          width: 784.53125,
-          height: 148,
-          position: { left: 106.421875, top: 342.3125 },
-          text: "Dont't stop me now"
-        }
-      ]
+      insertedItems: []
     }
   },
   // 48
@@ -1562,69 +1314,6 @@ export const allAdaptations = [
             fullyFitInside: true
           },
           position: { left: 92.85726127320955, top: 38.85278514588859 }
-        },
-        {
-          id: 203,
-          type: "text",
-          hasCyrillic: false,
-          config: {
-            fontFamily: "Oswald",
-            fontSize: 73,
-            padding: 10,
-            letterSpacing: 0,
-            color: "#ffffff",
-            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
-            borderWidth: 0,
-            isInline: false,
-            lineHeight: 12,
-            hasCyrillic: true
-          },
-          width: 649.6875,
-          height: 107.33753315649867,
-          position: { left: 190.86206896551724, top: 243.85941644562334 },
-          text: "Меньше — это больше"
-        },
-        {
-          id: 204,
-          type: "text",
-          hasCyrillic: false,
-          config: {
-            fontFamily: "Oswald",
-            fontSize: 40,
-            padding: 10,
-            letterSpacing: 0,
-            color: "#ffffff",
-            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
-            borderWidth: 0,
-            isInline: false,
-            lineHeight: 12,
-            hasCyrillic: true
-          },
-          width: 271.1190318302387,
-          height: 114.49933687002653,
-          position: { left: 199.8590848806366, top: 353.86024535809014 },
-          text: "чистота формы\nв виде принципа"
-        },
-        {
-          id: 205,
-          type: "text",
-          hasCyrillic: false,
-          config: {
-            fontFamily: "Roboto Condensed",
-            fontSize: 27,
-            padding: 10,
-            letterSpacing: 0,
-            color: "#ffffff",
-            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
-            borderWidth: 0,
-            isInline: false,
-            lineHeight: 12,
-            hasCyrillic: true
-          },
-          width: 674.6195291777188,
-          height: 51.47546419098143,
-          position: { left: 211.09416445623341, top: 976.1762267904509 },
-          text: "современные технологии способны загромоздить дизайн"
         }
       ]
     }
@@ -1714,29 +1403,6 @@ export const allAdaptations = [
             minMaxRadius: [2, 3]
           },
           position: { left: 4, top: 0 }
-        },
-        {
-          id: 202,
-          type: "text",
-          hasCyrillic: false,
-          config: {
-            fontFamily: "Cormorant SC",
-            fontSize: 93,
-            padding: 33,
-            letterSpacing: 0,
-            color: "#ffffff",
-            backgroundColor: { r: 21, g: 15, b: 73, a: 0.31 },
-            borderWidth: 0,
-            isInline: false,
-            lineHeight: 9,
-            hasCyrillic: true,
-            textAlign: "center",
-            isBold: false
-          },
-          width: 837.8125,
-          height: 398,
-          position: { left: 127, top: 350.5 },
-          text: "В вечернем свете \nволны \nотчаянно бились \nо берег."
         }
       ]
     }

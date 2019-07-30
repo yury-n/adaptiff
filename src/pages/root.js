@@ -7,9 +7,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SubscribeBlock from "../SubscribeBlock/SubscribeBlock";
 
-import all from "./allAdaptationsList";
-import templates from "./templatesList";
-import backgrounds from "./backgroundsList";
+import all from "./backgroundsList";
 
 import s from "../App.module.css";
 
@@ -30,19 +28,7 @@ export default () => {
     localStorage.getItem("app.selectedTab") || "all"
   );
   const [page, setPage] = useState(0);
-  let adaptations;
-  switch (selectedTab) {
-    default:
-    case "all":
-      adaptations = all.slice(0, (page + 1) * ITEMS_PER_CHUNK);
-      break;
-    case "backgrounds":
-      adaptations = backgrounds;
-      break;
-    case "templates":
-      adaptations = templates;
-      break;
-  }
+  const adaptations = all.slice(0, (page + 1) * ITEMS_PER_CHUNK);
   useEffect(() => {
     localStorage.setItem("app.selectedTab", selectedTab);
   }, [selectedTab]);
