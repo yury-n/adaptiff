@@ -1498,5 +1498,101 @@ export const allAdaptations = [
         }
       ]
     }
+  },
+  // 55
+  {
+    ...trianglify,
+    thumb: "thumbs/55.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#453ff4", "#49b8e9", "#ffffff", "#fe96fc"],
+        cell_size: 80,
+        variance: 0
+      },
+      insertedItems: []
+    }
+  },
+  // 56
+  {
+    ...clipSpace3d,
+    thumb: "thumbs/56.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        bumpStrength: 200,
+        objectColor: "#3b2001",
+        objectShininess: 29,
+        lightColor: "#ff0000",
+        backgroundColor: "#b7b7b7",
+        envPower: 7,
+        envBlur: 0,
+        camX: 10,
+        camY: 39,
+        camZ: -15,
+        camZoom: 7
+      },
+      insertedItems: []
+    }
+  },
+  // 57
+  {
+    ...particles,
+    thumb: "/thumbs/57.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        maxParticles: 163,
+        palette: ["#572949", "#fbda2b", "#ff8804"],
+        sizeVariations: 18
+      }
+    }
+  },
+  // 58
+  {
+    ...linearGradient,
+    thumb: "/thumbs/58.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#7be4da", "#094a6f"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          id: 104,
+          type: "object",
+          width: 996,
+          height: 992,
+          showIframe: true,
+          adaptation: "simple_ripple",
+          configValues: {
+            palette: ["#7be4da", "#094a6f"],
+            itemsNum: 47,
+            strokeWidth: 1,
+            radius: 100,
+            fullyFitInside: true
+          },
+          position: { left: 1, top: 2 }
+        },
+        {
+          id: 102,
+          type: "object",
+          width: 549,
+          height: 563,
+          showIframe: true,
+          adaptation: "simple_ripple",
+          configValues: {
+            palette: ["#7be4da", "#094a6f"],
+            itemsNum: 33,
+            strokeWidth: 18,
+            radius: 100,
+            fullyFitInside: true
+          },
+          position: { left: 223, top: 214 }
+        }
+      ]
+    }
   }
 ];
