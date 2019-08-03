@@ -1566,7 +1566,7 @@ export const allAdaptations = [
           width: 996,
           height: 992,
           showIframe: true,
-          adaptation: "simple_ripple",
+          adaptation: simpleRipple,
           configValues: {
             palette: ["#7be4da", "#094a6f"],
             itemsNum: 47,
@@ -1582,7 +1582,7 @@ export const allAdaptations = [
           width: 549,
           height: 563,
           showIframe: true,
-          adaptation: "simple_ripple",
+          adaptation: simpleRipple,
           configValues: {
             palette: ["#7be4da", "#094a6f"],
             itemsNum: 33,
