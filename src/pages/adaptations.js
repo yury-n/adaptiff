@@ -22,6 +22,7 @@ import blank from "../_adaptationConfigs/blank";
 import simpleRipple from "../_adaptationConfigs/simple_ripple";
 import hedgehog from "../_adaptationConfigs/hedgehog";
 import tatters from "../_adaptationConfigs/tatters";
+import svg from "../_adaptationConfigs/svg";
 
 export const allAdaptationTypes = [
   linearGradient,
@@ -1594,5 +1595,9 @@ export const allAdaptations = [
         }
       ]
     }
+  },
+  // 59
+  {
+    ...svg
   }
 ];
