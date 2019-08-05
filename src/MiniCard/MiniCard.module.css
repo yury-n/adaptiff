@@ -109,10 +109,13 @@
   display: none;
 }
 
-:global(.ui.cards > .card).thumb-only-mode,
-.thumb-only-mode .mini-preview {
+:global(.ui.cards > .card),
+.mini-preview {
   width: 205px;
-  height: 205px;
+}
+
+.mini-preview {
+  height: 170px;
 }
 
 .mini-title {

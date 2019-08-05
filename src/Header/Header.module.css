@@ -42,7 +42,7 @@
   left: 0;
   width: 30px;
   height: 30px;
-  background: radial-gradient(farthest-corner at 7px 6px, #9bffe44f, #9bffe4);
+  background: radial-gradient(farthest-corner at 7px 6px, #9bffe400, #9bffe4);
   border-radius: 100%;
   overflow: hidden;
 }

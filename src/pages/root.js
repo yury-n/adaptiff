@@ -69,7 +69,7 @@ export default () => {
         </div>
         <Card.Group className={classnames(s["cards"], "cards")}>
           {adaptations.map((template, index) => (
-            <MiniCard key={index} mode="thumb-only" {...template} />
+            <MiniCard key={index} {...template} />
           ))}
         </Card.Group>
         {selectedTab === "all" && (page + 1) * ITEMS_PER_CHUNK < all.length && (

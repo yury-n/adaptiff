@@ -513,7 +513,7 @@ export const allAdaptations = [
     ...gradientWaves,
     thumb: "/thumbs/b16.png",
     initState: {
-      size: { width: 500, height: 500 },
+      size: { width: 1000, height: 1000 },
       config: {
         amplituteX: 60,
         amplituteY: 60,
