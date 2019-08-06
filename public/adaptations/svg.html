@@ -16,7 +16,6 @@
     id="svg"
     xmlns="http://www.w3.org/2000/svg"
     enable-background="new 0 0 106 106"
-    id="图层_1"
     version="1.1"
     viewBox="0 0 106 106"
     x="0px"
@@ -30,10 +29,7 @@
         x2="106.01"
         y1="53.005"
         y2="53.005"
-      >
-        <stop offset="0" stop-color="#FF6DAF" />
-        <stop offset=".99" stop-color="#FFB500" />
-      </linearGradient>
+      ></linearGradient>
       <path
         d="m53 106c-29.2 0-53-23.8-53-53s23.8-53 53-53c29.2 0 53 23.8 53 53s-23.8 53-53 53zm0-96c-23.7 0-43 19.3-43 43s19.3 43 43 43 43-19.3 43-43-19.3-43-43-43z"
         fill="url(#SVGID_1_)"
@@ -41,14 +37,46 @@
     </g>
   </svg>
   <script>
+    function stringifyColor(color) {
+      if (typeof color === "string") {
+        return color;
+      }
+      const { r, g, b, a } = color;
+      return `rgba(${r}, ${g}, ${b}, ${a})`;
+    }
     function aff_render(config) {
       document.getElementById("SVGID_1_").innerHTML = `
-      <stop offset="0" stop-color="${config.palette[0]}" />
-      <stop offset=".99" stop-color="${config.palette[1]}" />
+      <stop offset="0" stop-color="${stringifyColor(config.palette[0])}" />
+      <stop offset=".99" stop-color="${stringifyColor(config.palette[1])}" />
       `;
     }
     function aff_download() {
-      // postDownloadImage({ image });
+      var canvas = document.createElement("canvas");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      var svg = document.getElementById("svg");
+      var ctx = canvas.getContext("2d");
+      var data = new XMLSerializer().serializeToString(svg);
+      var DOMURL = window.URL || window.webkitURL || window;
+
+      var img = new Image();
+      var svgBlob = new Blob([data], {
+        type: "image/svg+xml;base64;charset=utf-8"
+      });
+      var url = DOMURL.createObjectURL(svgBlob);
+
+      img.onload = function() {
+        ctx.drawImage(img, 0, 0, window.innerWidth, window.innerHeight);
+        DOMURL.revokeObjectURL(url);
+
+        var imgURI = canvas
+          .toDataURL("image/png")
+          .replace("image/png", "image/octet-stream");
+
+        postDownloadImage({ image: imgURI });
+      };
+
+      img.src = url;
     }
   </script>
   <script src="_common.js"></script>

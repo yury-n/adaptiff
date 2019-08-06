@@ -84,7 +84,6 @@ export default ({ onInsertText, onInsertImage, onInsertObject }) => {
             {insertables.map((adaptation, index) => (
               <MiniCard
                 key={index}
-                mode="thumb-only"
                 className={s["object-card"]}
                 {...adaptation}
                 onClick={() => {

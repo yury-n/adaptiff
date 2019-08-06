@@ -141,6 +141,7 @@ export default React.memo(
                         )
                       ])
                     }
+                    disableAlpha={config.disableAlpha}
                     onOpen={onStartSelectingColor}
                     onClose={onStopSelectingColor}
                   />

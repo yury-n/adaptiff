@@ -1598,6 +1598,7 @@ export const allAdaptations = [
   },
   // 59
   {
-    ...svg
+    ...svg,
+    thumb: "/thumbs/59.png"
   }
 ];

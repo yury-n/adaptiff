@@ -13,12 +13,13 @@ export default React.memo(
       placeholder,
       fileName,
       version,
+      lockAspectRatio = false,
       ...restProps
     },
     ref
   ) {
     return (
-      <RnDItem {...restProps} ref={ref} lockAspectRatio={false}>
+      <RnDItem ref={ref} lockAspectRatio={lockAspectRatio} {...restProps}>
         <IframePreview
           showIframe={showIframe}
           className={s["iframe"]}

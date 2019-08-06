@@ -447,6 +447,7 @@ class TheModal extends Component {
             onLoad={this.onIframeLoad}
             width={insertedItem.width}
             height={insertedItem.height}
+            lockAspectRatio={insertedItem.adaptation.lockAspectRatio}
             {...commonProps}
           />
         );
