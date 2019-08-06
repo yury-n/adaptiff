@@ -1,0 +1,45 @@
+<head>
+  <meta charset="utf-8" />
+</head>
+<body id="body">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/107/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+  <script src="./trunk.js"></script>
+  <script src="_common.js"></script>
+  <script>
+    let lastConfig;
+    let initialized = false;
+    // debug: aff_render();
+    function aff_render(config) {
+      // debug: config = JSON.parse();
+
+      VANTA.TRUNK({
+        el: "#body",
+        backgroundColor: config.palette[0],
+        color: config.palette[1],
+        points: 10,
+        maxDistance: 20,
+        spacing: 15,
+        showDots: true
+      })
+
+      initialized = true;
+    }
+
+    function aff_pause() {
+      window.pause();
+    }
+    function aff_unpause() {
+      window.unpause();
+    }
+
+    function aff_download() {
+      var link = document.createElement("a");
+      var image = document
+        .getElementById("defaultCanvas0")
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      postDownloadImage({ image });
+    }
+  </script>
+</body>

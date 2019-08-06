@@ -24,6 +24,7 @@ import hedgehog from "../_adaptationConfigs/hedgehog";
 import tatters from "../_adaptationConfigs/tatters";
 import cells from "../_adaptationConfigs/cells";
 import svg from "../_adaptationConfigs/svg";
+import trunk from "../_adaptationConfigs/trunk";
 
 export const allAdaptationTypes = [
   linearGradient,
@@ -49,7 +50,8 @@ export const allAdaptationTypes = [
   blank,
   hedgehog,
   cells,
-  svg
+  svg,
+  trunk
 ];
 
 const unfilledGradientWaves = {
@@ -1602,5 +1604,7 @@ export const allAdaptations = [
   // 59
   {...svg },
   // 60
-  { ...cells }
+  { ...cells },
+  // 61
+  { ...trunk }
 ];
