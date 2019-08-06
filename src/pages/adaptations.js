@@ -22,6 +22,7 @@ import blank from "../_adaptationConfigs/blank";
 import simpleRipple from "../_adaptationConfigs/simple_ripple";
 import hedgehog from "../_adaptationConfigs/hedgehog";
 import tatters from "../_adaptationConfigs/tatters";
+import cells from "../_adaptationConfigs/cells";
 
 export const allAdaptationTypes = [
   linearGradient,
@@ -45,7 +46,8 @@ export const allAdaptationTypes = [
   voronoi,
   carpet,
   blank,
-  hedgehog
+  hedgehog,
+  cells
 ];
 
 const unfilledGradientWaves = {
@@ -1594,5 +1596,7 @@ export const allAdaptations = [
         }
       ]
     }
-  }
+  },
+  // 59
+  { ...cells },
 ];
