@@ -22,6 +22,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 90001;
 }
 
 .config-over-left-buttons,
@@ -85,8 +86,7 @@
   overflow: hidden;
 }
 
-.canvas,
-.canvas-shadow {
+.canvas {
   position: absolute;
   /* 100px duplicated in Modal.js as CANVAS_MARGIN */
   width: calc(100% - 50px);
@@ -94,10 +94,33 @@
   background: transparent;
 }
 
-.canvas-shadow {
-  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
-  z-index: 100;
+.padding-overlay {
+  position: absolute;
+  background: #f7f7fa87;
+  z-index: 9000;
   pointer-events: none;
+}
+
+.padding-overlay-left {
+  left: 0;
+  top: 0;
+}
+
+.padding-overlay-right {
+  right: 0;
+  top: 0;
+}
+
+.padding-overlay-top {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.padding-overlay-bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 .iframe {

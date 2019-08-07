@@ -115,6 +115,7 @@ class TheModal extends Component {
     this.setState(newState);
     window.addEventListener("message", this.onWindowMessage);
     window.addEventListener("keyup", this.onKeyUp);
+    this.setPaddingOverlayDims();
   }
   componentWillUnmount() {
     window.removeEventListener("message", this.onWindowMessage);
@@ -176,6 +177,13 @@ class TheModal extends Component {
     }
     if (this.state.canvasHeight !== prevState.canvasHeight) {
       localStorage.setItem("modal.canvasHeight", this.state.canvasHeight);
+    }
+    if (
+      this.state.canvasWidth !== prevState.canvasWidth ||
+      this.state.canvasHeight !== prevState.canvasHeight ||
+      !prevState.canvasMaxWidth
+    ) {
+      this.setPaddingOverlayDims();
     }
   }
   render() {
@@ -312,15 +320,34 @@ class TheModal extends Component {
                   scale={scaleToFullyFit}
                 />
               </div>
-              {/* {!isTransparent && (
-                <div
-                  className={s["canvas-shadow"]}
-                  style={{
-                    width: canvasWidth && canvasWidth * scaleToFullyFit,
-                    height: canvasHeight && canvasHeight * scaleToFullyFit
-                  }}
-                />
-              )} */}
+              <div
+                id="padding-overlay-left"
+                className={classnames(
+                  s["padding-overlay"],
+                  s["padding-overlay-left"]
+                )}
+              />
+              <div
+                id="padding-overlay-right"
+                className={classnames(
+                  s["padding-overlay"],
+                  s["padding-overlay-right"]
+                )}
+              />
+              <div
+                id="padding-overlay-top"
+                className={classnames(
+                  s["padding-overlay"],
+                  s["padding-overlay-top"]
+                )}
+              />
+              <div
+                id="padding-overlay-bottom"
+                className={classnames(
+                  s["padding-overlay"],
+                  s["padding-overlay-bottom"]
+                )}
+              />
               {!isLoadingIframe &&
                 insertedItems.map(this.renderInsertedRnDItem)}
               {captureConfig && this.renderCaptureFrame()}
@@ -1044,6 +1071,45 @@ class TheModal extends Component {
       },
       "*"
     );
+  };
+
+  setPaddingOverlayDims = () => {
+    const scaleToFullyFit = this.getScaleToFullyFit();
+    const canvasWidth =
+      this.state.canvasWidth && this.state.canvasWidth * scaleToFullyFit;
+    const canvasHeight =
+      this.state.canvasHeight && this.state.canvasHeight * scaleToFullyFit;
+
+    const canvasWrapperWidth = this.canvasWrapperRef.current.offsetWidth;
+    const canvasWrapperHeight = this.canvasWrapperRef.current.offsetHeight;
+
+    const horizontalPadding = (canvasWrapperWidth - canvasWidth) / 2;
+    const verticalPadding = (canvasWrapperHeight - canvasHeight) / 2;
+
+    document.getElementById(
+      "padding-overlay-left"
+    ).style.width = `${horizontalPadding}px`;
+    document.getElementById(
+      "padding-overlay-left"
+    ).style.top = `${verticalPadding}px`;
+    document.getElementById(
+      "padding-overlay-left"
+    ).style.bottom = `${verticalPadding}px`;
+    document.getElementById(
+      "padding-overlay-right"
+    ).style.width = `${horizontalPadding}px`;
+    document.getElementById(
+      "padding-overlay-right"
+    ).style.top = `${verticalPadding}px`;
+    document.getElementById(
+      "padding-overlay-right"
+    ).style.bottom = `${verticalPadding}px`;
+    document.getElementById(
+      "padding-overlay-top"
+    ).style.height = `${verticalPadding}px`;
+    document.getElementById(
+      "padding-overlay-bottom"
+    ).style.height = `${verticalPadding}px`;
   };
 
   onIframeLoad = insertedItemId => {
