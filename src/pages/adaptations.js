@@ -23,11 +23,9 @@ import simpleRipple from "../_adaptationConfigs/simple_ripple";
 import hedgehog from "../_adaptationConfigs/hedgehog";
 import tatters from "../_adaptationConfigs/tatters";
 import svg from "../_adaptationConfigs/svg";
-<<<<<<< HEAD
 import cells from "../_adaptationConfigs/cells";
-=======
 import trunk from "../_adaptationConfigs/trunk";
->>>>>>> add trunk background
+import fog from "../_adaptationConfigs/fog";
 
 export const allAdaptationTypes = [
   linearGradient,
@@ -54,7 +52,7 @@ export const allAdaptationTypes = [
   hedgehog,
   cells,
   svg,
-  trunk
+  fog
 ];
 
 const unfilledGradientWaves = {
@@ -1612,5 +1610,5 @@ export const allAdaptations = [
   // 60
   { ...cells },
   // 61
-  { ...trunk }
+  { ...fog }
 ];
