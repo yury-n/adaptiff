@@ -1,12 +1,6 @@
 import { allAdaptations } from "./adaptations";
 
 export default [
-<<<<<<< HEAD
-=======
-  61,
-  60,
->>>>>>> add trunk background
-  59,
   58,
   57,
   56,

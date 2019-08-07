@@ -24,7 +24,6 @@ import hedgehog from "../_adaptationConfigs/hedgehog";
 import tatters from "../_adaptationConfigs/tatters";
 import svg from "../_adaptationConfigs/svg";
 import cells from "../_adaptationConfigs/cells";
-import trunk from "../_adaptationConfigs/trunk";
 import fog from "../_adaptationConfigs/fog";
 
 export const allAdaptationTypes = [
@@ -1610,5 +1609,5 @@ export const allAdaptations = [
   // 60
   { ...cells },
   // 61
-  { ...fog }
+  { ...fog },
 ];
