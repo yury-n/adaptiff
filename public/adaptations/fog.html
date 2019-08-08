@@ -17,18 +17,26 @@
         baseColor,
         blur,
         palette: [highlightColor, midtoneColor, lowlightColor],
+        speed,
         zoom
       } = config;
 
-      VANTA.FOG({
+      const options = {
         el: "#body",
         highlightColor,
         midtoneColor,
         lowlightColor,
         baseColor,
         blurFactor: parseFloat(`0.${config.blur}`),
-        zoom
-      })
+        zoom,
+        speed,
+      };
+
+      if (lastConfig) {
+        document.querySelector('canvas').remove();
+      }
+
+      lastConfig = VANTA.FOG(options);
 
       initialized = true;
     }

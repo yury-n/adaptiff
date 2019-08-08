@@ -27,30 +27,38 @@ export default {
       key: "palette",
       text: "Palette",
       type: "palette",
-      defaultValue: ["#b8adfe", "#676bc2"],
+      defaultValue: ["#5BB2DD", "#1fa5ff", "#1053ff"],
       options: palettes
     },
     {
       key: "baseColor",
       text: "Background Color",
       type: "single-color",
-      defaultValue: "#3a3940"
+      defaultValue: "#ededf7"
     },
     {
       key: "zoom",
       text: "Zoom",
       type: "range",
-      defaultValue: 8,
+      defaultValue: 1,
       min: 1,
-      max: 20,
+      max: 8,
     },
     {
       key: "blur",
       text: "Blur",
       type: "range",
-      defaultValue: 1,
+      defaultValue: 3,
       min: 1,
       max: 9,
+    },
+    {
+      key: "speed",
+      text: "Speed",
+      type: "range",
+      defaultValue: 0,
+      min: 0,
+      max: 8,
     }
   ]
 };

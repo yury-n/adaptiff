@@ -23,8 +23,8 @@ import simpleRipple from "../_adaptationConfigs/simple_ripple";
 import hedgehog from "../_adaptationConfigs/hedgehog";
 import tatters from "../_adaptationConfigs/tatters";
 import svg from "../_adaptationConfigs/svg";
-// import cells from "../_adaptationConfigs/cells";
-// import fog from "../_adaptationConfigs/fog";
+import cells from "../_adaptationConfigs/cells";
+import fog from "../_adaptationConfigs/fog";
 
 export const allAdaptationTypes = [
   linearGradient,
@@ -48,10 +48,10 @@ export const allAdaptationTypes = [
   voronoi,
   carpet,
   blank,
-  hedgehog,  
+  hedgehog,
   svg,
-  // cells,
-  // fog
+  cells,
+  fog
 ];
 
 const unfilledGradientWaves = {
@@ -1606,8 +1606,8 @@ export const allAdaptations = [
     ...svg,
     thumb: "/thumbs/59.png"
   },
-  // // 60
-  // { ...cells },
-  // // 61
-  // { ...fog },
+  // 60
+  { ...cells },
+  // 61
+  { ...fog },
 ];
