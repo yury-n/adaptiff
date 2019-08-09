@@ -18,7 +18,7 @@ export default {
       text: "Items Number",
       type: "range",
       defaultValue: 10,
-      min: 0,
+      min: 1,
       max: 100
     },
     {
@@ -37,11 +37,5 @@ export default {
       min: 0,
       max: 100
     },
-    {
-      type: "boolean",
-      key: "fullyFitInside",
-      text: "Fully Fit Inside",
-      defaultValue: true
-    }
   ]
 };

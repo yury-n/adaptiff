@@ -11,13 +11,15 @@
       context.canvas.width = window.innerWidth;
       context.canvas.height = window.innerHeight;
 
+      const fullyFitInside = true;
+
       let mainRectWidth = window.innerWidth - config.strokeWidth;
 
       context.clearRect(0, 0, canvas.width, canvas.height);
 
       let canvasWidth =
         canvas.width > canvas.height ? canvas.height : canvas.width;
-      if (config.fullyFitInside) {
+      if (fullyFitInside) {
         mainRectWidth =
           mainRectWidth > canvas.width || mainRectWidth > canvas.height
             ? canvasWidth - config.strokeWidth
