@@ -5,6 +5,7 @@ import mesh from "../_adaptationConfigs/mesh";
 import subtleRib from "../_adaptationConfigs/subtle_rib";
 import trianglify from "../_adaptationConfigs/trianglify";
 import { allAdaptations } from "./adaptations";
+import svgs from "./svgsList";
 
 const unfilledMesh = {
   ...mesh,
@@ -18,6 +19,7 @@ const unfilledMesh = {
 };
 
 export default [
+  ...svgs,
   blobmaker,
   linearGradient,
   allAdaptations[10],
