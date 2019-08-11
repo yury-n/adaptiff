@@ -1484,10 +1484,10 @@ export const allAdaptations = [
       },
       insertedItems: [
         {
-          id: 402,
+          id: 502,
           type: "object",
-          width: 994.5625,
-          height: 994.5625,
+          width: 994.5494186046512,
+          height: 994.5494186046512,
           showIframe: true,
           adaptation: gradientWaves,
           configValues: {
@@ -1499,7 +1499,27 @@ export const allAdaptations = [
             fill: false,
             randomValues: []
           },
-          position: { left: 3.28125, top: 4.25 }
+          position: { left: 6.592607973421927, top: 7.552948504983389 }
+        },
+        {
+          id: 102,
+          type: "object",
+          width: 1898.671096345515,
+          height: 378.7375415282392,
+          showIframe: true,
+          adaptation: svgs[3],
+          configValues: { palette: ["#F1EAB9", "#FF8C8C"] },
+          position: { left: -611.295681063123, top: 823.9202657807309 }
+        },
+        {
+          id: 103,
+          type: "object",
+          width: 1724.2524916943523,
+          height: 343.8538205980067,
+          showIframe: true,
+          adaptation: svgs[3],
+          configValues: { palette: ["#F1EAB9", "#FF8C8C"] },
+          position: { left: -511.6279069767442, top: -124.58471760797343 }
         }
       ]
     }
@@ -1560,42 +1580,42 @@ export const allAdaptations = [
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
-        palette: ["#7be4da", "#094a6f"],
+        palette: ["#7be4da", "#cefbee"],
         direction: "custom_angle",
         angle: 200
       },
       insertedItems: [
         {
-          id: 104,
+          id: 204,
           type: "object",
-          width: 996,
-          height: 992,
+          width: 995.9877938517178,
+          height: 991.9755877034357,
           showIframe: true,
           adaptation: simpleRipple,
           configValues: {
-            palette: ["#7be4da", "#094a6f"],
+            palette: ["#7be4da", "#015079"],
             itemsNum: 47,
             strokeWidth: 1,
             radius: 100,
             fullyFitInside: true
           },
-          position: { left: 1, top: 2 }
+          position: { left: 4.605560578661844, top: 5.594484629294755 }
         },
         {
-          id: 102,
+          id: 202,
           type: "object",
-          width: 549,
-          height: 563,
+          width: 981.9168173598553,
+          height: 987.3417721518987,
           showIframe: true,
           adaptation: simpleRipple,
           configValues: {
-            palette: ["#7be4da", "#094a6f"],
-            itemsNum: 33,
-            strokeWidth: 18,
+            palette: ["#7be4da", "#fbfdff"],
+            itemsNum: 2,
+            strokeWidth: 21,
             radius: 100,
             fullyFitInside: true
           },
-          position: { left: 223, top: 214 }
+          position: { left: 11.415009041591318, top: 7.826627486437612 }
         }
       ]
     }
