@@ -24,6 +24,7 @@ import hedgehog from "../_adaptationConfigs/hedgehog";
 import tatters from "../_adaptationConfigs/tatters";
 // import cells from "../_adaptationConfigs/cells";
 // import fog from "../_adaptationConfigs/fog";
+import svgs from "./svgsList";
 
 export const allAdaptationTypes = [
   linearGradient,
@@ -568,7 +569,7 @@ export const allAdaptations = [
   // 15
   {
     ...linearGradient,
-    title: "multiple objects",
+    title: "multiple elements",
     author: "multiple authors",
     thumb: "/thumbs/b13.png",
     initState: {
@@ -1598,9 +1599,170 @@ export const allAdaptations = [
         }
       ]
     }
-  }
+  },
   // 59
+  {
+    ...clipSpace3d,
+    thumb: "/thumbs/59.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        bumpStrength: 200,
+        objectColor: "#ebc4c4",
+        objectShininess: 12,
+        lightColor: "#ee754e",
+        backgroundColor: "#ffcece",
+        envPower: 2,
+        envBlur: 0,
+        camX: -15,
+        camY: 0,
+        camZ: -50,
+        camZoom: 3
+      },
+      insertedItems: []
+    }
+  },
+  // 60
+  {
+    ...chromaticLiquids,
+    thumb: "/thumbs/60.png",
+    initState: {
+      size: { width: 1080, height: 607 },
+      config: {
+        palette: [
+          "#e87a7a",
+          "#8c4f7f",
+          "#8c75a5",
+          "#babfd6",
+          "#8c75a5",
+          "#babfd6"
+        ]
+      },
+      insertedItems: [
+        {
+          id: 102,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Roboto Condensed",
+            fontSize: 72,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#591f4d",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 10,
+            hasCyrillic: true,
+            textAlign: "right",
+            isBold: true,
+            isItalic: true
+          },
+          width: 390.875,
+          height: 164,
+          position: { left: 584, top: 263.5 },
+          text: "конструктор\nдизайна"
+        },
+        {
+          id: 104,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Roboto Condensed",
+            fontSize: 64,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 10,
+            hasCyrillic: true,
+            textAlign: "left",
+            isBold: true,
+            isItalic: true
+          },
+          width: 477.78125,
+          height: 148,
+          position: { left: 94, top: 139.5 },
+          text: "легкий\nв использовании"
+        }
+      ]
+    }
+  },
+  // 61
+  {
+    ...linearGradient,
+    title: "multiple elements",
+    author: "multiple authors",
+    thumb: "/thumbs/61.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#7be4da", "#094a6f"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          id: 104,
+          type: "object",
+          width: 996,
+          height: 992,
+          showIframe: true,
+          adaptation: simpleRipple,
+          configValues: {
+            palette: ["#7be4da", "#094a6f"],
+            itemsNum: 47,
+            strokeWidth: 1,
+            radius: 100,
+            fullyFitInside: true
+          },
+          position: { left: 6.089743589743589, top: 7.091346153846153 }
+        },
+        {
+          id: 202,
+          type: "object",
+          width: 548.9983974358975,
+          height: 562.9807692307692,
+          showIframe: true,
+          adaptation: simpleRipple,
+          configValues: {
+            palette: ["#1bfbe8", "#005482"],
+            itemsNum: 8,
+            strokeWidth: 4,
+            radius: 100,
+            fullyFitInside: true
+          },
+          position: { left: 228.125, top: 219.1105769230769 }
+        },
+        {
+          id: 103,
+          type: "object",
+          width: 725.6410256410256,
+          height: 725.6410256410256,
+          showIframe: true,
+          adaptation: svgs[1],
+          configValues: {
+            palette: [{ r: 255, g: 150, b: 101, a: 0 }, "#f90005"]
+          },
+          position: { left: 135.89743589743588, top: 158.97435897435898 }
+        },
+        {
+          id: 102,
+          type: "object",
+          width: 500,
+          height: 500,
+          showIframe: true,
+          adaptation: svgs[0],
+          configValues: {
+            palette: [{ r: 255, g: 150, b: 101, a: 0 }, "#ff0003"]
+          },
+          position: { left: 35.8974358974359, top: 264.1025641025641 }
+        }
+      ]
+    }
+  }
   // { ...cells },
-  // // 60
   // { ...fog },
 ];

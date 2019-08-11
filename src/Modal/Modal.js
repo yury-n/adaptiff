@@ -30,6 +30,8 @@ class TheModal extends Component {
     this.canvasWrapperRef = React.createRef();
     this.insertedItemsRefs = {};
     this.captureFrameRef = React.createRef();
+    this.ctrlDown = false;
+    this.bufferedInsertedItem = null;
     const initState = props.initState || { size: {}, config: {} };
 
     const state = {
@@ -115,11 +117,13 @@ class TheModal extends Component {
     this.setState(newState);
     window.addEventListener("message", this.onWindowMessage);
     window.addEventListener("keyup", this.onKeyUp);
+    window.addEventListener("keydown", this.onKeyDown);
     this.setPaddingOverlayDims();
   }
   componentWillUnmount() {
     window.removeEventListener("message", this.onWindowMessage);
     window.removeEventListener("keyup", this.onKeyUp);
+    window.removeEventListener("keydown", this.onKeyDown);
   }
   componentDidUpdate(prevProps, prevState) {
     this.updateIframeTop();
@@ -650,7 +654,6 @@ class TheModal extends Component {
       lineHeight: 12
     };
     this.insertItem({
-      id: this.insertedBlockId++,
       type: "text",
       hasCyrillic: false,
       config: lastinsertedItem.config || defaultConfig
@@ -664,7 +667,6 @@ class TheModal extends Component {
       return;
     }
     this.insertItem({
-      id: this.insertedBlockId++,
       type: "image",
       width: Math.round(canvasWidth * 0.5),
       height: Math.round((canvasWidth * 0.5) / aspectRatio),
@@ -682,11 +684,14 @@ class TheModal extends Component {
           ? initState.config[config.key]
           : config.defaultValue;
     });
+    const width = Math.round(canvasWidth * 0.5);
+    const height = adaptation.aspectRatio
+      ? Math.round(width / adaptation.aspectRatio)
+      : Math.round(canvasHeight * 0.5);
     this.insertItem({
-      id: this.insertedBlockId++,
       type: "object",
-      width: Math.round(canvasWidth * 0.5),
-      height: Math.round(canvasHeight * 0.5),
+      width,
+      height,
       showIframe: true,
       adaptation,
       configValues
@@ -696,7 +701,10 @@ class TheModal extends Component {
   insertItem = item => {
     const { insertedItems } = this.state;
     this.setState({
-      insertedItems: [...insertedItems, item],
+      insertedItems: [
+        ...insertedItems,
+        { ...item, id: this.insertedBlockId++ }
+      ],
       activeInsertedItemIndex: insertedItems.length
     });
   };
@@ -1150,6 +1158,40 @@ class TheModal extends Component {
         );
       }
     }
+  };
+
+  onKeyDown = e => {
+    const ctrlKey = 17;
+    const cmdKey = 91;
+    const vKey = 86;
+    const cKey = 67;
+    if (e.target.tagName === "INPUT") {
+      return;
+    }
+    if (e.keyCode === ctrlKey || e.keyCode === cmdKey) {
+      this.ctrlDown = true;
+    }
+    if (this.ctrlDown && e.keyCode === cKey) {
+      this.copyActiveInsertedItem();
+    }
+    if (this.ctrlDown && e.keyCode === vKey) {
+      this.pasteActiveInsertedItem();
+    }
+  };
+
+  copyActiveInsertedItem = () => {
+    const { activeInsertedItemIndex, insertedItems } = this.state;
+    if (activeInsertedItemIndex === null) {
+      return;
+    }
+    this.bufferedInsertedItem = insertedItems[activeInsertedItemIndex];
+  };
+
+  pasteActiveInsertedItem = () => {
+    if (!this.bufferedInsertedItem) {
+      return null;
+    }
+    this.insertItem(this.bufferedInsertedItem);
   };
 
   saveConfigToDB = config => {
