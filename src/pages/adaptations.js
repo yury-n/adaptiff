@@ -161,11 +161,25 @@ export const allAdaptations = [
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
-        angle: 31,
+        palette: ["#0b0a21", "#1e1b57"],
         direction: "custom_angle",
-        palette: ["#a52bf8", "#02d0ea"]
+        angle: 200
       },
       insertedItems: [
+        {
+          id: 100,
+          type: "object",
+          showIframe: true,
+          adaptation: linearGradient,
+          width: 943.5483870967741,
+          height: 943.5483870967741,
+          position: { left: 23.647513440860216, top: 26.965725806451612 },
+          configValues: {
+            angle: 31,
+            direction: "custom_angle",
+            palette: ["#a52bf8", "#02d0ea"]
+          }
+        },
         {
           id: 101,
           type: "object",
@@ -183,6 +197,23 @@ export const allAdaptations = [
             randomValues: [0.044420196340127394, 0.22911748347161964],
             smoothness: 12
           }
+        },
+        {
+          id: 103,
+          type: "text",
+          position: { left: 235.55107526881721, top: 263.3778561827957 },
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            color: "#ffffff",
+            fontFamily: "Monoton",
+            fontSize: 150,
+            letterSpacing: 0,
+            padding: 10
+          },
+          text: "what\nso\nnot",
+          width: 527.1337365591398,
+          height: 511.9287634408602
         }
       ]
     }
@@ -230,6 +261,24 @@ export const allAdaptations = [
               0.2609440704641621
             ]
           }
+        },
+        {
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            color: "#d7ff00",
+            fontFamily: "Rubik Mono One",
+            fontSize: 43,
+            letterSpacing: 0,
+            padding: 10
+          },
+          id: 102,
+          type: "text",
+          position: { left: 68.75, top: 184.375 },
+          text: `+
+  add
+  blobs
+  anywhere`
         }
       ]
     }
@@ -250,7 +299,26 @@ export const allAdaptations = [
         smoothness: 98,
         randomValues: []
       },
-      insertedItems: []
+      insertedItems: [
+        {
+          id: 100,
+          type: "text",
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 1,
+            color: "#ffffff",
+            fontFamily: "El Messiri",
+            fontSize: 87,
+            letterSpacing: 0,
+            padding: 50
+          },
+          position: { left: 122, top: 120 },
+          text: `We
+  should
+  all be
+  designers`
+        }
+      ]
     }
   },
   // 4
@@ -385,12 +453,99 @@ export const allAdaptations = [
   },
   // 6
   {
-    ...subtleRib,
-    thumb: "/thumbs/10.png",
+    ...linearGradient,
+    thumb: "/thumbs/19.png",
     initState: {
-      size: { width: 500, height: 500 },
-      config: { color: "#fcd633", mode: "vertical", intensity: 22 },
-      insertedItems: []
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#f9f9f9", "#ffffff"],
+        direction: "left",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          id: 102,
+          type: "object",
+          width: 653,
+          height: 711,
+          showIframe: true,
+          adaptation: subtleRib,
+          configValues: { color: "#fcd633", mode: "vertical", intensity: 20 },
+          position: { left: 345, top: 0 }
+        },
+        {
+          id: 103,
+          type: "text",
+          config: {
+            fontFamily: "Lato",
+            fontSize: 34,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0.5 },
+            borderWidth: 1,
+            isBold: true
+          },
+          width: 161.875,
+          height: 96,
+          position: { left: 120, top: 60 },
+          text: "Design\nSystems"
+        },
+        {
+          id: 104,
+          type: "text",
+          config: {
+            fontFamily: "Lato",
+            fontSize: 72,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isBold: true
+          },
+          width: 620.234375,
+          height: 257,
+          position: { left: 121, top: 455 },
+          text: "A comprehensive\nguide to\niconography"
+        },
+        {
+          id: 5,
+          type: "text",
+          config: {
+            fontFamily: "Lato",
+            fontSize: 28,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isBold: false
+          },
+          width: 205.21875,
+          height: 50,
+          position: { left: 123, top: 716 },
+          text: "featured article"
+        },
+        {
+          id: 6,
+          type: "text",
+          config: {
+            fontFamily: "Lato",
+            fontSize: 20,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isBold: false
+          },
+          width: 170.078125,
+          height: 42,
+          position: { left: 441, top: 922 },
+          text: "by Steve Robsky"
+        }
+      ]
     }
   },
   // 7
@@ -948,7 +1103,7 @@ export const allAdaptations = [
   // 42
   {
     ...blank,
-    thumb: "/thumbs/n42.png",
+    thumb: "/thumbs/42.png",
     initState: {
       size: { width: 1000, height: 1000 },
       config: { transparent: false, color: "#ffffff" },
@@ -982,6 +1137,66 @@ export const allAdaptations = [
             angle: 200
           },
           position: { left: -1.8327534791252484, top: -3.789761431411531 }
+        },
+        {
+          id: 202,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Seymour One",
+            fontSize: 100,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#6b4a7a",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            hasCyrillic: true,
+            isBold: true
+          },
+          width: 687.0961729622267,
+          height: 129.28677932405566,
+          position: { left: 122.26640159045725, top: 386.67992047713716 },
+          text: "Хаос лиц"
+        },
+        {
+          id: 102,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Seymour One",
+            fontSize: 57,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#fbcd33",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            hasCyrillic: true,
+            isBold: true
+          },
+          width: 739.5004970178926,
+          height: 81.57306163021869,
+          position: { left: 58.64811133200795, top: 492.04771371769385 },
+          text: "и не видно тропы"
+        },
+        {
+          id: 102,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Montserrat",
+            fontSize: 33,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#fefefe",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            hasCyrillic: true,
+            isBold: true
+          },
+          width: 266.49420529801324,
+          height: 55.753311258278146,
+          position: { left: 133.11258278145695, top: 915.8940397350993 },
+          text: "И.А. Бродский"
         }
       ]
     }
@@ -1275,7 +1490,7 @@ export const allAdaptations = [
   // 49
   {
     ...hedgehog,
-    thumb: "/thumbs/n49.png",
+    thumb: "/thumbs/49.png",
     initState: {
       size: { width: 1080, height: 1080 },
       config: {
@@ -1300,6 +1515,69 @@ export const allAdaptations = [
             fullyFitInside: true
           },
           position: { left: 92.85726127320955, top: 38.85278514588859 }
+        },
+        {
+          id: 203,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Oswald",
+            fontSize: 73,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          width: 649.6875,
+          height: 107.33753315649867,
+          position: { left: 190.86206896551724, top: 243.85941644562334 },
+          text: "Меньше — это больше"
+        },
+        {
+          id: 204,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Oswald",
+            fontSize: 40,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          width: 271.1190318302387,
+          height: 114.49933687002653,
+          position: { left: 199.8590848806366, top: 353.86024535809014 },
+          text: "чистота формы\nв виде принципа"
+        },
+        {
+          id: 205,
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Roboto Condensed",
+            fontSize: 27,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          width: 674.6195291777188,
+          height: 51.47546419098143,
+          position: { left: 211.09416445623341, top: 976.1762267904509 },
+          text: "современные технологии способны загромоздить дизайн"
         }
       ]
     }
@@ -1779,6 +2057,294 @@ export const allAdaptations = [
             palette: [{ r: 255, g: 150, b: 101, a: 0 }, "#ff0003"]
           },
           position: { left: 35.8974358974359, top: 264.1025641025641 }
+        }
+      ]
+    }
+  },
+  // 62
+  {
+    ...gradientWaves,
+    thumb: "/thumbs/62.png",
+    initState: {
+      size: { width: 700, height: 700 },
+      config: {
+        amplituteX: 150,
+        amplituteY: 30,
+        crazyness: false,
+        fill: true,
+        lines: 70,
+        palette: ["#00fb94", "#006b65"],
+        smoothness: 98,
+        randomValues: []
+      },
+      insertedItems: []
+    }
+  },
+  // 63
+  {
+    ...fiberRibbons,
+    thumb: "/thumbs/7.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        backgroundColor: "#324444",
+        palette: ["#A2CCB6", "#FCEEB5", "#fff", "#EE786E"],
+        numLines: 94,
+        fov: 75
+      },
+      insertedItems: [
+        {
+          id: 100,
+          type: "text",
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            color: "#ffffff",
+            fontFamily: "Playfair Display",
+            fontSize: 220,
+            letterSpacing: 0,
+            padding: 10,
+            borderWidth: 0
+          },
+          position: { left: 166.125, top: 132.65625 },
+          text: "React\nThree\nFiber",
+          width: 600.8125,
+          height: 746
+        }
+      ]
+    }
+  },
+  // 64
+  {
+    ...strings25,
+    thumb: "/thumbs/15.png",
+    thumbBackgroundSize: "cover",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#d8f1ff", "#000"],
+        sizePercent: [25, 39],
+        randomValues: [0.39245358845393374]
+      },
+      insertedItems: [
+        {
+          id: 100,
+          type: "text",
+          config: {
+            fontFamily: "Poppins",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            color: "#000",
+            fontSize: 50,
+            padding: 3,
+            borderWidth: 0
+          },
+          position: { left: 347.4672379032258, top: 386.1097110215054 },
+          text: "create",
+          width: 170.9719422043011,
+          height: 59.72782258064516
+        },
+        {
+          id: 101,
+          type: "text",
+          config: {
+            fontFamily: "Poppins",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            color: "#000",
+            fontSize: 64,
+            padding: 3,
+            borderWidth: 0
+          },
+          position: { left: 344.77906586021504, top: 455.68716397849465 },
+          text: "something",
+          width: 350.44942876344084,
+          height: 75.85685483870968
+        },
+        {
+          id: 102,
+          type: "text",
+          config: {
+            fontFamily: "Roboto",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            color: "#000",
+            isBold: true,
+            fontSize: 69,
+            padding: 3,
+            borderWidth: 0
+          },
+          position: { left: 346.12315188172045, top: 544.0818212365591 },
+          text: "unique",
+          width: 232.08585349462365,
+          height: 81.23319892473118
+        }
+      ]
+    }
+  },
+  // 65
+  {
+    ...linearGradient,
+    thumb: "/thumbs/65.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#ffffff", "#fdf9ce"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          id: 200,
+          type: "object",
+          showIframe: true,
+          adaptation: linearGradient,
+          width: 943.9421338155514,
+          height: 943.9421338155514,
+          position: { left: 27.2377938517179, top: 30.571880650994572 },
+          configValues: {
+            angle: 31,
+            direction: "custom_angle",
+            palette: ["#ffd2be", "#fdf9ce"]
+          }
+        },
+        {
+          id: 201,
+          type: "object",
+          showIframe: true,
+          adaptation: gradientWaves,
+          width: 885.7368896925858,
+          height: 888.4211121157323,
+          position: { left: 54.277802893309214, top: 61.11550632911392 },
+          configValues: {
+            amplituteX: 150,
+            amplituteY: 111,
+            fill: false,
+            lines: 21,
+            palette: ["#cf91f9", "#fb8ea8"],
+            randomValues: [0.3417302595458822, 0.08588410509903688],
+            smoothness: 67
+          }
+        },
+        {
+          type: "object",
+          width: 238.69801084990956,
+          height: 254.97287522603978,
+          showIframe: true,
+          adaptation: voronoi,
+          configValues: {
+            palette: ["#fb8ea8", "#fdf9ce"],
+            filled: true,
+            lineWidth: 5,
+            minMaxRadius: [1, 114]
+          },
+          id: 102,
+          position: { left: 31.645569620253163, top: 288.4267631103074 }
+        },
+        {
+          type: "object",
+          width: 356.2386980108499,
+          height: 365.2802893309222,
+          showIframe: true,
+          adaptation: voronoi,
+          configValues: {
+            palette: ["#fb8ea8", "#fdf9ce"],
+            filled: true,
+            lineWidth: 5,
+            minMaxRadius: [1, 114]
+          },
+          id: 103,
+          position: { left: 348.1012658227848, top: 348.1012658227848 }
+        },
+        {
+          type: "object",
+          width: 254.97287522603978,
+          height: 247.7396021699819,
+          showIframe: true,
+          adaptation: voronoi,
+          configValues: {
+            palette: ["#fb8ea8", "#fdf9ce"],
+            filled: true,
+            lineWidth: 5,
+            minMaxRadius: [1, 114]
+          },
+          id: 104,
+          position: { left: 707.9566003616636, top: 715.1898734177215 }
+        }
+      ]
+    }
+  },
+  // 66
+  {
+    ...blank,
+    thumb: "/thumbs/66.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        withBackground: true,
+        palette: ["#496519", "#ffcf2c"],
+        color: "#ffffff",
+        distanceBetween: 10,
+        randomValues: [0.6312924668231186]
+      },
+      insertedItems: [
+        {
+          id: 503,
+          type: "object",
+          width: 1052.49773960217,
+          height: 1220.9821428571427,
+          showIframe: true,
+          adaptation: mesh,
+          configValues: {
+            withBackground: false,
+            palette: ["#593c2e", "#ffcf2c"],
+            color: "#ffffff",
+            distanceBetween: 17,
+            randomValues: [0.9723743823562034]
+          },
+          position: { left: 93.26966546112115, top: -113.21767631103073 }
+        },
+        {
+          id: 502,
+          type: "object",
+          width: 508.9285714285714,
+          height: 1009.9174954792043,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#fbcd33", "#fe002c"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          position: { left: -3.4753616636528024, top: -1.8083182640144664 }
+        },
+        {
+          type: "object",
+          width: 408.9907323688969,
+          height: 408.9907323688969,
+          showIframe: true,
+          adaptation: svgs[2],
+          configValues: { palette: ["#ffffff", "#fbcd33"] },
+          id: 202,
+          position: { left: 309.67450271247736, top: 288.79407775768533 }
+        },
+        {
+          type: "object",
+          width: 262.997287522604,
+          height: 262.997287522604,
+          showIframe: true,
+          adaptation: svgs[2],
+          configValues: {
+            palette: ["#ffffff", { r: 251, g: 205, b: 51, a: 0 }]
+          },
+          id: 203,
+          position: { left: 588.2120253164557, top: 183.5160488245931 }
+        },
+        {
+          type: "object",
+          width: 234.99660940325495,
+          height: 234.99660940325495,
+          showIframe: true,
+          adaptation: svgs[2],
+          configValues: { palette: ["#ffffff", "#fbcd33"] },
+          id: 204,
+          position: { left: 211.5167269439421, top: 578.0402350813742 }
         }
       ]
     }
