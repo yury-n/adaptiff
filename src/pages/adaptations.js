@@ -2272,7 +2272,7 @@ export const allAdaptations = [
   },
   // 66
   {
-    ...blank,
+    ...mesh,
     thumb: "/thumbs/66.png",
     initState: {
       size: { width: 1000, height: 1000 },
