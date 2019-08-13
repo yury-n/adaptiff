@@ -86,6 +86,9 @@ export default () => {
         )}
         <SubscribeBlock />
         <a
+          data-balloon-visible
+          aria-label="✨любые пожелания"
+          data-balloon-pos="left"
           target="_blank"
           rel="noopener noreferrer"
           href="https://docs.google.com/forms/d/e/1FAIpQLSddoo8_28sRF5Pt7AZae5wtTXPH18dNYFoD8kujnf7omcKaDQ/viewform"

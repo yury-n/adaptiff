@@ -56,7 +56,7 @@
 }
 
 .feedback-button {
-  position: fixed;
+  position: fixed !important;
   bottom: 12px;
   right: 12px;
   width: 54px;
