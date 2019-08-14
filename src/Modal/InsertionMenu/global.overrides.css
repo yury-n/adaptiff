@@ -1,0 +1,3 @@
+.ui.labeled.icon.menu .item > .icon:not(.dropdown) {
+  font-size: 1.414286em !important;
+}

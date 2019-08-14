@@ -1,0 +1,67 @@
+.add-menu {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 0 !important;
+  border-left: 0 !important;
+  box-shadow: none !important;
+  margin-top: 19px;
+  border: none !important;
+  margin-left: 1px !important;
+  margin-top: 10px !important;
+}
+
+.add-menu-item {
+  position: relative;
+  padding: 10px 1px !important;
+  cursor: pointer;
+  min-width: 60px !important;
+  border-radius: 4px;
+  margin: 0 2px;
+}
+.add-menu-item:before {
+  display: none;
+}
+.add-menu-item:global(:not(.active)):hover {
+  background: none !important;
+}
+
+.add-text-icon {
+  display: block;
+  font-weight: bold;
+  font-size: 23px;
+  margin-bottom: 4px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.file-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.file-input-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.add-object-cards {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 100px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 10px;
+  padding-bottom: 40px;
+}

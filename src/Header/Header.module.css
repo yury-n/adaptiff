@@ -95,7 +95,8 @@
   box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.42) !important;
 }
 .submit-button:global(.ui.icon.button > .icon) {
-  margin-right: 5px !important;
+  font-size: 11px;
+  margin-right: 1px !important;
 }
 
 .submit-button-wrapper {

@@ -4,7 +4,6 @@ import ReactDOM from "react-dom";
 import { Modal, Input, Button, Icon } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
 import ImageConfig from "./ImageConfig/ImageConfig";
-import InsertButton from "./InsertButton/InsertButton";
 import InsertedText from "./InsertedText/InsertedText";
 import InsertedTextDraggable from "./InsertedText/InsertedTextDraggable";
 import InsertedImage from "./InsertedImage/InsertedImage";
@@ -19,6 +18,7 @@ import { downloadFromDataURL } from "../_utils";
 import "rc-slider/assets/index.css";
 import "./global.overrides.css";
 import s from "./Modal.module.css";
+import InsertionMenu from "./InsertionMenu/InsertionMenu";
 
 const CANVAS_MARGIN = 50; //px
 
@@ -235,16 +235,23 @@ class TheModal extends Component {
             <div className={s["config-container"]}>{this.renderConfig()}</div>
           </div>
           <div
-            className={s["modal-right-side"]}
+            className={s["modal-central-area"]}
             onClick={this.onModalRightSideClick}
           >
             <div className={s["config-over-preview"]}>
               <div className={s["config-over-left-buttons"]}>
-                <InsertButton
-                  onInsertText={this.insertText}
-                  onInsertImage={this.insertImage}
-                  onInsertObject={this.insertObject}
-                />
+                <Button.Group>
+                  <Button
+                    icon
+                    aria-label="Copy (Cmd + C)"
+                    data-balloon-pos="down"
+                  >
+                    <Icon name="copy outline" />
+                  </Button>
+                  {/* <Button icon>
+                    <Icon name="paste" />
+                  </Button> */}
+                </Button.Group>
                 {hasRandomness && (
                   <Button
                     title="Refresh"
@@ -282,11 +289,15 @@ class TheModal extends Component {
                 )}
                 <Button
                   title="Download"
-                  circular
+                  color="white"
                   icon={!isPreparingDownload ? "download" : undefined}
                   loading={isPreparingDownload}
                   onClick={this.download}
-                />
+                  className={s["download-button"]}
+                >
+                  <Icon name="download" />
+                  Download
+                </Button>
               </div>
             </div>
             <div
@@ -356,6 +367,11 @@ class TheModal extends Component {
                 insertedItems.map(this.renderInsertedRnDItem)}
               {captureConfig && this.renderCaptureFrame()}
             </div>
+          </div>
+          <div
+            className={classnames(s["modal-sidebar"], s["modal-right-sidebar"])}
+          >
+            <InsertionMenu />
           </div>
         </Modal.Content>
       </Modal>

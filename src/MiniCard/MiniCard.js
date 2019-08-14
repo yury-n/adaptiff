@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classnames from "classnames";
-import { Icon, Card } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 import Modal from "../Modal/Modal";
 
 import s from "./MiniCard.module.css";
@@ -38,7 +38,7 @@ class MiniCard extends Component {
           as="div"
           style={{ width: thumbWidth }}
         >
-          <div className={s['mini-preview-wrapper']}>
+          <div className={s["mini-preview-wrapper"]}>
             <div
               className={s["mini-preview"]}
               style={{
@@ -47,10 +47,6 @@ class MiniCard extends Component {
               }}
             />
           </div>
-          <button className={s["use-button"]}>
-            <Icon name="edit outline" />
-            Use
-          </button>
           <Card.Content className={s["content"]}>
             <div className={s["mini-title"]}>{title}</div>
             <span className={s["mini-by-author"]}>
