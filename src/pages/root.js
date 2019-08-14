@@ -67,6 +67,7 @@ export default () => {
           <Checkbox label="generative" checked={true} />
           <Checkbox label="static" checked={true} />
         </div>
+        {/* <div className={s["subheader"]}>адаптивные дизайны от комьюнити</div> */}
         <Card.Group className={classnames(s["cards"], "cards")}>
           {adaptations.map((template, index) => (
             <MiniCard key={index} {...template} />
@@ -85,17 +86,6 @@ export default () => {
           </div>
         )}
         <SubscribeBlock />
-        <a
-          data-balloon-visible
-          aria-label="✨любые пожелания"
-          data-balloon-pos="left"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSddoo8_28sRF5Pt7AZae5wtTXPH18dNYFoD8kujnf7omcKaDQ/viewform"
-          className={s["feedback-button"]}
-        >
-          <span>feedback</span>
-        </a>
       </div>
       <Footer />
     </>

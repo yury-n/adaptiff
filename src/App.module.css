@@ -30,6 +30,22 @@
   background: black !important;
 }
 
+.subheader {
+  position: relative;
+  width: 1100px;
+  margin: auto;
+  margin-bottom: 25px;
+  margin-top: -10px;
+  font-family: "Roboto", sans-serif !important;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+}
+
+.subheader :global(i.icon) {
+  color: #a6a6a6;
+  margin-right: 8px;
+}
+
 .tabs {
   margin: auto;
   display: flex;

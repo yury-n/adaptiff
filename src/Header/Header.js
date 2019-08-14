@@ -71,19 +71,24 @@ class Header extends Component {
               target="_blank"
               href="https://t.me/adaptiff"
             >
-              <Icon name="telegram plane" />
+              <Icon size="normal" name="telegram plane" />
             </Button>
             <Button
               icon
               className={s["add-code-button"]}
               target="_blank"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSd7mLAVIt6y3J1GRsKZcVfYApD56TiummXnsFFfNTJQ52Rmtg/viewform?usp=sf_link"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSddoo8_28sRF5Pt7AZae5wtTXPH18dNYFoD8kujnf7omcKaDQ/viewform"
             >
-              Suggest Code
+              Оставить Отзыв
             </Button>
             <div className={s["submit-button-wrapper"]}>
-              <Button icon className={s["submit-button"]} target="_blank">
-                Create Blank
+              <Button
+                color="black"
+                icon
+                className={s["submit-button"]}
+                target="_blank"
+              >
+                <Icon name="add" /> Создать Дизайн
               </Button>
               <MiniCard
                 className={s["blank-card"]}

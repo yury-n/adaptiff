@@ -85,10 +85,16 @@
 }
 
 .submit-button {
-  color: #2c2c2c !important;
-  background: #efeff0 !important;
   padding-right: 18px !important;
   padding-left: 18px !important;
+  font-weight: 500 !important;
+  font-family: "Roboto", sans-serif !important;
+  letter-spacing: 0.2px;
+  padding: 13px 10px;
+  margin-left: 16px !important;
+}
+.submit-button:global(.ui.icon.button > .icon) {
+  margin-right: 5px !important;
 }
 
 .submit-button-wrapper {
