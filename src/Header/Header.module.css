@@ -92,6 +92,7 @@
   letter-spacing: 0.2px;
   padding: 13px 10px;
   margin-left: 16px !important;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.42) !important;
 }
 .submit-button:global(.ui.icon.button > .icon) {
   margin-right: 5px !important;
