@@ -85,5 +85,17 @@ export default [
         palette: ["#FF91FF", "#FF9800"]
       }
     }
+  },
+  {
+    ...svg,
+    thumb: "/thumbs/svgs/7.svg",
+    fileName: "svgs/8",
+    aspectRatio: 8000 / 5920,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#FF91FF", "#FF9800"]
+      }
+    }
   }
 ];
