@@ -37,6 +37,7 @@ export default [
   {
     ...svg,
     thumb: "/thumbs/svgs/4.svg",
+    thumbBackgroundSize: 130,
     fileName: "svgs/4",
     aspectRatio: 307.37 / 61.1,
     initState: {
@@ -49,6 +50,7 @@ export default [
   {
     ...svg,
     thumb: "/thumbs/svgs/5.svg",
+    thumbBackgroundSize: 150,
     aspectRatio: 320.08 / 50.17,
     fileName: "svgs/5",
     initState: {
@@ -61,6 +63,7 @@ export default [
   {
     ...svg,
     thumb: "/thumbs/svgs/6.svg",
+    thumbBackgroundSize: 114,
     fileName: "svgs/6",
     aspectRatio: 260.6 / 83.3,
     initState: {
@@ -73,6 +76,7 @@ export default [
   {
     ...svg,
     thumb: "/thumbs/svgs/7.svg",
+    thumbBackgroundSize: 80,
     fileName: "svgs/7",
     aspectRatio: 247.8 / 336.8,
     initState: {

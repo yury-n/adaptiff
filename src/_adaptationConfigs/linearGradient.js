@@ -3,7 +3,6 @@ import { gradientPalettes } from "../palettes";
 export default {
   title: "Linear gradient",
   fileName: "linear_gradient",
-  author: "yury-n",
   thumb: "/thumbs/b10.png",
   config: [
     {

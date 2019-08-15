@@ -4,8 +4,9 @@ import throttle from "lodash.throttle";
 import { Button, Icon } from "semantic-ui-react";
 
 import s from "./Header.module.css";
-import blank from "../_adaptationConfigs/blank";
 import MiniCard from "../MiniCard/MiniCard";
+import linearGradient from "../_adaptationConfigs/linearGradient";
+import { logStat } from "../_utils";
 
 class Header extends Component {
   state = {
@@ -71,7 +72,7 @@ class Header extends Component {
               target="_blank"
               href="https://t.me/adaptiff"
             >
-              <Icon size="normal" name="telegram plane" />
+              <Icon name="telegram plane" />
             </Button>
             <Button
               icon
@@ -91,12 +92,16 @@ class Header extends Component {
                 <Icon name="add" /> Create a Design
               </Button>
               <MiniCard
+                onClick={() => logStat("create")}
+                clickAndShowModal={true}
                 className={s["blank-card"]}
                 mode="thumb-only"
-                {...blank}
+                {...linearGradient}
                 initState={{
                   size: { width: 1080, height: 1080 },
-                  config: {}
+                  config: {
+                    palette: ["#fefff5", "#d3f0e9"]
+                  }
                 }}
               />
             </div>

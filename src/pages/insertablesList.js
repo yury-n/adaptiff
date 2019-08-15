@@ -28,6 +28,5 @@ export default [
   subtleRib,
   allAdaptations[37],
   trianglify,
-  allAdaptations[45],
-  allAdaptations[59]
+  allAdaptations[45]
 ];

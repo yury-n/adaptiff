@@ -13,7 +13,7 @@ import IframePreviewRnD from "./IframePreview/IframePreviewRnD";
 import ArtConfig from "./ArtConfig/ArtConfig";
 import Layers from "./Layers/Layers";
 import settings from "../settings";
-import { downloadFromDataURL } from "../_utils";
+import { downloadFromDataURL, logStat } from "../_utils";
 
 import "rc-slider/assets/index.css";
 import "./global.overrides.css";
@@ -206,7 +206,8 @@ class TheModal extends Component {
       iframeVersion,
       isPaused,
       isPreparingDownload,
-      isLoadingIframe
+      isLoadingIframe,
+      activeInsertedItemIndex
     } = this.state;
     const scaleToFullyFit = this.getScaleToFullyFit();
     if (
@@ -241,13 +242,16 @@ class TheModal extends Component {
             <div className={s["config-over-preview"]}>
               <div className={s["config-over-left-buttons"]}>
                 <Button.Group>
-                  <Button
-                    icon
-                    aria-label="Copy (Cmd + C)"
-                    data-balloon-pos="down"
-                  >
-                    <Icon name="copy outline" />
-                  </Button>
+                  {activeInsertedItemIndex && false && (
+                    <Button
+                      icon
+                      aria-label="Copy"
+                      data-balloon-pos="down"
+                      onClick={this.copyActiveInsertedItem}
+                    >
+                      <Icon name="copy outline" />
+                    </Button>
+                  )}
                   {/* <Button icon>
                     <Icon name="paste" />
                   </Button> */}
@@ -289,8 +293,6 @@ class TheModal extends Component {
                 )}
                 <Button
                   title="Download"
-                  color="white"
-                  icon={!isPreparingDownload ? "download" : undefined}
                   loading={isPreparingDownload}
                   onClick={this.download}
                   className={s["download-button"]}
@@ -371,7 +373,11 @@ class TheModal extends Component {
           <div
             className={classnames(s["modal-sidebar"], s["modal-right-sidebar"])}
           >
-            <InsertionMenu />
+            <InsertionMenu
+              onInsertText={this.insertText}
+              onInsertImage={this.insertImage}
+              onInsertObject={this.insertObject}
+            />
           </div>
         </Modal.Content>
       </Modal>
@@ -691,6 +697,7 @@ class TheModal extends Component {
   };
 
   insertObject = adaptation => {
+    logStat("insert_object");
     const configValues = {};
     const { canvasWidth, canvasHeight } = this.state;
     const initState = adaptation.initState || { config: {} };

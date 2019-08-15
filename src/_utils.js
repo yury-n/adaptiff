@@ -65,3 +65,9 @@ export const downloadFromDataURL = function(filename, dataUrl) {
 
   document.body.removeChild(element);
 };
+
+export const logStat = type => {
+  const statIframe = document.createElement("IFRAME");
+  statIframe.src = `./stats/${type}.html`;
+  document.body.appendChild(statIframe);
+};

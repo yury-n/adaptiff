@@ -6,12 +6,25 @@ import "./global.overrides.css";
 import s from "./InsertionMenu.module.css";
 import MiniCard from "../../MiniCard/MiniCard";
 
-export default ({ onInsertText, onInsertObject, onFileReaderLoad }) => {
+export default ({ onInsertText, onInsertObject, onInsertImage }) => {
   const onFileChange = e => {
     const file = e.target.files[0];
     const fileReader = new FileReader();
     fileReader.onload = onFileReaderLoad;
     fileReader.readAsDataURL(file);
+  };
+  const onFileReaderLoad = e => {
+    const img = document.createElement("img");
+    img.src = e.target.result;
+    img.onload = () => {
+      onInsertImage({
+        imageUrl: e.target.result,
+        width: img.clientWidth,
+        height: img.clientHeight
+      });
+      document.body.removeChild(img);
+    };
+    document.body.appendChild(img);
   };
   return (
     <div>
@@ -38,13 +51,13 @@ export default ({ onInsertText, onInsertObject, onFileReaderLoad }) => {
           <div>Image</div>
         </Menu.Item>
         <Menu.Item active className={s["add-menu-item"]} onClick={() => {}}>
-          <Icon size="normal" name="object group outline" />
+          <Icon name="object group outline" />
           <div>Object</div>
         </Menu.Item>
-        <Menu.Item className={s["add-menu-item"]} onClick={() => {}}>
-          <Icon size="normal" name="chess board" />
+        {/* <Menu.Item className={s["add-menu-item"]} onClick={() => {}}>
+          <Icon name="chess board" />
           <div>Background</div>
-        </Menu.Item>
+        </Menu.Item> */}
       </Menu>
       <div className={s["add-object-cards"]}>
         {insertables.map((adaptation, index) => (
@@ -54,7 +67,6 @@ export default ({ onInsertText, onInsertObject, onFileReaderLoad }) => {
             className={s["object-card"]}
             {...adaptation}
             onClick={() => {
-              //   setIsObjectSelectorOpen(false);
               onInsertObject(adaptation);
             }}
           />
