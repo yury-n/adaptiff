@@ -12,7 +12,7 @@ export default function Layers({
   onMove,
   onSetHighlightedInsertedItem
 }) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   return (
     <div
       className={classnames(
