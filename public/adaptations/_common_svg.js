@@ -6,10 +6,14 @@ function stringifyColor(color) {
   return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
 function aff_render(config) {
-  document.getElementById("gradient").innerHTML = `
+  if (config.palette) {
+    document.getElementById("gradient").innerHTML = `
     <stop offset="0" stop-color="${stringifyColor(config.palette[0])}" />
     <stop offset=".99" stop-color="${stringifyColor(config.palette[1])}" />
     `;
+  } else {
+    document.getElementById("svg").style.color = config.color;
+  }
 }
 function aff_download() {
   var canvas = document.createElement("canvas");

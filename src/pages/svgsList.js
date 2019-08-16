@@ -1,8 +1,9 @@
-import svg from "../_adaptationConfigs/svg";
+import svgWithGradient from "../_adaptationConfigs/svgWithGradient";
+import svgWithSolidColor from "../_adaptationConfigs/svgWithSolidColor";
 
 export default [
   {
-    ...svg,
+    ...svgWithGradient,
     thumb: "/thumbs/svgs/1.svg",
     fileName: "svgs/1",
     initState: {
@@ -13,7 +14,7 @@ export default [
     }
   },
   {
-    ...svg,
+    ...svgWithGradient,
     thumb: "/thumbs/svgs/2.svg",
     fileName: "svgs/2",
     initState: {
@@ -24,7 +25,7 @@ export default [
     }
   },
   {
-    ...svg,
+    ...svgWithGradient,
     thumb: "/thumbs/svgs/3.svg",
     fileName: "svgs/3",
     initState: {
@@ -35,7 +36,7 @@ export default [
     }
   },
   {
-    ...svg,
+    ...svgWithGradient,
     thumb: "/thumbs/svgs/4.svg",
     thumbBackgroundSize: 130,
     fileName: "svgs/4",
@@ -48,7 +49,7 @@ export default [
     }
   },
   {
-    ...svg,
+    ...svgWithGradient,
     thumb: "/thumbs/svgs/5.svg",
     thumbBackgroundSize: 150,
     aspectRatio: 320.08 / 50.17,
@@ -61,7 +62,7 @@ export default [
     }
   },
   {
-    ...svg,
+    ...svgWithGradient,
     thumb: "/thumbs/svgs/6.svg",
     thumbBackgroundSize: 114,
     fileName: "svgs/6",
@@ -74,7 +75,7 @@ export default [
     }
   },
   {
-    ...svg,
+    ...svgWithGradient,
     thumb: "/thumbs/svgs/7.svg",
     thumbBackgroundSize: 80,
     fileName: "svgs/7",
@@ -87,15 +88,23 @@ export default [
     }
   },
   {
-    ...svg,
-    thumb: "/thumbs/svgs/7.svg",
+    ...svgWithSolidColor,
+    thumb: "/thumbs/svgs/8.png",
     fileName: "svgs/8",
-    aspectRatio: 8000 / 5920,
+    aspectRatio: 400 / 296,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
-        palette: ["#FF91FF", "#FF9800"]
-      }
+      config: {}
+    }
+  },
+  {
+    ...svgWithSolidColor,
+    thumb: "/thumbs/svgs/9.png",
+    fileName: "svgs/9",
+    aspectRatio: 400 / 296,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {}
     }
   }
 ];
