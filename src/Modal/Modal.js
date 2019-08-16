@@ -707,10 +707,16 @@ class TheModal extends Component {
           ? initState.config[config.key]
           : config.defaultValue;
     });
-    const width = Math.round(canvasWidth * 0.5);
-    const height = adaptation.aspectRatio
-      ? Math.round(width / adaptation.aspectRatio)
-      : Math.round(canvasHeight * 0.5);
+    let width = Math.round(canvasWidth * 0.5);
+    let height = Math.round(canvasHeight * 0.5);
+
+    if (adaptation.aspectRatio) {
+      if (width > height) {
+        height = Math.round(width / adaptation.aspectRatio);
+      } else {
+        width = Math.round(height * adaptation.aspectRatio);
+      }
+    }
     this.insertItem({
       type: "object",
       width,

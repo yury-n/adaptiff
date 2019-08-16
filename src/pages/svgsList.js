@@ -1,7 +1,18 @@
 import svgWithGradient from "../_adaptationConfigs/svgWithGradient";
 import svgWithSolidColor from "../_adaptationConfigs/svgWithSolidColor";
 
-export default [
+const svgs = [
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/0.svg",
+    fileName: "svgs/0",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#ff9665", "#ff5f62"]
+      }
+    }
+  },
   {
     ...svgWithGradient,
     thumb: "/thumbs/svgs/1.svg",
@@ -9,7 +20,7 @@ export default [
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
-        palette: ["#ff9665", "#ff5f62"]
+        palette: ["#bbefd1", "#72d7fd"]
       }
     }
   },
@@ -20,26 +31,15 @@ export default [
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
-        palette: ["#bbefd1", "#72d7fd"]
-      }
-    }
-  },
-  {
-    ...svgWithGradient,
-    thumb: "/thumbs/svgs/3.svg",
-    fileName: "svgs/3",
-    initState: {
-      size: { width: 1000, height: 1000 },
-      config: {
         palette: ["#42e3ed", "#2456fe"]
       }
     }
   },
   {
     ...svgWithGradient,
-    thumb: "/thumbs/svgs/4.svg",
+    thumb: "/thumbs/svgs/3.svg",
     thumbBackgroundSize: 130,
-    fileName: "svgs/4",
+    fileName: "svgs/3",
     aspectRatio: 307.37 / 61.1,
     initState: {
       size: { width: 1000, height: 1000 },
@@ -50,10 +50,10 @@ export default [
   },
   {
     ...svgWithGradient,
-    thumb: "/thumbs/svgs/5.svg",
+    thumb: "/thumbs/svgs/4.svg",
+    fileName: "svgs/4",
     thumbBackgroundSize: 150,
     aspectRatio: 320.08 / 50.17,
-    fileName: "svgs/5",
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
@@ -63,9 +63,9 @@ export default [
   },
   {
     ...svgWithGradient,
-    thumb: "/thumbs/svgs/6.svg",
+    thumb: "/thumbs/svgs/5.svg",
+    fileName: "svgs/5",
     thumbBackgroundSize: 114,
-    fileName: "svgs/6",
     aspectRatio: 260.6 / 83.3,
     initState: {
       size: { width: 1000, height: 1000 },
@@ -76,15 +76,25 @@ export default [
   },
   {
     ...svgWithGradient,
-    thumb: "/thumbs/svgs/7.svg",
+    thumb: "/thumbs/svgs/6.svg",
+    fileName: "svgs/6",
     thumbBackgroundSize: 80,
-    fileName: "svgs/7",
     aspectRatio: 247.8 / 336.8,
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
         palette: ["#FF91FF", "#FF9800"]
       }
+    }
+  },
+  {
+    ...svgWithSolidColor,
+    thumb: "/thumbs/svgs/7.png",
+    fileName: "svgs/7",
+    aspectRatio: 400 / 296,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {}
     }
   },
   {
@@ -98,13 +108,17 @@ export default [
     }
   },
   {
-    ...svgWithSolidColor,
+    ...svgWithGradient,
     thumb: "/thumbs/svgs/9.png",
     fileName: "svgs/9",
-    aspectRatio: 400 / 296,
+    aspectRatio: 108 / 215,
     initState: {
-      size: { width: 1000, height: 1000 },
-      config: {}
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#fefff5", "#d3f0e9"]
+      }
     }
   }
 ];
+
+export default [0, 1, 2, 9, 3, 4, 5, 6, 7, 8].map(index => svgs[index]);

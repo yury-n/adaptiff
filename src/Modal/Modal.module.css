@@ -115,7 +115,7 @@
 
 .padding-overlay {
   position: absolute;
-  background: #f7f7fa87;
+  background: #f7f7fa;
   z-index: 9000;
   pointer-events: none;
 }

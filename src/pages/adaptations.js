@@ -2073,7 +2073,7 @@ export const allAdaptations = [
         crazyness: false,
         fill: true,
         lines: 70,
-        palette: ["#00fb94", "#006b65"],
+        palette: ["#fde8c8", "#ff7f92"],
         smoothness: 98,
         randomValues: []
       },
@@ -2345,6 +2345,262 @@ export const allAdaptations = [
           configValues: { palette: ["#ffffff", "#fbcd33"] },
           id: 204,
           position: { left: 211.5167269439421, top: 578.0402350813742 }
+        }
+      ]
+    }
+  },
+  // 67
+  {
+    ...linearGradient,
+    thumb: "/thumbs/67.png",
+    title: "multiple elements",
+    author: "multiple authors",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      config: {
+        palette: ["#ffffff", "#e0e0e0"],
+        direction: "custom_angle",
+        angle: 163
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 1074.2451154529308,
+          height: 796.0923623445826,
+          showIframe: true,
+          adaptation: svgs[8],
+          configValues: { color: "#000" },
+          id: 102,
+          position: { left: 0.9591474245115453, top: 144.83126110124334 }
+        }
+      ]
+    }
+  },
+  // 68
+  {
+    ...gradientBubbles,
+    thumb: "/thumbs/68.png",
+    initState: {
+      size: { width: 600, height: 600 },
+      config: {
+        palette: ["#eeb1a9", "#feedcf"],
+        itemSize: 10,
+        itemsNumInRow: 16,
+        padding: 50,
+        angle: 360,
+        itemType: "circle",
+        rounding: 20,
+        randomValues: []
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 511.54529307282417,
+          height: 495.5595026642984,
+          showIframe: true,
+          adaptation: simpleRipple,
+          configValues: {
+            palette: ["#eeb1a9", "#eeb1a9"],
+            itemsNum: 10,
+            strokeWidth: 3,
+            radius: 100
+          },
+          id: 202,
+          position: { left: 47.42451154529307, top: 204.08525754884548 }
+        },
+        {
+          id: 301,
+          width: 650.088809946714,
+          height: 467.8507992895204,
+          showIframe: true,
+          type: "object",
+          position: { left: -71.43650088809946, top: 192.46225577264653 },
+          adaptation: blobmaker,
+          configValues: {
+            angle: 86,
+            complexity: 11,
+            contrast: 4,
+            palette: ["#feedcf", "#eeb1a9"],
+            randomValues: [
+              0.687925776574627,
+              0.5375583491513425,
+              0.5988404307482571,
+              0.704912023920562,
+              0.7946503042888042,
+              0.3338446814701215,
+              0.4742463712765448,
+              0.7740826505264262,
+              0.8045870599949538,
+              0.21409252151702107
+            ]
+          }
+        },
+        {
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            color: "#dbff18",
+            fontFamily: "Rubik Mono One",
+            fontSize: 34,
+            letterSpacing: 0,
+            padding: 10,
+            hasCyrillic: true,
+            lineHeight: 15
+          },
+          id: 302,
+          type: "text",
+          position: { left: 81.52753108348135, top: 360.2131438721137 },
+          text: "когда \nвыдуманный \nмир богаче\n",
+          width: 337.8496891651865,
+          height: 170.24866785079928
+        },
+        {
+          type: "object",
+          width: 300,
+          height: 407.98734458259327,
+          showIframe: true,
+          adaptation: svgs[6],
+          configValues: { palette: ["#feedcf", "#eeb1a9"] },
+          id: 203,
+          position: { left: 3.730017761989343, top: -225.39964476021314 }
+        },
+        {
+          type: "object",
+          width: 300,
+          height: 407.98734458259327,
+          showIframe: true,
+          adaptation: svgs[6],
+          configValues: { palette: ["#feedcf", "#eeb1a9"] },
+          id: 204,
+          position: { left: 302.13143872113676, top: -227.5310834813499 }
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Faster One",
+            fontSize: 39,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#feedcf",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            isBold: false
+          },
+          id: 205,
+          width: 327.4589253996447,
+          height: 65.80817051509769,
+          position: { left: 141.20781527531082, top: -23.97868561278863 },
+          text: "adaptiff.com"
+        },
+        {
+          config: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            color: "#dbff18",
+            fontFamily: "Rubik Mono One",
+            fontSize: 34,
+            letterSpacing: 4,
+            padding: 10,
+            hasCyrillic: false,
+            lineHeight: 13
+          },
+          id: 102,
+          type: "text",
+          position: { left: 78.3303730017762, top: 515.8081705150977 },
+          text: "реального",
+          width: 316.0690497335701,
+          height: 63.676731793960926
+        }
+      ]
+    }
+  },
+  // 69
+  {
+    ...linearGradient,
+    thumb: "/thumbs/69.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      config: {
+        palette: ["#fddabe", "#fda6f0"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 636.8738898756661,
+          height: 713.6056838365897,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#ffffff", "#d7e4fb"],
+            direction: "custom_angle",
+            angle: 191
+          },
+          id: 102,
+          position: { left: 185.11545293072825, top: 169.76909413854352 }
+        },
+        {
+          type: "object",
+          width: 113.17939609236235,
+          height: 224.44049733570162,
+          showIframe: true,
+          adaptation: svgs[9],
+          configValues: { palette: ["#ffbef4", "#ffbef4"] },
+          id: 103,
+          position: { left: 269.52042628774427, top: 68.09946714031972 }
+        },
+        {
+          type: "object",
+          width: 63.30373001776199,
+          height: 176.48312611012435,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#fedbbd", "#fedbbd"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          id: 104,
+          position: { left: 267.60213143872113, top: 795.133214920071 }
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Open Sans",
+            fontSize: 40,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            isUnderlined: true
+          },
+          id: 105,
+          width: 319.27619893428067,
+          height: 67.9196269982238,
+          position: { left: 378.8632326820604, top: 915.9857904085259 },
+          text: "Neō Wax Bloom"
+        },
+        {
+          type: "object",
+          width: 46.03907637655418,
+          height: 281.98934280639435,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#ffb9c9", "#ffb9c9"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          id: 106,
+          position: { left: 866.1101243339255, top: -39.32504440497336 }
         }
       ]
     }
