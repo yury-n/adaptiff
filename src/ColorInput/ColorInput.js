@@ -15,6 +15,13 @@ class ColorInput extends Component {
     showColorPicker: false
   };
   inputRef = React.createRef();
+  wrapperDivRef = React.createRef();
+  componentDidMount() {
+    window.addEventListener("click", this.onWindowClick);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("click", this.onWindowClick);
+  }
   showColorPicker = () => {
     this.setState({ showColorPicker: true });
     this.props.onOpen && this.props.onOpen();
@@ -33,6 +40,16 @@ class ColorInput extends Component {
     onChange(!value.includes("rgb") ? value : stringToColorObj(value));
   };
 
+  onWindowClick = e => {
+    if (
+      e.target === this.wrapperDivRef.current ||
+      this.wrapperDivRef.current.contains(e.target)
+    ) {
+      return;
+    }
+    this.hideColorPicker();
+  };
+
   render() {
     const { color, onChange, disableAlpha } = this.props;
     const { showColorPicker } = this.state;
@@ -42,11 +59,11 @@ class ColorInput extends Component {
           s["color-input-wrapper"],
           showColorPicker && s["with-picker"]
         )}
+        ref={this.wrapperDivRef}
       >
         <Input
           ref={this.inputRef}
           onFocus={this.showColorPicker}
-          onBlur={this.hideColorPicker}
           onChange={this.onChange}
           labelPosition="right"
           value={colorObjToString(color)}
