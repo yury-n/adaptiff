@@ -121,4 +121,8 @@ const svgs = [
   }
 ];
 
-export default [0, 1, 2, 9, 3, 4, 5, 6, 7, 8].map(index => svgs[index]);
+export default svgs;
+
+export const orderedSvgs = [0, 1, 2, 9, 3, 4, 5, 6, 7, 8].map(
+  index => svgs[index]
+);

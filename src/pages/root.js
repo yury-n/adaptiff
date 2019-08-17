@@ -70,7 +70,7 @@ export default () => {
         {/* <div className={s["subheader"]}>адаптивные дизайны от комьюнити</div> */}
         <Card.Group className={classnames(s["cards"], "cards")}>
           {adaptations.map((template, index) => (
-            <MiniCard key={index} {...template} />
+            <MiniCard showModal={index === 0} key={index} {...template} />
           ))}
         </Card.Group>
         {selectedTab === "all" && (page + 1) * ITEMS_PER_CHUNK < all.length && (
