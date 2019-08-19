@@ -20,14 +20,14 @@
 }
 
 .thumb-only-mode {
-  width: 110px !important;
-  height: 110px !important;
-  margin-top: 0 !important;
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0em 0.5em 1em 0.5em !important;
 }
 
 .thumb-only-mode .mini-preview {
-  width: 110px !important;
-  height: 110px;
+  width: 70px !important;
+  height: 70px;
 }
 
 .thumb-only-mode .content {

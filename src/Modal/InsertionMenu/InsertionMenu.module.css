@@ -1,31 +1,3 @@
-.add-menu {
-  position: absolute;
-  left: 38px;
-  top: 0;
-  border-radius: 0 !important;
-  border-left: 0 !important;
-  box-shadow: none !important;
-  margin-top: 19px;
-  border: none !important;
-  margin-left: 1px !important;
-  margin-top: 10px !important;
-}
-
-.add-menu-item {
-  position: relative;
-  padding: 10px 1px !important;
-  cursor: pointer;
-  min-width: 60px !important;
-  border-radius: 4px;
-  margin: 0 2px;
-}
-.add-menu-item:before {
-  display: none;
-}
-.add-menu-item:global(:not(.active)):hover {
-  background: none !important;
-}
-
 .add-text-icon {
   display: block;
   font-weight: bold;
@@ -57,7 +29,7 @@
   top: 100px;
   left: 0;
   width: 100%;
-  height: calc(100% - 100px);
+  max-height: calc(100% - 100px);
   overflow-y: scroll;
   overflow-x: hidden;
   display: flex;

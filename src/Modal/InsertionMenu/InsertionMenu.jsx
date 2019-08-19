@@ -28,9 +28,9 @@ export default ({ onInsertText, onInsertObject, onInsertImage }) => {
   };
   return (
     <div>
-      <Menu className={s["add-menu"]} icon="labeled">
+      <Menu className={"add-menu"} icon="labeled">
         <Menu.Item
-          className={s["add-menu-item"]}
+          className={"add-menu-item"}
           onClick={() => {
             onInsertText();
           }}
@@ -38,7 +38,7 @@ export default ({ onInsertText, onInsertObject, onInsertImage }) => {
           <div className={s["add-text-icon"]}>T</div>
           <div>Text</div>
         </Menu.Item>
-        <Menu.Item className={s["add-menu-item"]}>
+        <Menu.Item className={"add-menu-item"}>
           <input
             type="file"
             name="file"
@@ -50,7 +50,7 @@ export default ({ onInsertText, onInsertObject, onInsertImage }) => {
           <Icon size="small" name="image outline" />
           <div>Image</div>
         </Menu.Item>
-        <Menu.Item active className={s["add-menu-item"]} onClick={() => {}}>
+        <Menu.Item active className={"add-menu-item"} onClick={() => {}}>
           <Icon name="object group outline" />
           <div>Object</div>
         </Menu.Item>

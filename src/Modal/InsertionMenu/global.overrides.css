@@ -1,3 +1,34 @@
 .ui.labeled.icon.menu .item > .icon:not(.dropdown) {
   font-size: 1.414286em !important;
 }
+
+.add-menu {
+  position: absolute;
+  left: 30px;
+  top: 0;
+  border-radius: 0 !important;
+  border-left: 0 !important;
+  box-shadow: none !important;
+  margin-top: 19px;
+  border: none !important;
+  margin-left: 1px !important;
+  margin-top: 10px !important;
+}
+
+.add-menu-item {
+  position: relative;
+  padding: 10px 1px !important;
+  cursor: pointer;
+  min-width: 60px !important;
+  border-radius: 4px;
+  margin: 0 5px;
+}
+.add-menu-item:before {
+  display: none;
+}
+.add-menu-item.active {
+  background: rgba(0, 0, 0, 0.05);
+}
+.add-menu-item:not(.active):hover {
+  background: none !important;
+}

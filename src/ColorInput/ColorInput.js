@@ -74,14 +74,15 @@ class ColorInput extends Component {
           onClick={this.setInputFocus}
         />
         {showColorPicker && (
-          <ChromePicker
-            color={color}
-            className={s["color-picker"]}
-            onChangeComplete={({ hex, rgb }) => {
-              onChange(rgb.a !== 1 ? rgb : hex);
-            }}
-            disableAlpha={disableAlpha}
-          />
+          <div className={s["color-picker"]}>
+            <ChromePicker
+              color={color}
+              onChangeComplete={({ hex, rgb }) => {
+                onChange(rgb.a !== 1 ? rgb : hex);
+              }}
+              disableAlpha={disableAlpha}
+            />
+          </div>
         )}
       </div>
     );

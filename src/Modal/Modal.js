@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import ReactDOM from "react-dom";
-import { Modal, Input, Button, Icon } from "semantic-ui-react";
+import { Modal, Input, Button, Icon, Menu } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
 import ImageConfig from "./ImageConfig/ImageConfig";
 import InsertedText from "./InsertedText/InsertedText";
@@ -229,11 +229,14 @@ class TheModal extends Component {
         className={s["the-modal"]}
       >
         <Modal.Content className="modal-content">
-          <div className={s["modal-sidebar"]}>
-            {insertedItems.length > 0
-              ? this.renderLayers()
-              : this.renderTitleAndAuthor()}
-            <div className={s["config-container"]}>{this.renderConfig()}</div>
+          <div
+            className={classnames(s["modal-sidebar"], s["modal-left-sidebar"])}
+          >
+            <InsertionMenu
+              onInsertText={this.insertText}
+              onInsertImage={this.insertImage}
+              onInsertObject={this.insertObject}
+            />
           </div>
           <div
             className={s["modal-central-area"]}
@@ -373,11 +376,20 @@ class TheModal extends Component {
           <div
             className={classnames(s["modal-sidebar"], s["modal-right-sidebar"])}
           >
-            <InsertionMenu
-              onInsertText={this.insertText}
-              onInsertImage={this.insertImage}
-              onInsertObject={this.insertObject}
-            />
+            <Menu className={"add-menu"} icon="labeled">
+              <Menu.Item className={"add-menu-item"} onClick={() => {}}>
+                <Icon name="object group outline" />
+                <div>Element</div>
+              </Menu.Item>
+              <Menu.Item active className={"add-menu-item"} onClick={() => {}}>
+                <Icon name="object group outline" />
+                <div>Global</div>
+              </Menu.Item>
+            </Menu>
+            {insertedItems.length > 0
+              ? this.renderLayers()
+              : this.renderTitleAndAuthor()}
+            <div className={s["config-container"]}>{this.renderConfig()}</div>
           </div>
         </Modal.Content>
       </Modal>
