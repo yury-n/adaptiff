@@ -24,14 +24,28 @@
   cursor: pointer;
 }
 
-.add-object-cards {
+.label {
+  margin-left: 16px !important;
+  margin-right: 16px !important;
+  margin-bottom: 15px !important;
+  margin-top: 0 !important;
+}
+
+.see-all {
   position: absolute;
-  top: 100px;
+  right: 16px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.see-all:hover {
+  text-decoration: underline;
+}
+
+.add-object-cards {
   left: 0;
   width: 100%;
   max-height: calc(100% - 100px);
-  overflow-y: scroll;
-  overflow-x: hidden;
   display: flex;
   flex-wrap: wrap;
   padding-left: 10px;

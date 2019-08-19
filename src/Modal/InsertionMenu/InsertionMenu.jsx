@@ -1,5 +1,6 @@
 import React from "react";
 import { Menu, Icon } from "semantic-ui-react";
+import classnames from "classnames";
 import insertables from "../../pages/insertablesList";
 
 import "./global.overrides.css";
@@ -59,6 +60,12 @@ export default ({ onInsertText, onInsertObject, onInsertImage }) => {
           <div>Background</div>
         </Menu.Item> */}
       </Menu>
+      <label class={classnames("form-label", s["label"])}>
+        Basic
+        <span className={s["see-all"]}>
+          see all <Icon size="small" name="angle right" />
+        </span>
+      </label>
       <div className={s["add-object-cards"]}>
         {insertables.map((adaptation, index) => (
           <MiniCard

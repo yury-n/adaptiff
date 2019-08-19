@@ -4,8 +4,11 @@
 
 .add-menu {
   position: absolute;
-  left: 30px;
   top: 0;
+  width: 100%;
+  left: 0;
+  display: flex;
+  justify-content: center;
   border-radius: 0 !important;
   border-left: 0 !important;
   box-shadow: none !important;

@@ -5,22 +5,25 @@
 }
 
 .color-input-wrapper input {
-  width: 176px;
+  width: 164px;
   padding-right: 5px !important;
-  border-right: none;
+  border-left: none !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
 }
 
 .color-input-wrapper .color-swatch {
   border-radius: 30px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   margin-left: 0;
   margin-right: 0;
-  width: 24px;
+  width: 33px;
   cursor: pointer;
   box-sizing: border-box;
   border: 1px solid rgba(178, 178, 179, 0.4);
   box-shadow: 0 3px 4px 0px #bebebec9;
+  flex-shrink: 0;
 }
 
 .color-input-wrapper.with-picker .color-swatch {

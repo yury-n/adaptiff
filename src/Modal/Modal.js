@@ -377,18 +377,18 @@ class TheModal extends Component {
             className={classnames(s["modal-sidebar"], s["modal-right-sidebar"])}
           >
             <Menu className={"add-menu"} icon="labeled">
-              <Menu.Item className={"add-menu-item"} onClick={() => {}}>
-                <Icon name="object group outline" />
+              <Menu.Item active className={"add-menu-item"} onClick={() => {}}>
+                <Icon name="expand" />
                 <div>Element</div>
               </Menu.Item>
-              <Menu.Item active className={"add-menu-item"} onClick={() => {}}>
-                <Icon name="object group outline" />
+              <Menu.Item className={"add-menu-item"} onClick={() => {}}>
+                <Icon name="globe" />
                 <div>Global</div>
               </Menu.Item>
             </Menu>
-            {insertedItems.length > 0
+            {/* {insertedItems.length > 0
               ? this.renderLayers()
-              : this.renderTitleAndAuthor()}
+              : this.renderTitleAndAuthor()} */}
             <div className={s["config-container"]}>{this.renderConfig()}</div>
           </div>
         </Modal.Content>

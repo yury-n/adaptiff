@@ -61,17 +61,17 @@ class ColorInput extends Component {
         )}
         ref={this.wrapperDivRef}
       >
-        <Input
-          ref={this.inputRef}
-          onFocus={this.showColorPicker}
-          onChange={this.onChange}
-          labelPosition="right"
-          value={colorObjToString(color)}
-        />
         <div
           className={classnames("ui", "label", s["color-swatch"])}
           style={{ background: colorObjToString(color) }}
           onClick={this.setInputFocus}
+        />
+        <Input
+          ref={this.inputRef}
+          onFocus={this.showColorPicker}
+          onChange={this.onChange}
+          labelPosition="left"
+          value={colorObjToString(color)}
         />
         {showColorPicker && (
           <div className={s["color-picker"]}>
