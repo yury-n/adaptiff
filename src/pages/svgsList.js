@@ -65,7 +65,7 @@ const svgs = [
     ...svgWithGradient,
     thumb: "/thumbs/svgs/5.svg",
     fileName: "svgs/5",
-    thumbBackgroundSize: 114,
+    thumbBackgroundSize: "100%",
     aspectRatio: 260.6 / 83.3,
     initState: {
       size: { width: 1000, height: 1000 },
@@ -78,7 +78,7 @@ const svgs = [
     ...svgWithGradient,
     thumb: "/thumbs/svgs/6.svg",
     fileName: "svgs/6",
-    thumbBackgroundSize: 80,
+    thumbBackgroundSize: "80%",
     aspectRatio: 247.8 / 336.8,
     initState: {
       size: { width: 1000, height: 1000 },
@@ -166,6 +166,18 @@ const svgs = [
         palette: ["#fefff5", "#d3f0e9"]
       }
     }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/9.png",
+    fileName: "svgs/14",
+    aspectRatio: 227.2 / 173,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#fefff5", "#d3f0e9"]
+      }
+    }
   }
 ];
 
@@ -179,5 +191,5 @@ export const basicSvgs = [0, 2, 9, 10, 11, 12, 13].map(index => svgs[index]);
 
 export const paintWorkSvgs = [1, 3, 4].map(index => svgs[index]);
 
-export const childishDreamsSvgs = [5, 6].map(index => svgs[index]);
+export const childishDreamsSvgs = [5, 6, 14].map(index => svgs[index]);
 export const particlesSvgs = [7, 8].map(index => svgs[index]);
