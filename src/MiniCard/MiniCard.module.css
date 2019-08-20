@@ -2,6 +2,15 @@
   position: relative;
 }
 
+.mini-card:hover {
+  transform: scale(1.05);
+}
+
+.mini-card.thumb-only-mode:hover {
+  transform: scale(1.25);
+  z-index: 999;
+}
+
 .mini-preview {
   width: 100%;
   height: 208px;

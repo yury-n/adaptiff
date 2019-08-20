@@ -25,7 +25,7 @@ a:hover {
 .ui.input > input,
 .ui.buttons > .ui.button:not(.basic):not(.inverted) {
   border-color: rgba(34, 36, 38, 0.24);
-  box-shadow: 0 3px 4px 0px #bebebec9;
+  box-shadow: 0 3px 4px 0px #bebebe9e;
 }
 
 .ui.toggle.checkbox input:checked ~ .box:before,
@@ -41,7 +41,7 @@ a:hover {
 }
 
 .ui.labeled.icon.button {
-  box-shadow: 0 3px 4px 0px #d4d4d5c9; /* box-shadow: 0 3px 4px 0px #bebebec9; */
+  box-shadow: 0 3px 4px 0px #d4d4d5c9; /* box-shadow: 0 3px 4px 0px #bebebe9e; */
   color: black;
   padding-left: 3.471429em !important;
   padding-right: 1.2em !important;

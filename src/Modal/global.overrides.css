@@ -55,3 +55,37 @@
   background: #ffffff none;
   border: 1px solid rgb(177, 177, 177);
 }
+
+.tab-menu {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  border-radius: 0 !important;
+  border-left: 0 !important;
+  box-shadow: none !important;
+  margin-top: 19px;
+  border: none !important;
+  margin-left: 1px !important;
+  margin-top: 10px !important;
+}
+
+.tab-menu-item {
+  position: relative;
+  padding: 10px 1px !important;
+  cursor: pointer;
+  min-width: 60px !important;
+  border-radius: 4px;
+  margin: 0 5px;
+}
+.tab-menu-item:before {
+  display: none;
+}
+.tab-menu-item.active {
+  background: rgba(0, 0, 0, 0.05);
+}
+.tab-menu-item:not(.active):hover {
+  background: none !important;
+}

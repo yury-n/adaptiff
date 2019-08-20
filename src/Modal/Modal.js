@@ -259,6 +259,32 @@ class TheModal extends Component {
                     <Icon name="paste" />
                   </Button> */}
                 </Button.Group>
+                {activeInsertedItemIndex !== null && (
+                  <Button.Group>
+                    <Button
+                      icon
+                      aria-label="Bring to front"
+                      data-balloon-pos="down"
+                      onClick={e => {
+                        this.moveActiveInsertedItemUp();
+                        e.stopPropagation();
+                      }}
+                    >
+                      <Icon name="long arrow alternate up" />
+                    </Button>
+                    <Button
+                      icon
+                      aria-label="Bring to back"
+                      data-balloon-pos="down"
+                      onClick={e => {
+                        this.moveActiveInsertedItemDown();
+                        e.stopPropagation();
+                      }}
+                    >
+                      <Icon name="long arrow alternate down" />
+                    </Button>
+                  </Button.Group>
+                )}
                 {hasRandomness && (
                   <Button
                     title="Refresh"
@@ -376,12 +402,17 @@ class TheModal extends Component {
           <div
             className={classnames(s["modal-sidebar"], s["modal-right-sidebar"])}
           >
-            <Menu className={"add-menu"} icon="labeled">
-              <Menu.Item active className={"add-menu-item"} onClick={() => {}}>
+            <Menu className={"tab-menu"} icon="labeled">
+              <Menu.Item active className={"tab-menu-item"} onClick={() => {}}>
                 <Icon name="expand" />
                 <div>Element</div>
               </Menu.Item>
-              <Menu.Item className={"add-menu-item"} onClick={() => {}}>
+              <Menu.Item
+                className={"tab-menu-item"}
+                onClick={() => {}}
+                aria-label="Coming soon!"
+                data-balloon-pos="down"
+              >
                 <Icon name="globe" />
                 <div>Global</div>
               </Menu.Item>
@@ -804,6 +835,22 @@ class TheModal extends Component {
       activeInsertedItemIndex: null
     });
     delete this.insertedItemsRefs[insertedItem.id];
+  };
+
+  moveActiveInsertedItemUp = () => {
+    const { activeInsertedItemIndex, insertedItems } = this.state;
+    this.moveInsertedItemToIndex(
+      activeInsertedItemIndex,
+      Math.min(activeInsertedItemIndex + 1, insertedItems.length - 1)
+    );
+  };
+
+  moveActiveInsertedItemDown = () => {
+    const { activeInsertedItemIndex } = this.state;
+    this.moveInsertedItemToIndex(
+      activeInsertedItemIndex,
+      Math.max(activeInsertedItemIndex - 1, 0)
+    );
   };
 
   moveInsertedItemToIndex = (insertedItemIndex, toIndex) => {

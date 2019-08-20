@@ -69,5 +69,7 @@ export const downloadFromDataURL = function(filename, dataUrl) {
 export const logStat = type => {
   const statIframe = document.createElement("IFRAME");
   statIframe.src = `./stats/${type}.html`;
+  statIframe.style.position = "absolute";
+  statIframe.style.left = "-1000px";
   document.body.appendChild(statIframe);
 };

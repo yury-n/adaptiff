@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Menu, Icon } from "semantic-ui-react";
 import classnames from "classnames";
-import insertables from "../../pages/insertablesList";
+import { basicSvgs, particlesSvgs, paintWorkSvgs } from "../../pages/svgsList";
 
 import "./global.overrides.css";
 import s from "./InsertionMenu.module.css";
 import MiniCard from "../../MiniCard/MiniCard";
+import linearGradient from "../../_adaptationConfigs/linearGradient";
+import blobmaker from "../../_adaptationConfigs/blobmaker";
+import { allAdaptations } from "../../pages/adaptations";
+import { unfilledMesh } from "../../pages/insertablesList";
 
 export default ({ onInsertText, onInsertObject, onInsertImage }) => {
   const onFileChange = e => {
@@ -29,9 +33,9 @@ export default ({ onInsertText, onInsertObject, onInsertImage }) => {
   };
   return (
     <div>
-      <Menu className={"add-menu"} icon="labeled">
+      <Menu className={"tab-menu"} icon="labeled">
         <Menu.Item
-          className={"add-menu-item"}
+          className={"tab-menu-item"}
           onClick={() => {
             onInsertText();
           }}
@@ -39,7 +43,7 @@ export default ({ onInsertText, onInsertObject, onInsertImage }) => {
           <div className={s["add-text-icon"]}>T</div>
           <div>Text</div>
         </Menu.Item>
-        <Menu.Item className={"add-menu-item"}>
+        <Menu.Item className={"tab-menu-item"}>
           <input
             type="file"
             name="file"
@@ -51,34 +55,77 @@ export default ({ onInsertText, onInsertObject, onInsertImage }) => {
           <Icon size="small" name="image outline" />
           <div>Image</div>
         </Menu.Item>
-        <Menu.Item active className={"add-menu-item"} onClick={() => {}}>
+        <Menu.Item active className={"tab-menu-item"} onClick={() => {}}>
           <Icon name="object group outline" />
           <div>Object</div>
         </Menu.Item>
-        {/* <Menu.Item className={s["add-menu-item"]} onClick={() => {}}>
+        {/* <Menu.Item className={s["tab-menu-item"]} onClick={() => {}}>
           <Icon name="chess board" />
           <div>Background</div>
         </Menu.Item> */}
       </Menu>
-      <label class={classnames("form-label", s["label"])}>
-        Basic
-        <span className={s["see-all"]}>
-          see all <Icon size="small" name="angle right" />
-        </span>
-      </label>
-      <div className={s["add-object-cards"]}>
-        {insertables.map((adaptation, index) => (
-          <MiniCard
-            key={index}
-            mode="thumb-only"
-            className={s["object-card"]}
-            {...adaptation}
-            onClick={() => {
-              onInsertObject(adaptation);
-            }}
-          />
-        ))}
-      </div>
+      <ObjectPack
+        name="Basic"
+        objects={[
+          ...basicSvgs,
+          blobmaker,
+          linearGradient,
+          allAdaptations[37],
+          allAdaptations[45]
+        ]}
+        onInsertObject={onInsertObject}
+      />
+      <ObjectPack
+        name="Particles"
+        objects={[...particlesSvgs, unfilledMesh]}
+        onInsertObject={onInsertObject}
+      />
+      <ObjectPack
+        name="Paint Work"
+        objects={paintWorkSvgs}
+        onInsertObject={onInsertObject}
+      />
     </div>
+  );
+};
+
+const ObjectPack = ({ name, objects, onInsertObject }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const renderObjectListHeader = () => {
+    return (
+      <label class={classnames("form-label", s["label"])}>
+        {name}
+        {!isExpanded && (
+          <span className={s["see-all"]} onClick={() => setIsExpanded(true)}>
+            see all <Icon size="small" name="angle right" />
+          </span>
+        )}
+      </label>
+    );
+  };
+  const renderObjectList = () => {
+    return (
+      <div className={s["add-object-cards"]}>
+        {(isExpanded ? objects : objects.slice(0, 6)).map(
+          (adaptation, index) => (
+            <MiniCard
+              key={index}
+              mode="thumb-only"
+              className={s["object-card"]}
+              {...adaptation}
+              onClick={() => {
+                onInsertObject(adaptation);
+              }}
+            />
+          )
+        )}
+      </div>
+    );
+  };
+  return (
+    <>
+      {renderObjectListHeader()}
+      {renderObjectList()}
+    </>
   );
 };

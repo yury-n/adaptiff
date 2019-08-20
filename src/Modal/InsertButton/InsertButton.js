@@ -43,9 +43,9 @@ export default ({ onInsertText, onInsertImage, onInsertObject }) => {
     <div ref={menuRef}>
       <Button circular icon="plus" onClick={() => setIsMenuOpen(true)} />
       {isMenuOpen && (
-        <Menu className={s["add-menu"]} icon="labeled" vertical>
+        <Menu className={s["tab-menu"]} icon="labeled" vertical>
           <Menu.Item
-            className={s["add-menu-item"]}
+            className={s["tab-menu-item"]}
             onClick={() => {
               setIsMenuOpen(false);
               onInsertText();
@@ -54,7 +54,7 @@ export default ({ onInsertText, onInsertImage, onInsertObject }) => {
             <div className={s["add-text-icon"]}>T</div>
             <div>Text</div>
           </Menu.Item>
-          <Menu.Item className={s["add-menu-item"]}>
+          <Menu.Item className={s["tab-menu-item"]}>
             <input
               type="file"
               name="file"
@@ -67,7 +67,7 @@ export default ({ onInsertText, onInsertImage, onInsertObject }) => {
             <div>Image</div>
           </Menu.Item>
           <Menu.Item
-            className={s["add-menu-item"]}
+            className={s["tab-menu-item"]}
             onClick={() => {
               setIsMenuOpen(false);
               setIsObjectSelectorOpen(true);
