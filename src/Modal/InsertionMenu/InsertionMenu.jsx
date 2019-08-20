@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { Menu, Icon } from "semantic-ui-react";
 import classnames from "classnames";
-import { basicSvgs, particlesSvgs, paintWorkSvgs } from "../../pages/svgsList";
+import {
+  basicSvgs,
+  particlesSvgs,
+  paintWorkSvgs,
+  childishDreamsSvgs
+} from "../../pages/svgsList";
 
 import "./global.overrides.css";
 import s from "./InsertionMenu.module.css";
@@ -85,12 +90,17 @@ export default ({ onInsertText, onInsertObject, onInsertImage }) => {
         objects={paintWorkSvgs}
         onInsertObject={onInsertObject}
       />
+      <ObjectPack
+        name="Childish Dreams"
+        objects={childishDreamsSvgs}
+        onInsertObject={onInsertObject}
+      />
     </div>
   );
 };
 
 const ObjectPack = ({ name, objects, onInsertObject }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
   const renderObjectListHeader = () => {
     return (
       <label class={classnames("form-label", s["label"])}>

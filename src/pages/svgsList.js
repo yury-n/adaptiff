@@ -118,6 +118,54 @@ const svgs = [
         palette: ["#fefff5", "#d3f0e9"]
       }
     }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/9.png",
+    fileName: "svgs/10",
+    aspectRatio: 127.2 / 119,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#fefff5", "#d3f0e9"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/9.png",
+    fileName: "svgs/11",
+    aspectRatio: 500 / 433,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#fefff5", "#d3f0e9"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/9.png",
+    fileName: "svgs/12",
+    aspectRatio: 500 / 500,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#fefff5", "#d3f0e9"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/9.png",
+    fileName: "svgs/13",
+    aspectRatio: 500 / 500,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#fefff5", "#d3f0e9"]
+      }
+    }
   }
 ];
 
@@ -127,7 +175,7 @@ export const orderedSvgs = [0, 1, 2, 9, 3, 4, 5, 6, 7, 8].map(
   index => svgs[index]
 );
 
-export const basicSvgs = [0, 2, 9].map(index => svgs[index]);
+export const basicSvgs = [0, 2, 9, 10, 11, 12, 13].map(index => svgs[index]);
 
 export const paintWorkSvgs = [1, 3, 4].map(index => svgs[index]);
 

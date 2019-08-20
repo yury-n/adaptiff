@@ -7,10 +7,12 @@ function stringifyColor(color) {
 }
 function aff_render(config) {
   if (config.palette) {
-    document.getElementById("gradient").innerHTML = `
-    <stop offset="0" stop-color="${stringifyColor(config.palette[0])}" />
-    <stop offset=".99" stop-color="${stringifyColor(config.palette[1])}" />
+    const gradient = document.getElementById("gradient");
+    gradient.innerHTML = `
+    <stop offset="0%" stop-color="${stringifyColor(config.palette[0])}" />
+    <stop offset="100%" stop-color="${stringifyColor(config.palette[1])}" />
     `;
+    gradient.setAttribute("gradientTransform", `rotate(-${config.angle})`);
   } else {
     document.getElementById("svg").style.color = config.color;
   }

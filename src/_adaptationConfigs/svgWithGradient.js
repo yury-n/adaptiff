@@ -15,6 +15,14 @@ export default {
       defaultValue: gradientPalettes[0],
       disableAlpha: false,
       options: gradientPalettes
+    },
+    {
+      key: "angle",
+      text: "Gradient Angle",
+      type: "range",
+      defaultValue: 0,
+      min: 0,
+      max: 360
     }
   ]
 };
