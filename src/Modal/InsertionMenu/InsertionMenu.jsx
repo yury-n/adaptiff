@@ -103,7 +103,7 @@ const ObjectPack = ({ name, objects, onInsertObject }) => {
   const [isExpanded, setIsExpanded] = useState(true);
   const renderObjectListHeader = () => {
     return (
-      <label class={classnames("form-label", s["label"])}>
+      <label className={classnames("form-label", s["label"])}>
         {name}
         {!isExpanded && (
           <span className={s["see-all"]} onClick={() => setIsExpanded(true)}>

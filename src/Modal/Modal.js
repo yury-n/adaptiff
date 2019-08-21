@@ -1218,6 +1218,7 @@ class TheModal extends Component {
   };
 
   sendDownloadRequest = iframeNode => {
+    console.log("sendDownloadRequest");
     iframeNode &&
       iframeNode.contentWindow &&
       iframeNode.contentWindow.postMessage(

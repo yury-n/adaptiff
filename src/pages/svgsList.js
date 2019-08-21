@@ -121,61 +121,61 @@ const svgs = [
   },
   {
     ...svgWithGradient,
-    thumb: "/thumbs/svgs/9.png",
+    thumb: "/thumbs/svgs/10.png",
     fileName: "svgs/10",
     aspectRatio: 127.2 / 119,
     initState: {
       size: { width: 250, height: 250 },
       config: {
-        palette: ["#fefff5", "#d3f0e9"]
+        palette: ["#f2faa8", "#d4f0d0"]
       }
     }
   },
   {
     ...svgWithGradient,
-    thumb: "/thumbs/svgs/9.png",
+    thumb: "/thumbs/svgs/11.png",
     fileName: "svgs/11",
     aspectRatio: 500 / 433,
     initState: {
       size: { width: 250, height: 250 },
       config: {
-        palette: ["#fefff5", "#d3f0e9"]
+        palette: ["#f7fba7", "#c8b9f5"]
       }
     }
   },
   {
     ...svgWithGradient,
-    thumb: "/thumbs/svgs/9.png",
+    thumb: "/thumbs/svgs/12.png",
     fileName: "svgs/12",
     aspectRatio: 500 / 500,
     initState: {
       size: { width: 250, height: 250 },
       config: {
-        palette: ["#fefff5", "#d3f0e9"]
+        palette: ["#f7d787", "#96fafd"]
       }
     }
   },
   {
     ...svgWithGradient,
-    thumb: "/thumbs/svgs/9.png",
+    thumb: "/thumbs/svgs/13.png",
     fileName: "svgs/13",
     aspectRatio: 500 / 500,
     initState: {
       size: { width: 250, height: 250 },
       config: {
-        palette: ["#fefff5", "#d3f0e9"]
+        palette: ["#e8f9d9", "#89d403"]
       }
     }
   },
   {
     ...svgWithGradient,
-    thumb: "/thumbs/svgs/9.png",
+    thumb: "/thumbs/svgs/14.png",
     fileName: "svgs/14",
     aspectRatio: 227.2 / 173,
     initState: {
       size: { width: 250, height: 250 },
       config: {
-        palette: ["#fefff5", "#d3f0e9"]
+        palette: ["#f74391", "#9484ff"]
       }
     }
   }

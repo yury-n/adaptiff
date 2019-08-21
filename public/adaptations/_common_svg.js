@@ -12,7 +12,9 @@ function aff_render(config) {
     <stop offset="0%" stop-color="${stringifyColor(config.palette[0])}" />
     <stop offset="100%" stop-color="${stringifyColor(config.palette[1])}" />
     `;
-    gradient.setAttribute("gradientTransform", `rotate(-${config.angle})`);
+    if (config.angle) {
+      gradient.setAttribute("gradientTransform", `rotate(-${config.angle})`);
+    }
   } else {
     document.getElementById("svg").style.color = config.color;
   }

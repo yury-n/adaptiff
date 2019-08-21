@@ -42,6 +42,7 @@ class ColorInput extends Component {
 
   onWindowClick = e => {
     if (
+      !this.state.showColorPicker ||
       e.target === this.wrapperDivRef.current ||
       this.wrapperDivRef.current.contains(e.target)
     ) {
