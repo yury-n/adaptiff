@@ -178,6 +178,136 @@ const svgs = [
         palette: ["#f74391", "#9484ff"]
       }
     }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/15.svg",
+    fileName: "svgs/15",
+    thumbBackgroundSize: "80%",
+    aspectRatio: 236.9 / 206.3,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#F8049C", "#FDD54F"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/16.svg",
+    fileName: "svgs/16",
+    thumbBackgroundSize: "80%",
+    aspectRatio: 240.1 / 198.1,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#0E37F1", "#FE19AA"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/17.svg",
+    fileName: "svgs/17",
+    thumbBackgroundSize: "80%",
+    aspectRatio: 205 / 78.3,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#FF54F8", "#AEFEE4"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/18.svg",
+    fileName: "svgs/18",
+    thumbBackgroundSize: "80%",
+    aspectRatio: 288.5 / 212,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#FF3558", "#FDD54F"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/19.svg",
+    fileName: "svgs/19",
+    thumbBackgroundSize: "80%",
+    aspectRatio: 247.8 / 210.6,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#FF2CA9", "#0ff"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/20.svg",
+    fileName: "svgs/20",
+    thumbBackgroundSize: "80%",
+    aspectRatio: 249.3 / 243.2,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#F8049C", "#FDD54F"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/21.svg",
+    fileName: "svgs/21",
+    thumbBackgroundSize: "80%",
+    aspectRatio: 230.1 / 219.7,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#FFFF18", "#23CDBA"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/22.svg",
+    fileName: "svgs/22",
+    thumbBackgroundSize: "80%",
+    aspectRatio: 220.4 / 159.9,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#F8049C", "#FDD54F"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/23.svg",
+    fileName: "svgs/23",
+    thumbBackgroundSize: "80%",
+    aspectRatio: 271.3 / 176.4,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#F8049C", "#FDD54F"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/24.svg",
+    fileName: "svgs/24",
+    thumbBackgroundSize: "80%",
+    aspectRatio: 125.3 / 97.8,
+    initState: {
+      size: { width: 250, height: 250 },
+      config: {
+        palette: ["#71FFF5", "#BFFF86"]
+      }
+    }
   }
 ];
 
@@ -191,5 +321,19 @@ export const basicSvgs = [0, 2, 9, 10, 11, 12, 13].map(index => svgs[index]);
 
 export const paintWorkSvgs = [1, 3, 4].map(index => svgs[index]);
 
-export const childishDreamsSvgs = [5, 6, 14].map(index => svgs[index]);
+export const childishDreamsSvgs = [
+  5,
+  6,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24
+].map(index => svgs[index]);
 export const particlesSvgs = [7, 8].map(index => svgs[index]);

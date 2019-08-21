@@ -221,6 +221,15 @@
   flex-shrink: 0;
 }
 
+.modal-sidebar::-webkit-scrollbar-thumb,
+.modal-sidebar::-webkit-scrollbar-track {
+  visibility: hidden;
+}
+
+.modal-sidebar:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
 .modal-left-sidebar {
   width: 280px;
 }

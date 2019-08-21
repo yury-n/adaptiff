@@ -46,6 +46,7 @@ export default ({ onInsertText, onInsertObject, onInsertImage }) => {
           }}
         >
           <div className={s["add-text-icon"]}>T</div>
+          <Icon className={s["plus-icon"]} name="plus" size="mini" />
           <div>Text</div>
         </Menu.Item>
         <Menu.Item className={"tab-menu-item"}>
@@ -58,10 +59,12 @@ export default ({ onInsertText, onInsertObject, onInsertImage }) => {
           />
           <label className={s["file-input-label"]} htmlFor="file" />
           <Icon size="small" name="image outline" />
+          <Icon className={s["plus-icon"]} name="plus" size="mini" />
           <div>Image</div>
         </Menu.Item>
         <Menu.Item active className={"tab-menu-item"} onClick={() => {}}>
           <Icon name="object group outline" />
+          <Icon className={s["plus-icon"]} name="plus" size="mini" />
           <div>Object</div>
         </Menu.Item>
         {/* <Menu.Item className={s["tab-menu-item"]} onClick={() => {}}>
@@ -100,7 +103,7 @@ export default ({ onInsertText, onInsertObject, onInsertImage }) => {
 };
 
 const ObjectPack = ({ name, objects, onInsertObject }) => {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   const renderObjectListHeader = () => {
     return (
       <label className={classnames("form-label", s["label"])}>

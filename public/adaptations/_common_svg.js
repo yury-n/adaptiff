@@ -7,14 +7,16 @@ function stringifyColor(color) {
 }
 function aff_render(config) {
   if (config.palette) {
-    const gradient = document.getElementById("gradient");
-    gradient.innerHTML = `
-    <stop offset="0%" stop-color="${stringifyColor(config.palette[0])}" />
-    <stop offset="100%" stop-color="${stringifyColor(config.palette[1])}" />
-    `;
-    if (config.angle) {
-      gradient.setAttribute("gradientTransform", `rotate(-${config.angle})`);
-    }
+    const gradients = document.querySelectorAll("#gradient, .gradient");
+    gradients.forEach(gradient => {
+      gradient.innerHTML = `
+      <stop offset="0%" stop-color="${stringifyColor(config.palette[0])}" />
+      <stop offset="100%" stop-color="${stringifyColor(config.palette[1])}" />
+      `;
+      if (config.angle) {
+        gradient.setAttribute("gradientTransform", `rotate(-${config.angle})`);
+      }
+    });
   } else {
     document.getElementById("svg").style.color = config.color;
   }
