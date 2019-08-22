@@ -12,9 +12,7 @@ export default React.memo(
     configValues,
     setConfigValue,
     onStartSelectingColor,
-    onStopSelectingColor,
-    activeInsertedItem,
-    onRemove
+    onStopSelectingColor
   }) => (
     <>
       {config.map(config => {
@@ -160,12 +158,6 @@ export default React.memo(
           </React.Fragment>
         );
       })}
-      {activeInsertedItem && (
-        <Button className={s["delete-button"]} onClick={onRemove}>
-          <Icon name="remove" size="small" />
-          Remove
-        </Button>
-      )}
     </>
   )
 );

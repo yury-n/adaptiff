@@ -72,32 +72,34 @@ export default ({ onInsertText, onInsertObject, onInsertImage }) => {
           <div>Background</div>
         </Menu.Item> */}
       </Menu>
-      <ObjectPack
-        name="Basic"
-        objects={[
-          ...basicSvgs,
-          blobmaker,
-          linearGradient,
-          allAdaptations[37],
-          allAdaptations[45]
-        ]}
-        onInsertObject={onInsertObject}
-      />
-      <ObjectPack
-        name="Particles"
-        objects={[...particlesSvgs, unfilledMesh]}
-        onInsertObject={onInsertObject}
-      />
-      <ObjectPack
-        name="Paint Work"
-        objects={paintWorkSvgs}
-        onInsertObject={onInsertObject}
-      />
-      <ObjectPack
-        name="Childish Dreams"
-        objects={childishDreamsSvgs}
-        onInsertObject={onInsertObject}
-      />
+      <div className={"below-tabs-zone"}>
+        <ObjectPack
+          name="Particles"
+          objects={[...particlesSvgs, unfilledMesh]}
+          onInsertObject={onInsertObject}
+        />
+        <ObjectPack
+          name="Paint Work"
+          objects={paintWorkSvgs}
+          onInsertObject={onInsertObject}
+        />
+        <ObjectPack
+          name="Basic"
+          objects={[
+            ...basicSvgs,
+            blobmaker,
+            linearGradient,
+            allAdaptations[37],
+            allAdaptations[45]
+          ]}
+          onInsertObject={onInsertObject}
+        />
+        <ObjectPack
+          name="Childish Dreams"
+          objects={childishDreamsSvgs}
+          onInsertObject={onInsertObject}
+        />
+      </div>
     </div>
   );
 };

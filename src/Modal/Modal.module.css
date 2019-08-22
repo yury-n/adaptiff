@@ -3,6 +3,29 @@
   height: calc(100vh - 80px);
 }
 
+.close-area {
+  position: absolute;
+  left: 0;
+  top: -40px;
+  height: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.close-area span {
+  display: none;
+  color: white;
+}
+
+.close-area:hover span {
+  display: inline;
+}
+
 .the-modal::before {
   display: block;
   content: "";
@@ -25,6 +48,14 @@
   z-index: 90001;
 }
 
+.copy-paste-buttons {
+  margin-right: 30px !important;
+}
+
+.remove-active-item-button {
+  margin-left: 30px !important;
+}
+
 .config-over-left-buttons,
 .config-over-right-buttons {
   display: inline-flex;
@@ -38,7 +69,6 @@
   opacity: 0.9 !important;
 }
 
-.config-over-left-buttons > *,
 .config-over-right-buttons > * {
   margin-right: 14px !important;
 }
@@ -212,22 +242,11 @@
   display: flex;
   flex-direction: column;
   width: 260px;
-  padding-top: 105px;
   border-top-left-radius: 0.28571429rem;
   border-bottom-left-radius: 0.28571429rem;
   box-sizing: border-box;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   flex-shrink: 0;
-}
-
-.modal-sidebar::-webkit-scrollbar-thumb,
-.modal-sidebar::-webkit-scrollbar-track {
-  visibility: hidden;
-}
-
-.modal-sidebar:hover::-webkit-scrollbar-thumb {
-  visibility: visible;
 }
 
 .modal-left-sidebar {
@@ -246,8 +265,7 @@
   padding: 30px;
   padding-top: 0;
   padding-bottom: 0;
-  border-radius: 0 4px 0 0;
-  height: 100%;
+  overflow: visible;
 }
 
 .config-container > *:last-child {

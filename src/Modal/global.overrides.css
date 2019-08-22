@@ -1,6 +1,5 @@
 .ui.active.dimmer {
-  cursor: pointer;
-  z-index: 1000001; /* overcome crisp */
+  cursor: default;
 }
 
 .ui.active.modal {
@@ -22,6 +21,7 @@
   top: -2.7rem;
   right: -0.7rem;
   opacity: 0.9;
+  pointer-events: none; /* caught up by close-area click */
 }
 
 .ui.circular.button {
@@ -54,6 +54,25 @@
   padding-right: 1.2em !important;
   background: #ffffff none;
   border: 1px solid rgb(177, 177, 177);
+}
+
+.below-tabs-zone {
+  position: absolute;
+  top: 105px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.below-tabs-zone::-webkit-scrollbar-thumb,
+.below-tabs-zone::-webkit-scrollbar-track {
+  visibility: hidden;
+}
+
+.below-tabs-zone:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
 }
 
 .tab-menu {

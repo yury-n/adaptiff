@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Icon } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 import ColorInput from "../../ColorInput/ColorInput";
 import Range from "../../Range/Range";
 import FontFamilyDropdown from "./FontFamilyDropdown/FontFamilyDropdown";
@@ -7,19 +7,8 @@ import FontFamilyDropdown from "./FontFamilyDropdown/FontFamilyDropdown";
 import "./global.overrides.css";
 import s from "./TextConfig.module.css";
 
-//let areBaseFontsLoaded = false;
-
 export default React.memo(
-  ({
-    config,
-    setConfigValue,
-    onStartSelectingColor,
-    onStopSelectingColor,
-    onRemove
-  }) => {
-    //if (areBaseFontsLoaded) {
-    // <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
-    //}
+  ({ config, setConfigValue, onStartSelectingColor, onStopSelectingColor }) => {
     return (
       <div className={s["root"]}>
         <FontFamilyDropdown
@@ -138,10 +127,6 @@ export default React.memo(
           value={config.borderRadius}
           onChange={value => setConfigValue("borderRadius", value)}
         />
-        <Button className={s["delete-button"]} onClick={onRemove}>
-          <Icon name="remove" size="small" />
-          Remove
-        </Button>
       </div>
     );
   }

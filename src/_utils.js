@@ -73,3 +73,5 @@ export const logStat = type => {
   statIframe.style.left = "-1000px";
   document.body.appendChild(statIframe);
 };
+
+export const isMac = () => navigator.platform.toUpperCase().indexOf("MAC") >= 0;

@@ -13,7 +13,7 @@ import IframePreviewRnD from "./IframePreview/IframePreviewRnD";
 import ArtConfig from "./ArtConfig/ArtConfig";
 import Layers from "./Layers/Layers";
 import settings from "../settings";
-import { downloadFromDataURL, logStat } from "../_utils";
+import { downloadFromDataURL, logStat, isMac } from "../_utils";
 
 import "rc-slider/assets/index.css";
 import "./global.overrides.css";
@@ -225,10 +225,14 @@ class TheModal extends Component {
       <Modal
         open
         closeIcon={withCloseButton}
+        closeOnDimmerClick={false}
         onClose={this.props.onClose}
         className={s["the-modal"]}
       >
         <Modal.Content className="modal-content">
+          <div className={s["close-area"]} onClick={this.props.onClose}>
+            <span>Close</span>
+          </div>
           <div
             className={classnames(s["modal-sidebar"], s["modal-left-sidebar"])}
           >
@@ -244,46 +248,64 @@ class TheModal extends Component {
           >
             <div className={s["config-over-preview"]}>
               <div className={s["config-over-left-buttons"]}>
-                <Button.Group>
-                  {activeInsertedItemIndex && false && (
-                    <Button
-                      icon
-                      aria-label="Copy"
-                      data-balloon-pos="down"
-                      onClick={this.copyActiveInsertedItem}
-                    >
-                      <Icon name="copy outline" />
-                    </Button>
-                  )}
-                  {/* <Button icon>
+                <Button.Group className={s["copy-paste-buttons"]}>
+                  <Button
+                    icon
+                    aria-label={isMac() ? "Copy (Cmd + C)" : "Copy (Ctrl + C)"}
+                    data-balloon-pos="down"
+                    onClick={this.copyActiveInsertedItem}
+                    disabled={activeInsertedItemIndex === null}
+                  >
+                    <Icon name="copy outline" />
+                  </Button>
+                  <Button
+                    icon
+                    aria-label={
+                      isMac() ? "Paste (Cmd + P)" : "Paste (Ctrl + P)"
+                    }
+                    data-balloon-pos="down"
+                    disabled={!this.bufferedInsertedItem}
+                    onClick={this.pasteActiveInsertedItem}
+                  >
                     <Icon name="paste" />
-                  </Button> */}
+                  </Button>
                 </Button.Group>
                 {activeInsertedItemIndex !== null && (
-                  <Button.Group>
+                  <>
+                    <Button.Group>
+                      <Button
+                        icon
+                        aria-label="Bring to Front"
+                        data-balloon-pos="down"
+                        onClick={e => {
+                          this.moveActiveInsertedItemUp();
+                          e.stopPropagation();
+                        }}
+                      >
+                        <Icon name="long arrow alternate up" />
+                      </Button>
+                      <Button
+                        icon
+                        aria-label="Bring to Back"
+                        data-balloon-pos="down"
+                        onClick={e => {
+                          this.moveActiveInsertedItemDown();
+                          e.stopPropagation();
+                        }}
+                      >
+                        <Icon name="long arrow alternate down" />
+                      </Button>
+                    </Button.Group>
                     <Button
                       icon
-                      aria-label="Bring to front"
+                      aria-label="Remove (Backspace)"
                       data-balloon-pos="down"
-                      onClick={e => {
-                        this.moveActiveInsertedItemUp();
-                        e.stopPropagation();
-                      }}
+                      onClick={this.removeActiveInsertedItem}
+                      className={s["remove-active-item-button"]}
                     >
-                      <Icon name="long arrow alternate up" />
+                      <Icon name="remove" />
                     </Button>
-                    <Button
-                      icon
-                      aria-label="Bring to back"
-                      data-balloon-pos="down"
-                      onClick={e => {
-                        this.moveActiveInsertedItemDown();
-                        e.stopPropagation();
-                      }}
-                    >
-                      <Icon name="long arrow alternate down" />
-                    </Button>
-                  </Button.Group>
+                  </>
                 )}
                 {hasRandomness && (
                   <Button
@@ -420,7 +442,11 @@ class TheModal extends Component {
             {/* {insertedItems.length > 0
               ? this.renderLayers()
               : this.renderTitleAndAuthor()} */}
-            <div className={s["config-container"]}>{this.renderConfig()}</div>
+            <div
+              className={classnames(s["config-container"], "below-tabs-zone")}
+            >
+              {this.renderConfig()}
+            </div>
           </div>
         </Modal.Content>
       </Modal>
@@ -646,7 +672,7 @@ class TheModal extends Component {
       event.target.contentEditable !== "true" &&
       event.target.tagName !== "INPUT"
     ) {
-      this.removeCurrentInsertedItem();
+      this.removeActiveInsertedItem();
     }
   };
 
@@ -754,7 +780,7 @@ class TheModal extends Component {
     let height = Math.round(canvasHeight * 0.5);
 
     if (adaptation.aspectRatio) {
-      if (width > height) {
+      if (adaptation.aspectRatio > 1) {
         height = Math.round(width / adaptation.aspectRatio);
       } else {
         width = Math.round(height * adaptation.aspectRatio);
@@ -820,7 +846,7 @@ class TheModal extends Component {
     };
   };
 
-  removeCurrentInsertedItem = () => {
+  removeActiveInsertedItem = () => {
     const { activeInsertedItemIndex } = this.state;
     this.removeInsertedItem(activeInsertedItemIndex);
   };
@@ -964,7 +990,6 @@ class TheModal extends Component {
         text={insertedItems[activeInsertedItemIndex]}
         config={insertedItems[activeInsertedItemIndex].config}
         setConfigValue={this.setTextConfigValue}
-        onRemove={this.removeCurrentInsertedItem}
         onStartSelectingColor={this.onStartSelectingColor}
         onStopSelectingColor={this.onStopSelectingColor}
       />
@@ -977,7 +1002,6 @@ class TheModal extends Component {
       <ImageConfig
         config={insertedItems[activeInsertedItemIndex].config}
         setConfigValue={this.setTextConfigValue}
-        onRemove={this.removeCurrentInsertedItem}
       />
     );
   };
@@ -1003,8 +1027,6 @@ class TheModal extends Component {
         setConfigValue={this.setArtConfigValue}
         onStartSelectingColor={this.onStartSelectingColor}
         onStopSelectingColor={this.onStopSelectingColor}
-        activeInsertedItem={activeInsertedItem}
-        onRemove={this.removeCurrentInsertedItem}
       />
     );
   };

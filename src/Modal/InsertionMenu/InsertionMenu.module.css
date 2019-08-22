@@ -25,6 +25,7 @@
 }
 
 .label {
+  position: relative;
   margin-left: 16px !important;
   margin-right: 16px !important;
   margin-bottom: 15px !important;
@@ -33,9 +34,12 @@
 
 .see-all {
   position: absolute;
-  right: 16px;
   font-weight: normal;
   cursor: pointer;
+  top: 144px;
+  z-index: 111;
+  left: 176px;
+  font-size: 13px;
 }
 
 .see-all:hover {
@@ -57,4 +61,9 @@
   left: 8px;
   top: 10px;
   font-size: 7px !important;
+}
+
+.object-card:nth-child(6) {
+  opacity: 0.2;
+  pointer-events: none;
 }
