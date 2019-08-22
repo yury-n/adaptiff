@@ -231,7 +231,7 @@ class TheModal extends Component {
       >
         <Modal.Content className="modal-content">
           <div className={s["close-area"]} onClick={this.props.onClose}>
-            <span>Close</span>
+            <span>close</span>
           </div>
           <div
             className={classnames(s["modal-sidebar"], s["modal-left-sidebar"])}

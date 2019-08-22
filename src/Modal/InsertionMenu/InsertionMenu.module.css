@@ -36,10 +36,15 @@
   position: absolute;
   font-weight: normal;
   cursor: pointer;
-  top: 144px;
+  top: 119px;
   z-index: 111;
-  left: 176px;
+  left: 169px;
   font-size: 13px;
+  display: flex;
+  width: 69px;
+  justify-content: center;
+  align-items: center;
+  height: 69px;
 }
 
 .see-all:hover {
@@ -63,7 +68,12 @@
   font-size: 7px !important;
 }
 
-.object-card:nth-child(6) {
+.has-more .object-card:nth-child(6) {
   opacity: 0.2;
   pointer-events: none;
+}
+
+.has-more.is-expanded .object-card:nth-child(6) {
+  opacity: 1;
+  pointer-events: all;
 }

@@ -414,6 +414,42 @@ const svgs = [
         palette: ["#A9F1DF", "#fbb"]
       }
     }
+  },
+  // particles
+  {
+    ...svgWithSolidColor,
+    thumb: "/thumbs/svgs/33.png",
+    fileName: "svgs/33",
+    aspectRatio: 400 / 296,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {}
+    }
+  },
+  {},
+  {},
+  {
+    ...svgWithSolidColor,
+    thumb: "/thumbs/svgs/36.png",
+    fileName: "svgs/36",
+    aspectRatio: 400 / 296,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {}
+    }
+  },
+  {},
+  {},
+  {},
+  {
+    ...svgWithSolidColor,
+    thumb: "/thumbs/svgs/40.png",
+    fileName: "svgs/40",
+    aspectRatio: 400 / 296,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {}
+    }
   }
 ];
 
@@ -444,4 +480,4 @@ export const childishDreamsSvgs = [
   23,
   24
 ].map(index => svgs[index]);
-export const particlesSvgs = [7, 8].map(index => svgs[index]);
+export const particlesSvgs = [7, 8, 33, 36, 40].map(index => svgs[index]);

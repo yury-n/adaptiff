@@ -15,8 +15,10 @@ import linearGradient from "../../_adaptationConfigs/linearGradient";
 import blobmaker from "../../_adaptationConfigs/blobmaker";
 import { allAdaptations } from "../../pages/adaptations";
 import { unfilledMesh } from "../../pages/insertablesList";
+import trianglify from "../../_adaptationConfigs/trianglify";
+import gradientWaves from "../../_adaptationConfigs/gradientWaves";
 
-export default ({ onInsertText, onInsertObject, onInsertImage }) => {
+export default React.memo(({ onInsertText, onInsertObject, onInsertImage }) => {
   const onFileChange = e => {
     const file = e.target.files[0];
     const fileReader = new FileReader();
@@ -99,10 +101,15 @@ export default ({ onInsertText, onInsertObject, onInsertImage }) => {
           objects={childishDreamsSvgs}
           onInsertObject={onInsertObject}
         />
+        <ObjectPack
+          name="Generative"
+          objects={[allAdaptations[10], gradientWaves, trianglify]}
+          onInsertObject={onInsertObject}
+        />
       </div>
     </div>
   );
-};
+});
 
 const ObjectPack = ({ name, objects, onInsertObject }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -110,7 +117,7 @@ const ObjectPack = ({ name, objects, onInsertObject }) => {
     return (
       <label className={classnames("form-label", s["label"])}>
         {name}
-        {!isExpanded && (
+        {!isExpanded && objects.length > 6 && (
           <span className={s["see-all"]} onClick={() => setIsExpanded(true)}>
             see all <Icon size="small" name="angle right" />
           </span>
@@ -138,9 +145,14 @@ const ObjectPack = ({ name, objects, onInsertObject }) => {
     );
   };
   return (
-    <>
+    <div
+      className={classnames(
+        isExpanded && s["is-expanded"],
+        objects.length > 6 && s["has-more"]
+      )}
+    >
       {renderObjectListHeader()}
       {renderObjectList()}
-    </>
+    </div>
   );
 };
