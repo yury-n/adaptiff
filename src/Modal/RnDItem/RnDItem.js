@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import classnames from "classnames";
 import Moveable from "react-moveable";
 import { Frame } from "scenejs";
 
@@ -68,8 +69,8 @@ export default React.forwardRef(function(
         <Moveable
           target={document.getElementById(targetId)}
           container={document.querySelector(".canvas-wrapper")}
-          resizable={true}
           draggable={true}
+          resizable={true}
           rotatable={true}
           throttleDrag={1}
           throttleRotate={0.2}
@@ -83,8 +84,9 @@ export default React.forwardRef(function(
       )}
       <div
         id={id}
-        className={s["moveable"]}
+        className={classnames(s["moveable"], isActive && s["active"])}
         style={{ width: 100, height: 100 }}
+        onClick={onClick}
       >
         {React.cloneElement(children, {
           ref: refCallback
