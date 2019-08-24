@@ -1,17 +1,9 @@
-import React from "react";
-import classnames from "classnames";
-import DraggableItem, {
-  MARGIN_TOP,
-  MARGIN_LEFT
-} from "../DraggableItem/DraggableItem";
-import ResizableItem from "../ResizableItem/ResizableItem";
+import React, { useState } from "react";
+import Moveable from "react-moveable";
+import { Frame } from "scenejs";
 
+import "./global.overrides.css";
 import s from "./RnDItem.module.css";
-
-const initMarginsByItemId = {};
-const defaultMargins = { top: MARGIN_TOP, left: MARGIN_LEFT };
-
-let iframeNode;
 
 export default React.forwardRef(function(
   {
@@ -33,90 +25,71 @@ export default React.forwardRef(function(
   },
   ref
 ) {
+  const [targetId, setTargetId] = useState(null);
   const refCallback = node => {
     if (node) {
-      iframeNode = node;
       ref(node);
+      setTargetId(id);
     }
   };
-  const draggableNode = iframeNode && iframeNode.closest(".react-draggable");
+  const frame = new Frame({
+    width: "100px",
+    height: "100px",
+    left: "0px",
+    top: "0px",
+    transform: {
+      rotate: "0deg",
+      scaleX: 1,
+      scaleY: 1,
+      matrix3d: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+    }
+  });
+  const onDrag = ({ target, top, left }) => {
+    frame.set("left", `${left}px`);
+    frame.set("top", `${top}px`);
+    setTransform(target);
+  };
+  const onResize = ({ target, width, height }) => {
+    frame.set("width", `${width}px`);
+    frame.set("height", `${height}px`);
+    setTransform(target);
+  };
+  const onRotate = ({ target, beforeDelta }) => {
+    const deg = parseFloat(frame.get("transform", "rotate")) + beforeDelta;
+    frame.set("transform", "rotate", `${deg}deg`);
+    setTransform(target);
+  };
+  const setTransform = target => {
+    target.style.cssText = frame.toCSS();
+  };
   return (
-    <DraggableItem
-      isActive={isActive}
-      isHighlighted={isHighlighted}
-      initialPosition={initialPosition}
-      onClick={onClick}
-      onDragStart={onDragStart}
-      onDragStop={onDragStop}
-      className={classnames(s["root"], isActive && s["active"], className)}
-    >
-      <ResizableItem
-        width={width * (scale || 1)}
-        height={height * (scale || 1)}
-        lockAspectRatio={lockAspectRatio}
-        resizeHandleClassName={s["resize-handle"]}
-        onResizeStart={onResizeStart}
-        onResize={(e, direction, ref, d) => {
-          const margins = initMarginsByItemId[id] || defaultMargins;
-          switch (direction) {
-            case "top":
-            case "topRight": {
-              draggableNode.style.marginTop = `${margins.top - d.height}px`;
-              break;
-            }
-            case "topLeft": {
-              draggableNode.style.marginTop = `${margins.top - d.height}px`;
-              draggableNode.style.marginLeft = `${margins.left - d.width}px`;
-              break;
-            }
-            case "left":
-            case "bottomLeft": {
-              draggableNode.style.marginLeft = `${margins.left - d.width}px`;
-              break;
-            }
-            default:
-          }
-        }}
-        onResizeStop={(e, direction, ref, d) => {
-          const margins = initMarginsByItemId[id] || defaultMargins;
-          switch (direction) {
-            case "topRight": {
-              initMarginsByItemId[id] = {
-                top: margins.top - d.height,
-                left: margins.left
-              };
-              break;
-            }
-            case "topLeft": {
-              initMarginsByItemId[id] = {
-                top: margins.top - d.height,
-                left: margins.left - d.width
-              };
-              break;
-            }
-            case "left": {
-              initMarginsByItemId[id] = {
-                top: margins.top,
-                left: margins.left - d.width
-              };
-              break;
-            }
-            case "bottomLeft": {
-              initMarginsByItemId[id] = {
-                top: margins.top,
-                left: margins.left - d.width
-              };
-              break;
-            }
-            default:
-          }
-          onResizeStop();
-        }}
+    <>
+      {targetId && (
+        <Moveable
+          target={document.getElementById(targetId)}
+          container={document.querySelector(".canvas-wrapper")}
+          resizable={true}
+          draggable={true}
+          rotatable={true}
+          throttleDrag={1}
+          throttleRotate={0.2}
+          throttleResize={1}
+          origin={false}
+          onDrag={onDrag}
+          onRotate={onRotate}
+          onResize={onResize}
+          keepRatio={false}
+        />
+      )}
+      <div
+        id={id}
+        className={s["moveable"]}
+        style={{ width: 100, height: 100 }}
       >
         {React.cloneElement(children, {
           ref: refCallback
         })}
-      </ResizableItem>
-    </DraggableItem>
+      </div>
+    </>
   );
 });

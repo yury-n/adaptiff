@@ -92,6 +92,7 @@ class Header extends Component {
                 <Icon name="add" /> Create a Design
               </Button>
               <MiniCard
+                showModal
                 onClick={() => logStat("create")}
                 clickAndShowModal={true}
                 className={s["blank-card"]}

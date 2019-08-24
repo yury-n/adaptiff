@@ -4,11 +4,12 @@ import "./global.overrides.css";
 
 export default React.memo(
   React.forwardRef(function InsertedImage(
-    { width, height, className, imageUrl },
+    { id, width, height, className, imageUrl },
     ref
   ) {
     return (
       <img
+        id={id}
         ref={ref}
         width={width}
         height={height}

@@ -39,6 +39,7 @@ class IframePreview extends React.Component {
     const state = this.state;
     return (
       <div
+        id={props.id}
         style={{
           position: "relative",
           width: props.width,

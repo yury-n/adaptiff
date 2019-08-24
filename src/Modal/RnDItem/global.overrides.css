@@ -1,0 +1,30 @@
+.moveable-control {
+  cursor: crosshair !important ;
+  width: 10px !important;
+  height: 10px !important;
+  margin-top: -5px !important;
+  margin-left: -5px !important;
+  background: #fff !important;
+  box-shadow: 0 0 5px 1px rgba(14, 19, 24, 0.15),
+    0 0 0 1px rgba(14, 19, 24, 0.15) !important;
+}
+
+.moveable-line {
+  display: none !important;
+}
+
+.moveable-line.moveable-rotation-line,
+.moveable-line.moveable-rotation-line .moveable-control {
+  display: block !important;
+}
+
+.moveable-line.moveable-rotation-line .moveable-control {
+  border: none !important;
+}
+
+.moveable-line.moveable-rotation-line {
+  background: none !important;
+  border-right: 1px dotted black !important;
+  border-left: 1px dotted white !important;
+  width: 0 !important;
+}

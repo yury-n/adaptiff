@@ -6,3 +6,38 @@
 .root.active .resize-handle {
   display: block;
 }
+
+.moveable {
+  position: relative;
+  cursor: move;
+}
+.moveable:after,
+.moveable:before {
+  position: absolute;
+  display: block;
+  content: "";
+  z-index: 1;
+}
+
+.moveable:before {
+  left: -1px;
+  top: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  border: 1px dotted black !important;
+}
+.moveable:after {
+  left: -2px;
+  top: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border: 1px dotted white !important;
+}
+
+.moveable > * {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
