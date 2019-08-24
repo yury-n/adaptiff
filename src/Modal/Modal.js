@@ -23,6 +23,10 @@ import InsertionMenu from "./InsertionMenu/InsertionMenu";
 const CANVAS_MARGIN = 50; //px
 
 class TheModal extends Component {
+  isSelectingColor = false;
+  isDraggingInsertedItem = false;
+  isResizingInsertedItem = false;
+  isRotatingInsertedItem = false;
   constructor(props) {
     super(props);
     this.iframeRef = React.createRef();
@@ -79,10 +83,7 @@ class TheModal extends Component {
       ],
       activeInsertedItemIndex: null,
       highlightInsertedItemIndex: null,
-      isAddMenuOpen: false,
-      isSelectingColor: false,
-      isDraggingInsertedItem: false,
-      isResizingInsertedItem: false
+      isAddMenuOpen: false
     };
     this.props.config.forEach(config => {
       state.config[config.key] =
@@ -523,9 +524,11 @@ class TheModal extends Component {
       isHighlighted: index === highlightInsertedItemIndex,
       onClick: () => this.setActiveInsertedItemIndex(index),
       onDragStart: this.onDragStart,
-      onDragStop: this.onDragStop(index),
-      onResizeStart: this.onResizeStart(index),
-      onResizeStop: this.onResizeStop,
+      onDragEnd: this.onDragEnd,
+      onResizeStart: this.onResizeStart,
+      onResizeEnd: this.onResizeEnd,
+      onRotateStart: this.onRotateStart,
+      onRotateEnd: this.onRotateEnd,
       ref: refCallback,
       initialPosition:
         insertedItem.position &&
@@ -671,41 +674,46 @@ class TheModal extends Component {
   };
 
   onStartSelectingColor = () => {
-    this.setState({ isSelectingColor: true });
+    this.isSelectingColor = true;
     this.props.onStartSelectingColor();
   };
 
   onStopSelectingColor = () => {
     setTimeout(() => {
-      this.setState({ isSelectingColor: false });
+      this.isSelectingColor = false;
       this.props.onStopSelectingColor();
-    }, 100); // prevent onModalRightSideClick closing TextConfig
+    }, 100); // prevent onModalRightSideClick
   };
 
   onDragStart = () => {
-    this.setState({
-      isDraggingInsertedItem: true
-    });
+    this.isDraggingInsertedItem = true;
   };
 
-  onDragStop = insertedItemIndex => () => {
+  onDragEnd = () => {
     setTimeout(() => {
-      this.setState({ isDraggingInsertedItem: false });
-    }, 100); // prevent onModalRightSideClick closing TextConfig
+      this.isDraggingInsertedItem = false;
+    }, 100); // prevent onModalRightSideClick
   };
 
-  onResizeStart = insertedItemIndex => () => {
-    this.setState({
-      isResizingInsertedItem: true
-    });
-    this.setActiveInsertedItemIndex(insertedItemIndex);
+  onResizeStart = () => {
+    this.isResizingInsertedItem = true;
   };
 
-  onResizeStop = () => {
+  onResizeEnd = () => {
     setTimeout(() => {
-      this.setState({ isResizingInsertedItem: false });
-    }, 100); // prevent onModalRightSideClick closing TextConfig
+      this.isResizingInsertedItem = false;
+    }, 100); // prevent onModalRightSideClick
     this.postConfigToIframe();
+  };
+
+  onRotateStart = () => {
+    this.isRotatingInsertedItem = true;
+  };
+
+  onRotateEnd = () => {
+    setTimeout(() => {
+      this.isRotatingInsertedItem = false;
+    }, 100); // prevent onModalRightSideClick
   };
 
   onModalRightSideClick = event => {
@@ -714,9 +722,10 @@ class TheModal extends Component {
       return;
     }
     if (
-      !this.state.isSelectingColor &&
-      !this.state.isDraggingInsertedItem &&
-      !this.state.isResizingInsertedItem &&
+      !this.isSelectingColor &&
+      !this.isDraggingInsertedItem &&
+      !this.isResizingInsertedItem &&
+      !this.isRotatingInsertedItem &&
       !event.target.classList.contains(s["inserted-item"]) &&
       !event.target.closest(`.${s["inserted-item"]}`)
     ) {
@@ -1428,7 +1437,7 @@ const CollapsibleSiderBar = ({ insertText, insertImage, insertObject }) => {
           <path
             d="M22.626 17.865l-1.94-1.131C17.684 14.981 16 12.608 16 10.133V0H0v112h16v-10.135c0-2.475 1.684-4.849 4.686-6.6l1.94-1.131C28.628 90.632 32 85.885 32 80.934v-49.87c0-4.95-3.372-9.698-9.374-13.199"
             fill="currentColor"
-          ></path>
+          />
         </svg>
       </div>
     </div>

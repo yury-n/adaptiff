@@ -8,24 +8,22 @@
 }
 
 .moveable {
-  position: absolute;
+  position: relative;
   cursor: move;
-  left: 0;
-  top: 0;
 }
 .moveable:after,
 .moveable:before {
   position: absolute;
   display: block;
   content: "";
-  z-index: 1;
+  z-index: 9003 !important;
 }
 
 .moveable:before {
-  left: -1px;
+  left: -2px;
   top: -1px;
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
+  width: calc(100% + 3px);
+  height: calc(100% + 3px);
   border: 1px dotted transparent !important;
 }
 .moveable:after {
@@ -34,6 +32,7 @@
   width: calc(100% + 4px);
   height: calc(100% + 4px);
   border: 1px dotted transparent !important;
+  display: none !important;
 }
 
 .moveable.active:before,

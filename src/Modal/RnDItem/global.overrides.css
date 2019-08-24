@@ -1,3 +1,7 @@
+.moveable-control-box {
+  z-index: 9001 !important;
+}
+
 .moveable-control {
   cursor: crosshair !important ;
   width: 10px !important;
@@ -7,24 +11,29 @@
   background: #fff !important;
   box-shadow: 0 0 5px 1px rgba(14, 19, 24, 0.15),
     0 0 0 1px rgba(14, 19, 24, 0.15) !important;
+  z-index: 9004 !important;
 }
 
 .moveable-line {
+  background: #d5d6d7 !important;
+  z-index: 9001 !important;
   display: none !important;
+}
+.moveable-control ~ .moveable-line {
+  display: block !important;
 }
 
 .moveable-line.moveable-rotation-line,
 .moveable-line.moveable-rotation-line .moveable-control {
   display: block !important;
 }
-
 .moveable-line.moveable-rotation-line .moveable-control {
   border: none !important;
 }
-
 .moveable-line.moveable-rotation-line {
   background: none !important;
+  margin-left: -1px !important;
   border-right: 1px dotted black !important;
-  border-left: 1px dotted white !important;
+  border-left: 1px #d5d6d7 !important;
   width: 0 !important;
 }
