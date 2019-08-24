@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import classnames from "classnames";
 import ReactDOM from "react-dom";
 import { Modal, Input, Button, Icon, Menu } from "semantic-ui-react";
@@ -233,15 +233,11 @@ class TheModal extends Component {
           <div className={s["close-area"]} onClick={this.props.onClose}>
             <span>close</span>
           </div>
-          <div
-            className={classnames(s["modal-sidebar"], s["modal-left-sidebar"])}
-          >
-            <InsertionMenu
-              onInsertText={this.insertText}
-              onInsertImage={this.insertImage}
-              onInsertObject={this.insertObject}
-            />
-          </div>
+          <CollapsibleSiderBar
+            insertImage={this.insertImage}
+            insertText={this.insertText}
+            insertObject={this.insertObject}
+          />
           <div
             className={s["modal-central-area"]}
             onClick={this.onModalRightSideClick}
@@ -1390,5 +1386,50 @@ class TheModal extends Component {
     }
   };
 }
+
+const CollapsibleSiderBar = ({ insertText, insertImage, insertObject }) => {
+  const [activeItem, setActiveItem] = useState(() => {
+    const activeItemFromStorage = localStorage.getItem(
+      "modal.insertionTabsActiveItem"
+    );
+    if (typeof activeItemFromStorage === "string") {
+      return activeItemFromStorage === "null" ? null : activeItemFromStorage;
+    } else {
+      return "object";
+    }
+  });
+  useEffect(() => {
+    localStorage.setItem("modal.insertionTabsActiveItem", activeItem);
+  });
+  return (
+    <div
+      className={classnames(
+        s["modal-sidebar"],
+        s["modal-left-sidebar"],
+        activeItem === null && s["is-collapsed"]
+      )}
+    >
+      <InsertionMenu
+        onInsertText={insertText}
+        onInsertImage={insertImage}
+        onInsertObject={insertObject}
+        activeItem={activeItem}
+        setActiveItem={setActiveItem}
+      />
+      <div
+        className={s["sidebar-collapse-button"]}
+        onClick={() => setActiveItem(null)}
+      >
+        <Icon className={s["collapse-icon"]} size="small" name="angle left" />
+        <svg viewBox="0 0 32 112" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M22.626 17.865l-1.94-1.131C17.684 14.981 16 12.608 16 10.133V0H0v112h16v-10.135c0-2.475 1.684-4.849 4.686-6.6l1.94-1.131C28.628 90.632 32 85.885 32 80.934v-49.87c0-4.95-3.372-9.698-9.374-13.199"
+            fill="currentColor"
+          ></path>
+        </svg>
+      </div>
+    </div>
+  );
+};
 
 export default TheModal;

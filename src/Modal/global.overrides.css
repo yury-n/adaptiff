@@ -64,6 +64,7 @@
   right: 0;
   overflow-y: auto;
   overflow-x: hidden;
+  z-index: 100001; /* overcome collapse-button */
 }
 
 .below-tabs-zone::-webkit-scrollbar-thumb,
@@ -89,6 +90,7 @@
   border: none !important;
   margin-left: 1px !important;
   margin-top: 10px !important;
+  background: transparent !important;
 }
 
 .tab-menu-item {

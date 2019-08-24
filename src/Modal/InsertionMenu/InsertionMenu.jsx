@@ -18,63 +18,35 @@ import { unfilledMesh } from "../../pages/insertablesList";
 import trianglify from "../../_adaptationConfigs/trianglify";
 import gradientWaves from "../../_adaptationConfigs/gradientWaves";
 
-export default React.memo(({ onInsertText, onInsertObject, onInsertImage }) => {
-  const onFileChange = e => {
-    const file = e.target.files[0];
-    const fileReader = new FileReader();
-    fileReader.onload = onFileReaderLoad;
-    fileReader.readAsDataURL(file);
-  };
-  const onFileReaderLoad = e => {
-    const img = document.createElement("img");
-    img.src = e.target.result;
-    img.onload = () => {
-      onInsertImage({
-        imageUrl: e.target.result,
-        width: img.clientWidth,
-        height: img.clientHeight
-      });
-      document.body.removeChild(img);
+export default React.memo(
+  ({
+    activeItem,
+    onInsertText,
+    onInsertObject,
+    onInsertImage,
+    setActiveItem
+  }) => {
+    const onFileChange = e => {
+      const file = e.target.files[0];
+      const fileReader = new FileReader();
+      fileReader.onload = onFileReaderLoad;
+      fileReader.readAsDataURL(file);
     };
-    document.body.appendChild(img);
-  };
-  return (
-    <div>
-      <Menu className={"tab-menu"} icon="labeled">
-        <Menu.Item
-          className={"tab-menu-item"}
-          onClick={() => {
-            onInsertText();
-          }}
-        >
-          <div className={s["add-text-icon"]}>T</div>
-          <Icon className={s["plus-icon"]} name="plus" size="mini" />
-          <div>Text</div>
-        </Menu.Item>
-        <Menu.Item className={"tab-menu-item"}>
-          <input
-            type="file"
-            name="file"
-            id="file"
-            className={s["file-input"]}
-            onChange={onFileChange}
-          />
-          <label className={s["file-input-label"]} htmlFor="file" />
-          <Icon size="small" name="image outline" />
-          <Icon className={s["plus-icon"]} name="plus" size="mini" />
-          <div>Image</div>
-        </Menu.Item>
-        <Menu.Item active className={"tab-menu-item"} onClick={() => {}}>
-          <Icon name="object group outline" />
-          <Icon className={s["plus-icon"]} name="plus" size="mini" />
-          <div>Object</div>
-        </Menu.Item>
-        {/* <Menu.Item className={s["tab-menu-item"]} onClick={() => {}}>
-          <Icon name="chess board" />
-          <div>Background</div>
-        </Menu.Item> */}
-      </Menu>
-      <div className={"below-tabs-zone"}>
+    const onFileReaderLoad = e => {
+      const img = document.createElement("img");
+      img.src = e.target.result;
+      img.onload = () => {
+        onInsertImage({
+          imageUrl: e.target.result,
+          width: img.clientWidth,
+          height: img.clientHeight
+        });
+        document.body.removeChild(img);
+      };
+      document.body.appendChild(img);
+    };
+    const renderObjectsTab = () => (
+      <>
         <ObjectPack
           name="Particles"
           objects={[...particlesSvgs, unfilledMesh]}
@@ -106,10 +78,55 @@ export default React.memo(({ onInsertText, onInsertObject, onInsertImage }) => {
           objects={[allAdaptations[10], gradientWaves, trianglify]}
           onInsertObject={onInsertObject}
         />
+      </>
+    );
+    return (
+      <div>
+        <Menu className={"tab-menu"} icon="labeled">
+          <Menu.Item
+            className={"tab-menu-item"}
+            onClick={() => {
+              onInsertText();
+            }}
+          >
+            <div className={s["add-text-icon"]}>T</div>
+            <Icon className={s["plus-icon"]} name="plus" size="mini" />
+            <div>Text</div>
+          </Menu.Item>
+          <Menu.Item className={"tab-menu-item"}>
+            <input
+              type="file"
+              name="file"
+              id="file"
+              className={s["file-input"]}
+              onChange={onFileChange}
+            />
+            <label className={s["file-input-label"]} htmlFor="file" />
+            <Icon size="small" name="image outline" />
+            <Icon className={s["plus-icon"]} name="plus" size="mini" />
+            <div>Image</div>
+          </Menu.Item>
+          <Menu.Item
+            active={activeItem === "object"}
+            className={"tab-menu-item"}
+            onClick={() => setActiveItem("object")}
+          >
+            <Icon name="object group outline" />
+            <Icon className={s["plus-icon"]} name="plus" size="mini" />
+            <div>Object</div>
+          </Menu.Item>
+          {/* <Menu.Item className={s["tab-menu-item"]} onClick={() => {}}>
+          <Icon name="chess board" />
+          <div>Background</div>
+        </Menu.Item> */}
+        </Menu>
+        <div className={"below-tabs-zone"}>
+          {activeItem === "object" && renderObjectsTab()}
+        </div>
       </div>
-    </div>
-  );
-});
+    );
+  }
+);
 
 const ObjectPack = ({ name, objects, onInsertObject }) => {
   const [isExpanded, setIsExpanded] = useState(false);
