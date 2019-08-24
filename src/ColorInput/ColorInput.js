@@ -54,6 +54,13 @@ class ColorInput extends Component {
   render() {
     const { color, onChange, disableAlpha } = this.props;
     const { showColorPicker } = this.state;
+    let noSpaceAboveForPicker = false;
+    if (this.wrapperDivRef.current) {
+      const reactTop = this.wrapperDivRef.current.getBoundingClientRect().top;
+      if (reactTop < 215) {
+        noSpaceAboveForPicker = true;
+      }
+    }
     return (
       <div
         className={classnames(
@@ -75,7 +82,12 @@ class ColorInput extends Component {
           value={colorObjToString(color)}
         />
         {showColorPicker && (
-          <div className={s["color-picker"]}>
+          <div
+            className={classnames(
+              s["color-picker"],
+              noSpaceAboveForPicker && s["show-below"]
+            )}
+          >
             <ChromePicker
               color={color}
               onChangeComplete={({ hex, rgb }) => {

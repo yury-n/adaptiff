@@ -40,3 +40,7 @@
   overflow: hidden;
   z-index: 1;
 }
+
+.color-picker.show-below {
+  bottom: -178px;
+}
