@@ -795,7 +795,8 @@ class TheModal extends Component {
       height,
       showIframe: true,
       adaptation,
-      configValues
+      configValues,
+      position: { left: 400, top: 600 }
     });
   };
 

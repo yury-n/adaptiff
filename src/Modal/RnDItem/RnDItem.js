@@ -6,7 +6,7 @@ import { Frame } from "scenejs";
 import "./global.overrides.css";
 import s from "./RnDItem.module.css";
 
-let frame;
+const frames = [];
 
 export default React.forwardRef(function(
   {
@@ -17,7 +17,7 @@ export default React.forwardRef(function(
     className,
     isActive,
     isHighlighted,
-    initialPosition,
+    initialPosition = {},
     lockAspectRatio,
     scale,
     onClick,
@@ -40,11 +40,11 @@ export default React.forwardRef(function(
   const width = initWidth; // initWidth * (scale || 1);
   const height = initHeight; //initHeight * (scale || 1);
   useEffect(() => {
-    frame = new Frame({
+    frames[id] = new Frame({
       width: `${width}px`,
       height: `${height}px`,
-      left: "400px",
-      top: "400px",
+      left: `${initialPosition.left}`,
+      top: `${initialPosition.top}`,
       transform: {
         rotate: "0deg",
         scaleX: 1,
@@ -54,30 +54,33 @@ export default React.forwardRef(function(
     });
   }, []);
   const onDrag = ({ target, top, left }) => {
-    frame.set("left", `${left}px`);
-    frame.set("top", `${top}px`);
+    frames[id].set("left", `${left}px`);
+    frames[id].set("top", `${top}px`);
     setTransform(target);
   };
   const onResize = ({ target, delta, width, height, direction }) => {
-    frame.set("width", `${width}px`);
-    frame.set("height", `${height}px`);
-    const top = parseInt(frame.get("top"));
-    const left = parseInt(frame.get("left"));
-    // if (direction[0] === -1) {
-    //   frame.set("left", `${left - delta[0]}px`);
-    // }
-    // if (direction[1] === -1) {
-    //   frame.set("top", `${top - delta[1]}px`);
-    // }
+    frames[id].set("width", `${width}px`);
+    frames[id].set("height", `${height}px`);
+    const top = parseInt(frames[id].get("top"));
+    const left = parseInt(frames[id].get("left"));
+    const deg = parseFloat(frames[id].get("transform", "rotate"));
+    if (deg === 0) {
+      if (direction[0] === -1) {
+        frames[id].set("left", `${left - delta[0]}px`);
+      }
+      if (direction[1] === -1) {
+        frames[id].set("top", `${top - delta[1]}px`);
+      }
+    }
     setTransform(target);
   };
   const onRotate = ({ target, beforeDelta }) => {
-    const deg = parseFloat(frame.get("transform", "rotate")) + beforeDelta;
-    frame.set("transform", "rotate", `${deg}deg`);
+    const deg = parseFloat(frames[id].get("transform", "rotate")) + beforeDelta;
+    frames[id].set("transform", "rotate", `${deg}deg`);
     setTransform(target);
   };
   const setTransform = target => {
-    target.style.cssText = frame.toCSS();
+    target.style.cssText = frames[id].toCSS();
   };
   return (
     <>
@@ -115,8 +118,8 @@ export default React.forwardRef(function(
         style={{
           width,
           height,
-          left: "400px",
-          top: "400px"
+          left: initialPosition.left,
+          top: initialPosition.top
         }}
         onClick={onClick}
       >
