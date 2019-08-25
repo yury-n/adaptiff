@@ -58,7 +58,7 @@ class TheModal extends Component {
         undefined,
       insertedItems: initState.insertedItems || [
         // {
-        //   id: 1,
+        //   id: 1001,
         //   type: "text",
         //   text: "Sample text",
         //   hasCyrillic: false,
@@ -73,7 +73,7 @@ class TheModal extends Component {
         //   }
         // }
         {
-          id: 2,
+          id: 1002,
           type: "image",
           width: 30,
           height: 29,

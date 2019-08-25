@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classnames from "classnames";
 import Moveable from "react-moveable";
 import { Frame } from "scenejs";
@@ -6,24 +6,13 @@ import { Frame } from "scenejs";
 import "./global.overrides.css";
 import s from "./RnDItem.module.css";
 
-const frame = new Frame({
-  width: "100px",
-  height: "100px",
-  left: "0px",
-  top: "0px",
-  transform: {
-    rotate: "0deg",
-    scaleX: 1,
-    scaleY: 1,
-    matrix3d: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
-  }
-});
+let frame;
 
 export default React.forwardRef(function(
   {
     id,
-    width,
-    height,
+    width: initWidth,
+    height: initHeight,
     children,
     className,
     isActive,
@@ -48,6 +37,22 @@ export default React.forwardRef(function(
       setTargetId(id);
     }
   };
+  const width = initWidth; // initWidth * (scale || 1);
+  const height = initHeight; //initHeight * (scale || 1);
+  useEffect(() => {
+    frame = new Frame({
+      width: `${width}px`,
+      height: `${height}px`,
+      left: "0px",
+      top: "0px",
+      transform: {
+        rotate: "0deg",
+        scaleX: 1,
+        scaleY: 1,
+        matrix3d: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+      }
+    });
+  }, []);
   const onDrag = ({ target, top, left }) => {
     frame.set("left", `${left}px`);
     frame.set("top", `${top}px`);
@@ -70,6 +75,7 @@ export default React.forwardRef(function(
     <>
       {targetId && (
         <Moveable
+          key={`moveable-${id}`}
           target={document.getElementById(targetId)}
           container={document.querySelector(".canvas-wrapper")}
           draggable={true}
@@ -98,7 +104,7 @@ export default React.forwardRef(function(
           isActive && s["active"],
           className
         )}
-        style={{ width: 100, height: 100 }}
+        style={{ width, height }}
         onClick={onClick}
       >
         {React.cloneElement(children, {
