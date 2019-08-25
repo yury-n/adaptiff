@@ -43,8 +43,8 @@ export default React.forwardRef(function(
     frame = new Frame({
       width: `${width}px`,
       height: `${height}px`,
-      left: "0px",
-      top: "0px",
+      left: "400px",
+      top: "400px",
       transform: {
         rotate: "0deg",
         scaleX: 1,
@@ -58,9 +58,17 @@ export default React.forwardRef(function(
     frame.set("top", `${top}px`);
     setTransform(target);
   };
-  const onResize = ({ target, width, height }) => {
+  const onResize = ({ target, delta, width, height, direction }) => {
     frame.set("width", `${width}px`);
     frame.set("height", `${height}px`);
+    const top = parseInt(frame.get("top"));
+    const left = parseInt(frame.get("left"));
+    // if (direction[0] === -1) {
+    //   frame.set("left", `${left - delta[0]}px`);
+    // }
+    // if (direction[1] === -1) {
+    //   frame.set("top", `${top - delta[1]}px`);
+    // }
     setTransform(target);
   };
   const onRotate = ({ target, beforeDelta }) => {
@@ -104,7 +112,12 @@ export default React.forwardRef(function(
           isActive && s["active"],
           className
         )}
-        style={{ width, height }}
+        style={{
+          width,
+          height,
+          left: "400px",
+          top: "400px"
+        }}
         onClick={onClick}
       >
         {React.cloneElement(children, {
