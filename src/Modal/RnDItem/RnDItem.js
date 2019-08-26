@@ -13,6 +13,7 @@ export default React.forwardRef(function(
     id,
     width: initWidth,
     height: initHeight,
+    rotation: initRotation = 0,
     children,
     className,
     isActive,
@@ -20,6 +21,7 @@ export default React.forwardRef(function(
     initialPosition = {},
     lockAspectRatio,
     scale,
+    resizable = true,
     onClick,
     onDragStart,
     onDragEnd,
@@ -37,16 +39,16 @@ export default React.forwardRef(function(
       setTargetId(id);
     }
   };
-  const width = initWidth; // initWidth * (scale || 1);
-  const height = initHeight; //initHeight * (scale || 1);
+  const width = initWidth * (scale || 1);
+  const height = initHeight * (scale || 1);
   useEffect(() => {
     frames[id] = new Frame({
       width: `${width}px`,
       height: `${height}px`,
-      left: `${initialPosition.left}`,
-      top: `${initialPosition.top}`,
+      left: `${initialPosition && initialPosition.left}`,
+      top: `${initialPosition && initialPosition.top}`,
       transform: {
-        rotate: "0deg",
+        rotate: `${initRotation}deg`,
         scaleX: 1,
         scaleY: 1,
         matrix3d: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
@@ -90,7 +92,7 @@ export default React.forwardRef(function(
           target={document.getElementById(targetId)}
           container={document.querySelector(".canvas-wrapper")}
           draggable={true}
-          resizable={isActive}
+          resizable={resizable && isActive}
           rotatable={isActive}
           throttleDrag={1}
           throttleRotate={0.2}
@@ -111,6 +113,7 @@ export default React.forwardRef(function(
       <div
         id={id}
         className={classnames(
+          ["moveable"],
           s["moveable"],
           isActive && s["active"],
           className
@@ -118,8 +121,9 @@ export default React.forwardRef(function(
         style={{
           width,
           height,
-          left: initialPosition.left,
-          top: initialPosition.top
+          left: initialPosition && initialPosition.left,
+          top: initialPosition && initialPosition.top,
+          transform: `rotate(${initRotation}deg)`
         }}
         onClick={onClick}
       >

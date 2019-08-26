@@ -9,7 +9,7 @@ export default React.memo(
     {
       className,
       onDragStart,
-      onDragStop,
+      onDragEnd: onDragStop,
       isActive,
       isHighlighted,
       initialPosition,
