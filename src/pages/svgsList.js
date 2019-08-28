@@ -116,7 +116,7 @@ const svgs = [
     initState: {
       size: { width: 250, height: 250 },
       config: {
-        palette: ["#fefff5", "#d3f0e9"]
+        palette: ["#cce083", "#0882ba"]
       }
     }
   },

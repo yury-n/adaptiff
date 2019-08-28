@@ -1345,25 +1345,41 @@ class TheModal extends Component {
       (insertedItem, index) => {
         const id = insertedItem.id;
         const insertedItemRef = this.insertedItemsRefs[id];
-        const transformValue = insertedItemRef.closest(".moveable").style
-          .transform;
-        const begIndex = transformValue.indexOf("rotate(") + 7;
-        const endIndex = transformValue.indexOf(")", begIndex);
-        const rotateValue = parseInt(transformValue.slice(begIndex, endIndex));
 
-        const insertedItemRect = insertedItemRef.getBoundingClientRect();
-
-        const text = this.insertedItemsRefs[id].innerText;
-        return {
-          text,
-          width: insertedItemRect.width / (scale || 1),
-          height: insertedItemRect.height / (scale || 1),
-          position: {
-            left: (insertedItemRect.left - iframeRect.left) / (scale || 1),
-            top: (insertedItemRect.top - iframeRect.top) / (scale || 1)
-          },
-          rotation: rotateValue
-        };
+        if (insertedItem.type === "text") {
+          const insertedItemRect = insertedItemRef.getBoundingClientRect();
+          const text = this.insertedItemsRefs[id].innerText;
+          return {
+            text,
+            width: insertedItemRect.width / (scale || 1),
+            height: insertedItemRect.height / (scale || 1),
+            position: {
+              left: (insertedItemRect.left - iframeRect.left) / (scale || 1),
+              top: (insertedItemRect.top - iframeRect.top) / (scale || 1)
+            }
+          };
+        } else {
+          const moveable = insertedItemRef.closest(".moveable");
+          const transformValue = moveable.style.transform;
+          const begIndex = transformValue.indexOf("rotate(") + 7;
+          const endIndex = transformValue.indexOf(")", begIndex);
+          const rotateValue = parseInt(
+            transformValue.slice(begIndex, endIndex)
+          );
+          const width = parseInt(moveable.style.width);
+          const height = parseInt(moveable.style.height);
+          const left = parseInt(moveable.style.left);
+          const top = parseInt(moveable.style.top);
+          return {
+            width: width / (scale || 1),
+            height: height / (scale || 1),
+            position: {
+              left: left / (scale || 1),
+              top: top / (scale || 1)
+            },
+            rotation: rotateValue
+          };
+        }
       }
     );
     this.setState({ captureConfig, isPreparingDownload: true });
