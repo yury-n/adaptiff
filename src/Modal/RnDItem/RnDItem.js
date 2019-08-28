@@ -54,7 +54,7 @@ export default React.forwardRef(function(
         matrix3d: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
       }
     });
-  }, []);
+  }, [initWidth, initHeight, scale]);
   const onDrag = ({ target, top, left }) => {
     frames[id].set("left", `${left}px`);
     frames[id].set("top", `${top}px`);
