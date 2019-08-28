@@ -167,14 +167,14 @@ class TheModal extends Component {
       window
         .html2canvas(this.captureFrameRef.current, { scale: 2 })
         .then(canvas => {
-          var imageDataURL = canvas.toDataURL("image/png");
-          downloadFromDataURL("download.png", imageDataURL);
-          this.setState({
-            captureConfig: null,
-            capturedIframe: null,
-            hasSentDownloadRequests: false,
-            isPreparingDownload: false
-          });
+          // var imageDataURL = canvas.toDataURL("image/png");
+          // downloadFromDataURL("download.png", imageDataURL);
+          // this.setState({
+          //   captureConfig: null,
+          //   capturedIframe: null,
+          //   hasSentDownloadRequests: false,
+          //   isPreparingDownload: false
+          // });
         });
     }
     if (this.state.canvasWidth !== prevState.canvasWidth) {
@@ -1341,6 +1341,7 @@ class TheModal extends Component {
   download = () => {
     const scale = this.getScaleToFullyFit();
     const iframeRect = this.iframeRef.current.getBoundingClientRect();
+    const canvasWrapperRect = this.canvasWrapperRef.current.getBoundingClientRect();
     const captureConfig = this.state.insertedItems.map(
       (insertedItem, index) => {
         const id = insertedItem.id;
@@ -1374,8 +1375,11 @@ class TheModal extends Component {
             width: width / (scale || 1),
             height: height / (scale || 1),
             position: {
-              left: left / (scale || 1),
-              top: top / (scale || 1)
+              left:
+                (left - (iframeRect.left - canvasWrapperRect.left)) /
+                (scale || 1),
+              top:
+                (top - (iframeRect.top - canvasWrapperRect.top)) / (scale || 1)
             },
             rotation: rotateValue
           };

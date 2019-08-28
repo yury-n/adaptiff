@@ -206,6 +206,9 @@
   top: -1000000;
   left: 0;
   z-index: 10000000;
+
+  top: -200px;
+  transform: scale(0.2);
 }
 
 .captured-background {
