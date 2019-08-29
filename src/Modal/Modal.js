@@ -190,6 +190,22 @@ class TheModal extends Component {
     ) {
       this.setPaddingOverlayDims();
     }
+    if (
+      prevState.canvasWidth &&
+      (this.state.canvasWidth !== prevState.canvasWidth ||
+        this.state.canvasHeight !== prevState.canvasHeight)
+    ) {
+      const updatedInsertedItems = [...this.state.insertedItems].map(
+        insertedItem => ({
+          ...insertedItem,
+          position: {
+            left: this.state.canvasWidth / 2,
+            top: this.state.canvasHeight / 2
+          }
+        })
+      );
+      this.setState({ insertedItems: updatedInsertedItems });
+    }
   }
   render() {
     const {
@@ -786,9 +802,8 @@ class TheModal extends Component {
           ? initState.config[config.key]
           : config.defaultValue;
     });
-    const scale = this.getScaleToFullyFit();
-    let width = Math.round(canvasWidth * scale * 0.5);
-    let height = Math.round(canvasHeight * scale * 0.5);
+    let width = Math.round(canvasWidth * 0.5);
+    let height = Math.round(canvasHeight * 0.5);
 
     if (adaptation.aspectRatio) {
       if (adaptation.aspectRatio > 1) {
@@ -808,7 +823,7 @@ class TheModal extends Component {
       showIframe: true,
       adaptation,
       configValues,
-      position: { left: 400, top: 600 }
+      position: { left: canvasWidth / 2, top: canvasHeight / 2 }
     });
   };
 

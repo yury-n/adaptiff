@@ -10,7 +10,7 @@
 .moveable {
   position: absolute;
   cursor: move;
-  z-index: 1000;
+  z-index: 1000; /* moveable */
 }
 .moveable:after,
 .moveable:before {

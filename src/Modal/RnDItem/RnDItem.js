@@ -41,12 +41,14 @@ export default React.forwardRef(function(
   };
   const width = initWidth * (scale || 1);
   const height = initHeight * (scale || 1);
+  const initLeft = initialPosition ? initialPosition.left : 0;
+  const initTop = initialPosition ? initialPosition.top : 0;
   useEffect(() => {
     frames[id] = new Frame({
-      width: `${width}px`,
-      height: `${height}px`,
-      left: `${initialPosition && initialPosition.left}`,
-      top: `${initialPosition && initialPosition.top}`,
+      width: `${initWidth * (scale || 1)}px`,
+      height: `${initHeight * (scale || 1)}px`,
+      left: initLeft,
+      top: initTop,
       transform: {
         rotate: `${initRotation}deg`,
         scaleX: 1,
@@ -54,7 +56,9 @@ export default React.forwardRef(function(
         matrix3d: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
       }
     });
-  }, [initWidth, initHeight, scale]);
+    console.log({ scale });
+    console.log("re-init frame", frames[id]);
+  }, [initWidth, initHeight, scale, initialPosition]);
   const onDrag = ({ target, top, left }) => {
     frames[id].set("left", `${left}px`);
     frames[id].set("top", `${top}px`);
@@ -88,7 +92,7 @@ export default React.forwardRef(function(
     <>
       {targetId && (
         <Moveable
-          key={`moveable-${id}`}
+          key={`moveable-${id}-${width}-${height}-${initLeft}-${initTop}`}
           target={document.getElementById(targetId)}
           container={document.querySelector(".canvas-wrapper")}
           draggable={true}

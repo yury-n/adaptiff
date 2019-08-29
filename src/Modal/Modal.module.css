@@ -295,11 +295,19 @@
   width: 100%;
 }
 
+.modal-right-sidebar {
+  overflow: auto;
+}
+
 .config-container {
   padding: 30px;
   padding-top: 0;
   padding-bottom: 0;
   overflow: visible;
+
+  /* override below tab zone */
+  position: static;
+  margin-top: 105px;
 }
 
 .config-container > *:last-child {
