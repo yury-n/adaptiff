@@ -58,7 +58,7 @@ export default React.forwardRef(function(
     });
     console.log({ scale });
     console.log("re-init frame", frames[id]);
-  }, [initWidth, initHeight, scale, initialPosition]);
+  }, [initWidth, initHeight, scale]);
   const onDrag = ({ target, top, left }) => {
     frames[id].set("left", `${left}px`);
     frames[id].set("top", `${top}px`);

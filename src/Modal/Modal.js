@@ -661,6 +661,7 @@ class TheModal extends Component {
           const updatedInsertedItems = [...insertedItems];
           updatedInsertedItems[objectIndex] = {
             ...updatedInsertedItems[objectIndex],
+            ...this.getCaptureConfig(insertedItems[objectIndex]),
             capturedIframe: event.data.image,
             showIframe: false
           };
@@ -1353,10 +1354,37 @@ class TheModal extends Component {
     });
   };
 
-  download = () => {
+  getCaptureConfig = insertedItem => {
     const scale = this.getScaleToFullyFit();
     const iframeRect = this.iframeRef.current.getBoundingClientRect();
     const canvasWrapperRect = this.canvasWrapperRef.current.getBoundingClientRect();
+
+    const id = insertedItem.id;
+    const insertedItemRef = this.insertedItemsRefs[id];
+    const moveable = insertedItemRef.closest(".moveable");
+    const transformValue = moveable.style.transform;
+    const begIndex = transformValue.indexOf("rotate(") + 7;
+    const endIndex = transformValue.indexOf(")", begIndex);
+    const rotateValue = parseInt(transformValue.slice(begIndex, endIndex));
+    const width = parseInt(moveable.style.width);
+    const height = parseInt(moveable.style.height);
+    const left = parseInt(moveable.style.left);
+    const top = parseInt(moveable.style.top);
+    return {
+      width: width / (scale || 1),
+      height: height / (scale || 1),
+      position: {
+        left:
+          (left - (iframeRect.left - canvasWrapperRect.left)) / (scale || 1),
+        top: (top - (iframeRect.top - canvasWrapperRect.top)) / (scale || 1)
+      },
+      rotation: rotateValue
+    };
+  };
+
+  download = () => {
+    const scale = this.getScaleToFullyFit();
+    const iframeRect = this.iframeRef.current.getBoundingClientRect();
     const captureConfig = this.state.insertedItems.map(
       (insertedItem, index) => {
         const id = insertedItem.id;
@@ -1375,29 +1403,7 @@ class TheModal extends Component {
             }
           };
         } else {
-          const moveable = insertedItemRef.closest(".moveable");
-          const transformValue = moveable.style.transform;
-          const begIndex = transformValue.indexOf("rotate(") + 7;
-          const endIndex = transformValue.indexOf(")", begIndex);
-          const rotateValue = parseInt(
-            transformValue.slice(begIndex, endIndex)
-          );
-          const width = parseInt(moveable.style.width);
-          const height = parseInt(moveable.style.height);
-          const left = parseInt(moveable.style.left);
-          const top = parseInt(moveable.style.top);
-          return {
-            width: width / (scale || 1),
-            height: height / (scale || 1),
-            position: {
-              left:
-                (left - (iframeRect.left - canvasWrapperRect.left)) /
-                (scale || 1),
-              top:
-                (top - (iframeRect.top - canvasWrapperRect.top)) / (scale || 1)
-            },
-            rotation: rotateValue
-          };
+          return this.getCaptureConfig(insertedItem);
         }
       }
     );
