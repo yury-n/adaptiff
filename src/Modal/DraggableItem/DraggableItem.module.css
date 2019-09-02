@@ -10,13 +10,15 @@
   z-index: 1000; /* to align with moveable */
 }
 
-.root.with-outer-frame:hover,
-.root.with-outer-frame.active {
+.root.with-outer-frame.active,
+:global(.canvas-wrapper:not(.is-dragging-inserted-item))
+  .root.with-outer-frame:hover {
   border: 1px black dotted;
   padding: 8px;
 }
-.root.with-outer-frame:hover:before,
-.root.with-outer-frame.active:before {
+.root.with-outer-frame.active:before,
+:global(.canvas-wrapper:not(.is-dragging-inserted-item))
+  .root.with-outer-frame:hover:before {
   content: "";
   display: block;
   position: absolute;
@@ -56,14 +58,16 @@
 .root.highlighted,
 .root.active .content-inner-wrapper,
 .root.highlighted .content-inner-wrapper,
-.root:hover,
-.root:hover .content-inner-wrapper {
+:global(.canvas-wrapper:not(.is-dragging-inserted-item)) .root:hover,
+:global(.canvas-wrapper:not(.is-dragging-inserted-item))
+  .root:hover
+  .content-inner-wrapper {
   border-color: black;
 }
 
 .root.active .content,
 .root.highlighted .content,
-.root:hover .content {
+:global(.canvas-wrapper:not(.is-dragging-inserted-item)) .root:hover .content {
   border-color: white;
 }
 

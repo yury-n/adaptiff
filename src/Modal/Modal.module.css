@@ -42,6 +42,7 @@
   position: absolute;
   width: 24px;
   height: 84px;
+  margin-top: -42px;
   right: -12px;
   z-index: 100000;
   top: 50%;
@@ -296,7 +297,8 @@
 }
 
 .modal-right-sidebar {
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .config-container {

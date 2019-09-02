@@ -709,11 +709,15 @@ class TheModal extends Component {
 
   onDragStart = () => {
     this.isDraggingInsertedItem = true;
+    this.canvasWrapperRef.current.classList.add("is-dragging-inserted-item");
   };
 
   onDragEnd = () => {
     setTimeout(() => {
       this.isDraggingInsertedItem = false;
+      this.canvasWrapperRef.current.classList.remove(
+        "is-dragging-inserted-item"
+      );
     }, 100); // prevent onModalRightSideClick
   };
 
