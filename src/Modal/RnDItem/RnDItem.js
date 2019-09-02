@@ -58,7 +58,7 @@ export default React.forwardRef(function(
     });
     console.log({ scale });
     console.log("re-init frame", frames[id]);
-  }, [initWidth, initHeight, scale]);
+  }, [initWidth, initHeight, scale, initialPosition]);
   const onDrag = ({ target, top, left }) => {
     frames[id].set("left", `${left}px`);
     frames[id].set("top", `${top}px`);
@@ -70,7 +70,10 @@ export default React.forwardRef(function(
     const top = parseInt(frames[id].get("top"));
     const left = parseInt(frames[id].get("left"));
     const deg = parseFloat(frames[id].get("transform", "rotate"));
+    console.log({ left, top, deg });
     if (deg === 0) {
+      frames[id].set("left", `${left}px`);
+      frames[id].set("top", `${top}px`);
       if (direction[0] === -1) {
         frames[id].set("left", `${left - delta[0]}px`);
       }
