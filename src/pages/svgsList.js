@@ -450,6 +450,16 @@ const svgs = [
       size: { width: 1000, height: 1000 },
       config: {}
     }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/40.png",
+    fileName: "svgs/41",
+    aspectRatio: 182 / 128,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {}
+    }
   }
 ];
 
@@ -461,7 +471,7 @@ export const orderedSvgs = [0, 1, 2, 9, 3, 4, 5, 6, 7, 8].map(
 
 export const basicSvgs = [0, 2, 9, 10, 11, 12, 13].map(index => svgs[index]);
 
-export const paintWorkSvgs = [1, 3, 4, 25, 26, 27, 28, 29, 30, 31, 32].map(
+export const paintWorkSvgs = [41, 1, 3, 4, 25, 26, 27, 28, 29, 30, 31, 32].map(
   index => svgs[index]
 );
 

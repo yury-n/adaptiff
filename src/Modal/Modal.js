@@ -167,14 +167,14 @@ class TheModal extends Component {
       window
         .html2canvas(this.captureFrameRef.current, { scale: 2 })
         .then(canvas => {
-          // var imageDataURL = canvas.toDataURL("image/png");
-          // downloadFromDataURL("download.png", imageDataURL);
-          // this.setState({
-          //   captureConfig: null,
-          //   capturedIframe: null,
-          //   hasSentDownloadRequests: false,
-          //   isPreparingDownload: false
-          // });
+          var imageDataURL = canvas.toDataURL("image/png");
+          downloadFromDataURL("download.png", imageDataURL);
+          this.setState({
+            captureConfig: null,
+            capturedIframe: null,
+            hasSentDownloadRequests: false,
+            isPreparingDownload: false
+          });
         });
     }
     if (this.state.canvasWidth !== prevState.canvasWidth) {
@@ -518,7 +518,6 @@ class TheModal extends Component {
                 : {
                     ...insertedItem,
                     text: captureConfig[index].text,
-                    rotation: captureConfig[index].rotation,
                     scale: 1
                   },
               index
@@ -551,6 +550,7 @@ class TheModal extends Component {
       onRotateStart: this.onRotateStart,
       onRotateEnd: this.onRotateEnd,
       ref: refCallback,
+      rotation: insertedItem.rotation,
       initialPosition:
         insertedItem.position &&
         this.makePositionRelativeToEditContainer(insertedItem.position)
@@ -1374,7 +1374,7 @@ class TheModal extends Component {
     const height = parseInt(moveable.style.height);
     const left = parseInt(moveable.style.left);
     const top = parseInt(moveable.style.top);
-    return {
+    const captureConfig = {
       width: width / (scale || 1),
       height: height / (scale || 1),
       position: {
@@ -1384,6 +1384,8 @@ class TheModal extends Component {
       },
       rotation: rotateValue
     };
+    console.log({ captureConfig });
+    return captureConfig;
   };
 
   download = () => {

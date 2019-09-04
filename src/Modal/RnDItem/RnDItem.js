@@ -43,6 +43,7 @@ export default React.forwardRef(function(
   const height = initHeight * (scale || 1);
   const initLeft = initialPosition ? initialPosition.left : 0;
   const initTop = initialPosition ? initialPosition.top : 0;
+  console.log({ initRotation });
   useEffect(() => {
     frames[id] = new Frame({
       width: `${initWidth * (scale || 1)}px`,
@@ -58,10 +59,12 @@ export default React.forwardRef(function(
     });
     console.log({ scale });
     console.log("re-init frame", frames[id]);
-  }, [initWidth, initHeight, scale, initialPosition]);
+  }, [initWidth, initHeight, scale, initRotation, initialPosition]);
   const onDrag = ({ target, top, left }) => {
     frames[id].set("left", `${left}px`);
     frames[id].set("top", `${top}px`);
+    const deg = parseFloat(frames[id].get("transform", "rotate"));
+    frames[id].set("transform", "rotate", `${deg}deg`);
     setTransform(target);
   };
   const onResize = ({ target, delta, width, height, direction }) => {
@@ -86,6 +89,10 @@ export default React.forwardRef(function(
   const onRotate = ({ target, beforeDelta }) => {
     const deg = parseFloat(frames[id].get("transform", "rotate")) + beforeDelta;
     frames[id].set("transform", "rotate", `${deg}deg`);
+    const top = parseInt(frames[id].get("top"));
+    const left = parseInt(frames[id].get("left"));
+    frames[id].set("left", `${left}px`);
+    frames[id].set("top", `${top}px`);
     setTransform(target);
   };
   const setTransform = target => {
