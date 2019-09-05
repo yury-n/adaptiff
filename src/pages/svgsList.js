@@ -452,13 +452,29 @@ const svgs = [
     }
   },
   {
-    ...svgWithGradient,
-    thumb: "/thumbs/svgs/40.png",
+    ...svgWithSolidColor,
+    thumb: "/thumbs/svgs/41.svg",
     fileName: "svgs/41",
+    thumbBackgroundSize: "80%",
     aspectRatio: 182 / 128,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {}
+      config: {
+        color: "#ff9d43"
+      }
+    }
+  },
+  {
+    ...svgWithSolidColor,
+    thumb: "/thumbs/svgs/42.svg",
+    fileName: "svgs/42",
+    thumbBackgroundSize: "80%",
+    aspectRatio: 96 / 113,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        color: "#d6d6d6"
+      }
     }
   }
 ];
@@ -471,9 +487,11 @@ export const orderedSvgs = [0, 1, 2, 9, 3, 4, 5, 6, 7, 8].map(
 
 export const basicSvgs = [0, 2, 9, 10, 11, 12, 13].map(index => svgs[index]);
 
-export const paintWorkSvgs = [41, 1, 3, 4, 25, 26, 27, 28, 29, 30, 31, 32].map(
+export const paintWorkSvgs = [1, 3, 4, 25, 26, 27, 28, 29, 30, 31, 32].map(
   index => svgs[index]
 );
+
+export const paintedShapes = [41, 42].map(index => svgs[index]);
 
 export const childishDreamsSvgs = [
   5,
