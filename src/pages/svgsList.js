@@ -528,6 +528,32 @@ const svgs = [
         color: "#aed1cd"
       }
     }
+  },
+  {
+    ...svgWithSolidColor,
+    thumb: "/thumbs/svgs/47.svg",
+    fileName: "svgs/47",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 158 / 176,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        color: "#000"
+      }
+    }
+  },
+  {
+    ...svgWithSolidColor,
+    thumb: "/thumbs/svgs/48.svg",
+    fileName: "svgs/48",
+    thumbBackgroundSize: "50%",
+    aspectRatio: 53 / 116,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        color: "#000"
+      }
+    }
   }
 ];
 
@@ -543,7 +569,9 @@ export const paintWorkSvgs = [1, 3, 4, 25, 26, 27, 28, 29, 30, 31, 32].map(
   index => svgs[index]
 );
 
-export const paintedShapes = [41, 42, 43, 44, 45, 46].map(index => svgs[index]);
+export const paintedShapes = [41, 42, 43, 44, 45, 46, 47, 48].map(
+  index => svgs[index]
+);
 
 export const childishDreamsSvgs = [
   5,
