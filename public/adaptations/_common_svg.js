@@ -23,8 +23,8 @@ function aff_render(config) {
 }
 function aff_download() {
   var canvas = document.createElement("canvas");
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth * 2;
+  canvas.height = window.innerHeight * 2;
   var svg = document.getElementById("svg");
   var ctx = canvas.getContext("2d");
   var data = new XMLSerializer().serializeToString(svg);
@@ -37,7 +37,7 @@ function aff_download() {
   var url = DOMURL.createObjectURL(svgBlob);
 
   img.onload = function() {
-    ctx.drawImage(img, 0, 0, window.innerWidth, window.innerHeight);
+    ctx.drawImage(img, 0, 0, window.innerWidth * 2, window.innerHeight * 2);
     DOMURL.revokeObjectURL(url);
 
     var imgURI = canvas
