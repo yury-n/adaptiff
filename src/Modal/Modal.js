@@ -243,7 +243,7 @@ class TheModal extends Component {
         open
         closeIcon={withCloseButton}
         closeOnDimmerClick={false}
-        onClose={this.props.onClose}
+        onClose={this.onClose}
         className={s["the-modal"]}
       >
         <Modal.Content className="modal-content">
@@ -841,6 +841,9 @@ class TheModal extends Component {
       ],
       activeInsertedItemIndex: insertedItems.length
     });
+    window.onbeforeunload = function() {
+      return true;
+    };
   };
 
   setActiveInsertedItemIndex = index => {
@@ -1329,6 +1332,11 @@ class TheModal extends Component {
     if (this.ctrlDown && e.keyCode === vKey) {
       this.pasteActiveInsertedItem();
     }
+  };
+
+  onClose = () => {
+    window.onbeforeunload = null;
+    this.props.onClose();
   };
 
   copyActiveInsertedItem = () => {
