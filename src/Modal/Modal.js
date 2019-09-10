@@ -841,9 +841,11 @@ class TheModal extends Component {
       ],
       activeInsertedItemIndex: insertedItems.length
     });
-    window.onbeforeunload = function() {
-      return true;
-    };
+    if (!window.location.href.includes("localhost")) {
+      window.onbeforeunload = function() {
+        return true;
+      };
+    }
   };
 
   setActiveInsertedItemIndex = index => {

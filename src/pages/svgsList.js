@@ -593,6 +593,19 @@ const svgs = [
         color: "#000"
       }
     }
+  },
+  {
+    ...svgWithSolidColor,
+    thumb: "/thumbs/svgs/52.svg",
+    fileName: "svgs/52",
+    thumbBackgroundSize: "50%",
+    aspectRatio: 13 / 13,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        color: "#000"
+      }
+    }
   }
 ];
 
@@ -602,7 +615,9 @@ export const orderedSvgs = [0, 1, 2, 9, 3, 4, 5, 6, 7, 8].map(
   index => svgs[index]
 );
 
-export const basicSvgs = [0, 2, 9, 10, 11, 12, 13].map(index => svgs[index]);
+export const basicSvgs = [0, 2, 52, 9, 10, 11, 12, 13].map(
+  index => svgs[index]
+);
 
 export const paintWorkSvgs = [1, 3, 4, 25, 26, 27, 28, 29, 30, 31, 32].map(
   index => svgs[index]
