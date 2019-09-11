@@ -595,15 +595,14 @@ const svgs = [
     }
   },
   {
-    ...svgWithSolidColor,
+    ...svgWithGradient,
     thumb: "/thumbs/svgs/52.svg",
     fileName: "svgs/52",
-    thumbBackgroundSize: "50%",
     aspectRatio: 13 / 13,
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
-        color: "#000"
+        palette: ["#ff8fdd", "#edea9c"]
       }
     }
   }
