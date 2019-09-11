@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import classnames from "classnames";
 import Moveable from "react-moveable";
 import { Frame } from "scenejs";
@@ -33,6 +33,7 @@ export default React.forwardRef(function(
   ref
 ) {
   const [targetId, setTargetId] = useState(null);
+  const nodeWrapperRef = useRef();
   const refCallback = node => {
     if (node) {
       ref(node);
@@ -43,7 +44,6 @@ export default React.forwardRef(function(
   const height = initHeight * (scale || 1);
   const initLeft = initialPosition ? initialPosition.left : 0;
   const initTop = initialPosition ? initialPosition.top : 0;
-  console.log({ initRotation });
   useEffect(() => {
     frames[id] = new Frame({
       width: `${initWidth * (scale || 1)}px`,
@@ -57,9 +57,13 @@ export default React.forwardRef(function(
         matrix3d: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
       }
     });
-    console.log({ scale });
-    console.log("re-init frame", frames[id]);
   }, [initWidth, initHeight, scale, initRotation, initialPosition]);
+  useEffect(() => {
+    nodeWrapperRef.current.addEventListener("wheel", onWheel);
+    return () => {
+      nodeWrapperRef.current.removeEventListener("wheel", onWheel);
+    };
+  }, []);
   const onDrag = ({ target, top, left }) => {
     frames[id].set("left", `${left}px`);
     frames[id].set("top", `${top}px`);
@@ -73,7 +77,6 @@ export default React.forwardRef(function(
     const top = parseInt(frames[id].get("top"));
     const left = parseInt(frames[id].get("left"));
     const deg = parseFloat(frames[id].get("transform", "rotate"));
-    console.log({ left, top, deg });
     if (deg === 0) {
       frames[id].set("left", `${left}px`);
       frames[id].set("top", `${top}px`);
@@ -93,7 +96,19 @@ export default React.forwardRef(function(
     const left = parseInt(frames[id].get("left"));
     frames[id].set("left", `${left}px`);
     frames[id].set("top", `${top}px`);
+    console.log("target", target);
     setTransform(target);
+  };
+  const onWheel = event => {
+    event.preventDefault();
+    const deg =
+      parseFloat(frames[id].get("transform", "rotate")) - event.deltaY;
+    frames[id].set("transform", "rotate", `${deg}deg`);
+    const top = parseInt(frames[id].get("top"));
+    const left = parseInt(frames[id].get("left"));
+    frames[id].set("left", `${left}px`);
+    frames[id].set("top", `${top}px`);
+    setTransform(nodeWrapperRef.current);
   };
   const setTransform = target => {
     target.style.cssText = frames[id].toCSS();
@@ -140,6 +155,7 @@ export default React.forwardRef(function(
           transform: `rotate(${initRotation}deg)`
         }}
         onClick={onClick}
+        ref={nodeWrapperRef}
       >
         {React.cloneElement(children, {
           ref: refCallback

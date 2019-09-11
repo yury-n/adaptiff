@@ -605,6 +605,19 @@ const svgs = [
         palette: ["#ff8fdd", "#edea9c"]
       }
     }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/53.svg",
+    fileName: "svgs/53",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 302 / 146,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#ff8fdd", "#edea9c"]
+      }
+    }
   }
 ];
 
@@ -614,7 +627,7 @@ export const orderedSvgs = [0, 1, 2, 9, 3, 4, 5, 6, 7, 8].map(
   index => svgs[index]
 );
 
-export const basicSvgs = [0, 2, 52, 9, 10, 11, 12, 13].map(
+export const basicSvgs = [0, 2, 52, 9, 10, 11, 53, 12, 13].map(
   index => svgs[index]
 );
 

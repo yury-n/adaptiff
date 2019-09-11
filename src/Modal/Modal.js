@@ -762,7 +762,6 @@ class TheModal extends Component {
   insertText = () => {
     const { insertedItems } = this.state;
     const scale = this.getScaleToFullyFit();
-    console.log({ scale });
     const lastinsertedItem = insertedItems[insertedItems.length - 1] || {};
     const defaultConfig = {
       fontFamily: "Roboto",
@@ -817,10 +816,6 @@ class TheModal extends Component {
         width = Math.round(height * adaptation.aspectRatio);
       }
     }
-    console.log({
-      width,
-      height
-    });
     this.insertItem({
       type: "object",
       width,
@@ -889,7 +884,9 @@ class TheModal extends Component {
 
   removeActiveInsertedItem = () => {
     const { activeInsertedItemIndex } = this.state;
-    this.removeInsertedItem(activeInsertedItemIndex);
+    if (activeInsertedItemIndex !== null) {
+      this.removeInsertedItem(activeInsertedItemIndex);
+    }
   };
 
   removeInsertedItem = insertedItemIndex => {

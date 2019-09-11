@@ -2604,6 +2604,31 @@ export const allAdaptations = [
         }
       ]
     }
+  },
+  // 70
+  {
+    ...linearGradient,
+    initState: {
+      size: { width: 1080, height: 1080 },
+      config: {
+        palette: ["#ffffff", "#efffff"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 458.5004868549172,
+          height: 539.4741966893865,
+          showIframe: true,
+          adaptation: svgs[42],
+          configValues: { color: "#d6d6d6" },
+          position: { left: 399.61051606621226, top: -234.50827653359298 },
+          id: 102,
+          rotation: 188
+        }
+      ]
+    }
   }
   // { ...cells },
   // { ...fog },
