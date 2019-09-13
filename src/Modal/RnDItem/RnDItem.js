@@ -64,6 +64,20 @@ export default React.forwardRef(function(
       nodeWrapperRef.current.removeEventListener("wheel", onWheel);
     };
   }, []);
+  useEffect(() => {
+    if (isActive) {
+      const moveableControl = window.document.querySelector(
+        ".moveable-control"
+      );
+      if (moveableControl) {
+        moveableControl.setAttribute("aria-label", "Rotate (Cmd + Scroll)");
+        moveableControl.setAttribute("data-balloon-pos", "up");
+      }
+    }
+  }, [isActive]);
+  /*
+  aria-label="Whats up!" data-balloon-pos="up"
+  */
   const onDrag = ({ target, top, left }) => {
     frames[id].set("left", `${left}px`);
     frames[id].set("top", `${top}px`);
