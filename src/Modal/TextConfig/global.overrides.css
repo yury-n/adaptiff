@@ -2,3 +2,10 @@
   box-shadow: none;
   background: #cccccc2e;
 }
+
+.ui.dropdown > .text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}

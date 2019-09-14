@@ -1,5 +1,6 @@
 export const gradientPalettes = [
   ["#edf746", "#53c5fb"],
+  // ["#f3bae3", "#9cbaed", "#000"],
   ["#f3bae3", "#9cbaed"],
   ["#ea68a6", "#fcd3b3"],
   ["#fedfe7", "#e9e5f4"],

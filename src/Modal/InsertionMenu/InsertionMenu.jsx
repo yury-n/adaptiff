@@ -49,7 +49,7 @@ export default React.memo(
     const renderObjectsTab = () => (
       <>
         <ObjectPack
-          name="Painted Shapes"
+          name="Weird Painted Shapes"
           objects={paintedShapes}
           onInsertObject={onInsertObject}
         />

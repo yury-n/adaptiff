@@ -21,9 +21,6 @@ const altKey = 18;
 const cmdKey = 91;
 
 const onKeyDown = e => {
-  if (e.target.tagName === "INPUT") {
-    return;
-  }
   if (e.keyCode === ctrlKey || e.keyCode === cmdKey) {
     ctrlKeyDown = true;
   }
@@ -168,7 +165,7 @@ export default React.memo(
         if (ctrlKeyDown) {
           const deg =
             parseFloat(currentFrame.get("transform", "rotate")) -
-            event.deltaY / 2;
+            event.deltaY / 3;
           currentFrame.set("transform", "rotate", `${deg}deg`);
           const top = parseInt(currentFrame.get("top"));
           const left = parseInt(currentFrame.get("left"));
@@ -179,7 +176,7 @@ export default React.memo(
           const origWidth = parseInt(currentFrame.get("width"));
           const origHeight = parseInt(currentFrame.get("height"));
           const ratio = origWidth / origHeight;
-          const width = parseInt(currentFrame.get("width")) - event.deltaY / 2;
+          const width = parseInt(currentFrame.get("width")) - event.deltaY / 3;
           const height = width / ratio;
           currentFrame.set("width", `${width}px`);
           currentFrame.set("height", `${height}px`);

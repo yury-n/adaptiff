@@ -2608,6 +2608,8 @@ export const allAdaptations = [
   // 70
   {
     ...linearGradient,
+    title: "painted shapes",
+    thumb: "/thumbs/70.png",
     initState: {
       size: { width: 1080, height: 1080 },
       config: {
@@ -2618,98 +2620,192 @@ export const allAdaptations = [
       insertedItems: [
         {
           type: "object",
-          width: 622,
-          height: 408,
+          width: 621.1764705882354,
+          height: 407.64705882352945,
           showIframe: true,
           adaptation: svgs[41],
           configValues: { color: "#f8c6c5" },
-          position: { left: 710, top: 89.5 },
-          id: 102,
+          position: { left: 709.4117647058823, top: 88.23529411764706 },
+          id: 302,
           rotation: -368
         },
         {
           type: "object",
-          width: 876,
-          height: 492,
+          width: 875.2941176470589,
+          height: 490.5882352941177,
           showIframe: true,
           adaptation: svgs[46],
           configValues: { color: "#c5dda9" },
-          position: { left: 291, top: -217.5 },
-          id: 103,
+          position: { left: 289.4117647058824, top: -217.05882352941177 },
+          id: 303,
           rotation: 179
         },
         {
           type: "object",
-          width: 292,
-          height: 172,
+          width: 291.1764705882353,
+          height: 171.1764705882353,
           showIframe: true,
           adaptation: svgs[45],
           configValues: { color: "#ffffff" },
-          position: { left: 572, top: -105.5 },
-          id: 104,
+          position: { left: 571.7647058823529, top: -104.11764705882354 },
+          id: 304,
           rotation: 26
         },
         {
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Oswald",
+            fontSize: 60,
+            padding: 34,
+            letterSpacing: 0,
+            color: "#1d1d1d",
+            backgroundColor: { r: 238, g: 233, b: 214, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          id: 202,
+          width: 928.1801470588235,
+          height: 138.58455882352942,
+          position: { left: 88.86948529411765, top: 841.40625 },
+          text: "Design your every day with art you love."
+        },
+        {
           type: "object",
-          width: 484,
-          height: 319,
+          width: 483.5294117647059,
+          height: 317.6470588235294,
           showIframe: true,
           adaptation: svgs[46],
           configValues: { color: "#ffffff" },
-          position: { left: -159, top: 306.5 },
-          id: 105,
+          position: { left: -158.8235294117647, top: 305.29411764705884 },
+          id: 305,
           rotation: -323
         },
         {
           type: "object",
-          width: 579,
+          width: 578.8235294117648,
           height: 660,
           showIframe: true,
           adaptation: svgs[42],
           configValues: { color: "#fccf3d" },
-          position: { left: -238, top: -208.5 },
-          id: 202,
+          position: { left: -236.47058823529412, top: -208.23529411764707 },
+          id: 402,
           rotation: 0
         },
         {
           type: "object",
-          width: 247,
+          width: 245.29411764705884,
           height: 540,
           showIframe: true,
           adaptation: svgs[48],
           configValues: { color: "#398368" },
-          position: { left: -153, top: -101.5 },
-          id: 106,
+          position: { left: -151.76470588235296, top: -100.58823529411765 },
+          id: 306,
           rotation: 0
         },
         {
           type: "object",
-          width: 36,
+          width: 35.294117647058826,
           height: 30,
           showIframe: true,
           adaptation: svgs[50],
           configValues: { color: "#398368" },
-          position: { left: 217, top: 552.5 },
-          id: 107,
+          position: { left: 215.29411764705884, top: 552.3529411764706 },
+          id: 307,
           rotation: 0
         },
         {
           type: "object",
-          width: 15,
-          height: 15,
+          width: 14.117647058823529,
+          height: 14.117647058823529,
           showIframe: true,
           adaptation: svgs[51],
           configValues: { color: "#398368" },
-          position: { left: 200, top: 593.5 },
-          id: 108,
+          position: { left: 199.41176470588235, top: 592.9411764705883 },
+          id: 308,
+          rotation: 0
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Oswald",
+            fontSize: 39,
+            padding: 20,
+            letterSpacing: 0,
+            color: "#000000",
+            backgroundColor: { r: 238, g: 233, b: 214, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          id: 204,
+          width: 195.52389705882354,
+          height: 85.86397058823529,
+          position: { left: 466.81985294117646, top: 345.88235294117646 },
+          text: "Inspired by"
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          config: {
+            fontFamily: "Fira Sans Extra Condensed",
+            fontSize: 100,
+            padding: 20,
+            letterSpacing: 0,
+            color: "#127e56",
+            backgroundColor: { r: 238, g: 233, b: 214, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true,
+            isItalic: true,
+            isBold: true
+          },
+          id: 102,
+          width: 354.1544117647059,
+          height: 158.21691176470588,
+          position: { left: 381.1764705882353, top: 492.3529411764706 },
+          text: "society6"
+        },
+        {
+          type: "object",
+          width: 245.29411764705884,
+          height: 540,
+          showIframe: true,
+          adaptation: svgs[48],
+          configValues: { color: "#ffffff" },
+          position: { left: 933.5294117647059, top: 155.29411764705884 },
+          id: 103,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 564.7058823529412,
+          height: 3.5294117647058822,
+          showIframe: true,
+          adaptation: svgs[53],
+          configValues: {
+            palette: [
+              { r: 6, g: 6, b: 6, a: 0 },
+              { r: 64, g: 64, b: 64, a: 0.64 }
+            ],
+            angle: 0
+          },
+          position: { left: 277.05882352941177, top: 776.4705882352941 },
+          id: 104,
           rotation: 0
         }
       ]
     }
   }
+  // 71
   // { ...cells },
   // { ...fog },
 ];
 
-// adaptation: "svgs/(.*)",
+// adaptation: svgs[(.*)],
 // adaptation: svgs[$1],

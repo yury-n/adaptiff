@@ -292,7 +292,7 @@ class TheModal extends Component {
                     <Button.Group>
                       <Button
                         icon
-                        aria-label={macify("Bring to Front (Ctrl + ])")}
+                        aria-label={macify("Bring to Front (Shift + ])")}
                         data-balloon-pos="down"
                         onClick={e => {
                           this.bringActiveInsertedItemToFront();
@@ -303,7 +303,7 @@ class TheModal extends Component {
                       </Button>
                       <Button
                         icon
-                        aria-label={macify("Bring to Back (Ctrl + [)")}
+                        aria-label={macify("Bring to Back (Shift + [)")}
                         data-balloon-pos="down"
                         onClick={e => {
                           this.bringActiveInsertedItemToBack();
@@ -1357,6 +1357,7 @@ class TheModal extends Component {
   onKeyDown = e => {
     const ctrlKey = 17;
     const cmdKey = 91;
+    const shiftKey = 16;
     const vKey = 86;
     const cKey = 67;
     const leftBracket = 219;
@@ -1367,6 +1368,9 @@ class TheModal extends Component {
     if (e.keyCode === ctrlKey || e.keyCode === cmdKey) {
       this.ctrlDown = true;
     }
+    if (e.keyCode === shiftKey) {
+      this.shiftDown = true;
+    }
     if (this.ctrlDown && e.keyCode === cKey) {
       this.copyActiveInsertedItem();
     }
@@ -1374,18 +1378,20 @@ class TheModal extends Component {
       this.pasteActiveInsertedItem();
     }
     if (
-      this.ctrlDown &&
+      this.shiftDown &&
       e.keyCode === leftBracket &&
       this.state.activeInsertedItemIndex !== null
     ) {
       this.bringActiveInsertedItemToBack();
+      e.preventDefault();
     }
     if (
-      this.ctrlDown &&
+      this.shiftDown &&
       e.keyCode === rightBracket &&
       this.state.activeInsertedItemIndex !== null
     ) {
       this.bringActiveInsertedItemToFront();
+      e.preventDefault();
     }
   };
 

@@ -5,14 +5,23 @@ function stringifyColor(color) {
   const { r, g, b, a } = color;
   return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
+function generateGradientInnerHTML(palette) {
+  let html = "";
+  let currentOffset = 0;
+  const offsetStep = Math.floor(100 / (palette.length - 1));
+  palette.forEach(color => {
+    html += `<stop offset="${currentOffset}%" stop-color="${stringifyColor(
+      color
+    )}" />`;
+    currentOffset += offsetStep;
+  });
+  return html;
+}
 function aff_render(config) {
   if (config.palette) {
     const gradients = document.querySelectorAll("#gradient, .gradient");
     gradients.forEach(gradient => {
-      gradient.innerHTML = `
-      <stop offset="0%" stop-color="${stringifyColor(config.palette[0])}" />
-      <stop offset="100%" stop-color="${stringifyColor(config.palette[1])}" />
-      `;
+      gradient.innerHTML = generateGradientInnerHTML(config.palette);
       if (config.angle) {
         gradient.setAttribute("gradientTransform", `rotate(-${config.angle})`);
       }
