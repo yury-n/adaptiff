@@ -5,6 +5,7 @@ export default {
   authorLink: "https://test.com/",
   thumb: "/thumbs/todo.png",
   lockAspectRatio: true,
+  isSvg: true,
   config: [
     {
       key: "color",

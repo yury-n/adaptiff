@@ -7,6 +7,7 @@ import s from "./InsertedText.module.css";
 export default React.memo(
   React.forwardRef(function InsertedTextDraggable(
     {
+      id,
       className,
       onDragStart,
       onDragEnd: onDragStop,
@@ -31,7 +32,7 @@ export default React.memo(
         className={className}
         contentClassName={s["draggable-content"]}
         withOuterFrame={true}
-        onClick={onClick}
+        onClick={() => onClick(id)}
       >
         <InsertedText
           setHasCyrillic={setHasCyrillic}

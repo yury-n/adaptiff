@@ -2611,21 +2611,98 @@ export const allAdaptations = [
     initState: {
       size: { width: 1080, height: 1080 },
       config: {
-        palette: ["#ffffff", "#efffff"],
+        palette: ["#ffffff", "#eee9d6"],
         direction: "custom_angle",
-        angle: 200
+        angle: 201
       },
       insertedItems: [
         {
           type: "object",
-          width: 458.5004868549172,
-          height: 539.4741966893865,
+          width: 622,
+          height: 408,
+          showIframe: true,
+          adaptation: svgs[41],
+          configValues: { color: "#f8c6c5" },
+          position: { left: 710, top: 89.5 },
+          id: 102,
+          rotation: -368
+        },
+        {
+          type: "object",
+          width: 876,
+          height: 492,
+          showIframe: true,
+          adaptation: svgs[46],
+          configValues: { color: "#c5dda9" },
+          position: { left: 291, top: -217.5 },
+          id: 103,
+          rotation: 179
+        },
+        {
+          type: "object",
+          width: 292,
+          height: 172,
+          showIframe: true,
+          adaptation: svgs[45],
+          configValues: { color: "#ffffff" },
+          position: { left: 572, top: -105.5 },
+          id: 104,
+          rotation: 26
+        },
+        {
+          type: "object",
+          width: 484,
+          height: 319,
+          showIframe: true,
+          adaptation: svgs[46],
+          configValues: { color: "#ffffff" },
+          position: { left: -159, top: 306.5 },
+          id: 105,
+          rotation: -323
+        },
+        {
+          type: "object",
+          width: 579,
+          height: 660,
           showIframe: true,
           adaptation: svgs[42],
-          configValues: { color: "#d6d6d6" },
-          position: { left: 399.61051606621226, top: -234.50827653359298 },
-          id: 102,
-          rotation: 188
+          configValues: { color: "#fccf3d" },
+          position: { left: -238, top: -208.5 },
+          id: 202,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 247,
+          height: 540,
+          showIframe: true,
+          adaptation: svgs[48],
+          configValues: { color: "#398368" },
+          position: { left: -153, top: -101.5 },
+          id: 106,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 36,
+          height: 30,
+          showIframe: true,
+          adaptation: svgs[50],
+          configValues: { color: "#398368" },
+          position: { left: 217, top: 552.5 },
+          id: 107,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 15,
+          height: 15,
+          showIframe: true,
+          adaptation: svgs[51],
+          configValues: { color: "#398368" },
+          position: { left: 200, top: 593.5 },
+          id: 108,
+          rotation: 0
         }
       ]
     }
@@ -2633,3 +2710,6 @@ export const allAdaptations = [
   // { ...cells },
   // { ...fog },
 ];
+
+// adaptation: "svgs/(.*)",
+// adaptation: svgs[$1],

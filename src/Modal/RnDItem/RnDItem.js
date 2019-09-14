@@ -10,29 +10,42 @@ import { macify } from "../../_utils";
 const frames = [];
 const wrapperRefs = [];
 let hoveredItemId = null;
+let lastHoveredItemId = null;
 let activeItemId = null;
 let ctrlKeyDown = false;
+let altKeyDown = false;
 let isWheeling = false;
 
+const ctrlKey = 17;
+const altKey = 18;
+const cmdKey = 91;
+
 const onKeyDown = e => {
-  const ctrlKey = 17;
-  const cmdKey = 91;
   if (e.target.tagName === "INPUT") {
     return;
   }
   if (e.keyCode === ctrlKey || e.keyCode === cmdKey) {
     ctrlKeyDown = true;
   }
+  if (e.keyCode === altKey) {
+    altKeyDown = true;
+  }
 };
 
 const onKeyUp = e => {
-  ctrlKeyDown = false;
+  if (e.keyCode === ctrlKey || e.keyCode === cmdKey) {
+    ctrlKeyDown = false;
+  }
+  if (e.keyCode === altKey) {
+    altKeyDown = false;
+  }
 };
 
 export default React.memo(
   React.forwardRef(function(
     {
       id,
+      isSvg,
       width: initWidth,
       height: initHeight,
       rotation: initRotation = 0,
@@ -123,24 +136,28 @@ export default React.memo(
     }, [isActive]);
     const onMouseOver = () => {
       hoveredItemId = id;
+      lastHoveredItemId = id;
     };
     const onMouseLeave = () => {
       hoveredItemId = null;
     };
     let onWheelEndTimer;
     const onWheel = event => {
-      if (!ctrlKeyDown) {
+      if (hoveredItemId === null) {
+        return;
+      }
+      if (!ctrlKeyDown && !altKeyDown) {
         return;
       }
       event.preventDefault();
       if (!isWheeling) {
-        onWheelInteractionStart();
+        onWheelInteractionStart(hoveredItemId);
       }
       isWheeling = true;
       clearTimeout(onWheelEndTimer);
       onWheelEndTimer = setTimeout(() => {
         isWheeling = false;
-        onWheelInteractionEnd();
+        onWheelInteractionEnd(lastHoveredItemId);
       }, 50);
       if (hoveredItemId === activeItemId) {
         onBecomeInactive();
@@ -148,14 +165,29 @@ export default React.memo(
       window.requestAnimationFrame(() => {
         const currentFrame = frames[hoveredItemId];
         const currentWrapperRef = wrapperRefs[hoveredItemId];
-        const deg =
-          parseFloat(currentFrame.get("transform", "rotate")) -
-          event.deltaY / 2;
-        currentFrame.set("transform", "rotate", `${deg}deg`);
-        const top = parseInt(currentFrame.get("top"));
-        const left = parseInt(currentFrame.get("left"));
-        currentFrame.set("left", `${left}px`);
-        currentFrame.set("top", `${top}px`);
+        if (ctrlKeyDown) {
+          const deg =
+            parseFloat(currentFrame.get("transform", "rotate")) -
+            event.deltaY / 2;
+          currentFrame.set("transform", "rotate", `${deg}deg`);
+          const top = parseInt(currentFrame.get("top"));
+          const left = parseInt(currentFrame.get("left"));
+          currentFrame.set("left", `${left}px`);
+          currentFrame.set("top", `${top}px`);
+        }
+        if (altKeyDown) {
+          const origWidth = parseInt(currentFrame.get("width"));
+          const origHeight = parseInt(currentFrame.get("height"));
+          const ratio = origWidth / origHeight;
+          const width = parseInt(currentFrame.get("width")) - event.deltaY / 2;
+          const height = width / ratio;
+          currentFrame.set("width", `${width}px`);
+          currentFrame.set("height", `${height}px`);
+          const top = parseInt(currentFrame.get("top"));
+          const left = parseInt(currentFrame.get("left"));
+          currentFrame.set("left", `${left}px`);
+          currentFrame.set("top", `${top}px`);
+        }
         currentWrapperRef.style.cssText = currentFrame.toCSS();
       });
     };
@@ -194,6 +226,14 @@ export default React.memo(
       frames[id].set("transform", "rotate", `${deg}deg`);
       setTransform(target);
     };
+    // const onScale = ({ target, delta, clientX, clientY, isPinch }) => {
+    //   const frame = frames[id];
+    //   const scaleX = frame.get("transform", "scaleX") * delta[0];
+    //   const scaleY = frame.get("transform", "scaleY") * delta[1];
+    //   frame.set("transform", "scaleX", scaleX);
+    //   frame.set("transform", "scaleY", scaleY);
+    //   setTransform(target);
+    // };
     const setTransform = target => {
       target.style.cssText = frames[id].toCSS();
     };
@@ -201,11 +241,12 @@ export default React.memo(
       <>
         {targetId && (
           <Moveable
-            key={`moveable-${id}-${width}-${height}-${initLeft}-${initTop}`}
+            key={`moveable-${id}-${width}-${height}-${initLeft}-${initTop}-${initRotation}`}
             target={document.getElementById(targetId)}
             container={document.querySelector(".canvas-wrapper")}
             draggable={true}
             resizable={resizable && isActive}
+            // scalable={isSvg && isActive}
             rotatable={isActive}
             throttleDrag={1}
             throttleRotate={0.2}
@@ -220,6 +261,7 @@ export default React.memo(
             onRotate={onRotate}
             onRotateStart={onRotateStart}
             onRotateEnd={onRotateEnd}
+            // onScale={onScale}
             keepRatio={false}
           />
         )}
