@@ -37,6 +37,11 @@
 .thumb-only-mode .mini-preview {
   width: 70px !important;
   height: 70px;
+  opacity: 0.8;
+}
+
+.thumb-only-mode:hover .mini-preview {
+  opacity: 1;
 }
 
 .thumb-only-mode .content {
