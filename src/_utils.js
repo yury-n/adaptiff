@@ -75,3 +75,10 @@ export const logStat = type => {
 };
 
 export const isMac = () => navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+
+export const macify = shortcut => {
+  if (isMac()) {
+    return shortcut.replace("Ctrl", "Cmd");
+  }
+  return shortcut;
+};

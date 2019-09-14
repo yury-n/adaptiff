@@ -37,13 +37,14 @@
 }
 
 .moveable.active:before,
-:global(.canvas-wrapper:not(.is-dragging-inserted-item))
+:global(.canvas-wrapper:not(.is-dragging-inserted-item):not(.is-wheeling-inserted-item))
   .moveable:hover:before {
   border-color: black !important;
 }
 
 .moveable.active:after,
-:global(.canvas-wrapper:not(.is-dragging-inserted-item)) .moveable:hover:after {
+:global(.canvas-wrapper:not(.is-dragging-inserted-item):not(.is-wheeling-inserted-item))
+  .moveable:hover:after {
   border-color: white !important;
 }
 

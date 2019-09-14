@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import classnames from "classnames";
 import ReactDOM from "react-dom";
+import throttle from "lodash.throttle";
 import { Modal, Input, Button, Icon, Menu } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
 import ImageConfig from "./ImageConfig/ImageConfig";
@@ -13,7 +14,7 @@ import IframePreviewRnD from "./IframePreview/IframePreviewRnD";
 import ArtConfig from "./ArtConfig/ArtConfig";
 import Layers from "./Layers/Layers";
 import settings from "../settings";
-import { downloadFromDataURL, logStat, isMac } from "../_utils";
+import { downloadFromDataURL, logStat, macify } from "../_utils";
 
 import "rc-slider/assets/index.css";
 import "./global.overrides.css";
@@ -27,6 +28,8 @@ class TheModal extends Component {
   isDraggingInsertedItem = false;
   isResizingInsertedItem = false;
   isRotatingInsertedItem = false;
+  isWheelingInsertedItem = false;
+  hasWheelingClassAttached = false;
   constructor(props) {
     super(props);
     this.iframeRef = React.createRef();
@@ -119,12 +122,15 @@ class TheModal extends Component {
     window.addEventListener("message", this.onWindowMessage);
     window.addEventListener("keyup", this.onKeyUp);
     window.addEventListener("keydown", this.onKeyDown);
+    this.throttledMouseMove = throttle(this.onMouseMove, 250);
+    window.addEventListener("mousemove", this.onMouseMove);
     this.setPaddingOverlayDims();
   }
   componentWillUnmount() {
     window.removeEventListener("message", this.onWindowMessage);
     window.removeEventListener("keyup", this.onKeyUp);
     window.removeEventListener("keydown", this.onKeyDown);
+    window.removeEventListener("mousemove", this.throttledMouseMove);
   }
   componentDidUpdate(prevProps, prevState) {
     this.updateIframeTop();
@@ -264,7 +270,7 @@ class TheModal extends Component {
                 <Button.Group className={s["copy-paste-buttons"]}>
                   <Button
                     icon
-                    aria-label={isMac() ? "Copy (Cmd + C)" : "Copy (Ctrl + C)"}
+                    aria-label={macify("Copy (Ctrl + C)")}
                     data-balloon-pos="down"
                     onClick={this.copyActiveInsertedItem}
                     disabled={activeInsertedItemIndex === null}
@@ -273,9 +279,7 @@ class TheModal extends Component {
                   </Button>
                   <Button
                     icon
-                    aria-label={
-                      isMac() ? "Paste (Cmd + P)" : "Paste (Ctrl + P)"
-                    }
+                    aria-label={macify("Paste (Ctrl + P)")}
                     data-balloon-pos="down"
                     disabled={!this.bufferedInsertedItem}
                     onClick={this.pasteActiveInsertedItem}
@@ -288,10 +292,10 @@ class TheModal extends Component {
                     <Button.Group>
                       <Button
                         icon
-                        aria-label="Bring to Front"
+                        aria-label={macify("Bring to Front (Ctrl + ])")}
                         data-balloon-pos="down"
                         onClick={e => {
-                          this.moveActiveInsertedItemUp();
+                          this.bringActiveInsertedItemToFront();
                           e.stopPropagation();
                         }}
                       >
@@ -299,10 +303,10 @@ class TheModal extends Component {
                       </Button>
                       <Button
                         icon
-                        aria-label="Bring to Back"
+                        aria-label={macify("Bring to Back (Ctrl + [)")}
                         data-balloon-pos="down"
                         onClick={e => {
-                          this.moveActiveInsertedItemDown();
+                          this.bringActiveInsertedItemToBack();
                           e.stopPropagation();
                         }}
                       >
@@ -542,13 +546,16 @@ class TheModal extends Component {
       scale: scaleToFit,
       isActive: index === activeInsertedItemIndex,
       isHighlighted: index === highlightInsertedItemIndex,
-      onClick: () => this.setActiveInsertedItemIndex(index),
+      onClick: this.setActiveInsertedItemIndexBasedOnId,
+      onBecomeInactive: this.unsetActiveInsertedItemIndex,
       onDragStart: this.onDragStart,
       onDragEnd: this.onDragEnd,
       onResizeStart: this.onResizeStart,
       onResizeEnd: this.onResizeEnd,
       onRotateStart: this.onRotateStart,
       onRotateEnd: this.onRotateEnd,
+      onWheelInteractionStart: this.onWheelInteractionStart,
+      onWheelInteractionEnd: this.onWheelInteractionEnd,
       ref: refCallback,
       rotation: insertedItem.rotation,
       initialPosition:
@@ -742,6 +749,16 @@ class TheModal extends Component {
     }, 100); // prevent onModalRightSideClick
   };
 
+  onWheelInteractionStart = () => {
+    this.isWheelingInsertedItem = true;
+    this.hasWheelingClassAttached = true;
+    this.canvasWrapperRef.current.classList.add("is-wheeling-inserted-item");
+  };
+
+  onWheelInteractionEnd = () => {
+    this.isWheelingInsertedItem = false;
+  };
+
   onModalRightSideClick = event => {
     const { activeInsertedItemIndex } = this.state;
     if (activeInsertedItemIndex === null) {
@@ -843,6 +860,12 @@ class TheModal extends Component {
     }
   };
 
+  setActiveInsertedItemIndexBasedOnId = id => {
+    this.setActiveInsertedItemIndex(
+      this.state.insertedItems.findIndex(item => item.id === id)
+    );
+  };
+
   setActiveInsertedItemIndex = index => {
     const { insertedItems, activeInsertedItemIndex } = this.state;
     const itemToActivate = insertedItems[index];
@@ -901,7 +924,7 @@ class TheModal extends Component {
     delete this.insertedItemsRefs[insertedItem.id];
   };
 
-  moveActiveInsertedItemUp = () => {
+  bringActiveInsertedItemToFront = () => {
     const { activeInsertedItemIndex, insertedItems } = this.state;
     this.moveInsertedItemToIndex(
       activeInsertedItemIndex,
@@ -909,7 +932,7 @@ class TheModal extends Component {
     );
   };
 
-  moveActiveInsertedItemDown = () => {
+  bringActiveInsertedItemToBack = () => {
     const { activeInsertedItemIndex } = this.state;
     this.moveInsertedItemToIndex(
       activeInsertedItemIndex,
@@ -1319,6 +1342,8 @@ class TheModal extends Component {
     const cmdKey = 91;
     const vKey = 86;
     const cKey = 67;
+    const leftBracket = 219;
+    const rightBracket = 221;
     if (e.target.tagName === "INPUT") {
       return;
     }
@@ -1330,6 +1355,29 @@ class TheModal extends Component {
     }
     if (this.ctrlDown && e.keyCode === vKey) {
       this.pasteActiveInsertedItem();
+    }
+    if (
+      this.ctrlDown &&
+      e.keyCode === leftBracket &&
+      this.state.activeInsertedItemIndex !== null
+    ) {
+      this.bringActiveInsertedItemToBack();
+    }
+    if (
+      this.ctrlDown &&
+      e.keyCode === rightBracket &&
+      this.state.activeInsertedItemIndex !== null
+    ) {
+      this.bringActiveInsertedItemToFront();
+    }
+  };
+
+  onMouseMove = () => {
+    if (!this.isWheelingInsertedItem && this.hasWheelingClassAttached) {
+      this.canvasWrapperRef.current.classList.remove(
+        "is-wheeling-inserted-item"
+      );
+      this.hasWheelingClassAttached = false;
     }
   };
 
