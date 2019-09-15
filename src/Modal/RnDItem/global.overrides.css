@@ -11,12 +11,12 @@
   background: #fff !important;
   box-shadow: 0 0 5px 1px rgba(14, 19, 24, 0.15),
     0 0 0 1px rgba(14, 19, 24, 0.15) !important;
-  z-index: 9004 !important;
+  z-index: 9002 !important;
 }
 
 .moveable-line {
   background: #d5d6d7 !important;
-  z-index: 9001 !important;
+  z-index: 9000 !important;
   display: none !important;
 }
 .moveable-control ~ .moveable-line {

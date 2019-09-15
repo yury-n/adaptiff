@@ -70,7 +70,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 90001;
+  z-index: 9020;
 }
 
 .copy-paste-buttons {
@@ -171,8 +171,7 @@
 .padding-overlay {
   position: absolute;
   background: #f7f7fa;
-  z-index: 9000;
-  pointer-events: none;
+  z-index: 9010;
 }
 
 .padding-overlay-left {

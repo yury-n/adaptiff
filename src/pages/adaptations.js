@@ -2801,8 +2801,119 @@ export const allAdaptations = [
         }
       ]
     }
-  }
+  },
   // 71
+  {
+    ...linearGradient,
+    thumb: "/thumbs/71.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      config: {
+        palette: ["#6148aa", "#ff9a8b"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 1088.8235294117646,
+          height: 1083.5294117647059,
+          showIframe: true,
+          adaptation: "gradient_waves",
+          configValues: {
+            palette: ["#ff0099", "#ffe000"],
+            lines: 11,
+            amplituteX: 46,
+            amplituteY: 60,
+            smoothness: 4,
+            fill: false,
+            randomValues: []
+          },
+          position: { left: -5.294117647058823, top: -1.7647058823529411 },
+          id: 102,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1849.4117647058824,
+          height: 587.6470588235294,
+          showIframe: true,
+          adaptation: svgs[3],
+          configValues: { palette: ["#6148aa", "#e7a044"], angle: 0 },
+          position: { left: -635.2941176470588, top: -206.47058823529412 },
+          id: 103,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 540,
+          height: 540,
+          showIframe: true,
+          adaptation: svgs[1],
+          configValues: {
+            palette: [{ r: "187", g: "239", b: "209", a: "0.16" }, "#e7a044"],
+            angle: 0
+          },
+          position: { left: -266.47058823529414, top: 321.1764705882353 },
+          id: 107,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 254.11764705882354,
+          height: 254.11764705882354,
+          showIframe: true,
+          adaptation: svgs[1],
+          configValues: {
+            palette: [{ r: "187", g: "239", b: "209", a: "0.16" }, "#e7a044"],
+            angle: 0
+          },
+          position: { left: 977.6470588235294, top: 188.82352941176472 },
+          id: 108,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 243.52941176470588,
+          height: 236.47058823529412,
+          showIframe: true,
+          adaptation: svgs[1],
+          configValues: {
+            palette: [{ r: "187", g: "239", b: "209", a: "0.16" }, "#e7a044"],
+            angle: 0
+          },
+          position: { left: 324.70588235294116, top: 670.5882352941177 },
+          id: 109,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1849.4117647058824,
+          height: 587.6470588235294,
+          showIframe: true,
+          adaptation: svgs[3],
+          configValues: { palette: ["#6148aa", "#e7a044"], angle: 0 },
+          position: { left: -12.352941176470589, top: 566.4705882352941 },
+          id: 104,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 305.29411764705884,
+          height: 305.29411764705884,
+          showIframe: true,
+          adaptation: svgs[1],
+          configValues: {
+            palette: [{ r: 187, g: 239, b: 209, a: 0 }, "#e7a044"],
+            angle: 0
+          },
+          position: { left: 760.5882352941177, top: 335.29411764705884 },
+          id: 110,
+          rotation: -157
+        }
+      ]
+    }
+  }
   // { ...cells },
   // { ...fog },
 ];
