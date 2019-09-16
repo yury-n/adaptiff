@@ -112,7 +112,7 @@ export default () => {
               <br />
               дизайн элементы <br /> для вашего творчества
             </div>
-            <div id="vk_groups" className={s["ad"]}></div>
+            <div id="vk_groups_2" className={s["ad"]}></div>
           </div>
         ) : (
           <SubscribeBlock />

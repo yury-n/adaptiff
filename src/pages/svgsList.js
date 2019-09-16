@@ -512,7 +512,7 @@ const svgs = [
     initState: {
       size: { width: 1000, height: 1000 },
       config: {
-        color: "#aed1cd"
+        color: "#f0f057"
       }
     }
   },
