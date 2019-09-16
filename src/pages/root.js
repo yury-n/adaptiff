@@ -51,25 +51,7 @@ export default () => {
               <br />
               дизайн элементы <br /> для вашего творчества
             </div>
-            <div
-              className={s["ad"]}
-              dangerouslySetInnerHTML={{
-                __html: `<script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
-              <div id="vk_groups"></div>
-              <script type="text/javascript">
-              VK.Widgets.Group("vk_groups", {mode: 1}, 185661561);
-              </script>`
-              }}
-            >
-              {/* <iframe
-                name="fXD5eaaa"
-                frameborder="0"
-                src="https://vk.com/widget_community.php?app=0&amp;width=200px&amp;_ver=1&amp;gid=185661561&amp;mode=1&amp;color1=&amp;color2=&amp;color3=&amp;class_name=&amp;url=https%3A%2F%2Fvk.com%2Fdev%2FCommunity%3Fheight%3D400%26link%3Dhttp%253A%252F%252Fvk.com%252Fadaptiff%26mode%3D1%26no_cover%3D%26oid%3D-185661561%26wide%3D&amp;referrer=https%3A%2F%2Fwww.google.com%2F&amp;title=%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%20%7C%20%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%B0%D0%BC&amp;16d3bce6722"
-                scrolling="no"
-                id="vkwidget2"
-                style={{ width: 200, height: 141 }}
-              ></iframe> */}
-            </div>
+            <div id="vk_groups" className={s["ad"]}></div>
           </div>
         )}
         <div className={s["tabs"]}>
@@ -105,7 +87,7 @@ export default () => {
         <Card.Group className={classnames(s["cards"], "cards")}>
           {adaptations.map((template, index) => (
             <MiniCard
-              showModal={indexToShow !== null && false && index === indexToShow}
+              showModal={indexToShow !== null && index === indexToShow}
               key={index}
               {...template}
             />
@@ -130,16 +112,7 @@ export default () => {
               <br />
               дизайн элементы <br /> для вашего творчества
             </div>
-            <div
-              className={s["ad"]}
-              dangerouslySetInnerHTML={{
-                __html: `<script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
-              <div id="vk_groups"></div>
-              <script type="text/javascript">
-              VK.Widgets.Group("vk_groups", {mode: 1}, 185661561);
-              </script>`
-              }}
-            ></div>
+            <div id="vk_groups" className={s["ad"]}></div>
           </div>
         ) : (
           <SubscribeBlock />
