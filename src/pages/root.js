@@ -105,18 +105,7 @@ export default () => {
             </Button>
           </div>
         )}
-        {indexToShow !== null ? (
-          <div className={s["vk-ad"]}>
-            <div className={s["vk-text"]}>
-              новые
-              <br />
-              дизайн элементы <br /> для вашего творчества
-            </div>
-            <div id="vk_groups_2" className={s["ad"]}></div>
-          </div>
-        ) : (
-          <SubscribeBlock />
-        )}
+        <SubscribeBlock />
       </div>
       <Footer />
     </>

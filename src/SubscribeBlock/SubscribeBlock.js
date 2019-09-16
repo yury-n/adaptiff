@@ -51,6 +51,14 @@ export const SubscribeBlock = () => (
         icon
         className={s["social-button"]}
         target="_blank"
+        href="https://vk.com/adaptiff"
+      >
+        <Icon name="vk" />
+      </Button>
+      <Button
+        icon
+        className={s["social-button"]}
+        target="_blank"
         href="https://www.instagram.com/adaptiff"
       >
         <Icon name="instagram" />
