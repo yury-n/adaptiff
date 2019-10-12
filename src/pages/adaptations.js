@@ -1,4 +1,5 @@
 import linearGradient from "../_adaptationConfigs/linearGradient";
+import radialGradient from "../_adaptationConfigs/radialGradient";
 import trianglify from "../_adaptationConfigs/trianglify";
 import particles from "../_adaptationConfigs/particles";
 import perfectPurple from "../_adaptationConfigs/perfect_purple";
@@ -2913,7 +2914,9 @@ export const allAdaptations = [
         }
       ]
     }
-  }
+  },
+  // 72
+  radialGradient
   // { ...cells },
   // { ...fog },
 ];

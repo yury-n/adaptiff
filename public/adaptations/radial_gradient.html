@@ -1,0 +1,24 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="_common.css" />
+</head>
+<body>
+  <div id="preview"></div>
+  <script>
+    function aff_render(config) {
+      let palette = config.palette;
+
+      let background = `radial-gradient(${palette[0]}, ${palette[1]})`;
+      var preview = document.getElementById("preview");
+      preview.style.background = background;
+    }
+    function aff_download() {
+      html2canvas(document.getElementById("preview")).then(function(canvas) {
+        var image = canvas.toDataURL("image/png");
+        postDownloadImage({ image });
+      });
+    }
+  </script>
+  <script src="https://unpkg.com/html2canvas@1.0.0-alpha.12/dist/html2canvas.min.js"></script>
+  <script src="_common.js"></script>
+</body>
