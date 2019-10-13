@@ -56,7 +56,9 @@ class MiniCard extends Component {
             />
           </div>
           <Card.Content className={s["content"]}>
-            <div className={s["mini-title"]}>{title}</div>
+            <div className={s["mini-title"]} title={title}>
+              {title}
+            </div>
             <span className={s["mini-by-author"]}>
               {mode === "hero" ? "background by" : "by"}
             </span>

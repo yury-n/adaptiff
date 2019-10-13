@@ -2916,7 +2916,32 @@ export const allAdaptations = [
     }
   },
   // 72
-  radialGradient
+  radialGradient,
+  // 73
+  {
+    ...radialGradient,
+    author: "Freepik",
+    authorLink: "https://freepik.com",
+    title: "Radial gradient with ripples",
+    thumb: "/thumbs/74.png",
+    initState: {
+      size: { width: 726, height: 563 },
+      config: { palette: ["#3f0686", "#260057"] },
+      insertedItems: [
+        {
+          type: "object",
+          width: 727,
+          height: 565,
+          showIframe: true,
+          adaptation: svgs[54],
+          configValues: { palette: ["#fdf5d4", "#ff3ba6"], angle: 0 },
+          position: { left: 0, top: -0.5 },
+          id: 102,
+          rotation: 0
+        }
+      ]
+    }
+  }
   // { ...cells },
   // { ...fog },
 ];

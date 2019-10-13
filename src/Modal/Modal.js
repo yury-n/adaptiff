@@ -212,7 +212,32 @@ class TheModal extends Component {
       );
       this.setState({ insertedItems: updatedInsertedItems });
     }
+    // this.getAllColors();
   }
+  // getAllColors = () => {
+  //   const possibleColorAttrs = ["color", "backgroundColor", "palette"];
+  //   const colors = [];
+  //   possibleColorAttrs.forEach(possibleColorAttr => {
+  //     if (this.state.config[possibleColorAttr]) {
+  //       colors.push({
+  //         element: null, // background
+  //         attr: possibleColorAttr,
+  //         color: this.state.config[possibleColorAttr]
+  //       });
+  //     }
+  //   });
+  //   if (this.state.insertedItems && this.state.insertedItems.length) {
+  //     this.state.insertedItems.forEach(insertedItem => {
+  //       possibleColorAttrs.forEach(possibleColorAttr => {
+  //         if (insertedItem.configValues[possibleColorAttr]) {
+  //           colors.push(insertedItem.configValues[possibleColorAttr]);
+  //         }
+  //       });
+  //     });
+  //   }
+  //   console.log({ colors });
+  //   // this.state.config
+  // };
   render() {
     const {
       fileName,

@@ -618,6 +618,19 @@ const svgs = [
         palette: ["#ff8fdd", "#edea9c"]
       }
     }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/54.svg",
+    fileName: "svgs/54",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 750 / 500,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      config: {
+        palette: ["#ff8fdd", "#edea9c"]
+      }
+    }
   }
 ];
 
@@ -652,6 +665,7 @@ export const childishDreamsSvgs = [
   21,
   22,
   23,
-  24
+  24,
+  54
 ].map(index => svgs[index]);
 export const particlesSvgs = [7, 8, 33, 36, 40].map(index => svgs[index]);

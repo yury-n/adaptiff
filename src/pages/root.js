@@ -44,16 +44,6 @@ export default () => {
       <div
         className={classnames(s["main-content-area"], "restricted-width-area")}
       >
-        {indexToShow !== null && (
-          <div className={s["vk-ad"]}>
-            <div className={s["vk-text"]}>
-              новые
-              <br />
-              дизайн элементы <br /> для вашего творчества
-            </div>
-            <div id="vk_groups" className={s["ad"]}></div>
-          </div>
-        )}
         <div className={s["tabs"]}>
           <Button.Group>
             <Button
