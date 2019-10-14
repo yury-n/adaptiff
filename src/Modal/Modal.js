@@ -212,32 +212,32 @@ class TheModal extends Component {
       );
       this.setState({ insertedItems: updatedInsertedItems });
     }
-    // this.getAllColors();
+    this.getAllColors();
   }
-  // getAllColors = () => {
-  //   const possibleColorAttrs = ["color", "backgroundColor", "palette"];
-  //   const colors = [];
-  //   possibleColorAttrs.forEach(possibleColorAttr => {
-  //     if (this.state.config[possibleColorAttr]) {
-  //       colors.push({
-  //         element: null, // background
-  //         attr: possibleColorAttr,
-  //         color: this.state.config[possibleColorAttr]
-  //       });
-  //     }
-  //   });
-  //   if (this.state.insertedItems && this.state.insertedItems.length) {
-  //     this.state.insertedItems.forEach(insertedItem => {
-  //       possibleColorAttrs.forEach(possibleColorAttr => {
-  //         if (insertedItem.configValues[possibleColorAttr]) {
-  //           colors.push(insertedItem.configValues[possibleColorAttr]);
-  //         }
-  //       });
-  //     });
-  //   }
-  //   console.log({ colors });
-  //   // this.state.config
-  // };
+  getAllColors = () => {
+    const possibleColorAttrs = ["color", "backgroundColor", "palette"];
+    const colors = [];
+    possibleColorAttrs.forEach(possibleColorAttr => {
+      if (Array.isArray(this.state.config[possibleColorAttr])) {
+        colors.push(...this.state.config[possibleColorAttr]);
+      } else if (this.state.config[possibleColorAttr]) {
+        colors.push(this.state.config[possibleColorAttr]);
+      }
+    });
+    if (this.state.insertedItems && this.state.insertedItems.length) {
+      this.state.insertedItems.forEach(insertedItem => {
+        possibleColorAttrs.forEach(possibleColorAttr => {
+          if (Array.isArray(insertedItem.configValues[possibleColorAttr])) {
+            colors.push(...insertedItem.configValues[possibleColorAttr]);
+          } else if (insertedItem.configValues[possibleColorAttr]) {
+            colors.push(insertedItem.configValues[possibleColorAttr]);
+          }
+        });
+      });
+    }
+    console.log({ colors });
+    // this.state.config
+  };
   render() {
     const {
       fileName,
