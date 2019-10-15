@@ -2,6 +2,8 @@ import React, { Component, useState, useEffect } from "react";
 import classnames from "classnames";
 import ReactDOM from "react-dom";
 import throttle from "lodash.throttle";
+import set from "lodash.set";
+import get from "lodash.get";
 import { Modal, Input, Button, Icon, Menu } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
 import ImageConfig from "./ImageConfig/ImageConfig";
@@ -20,6 +22,7 @@ import "rc-slider/assets/index.css";
 import "./global.overrides.css";
 import s from "./Modal.module.css";
 import InsertionMenu from "./InsertionMenu/InsertionMenu";
+import ColorInput from "../ColorInput/ColorInput";
 
 const CANVAS_MARGIN = 50; //px
 
@@ -88,7 +91,7 @@ class TheModal extends Component {
         ],
       activeInsertedItemIndex: null,
       highlightInsertedItemIndex: null,
-      isAddMenuOpen: false
+      configMode: "global" // | 'global'
     };
     this.props.config.forEach(config => {
       state.config[config.key] =
@@ -212,31 +215,53 @@ class TheModal extends Component {
       );
       this.setState({ insertedItems: updatedInsertedItems });
     }
-    this.getAllColors();
   }
-  getAllColors = () => {
+  getAllColorsFromState = () => {
     const possibleColorAttrs = ["color", "backgroundColor", "palette"];
-    const colors = [];
+
+    const colorsFromState = []; // { color: '#ccc', key: 'config.color' }
+
+    // background
     possibleColorAttrs.forEach(possibleColorAttr => {
-      if (Array.isArray(this.state.config[possibleColorAttr])) {
-        colors.push(...this.state.config[possibleColorAttr]);
-      } else if (this.state.config[possibleColorAttr]) {
-        colors.push(this.state.config[possibleColorAttr]);
+      const attrValue = this.state.config[possibleColorAttr];
+      if (Array.isArray(attrValue)) {
+        attrValue.forEach((color, colorIndex) => {
+          colorsFromState.push({
+            color,
+            key: `config[${possibleColorAttr}][${colorIndex}]`
+          });
+        });
+      } else if (attrValue) {
+        colorsFromState.push({
+          color: attrValue,
+          key: `config[${possibleColorAttr}]`
+        });
       }
     });
+
+    // inserted items
     if (this.state.insertedItems && this.state.insertedItems.length) {
-      this.state.insertedItems.forEach(insertedItem => {
+      this.state.insertedItems.forEach((insertedItem, insertedItemIndex) => {
         possibleColorAttrs.forEach(possibleColorAttr => {
-          if (Array.isArray(insertedItem.configValues[possibleColorAttr])) {
-            colors.push(...insertedItem.configValues[possibleColorAttr]);
-          } else if (insertedItem.configValues[possibleColorAttr]) {
-            colors.push(insertedItem.configValues[possibleColorAttr]);
+          const attrValue = insertedItem.configValues[possibleColorAttr];
+          if (Array.isArray(attrValue)) {
+            attrValue.forEach((color, colorIndex) => {
+              colorsFromState.push({
+                color,
+                key: `insertedItems[${insertedItemIndex}].configValues[${possibleColorAttr}][${colorIndex}]`
+              });
+            });
+          } else if (attrValue) {
+            colorsFromState.push({
+              color: attrValue,
+              key: `insertedItems[${insertedItemIndex}].configValues[${possibleColorAttr}]`
+            });
           }
         });
       });
     }
-    console.log({ colors });
-    // this.state.config
+
+    return colorsFromState;
   };
   render() {
     const {
@@ -467,15 +492,18 @@ class TheModal extends Component {
             className={classnames(s["modal-sidebar"], s["modal-right-sidebar"])}
           >
             <Menu className={"tab-menu"} icon="labeled">
-              <Menu.Item active className={"tab-menu-item"} onClick={() => {}}>
+              <Menu.Item
+                active={this.state.configMode === "element"}
+                onClick={() => this.setState({ configMode: "element" })}
+                className={"tab-menu-item"}
+              >
                 <Icon name="expand" />
                 <div>Element</div>
               </Menu.Item>
               <Menu.Item
                 className={"tab-menu-item"}
-                onClick={() => {}}
-                aria-label="Coming soon!"
-                data-balloon-pos="down"
+                active={this.state.configMode === "global"}
+                onClick={() => this.setState({ configMode: "global" })}
               >
                 <Icon name="globe" />
                 <div>Global</div>
@@ -487,7 +515,9 @@ class TheModal extends Component {
             <div
               className={classnames(s["config-container"], "below-tabs-zone")}
             >
-              {this.renderConfig()}
+              {this.state.configMode === "element"
+                ? this.renderElementConfig()
+                : this.renderGlobalConfig()}
             </div>
           </div>
         </Modal.Content>
@@ -738,6 +768,31 @@ class TheModal extends Component {
       this.isSelectingColor = false;
       this.props.onStopSelectingColor();
     }, 100); // prevent onModalRightSideClick
+  };
+
+  onGlobalColorChange = oldColor => newColor => {
+    const allColors = this.getAllColorsFromState();
+    const newState = {
+      ...this.state,
+      config: { ...this.state.config },
+      insertedItems: [...this.state.insertedItems]
+    };
+    allColors.forEach(({ color, key }) => {
+      if (color === oldColor) {
+        set(newState, key, newColor);
+        if (key.slice(-1) === "]") {
+          // key points to an element in array
+          // need to create a new ref for that array
+          const keyParts = key.split("[");
+          keyParts.pop();
+          const keyToArray = keyParts.join("[");
+          console.log({ keyToArray });
+          set(newState, keyToArray, [...get(newState, keyToArray)]);
+        }
+      }
+    });
+    console.log({ newState });
+    this.setState(newState);
   };
 
   onDragStart = () => {
@@ -1073,7 +1128,7 @@ class TheModal extends Component {
     );
   };
 
-  renderConfig = () => {
+  renderElementConfig = () => {
     const { insertedItems, activeInsertedItemIndex } = this.state;
     if (activeInsertedItemIndex === null) {
       return this.renderArtConfig();
@@ -1084,6 +1139,20 @@ class TheModal extends Component {
     return insertedItems[activeInsertedItemIndex].type === "image"
       ? this.renderImageConfig()
       : this.renderTextConfig();
+  };
+
+  renderGlobalConfig = () => {
+    const allColors = this.getAllColorsFromState();
+    return allColors.map(({ color }) => (
+      <ColorInput
+        key={`color-${color}`}
+        color={color}
+        onChange={this.onGlobalColorChange(color)}
+        disableAlpha={false}
+        onOpen={this.onStartSelectingColor}
+        onClose={this.onStopSelectingColor}
+      />
+    ));
   };
 
   renderTextConfig = () => {
@@ -1223,10 +1292,6 @@ class TheModal extends Component {
       iframeVersion: this.state.iframeVersion + 1
     });
   };
-
-  openAddMenu = () => this.setState({ isAddMenuOpen: true });
-
-  closeAddMenu = () => this.setState({ isAddMenuOpen: false });
 
   postConfigToIframe = insertedItemId => {
     const activeInsertedItem = this.getActiveInsertedItem();

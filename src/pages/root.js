@@ -77,7 +77,7 @@ export default () => {
         <Card.Group className={classnames(s["cards"], "cards")}>
           {adaptations.map((template, index) => (
             <MiniCard
-              showModal={indexToShow !== null && index === indexToShow}
+              showModal={index === 0} // indexToShow !== null && index === indexToShow
               key={index}
               {...template}
             />
