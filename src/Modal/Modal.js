@@ -23,6 +23,7 @@ import "./global.overrides.css";
 import s from "./Modal.module.css";
 import InsertionMenu from "./InsertionMenu/InsertionMenu";
 import ColorInput from "../ColorInput/ColorInput";
+import GlobalConfig from "./GlobalConfig/GlobalConfig";
 
 const CANVAS_MARGIN = 50; //px
 
@@ -789,6 +790,26 @@ class TheModal extends Component {
           console.log({ keyToArray });
           set(newState, keyToArray, [...get(newState, keyToArray)]);
         }
+        if (key.includes("insertedItems")) {
+          const insertedItemIndex = key
+            .split("insertedItems[")
+            .pop()
+            .split("]")
+            .shift();
+          const insertedItemId = this.state.insertedItems[insertedItemIndex].id;
+          this.postConfigToIframe(insertedItemId);
+          // const keyToMutate = `insertedItems[${insertedItemIndex}]`;
+          // console.log({
+          //   key,
+          //   keyToMutate,
+          //   newState,
+          //   val: get(newState, keyToMutate)
+          // });
+          // set(newState, keyToMutate, { ...get(newState, keyToMutate) });
+          // set(newState, `${keyToMutate}.configValues`, {
+          //   ...get(newState, `${keyToMutate}.configValues`)
+          // });
+        }
       }
     });
     console.log({ newState });
@@ -1143,16 +1164,14 @@ class TheModal extends Component {
 
   renderGlobalConfig = () => {
     const allColors = this.getAllColorsFromState();
-    return allColors.map(({ color }) => (
-      <ColorInput
-        key={`color-${color}`}
-        color={color}
-        onChange={this.onGlobalColorChange(color)}
-        disableAlpha={false}
-        onOpen={this.onStartSelectingColor}
-        onClose={this.onStopSelectingColor}
+    return (
+      <GlobalConfig
+        colors={allColors}
+        onStartSelectingColor={this.onStartSelectingColor}
+        onStopSelectingColor={this.onStopSelectingColor}
+        onChange={this.onGlobalColorChange}
       />
-    ));
+    );
   };
 
   renderTextConfig = () => {
