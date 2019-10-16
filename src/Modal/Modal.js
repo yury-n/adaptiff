@@ -3,7 +3,7 @@ import classnames from "classnames";
 import ReactDOM from "react-dom";
 import throttle from "lodash.throttle";
 import set from "lodash.set";
-import get from "lodash.get";
+import uniq from "lodash.uniq";
 import { Modal, Input, Button, Icon, Menu } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
 import ImageConfig from "./ImageConfig/ImageConfig";
@@ -22,7 +22,6 @@ import "rc-slider/assets/index.css";
 import "./global.overrides.css";
 import s from "./Modal.module.css";
 import InsertionMenu from "./InsertionMenu/InsertionMenu";
-import ColorInput from "../ColorInput/ColorInput";
 import GlobalConfig from "./GlobalConfig/GlobalConfig";
 
 const CANVAS_MARGIN = 50; //px
@@ -244,7 +243,8 @@ class TheModal extends Component {
     if (this.state.insertedItems && this.state.insertedItems.length) {
       this.state.insertedItems.forEach((insertedItem, insertedItemIndex) => {
         possibleColorAttrs.forEach(possibleColorAttr => {
-          const attrValue = insertedItem.configValues[possibleColorAttr];
+          const config = insertedItem.configValues || insertedItem.config;
+          const attrValue = config[possibleColorAttr];
           if (Array.isArray(attrValue)) {
             attrValue.forEach((color, colorIndex) => {
               colorsFromState.push({
@@ -781,15 +781,15 @@ class TheModal extends Component {
     allColors.forEach(({ color, key }) => {
       if (color === oldColor) {
         set(newState, key, newColor);
-        if (key.slice(-1) === "]") {
-          // key points to an element in array
-          // need to create a new ref for that array
-          const keyParts = key.split("[");
-          keyParts.pop();
-          const keyToArray = keyParts.join("[");
-          console.log({ keyToArray });
-          set(newState, keyToArray, [...get(newState, keyToArray)]);
-        }
+        // if (key.slice(-1) === "]") {
+        //   // key points to an element in array
+        //   // need to create a new ref for that array
+        //   const keyParts = key.split("[");
+        //   keyParts.pop();
+        //   const keyToArray = keyParts.join("[");
+        //   console.log({ keyToArray });
+        //   set(newState, keyToArray, [...get(newState, keyToArray)]);
+        // }
         if (key.includes("insertedItems")) {
           const insertedItemIndex = key
             .split("insertedItems[")
@@ -1000,6 +1000,7 @@ class TheModal extends Component {
         showIframe: true
       };
     }
+    newState.configMode = "element";
     this.setState(newState);
   };
 
@@ -1163,10 +1164,10 @@ class TheModal extends Component {
   };
 
   renderGlobalConfig = () => {
-    const allColors = this.getAllColorsFromState();
+    const allColors = this.getAllColorsFromState().map(color => color.color);
     return (
       <GlobalConfig
-        colors={allColors}
+        colors={uniq(allColors)}
         onStartSelectingColor={this.onStartSelectingColor}
         onStopSelectingColor={this.onStopSelectingColor}
         onChange={this.onGlobalColorChange}

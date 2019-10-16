@@ -4,9 +4,9 @@ import ColorInput from "../../ColorInput/ColorInput";
 export default React.memo(
   ({ colors, onStartSelectingColor, onStopSelectingColor, onChange }) => (
     <>
-      {colors.map(({ color }, index) => (
+      {colors.map((color, index) => (
         <ColorInput
-          key={`color-${index}`}
+          key={`color-${colors.length}-${index}`}
           color={color}
           onChange={newColor => onChange(color)(newColor)}
           disableAlpha={false}
