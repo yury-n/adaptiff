@@ -3,6 +3,7 @@ import classnames from "classnames";
 import ReactDOM from "react-dom";
 import throttle from "lodash.throttle";
 import set from "lodash.set";
+import get from "lodash.get";
 import uniq from "lodash.uniq";
 import { Modal, Input, Button, Icon, Menu } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
@@ -16,7 +17,12 @@ import IframePreviewRnD from "./IframePreview/IframePreviewRnD";
 import ArtConfig from "./ArtConfig/ArtConfig";
 import Layers from "./Layers/Layers";
 import settings from "../settings";
-import { downloadFromDataURL, logStat, macify } from "../_utils";
+import {
+  downloadFromDataURL,
+  logStat,
+  macify,
+  colorObjToString
+} from "../_utils";
 
 import "rc-slider/assets/index.css";
 import "./global.overrides.css";
@@ -244,23 +250,39 @@ class TheModal extends Component {
       this.state.insertedItems.forEach((insertedItem, insertedItemIndex) => {
         possibleColorAttrs.forEach(possibleColorAttr => {
           const config = insertedItem.configValues || insertedItem.config;
+          let configKey = "config";
+          if (insertedItem.configValues) {
+            configKey = "configValues";
+          }
           const attrValue = config[possibleColorAttr];
           if (Array.isArray(attrValue)) {
             attrValue.forEach((color, colorIndex) => {
+              if (typeof color === "object" && color.a === 0) {
+                return; // omit transparent colors
+              }
               colorsFromState.push({
-                color,
-                key: `insertedItems[${insertedItemIndex}].configValues[${possibleColorAttr}][${colorIndex}]`
+                color:
+                  typeof color === "string" ? color : colorObjToString(color),
+                key: `insertedItems[${insertedItemIndex}].${configKey}[${possibleColorAttr}][${colorIndex}]`
               });
             });
           } else if (attrValue) {
+            if (typeof attrValue === "object" && attrValue.a === 0) {
+              return; // omit transparent colors
+            }
             colorsFromState.push({
-              color: attrValue,
-              key: `insertedItems[${insertedItemIndex}].configValues[${possibleColorAttr}]`
+              color:
+                typeof attrValue === "string"
+                  ? attrValue
+                  : colorObjToString(attrValue),
+              key: `insertedItems[${insertedItemIndex}].${configKey}[${possibleColorAttr}]`
             });
           }
         });
       });
     }
+
+    console.log({ colorsFromState });
 
     return colorsFromState;
   };
@@ -778,8 +800,9 @@ class TheModal extends Component {
       config: { ...this.state.config },
       insertedItems: [...this.state.insertedItems]
     };
+    console.log(">>>", colorObjToString(oldColor));
     allColors.forEach(({ color, key }) => {
-      if (color === oldColor) {
+      if (colorObjToString(color) === colorObjToString(oldColor)) {
         set(newState, key, newColor);
         // if (key.slice(-1) === "]") {
         //   // key points to an element in array
@@ -798,21 +821,20 @@ class TheModal extends Component {
             .shift();
           const insertedItemId = this.state.insertedItems[insertedItemIndex].id;
           this.postConfigToIframe(insertedItemId);
-          // const keyToMutate = `insertedItems[${insertedItemIndex}]`;
-          // console.log({
-          //   key,
-          //   keyToMutate,
-          //   newState,
-          //   val: get(newState, keyToMutate)
-          // });
-          // set(newState, keyToMutate, { ...get(newState, keyToMutate) });
-          // set(newState, `${keyToMutate}.configValues`, {
-          //   ...get(newState, `${keyToMutate}.configValues`)
-          // });
+          const keyToMutate = `insertedItems[${insertedItemIndex}]`;
+          console.log({
+            key,
+            keyToMutate,
+            newState,
+            val: get(newState, keyToMutate)
+          });
+          set(newState, keyToMutate, { ...get(newState, keyToMutate) });
+          set(newState, `${keyToMutate}.configValues`, {
+            ...get(newState, `${keyToMutate}.configValues`)
+          });
         }
       }
     });
-    console.log({ newState });
     this.setState(newState);
   };
 

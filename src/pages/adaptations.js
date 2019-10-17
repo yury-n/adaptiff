@@ -2660,7 +2660,7 @@ export const allAdaptations = [
             fontSize: 60,
             padding: 34,
             letterSpacing: 0,
-            color: "#1d1d1d",
+            color: "#000000",
             backgroundColor: { r: 238, g: 233, b: 214, a: 0 },
             borderWidth: 0,
             isInline: false,
@@ -2701,7 +2701,7 @@ export const allAdaptations = [
           height: 540,
           showIframe: true,
           adaptation: svgs[48],
-          configValues: { color: "#398368" },
+          configValues: { color: "#127e56" },
           position: { left: -151.76470588235296, top: -100.58823529411765 },
           id: 306,
           rotation: 0
@@ -2712,7 +2712,7 @@ export const allAdaptations = [
           height: 30,
           showIframe: true,
           adaptation: svgs[50],
-          configValues: { color: "#398368" },
+          configValues: { color: "#127e56" },
           position: { left: 215.29411764705884, top: 552.3529411764706 },
           id: 307,
           rotation: 0
@@ -2723,7 +2723,7 @@ export const allAdaptations = [
           height: 14.117647058823529,
           showIframe: true,
           adaptation: svgs[51],
-          configValues: { color: "#398368" },
+          configValues: { color: "#127e56" },
           position: { left: 199.41176470588235, top: 592.9411764705883 },
           id: 308,
           rotation: 0
