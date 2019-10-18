@@ -59,7 +59,7 @@ const unfilledGradientWaves = {
   thumb: "/thumbs/b18.png",
   initState: {
     size: { width: 1000, height: 1000 },
-    config: {
+    configValues: {
       amplituteX: 300,
       amplituteY: 30,
       crazyness: false,
@@ -79,7 +79,7 @@ export const allAdaptations = [
     thumb: "/thumbs/18.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         angle: 200,
         direction: "top",
         palette: ["#081027", "#0d1f52"]
@@ -106,7 +106,7 @@ export const allAdaptations = [
         {
           id: 101,
           type: "text",
-          config: {
+          configValues: {
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             borderWidth: 0,
             color: "#ffffff",
@@ -140,7 +140,7 @@ export const allAdaptations = [
         {
           id: 103,
           type: "text",
-          config: {
+          configValues: {
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             borderWidth: 0,
             color: "#ffffff",
@@ -161,7 +161,7 @@ export const allAdaptations = [
     thumb: "/thumbs/16.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#0b0a21", "#1e1b57"],
         direction: "custom_angle",
         angle: 200
@@ -203,7 +203,7 @@ export const allAdaptations = [
           id: 103,
           type: "text",
           position: { left: 235.55107526881721, top: 263.3778561827957 },
-          config: {
+          configValues: {
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             borderWidth: 0,
             color: "#ffffff",
@@ -225,7 +225,7 @@ export const allAdaptations = [
     thumb: "/thumbs/11.png",
     initState: {
       size: { width: 600, height: 600 },
-      config: {
+      configValues: {
         angle: 360,
         itemSize: 10,
         itemType: "circle",
@@ -264,7 +264,7 @@ export const allAdaptations = [
           }
         },
         {
-          config: {
+          configValues: {
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             borderWidth: 0,
             color: "#d7ff00",
@@ -290,7 +290,7 @@ export const allAdaptations = [
     thumb: "/thumbs/9.png",
     initState: {
       size: { width: 700, height: 700 },
-      config: {
+      configValues: {
         amplituteX: 150,
         amplituteY: 30,
         crazyness: false,
@@ -304,7 +304,7 @@ export const allAdaptations = [
         {
           id: 100,
           type: "text",
-          config: {
+          configValues: {
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             borderWidth: 1,
             color: "#ffffff",
@@ -328,7 +328,7 @@ export const allAdaptations = [
     thumb: "/thumbs/7.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         backgroundColor: "#324444",
         palette: ["#A2CCB6", "#FCEEB5", "#fff", "#EE786E"],
         numLines: 94,
@@ -338,7 +338,7 @@ export const allAdaptations = [
         {
           id: 100,
           type: "text",
-          config: {
+          configValues: {
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#ffffff",
             fontFamily: "Playfair Display",
@@ -361,7 +361,7 @@ export const allAdaptations = [
     thumb: "/thumbs/19.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#f9f9f9", "#ffffff"],
         direction: "left",
         angle: 200
@@ -380,7 +380,7 @@ export const allAdaptations = [
         {
           id: 103,
           type: "text",
-          config: {
+          configValues: {
             fontFamily: "Lato",
             fontSize: 34,
             padding: 10,
@@ -398,7 +398,7 @@ export const allAdaptations = [
         {
           id: 104,
           type: "text",
-          config: {
+          configValues: {
             fontFamily: "Lato",
             fontSize: 72,
             padding: 10,
@@ -416,7 +416,7 @@ export const allAdaptations = [
         {
           id: 5,
           type: "text",
-          config: {
+          configValues: {
             fontFamily: "Lato",
             fontSize: 28,
             padding: 10,
@@ -434,7 +434,7 @@ export const allAdaptations = [
         {
           id: 6,
           type: "text",
-          config: {
+          configValues: {
             fontFamily: "Lato",
             fontSize: 20,
             padding: 10,
@@ -458,7 +458,7 @@ export const allAdaptations = [
     thumb: "/thumbs/19.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#f9f9f9", "#ffffff"],
         direction: "left",
         angle: 200
@@ -477,7 +477,7 @@ export const allAdaptations = [
         {
           id: 103,
           type: "text",
-          config: {
+          configValues: {
             fontFamily: "Lato",
             fontSize: 34,
             padding: 10,
@@ -495,7 +495,7 @@ export const allAdaptations = [
         {
           id: 104,
           type: "text",
-          config: {
+          configValues: {
             fontFamily: "Lato",
             fontSize: 72,
             padding: 10,
@@ -513,7 +513,7 @@ export const allAdaptations = [
         {
           id: 5,
           type: "text",
-          config: {
+          configValues: {
             fontFamily: "Lato",
             fontSize: 28,
             padding: 10,
@@ -531,7 +531,7 @@ export const allAdaptations = [
         {
           id: 6,
           type: "text",
-          config: {
+          configValues: {
             fontFamily: "Lato",
             fontSize: 20,
             padding: 10,
@@ -556,7 +556,7 @@ export const allAdaptations = [
     thumbBackgroundSize: "cover",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#d8f1ff", "#000"],
         sizePercent: [25, 39],
         randomValues: [0.39245358845393374]
@@ -565,7 +565,7 @@ export const allAdaptations = [
         {
           id: 100,
           type: "text",
-          config: {
+          configValues: {
             fontFamily: "Poppins",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
@@ -581,7 +581,7 @@ export const allAdaptations = [
         {
           id: 101,
           type: "text",
-          config: {
+          configValues: {
             fontFamily: "Poppins",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
@@ -597,7 +597,7 @@ export const allAdaptations = [
         {
           id: 102,
           type: "text",
-          config: {
+          configValues: {
             fontFamily: "Roboto",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
@@ -621,7 +621,7 @@ export const allAdaptations = [
     thumbBackgroundSize: "cover",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#ff9855", "#bb045d"],
         lines: 13,
         amplituteX: 148,
@@ -640,7 +640,7 @@ export const allAdaptations = [
     thumbBackgroundSize: "cover",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#dec7f9", "#693e97", "#2a013e"],
         count: 100,
         lineWidth: 74,
@@ -657,7 +657,7 @@ export const allAdaptations = [
     thumb: "/thumbs/b17.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: [
           "#1eaa89",
           "#60d1a3",
@@ -675,7 +675,7 @@ export const allAdaptations = [
     thumb: "/thumbs/b16.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         amplituteX: 60,
         amplituteY: 60,
         crazyness: true,
@@ -693,7 +693,7 @@ export const allAdaptations = [
     thumb: "/thumbs/b15.png",
     initState: {
       size: { width: 700, height: 700 },
-      config: {
+      configValues: {
         backgroundColor: "#ffffff",
         fov: 166,
         numLines: 100,
@@ -707,7 +707,7 @@ export const allAdaptations = [
     thumb: "/thumbs/b14.png",
     initState: {
       size: { width: 930, height: 930 },
-      config: {
+      configValues: {
         bumpStrength: 88,
         objectColor: "#050504",
         objectShininess: 200,
@@ -730,7 +730,7 @@ export const allAdaptations = [
     thumb: "/thumbs/b13.png",
     initState: {
       size: { width: 600, height: 500 },
-      config: {
+      configValues: {
         angle: 200,
         direction: "custom_angle",
         palette: ["#c95c46", "#511414"]
@@ -763,7 +763,7 @@ export const allAdaptations = [
     thumb: "/thumbs/b28.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         distanceBetween: 7,
         palette: ["#fff", "#000"]
       }
@@ -778,7 +778,7 @@ export const allAdaptations = [
     ...subtleRib,
     thumb: "/thumbs/b23.png",
     initState: {
-      config: { color: "#c1bbf2" },
+      configValues: { color: "#c1bbf2" },
       size: { width: 600, height: 500 }
     }
   },
@@ -792,7 +792,7 @@ export const allAdaptations = [
   {
     ...gradientBubbles,
     thumb: "/thumbs/b26.png",
-    initState: { config: {}, size: { width: 600, height: 500 } }
+    initState: { configValues: {}, size: { width: 600, height: 500 } }
   },
   // 24
   { ...strings25 },
@@ -803,24 +803,24 @@ export const allAdaptations = [
   // 27
   {
     ...steppedGradient,
-    initState: { config: {}, size: { width: 600, height: 600 } }
+    initState: { configValues: {}, size: { width: 600, height: 600 } }
   },
   // 28
   { ...perfectPurple },
   // 29
   {
     ...chromaticLiquids,
-    initState: { config: {}, size: { width: 1000, height: 660 } }
+    initState: { configValues: {}, size: { width: 1000, height: 660 } }
   },
   // 30
   {
     ...fiberRectangles,
-    initState: { config: {}, size: { width: 700, height: 500 } }
+    initState: { configValues: {}, size: { width: 700, height: 500 } }
   },
   // 31
   {
     ...generateArt,
-    initState: { config: {}, size: { width: 500, height: 500 } }
+    initState: { configValues: {}, size: { width: 500, height: 500 } }
   },
   // 32
   { ...wallPattern },
@@ -830,7 +830,7 @@ export const allAdaptations = [
     thumb: "/thumbs/b21.png",
     initState: {
       size: { width: 800, height: 800 },
-      config: {
+      configValues: {
         palette: ["#1c004e", "#00aaff"],
         itemSize: 31,
         itemsNumInRow: 25,
@@ -849,7 +849,7 @@ export const allAdaptations = [
     thumb: "/thumbs/b20.png",
     initState: {
       size: { width: 600, height: 600 },
-      config: {
+      configValues: {
         maxParticles: 200,
         palette: ["#f46c94", "#fedf35", "#ffffff"],
         sizeVariations: 24
@@ -863,7 +863,7 @@ export const allAdaptations = [
   // 37
   {
     ...voronoi,
-    initState: { config: {}, size: { width: 1000, height: 1000 } }
+    initState: { configValues: {}, size: { width: 1000, height: 1000 } }
   },
   // 38
   {
@@ -871,7 +871,11 @@ export const allAdaptations = [
     thumb: "/thumbs/38.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: { palette: ["#00040e", "#470090"], direction: "top", angle: 200 },
+      configValues: {
+        palette: ["#00040e", "#470090"],
+        direction: "top",
+        angle: 200
+      },
       insertedItems: [
         {
           id: 302,
@@ -910,7 +914,7 @@ export const allAdaptations = [
           id: 203,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Righteous",
             fontSize: 100,
             padding: 10,
@@ -928,7 +932,7 @@ export const allAdaptations = [
           id: 204,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Righteous",
             fontSize: 100,
             padding: 10,
@@ -948,7 +952,7 @@ export const allAdaptations = [
   // 39
   {
     ...carpet,
-    initState: { config: {}, size: { width: 1000, height: 1000 } }
+    initState: { configValues: {}, size: { width: 1000, height: 1000 } }
   },
   // 40
   {
@@ -956,7 +960,7 @@ export const allAdaptations = [
     thumb: "/thumbs/40.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#18faff", "#7b2dd6"],
         lines: 13,
         amplituteX: 58,
@@ -993,7 +997,7 @@ export const allAdaptations = [
     thumb: "/thumbs/41.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#ef76a7", "#d01200"],
         lines: 13,
         amplituteX: 58,
@@ -1025,7 +1029,7 @@ export const allAdaptations = [
           id: 202,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Oswald",
             fontSize: 81,
             padding: 10,
@@ -1045,7 +1049,7 @@ export const allAdaptations = [
           id: 304,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Barriecito",
             fontSize: 100,
             padding: 10,
@@ -1064,7 +1068,7 @@ export const allAdaptations = [
           id: 102,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Roboto Condensed",
             fontSize: 49,
             padding: 10,
@@ -1083,7 +1087,7 @@ export const allAdaptations = [
           id: 103,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Roboto Condensed",
             fontSize: 35,
             padding: 10,
@@ -1107,7 +1111,7 @@ export const allAdaptations = [
     thumb: "/thumbs/42.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: { transparent: false, color: "#ffffff" },
+      configValues: { transparent: false, color: "#ffffff" },
       insertedItems: [
         {
           id: 303,
@@ -1143,7 +1147,7 @@ export const allAdaptations = [
           id: 202,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Seymour One",
             fontSize: 100,
             padding: 10,
@@ -1163,7 +1167,7 @@ export const allAdaptations = [
           id: 102,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Seymour One",
             fontSize: 57,
             padding: 10,
@@ -1183,7 +1187,7 @@ export const allAdaptations = [
           id: 102,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Montserrat",
             fontSize: 33,
             padding: 10,
@@ -1208,7 +1212,11 @@ export const allAdaptations = [
     thumb: "/thumbs/n43.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: { palette: ["#fbcac4", "#45618a"], direction: "top", angle: 200 },
+      configValues: {
+        palette: ["#fbcac4", "#45618a"],
+        direction: "top",
+        angle: 200
+      },
       insertedItems: [
         {
           id: 302,
@@ -1235,7 +1243,7 @@ export const allAdaptations = [
     thumb: "/thumbs/44.png",
     initState: {
       size: { width: 1080, height: 1080 },
-      config: { transparent: false, color: "#ffffff" },
+      configValues: { transparent: false, color: "#ffffff" },
       insertedItems: [
         {
           id: 202,
@@ -1255,7 +1263,7 @@ export const allAdaptations = [
           id: 203,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Old Standard TT",
             fontSize: 67,
             padding: 10,
@@ -1276,7 +1284,7 @@ export const allAdaptations = [
           id: 102,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Vollkorn",
             fontSize: 37,
             padding: 10,
@@ -1301,7 +1309,7 @@ export const allAdaptations = [
     thumb: "/thumbs/45.png",
     initState: {
       size: { width: 1080, height: 1080 },
-      config: {}
+      configValues: {}
     }
   },
   // 46
@@ -1310,7 +1318,7 @@ export const allAdaptations = [
     thumb: "/thumbs/46.png",
     initState: {
       size: { width: 1080, height: 1080 },
-      config: {}
+      configValues: {}
     }
   },
   // 47
@@ -1319,7 +1327,7 @@ export const allAdaptations = [
     thumb: "/thumbs/47.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#fff", "#256eb0", "#eca5b3"],
         rotate: 113,
         cellCount: 5,
@@ -1334,7 +1342,7 @@ export const allAdaptations = [
     thumb: "/thumbs/48.png",
     initState: {
       size: { width: 1080, height: 1080 },
-      config: { transparent: false, color: "#ffffff" },
+      configValues: { transparent: false, color: "#ffffff" },
       insertedItems: [
         {
           id: 302,
@@ -1368,7 +1376,7 @@ export const allAdaptations = [
           id: 304,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Oranienbaum",
             fontSize: 120,
             padding: 10,
@@ -1390,7 +1398,7 @@ export const allAdaptations = [
           id: 305,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Oranienbaum",
             fontSize: 51,
             padding: 10,
@@ -1427,7 +1435,7 @@ export const allAdaptations = [
           id: 203,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Lora",
             fontSize: 120,
             padding: 10,
@@ -1447,7 +1455,7 @@ export const allAdaptations = [
           id: 204,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Oranienbaum",
             fontSize: 76,
             padding: 10,
@@ -1468,7 +1476,7 @@ export const allAdaptations = [
           id: 205,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Oranienbaum",
             fontSize: 52,
             padding: 10,
@@ -1494,7 +1502,7 @@ export const allAdaptations = [
     thumb: "/thumbs/49.png",
     initState: {
       size: { width: 1080, height: 1080 },
-      config: {
+      configValues: {
         withBackground: true,
         backgroundColor: "#105956",
         strokeColor: { r: "66", g: "205", b: "166", a: "0.62" },
@@ -1521,7 +1529,7 @@ export const allAdaptations = [
           id: 203,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Oswald",
             fontSize: 73,
             padding: 10,
@@ -1542,7 +1550,7 @@ export const allAdaptations = [
           id: 204,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Oswald",
             fontSize: 40,
             padding: 10,
@@ -1563,7 +1571,7 @@ export const allAdaptations = [
           id: 205,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Roboto Condensed",
             fontSize: 27,
             padding: 10,
@@ -1589,7 +1597,7 @@ export const allAdaptations = [
     thumb: "thumbs/50.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#fff", "#6f86d6", "#48c6ef"],
         rotate: 113,
         cellCount: 5,
@@ -1601,7 +1609,7 @@ export const allAdaptations = [
           id: 302,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Pacifico",
             fontSize: 51,
             padding: 33,
@@ -1621,7 +1629,7 @@ export const allAdaptations = [
           id: 102,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Rubik",
             fontSize: 60,
             padding: 33,
@@ -1648,7 +1656,7 @@ export const allAdaptations = [
     thumb: "thumbs/n51.png",
     initState: {
       size: { width: 1080, height: 1080 },
-      config: {
+      configValues: {
         palette: ["#ffee00", "#0085c7", "#150f49", "#070d40"],
         cell_size: 80,
         variance: 100
@@ -1678,7 +1686,7 @@ export const allAdaptations = [
     thumb: "thumbs/52.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#6d107e", "#f03358"],
         direction: "custom_angle",
         angle: 200
@@ -1719,7 +1727,7 @@ export const allAdaptations = [
           id: 302,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Yanone Kaffeesatz",
             fontSize: 67,
             padding: 130,
@@ -1747,7 +1755,7 @@ export const allAdaptations = [
     thumb: "thumbs/53.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {}
+      configValues: {}
     }
   },
   // 54
@@ -1756,7 +1764,7 @@ export const allAdaptations = [
     thumb: "thumbs/54.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#ff9a8b", "#6148aa"],
         direction: "custom_angle",
         angle: 200
@@ -1809,7 +1817,7 @@ export const allAdaptations = [
     thumb: "thumbs/55.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#453ff4", "#49b8e9", "#ffffff", "#fe96fc"],
         cell_size: 80,
         variance: 0
@@ -1823,7 +1831,7 @@ export const allAdaptations = [
     thumb: "thumbs/56.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         bumpStrength: 200,
         objectColor: "#3b2001",
         objectShininess: 29,
@@ -1845,7 +1853,7 @@ export const allAdaptations = [
     thumb: "/thumbs/57.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         maxParticles: 163,
         palette: ["#572949", "#fbda2b", "#ff8804"],
         sizeVariations: 18
@@ -1858,7 +1866,7 @@ export const allAdaptations = [
     thumb: "/thumbs/58.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#7be4da", "#cefbee"],
         direction: "custom_angle",
         angle: 200
@@ -1905,7 +1913,7 @@ export const allAdaptations = [
     thumb: "/thumbs/59.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         bumpStrength: 200,
         objectColor: "#ebc4c4",
         objectShininess: 12,
@@ -1927,7 +1935,7 @@ export const allAdaptations = [
     thumb: "/thumbs/60.png",
     initState: {
       size: { width: 1080, height: 607 },
-      config: {
+      configValues: {
         palette: [
           "#e87a7a",
           "#8c4f7f",
@@ -1942,7 +1950,7 @@ export const allAdaptations = [
           id: 102,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Roboto Condensed",
             fontSize: 72,
             padding: 10,
@@ -1966,7 +1974,7 @@ export const allAdaptations = [
           id: 104,
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Roboto Condensed",
             fontSize: 64,
             padding: 10,
@@ -1997,7 +2005,7 @@ export const allAdaptations = [
     thumb: "/thumbs/61.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#7be4da", "#094a6f"],
         direction: "custom_angle",
         angle: 200
@@ -2068,7 +2076,7 @@ export const allAdaptations = [
     thumb: "/thumbs/62.png",
     initState: {
       size: { width: 700, height: 700 },
-      config: {
+      configValues: {
         amplituteX: 150,
         amplituteY: 30,
         crazyness: false,
@@ -2087,7 +2095,7 @@ export const allAdaptations = [
     thumb: "/thumbs/7.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         backgroundColor: "#324444",
         palette: ["#A2CCB6", "#FCEEB5", "#fff", "#EE786E"],
         numLines: 94,
@@ -2097,7 +2105,7 @@ export const allAdaptations = [
         {
           id: 100,
           type: "text",
-          config: {
+          configValues: {
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#ffffff",
             fontFamily: "Playfair Display",
@@ -2121,7 +2129,7 @@ export const allAdaptations = [
     thumbBackgroundSize: "cover",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#d8f1ff", "#000"],
         sizePercent: [25, 39],
         randomValues: [0.39245358845393374]
@@ -2130,7 +2138,7 @@ export const allAdaptations = [
         {
           id: 100,
           type: "text",
-          config: {
+          configValues: {
             fontFamily: "Poppins",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
@@ -2146,7 +2154,7 @@ export const allAdaptations = [
         {
           id: 101,
           type: "text",
-          config: {
+          configValues: {
             fontFamily: "Poppins",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
@@ -2162,7 +2170,7 @@ export const allAdaptations = [
         {
           id: 102,
           type: "text",
-          config: {
+          configValues: {
             fontFamily: "Roboto",
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             color: "#000",
@@ -2185,7 +2193,7 @@ export const allAdaptations = [
     thumb: "/thumbs/65.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#ffffff", "#fdf9ce"],
         direction: "custom_angle",
         angle: 200
@@ -2277,7 +2285,7 @@ export const allAdaptations = [
     thumb: "/thumbs/66.png",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         withBackground: true,
         palette: ["#496519", "#ffcf2c"],
         color: "#ffffff",
@@ -2358,7 +2366,7 @@ export const allAdaptations = [
     author: "multiple authors",
     initState: {
       size: { width: 1080, height: 1080 },
-      config: {
+      configValues: {
         palette: ["#ffffff", "#e0e0e0"],
         direction: "custom_angle",
         angle: 163
@@ -2383,7 +2391,7 @@ export const allAdaptations = [
     thumb: "/thumbs/68.png",
     initState: {
       size: { width: 600, height: 600 },
-      config: {
+      configValues: {
         palette: ["#eeb1a9", "#feedcf"],
         itemSize: 10,
         itemsNumInRow: 16,
@@ -2437,7 +2445,7 @@ export const allAdaptations = [
           }
         },
         {
-          config: {
+          configValues: {
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             borderWidth: 0,
             color: "#dbff18",
@@ -2478,7 +2486,7 @@ export const allAdaptations = [
         {
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Faster One",
             fontSize: 39,
             padding: 10,
@@ -2497,7 +2505,7 @@ export const allAdaptations = [
           text: "adaptiff.com"
         },
         {
-          config: {
+          configValues: {
             backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
             borderWidth: 0,
             color: "#dbff18",
@@ -2524,7 +2532,7 @@ export const allAdaptations = [
     thumb: "/thumbs/69.png",
     initState: {
       size: { width: 1080, height: 1080 },
-      config: {
+      configValues: {
         palette: ["#fddabe", "#fda6f0"],
         direction: "custom_angle",
         angle: 200
@@ -2571,7 +2579,7 @@ export const allAdaptations = [
         {
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Open Sans",
             fontSize: 40,
             padding: 10,
@@ -2613,7 +2621,7 @@ export const allAdaptations = [
     thumb: "/thumbs/70.png",
     initState: {
       size: { width: 1080, height: 1080 },
-      config: {
+      configValues: {
         palette: ["#ffffff", "#eee9d6"],
         direction: "custom_angle",
         angle: 201
@@ -2655,7 +2663,7 @@ export const allAdaptations = [
         {
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Oswald",
             fontSize: 60,
             padding: 34,
@@ -2731,7 +2739,7 @@ export const allAdaptations = [
         {
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Oswald",
             fontSize: 39,
             padding: 20,
@@ -2752,7 +2760,7 @@ export const allAdaptations = [
         {
           type: "text",
           hasCyrillic: false,
-          config: {
+          configValues: {
             fontFamily: "Fira Sans Extra Condensed",
             fontSize: 100,
             padding: 20,
@@ -2809,7 +2817,7 @@ export const allAdaptations = [
     thumb: "/thumbs/71.png",
     initState: {
       size: { width: 1080, height: 1080 },
-      config: {
+      configValues: {
         palette: ["#6148aa", "#ff9a8b"],
         direction: "custom_angle",
         angle: 200
@@ -2926,7 +2934,7 @@ export const allAdaptations = [
     thumb: "/thumbs/74.png",
     initState: {
       size: { width: 726, height: 563 },
-      config: { palette: ["#3f0686", "#260057"] },
+      configValues: { palette: ["#3f0686", "#260057"] },
       insertedItems: [
         {
           type: "object",

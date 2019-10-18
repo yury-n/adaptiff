@@ -48,14 +48,14 @@ class TheModal extends Component {
     this.captureFrameRef = React.createRef();
     this.ctrlDown = false;
     this.bufferedInsertedItem = null;
-    const initState = props.initState || { size: {}, config: {} };
+    const initState = props.initState || { size: {}, configValues: {} };
 
     const state = {
       isPaused: false,
       isPreparingDownload: false,
       isLoadingIframe: false,
       isPublic: true,
-      config: {},
+      configValues: {},
       iframeVersion: 0, // for props.config.refreshIframe = true
       // Check for custom properties first
       canvasWidth:
@@ -100,16 +100,16 @@ class TheModal extends Component {
       configMode: "global" // | 'global'
     };
     this.props.config.forEach(config => {
-      state.config[config.key] =
-        initState.config[config.key] !== undefined
-          ? initState.config[config.key]
+      state.configValues[config.key] =
+        initState.configValues[config.key] !== undefined
+          ? initState.configValues[config.key]
           : config.defaultValue;
       if (
         config.type === "randomValues" &&
-        !initState.config[config.key] &&
+        !initState.configValues[config.key] &&
         !config.isEnabledByDefault
       ) {
-        state.config[config.key] = [];
+        state.configValues[config.key] = [];
       }
     });
     this.state = state;
@@ -147,7 +147,7 @@ class TheModal extends Component {
     const activeInsertedItem = this.getActiveInsertedItem();
     if (
       !this.props.refreshIframe &&
-      (prevState.config !== this.state.config ||
+      (prevState.configValues !== this.state.configValues ||
         this.state.canvasWidth !== prevState.canvasWidth ||
         this.state.canvasHeight !== prevState.canvasHeight ||
         (this.state.insertedItems !== prevState.insertedItems &&
@@ -229,18 +229,18 @@ class TheModal extends Component {
 
     // background
     possibleColorAttrs.forEach(possibleColorAttr => {
-      const attrValue = this.state.config[possibleColorAttr];
+      const attrValue = this.state.configValues[possibleColorAttr];
       if (Array.isArray(attrValue)) {
         attrValue.forEach((color, colorIndex) => {
           colorsFromState.push({
             color,
-            key: `config[${possibleColorAttr}][${colorIndex}]`
+            key: `configValues[${possibleColorAttr}][${colorIndex}]`
           });
         });
       } else if (attrValue) {
         colorsFromState.push({
           color: attrValue,
-          key: `config[${possibleColorAttr}]`
+          key: `configValues[${possibleColorAttr}]`
         });
       }
     });
@@ -249,11 +249,7 @@ class TheModal extends Component {
     if (this.state.insertedItems && this.state.insertedItems.length) {
       this.state.insertedItems.forEach((insertedItem, insertedItemIndex) => {
         possibleColorAttrs.forEach(possibleColorAttr => {
-          const config = insertedItem.configValues || insertedItem.config;
-          let configKey = "config";
-          if (insertedItem.configValues) {
-            configKey = "configValues";
-          }
+          const config = insertedItem.configValues;
           const attrValue = config[possibleColorAttr];
           if (Array.isArray(attrValue)) {
             attrValue.forEach((color, colorIndex) => {
@@ -263,7 +259,7 @@ class TheModal extends Component {
               colorsFromState.push({
                 color:
                   typeof color === "string" ? color : colorObjToString(color),
-                key: `insertedItems[${insertedItemIndex}].${configKey}[${possibleColorAttr}][${colorIndex}]`
+                key: `insertedItems[${insertedItemIndex}].configValues[${possibleColorAttr}][${colorIndex}]`
               });
             });
           } else if (attrValue) {
@@ -275,7 +271,7 @@ class TheModal extends Component {
                 typeof attrValue === "string"
                   ? attrValue
                   : colorObjToString(attrValue),
-              key: `insertedItems[${insertedItemIndex}].${configKey}[${possibleColorAttr}]`
+              key: `insertedItems[${insertedItemIndex}].configValues[${possibleColorAttr}]`
             });
           }
         });
@@ -526,7 +522,12 @@ class TheModal extends Component {
               <Menu.Item
                 className={"tab-menu-item"}
                 active={this.state.configMode === "global"}
-                onClick={() => this.setState({ configMode: "global" })}
+                onClick={() =>
+                  this.setState({
+                    configMode: "global",
+                    activeInsertedItemIndex: null
+                  })
+                }
               >
                 <Icon name="globe" />
                 <div>Global</div>
@@ -645,7 +646,7 @@ class TheModal extends Component {
       case "text":
         return (
           <InsertedTextDraggable
-            config={insertedItem.config}
+            config={insertedItem.configValues}
             initialValue={insertedItem.text || "Some sample text"}
             setHasCyrillic={value =>
               this.setTextConfigValue("hasCyrillic", value)
@@ -689,7 +690,7 @@ class TheModal extends Component {
         return (
           <InsertedText
             key={insertedItem.id}
-            config={insertedItem.config}
+            config={insertedItem.configValues}
             initialValue={insertedItem.text || "Some sample text"}
             scale={scaleToFit}
           />
@@ -797,10 +798,11 @@ class TheModal extends Component {
     const allColors = this.getAllColorsFromState();
     const newState = {
       ...this.state,
-      config: { ...this.state.config },
+      configValues: { ...this.state.configValues },
       insertedItems: [...this.state.insertedItems]
     };
     console.log(">>>", colorObjToString(oldColor));
+    console.log("<<<", colorObjToString(newColor));
     allColors.forEach(({ color, key }) => {
       if (colorObjToString(color) === colorObjToString(oldColor)) {
         set(newState, key, newColor);
@@ -822,19 +824,14 @@ class TheModal extends Component {
           const insertedItemId = this.state.insertedItems[insertedItemIndex].id;
           this.postConfigToIframe(insertedItemId);
           const keyToMutate = `insertedItems[${insertedItemIndex}]`;
-          console.log({
-            key,
-            keyToMutate,
-            newState,
-            val: get(newState, keyToMutate)
-          });
-          set(newState, keyToMutate, { ...get(newState, keyToMutate) });
+          // set(newState, keyToMutate, { ...get(newState, keyToMutate) });
           set(newState, `${keyToMutate}.configValues`, {
             ...get(newState, `${keyToMutate}.configValues`)
           });
         }
       }
     });
+    console.log({ newState });
     this.setState(newState);
   };
 
@@ -934,7 +931,7 @@ class TheModal extends Component {
     this.insertItem({
       type: "text",
       hasCyrillic: false,
-      config: lastinsertedItem.config || defaultConfig
+      config: lastinsertedItem.configValues || defaultConfig
     });
   };
 
@@ -956,11 +953,11 @@ class TheModal extends Component {
     logStat("insert_object");
     const configValues = {};
     const { canvasWidth, canvasHeight } = this.state;
-    const initState = adaptation.initState || { config: {} };
+    const initState = adaptation.initState || { configValues: {} };
     adaptation.config.forEach(config => {
       configValues[config.key] =
-        initState.config[config.key] !== undefined
-          ? initState.config[config.key]
+        initState.configValues[config.key] !== undefined
+          ? initState.configValues[config.key]
           : config.defaultValue;
     });
     let width = Math.round(canvasWidth * 0.5);
@@ -1202,7 +1199,7 @@ class TheModal extends Component {
     return (
       <TextConfig
         text={insertedItems[activeInsertedItemIndex]}
-        config={insertedItems[activeInsertedItemIndex].config}
+        config={insertedItems[activeInsertedItemIndex].configValues}
         setConfigValue={this.setTextConfigValue}
         onStartSelectingColor={this.onStartSelectingColor}
         onStopSelectingColor={this.onStopSelectingColor}
@@ -1214,7 +1211,7 @@ class TheModal extends Component {
     const { insertedItems, activeInsertedItemIndex } = this.state;
     return (
       <ImageConfig
-        config={insertedItems[activeInsertedItemIndex].config}
+        config={insertedItems[activeInsertedItemIndex].configValues}
         setConfigValue={this.setTextConfigValue}
       />
     );
@@ -1230,13 +1227,13 @@ class TheModal extends Component {
       <ArtConfig
         config={
           activeInsertedObject
-            ? activeInsertedObject.adaptation.config
+            ? activeInsertedObject.adaptation.configValues
             : this.props.config
         }
         configValues={
           activeInsertedObject
             ? activeInsertedObject.configValues
-            : this.state.config
+            : this.state.configValues
         }
         setConfigValue={this.setArtConfigValue}
         onStartSelectingColor={this.onStartSelectingColor}
@@ -1252,7 +1249,7 @@ class TheModal extends Component {
     newinsertedItems[activeInsertedItemIndex] = {
       ...activeinsertedItem,
       config: {
-        ...activeinsertedItem.config,
+        ...activeinsertedItem.configValues,
         [configKey]: configValue
       }
     };
@@ -1266,7 +1263,7 @@ class TheModal extends Component {
     if (activeInsertedItem.type === "object") {
       return activeInsertedItem.configValues[configKey];
     }
-    return this.state.config[configKey];
+    return this.state.configValues[configKey];
   };
 
   getArtConfigOption = configKey => {
@@ -1281,7 +1278,7 @@ class TheModal extends Component {
   setArtConfigValue = (configKey, configValue) => {
     const { refreshIframe } = this.props;
     const {
-      config,
+      configValues,
       iframeVersion,
       isPaused,
       insertedItems,
@@ -1312,7 +1309,7 @@ class TheModal extends Component {
       });
     } else {
       this.setState({
-        config: { ...config, ...configUpdates },
+        configValues: { ...configValues, ...configUpdates },
         iframeVersion: iframeVersion + 1,
         isPaused: refreshIframe ? false : isPaused
       });
@@ -1341,7 +1338,7 @@ class TheModal extends Component {
     if (!iframeNode) {
       return;
     }
-    let config = this.state.config;
+    let config = this.state.configValues;
     if (insertedItemId !== undefined && insertedItemId !== null) {
       iframeNode = this.insertedItemsRefs[insertedItemId];
       const insertedItem = this.state.insertedItems.find(
@@ -1648,7 +1645,7 @@ class TheModal extends Component {
             width: this.state.canvasWidth,
             height: this.state.canvasHeight
           },
-          config: this.state.config,
+          config: this.state.configValues,
           insertedItems: capturedInsertedItems
         }
       })
@@ -1661,7 +1658,7 @@ class TheModal extends Component {
           width: this.state.canvasWidth,
           height: this.state.canvasHeight
         },
-        config: this.state.config,
+        config: this.state.configValues,
         insertedItems: this.state.insertedItems.map((insertedItem, idx) => ({
           ...insertedItem,
           width: captureConfig[idx].width,
