@@ -2932,6 +2932,13 @@ export const allAdaptations = [
     authorLink: "https://freepik.com",
     title: "Radial gradient with ripples",
     thumb: "/thumbs/74.png",
+    palettes: [
+      ["#5B2A86", "#360568", "#E5C3D1", "#613F75"],
+      ["#f3a930", "#e76779", "#c9eaff", "#e9e9f1"],
+      ["#7e2ec4", "#360568", "#00fffc", "#54fd8b"],
+      ["#9AD1D4", "#CCDBDC", "#007EA7", "#003249"],
+      ["#ffcdd3", "#dfb7c7", "#fbf7ff", "#6961ff"]
+    ],
     initState: {
       size: { width: 726, height: 563 },
       configValues: { palette: ["#3f0686", "#260057"] },

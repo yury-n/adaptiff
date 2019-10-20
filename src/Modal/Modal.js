@@ -278,8 +278,6 @@ class TheModal extends Component {
       });
     }
 
-    console.log({ colorsFromState });
-
     return colorsFromState;
   };
   render() {
@@ -801,8 +799,6 @@ class TheModal extends Component {
       configValues: { ...this.state.configValues },
       insertedItems: [...this.state.insertedItems]
     };
-    console.log(">>>", colorObjToString(oldColor));
-    console.log("<<<", colorObjToString(newColor));
     allColors.forEach(({ color, key }) => {
       if (colorObjToString(color) === colorObjToString(oldColor)) {
         set(newState, key, newColor);
@@ -831,7 +827,6 @@ class TheModal extends Component {
         }
       }
     });
-    console.log({ newState });
     this.setState(newState);
   };
 
@@ -1183,10 +1178,12 @@ class TheModal extends Component {
   };
 
   renderGlobalConfig = () => {
+    const { palettes } = this.props;
     const allColors = this.getAllColorsFromState().map(color => color.color);
     return (
       <GlobalConfig
         colors={uniq(allColors)}
+        otherPalettes={palettes}
         onStartSelectingColor={this.onStartSelectingColor}
         onStopSelectingColor={this.onStopSelectingColor}
         onChange={this.onGlobalColorChange}
@@ -1636,7 +1633,6 @@ class TheModal extends Component {
         id: insertedItem.id + 100
       })
     );
-    // console.log("config", JSON.stringify(this.state.config));
     console.log(
       "config",
       JSON.stringify({
