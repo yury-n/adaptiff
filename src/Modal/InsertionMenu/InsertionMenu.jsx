@@ -6,7 +6,8 @@ import {
   particlesSvgs,
   paintWorkSvgs,
   childishDreamsSvgs,
-  paintedShapes
+  paintedShapes,
+  curves
 } from "../../pages/svgsList";
 
 import "./global.overrides.css";
@@ -48,6 +49,11 @@ export default React.memo(
     };
     const renderObjectsTab = () => (
       <>
+        <ObjectPack
+          name="Curves"
+          objects={curves}
+          onInsertObject={onInsertObject}
+        />
         <ObjectPack
           name="Weird Painted Shapes"
           objects={paintedShapes}

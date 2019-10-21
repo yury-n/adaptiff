@@ -2956,6 +2956,16 @@ export const allAdaptations = [
         }
       ]
     }
+  },
+  // 74
+  {
+    ...linearGradient,
+    title: "Radial gradient with ripples",
+    thumb: "/thumbs/74.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: { palette: ["#3F0083", "#3F0083"] }
+    }
   }
   // { ...cells },
   // { ...fog },

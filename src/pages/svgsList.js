@@ -8,7 +8,7 @@ const svgs = [
     fileName: "svgs/0",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#ff9665", "#ff5f62"]
       }
     }
@@ -20,7 +20,7 @@ const svgs = [
     fileName: "svgs/1",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#bbefd1", "#72d7fd"]
       }
     }
@@ -31,7 +31,7 @@ const svgs = [
     fileName: "svgs/2",
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#42e3ed", "#2456fe"]
       }
     }
@@ -44,7 +44,7 @@ const svgs = [
     aspectRatio: 307.37 / 61.1,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#F1EAB9", "#FF8C8C"]
       }
     }
@@ -57,7 +57,7 @@ const svgs = [
     aspectRatio: 320.08 / 50.17,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#FCA5F1", "#B5FFFF"]
       }
     }
@@ -70,7 +70,7 @@ const svgs = [
     aspectRatio: 260.6 / 83.3,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#FF2CA9", "#ff0"]
       }
     }
@@ -83,7 +83,7 @@ const svgs = [
     aspectRatio: 247.8 / 336.8,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#FF91FF", "#FF9800"]
       }
     }
@@ -95,7 +95,7 @@ const svgs = [
     aspectRatio: 400 / 296,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {}
+      configValues: {}
     }
   },
   {
@@ -105,7 +105,7 @@ const svgs = [
     aspectRatio: 400 / 296,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {}
+      configValues: {}
     }
   },
   {
@@ -115,7 +115,7 @@ const svgs = [
     aspectRatio: 108 / 215,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#cce083", "#0882ba"]
       }
     }
@@ -127,7 +127,7 @@ const svgs = [
     aspectRatio: 127.2 / 119,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#cde083", "#0480bb"]
       }
     }
@@ -139,7 +139,7 @@ const svgs = [
     aspectRatio: 500 / 433,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#f7fba7", "#c8b9f5"]
       }
     }
@@ -151,7 +151,7 @@ const svgs = [
     aspectRatio: 500 / 500,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#f7d787", "#96fafd"]
       }
     }
@@ -163,7 +163,7 @@ const svgs = [
     aspectRatio: 500 / 500,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#e8f9d9", "#89d403"]
       }
     }
@@ -175,7 +175,7 @@ const svgs = [
     aspectRatio: 227.2 / 173,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#f74391", "#9484ff"]
       }
     }
@@ -188,7 +188,7 @@ const svgs = [
     aspectRatio: 236.9 / 206.3,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#F8049C", "#FDD54F"]
       }
     }
@@ -201,7 +201,7 @@ const svgs = [
     aspectRatio: 240.1 / 198.1,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#0E37F1", "#FE19AA"]
       }
     }
@@ -214,7 +214,7 @@ const svgs = [
     aspectRatio: 205 / 78.3,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#FF54F8", "#AEFEE4"]
       }
     }
@@ -227,7 +227,7 @@ const svgs = [
     aspectRatio: 288.5 / 212,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#FF3558", "#FDD54F"]
       }
     }
@@ -240,7 +240,7 @@ const svgs = [
     aspectRatio: 247.8 / 210.6,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#FF2CA9", "#0ff"]
       }
     }
@@ -253,7 +253,7 @@ const svgs = [
     aspectRatio: 249.3 / 243.2,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#F8049C", "#FDD54F"]
       }
     }
@@ -266,7 +266,7 @@ const svgs = [
     aspectRatio: 230.1 / 219.7,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#FFFF18", "#23CDBA"]
       }
     }
@@ -279,7 +279,7 @@ const svgs = [
     aspectRatio: 220.4 / 159.9,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#F8049C", "#FDD54F"]
       }
     }
@@ -292,7 +292,7 @@ const svgs = [
     aspectRatio: 271.3 / 176.4,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#F8049C", "#FDD54F"]
       }
     }
@@ -305,7 +305,7 @@ const svgs = [
     aspectRatio: 125.3 / 97.8,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#71FFF5", "#BFFF86"]
       }
     }
@@ -319,7 +319,7 @@ const svgs = [
     aspectRatio: 308.65 / 38.63,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#FFAFD7", "#FFC331"]
       }
     }
@@ -332,7 +332,7 @@ const svgs = [
     aspectRatio: 251.82 / 82.87,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#00B7FF", "#FFA4D8"]
       }
     }
@@ -345,7 +345,7 @@ const svgs = [
     aspectRatio: 251.86 / 52.14,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#BFF0CF", "#6FD6FF"]
       }
     }
@@ -358,7 +358,7 @@ const svgs = [
     aspectRatio: 328.86 / 49.32,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#FFB198", "#FF3E89"]
       }
     }
@@ -371,7 +371,7 @@ const svgs = [
     aspectRatio: 280.81 / 207.32,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#FFAFD7", "#FFC331"]
       }
     }
@@ -384,7 +384,7 @@ const svgs = [
     aspectRatio: 337.69 / 151.68,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#D8B5FF", "#1EAE98"]
       }
     }
@@ -397,7 +397,7 @@ const svgs = [
     aspectRatio: 289.24 / 43.48,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#D8B5FF", "#FFD2DF"]
       }
     }
@@ -410,7 +410,7 @@ const svgs = [
     aspectRatio: 274.68 / 80.16,
     initState: {
       size: { width: 250, height: 250 },
-      config: {
+      configValues: {
         palette: ["#A9F1DF", "#fbb"]
       }
     }
@@ -423,7 +423,7 @@ const svgs = [
     aspectRatio: 400 / 296,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {}
+      configValues: {}
     }
   },
   {},
@@ -435,7 +435,7 @@ const svgs = [
     aspectRatio: 400 / 296,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {}
+      configValues: {}
     }
   },
   {},
@@ -448,7 +448,7 @@ const svgs = [
     aspectRatio: 400 / 296,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {}
+      configValues: {}
     }
   },
   {
@@ -459,7 +459,7 @@ const svgs = [
     aspectRatio: 182 / 128,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         color: "#ff9d43"
       }
     }
@@ -472,7 +472,7 @@ const svgs = [
     aspectRatio: 96 / 113,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         color: "#d6d6d6"
       }
     }
@@ -485,7 +485,7 @@ const svgs = [
     aspectRatio: 196 / 89,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         color: "#ff7d75"
       }
     }
@@ -498,7 +498,7 @@ const svgs = [
     aspectRatio: 92 / 126,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         color: "#aed1cd"
       }
     }
@@ -511,7 +511,7 @@ const svgs = [
     aspectRatio: 126 / 84,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         color: "#f0f057"
       }
     }
@@ -524,7 +524,7 @@ const svgs = [
     aspectRatio: 82 / 57,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         color: "#aed1cd"
       }
     }
@@ -537,7 +537,7 @@ const svgs = [
     aspectRatio: 158 / 176,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         color: "#000"
       }
     }
@@ -550,7 +550,7 @@ const svgs = [
     aspectRatio: 53 / 116,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         color: "#000"
       }
     }
@@ -563,7 +563,7 @@ const svgs = [
     aspectRatio: 19 / 20,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         color: "#000"
       }
     }
@@ -576,7 +576,7 @@ const svgs = [
     aspectRatio: 13 / 13,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         color: "#000"
       }
     }
@@ -589,7 +589,7 @@ const svgs = [
     aspectRatio: 13 / 13,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         color: "#000"
       }
     }
@@ -601,7 +601,7 @@ const svgs = [
     aspectRatio: 13 / 13,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#ff8fdd", "#edea9c"]
       }
     }
@@ -614,7 +614,7 @@ const svgs = [
     aspectRatio: 302 / 146,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#ff8fdd", "#edea9c"]
       }
     }
@@ -627,8 +627,21 @@ const svgs = [
     aspectRatio: 750 / 500,
     initState: {
       size: { width: 1000, height: 1000 },
-      config: {
+      configValues: {
         palette: ["#ff8fdd", "#edea9c"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/55.svg",
+    fileName: "svgs/55",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 583 / 634,
+    initState: {
+      size: { width: 583, height: 634 },
+      configValues: {
+        palette: ["#D4B647", "#411772"]
       }
     }
   }
@@ -651,6 +664,8 @@ export const paintWorkSvgs = [1, 3, 4, 25, 26, 27, 28, 29, 30, 31, 32].map(
 export const paintedShapes = [41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51].map(
   index => svgs[index]
 );
+
+export const curves = [55].map(index => svgs[index]);
 
 export const childishDreamsSvgs = [
   5,
