@@ -161,6 +161,9 @@ export default React.memo(
       }
       window.requestAnimationFrame(() => {
         const currentFrame = frames[hoveredItemId];
+        if (!currentFrame) {
+          return;
+        }
         const currentWrapperRef = wrapperRefs[hoveredItemId];
         if (ctrlKeyDown) {
           const deg =

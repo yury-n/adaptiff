@@ -983,7 +983,8 @@ class TheModal extends Component {
         ...insertedItems,
         { ...item, id: this.insertedBlockId++ }
       ],
-      activeInsertedItemIndex: insertedItems.length
+      activeInsertedItemIndex: insertedItems.length,
+      configMode: "element"
     });
     if (!window.location.href.includes("localhost")) {
       window.onbeforeunload = function() {
@@ -1224,7 +1225,7 @@ class TheModal extends Component {
       <ArtConfig
         config={
           activeInsertedObject
-            ? activeInsertedObject.adaptation.configValues
+            ? activeInsertedObject.adaptation.config
             : this.props.config
         }
         configValues={

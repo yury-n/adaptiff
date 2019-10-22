@@ -644,6 +644,97 @@ const svgs = [
         palette: ["#D4B647", "#411772"]
       }
     }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/56.svg",
+    fileName: "svgs/56",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 315 / 419,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#CB3682", "#9725C1", "#3C0D7C"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/57.svg",
+    fileName: "svgs/57",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 377 / 323,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#D4B647", "#411772"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/58.svg",
+    fileName: "svgs/58",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 158 / 315,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#68CEEC", "#3F5CAB", "#35127F"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/59.svg",
+    fileName: "svgs/59",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 535 / 524,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#6AD2EE", "#39429C"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/60.svg",
+    fileName: "svgs/60",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 315 / 158,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#FF0097", "#A72ACD", "#491186"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/61.svg",
+    fileName: "svgs/61",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 794 / 814,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#6AD2EE", "#39429C"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/62.svg",
+    fileName: "svgs/62",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 503 / 251,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#D4B647", "#411772"]
+      }
+    }
   }
 ];
 
@@ -665,7 +756,9 @@ export const paintedShapes = [41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51].map(
   index => svgs[index]
 );
 
-export const curves = [55].map(index => svgs[index]);
+export const curves = [62, 61, 55, 56, 57, 58, 59, 60].map(
+  index => svgs[index]
+);
 
 export const childishDreamsSvgs = [
   5,

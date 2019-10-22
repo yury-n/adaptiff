@@ -4,7 +4,7 @@ body {
   margin: 0;
   background: transparent;
 }
-#svg,
+svg,
 #preview {
   position: absolute;
   top: 0;

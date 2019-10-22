@@ -19,7 +19,9 @@ function generateGradientInnerHTML(palette) {
 }
 function aff_render(config) {
   if (config.palette) {
-    const gradients = document.querySelectorAll("#gradient, .gradient");
+    const gradients = document.querySelectorAll(
+      "#gradient, .gradient, linearGradient"
+    );
     gradients.forEach(gradient => {
       gradient.innerHTML = generateGradientInnerHTML(config.palette);
       if (config.angle) {
@@ -27,7 +29,7 @@ function aff_render(config) {
       }
     });
   } else {
-    document.getElementById("svg").style.color = config.color;
+    document.querySelector("#svg, svg").style.color = config.color;
   }
 }
 function aff_download() {
