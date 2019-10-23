@@ -552,7 +552,7 @@ class TheModal extends Component {
       insertedItems,
       canvasWidth,
       canvasHeight,
-      config,
+      configValues,
       capturedIframe,
       captureConfig
     } = this.state;
@@ -565,11 +565,12 @@ class TheModal extends Component {
         }}
         ref={this.captureFrameRef}
       >
-        {config.backgroundColor &&
-          (config.withBackground === undefined || config.withBackground) && (
+        {configValues.backgroundColor &&
+          (configValues.withBackground === undefined ||
+            configValues.withBackground) && (
             <div
               style={{
-                backgroundColor: config.backgroundColor
+                backgroundColor: configValues.backgroundColor
               }}
               className={s["captured-background"]}
             />
@@ -1642,7 +1643,7 @@ class TheModal extends Component {
             width: this.state.canvasWidth,
             height: this.state.canvasHeight
           },
-          config: this.state.configValues,
+          configValues: this.state.configValues,
           insertedItems: capturedInsertedItems
         }
       })
