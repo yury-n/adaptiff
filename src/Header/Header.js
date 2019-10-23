@@ -99,7 +99,7 @@ class Header extends Component {
                 {...linearGradient}
                 initState={{
                   size: { width: 1080, height: 1080 },
-                  config: {
+                  configValues: {
                     palette: ["#fefff5", "#d3f0e9"]
                   }
                 }}

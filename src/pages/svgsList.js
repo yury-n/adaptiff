@@ -636,12 +636,12 @@ const svgs = [
     ...svgWithGradient,
     thumb: "/thumbs/svgs/55.svg",
     fileName: "svgs/55",
-    thumbBackgroundSize: "100%",
+    thumbBackgroundSize: "80%",
     aspectRatio: 583 / 634,
     initState: {
       size: { width: 583, height: 634 },
       configValues: {
-        palette: ["#D4B647", "#411772"]
+        palette: ["#E5CB23", "#411772"]
       }
     }
   },
@@ -649,7 +649,7 @@ const svgs = [
     ...svgWithGradient,
     thumb: "/thumbs/svgs/56.svg",
     fileName: "svgs/56",
-    thumbBackgroundSize: "100%",
+    thumbBackgroundSize: "50%",
     aspectRatio: 315 / 419,
     initState: {
       size: { width: 1000, height: 1000 },
@@ -662,12 +662,12 @@ const svgs = [
     ...svgWithGradient,
     thumb: "/thumbs/svgs/57.svg",
     fileName: "svgs/57",
-    thumbBackgroundSize: "100%",
+    thumbBackgroundSize: "70%",
     aspectRatio: 377 / 323,
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: {
-        palette: ["#D4B647", "#411772"]
+        palette: ["#E5CB23", "#411772"]
       }
     }
   },
@@ -675,7 +675,7 @@ const svgs = [
     ...svgWithGradient,
     thumb: "/thumbs/svgs/58.svg",
     fileName: "svgs/58",
-    thumbBackgroundSize: "100%",
+    thumbBackgroundSize: "30%",
     aspectRatio: 158 / 315,
     initState: {
       size: { width: 1000, height: 1000 },
@@ -688,12 +688,12 @@ const svgs = [
     ...svgWithGradient,
     thumb: "/thumbs/svgs/59.svg",
     fileName: "svgs/59",
-    thumbBackgroundSize: "100%",
+    thumbBackgroundSize: "80%",
     aspectRatio: 535 / 524,
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: {
-        palette: ["#6AD2EE", "#39429C"]
+        palette: ["#3AD5FA", "#39429C"]
       }
     }
   },
@@ -701,7 +701,7 @@ const svgs = [
     ...svgWithGradient,
     thumb: "/thumbs/svgs/60.svg",
     fileName: "svgs/60",
-    thumbBackgroundSize: "100%",
+    thumbBackgroundSize: "70%",
     aspectRatio: 315 / 158,
     initState: {
       size: { width: 1000, height: 1000 },
@@ -714,12 +714,12 @@ const svgs = [
     ...svgWithGradient,
     thumb: "/thumbs/svgs/61.svg",
     fileName: "svgs/61",
-    thumbBackgroundSize: "100%",
+    thumbBackgroundSize: "90%",
     aspectRatio: 794 / 814,
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: {
-        palette: ["#6AD2EE", "#39429C"]
+        palette: ["#3AD5FA", "#39429C"]
       }
     }
   },
@@ -727,12 +727,12 @@ const svgs = [
     ...svgWithGradient,
     thumb: "/thumbs/svgs/62.svg",
     fileName: "svgs/62",
-    thumbBackgroundSize: "100%",
+    thumbBackgroundSize: "90%",
     aspectRatio: 503 / 251,
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: {
-        palette: ["#D4B647", "#411772"]
+        palette: ["#E5CB23", "#411772"]
       }
     }
   }

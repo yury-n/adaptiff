@@ -2972,13 +2972,13 @@ export const allAdaptations = [
       insertedItems: [
         {
           type: "object",
-          width: 444.70588235294116,
-          height: 455.29411764705884,
+          width: 432.3529411764706,
+          height: 432.3529411764706,
           showIframe: true,
           adaptation: svgs[55],
-          configValues: { palette: ["#D4B647", "#411772"], angle: 0 },
-          position: { left: 273.5294117647059, top: -5.294117647058823 },
-          id: 102,
+          configValues: { palette: ["#E5CB23", "#3d0081"], angle: 0 },
+          position: { left: 287.6470588235294, top: -3.5294117647058822 },
+          id: 302,
           rotation: 0
         },
         {
@@ -2987,19 +2987,19 @@ export const allAdaptations = [
           height: 522.3529411764706,
           showIframe: true,
           adaptation: svgs[61],
-          configValues: { palette: ["#6AD2EE", "#39429C"], angle: 0 },
-          position: { left: 594.7058823529412, top: 354.70588235294116 },
-          id: 103
+          configValues: { palette: ["#3AD5FA", "#3F5CAB"], angle: 0 },
+          position: { left: 594.7058823529412, top: 395.29411764705884 },
+          id: 303
         },
         {
           type: "object",
-          width: 197.64705882352942,
-          height: 250.58823529411765,
+          width: 174.7058823529412,
+          height: 225.88235294117646,
           showIframe: true,
           adaptation: svgs[56],
-          configValues: { palette: ["#FF0097", "#3C0D7C"], angle: 0 },
-          position: { left: 409.4117647058824, top: -1.7647058823529411 },
-          id: 104,
+          configValues: { palette: ["#FF0097", "#3d0081"], angle: 0 },
+          position: { left: 428.8235294117647, top: 38.82352941176471 },
+          id: 304,
           rotation: 0
         },
         {
@@ -3008,9 +3008,9 @@ export const allAdaptations = [
           height: 181.76470588235296,
           showIframe: true,
           adaptation: svgs[62],
-          configValues: { palette: ["#D4B647", "#411772"], angle: 0 },
-          position: { left: 698.8235294117648, top: 601.7647058823529 },
-          id: 105
+          configValues: { palette: ["#E5CB23", "#3d0081"], angle: 0 },
+          position: { left: 698.8235294117648, top: 649.4117647058823 },
+          id: 305
         },
         {
           type: "object",
@@ -3018,9 +3018,9 @@ export const allAdaptations = [
           height: 266.47058823529414,
           showIframe: true,
           adaptation: svgs[57],
-          configValues: { palette: ["#D4B647", "#411772"], angle: 0 },
-          position: { left: -17.647058823529413, top: 485.29411764705884 },
-          id: 106,
+          configValues: { palette: ["#E5CB23", "#3d0081"], angle: 0 },
+          position: { left: -1.7647058823529411, top: 578.8235294117648 },
+          id: 306,
           rotation: 0
         },
         {
@@ -3029,9 +3029,9 @@ export const allAdaptations = [
           height: 384.70588235294116,
           showIframe: true,
           adaptation: svgs[59],
-          configValues: { palette: ["#6AD2EE", "#39429C"], angle: 0 },
-          position: { left: 139.41176470588235, top: 785.2941176470589 },
-          id: 107
+          configValues: { palette: ["#3AD5FA", "#3F5CAB"], angle: 0 },
+          position: { left: 278.8235294117647, top: 818.8235294117648 },
+          id: 307
         },
         {
           type: "object",
@@ -3039,9 +3039,9 @@ export const allAdaptations = [
           height: 88.23529411764706,
           showIframe: true,
           adaptation: svgs[60],
-          configValues: { palette: ["#FF0097", "#491186"], angle: 0 },
-          position: { left: 428.8235294117647, top: 841.7647058823529 },
-          id: 108
+          configValues: { palette: ["#FF0097", "#3d0081"], angle: 0 },
+          position: { left: 407.64705882352945, top: 949.4117647058824 },
+          id: 308
         },
         {
           type: "object",
@@ -3050,12 +3050,45 @@ export const allAdaptations = [
           showIframe: true,
           adaptation: svgs[58],
           configValues: {
-            palette: ["#68CEEC", "#3F5CAB", "#35127F"],
+            palette: ["#3AD5FA", "#3F5CAB", "#3d0081"],
             angle: 0
           },
-          position: { left: 77.64705882352942, top: 132.35294117647058 },
-          id: 111,
+          position: { left: 105.88235294117648, top: 151.76470588235296 },
+          id: 311,
           rotation: 0
+        },
+        {
+          type: "object",
+          width: 220.58823529411765,
+          height: 42.35294117647059,
+          showIframe: true,
+          adaptation: svgs[53],
+          configValues: { palette: ["#3d0081", "#FF0097"], angle: 0 },
+          position: { left: 26.47058823529412, top: 453.5294117647059 },
+          id: 202,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 176.47058823529412,
+          height: 42.35294117647059,
+          showIframe: true,
+          adaptation: svgs[53],
+          configValues: { palette: ["#3d0081", "#FF0097"], angle: 0 },
+          position: { left: 781.7647058823529, top: 555.8823529411765 },
+          id: 203,
+          rotation: -180
+        },
+        {
+          type: "object",
+          width: 172.94117647058823,
+          height: 37.05882352941177,
+          showIframe: true,
+          adaptation: svgs[53],
+          configValues: { palette: ["#3d0081", "#E5CB23"], angle: 0 },
+          position: { left: 827.6470588235294, top: 195.88235294117646 },
+          id: 204,
+          rotation: -90
         }
       ]
     }
@@ -3064,5 +3097,5 @@ export const allAdaptations = [
   // { ...fog },
 ];
 
-// adaptation: svgs[(.*)],
+// adaptation: "svgs/(.*)",
 // adaptation: svgs[$1],

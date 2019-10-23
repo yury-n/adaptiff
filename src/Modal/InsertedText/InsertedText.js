@@ -27,6 +27,8 @@ export default React.memo(
       });
     }
 
+    console.log({ config });
+
     return (
       <span
         ref={ref}

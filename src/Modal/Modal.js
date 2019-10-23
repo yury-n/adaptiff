@@ -641,6 +641,7 @@ class TheModal extends Component {
         insertedItem.position &&
         this.makePositionRelativeToEditContainer(insertedItem.position)
     };
+    console.log({ insertedItem });
     switch (insertedItem.type) {
       case "text":
         return (
@@ -684,6 +685,7 @@ class TheModal extends Component {
 
   renderInsertedItem = insertedItem => {
     const scaleToFit = insertedItem.scale || this.getScaleToFullyFit();
+    console.log({ insertedItem });
     switch (insertedItem.type) {
       case "text":
         return (
@@ -912,7 +914,7 @@ class TheModal extends Component {
   insertText = () => {
     const { insertedItems } = this.state;
     const scale = this.getScaleToFullyFit();
-    const lastinsertedItem = insertedItems[insertedItems.length - 1] || {};
+    const lastinsertedItem = insertedItems[insertedItems.length - 1];
     const defaultConfig = {
       fontFamily: "Roboto",
       fontSize: 24 / scale,
@@ -927,7 +929,10 @@ class TheModal extends Component {
     this.insertItem({
       type: "text",
       hasCyrillic: false,
-      config: lastinsertedItem.configValues || defaultConfig
+      configValues:
+        lastinsertedItem && lastinsertedItem.type === "text"
+          ? lastinsertedItem.configValues
+          : defaultConfig
     });
   };
 

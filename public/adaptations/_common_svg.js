@@ -36,7 +36,7 @@ function aff_download() {
   var canvas = document.createElement("canvas");
   canvas.width = window.innerWidth * 2;
   canvas.height = window.innerHeight * 2;
-  var svg = document.getElementById("svg");
+  var svg = document.querySelector("#svg, svg");
   var ctx = canvas.getContext("2d");
   var data = new XMLSerializer().serializeToString(svg);
   var DOMURL = window.URL || window.webkitURL || window;
