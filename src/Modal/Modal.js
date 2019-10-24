@@ -641,7 +641,6 @@ class TheModal extends Component {
         insertedItem.position &&
         this.makePositionRelativeToEditContainer(insertedItem.position)
     };
-    console.log({ insertedItem });
     switch (insertedItem.type) {
       case "text":
         return (
@@ -685,7 +684,6 @@ class TheModal extends Component {
 
   renderInsertedItem = insertedItem => {
     const scaleToFit = insertedItem.scale || this.getScaleToFullyFit();
-    console.log({ insertedItem });
     switch (insertedItem.type) {
       case "text":
         return (
@@ -1216,7 +1214,6 @@ class TheModal extends Component {
     return (
       <ImageConfig
         config={insertedItems[activeInsertedItemIndex].configValues}
-        setConfigValue={this.setTextConfigValue}
       />
     );
   };
@@ -1252,7 +1249,7 @@ class TheModal extends Component {
     const newinsertedItems = [...insertedItems];
     newinsertedItems[activeInsertedItemIndex] = {
       ...activeinsertedItem,
-      config: {
+      configValues: {
         ...activeinsertedItem.configValues,
         [configKey]: configValue
       }

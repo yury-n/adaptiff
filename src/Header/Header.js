@@ -96,6 +96,7 @@ class Header extends Component {
                 clickAndShowModal={true}
                 className={s["blank-card"]}
                 mode="thumb-only"
+                showModal
                 {...linearGradient}
                 initState={{
                   size: { width: 1080, height: 1080 },

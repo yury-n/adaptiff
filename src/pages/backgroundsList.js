@@ -1,6 +1,7 @@
 import { allAdaptations } from "./adaptations";
 
 export default [
+  75,
   74,
   73,
   70,

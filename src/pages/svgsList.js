@@ -735,6 +735,32 @@ const svgs = [
         palette: ["#E5CB23", "#411772"]
       }
     }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/63.svg",
+    fileName: "svgs/63",
+    thumbBackgroundSize: "60%",
+    aspectRatio: 198 / 291,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#E5CB23", "#3AD5FA"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/64.svg",
+    fileName: "svgs/64",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 253 / 253,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#540CC2", "#03F3FE"]
+      }
+    }
   }
 ];
 
@@ -756,7 +782,7 @@ export const paintedShapes = [41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51].map(
   index => svgs[index]
 );
 
-export const curves = [62, 61, 55, 56, 57, 58, 59, 60].map(
+export const curves = [62, 61, 55, 56, 57, 58, 59, 60, 63, 0, 64].map(
   index => svgs[index]
 );
 
