@@ -50,7 +50,7 @@ export default React.memo(
     const renderObjectsTab = () => (
       <>
         <ObjectPack
-          name="Curves"
+          name="Round Shapes"
           objects={curves}
           onInsertObject={onInsertObject}
         />

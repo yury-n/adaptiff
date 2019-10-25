@@ -97,7 +97,7 @@ class TheModal extends Component {
         ],
       activeInsertedItemIndex: null,
       highlightInsertedItemIndex: null,
-      configMode: "global" // | 'global'
+      configMode: "element" // | 'global'
     };
     this.props.config.forEach(config => {
       state.configValues[config.key] =
