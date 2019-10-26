@@ -2,6 +2,15 @@
   cursor: default;
 }
 
+.ui.active.dimmer {
+  z-index: 1002;
+}
+
+.ui.active.dimmer.inverted {
+  z-index: 1000;
+  cursor: pointer;
+}
+
 .ui.active.modal {
   cursor: default;
 }

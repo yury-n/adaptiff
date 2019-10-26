@@ -2,17 +2,20 @@ import React, { Component } from "react";
 import classnames from "classnames";
 import { Card } from "semantic-ui-react";
 import Modal from "../Modal/Modal";
+import GroupModal from "../GroupModal/GroupModal";
 
 import s from "./MiniCard.module.css";
 
 class MiniCard extends Component {
   state = {
     showModal: false,
+    showGroupModal: false,
     isSelectingColor: false
   };
   constructor(props) {
     super(props);
     if (props.showModal) this.state.showModal = true;
+    if (props.showGroupModal) this.state.showGroupModal = true;
   }
   render() {
     const {
@@ -23,8 +26,7 @@ class MiniCard extends Component {
       thumb,
       thumbBackgroundSize,
       thumbWidth,
-      onClick,
-      clickAndShowModal
+      groupAdaptations
     } = this.props;
     return (
       <>
@@ -32,17 +34,11 @@ class MiniCard extends Component {
           link={false}
           className={classnames(
             s["mini-card"],
+            groupAdaptations && s["mini-card-group"],
             mode && s[`${mode}-mode`],
             this.props.className
           )}
-          onClick={
-            clickAndShowModal
-              ? () => {
-                  onClick();
-                  this.showModal();
-                }
-              : onClick || this.showModal
-          }
+          onClick={this.onClick}
           as="div"
           style={{ width: thumbWidth }}
         >
@@ -90,9 +86,39 @@ class MiniCard extends Component {
             }
           />
         )}
+        {this.state.showGroupModal && (
+          <GroupModal
+            adaptations={groupAdaptations}
+            onClose={this.closeGroupModal}
+          />
+        )}
       </>
     );
   }
+
+  onClick = () => {
+    const { onClick, clickAndShowModal, groupAdaptations } = this.props;
+
+    if (groupAdaptations) {
+      this.showGroupModal();
+      return;
+    }
+
+    if (clickAndShowModal) {
+      onClick();
+      this.showModal();
+    } else {
+      onClick ? onClick() : this.showModal();
+    }
+  };
+
+  showGroupModal = () => {
+    this.setState({ showGroupModal: true });
+  };
+
+  closeGroupModal = () => {
+    this.setState({ showGroupModal: false });
+  };
 
   showModal = () => {
     this.setState({ showModal: true });

@@ -4,7 +4,7 @@
   width: 100%;
   background: white;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04);
-  z-index: 1000;
+  z-index: 1001;
 }
 
 .header-inner {

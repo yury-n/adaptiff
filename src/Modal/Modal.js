@@ -21,7 +21,8 @@ import {
   downloadFromDataURL,
   logStat,
   macify,
-  colorObjToString
+  colorObjToString,
+  copyToClipboard
 } from "../_utils";
 
 import "rc-slider/assets/index.css";
@@ -1620,7 +1621,6 @@ class TheModal extends Component {
         }
       }
     );
-    this.setState({ captureConfig, isPreparingDownload: true });
     const capturedInsertedItems = this.state.insertedItems.map(
       (insertedItem, index) => ({
         ...insertedItem,
@@ -1637,19 +1637,26 @@ class TheModal extends Component {
         id: insertedItem.id + 100
       })
     );
-    console.log(
-      "config",
-      JSON.stringify({
-        initState: {
-          size: {
-            width: this.state.canvasWidth,
-            height: this.state.canvasHeight
-          },
-          configValues: this.state.configValues,
-          insertedItems: capturedInsertedItems
-        }
-      })
-    );
+    if (window.location.href.includes("localhost")) {
+      copyToClipboard(
+        JSON.stringify({
+          initState: {
+            size: {
+              width: this.state.canvasWidth,
+              height: this.state.canvasHeight
+            },
+            configValues: this.state.configValues,
+            insertedItems: capturedInsertedItems
+          }
+        })
+          .slice(1)
+          .slice(0, -1)
+          .replace(/"svgs\/(\w+)"/g, "svgs[$1]")
+      );
+      return;
+    }
+
+    this.setState({ captureConfig, isPreparingDownload: true });
 
     if (this.state.isPublic) {
       this.saveConfigToDB({

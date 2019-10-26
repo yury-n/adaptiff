@@ -33,9 +33,9 @@ export default () => {
     localStorage.setItem("app.selectedTab", selectedTab);
   }, [selectedTab]);
 
-  let indexToShow = null;
+  let idToShow = null;
   if (window.location.search !== "") {
-    indexToShow = +window.location.search.split("=")[1];
+    idToShow = +window.location.search.split("=")[1];
   }
 
   return (
@@ -77,7 +77,11 @@ export default () => {
         <Card.Group className={classnames(s["cards"], "cards")}>
           {adaptations.map((template, index) => (
             <MiniCard
-              showModal={indexToShow !== null && index === indexToShow}
+              showGroupModal={
+                idToShow &&
+                template.groupAdaptations &&
+                template.groupAdaptations[0].id === idToShow
+              }
               key={index}
               {...template}
             />

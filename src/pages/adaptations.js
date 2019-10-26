@@ -2937,7 +2937,8 @@ export const allAdaptations = [
       ["#f3a930", "#e76779", "#c9eaff", "#e9e9f1"],
       ["#7e2ec4", "#360568", "#00fffc", "#54fd8b"],
       ["#9AD1D4", "#CCDBDC", "#007EA7", "#003249"],
-      ["#ffcdd3", "#dfb7c7", "#fbf7ff", "#6961ff"]
+      ["#ffcdd3", "#dfb7c7", "#fbf7ff", "#6961ff"],
+      ["#16143c", "#1a1844", "#e96eff", "#6f00fb"]
     ],
     initState: {
       size: { width: 726, height: 563 },
@@ -2960,6 +2961,7 @@ export const allAdaptations = [
   // 74
   {
     ...linearGradient,
+    id: 74,
     title: "Round shapes",
     thumb: "/thumbs/74.png",
     initState: {
@@ -3541,6 +3543,60 @@ export const allAdaptations = [
           height: 125.46847246891653,
           position: { left: 200.46181172291298, top: 363.5168738898757 },
           text: "Landing page"
+        }
+      ]
+    }
+  },
+  // 79
+  {
+    ...linearGradient,
+    thumb: "/thumbs/74.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#efd7e7", "#efd7e7"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 525.7894736842105,
+          height: 540,
+          showIframe: true,
+          adaptation: svgs[61],
+          configValues: {
+            palette: ["#edbdd7", "#f590bb", "#f7c1bf", "#c8ddd2"],
+            angle: 0
+          },
+          position: { left: 490.9736842105263, top: 348.1578947368421 },
+          id: 302,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 252.94736842105263,
+          height: 247.26315789473685,
+          showIframe: true,
+          adaptation: svgs[59],
+          configValues: { palette: ["#89b4eb", "#e9b7d4"], angle: 0 },
+          position: { left: 98.76315789473684, top: 85.26315789473684 },
+          id: 202,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 201.78947368421052,
+          height: 41.21052631578947,
+          showIframe: true,
+          adaptation: svgs[53],
+          configValues: {
+            palette: ["#e8dced", "#ea8f8e", "#e4a6cb"],
+            angle: 0
+          },
+          position: { left: 620.2894736842105, top: 149.21052631578948 },
+          id: 203,
+          rotation: 0
         }
       ]
     }
