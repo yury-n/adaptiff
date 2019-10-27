@@ -2964,7 +2964,7 @@ export const allAdaptations = [
     id: 74,
     title: "Round shapes",
     author: "Abstract Geometry",
-    thumb: "/thumbs/74.png",
+    thumb: "/thumbs/74.png?1",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
