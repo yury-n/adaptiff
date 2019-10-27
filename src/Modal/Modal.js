@@ -1653,7 +1653,7 @@ class TheModal extends Component {
           .slice(0, -1)
           .replace(/"svgs\/(\w+)"/g, "svgs[$1]")
       );
-      return;
+      // return;
     }
 
     this.setState({ captureConfig, isPreparingDownload: true });

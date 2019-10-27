@@ -770,7 +770,7 @@ export const orderedSvgs = [0, 1, 2, 9, 3, 4, 5, 6, 7, 8].map(
   index => svgs[index]
 );
 
-export const basicSvgs = [0, 2, 52, 9, 10, 11, 53, 12, 13].map(
+export const basicSvgs = [52, 53, 11, 0, 9, 2, 10, 12, 13].map(
   index => svgs[index]
 );
 

@@ -2963,6 +2963,7 @@ export const allAdaptations = [
     ...linearGradient,
     id: 74,
     title: "Round shapes",
+    author: "Abstract Geometry",
     thumb: "/thumbs/74.png",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -3123,6 +3124,8 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/75.png",
+    title: "Round shapes",
+    author: "Abstract Geometry",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3265,6 +3268,8 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/76.png",
+    title: "Round shapes",
+    author: "Abstract Geometry",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3335,6 +3340,8 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/77.png",
+    title: "Round shapes",
+    author: "Abstract Geometry",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3416,6 +3423,8 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/78.png",
+    title: "Round shapes",
+    author: "Abstract Geometry",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3426,101 +3435,101 @@ export const allAdaptations = [
       insertedItems: [
         {
           type: "object",
-          width: 312.6820603907638,
-          height: 176.48312611012435,
+          width: 312.3529411764706,
+          height: 165.88235294117646,
           showIframe: true,
           adaptation: svgs[62],
           configValues: { palette: ["#8262ab", "#ae88bb"], angle: 0 },
-          position: { left: 463.2682060390764, top: -26.85612788632327 },
-          id: 102,
+          position: { left: 519.7058823529412, top: -2.6470588235294117 },
+          id: 202,
           rotation: -38
         },
         {
           type: "object",
-          width: 287.7442273534636,
-          height: 159.21847246891653,
+          width: 287.6470588235294,
+          height: 158.8235294117647,
           showIframe: true,
           adaptation: svgs[62],
           configValues: { palette: ["#8262ab", "#ae88bb"], angle: 0 },
-          position: { left: 574.5293072824156, top: 692.5044404973357 },
-          id: 103,
+          position: { left: 752.6470588235294, top: 892.0588235294118 },
+          id: 203,
           rotation: 43
         },
         {
           type: "object",
-          width: 310.7637655417407,
-          height: 141.95381882770872,
+          width: 310.5882352941177,
+          height: 141.1764705882353,
           showIframe: true,
           adaptation: svgs[62],
           configValues: { palette: ["#8262ab", "#ae88bb"], angle: 0 },
-          position: { left: 119.89342806394318, top: 563.9786856127887 },
-          id: 104,
+          position: { left: 39.705882352941174, top: 826.7647058823529 },
+          id: 204,
           rotation: 226
         },
         {
           type: "object",
-          width: 228.2770870337478,
-          height: 124.6891651865009,
+          width: 227.64705882352942,
+          height: 123.52941176470588,
           showIframe: true,
           adaptation: svgs[62],
           configValues: { palette: ["#8262ab", "#ae88bb"], angle: 0 },
-          position: { left: 58.50799289520427, top: 840.2131438721137 },
-          id: 105,
+          position: { left: 293.8235294117647, top: 772.0588235294118 },
+          id: 205,
           rotation: 410
         },
         {
           type: "object",
-          width: 462.3090586145649,
-          height: 264.72468916518653,
+          width: 462.3529411764706,
+          height: 240,
           showIframe: true,
           adaptation: svgs[62],
           configValues: { palette: ["#8262ab", "#ae88bb"], angle: 0 },
-          position: { left: 14.38721136767318, top: 28.77442273534636 },
-          id: 106,
+          position: { left: -2.6470588235294117, top: 82.05882352941177 },
+          id: 206,
           rotation: 406
         },
         {
           type: "object",
-          width: 199.50266429840144,
-          height: 107.42451154529309,
+          width: 199.41176470588235,
+          height: 95.29411764705883,
           showIframe: true,
           adaptation: svgs[62],
           configValues: { palette: ["#8262ab", "#ae88bb"], angle: 0 },
-          position: { left: 787.4600355239787, top: 103.5879218472469 },
-          id: 107,
+          position: { left: 535.5882352941177, top: 270.88235294117646 },
+          id: 207,
+          rotation: 137
+        },
+        {
+          type: "object",
+          width: 462.3529411764706,
+          height: 222.35294117647058,
+          showIframe: true,
+          adaptation: svgs[62],
+          configValues: { palette: ["#8262ab", "#ae88bb"], angle: 0 },
+          position: { left: 849.7058823529412, top: 426.1764705882353 },
+          id: 208,
+          rotation: 495
+        },
+        {
+          type: "object",
+          width: 352.94117647058823,
+          height: 155.29411764705884,
+          showIframe: true,
+          adaptation: svgs[62],
+          configValues: { palette: ["#8262ab", "#ae88bb"], angle: 0 },
+          position: { left: -136.76470588235296, top: 480.88235294117646 },
+          id: 209,
           rotation: 134
         },
         {
           type: "object",
-          width: 462.3090586145649,
-          height: 264.72468916518653,
+          width: 199.41176470588235,
+          height: 105.88235294117648,
           showIframe: true,
           adaptation: svgs[62],
           configValues: { palette: ["#8262ab", "#ae88bb"], angle: 0 },
-          position: { left: 823.9076376554175, top: 262.80639431616345 },
-          id: 108,
-          rotation: 498
-        },
-        {
-          type: "object",
-          width: 199.50266429840144,
-          height: 107.42451154529309,
-          showIframe: true,
-          adaptation: svgs[62],
-          configValues: { palette: ["#8262ab", "#ae88bb"], angle: 0 },
-          position: { left: -75.77264653641208, top: 389.4138543516874 },
-          id: 109,
-          rotation: 134
-        },
-        {
-          type: "object",
-          width: 199.50266429840144,
-          height: 107.42451154529309,
-          showIframe: true,
-          adaptation: svgs[62],
-          configValues: { palette: ["#8262ab", "#ae88bb"], angle: 0 },
-          position: { left: 398.0461811722913, top: 953.3925399644761 },
-          id: 110,
+          position: { left: 397.94117647058823, top: 996.1764705882354 },
+          id: 210,
           rotation: 134
         },
         {
@@ -3538,11 +3547,33 @@ export const allAdaptations = [
             lineHeight: 12,
             isBold: true
           },
-          id: 111,
-          width: 638.8221580817052,
-          height: 125.46847246891653,
-          position: { left: 200.46181172291298, top: 363.5168738898757 },
-          text: "Landing page"
+          id: 211,
+          width: 542.7297794117648,
+          height: 125.84558823529412,
+          position: { left: 271.0477941176471, top: 509.09007352941177 },
+          text: "Banner text"
+        },
+        {
+          type: "object",
+          width: 199.41176470588235,
+          height: 95.29411764705883,
+          showIframe: true,
+          adaptation: svgs[62],
+          configValues: { palette: ["#8262ab", "#ae88bb"], angle: 0 },
+          position: { left: 793.2352941176471, top: 221.47058823529412 },
+          id: 102,
+          rotation: 403
+        },
+        {
+          type: "object",
+          width: 130.58823529411765,
+          height: 63.529411764705884,
+          showIframe: true,
+          adaptation: svgs[62],
+          configValues: { palette: ["#8262ab", "#ae88bb"], angle: 0 },
+          position: { left: 615, top: 731.4705882352941 },
+          id: 103,
+          rotation: 232
         }
       ]
     }
@@ -3550,7 +3581,9 @@ export const allAdaptations = [
   // 79
   {
     ...linearGradient,
-    thumb: "/thumbs/74.png",
+    thumb: "/thumbs/79.png",
+    title: "Round shapes",
+    author: "Abstract Geometry",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3561,7 +3594,7 @@ export const allAdaptations = [
       insertedItems: [
         {
           type: "object",
-          width: 525.7894736842105,
+          width: 524.1176470588235,
           height: 540,
           showIframe: true,
           adaptation: svgs[61],
@@ -3569,34 +3602,352 @@ export const allAdaptations = [
             palette: ["#edbdd7", "#f590bb", "#f7c1bf", "#c8ddd2"],
             angle: 0
           },
-          position: { left: 490.9736842105263, top: 348.1578947368421 },
-          id: 302,
+          position: { left: 489.7058823529412, top: 347.64705882352945 },
+          id: 402,
           rotation: 0
         },
         {
           type: "object",
-          width: 252.94736842105263,
-          height: 247.26315789473685,
+          width: 252.3529411764706,
+          height: 247.05882352941177,
           showIframe: true,
           adaptation: svgs[59],
-          configValues: { palette: ["#89b4eb", "#e9b7d4"], angle: 0 },
-          position: { left: 98.76315789473684, top: 85.26315789473684 },
-          id: 202,
+          configValues: { palette: ["#89b4eb", "#edbdd7"], angle: 0 },
+          position: { left: 108.52941176470588, top: 435.88235294117646 },
+          id: 302,
+          rotation: 180
+        },
+        {
+          type: "object",
+          width: 270,
+          height: 268.2352941176471,
+          showIframe: true,
+          adaptation: svgs[59],
+          configValues: { palette: ["#f7c1bf", "#edbdd7"], angle: 0 },
+          position: { left: 622.0588235294118, top: 494.11764705882354 },
+          id: 105,
           rotation: 0
         },
         {
           type: "object",
-          width: 201.78947368421052,
-          height: 41.21052631578947,
+          width: 252.3529411764706,
+          height: 247.05882352941177,
           showIframe: true,
-          adaptation: svgs[53],
+          adaptation: svgs[59],
+          configValues: { palette: ["#c8ddd2", "#f7c1bf"], angle: 0 },
+          position: { left: 300.88235294117646, top: 785.2941176470589 },
+          id: 106,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 270,
+          height: 540,
+          showIframe: true,
+          adaptation: svgs[58],
           configValues: {
-            palette: ["#e8dced", "#ea8f8e", "#e4a6cb"],
+            palette: ["#89b4eb", "#edbdd7", "#edbdd7"],
             angle: 0
           },
-          position: { left: 620.2894736842105, top: 149.21052631578948 },
+          position: { left: -90.88235294117648, top: 690 },
+          id: 107,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 540,
+          height: 540,
+          showIframe: true,
+          adaptation: svgs[0],
+          configValues: { palette: ["#f7c1bf", "#edbdd7"], angle: 0 },
+          position: { left: 106.76470588235294, top: -220.58823529411765 },
+          id: 108,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 540,
+          height: 268.2352941176471,
+          showIframe: true,
+          adaptation: svgs[62],
+          configValues: { palette: ["#89b4eb", "#edbdd7"], angle: 0 },
+          position: { left: 685.5882352941177, top: -63.529411764705884 },
+          id: 109,
+          rotation: 64
+        }
+      ]
+    }
+  },
+  // 80
+  {
+    ...linearGradient,
+    thumb: "/thumbs/80.png",
+    title: "Round shapes",
+    author: "Abstract Geometry",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["black", "black"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 245.29411764705884,
+          height: 345.88235294117646,
+          showIframe: true,
+          adaptation: svgs[63],
+          configValues: { palette: ["#ff1c1c", "#1633cc"], angle: 0 },
+          position: { left: -55.588235294117645, top: 252.3529411764706 },
+          id: 202,
+          rotation: -90
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Montserrat",
+            fontSize: 66,
+            padding: 100,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 0, g: 0, b: 0, a: 0 },
+            borderWidth: 1,
+            isInline: false,
+            lineHeight: 15,
+            hasCyrillic: true
+          },
+          id: 102,
+          width: 577.3621323529412,
+          height: 597.2426470588235,
+          position: { left: 266.47058823529414, top: 238.23529411764707 },
+          text: "лик \nлуны \nбыл скрыт \nтенью"
+        },
+        {
+          type: "object",
+          width: 319.4117647058824,
+          height: 330,
+          showIframe: true,
+          adaptation: svgs[61],
+          configValues: { palette: ["#ff1c1c", "#1633cc"], angle: 0 },
+          position: { left: 53.82352941176471, top: 665.2941176470589 },
           id: 203,
           rotation: 0
+        },
+        {
+          type: "object",
+          width: 245.29411764705884,
+          height: 345.88235294117646,
+          showIframe: true,
+          adaptation: svgs[63],
+          configValues: { palette: ["#1633cc", "#ff1c1c"], angle: 0 },
+          position: { left: 424.4117647058824, top: -52.94117647058824 },
+          id: 204,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 315.88235294117646,
+          height: 317.6470588235294,
+          showIframe: true,
+          adaptation: svgs[64],
+          configValues: { palette: ["#ff1c1c", "#1633cc"], angle: 0 },
+          position: { left: 685.5882352941177, top: 679.4117647058823 },
+          id: 205,
+          rotation: -90
+        },
+        {
+          type: "object",
+          width: 128.8235294117647,
+          height: 31.764705882352942,
+          showIframe: true,
+          adaptation: svgs[53],
+          configValues: { palette: ["#1633cc", "#ff1c1c"], angle: 0 },
+          position: { left: 470.29411764705884, top: 1032.3529411764707 },
+          id: 208,
+          rotation: -90
+        },
+        {
+          type: "object",
+          width: 125.29411764705883,
+          height: 28.235294117647058,
+          showIframe: true,
+          adaptation: svgs[53],
+          configValues: { palette: ["#1633cc", "#ff1c1c"], angle: 0 },
+          position: { left: 62.64705882352941, top: 970.5882352941177 },
+          id: 209,
+          rotation: 180
+        },
+        {
+          type: "object",
+          width: 250.58823529411765,
+          height: 31.764705882352942,
+          showIframe: true,
+          adaptation: svgs[53],
+          configValues: { palette: ["#1633cc", "#ff1c1c"], angle: 0 },
+          position: { left: 992.6470588235294, top: 554.1176470588235 },
+          id: 210,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 128.8235294117647,
+          height: 31.764705882352942,
+          showIframe: true,
+          adaptation: svgs[53],
+          configValues: { palette: ["#1633cc", "#ff1c1c"], angle: 0 },
+          position: { left: 105, top: 1.7647058823529411 },
+          id: 211,
+          rotation: -91
+        },
+        {
+          type: "object",
+          width: 300,
+          height: 142.94117647058823,
+          showIframe: true,
+          adaptation: svgs[62],
+          configValues: { palette: ["#ff1c1c", "#1633cc"], angle: 0 },
+          position: { left: 802.0588235294118, top: 176.47058823529412 },
+          id: 206,
+          rotation: 180
+        },
+        {
+          type: "object",
+          width: 128.8235294117647,
+          height: 31.764705882352942,
+          showIframe: true,
+          adaptation: svgs[53],
+          configValues: { palette: ["#1633cc", "#ff1c1c"], angle: 0 },
+          position: { left: 802.0588235294118, top: 416.47058823529414 },
+          id: 207,
+          rotation: 0
+        }
+      ]
+    }
+  },
+  // 81
+  {
+    ...linearGradient,
+    thumb: "/thumbs/81.png",
+    title: "Round shapes",
+    author: "Abstract Geometry",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#081f3c", "#527794"],
+        direction: "custom_angle",
+        angle: 90
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 287.6470588235294,
+          height: 296.47058823529414,
+          showIframe: true,
+          adaptation: svgs[61],
+          configValues: { palette: ["#527794", "#081f3c"], angle: 0 },
+          position: { left: 99.70588235294117, top: 81.17647058823529 },
+          id: 202,
+          rotation: 90
+        },
+        {
+          type: "object",
+          width: 259.4117647058824,
+          height: 328.2352941176471,
+          showIframe: true,
+          adaptation: svgs[63],
+          configValues: { palette: ["#081f3c", "#527794"], angle: 0 },
+          position: { left: 473.8235294117647, top: -37.05882352941177 },
+          id: 203,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 264.70588235294116,
+          height: 375.88235294117646,
+          showIframe: true,
+          adaptation: svgs[63],
+          configValues: { palette: ["#081f3c", "#527794"], angle: 0 },
+          position: { left: 295.5882352941177, top: 760.5882352941177 },
+          id: 204,
+          rotation: 180
+        },
+        {
+          type: "object",
+          width: 287.6470588235294,
+          height: 296.47058823529414,
+          showIframe: true,
+          adaptation: svgs[61],
+          configValues: { palette: ["#527794", "#081f3c"], angle: 0 },
+          position: { left: 759.7058823529412, top: 600 },
+          id: 205,
+          rotation: 360
+        },
+        {
+          type: "object",
+          width: 277.05882352941177,
+          height: 391.7647058823529,
+          showIframe: true,
+          adaptation: svgs[63],
+          configValues: { palette: ["#527794", "#527794"], angle: 0 },
+          position: { left: -131.47058823529412, top: 566.4705882352941 },
+          id: 209,
+          rotation: 269
+        },
+        {
+          type: "object",
+          width: 210,
+          height: 26.47058823529412,
+          showIframe: true,
+          adaptation: svgs[53],
+          configValues: { palette: ["#081f3c", "#527794"], angle: 0 },
+          position: { left: 669.7058823529412, top: 870 },
+          id: 210,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 210,
+          height: 26.47058823529412,
+          showIframe: true,
+          adaptation: svgs[53],
+          configValues: { palette: ["#081f3c", "#527794"], angle: 0 },
+          position: { left: 0.8823529411764706, top: 86.47058823529412 },
+          id: 211,
+          rotation: 90
+        },
+        {
+          type: "object",
+          width: 210,
+          height: 26.47058823529412,
+          showIframe: true,
+          adaptation: svgs[53],
+          configValues: { palette: ["#081f3c", "#527794"], angle: 0 },
+          position: { left: 810.8823529411765, top: 275.29411764705884 },
+          id: 212,
+          rotation: 0
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Roboto",
+            fontSize: 57,
+            padding: 44,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 1,
+            isInline: false,
+            lineHeight: 17,
+            hasCyrillic: true
+          },
+          id: 102,
+          width: 612.7941176470588,
+          height: 375.8272058823529,
+          position: { left: 252.3529411764706, top: 375.88235294117646 },
+          text: "Серебряный туман \nзатопил палубу \nкорабля"
         }
       ]
     }
