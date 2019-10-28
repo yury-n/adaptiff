@@ -50,6 +50,10 @@ class TheModal extends Component {
     this.ctrlDown = false;
     this.bufferedInsertedItem = null;
     const initState = props.initState || { size: {}, configValues: {} };
+    // used in DB
+    if (initState.config) {
+      initState.configValues = initState.config;
+    }
 
     const state = {
       isPaused: false,
