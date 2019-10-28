@@ -1665,7 +1665,7 @@ class TheModal extends Component {
           width: this.state.canvasWidth,
           height: this.state.canvasHeight
         },
-        config: this.state.configValues,
+        configValues: this.state.configValues,
         insertedItems: this.state.insertedItems.map((insertedItem, idx) => ({
           ...insertedItem,
           width: captureConfig[idx].width,
