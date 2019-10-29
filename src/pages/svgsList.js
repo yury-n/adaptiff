@@ -1,7 +1,7 @@
 import svgWithGradient from "../_adaptationConfigs/svgWithGradient";
 import svgWithSolidColor from "../_adaptationConfigs/svgWithSolidColor";
 
-const svgs = [
+export const svgs = [
   {
     ...svgWithGradient,
     thumb: "/thumbs/svgs/0.svg",
@@ -761,18 +761,96 @@ const svgs = [
         palette: ["#540CC2", "#03F3FE"]
       }
     }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/65.svg",
+    fileName: "svgs/65",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 208 / 386,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#A9F1DF", "#fbb"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/66.svg",
+    fileName: "svgs/66",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 167 / 165,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#D8B5FF", "#FFD2DF"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/67.svg",
+    fileName: "svgs/67",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 75 / 136,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#D8B5FF", "#1EAE98"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/68.svg",
+    fileName: "svgs/68",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 184 / 349,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#FFAFD7", "#FFC331"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/69.svg",
+    fileName: "svgs/69",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 251 / 235,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#FFB198", "#FF3E89"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/70.svg",
+    fileName: "svgs/70",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 246 / 118,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#BFF0CF", "#6FD6FF"]
+      }
+    }
   }
 ];
 
 export default svgs;
 
+export const glitchySvgs = [65, 66, 67, 68, 69, 70].map(index => svgs[index]);
+
 export const orderedSvgs = [0, 1, 2, 9, 3, 4, 5, 6, 7, 8].map(
   index => svgs[index]
 );
 
-export const basicSvgs = [52, 53, 11, 0, 9, 2, 10, 12, 13].map(
-  index => svgs[index]
-);
+export const basicSvgs = [52, 53, 11, 0, 9, 2, 10].map(index => svgs[index]);
 
 export const paintWorkSvgs = [1, 3, 4, 25, 26, 27, 28, 29, 30, 31, 32].map(
   index => svgs[index]

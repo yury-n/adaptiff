@@ -7,7 +7,8 @@ import {
   paintWorkSvgs,
   childishDreamsSvgs,
   paintedShapes,
-  curves
+  curves,
+  glitchySvgs
 } from "../../pages/svgsList";
 
 import "./global.overrides.css";
@@ -50,6 +51,11 @@ export default React.memo(
     const renderObjectsTab = () => (
       <>
         <ObjectPack
+          name="Glitchy"
+          objects={glitchySvgs}
+          onInsertObject={onInsertObject}
+        />
+        <ObjectPack
           name="Round Shapes"
           objects={curves}
           onInsertObject={onInsertObject}
@@ -71,13 +77,7 @@ export default React.memo(
         />
         <ObjectPack
           name="Basic"
-          objects={[
-            ...basicSvgs,
-            blobmaker,
-            linearGradient,
-            allAdaptations[37],
-            allAdaptations[45]
-          ]}
+          objects={[...basicSvgs, blobmaker, linearGradient]}
           onInsertObject={onInsertObject}
         />
         <ObjectPack
@@ -87,7 +87,13 @@ export default React.memo(
         />
         <ObjectPack
           name="Generative"
-          objects={[allAdaptations[10], gradientWaves, trianglify]}
+          objects={[
+            allAdaptations[10],
+            gradientWaves,
+            trianglify,
+            allAdaptations[37],
+            allAdaptations[45]
+          ]}
           onInsertObject={onInsertObject}
         />
       </>

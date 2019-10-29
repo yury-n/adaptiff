@@ -47,7 +47,12 @@ class Header extends Component {
               <div className={s["logo-symbol-block-1"]} />
               <div className={s["logo-symbol-block-2"]} />
             </div>
-            <div className={s["logo-text"]}>adaptiff</div>
+            <div className={s["logo-text"]}>
+              adaptiff
+              <span className={s["logo-beta"]}>
+                β<span className={s["logo-eta"]}>eta</span>
+              </span>
+            </div>
           </a>
           <div className={s["header-buttons"]}>
             <Button
