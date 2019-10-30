@@ -3951,6 +3951,169 @@ export const allAdaptations = [
         }
       ]
     }
+  },
+  // 82
+  {
+    ...linearGradient,
+    thumb: "/thumbs/82.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#ffffff", "#ecfffe"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 1032.0426287744228,
+          height: 491.0834813499112,
+          showIframe: true,
+          adaptation: svgs[52],
+          configValues: {
+            palette: ["#9cfff1", { r: 255, g: 255, b: 255, a: 0 }],
+            angle: 0
+          },
+          position: { left: -155.38188277087036, top: 314.6003552397869 },
+          id: 203,
+          rotation: 88
+        },
+        {
+          type: "object",
+          width: 548.6323268206039,
+          height: 375.98579040852576,
+          showIframe: true,
+          adaptation: svgs[52],
+          configValues: {
+            palette: ["#9ce5ff", { r: 255, g: 255, b: 255, a: 0 }],
+            angle: 0
+          },
+          position: { left: 399.0053285968029, top: -34.52930728241563 },
+          id: 205,
+          rotation: 229
+        },
+        {
+          type: "object",
+          width: 427.77975133214926,
+          height: 441.20781527531085,
+          showIframe: true,
+          adaptation: svgs[52],
+          configValues: {
+            palette: ["#7aa3fe", { r: 255, g: 255, b: 255, a: 0 }],
+            angle: 0
+          },
+          position: { left: 249.3783303730018, top: 109.34280639431617 },
+          id: 202,
+          rotation: 446
+        },
+        {
+          type: "object",
+          width: 510.2664298401421,
+          height: 395.1687388987567,
+          showIframe: true,
+          adaptation: svgs[52],
+          configValues: {
+            palette: ["#27e1e1", { r: 255, g: 255, b: 255, a: 0 }],
+            angle: 0
+          },
+          position: { left: 153.46358792184725, top: 132.36234458259327 },
+          id: 204,
+          rotation: 173
+        },
+        {
+          type: "object",
+          width: 170.72824156305506,
+          height: 93.99644760213144,
+          showIframe: true,
+          adaptation: svgs[52],
+          configValues: {
+            palette: ["#33d3d3", { r: 51, g: 211, b: 211, a: 0 }],
+            angle: 0
+          },
+          position: { left: 874.7424511545294, top: 705.9325044404974 },
+          id: 208,
+          rotation: 301
+        },
+        {
+          type: "object",
+          width: 178.40142095914743,
+          height: 65.22202486678509,
+          showIframe: true,
+          adaptation: svgs[52],
+          configValues: {
+            palette: [
+              { r: 122, g: 163, b: 254, a: 0.76 },
+              { r: 122, g: 163, b: 254, a: 0 }
+            ],
+            angle: 0
+          },
+          position: { left: 801.8472468916519, top: 721.2788632326822 },
+          id: 207,
+          rotation: 635
+        },
+        {
+          type: "object",
+          width: 92.07815275310836,
+          height: 21.101243339253998,
+          showIframe: true,
+          adaptation: svgs[52],
+          configValues: { palette: ["#9cfff1", "#9cfff1"], angle: 0 },
+          position: { left: 63.30373001776199, top: 132.36234458259327 },
+          id: 209,
+          rotation: 63
+        },
+        {
+          type: "object",
+          width: 92.07815275310836,
+          height: 21.101243339253998,
+          showIframe: true,
+          adaptation: svgs[52],
+          configValues: { palette: ["#9ce5ff", "#9cfff1"], angle: 0 },
+          position: { left: 913.1083481349912, top: 117.01598579040854 },
+          id: 210,
+          rotation: 111
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Prata",
+            fontSize: 76,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true,
+            isBold: false
+          },
+          id: 102,
+          width: 960.4962255772647,
+          height: 290.4418294849023,
+          position: { left: 66.18117229129663, top: 695.3818827708703 },
+          text: "Едва осознав, \nчто происходит, \nмы оторвались от земли"
+        },
+        {
+          type: "object",
+          width: 46.03907637655418,
+          height: 21.101243339253998,
+          showIframe: true,
+          adaptation: svgs[52],
+          configValues: {
+            palette: [
+              { r: 156, g: 229, b: 255, a: 0.56 },
+              { r: 156, g: 229, b: 255, a: 0 }
+            ],
+            angle: 0
+          },
+          position: { left: 671.4031971580818, top: 494.92007104795744 },
+          id: 103,
+          rotation: 102
+        }
+      ]
+    }
   }
   // { ...cells },
   // { ...fog },
