@@ -4114,6 +4114,144 @@ export const allAdaptations = [
         }
       ]
     }
+  },
+  // 83
+  {
+    ...linearGradient,
+    thumb: "/thumbs/83.png",
+    title: "Glitchy elements",
+    author: "Anna Taran",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#371b41", "#722345"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 539.0408525754885,
+          height: 364.47602131438725,
+          showIframe: true,
+          adaptation: svgs[73],
+          configValues: { palette: ["#722345", "#FF2200"], angle: 0 },
+          position: { left: -5.754884547069272, top: 732.7886323268207 },
+          id: 202,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 228.2770870337478,
+          height: 464.227353463588,
+          showIframe: true,
+          adaptation: svgs[68],
+          configValues: { palette: ["#be1024", "#be1024"], angle: 0 },
+          position: { left: 209.0941385435169, top: 627.2824156305506 },
+          id: 203,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 399.0053285968029,
+          height: 366.39431616341034,
+          showIframe: true,
+          adaptation: svgs[76],
+          configValues: { palette: ["#FF2200", "#722345"], angle: 0 },
+          position: { left: -9.591474245115453, top: -24.93783303730018 },
+          id: 204,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 199.50266429840144,
+          height: 408.5968028419183,
+          showIframe: true,
+          adaptation: svgs[71],
+          configValues: {
+            palette: [{ r: 65, g: 32, b: 59, a: 0 }, "#be1024"],
+            angle: 0
+          },
+          position: { left: 527.5310834813499, top: 679.0763765541741 },
+          id: 205,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 249.3783303730018,
+          height: 354.8845470692718,
+          showIframe: true,
+          adaptation: svgs[77],
+          configValues: {
+            palette: [{ r: "122", g: "28", b: "67", a: "0" }, "#FF2200"],
+            angle: 0
+          },
+          position: { left: 372.1492007104796, top: 151.54529307282417 },
+          id: 207,
+          rotation: 180
+        },
+        {
+          type: "object",
+          width: 539.0408525754885,
+          height: 358.72113676731794,
+          showIframe: true,
+          adaptation: svgs[74],
+          configValues: {
+            palette: [{ r: 122, g: 28, b: 67, a: 0 }, "#FF2200"],
+            angle: 0
+          },
+          position: { left: 544.7957371225577, top: -9.591474245115453 },
+          id: 206,
+          rotation: 180
+        },
+        {
+          type: "object",
+          width: 239.78685612788635,
+          height: 539.0408525754885,
+          showIframe: true,
+          adaptation: svgs[78],
+          configValues: {
+            palette: ["#FF2200", { r: 122, g: 28, b: 67, a: 0 }],
+            angle: 0
+          },
+          position: { left: 220.60390763765542, top: -3.8365896980461813 },
+          id: 208,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 381.74067495559507,
+          height: 395.1687388987567,
+          showIframe: true,
+          adaptation: svgs[79],
+          configValues: { palette: ["#722345", "#FF2200"], angle: 0 },
+          position: { left: 725.1154529307283, top: 732.7886323268207 },
+          id: 210,
+          rotation: 0
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Roboto Condensed",
+            fontSize: 120,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            isBold: true
+          },
+          id: 102,
+          width: 988.4014209591475,
+          height: 163.83436944937833,
+          position: { left: 46.99822380106572, top: 465.1865008880995 },
+          text: "LET'S  GET  SPOOKY"
+        }
+      ]
+    }
   }
   // { ...cells },
   // { ...fog },
