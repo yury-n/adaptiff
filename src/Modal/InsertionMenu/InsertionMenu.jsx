@@ -1,25 +1,11 @@
 import React, { useState } from "react";
 import { Menu, Icon } from "semantic-ui-react";
 import classnames from "classnames";
-import {
-  basicSvgs,
-  particlesSvgs,
-  paintWorkSvgs,
-  childishDreamsSvgs,
-  paintedShapes,
-  curves,
-  glitchySvgs
-} from "../../pages/svgsList";
 
 import "./global.overrides.css";
 import s from "./InsertionMenu.module.css";
 import MiniCard from "../../MiniCard/MiniCard";
-import linearGradient from "../../_adaptationConfigs/linearGradient";
-import blobmaker from "../../_adaptationConfigs/blobmaker";
-import { allAdaptations } from "../../pages/adaptations";
-import { unfilledMesh } from "../../pages/insertablesList";
-import trianglify from "../../_adaptationConfigs/trianglify";
-import gradientWaves from "../../_adaptationConfigs/gradientWaves";
+import insertionPacks from "./insertionPacks";
 
 export default React.memo(
   ({
@@ -27,6 +13,7 @@ export default React.memo(
     onInsertText,
     onInsertObject,
     onInsertImage,
+    priorityObjectPack,
     setActiveItem
   }) => {
     const onFileChange = e => {
@@ -48,57 +35,16 @@ export default React.memo(
       };
       document.body.appendChild(img);
     };
-    const renderObjectsTab = () => (
-      <>
-        <ObjectPack
-          name="Glitchy"
-          objects={glitchySvgs}
-          onInsertObject={onInsertObject}
-        />
-        <ObjectPack
-          name="Round Shapes"
-          objects={curves}
-          onInsertObject={onInsertObject}
-        />
-        <ObjectPack
-          name="Weird Painted Shapes"
-          objects={paintedShapes}
-          onInsertObject={onInsertObject}
-        />
-        <ObjectPack
-          name="Particles"
-          objects={[...particlesSvgs, unfilledMesh]}
-          onInsertObject={onInsertObject}
-        />
-        <ObjectPack
-          name="Paint Work"
-          objects={paintWorkSvgs}
-          onInsertObject={onInsertObject}
-        />
-        <ObjectPack
-          name="Basic"
-          objects={[...basicSvgs, blobmaker, linearGradient]}
-          onInsertObject={onInsertObject}
-        />
-        <ObjectPack
-          name="Childish Dreams"
-          objects={childishDreamsSvgs}
-          onInsertObject={onInsertObject}
-        />
-        <ObjectPack
-          name="Generative"
-          objects={[
-            allAdaptations[10],
-            gradientWaves,
-            trianglify,
-            allAdaptations[37],
-            allAdaptations[45],
-            allAdaptations[46]
-          ]}
-          onInsertObject={onInsertObject}
-        />
-      </>
-    );
+    const renderObjectsTab = () =>
+      insertionPacks
+        .sort(a => (a.name === priorityObjectPack ? -1 : 1))
+        .map(pack => (
+          <ObjectPack
+            name={pack.name}
+            objects={pack.objects}
+            onInsertObject={onInsertObject}
+          />
+        ));
     return (
       <div>
         <Menu className={"tab-menu"} icon="labeled">

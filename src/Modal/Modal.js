@@ -332,6 +332,7 @@ class TheModal extends Component {
             insertImage={this.insertImage}
             insertText={this.insertText}
             insertObject={this.insertObject}
+            priorityObjectPack={this.props.objectPack}
           />
           <div
             className={s["modal-central-area"]}
@@ -1683,7 +1684,7 @@ class TheModal extends Component {
 }
 
 const CollapsibleSiderBar = React.memo(
-  ({ insertText, insertImage, insertObject }) => {
+  ({ insertText, insertImage, insertObject, priorityObjectPack }) => {
     const [activeItem, setActiveItem] = useState(() => {
       const activeItemFromStorage = localStorage.getItem(
         "modal.insertionTabsActiveItem"
@@ -1718,6 +1719,7 @@ const CollapsibleSiderBar = React.memo(
           onInsertObject={insertObject}
           activeItem={activeItem}
           setActiveItem={setActiveItem}
+          priorityObjectPack={priorityObjectPack}
         />
         <div className={s["sidebar-collapse-button"]} onClick={collapse}>
           <Icon className={s["collapse-icon"]} size="small" name="angle left" />

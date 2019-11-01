@@ -2619,6 +2619,7 @@ export const allAdaptations = [
     ...linearGradient,
     title: "painted shapes",
     thumb: "/thumbs/70.png",
+    objectPack: "Weird Painted Shapes",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -2965,6 +2966,7 @@ export const allAdaptations = [
     title: "Round shapes",
     author: "Abstract Geometry",
     thumb: "/thumbs/74.png?1",
+    objectPack: "Round Shapes",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3126,6 +3128,7 @@ export const allAdaptations = [
     thumb: "/thumbs/75.png",
     title: "Round shapes",
     author: "Abstract Geometry",
+    objectPack: "Round Shapes",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3270,6 +3273,7 @@ export const allAdaptations = [
     thumb: "/thumbs/76.png",
     title: "Round shapes",
     author: "Abstract Geometry",
+    objectPack: "Round Shapes",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3342,6 +3346,7 @@ export const allAdaptations = [
     thumb: "/thumbs/77.png",
     title: "Round shapes",
     author: "Abstract Geometry",
+    objectPack: "Round Shapes",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3425,6 +3430,7 @@ export const allAdaptations = [
     thumb: "/thumbs/78.png",
     title: "Round shapes",
     author: "Abstract Geometry",
+    objectPack: "Round Shapes",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3584,6 +3590,7 @@ export const allAdaptations = [
     thumb: "/thumbs/79.png",
     title: "Round shapes",
     author: "Abstract Geometry",
+    objectPack: "Round Shapes",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3684,6 +3691,7 @@ export const allAdaptations = [
     thumb: "/thumbs/80.png",
     title: "Round shapes",
     author: "Abstract Geometry",
+    objectPack: "Round Shapes",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3832,6 +3840,7 @@ export const allAdaptations = [
     thumb: "/thumbs/81.png",
     title: "Round shapes",
     author: "Abstract Geometry",
+    objectPack: "Round Shapes",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -4121,6 +4130,7 @@ export const allAdaptations = [
     thumb: "/thumbs/83.png",
     title: "Glitchy elements",
     author: "Anna Taran",
+    objectPack: "Glitchy",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
