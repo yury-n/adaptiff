@@ -92,7 +92,8 @@ export default React.memo(
             gradientWaves,
             trianglify,
             allAdaptations[37],
-            allAdaptations[45]
+            allAdaptations[45],
+            allAdaptations[46]
           ]}
           onInsertObject={onInsertObject}
         />

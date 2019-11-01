@@ -9,7 +9,7 @@ export default {
       type: "boolean",
       key: "withBackground",
       text: "With Background",
-      defaultValue: true
+      defaultValue: false
     },
     {
       key: "backgroundColor",
@@ -22,7 +22,7 @@ export default {
       key: "strokeColor",
       text: "Stroke Color",
       type: "single-color",
-      defaultValue: { r: 255, g: 255, b: 255, a: 0.3 },
+      defaultValue: "#8e2cf9",
       allowAlpha: true
     },
     {

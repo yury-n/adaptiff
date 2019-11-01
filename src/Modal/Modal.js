@@ -742,9 +742,9 @@ class TheModal extends Component {
   };
 
   onWindowMessage = event => {
-    const { insertedItems, config } = this.state;
+    const { insertedItems, configValues } = this.state;
     if (event.data.type === "download") {
-      if (insertedItems.length || config.backgroundColor) {
+      if (insertedItems.length || configValues.backgroundColor) {
         if (event.data.objectId) {
           const objectIndex = insertedItems.findIndex(
             insertedItem => +event.data.objectId === +insertedItem.id
