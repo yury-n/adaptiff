@@ -18,6 +18,7 @@ function generateGradientInnerHTML(palette) {
   return html;
 }
 function aff_render(config) {
+  document.querySelector("svg").setAttribute("preserveAspectRatio", "none");
   if (config.palette) {
     const gradients = document.querySelectorAll(
       "#gradient, .gradient, linearGradient"

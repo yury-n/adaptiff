@@ -957,6 +957,19 @@ export const svgs = [
         palette: ["#ff9966", "#ff5e62"]
       }
     }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/80.svg",
+    fileName: "svgs/80",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 294 / 232,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#ff9966", "#ff5e62"]
+      }
+    }
   }
 ];
 
@@ -997,6 +1010,8 @@ export const paintedShapes = [41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51].map(
 export const curves = [62, 61, 55, 56, 57, 58, 59, 60, 63, 0, 64].map(
   index => svgs[index]
 );
+
+export const blobs = [80].map(index => svgs[index]);
 
 export const childishDreamsSvgs = [
   5,

@@ -12,7 +12,8 @@ import {
   childishDreamsSvgs,
   paintedShapes,
   curves,
-  glitchySvgs
+  glitchySvgs,
+  blobs
 } from "../../pages/svgsList";
 
 export default [
@@ -54,5 +55,9 @@ export default [
       allAdaptations[45],
       allAdaptations[46]
     ]
+  },
+  {
+    name: "Blobs",
+    objects: blobs
   }
 ];
