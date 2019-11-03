@@ -18,6 +18,7 @@ export const svgs = [
     thumb: "/thumbs/svgs/1.svg",
     thumbBackgroundSize: "70%",
     fileName: "svgs/1",
+    aspectRatio: 20208460 / 20900000,
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: {
@@ -41,7 +42,7 @@ export const svgs = [
     thumb: "/thumbs/svgs/3.svg",
     thumbBackgroundSize: "130%",
     fileName: "svgs/3",
-    aspectRatio: 307.37 / 61.1,
+    aspectRatio: 21000000 / 4080790,
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: {
@@ -54,7 +55,7 @@ export const svgs = [
     thumb: "/thumbs/svgs/4.svg",
     fileName: "svgs/4",
     thumbBackgroundSize: "130%",
-    aspectRatio: 320.08 / 50.17,
+    aspectRatio: 21000000 / 3175880,
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: {
@@ -316,7 +317,7 @@ export const svgs = [
     thumb: "/thumbs/svgs/25.svg",
     fileName: "svgs/25",
     thumbBackgroundSize: "100%",
-    aspectRatio: 308.65 / 38.63,
+    aspectRatio: 21000020 / 2724753,
     initState: {
       size: { width: 250, height: 250 },
       configValues: {
@@ -329,7 +330,7 @@ export const svgs = [
     thumb: "/thumbs/svgs/26.svg",
     fileName: "svgs/26",
     thumbBackgroundSize: "100%",
-    aspectRatio: 251.82 / 82.87,
+    aspectRatio: 21000000 / 6981290,
     initState: {
       size: { width: 250, height: 250 },
       configValues: {
@@ -342,7 +343,7 @@ export const svgs = [
     thumb: "/thumbs/svgs/27.svg",
     fileName: "svgs/27",
     thumbBackgroundSize: "100%",
-    aspectRatio: 251.86 / 52.14,
+    aspectRatio: 20999980 / 4863870,
     initState: {
       size: { width: 250, height: 250 },
       configValues: {
@@ -355,7 +356,7 @@ export const svgs = [
     thumb: "/thumbs/svgs/28.svg",
     fileName: "svgs/28",
     thumbBackgroundSize: "100%",
-    aspectRatio: 328.86 / 49.32,
+    aspectRatio: 21000000 / 2990920,
     initState: {
       size: { width: 250, height: 250 },
       configValues: {
@@ -368,7 +369,7 @@ export const svgs = [
     thumb: "/thumbs/svgs/29.svg",
     fileName: "svgs/29",
     thumbBackgroundSize: "100%",
-    aspectRatio: 280.81 / 207.32,
+    aspectRatio: 28147220 / 20999997,
     initState: {
       size: { width: 250, height: 250 },
       configValues: {
@@ -394,7 +395,7 @@ export const svgs = [
     thumb: "/thumbs/svgs/31.svg",
     fileName: "svgs/31",
     thumbBackgroundSize: "100%",
-    aspectRatio: 289.24 / 43.48,
+    aspectRatio: 21000000 / 3651140,
     initState: {
       size: { width: 250, height: 250 },
       configValues: {
@@ -407,7 +408,7 @@ export const svgs = [
     thumb: "/thumbs/svgs/32.svg",
     fileName: "svgs/32",
     thumbBackgroundSize: "100%",
-    aspectRatio: 274.68 / 80.16,
+    aspectRatio: 21000000 / 6391690,
     initState: {
       size: { width: 250, height: 250 },
       configValues: {
@@ -985,7 +986,7 @@ export const orderedSvgs = [0, 1, 2, 9, 3, 4, 5, 6, 7, 8].map(
 
 export const basicSvgs = [52, 53, 11, 0, 9, 2, 10].map(index => svgs[index]);
 
-export const paintWorkSvgs = [1, 3, 4, 25, 26, 27, 28, 29, 30, 31, 32].map(
+export const paintWorkSvgs = [1, 3, 4, 25, 26, 27, 28, 31, 32].map(
   index => svgs[index]
 );
 
