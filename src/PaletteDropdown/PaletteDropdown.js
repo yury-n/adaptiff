@@ -41,28 +41,37 @@ class PaletteDropdown extends Component {
             value={undefined}
             selectedLabel={undefined}
             selectOnBlur={false}
-            options={palettes.map((palette, index) => ({
-              key: index,
-              value: index,
-              label: (
-                <div className={s["mini-color-container"]}>
-                  {palette.map((color, index) => (
-                    <div
-                      key={`${index}-${color}`}
-                      className={s["mini-color"]}
-                      style={{ background: color }}
-                    />
-                  ))}
-                </div>
-              )
-            }))}
-            onChange={(target, { value }) =>
-              this.props.onChange(palettes[value])
-            }
             onOpen={() => this.setState({ isActive: true })}
             onClose={() => this.setState({ isActive: false })}
             selection
-          />
+          >
+            <Dropdown.Menu>
+              <div className={s["colors-number-selector"]}>
+                {[1, 2, 3, 4].map(number => (
+                  <div className={s["colors-number"]}>{number}</div>
+                ))}
+              </div>
+              <Dropdown.Divider />
+              {palettes.map((palette, index) => (
+                <Dropdown.Item
+                  key={index}
+                  value={index}
+                  label={
+                    <div className={s["mini-color-container"]}>
+                      {palette.map((color, index) => (
+                        <div
+                          key={`${index}-${color}`}
+                          className={s["mini-color"]}
+                          style={{ background: color }}
+                        />
+                      ))}
+                    </div>
+                  }
+                  onClick={() => this.props.onChange(palette)}
+                />
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
         <PrevNextButtons goToPrev={this.goToPrev} goToNext={this.goToNext} />
       </div>
