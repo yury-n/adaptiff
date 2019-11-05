@@ -13,10 +13,15 @@ import {
   paintedShapes,
   curves,
   glitchySvgs,
-  blobs
+  blobs,
+  waves
 } from "../../pages/svgsList";
 
 export default [
+  {
+    name: "Waves",
+    objects: waves
+  },
   {
     name: "Glitchy",
     objects: glitchySvgs

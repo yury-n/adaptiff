@@ -963,6 +963,19 @@ export const svgs = [
     thumb: "/thumbs/svgs/80.svg",
     fileName: "svgs/80",
     thumbBackgroundSize: "90%",
+    aspectRatio: 1440 / 320,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#4ECDC4", "#556270"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/800.svg",
+    fileName: "svgs/800",
+    thumbBackgroundSize: "90%",
     aspectRatio: 294 / 232,
     initState: {
       size: { width: 1000, height: 1000 },
@@ -1011,7 +1024,9 @@ export const curves = [62, 61, 55, 56, 57, 58, 59, 60, 63, 0, 64].map(
   index => svgs[index]
 );
 
-export const blobs = [80].map(index => svgs[index]);
+export const blobs = [800].map(index => svgs[index]);
+
+export const waves = [80].map(index => svgs[index]);
 
 export const childishDreamsSvgs = [
   5,
