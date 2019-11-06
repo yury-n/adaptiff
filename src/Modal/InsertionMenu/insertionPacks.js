@@ -12,16 +12,16 @@ import {
   childishDreamsSvgs,
   paintedShapes,
   curves,
-  glitchySvgs
+  glitchySvgs,
   // blobs,
-  // waves
+  waves
 } from "../../pages/svgsList";
 
 export default [
-  // {
-  //   name: "Waves",
-  //   objects: waves
-  // },
+  {
+    name: "Waves",
+    objects: waves
+  },
   {
     name: "Glitchy",
     objects: glitchySvgs

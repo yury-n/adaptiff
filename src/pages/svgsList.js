@@ -973,6 +973,110 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    thumb: "/thumbs/svgs/81.svg",
+    fileName: "svgs/81",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 1440 / 594,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#F2709C", "#FF9472"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/82.svg",
+    fileName: "svgs/82",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 1440 / 643,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#DDD6F3", "#FAACA8"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/83.svg",
+    fileName: "svgs/83",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 1440 / 626,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#FAACA8", "#DDD6F3"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/84.svg",
+    fileName: "svgs/84",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 1440 / 685,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#F857A6", "#FF5858"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/85.svg",
+    fileName: "svgs/85",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 1440 / 547,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#FC354C", "#0ABFBC"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/86.svg",
+    fileName: "svgs/86",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 1440 / 576,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#414D0B", "#727A17"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/87.svg",
+    fileName: "svgs/87",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 1440 / 576,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#5F2C82", "#49A09D"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    thumb: "/thumbs/svgs/88.svg",
+    fileName: "svgs/88",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 1440 / 621,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#EC6F66", "#F3A183"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
     thumb: "/thumbs/svgs/800.svg",
     fileName: "svgs/800",
     thumbBackgroundSize: "90%",
@@ -1026,7 +1130,9 @@ export const curves = [62, 61, 55, 56, 57, 58, 59, 60, 63, 0, 64].map(
 
 export const blobs = [800].map(index => svgs[index]);
 
-export const waves = [80].map(index => svgs[index]);
+export const waves = [81, 82, 83, 84, 85, 86, 88, 87, 80].map(
+  index => svgs[index]
+);
 
 export const childishDreamsSvgs = [
   5,
