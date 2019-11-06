@@ -288,6 +288,7 @@ export const allAdaptations = [
   {
     ...gradientWaves,
     thumb: "/thumbs/9.png",
+    id: 3,
     initState: {
       size: { width: 700, height: 700 },
       configValues: {
