@@ -14,6 +14,8 @@ export default React.memo(
       fileName,
       version,
       lockAspectRatio = false,
+      onGoToPrevElementInPack,
+      onGoToNextElementInPack,
       ...restProps
     },
     ref
@@ -29,6 +31,26 @@ export default React.memo(
           placeholder={placeholder}
           onLoad={onLoad}
         />
+        {restProps.isActive && restProps.pack && (
+          <>
+            <div
+              className={s["prev"]}
+              aria-label="Prev Element (Arrow Left)"
+              data-balloon-pos="up"
+              onClick={onGoToPrevElementInPack}
+            >
+              ←
+            </div>
+            <div
+              className={s["next"]}
+              aria-label="Next Element (Arrow Right)"
+              data-balloon-pos="up"
+              onClick={onGoToNextElementInPack}
+            >
+              →
+            </div>
+          </>
+        )}
       </RnDItem>
     );
   })

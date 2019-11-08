@@ -283,9 +283,19 @@ export default React.memo(
           onClick={() => onClick(id)}
           ref={wrapperRefCallback}
         >
-          {React.cloneElement(children, {
-            ref: refCallback
-          })}
+          {!Array.isArray(children) ? (
+            React.cloneElement(children, {
+              ref: refCallback
+            })
+          ) : (
+            <>
+              {React.cloneElement(children[0], {
+                ref: refCallback
+              })}
+              {children[1]}
+              {children[2]}
+            </>
+          )}
         </div>
       </>
     );

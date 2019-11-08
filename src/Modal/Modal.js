@@ -30,6 +30,7 @@ import "./global.overrides.css";
 import s from "./Modal.module.css";
 import InsertionMenu from "./InsertionMenu/InsertionMenu";
 import GlobalConfig from "./GlobalConfig/GlobalConfig";
+import { allSvgPacks } from "../pages/svgsList";
 
 const CANVAS_MARGIN = 50; //px
 
@@ -432,6 +433,12 @@ class TheModal extends Component {
                     className={s["pause-button"]}
                   />
                 )}
+                {false && (
+                  <Button
+                    icon="share alternate"
+                    className={s["share-button-inactive"]}
+                  />
+                )}
                 <Button
                   title="Download"
                   loading={isPreparingDownload}
@@ -676,6 +683,9 @@ class TheModal extends Component {
             showIframe={insertedItem.showIframe}
             placeholder={insertedItem.capturedIframe}
             fileName={insertedItem.adaptation.fileName}
+            pack={insertedItem.adaptation.pack}
+            onGoToNextElementInPack={this.onGoToNextElementInPack}
+            onGoToPrevElementInPack={this.onGoToPrevElementInPack}
             onLoad={this.onIframeLoad}
             width={insertedItem.width}
             height={insertedItem.height}
@@ -685,6 +695,33 @@ class TheModal extends Component {
         );
       default:
         return null;
+    }
+  };
+
+  onGoToNextElementInPack = () => {
+    this.onGoToElementInPack(+1);
+  };
+
+  onGoToPrevElementInPack = () => {
+    this.onGoToElementInPack(-1);
+  };
+
+  onGoToElementInPack = change => {
+    const insertedItem = this.getActiveInsertedItem();
+    if (insertedItem.adaptation && insertedItem.adaptation.pack) {
+      const pack = allSvgPacks[insertedItem.adaptation.pack];
+      if (!pack) {
+        return;
+      }
+      const insertedItemIndexInPack = pack.indexOf(insertedItem.adaptation);
+      let updatedIndex = insertedItemIndexInPack + change;
+      if (updatedIndex > pack.length - 1) {
+        updatedIndex = 0;
+      } else if (updatedIndex < 0) {
+        updatedIndex = pack.length - 1;
+      }
+      insertedItem.adaptation = pack[updatedIndex];
+      this.setState({ insertedItems: [...this.state.insertedItems] });
     }
   };
 
@@ -779,11 +816,17 @@ class TheModal extends Component {
 
   onKeyUp = event => {
     if (
-      (event.key === "Backspace" || event.key === "Delete") &&
-      event.target.contentEditable !== "true" &&
-      event.target.tagName !== "INPUT"
+      event.target.contentEditable === "true" ||
+      event.target.tagName === "INPUT"
     ) {
+      return;
+    }
+    if (event.key === "Backspace" || event.key === "Delete") {
       this.removeActiveInsertedItem();
+    } else if (event.key === "ArrowRight") {
+      this.onGoToNextElementInPack();
+    } else if (event.key === "ArrowLeft") {
+      this.onGoToPrevElementInPack();
     }
   };
 

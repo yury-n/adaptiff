@@ -46,11 +46,13 @@ class PaletteDropdown extends Component {
             selection
           >
             <Dropdown.Menu>
-              <div className={s["colors-number-selector"]}>
-                {[1, 2, 3, 4].map(number => (
-                  <div className={s["colors-number"]}>{number}</div>
-                ))}
-              </div>
+              {false && (
+                <div className={s["colors-number-selector"]}>
+                  {[1, 2, 3, 4].map(number => (
+                    <div className={s["colors-number"]}>{number}</div>
+                  ))}
+                </div>
+              )}
               <Dropdown.Divider />
               {palettes.map((palette, index) => (
                 <Dropdown.Item

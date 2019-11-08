@@ -4269,6 +4269,7 @@ export const allAdaptations = [
     ...blank,
     thumb: "/thumbs/84.png",
     title: "subtle waves",
+    id: 84,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: { transparent: false, color: "#ffffff" },

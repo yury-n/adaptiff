@@ -44,7 +44,7 @@ export default [
   },
   {
     name: "Basic",
-    objects: [...basicSvgs, blobmaker, linearGradient]
+    objects: [linearGradient, ...basicSvgs]
   },
   {
     name: "Childish Dreams",
@@ -58,7 +58,8 @@ export default [
       trianglify,
       allAdaptations[37],
       allAdaptations[45],
-      allAdaptations[46]
+      allAdaptations[46],
+      blobmaker
     ]
   }
   // {

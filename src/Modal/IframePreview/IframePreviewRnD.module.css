@@ -3,3 +3,18 @@
   width: 100%;
   height: 100%;
 }
+
+.prev,
+.next {
+  position: absolute !important;
+  display: inline-block;
+  width: 15px;
+  top: -15px !important;
+  right: calc(50% - 40px) !important;
+  left: auto !important;
+}
+
+.prev {
+  right: auto !important;
+  left: calc(50% - 25px) !important;
+}

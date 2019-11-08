@@ -960,6 +960,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "waves",
     thumb: "/thumbs/svgs/80.svg",
     fileName: "svgs/80",
     thumbBackgroundSize: "90%",
@@ -973,6 +974,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "waves",
     thumb: "/thumbs/svgs/81.svg",
     fileName: "svgs/81",
     thumbBackgroundSize: "90%",
@@ -986,6 +988,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "waves",
     thumb: "/thumbs/svgs/82.svg",
     fileName: "svgs/82",
     thumbBackgroundSize: "90%",
@@ -999,6 +1002,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "waves",
     thumb: "/thumbs/svgs/83.svg",
     fileName: "svgs/83",
     thumbBackgroundSize: "90%",
@@ -1012,6 +1016,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "waves",
     thumb: "/thumbs/svgs/84.svg",
     fileName: "svgs/84",
     thumbBackgroundSize: "90%",
@@ -1025,6 +1030,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "waves",
     thumb: "/thumbs/svgs/85.svg",
     fileName: "svgs/85",
     thumbBackgroundSize: "90%",
@@ -1038,6 +1044,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "waves",
     thumb: "/thumbs/svgs/86.svg",
     fileName: "svgs/86",
     thumbBackgroundSize: "90%",
@@ -1051,6 +1058,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "waves",
     thumb: "/thumbs/svgs/87.svg",
     fileName: "svgs/87",
     thumbBackgroundSize: "90%",
@@ -1064,6 +1072,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "waves",
     thumb: "/thumbs/svgs/88.svg",
     fileName: "svgs/88",
     thumbBackgroundSize: "90%",
@@ -1114,7 +1123,7 @@ export const orderedSvgs = [0, 1, 2, 9, 3, 4, 5, 6, 7, 8].map(
   index => svgs[index]
 );
 
-export const basicSvgs = [52, 53, 11, 0, 9, 2, 10].map(index => svgs[index]);
+export const basicSvgs = [52, 11, 0, 9, 10].map(index => svgs[index]);
 
 export const paintWorkSvgs = [1, 3, 4, 25, 26, 27, 28, 31, 32].map(
   index => svgs[index]
@@ -1151,3 +1160,7 @@ export const childishDreamsSvgs = [
   54
 ].map(index => svgs[index]);
 export const particlesSvgs = [7, 8, 33, 36, 40].map(index => svgs[index]);
+
+export const allSvgPacks = {
+  waves
+};
