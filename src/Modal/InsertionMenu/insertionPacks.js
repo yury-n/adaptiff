@@ -8,14 +8,15 @@ import gradientWaves from "../../_adaptationConfigs/gradientWaves";
 import {
   basicSvgs,
   particlesSvgs,
-  paintWorkSvgs,
-  childishDreamsSvgs,
+  paintWork,
+  // childishDreamsSvgs,
   paintedShapes,
   curves,
-  glitchySvgs,
+  glitchy,
   blobs,
   waves,
-  blots
+  blots,
+  wavyRings
 } from "../../pages/svgsList";
 
 export default [
@@ -28,12 +29,16 @@ export default [
     objects: blots
   },
   {
+    name: "Wavy Rings",
+    objects: wavyRings
+  },
+  {
     name: "Waves",
     objects: waves
   },
   {
     name: "Glitchy",
-    objects: glitchySvgs
+    objects: glitchy
   },
   {
     name: "Round Shapes",
@@ -49,16 +54,16 @@ export default [
   },
   {
     name: "Paint Work",
-    objects: paintWorkSvgs
+    objects: paintWork
   },
   {
     name: "Basic",
     objects: [linearGradient, ...basicSvgs]
   },
-  {
-    name: "Childish Dreams",
-    objects: childishDreamsSvgs
-  },
+  // {
+  //   name: "Childish Dreams",
+  //   objects: childishDreamsSvgs
+  // },
   {
     name: "Generative",
     objects: [

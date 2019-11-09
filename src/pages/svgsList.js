@@ -4,6 +4,7 @@ import svgWithSolidColor from "../_adaptationConfigs/svgWithSolidColor";
 export const svgs = [
   {
     ...svgWithGradient,
+    pack: "curves",
     thumb: "/thumbs/svgs/0.svg",
     fileName: "svgs/0",
     initState: {
@@ -15,6 +16,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "paintWork",
     thumb: "/thumbs/svgs/1.svg",
     thumbBackgroundSize: "70%",
     fileName: "svgs/1",
@@ -39,6 +41,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "paintWork",
     thumb: "/thumbs/svgs/3.svg",
     thumbBackgroundSize: "130%",
     fileName: "svgs/3",
@@ -52,6 +55,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "paintWork",
     thumb: "/thumbs/svgs/4.svg",
     fileName: "svgs/4",
     thumbBackgroundSize: "130%",
@@ -300,6 +304,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "wavyRings",
     thumb: "/thumbs/svgs/24.svg",
     fileName: "svgs/24",
     thumbBackgroundSize: "80%",
@@ -314,6 +319,7 @@ export const svgs = [
   // paint
   {
     ...svgWithGradient,
+    pack: "paintWork",
     thumb: "/thumbs/svgs/25.svg",
     fileName: "svgs/25",
     thumbBackgroundSize: "100%",
@@ -327,6 +333,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "paintWork",
     thumb: "/thumbs/svgs/26.svg",
     fileName: "svgs/26",
     thumbBackgroundSize: "100%",
@@ -340,6 +347,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "paintWork",
     thumb: "/thumbs/svgs/27.svg",
     fileName: "svgs/27",
     thumbBackgroundSize: "100%",
@@ -353,6 +361,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "paintWork",
     thumb: "/thumbs/svgs/28.svg",
     fileName: "svgs/28",
     thumbBackgroundSize: "100%",
@@ -392,6 +401,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "paintWork",
     thumb: "/thumbs/svgs/31.svg",
     fileName: "svgs/31",
     thumbBackgroundSize: "100%",
@@ -405,6 +415,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "paintWork",
     thumb: "/thumbs/svgs/32.svg",
     fileName: "svgs/32",
     thumbBackgroundSize: "100%",
@@ -622,6 +633,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "wavyRings",
     thumb: "/thumbs/svgs/54.svg",
     fileName: "svgs/54",
     thumbBackgroundSize: "100%",
@@ -635,6 +647,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "curves",
     thumb: "/thumbs/svgs/55.svg",
     fileName: "svgs/55",
     thumbBackgroundSize: "80%",
@@ -648,6 +661,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "curves",
     thumb: "/thumbs/svgs/56.svg",
     fileName: "svgs/56",
     thumbBackgroundSize: "50%",
@@ -661,6 +675,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "curves",
     thumb: "/thumbs/svgs/57.svg",
     fileName: "svgs/57",
     thumbBackgroundSize: "70%",
@@ -674,6 +689,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "curves",
     thumb: "/thumbs/svgs/58.svg",
     fileName: "svgs/58",
     thumbBackgroundSize: "30%",
@@ -687,6 +703,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "curves",
     thumb: "/thumbs/svgs/59.svg",
     fileName: "svgs/59",
     thumbBackgroundSize: "80%",
@@ -700,6 +717,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "curves",
     thumb: "/thumbs/svgs/60.svg",
     fileName: "svgs/60",
     thumbBackgroundSize: "70%",
@@ -713,6 +731,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "curves",
     thumb: "/thumbs/svgs/61.svg",
     fileName: "svgs/61",
     thumbBackgroundSize: "90%",
@@ -726,6 +745,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "curves",
     thumb: "/thumbs/svgs/62.svg",
     fileName: "svgs/62",
     thumbBackgroundSize: "90%",
@@ -739,6 +759,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "curves",
     thumb: "/thumbs/svgs/63.svg",
     fileName: "svgs/63",
     thumbBackgroundSize: "60%",
@@ -752,6 +773,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "curves",
     thumb: "/thumbs/svgs/64.svg",
     fileName: "svgs/64",
     thumbBackgroundSize: "90%",
@@ -765,6 +787,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/65.svg",
     fileName: "svgs/65",
     thumbBackgroundSize: "90%",
@@ -778,6 +801,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/66.svg",
     fileName: "svgs/66",
     thumbBackgroundSize: "90%",
@@ -791,6 +815,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/67.svg",
     fileName: "svgs/67",
     thumbBackgroundSize: "90%",
@@ -804,6 +829,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/68.svg",
     fileName: "svgs/68",
     thumbBackgroundSize: "90%",
@@ -817,6 +843,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/69.svg",
     fileName: "svgs/69",
     thumbBackgroundSize: "90%",
@@ -830,6 +857,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/70.svg",
     fileName: "svgs/70",
     thumbBackgroundSize: "90%",
@@ -843,6 +871,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/71.svg",
     fileName: "svgs/71",
     thumbBackgroundSize: "90%",
@@ -856,6 +885,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/72.svg",
     fileName: "svgs/72",
     thumbBackgroundSize: "90%",
@@ -869,6 +899,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/73.svg",
     fileName: "svgs/73",
     thumbBackgroundSize: "90%",
@@ -882,6 +913,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/74.svg",
     fileName: "svgs/74",
     thumbBackgroundSize: "90%",
@@ -895,6 +927,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/75.svg",
     fileName: "svgs/75",
     thumbBackgroundSize: "90%",
@@ -908,6 +941,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/76.svg",
     fileName: "svgs/76",
     thumbBackgroundSize: "90%",
@@ -921,6 +955,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/77.svg",
     fileName: "svgs/77",
     thumbBackgroundSize: "90%",
@@ -934,6 +969,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/78.svg",
     fileName: "svgs/78",
     thumbBackgroundSize: "90%",
@@ -947,6 +983,7 @@ export const svgs = [
   },
   {
     ...svgWithGradient,
+    pack: "glitchy",
     thumb: "/thumbs/svgs/79.svg",
     fileName: "svgs/79",
     thumbBackgroundSize: "90%",
@@ -1573,12 +1610,110 @@ export const svgs = [
         palette: ["#96FBC4", "#F9F586"]
       }
     }
+  },
+  {
+    ...svgWithGradient,
+    pack: "wavyRings",
+    thumb: "/thumbs/svgs/124.svg",
+    fileName: "svgs/124",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 294 / 232,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#FF9A9E", "#FAD0C4"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "wavyRings",
+    thumb: "/thumbs/svgs/125.svg",
+    fileName: "svgs/125",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 369 / 401,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#A18CD1", "#FBC2EB"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "wavyRings",
+    thumb: "/thumbs/svgs/126.svg",
+    fileName: "svgs/126",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 443 / 387,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#FAD0C4", "#FFD1FF"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "wavyRings",
+    thumb: "/thumbs/svgs/127.svg",
+    fileName: "svgs/127",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 439 / 427,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#FFECD2", "#FCB69F"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "wavyRings",
+    thumb: "/thumbs/svgs/128.svg",
+    fileName: "svgs/128",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 444 / 444,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#FF9A9E", "#FECFEF"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "wavyRings",
+    thumb: "/thumbs/svgs/129.svg",
+    fileName: "svgs/129",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 464 / 4121,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#F6D365", "#FFB4BC"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "wavyRings",
+    thumb: "/thumbs/svgs/130.svg",
+    fileName: "svgs/130",
+    thumbBackgroundSize: "80%",
+    aspectRatio: 372 / 443,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#FBC2EB", "#A6C1EE"]
+      }
+    }
   }
 ];
 
 export default svgs;
 
-export const glitchySvgs = [
+export const glitchy = [
   65,
   66,
   67,
@@ -1602,7 +1737,7 @@ export const orderedSvgs = [0, 1, 2, 9, 3, 4, 5, 6, 7, 8].map(
 
 export const basicSvgs = [52, 11, 0, 9, 10].map(index => svgs[index]);
 
-export const paintWorkSvgs = [1, 3, 4, 25, 26, 27, 28, 31, 32].map(
+export const paintWork = [1, 3, 4, 25, 26, 27, 28, 31, 32].map(
   index => svgs[index]
 );
 
@@ -1636,14 +1771,18 @@ export const blots = [115, 116, 117, 118, 119, 120, 121, 122, 123].map(
   index => svgs[index]
 );
 
+export const wavyRings = [124, 130, 126, 127, 128, 129, 125, 24, 54].map(
+  index => svgs[index]
+);
+
 export const waves = [
   81,
   82,
   83,
   84,
   85,
-  86,
   88,
+  86,
   87,
   80,
   89,
@@ -1671,14 +1810,16 @@ export const childishDreamsSvgs = [
   20,
   21,
   22,
-  23,
-  24,
-  54
+  23
 ].map(index => svgs[index]);
 export const particlesSvgs = [7, 8, 33, 36, 40].map(index => svgs[index]);
 
 export const allSvgPacks = {
   blobs,
   blots,
-  waves
+  waves,
+  wavyRings,
+  glitchy,
+  curves,
+  paintWork
 };

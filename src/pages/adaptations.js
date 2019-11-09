@@ -4358,6 +4358,184 @@ export const allAdaptations = [
         }
       ]
     }
+  },
+  // 85
+  {
+    ...linearGradient,
+    thumb: "/thumbs/85.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#ed2639", "#fb8714"],
+        direction: "right",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Oswald",
+            fontSize: 120,
+            padding: 130,
+            letterSpacing: 0,
+            color: "#fdfdfd",
+            backgroundColor: "#000000",
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 10,
+            textAlign: "center",
+            isBold: true
+          },
+          id: 202,
+          width: 675.8992007104796,
+          height: 616.7917406749557,
+          position: { left: 198.5435168738899, top: 254.1740674955595 },
+          text: "THE\nATLANTIC\nFESTIVAL"
+        },
+        {
+          type: "object",
+          width: 399.0053285968029,
+          height: 558.2238010657194,
+          showIframe: true,
+          adaptation: svgs[63],
+          configValues: {
+            palette: ["#ffffff", { r: 255, g: 255, b: 255, a: 0.16 }],
+            angle: 0
+          },
+          position: { left: 696.3410301953819, top: -397.0870337477798 },
+          id: 102,
+          rotation: 33
+        },
+        {
+          type: "object",
+          width: 539.0408525754885,
+          height: 462.3090586145649,
+          showIframe: true,
+          adaptation: svgs[57],
+          configValues: {
+            palette: [{ r: 253, g: 253, b: 253, a: 0.13 }, "#ffffff"],
+            angle: 0
+          },
+          position: { left: -310.7637655417407, top: -187.99289520426288 },
+          id: 103,
+          rotation: 123
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Roboto",
+            fontSize: 36,
+            padding: 10,
+            letterSpacing: 4,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            isBold: true
+          },
+          id: 104,
+          width: 509.51709591474247,
+          height: 62.16474245115453,
+          position: { left: 286.7850799289521, top: 927.4955595026644 },
+          text: "SEPTEMBER 24-26, 2019"
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Roboto",
+            fontSize: 27,
+            padding: 10,
+            letterSpacing: 4,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            isBold: true
+          },
+          id: 105,
+          width: 340.01776198934283,
+          height: 50.65497335701599,
+          position: { left: 367.35346358792185, top: 146.74955595026645 },
+          text: "#THEATLANTICFEST"
+        }
+      ]
+    }
+  },
+  // 86
+  {
+    ...linearGradient,
+    thumb: "/thumbs/86.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#fbe0b0", "#feb15a"],
+        direction: "right",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 251.2966252220249,
+          height: 443.12611012433393,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#feb15a", "#fbe0b0"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          position: { left: 149.62699822380108, top: 730.8703374777975 },
+          id: 104,
+          rotation: 90
+        },
+        {
+          type: "object",
+          width: 270.4795737122558,
+          height: 435.4529307282416,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#feb15a", "#fbe0b0"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          position: { left: 489.1651865008881, top: 642.6287744227354 },
+          id: 103,
+          rotation: 180
+        },
+        {
+          type: "object",
+          width: 270.4795737122558,
+          height: 717.4422735346359,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#feb15a", "#fbe0b0"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          position: { left: 750.0532859680285, top: 358.72113676731794 },
+          id: 102,
+          rotation: 180
+        },
+        {
+          type: "object",
+          width: 222.52220248667854,
+          height: 218.68561278863234,
+          showIframe: true,
+          adaptation: svgs[52],
+          configValues: { palette: ["#feb15a", "#fbe0b0"], angle: 0 },
+          position: { left: 191.82948490230908, top: 608.0994671403198 },
+          id: 105,
+          rotation: -90
+        }
+      ]
+    }
   }
   // { ...cells },
   // { ...fog },

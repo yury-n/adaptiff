@@ -6,7 +6,7 @@ import { Button, Icon } from "semantic-ui-react";
 import s from "./Header.module.css";
 import MiniCard from "../MiniCard/MiniCard";
 import { logStat } from "../_utils";
-import blank from "../_adaptationConfigs/blank";
+import linearGradient from "../_adaptationConfigs/linearGradient";
 
 class Header extends Component {
   state = {
@@ -101,10 +101,14 @@ class Header extends Component {
                 clickAndShowModal={true}
                 className={s["blank-card"]}
                 mode="thumb-only"
-                {...blank}
+                {...linearGradient}
                 initState={{
                   size: { width: 1080, height: 1080 },
-                  configValues: {}
+                  configValues: {
+                    angle: 200,
+                    direction: "custom_angle",
+                    palette: ["#fceff6", "#ebf1ff"]
+                  }
                 }}
               />
             </div>
