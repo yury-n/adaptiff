@@ -13,11 +13,20 @@ import {
   paintedShapes,
   curves,
   glitchySvgs,
-  // blobs,
-  waves
+  blobs,
+  waves,
+  blots
 } from "../../pages/svgsList";
 
 export default [
+  {
+    name: "Blobs",
+    objects: blobs
+  },
+  {
+    name: "Blots",
+    objects: blots
+  },
   {
     name: "Waves",
     objects: waves
@@ -62,8 +71,4 @@ export default [
       blobmaker
     ]
   }
-  // {
-  //   name: "Blobs",
-  //   objects: blobs
-  // }
 ];
