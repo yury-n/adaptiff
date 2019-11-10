@@ -16,10 +16,16 @@ import {
   blobs,
   waves,
   blots,
-  wavyRings
+  wavyRings,
+  glitchyCircles,
+  blurredBalls
 } from "../../pages/svgsList";
 
 export default [
+  {
+    name: "Blurred Balls",
+    objects: blurredBalls
+  },
   {
     name: "Blobs",
     objects: blobs
@@ -35,6 +41,10 @@ export default [
   {
     name: "Waves",
     objects: waves
+  },
+  {
+    name: "Glitchy Circles",
+    objects: glitchyCircles
   },
   {
     name: "Glitchy",

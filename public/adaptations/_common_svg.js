@@ -21,7 +21,7 @@ function aff_render(config) {
   document.querySelector("svg").setAttribute("preserveAspectRatio", "none");
   if (config.palette) {
     const gradients = document.querySelectorAll(
-      "#gradient, .gradient, linearGradient"
+      "#gradient, .gradient, linearGradient, radialGradient"
     );
     gradients.forEach(gradient => {
       gradient.innerHTML = generateGradientInnerHTML(config.palette);

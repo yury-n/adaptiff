@@ -1631,7 +1631,7 @@ export const svgs = [
     thumb: "/thumbs/svgs/125.svg",
     fileName: "svgs/125",
     thumbBackgroundSize: "90%",
-    aspectRatio: 369 / 401,
+    aspectRatio: 435 / 415,
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: {
@@ -1659,7 +1659,7 @@ export const svgs = [
     thumb: "/thumbs/svgs/127.svg",
     fileName: "svgs/127",
     thumbBackgroundSize: "90%",
-    aspectRatio: 439 / 427,
+    aspectRatio: 463 / 411,
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: {
@@ -1708,6 +1708,160 @@ export const svgs = [
         palette: ["#FBC2EB", "#A6C1EE"]
       }
     }
+  },
+  {
+    ...svgWithGradient,
+    pack: "glitchyCircles",
+    thumb: "/thumbs/svgs/131.svg",
+    fileName: "svgs/131",
+    thumbBackgroundSize: "90%",
+    aspectRatio: 680 / 638,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#B4ACBB", "#E5AAAD"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "glitchyCircles",
+    thumb: "/thumbs/svgs/132.svg",
+    fileName: "svgs/132",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 143 / 87,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#01F47D", "#0092C0"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "glitchyCircles",
+    thumb: "/thumbs/svgs/133.svg",
+    fileName: "svgs/133",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 96 / 89,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#4451B1", "#F6C376"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "glitchyCircles",
+    thumb: "/thumbs/svgs/134.svg",
+    fileName: "svgs/134",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 115 / 101,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#445C98", "#831356"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "glitchyCircles",
+    thumb: "/thumbs/svgs/135.svg",
+    fileName: "svgs/135",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 969 / 539,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#89EE71", "#FEB0BD"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "glitchyCircles",
+    thumb: "/thumbs/svgs/136.svg",
+    fileName: "svgs/136",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 788 / 587,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#B7F8DB", "#50A7C2"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "blurredBalls",
+    thumb: "/thumbs/svgs/137.svg",
+    fileName: "svgs/137",
+    thumbBackgroundSize: "80%",
+    aspectRatio: 350 / 350,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#EFECA0", "#94D8B0"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "blurredBalls",
+    thumb: "/thumbs/svgs/138.svg",
+    fileName: "svgs/138",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 390 / 390,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#4BBFD6", "#8456D7"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "blurredBalls",
+    thumb: "/thumbs/svgs/139.svg",
+    fileName: "svgs/139",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 470 / 470,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#5CF4BE", "#C5FDC9"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "blurredBalls",
+    thumb: "/thumbs/svgs/140.svg",
+    fileName: "svgs/140",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 550 / 550,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#EABDD9", "#B0C5F8"]
+      }
+    }
+  },
+  {
+    ...svgWithGradient,
+    pack: "blurredBalls",
+    thumb: "/thumbs/svgs/141.svg",
+    fileName: "svgs/141",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 850 / 850,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#C8E5FB", "#B0C5F8"]
+      }
+    }
   }
 ];
 
@@ -1748,6 +1902,8 @@ export const paintedShapes = [41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51].map(
 export const curves = [62, 61, 55, 56, 57, 58, 59, 60, 63, 0, 64].map(
   index => svgs[index]
 );
+
+export const blurredBalls = [138, 139, 140].map(index => svgs[index]);
 
 export const blobs = [
   109,
@@ -1814,12 +1970,18 @@ export const childishDreamsSvgs = [
 ].map(index => svgs[index]);
 export const particlesSvgs = [7, 8, 33, 36, 40].map(index => svgs[index]);
 
+export const glitchyCircles = [131, 132, 133, 134, 135, 136].map(
+  index => svgs[index]
+);
+
 export const allSvgPacks = {
   blobs,
   blots,
   waves,
   wavyRings,
   glitchy,
+  glitchyCircles,
   curves,
-  paintWork
+  paintWork,
+  blurredBalls
 };
