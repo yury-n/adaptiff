@@ -2,7 +2,7 @@
   min-height: calc(100vh - 116px /* header */ - 123px /* footer */);
   box-sizing: border-box;
   padding: 60px 0;
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 .load-more-wrapper {
@@ -50,14 +50,25 @@
   margin: auto;
   display: flex;
   justify-content: center;
-  margin-bottom: 70px;
-  display: none;
+  margin-bottom: 40px;
 }
 
-.tabs :global(.ui.black.button) {
-  box-shadow: none !important;
-  padding-right: 18px !important;
-  padding-left: 18px !important;
+.tabs :global(.ui.black.button:first-child) {
+  font-size: 13px;
+  padding-left: 20px !important;
+  padding-right: 15px !important;
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+}
+
+.tabs :global(.ui.black.button:last-child) {
+  font-size: 13px;
+  padding-left: 15px !important;
+  padding-right: 20px !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
 }
 
 .tabs :global(.ui.basic.black.button) {

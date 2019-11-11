@@ -60,7 +60,7 @@ class TheModal extends Component {
       isPaused: false,
       isPreparingDownload: false,
       isLoadingIframe: false,
-      isPublic: true,
+      isPublic: +localStorage.getItem("modal.isPublic") || 0,
       configValues: {},
       iframeVersion: 0, // for props.config.refreshIframe = true
       // Check for custom properties first
@@ -301,6 +301,7 @@ class TheModal extends Component {
       captureConfig,
       iframeVersion,
       isPaused,
+      isPublic,
       isPreparingDownload,
       isLoadingIframe,
       activeInsertedItemIndex
@@ -433,12 +434,17 @@ class TheModal extends Component {
                     className={s["pause-button"]}
                   />
                 )}
-                {false && (
-                  <Button
-                    icon="share alternate"
-                    className={s["share-button-inactive"]}
-                  />
-                )}
+                <Button
+                  aria-label={!isPublic ? "Post as Public" : undefined}
+                  data-balloon-pos="down"
+                  icon="share alternate"
+                  className={
+                    s[
+                      isPublic ? "share-button-active" : "share-button-inactive"
+                    ]
+                  }
+                  onClick={this.toggleIsPublic}
+                />
                 <Button
                   title="Download"
                   loading={isPreparingDownload}
@@ -1706,23 +1712,30 @@ class TheModal extends Component {
 
     this.setState({ captureConfig, isPreparingDownload: true });
 
-    if (this.state.isPublic) {
-      this.saveConfigToDB({
-        title: this.props.fileName,
-        size: {
-          width: this.state.canvasWidth,
-          height: this.state.canvasHeight
-        },
-        config: this.state.configValues, // TODO: save as configValue
-        insertedItems: this.state.insertedItems.map((insertedItem, idx) => ({
+    this.saveConfigToDB({
+      title: this.props.fileName,
+      size: {
+        width: this.state.canvasWidth,
+        height: this.state.canvasHeight
+      },
+      config: this.state.configValues, // TODO: save as configValue
+      insertedItems: [
+        ...this.state.insertedItems.map((insertedItem, idx) => ({
           ...insertedItem,
           width: captureConfig[idx].width,
           height: captureConfig[idx].height,
           text: captureConfig[idx].text,
           position: captureConfig[idx].position
-        }))
-      });
-    }
+        })),
+        { isPublic: this.state.isPublic }
+      ]
+    });
+  };
+
+  toggleIsPublic = () => {
+    const newIsPublic = this.state.isPublic ? 0 : 1;
+    this.setState({ isPublic: newIsPublic });
+    localStorage.setItem("modal.isPublic", newIsPublic);
   };
 }
 

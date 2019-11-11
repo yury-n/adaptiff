@@ -73,6 +73,7 @@
   top: -10px;
   opacity: 0.5;
   opacity: 0.25;
+  display: none;
 }
 
 .logo-eta {
@@ -90,15 +91,19 @@
   background: none !important;
 }
 
+.contact-button,
 .add-code-button {
   font-weight: 400 !important;
-  margin-left: 9px !important;
   margin-right: 15px !important;
   color: #0f0f0f !important;
   box-shadow: none !important;
   border: none !important;
   background: none !important;
   margin-left: 20px !important;
+}
+
+.add-code-button {
+  margin-left: 0px !important;
 }
 
 .submit-button {
@@ -109,6 +114,7 @@
   letter-spacing: 0.2px;
   padding: 13px 10px;
   margin-left: 16px !important;
+  border-radius: 7px !important;
 }
 .submit-button:global(.ui.icon.button > .icon) {
   font-size: 11px;

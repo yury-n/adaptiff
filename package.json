@@ -9,6 +9,7 @@
     "lodash.set": "^4.3.2",
     "lodash.throttle": "^4.1.1",
     "lodash.uniq": "^4.5.0",
+    "lodash.without": "^4.4.0",
     "rc-slider": "^8.6.13",
     "react": "^16.9.0",
     "react-color": "2.13.5",

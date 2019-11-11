@@ -81,11 +81,19 @@ class Header extends Component {
             </Button>
             <Button
               icon
-              className={s["add-code-button"]}
+              className={s["contact-button"]}
               target="_blank"
               href="https://docs.google.com/forms/d/e/1FAIpQLSddoo8_28sRF5Pt7AZae5wtTXPH18dNYFoD8kujnf7omcKaDQ/viewform"
             >
               Contact
+            </Button>
+            <Button
+              icon
+              className={s["add-code-button"]}
+              target="_blank"
+              href="https://docs.google.com/forms/d/1UjRg1IMhTAwZSUelpORjsXjSUvWGXiHBRZ7cFDrlePA/viewform"
+            >
+              Contribute
             </Button>
             <div className={s["submit-button-wrapper"]}>
               <Button

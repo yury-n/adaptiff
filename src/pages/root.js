@@ -25,7 +25,7 @@ const ITEMS_PER_CHUNK = 25;
 
 export default () => {
   const [selectedTab, setSelectedTab] = useState(
-    localStorage.getItem("app.selectedTab") || "all"
+    localStorage.getItem("app.selectedStream") || "featured"
   );
   const [page, setPage] = useState(0);
   const adaptations = all.slice(0, (page + 1) * ITEMS_PER_CHUNK);
@@ -47,25 +47,18 @@ export default () => {
         <div className={s["tabs"]}>
           <Button.Group>
             <Button
-              basic={selectedTab !== "all"}
+              basic={selectedTab !== "featured"}
               color="black"
-              onClick={() => setSelectedTab("all")}
+              onClick={() => setSelectedTab("featured")}
             >
-              All
+              Featured
             </Button>
             <Button
-              basic={selectedTab !== "backgrounds"}
+              basic={selectedTab !== "newest"}
               color="black"
-              onClick={() => setSelectedTab("backgrounds")}
+              onClick={() => setSelectedTab("newest")}
             >
-              Backgrounds
-            </Button>
-            <Button
-              basic={selectedTab !== "templates"}
-              color="black"
-              onClick={() => setSelectedTab("templates")}
-            >
-              Templates
+              Newest
             </Button>
           </Button.Group>
         </div>
@@ -88,18 +81,19 @@ export default () => {
             />
           ))}
         </Card.Group>
-        {selectedTab === "all" && (page + 1) * ITEMS_PER_CHUNK < all.length && (
-          <div className={s["load-more-wrapper"]}>
-            <Button
-              basic
-              color="black"
-              size="large"
-              onClick={() => setPage(page + 1)}
-            >
-              Load More
-            </Button>
-          </div>
-        )}
+        {selectedTab === "featured" &&
+          (page + 1) * ITEMS_PER_CHUNK < all.length && (
+            <div className={s["load-more-wrapper"]}>
+              <Button
+                basic
+                color="black"
+                size="large"
+                onClick={() => setPage(page + 1)}
+              >
+                Load More
+              </Button>
+            </div>
+          )}
         <SubscribeBlock />
       </div>
       <Footer />
