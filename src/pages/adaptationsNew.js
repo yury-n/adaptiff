@@ -402,5 +402,106 @@ export default [
         }
       ]
     }
+  },
+  // 4
+  {
+    ...linearGradient,
+    thumb: "/thumbs/n/4.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#fbfbfb", "#ebf1ff"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 264.72468916518653,
+          height: 354.8845470692718,
+          showIframe: true,
+          adaptation: svgs[107],
+          configValues: { palette: ["#f9f1d7", "#a7f1e2"], angle: 0 },
+          position: { left: 397.0870337477798, top: 201.42095914742453 },
+          id: 102,
+          rotation: 59
+        },
+        {
+          type: "object",
+          width: 414.3516873889876,
+          height: 351.0479573712256,
+          showIframe: true,
+          adaptation: svgs[102],
+          configValues: { palette: ["#f4b0b2", "#fae9ca"], angle: 0 },
+          position: { left: 1.9182948490230907, top: 234.03197158081707 },
+          id: 103,
+          rotation: -4
+        },
+        {
+          type: "object",
+          width: 565.8969804618117,
+          height: 207.1758436944938,
+          showIframe: true,
+          adaptation: svgs[100],
+          configValues: { palette: ["#bbc5e3", "#58ebe4"], angle: 113 },
+          position: { left: 506.42984014209594, top: 124.6891651865009 },
+          id: 104,
+          rotation: 4
+        },
+        {
+          type: "object",
+          width: 13.428063943161636,
+          height: 466.14564831261106,
+          showIframe: true,
+          adaptation: svgs[11],
+          configValues: { palette: ["#000000", "#000000"], angle: 0 },
+          position: { left: 237.86856127886324, top: 460.39076376554175 },
+          id: 105,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 13.428063943161636,
+          height: 466.14564831261106,
+          showIframe: true,
+          adaptation: svgs[11],
+          configValues: { palette: ["#000000", "#000000"], angle: 0 },
+          position: { left: 510.2664298401421, top: 397.0870337477798 },
+          id: 106,
+          rotation: 3
+        },
+        {
+          type: "object",
+          width: 13.428063943161636,
+          height: 466.14564831261106,
+          showIframe: true,
+          adaptation: svgs[11],
+          configValues: { palette: ["#000000", "#000000"], angle: 0 },
+          position: { left: 794.1740674955596, top: 226.3587921847247 },
+          id: 107,
+          rotation: 0
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Warnes",
+            fontSize: 46.03907637655418,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12
+          },
+          id: 108,
+          width: 391.6618561278863,
+          height: 73.67451154529307,
+          position: { left: 610.9769094138544, top: 795.133214920071 },
+          text: "autumn trees"
+        }
+      ]
+    }
   }
 ];

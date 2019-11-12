@@ -8,7 +8,7 @@ export const unfilledMesh = {
   ...mesh,
   thumb: "/thumbs/b30.png",
   initState: {
-    config: {
+    configValues: {
       distanceBetween: 7,
       withBackground: false
     }
