@@ -7,7 +7,8 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SubscribeBlock from "../SubscribeBlock/SubscribeBlock";
 
-import all from "./backgroundsList";
+import backgroundsList from "./backgroundsList";
+import backgroundsListNew from "./backgroundsListNew";
 
 import s from "../App.module.css";
 
@@ -28,6 +29,7 @@ export default () => {
     localStorage.getItem("app.selectedStream") || "featured"
   );
   const [page, setPage] = useState(0);
+  const all = selectedTab === "featured" ? backgroundsList : backgroundsListNew;
   const adaptations = all.slice(0, (page + 1) * ITEMS_PER_CHUNK);
   useEffect(() => {
     localStorage.setItem("app.selectedTab", selectedTab);

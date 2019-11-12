@@ -4536,6 +4536,401 @@ export const allAdaptations = [
         }
       ]
     }
+  },
+  // 87
+  {
+    ...linearGradient,
+    thumb: "/thumbs/87.png",
+    title: "blurred bubbles",
+    author: "anonymous",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#fceff6", "#ebf1ff"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 1118,
+          height: 256,
+          showIframe: true,
+          adaptation: svgs[81],
+          configValues: {
+            palette: [{ r: 64, g: 134, b: 224, a: 0 }, "#54b9db"],
+            angle: 0
+          },
+          position: { left: -7, top: -12.5 },
+          id: 402,
+          rotation: 180
+        },
+        {
+          type: "object",
+          width: 1089,
+          height: 268,
+          showIframe: true,
+          adaptation: svgs[89],
+          configValues: {
+            palette: [{ r: 198, g: 223, b: 255, a: 0.13 }, "#54b9db"],
+            angle: 0
+          },
+          position: { left: -91, top: -166.5 },
+          id: 403,
+          rotation: 156
+        },
+        {
+          type: "object",
+          width: 1207,
+          height: 256,
+          showIframe: true,
+          adaptation: svgs[86],
+          configValues: {
+            palette: ["#7d91eb", { r: 84, g: 185, b: 219, a: 0 }],
+            angle: 0
+          },
+          position: { left: -70, top: -130.5 },
+          id: 404,
+          rotation: 180
+        },
+        {
+          type: "object",
+          width: 386,
+          height: 301,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#EABDD9", "#B0C5F8"], angle: 0 },
+          position: { left: 890, top: 200.5 },
+          id: 406,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1207,
+          height: 256,
+          showIframe: true,
+          adaptation: svgs[86],
+          configValues: {
+            palette: [
+              { r: 125, g: 145, b: 235, a: 0.37 },
+              { r: 84, g: 185, b: 219, a: 0 }
+            ],
+            angle: 0
+          },
+          position: { left: 81, top: -246.5 },
+          id: 407,
+          rotation: 216
+        },
+        {
+          type: "object",
+          width: 175,
+          height: 164,
+          showIframe: true,
+          adaptation: svgs[139],
+          configValues: {
+            palette: ["#5cf4be", { r: 197, g: 253, b: 201, a: 0.29 }],
+            angle: 0
+          },
+          position: { left: 640, top: -57.5 },
+          id: 405,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1076,
+          height: 505,
+          showIframe: true,
+          adaptation: svgs[89],
+          configValues: {
+            palette: [
+              { r: 176, g: 197, b: 248, a: 0 },
+              { r: 234, g: 189, b: 217, a: 0.56 }
+            ],
+            angle: 0
+          },
+          position: { left: 400, top: 614.5 },
+          id: 408,
+          rotation: -31
+        },
+        {
+          type: "object",
+          width: 161,
+          height: 156,
+          showIframe: true,
+          adaptation: svgs[52],
+          configValues: {
+            palette: [
+              { r: 255, g: 143, b: 221, a: 0.54 },
+              { r: 237, g: 234, b: 156, a: 0.24 }
+            ],
+            angle: 0
+          },
+          position: { left: 55, top: 139.5 },
+          id: 413,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 99,
+          height: 94,
+          showIframe: true,
+          adaptation: svgs[52],
+          configValues: {
+            palette: [
+              { r: 255, g: 255, b: 255, a: 0.34 },
+              { r: 255, g: 255, b: 255, a: 0.13 }
+            ],
+            angle: 0
+          },
+          position: { left: 413, top: 146.5 },
+          id: 414,
+          rotation: 0
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Nunito",
+            fontSize: 82,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 11,
+            isBold: true
+          },
+          id: 305,
+          width: 809.34375,
+          height: 200,
+          position: { left: 82, top: 404 },
+          text: "super calming\nrelaxing sleep sounds"
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "ABeeZee",
+            fontSize: 44,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 16
+          },
+          id: 306,
+          width: 569.65625,
+          height: 90,
+          position: { left: 83, top: 631 },
+          text: "feel your stress melt away"
+        },
+        {
+          type: "object",
+          width: 381,
+          height: 64,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#edf746", "#eeac77"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          position: { left: 91, top: 807.5 },
+          id: 104,
+          rotation: 0
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "ABeeZee",
+            fontSize: 32,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000000",
+            backgroundColor: { r: 238, g: 172, b: 119, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 16,
+            hasCyrillic: true
+          },
+          id: 102,
+          width: 276.609375,
+          height: 71,
+          position: { left: 153, top: 804 },
+          text: " 2,435 .wav files "
+        }
+      ]
+    }
+  },
+  // 88
+  {
+    ...linearGradient,
+    thumb: "/thumbs/88.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#1d1d63", "#08061c"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 645,
+          height: 595,
+          showIframe: true,
+          adaptation: svgs[134],
+          configValues: { palette: ["#1fa3f7", "#14d2b3"], angle: 0 },
+          position: { left: 224, top: 220.5 },
+          id: 102,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 688,
+          height: 536,
+          showIframe: true,
+          adaptation: svgs[136],
+          configValues: { palette: ["#3a43fc", "#f109aa"], angle: 0 },
+          position: { left: 255, top: 252.5 },
+          id: 103,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 264,
+          height: 13,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#1d1c62", "#692dc4"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          position: { left: 242, top: 677.5 },
+          id: 104,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 261,
+          height: 12,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#1d1c62", "#692dc4"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          position: { left: 164, top: 455.5 },
+          id: 105,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 261,
+          height: 15,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#0bff8f", "#2f6ab9"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          position: { left: 616, top: 753.5 },
+          id: 106,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 261,
+          height: 13,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#0bff8f", "#2f6ab9"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          position: { left: 713, top: 506.5 },
+          id: 107,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 264,
+          height: 13,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#1d1c62", "#692dc4"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          position: { left: 217, top: 381.5 },
+          id: 108,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 210,
+          height: 199,
+          showIframe: true,
+          adaptation: svgs[0],
+          configValues: { palette: ["#ffffff", "#ffffff"], angle: 0 },
+          position: { left: 734, top: 830.5 },
+          id: 110,
+          rotation: 0
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Roboto",
+            fontSize: 37,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            textAlign: "center"
+          },
+          id: 111,
+          width: 76.90625,
+          height: 108,
+          position: { left: 800, top: 877 },
+          text: "26\nOct"
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Lalezar",
+            fontSize: 100,
+            padding: 10,
+            letterSpacing: 17,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            textAlign: "left",
+            isBold: true
+          },
+          id: 112,
+          width: 543,
+          height: 380,
+          position: { left: 368, top: 344 },
+          text: "DNB & \nBEATS\nFESTIVAL"
+        }
+      ]
+    }
   }
   // { ...cells },
   // { ...fog },

@@ -23,7 +23,7 @@ import {
 
 export default [
   {
-    name: "Blurred Balls",
+    name: "Blurred Bubbles",
     objects: blurredBalls
   },
   {
