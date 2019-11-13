@@ -10,7 +10,7 @@ import {
   particlesSvgs,
   paintWork,
   // childishDreamsSvgs,
-  paintedShapes,
+  // paintedShapes,
   curves,
   glitchy,
   blobs,
@@ -54,10 +54,10 @@ export default [
     name: "Round Shapes",
     objects: curves
   },
-  {
-    name: "Weird Painted Shapes",
-    objects: paintedShapes
-  },
+  // {
+  //   name: "Weird Painted Shapes",
+  //   objects: paintedShapes
+  // },
   {
     name: "Particles",
     objects: [...particlesSvgs, unfilledMesh]
@@ -81,8 +81,8 @@ export default [
       gradientWaves,
       trianglify,
       allAdaptations[37],
-      allAdaptations[45],
       allAdaptations[46],
+      allAdaptations[45],
       blobmaker
     ]
   }

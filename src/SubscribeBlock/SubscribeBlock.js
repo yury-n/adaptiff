@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from "classnames";
 import { Button, Icon } from "semantic-ui-react";
 
 import s from "./SubscribeBlock.module.css";
@@ -32,54 +33,60 @@ const mailchimpForm = `
 <!--End mc_embed_signup-->
 `;
 
-export const SubscribeBlock = () => (
-  <div className={s["root"]}>
+export const SubscribeBlock = ({ mini, withSocial = true }) => (
+  <div className={classnames(s["root"], mini && s["mini"])}>
     <div className={s["header"]}>
       <span>adaptiff newsletter</span>
     </div>
-    <div className={s["description"]}>
-      new adaptive arts and designs <br />
-      expanding your creative possibilies
-    </div>
+    {mini ? (
+      <div className={s["description"]}>don't miss new element packs</div>
+    ) : (
+      <div className={s["description"]}>
+        new adaptive arts and designs <br />
+        expanding your creative possibilies
+      </div>
+    )}
     <div className={s["input-wrapper"]}>
       <div className={s["mailchimp-wrapper"]}>
         <div dangerouslySetInnerHTML={{ __html: mailchimpForm }} />
       </div>
     </div>
-    <div className={s["social-buttons"]}>
-      <Button
-        icon
-        className={s["social-button"]}
-        target="_blank"
-        href="https://vk.com/adaptiff"
-      >
-        <Icon name="vk" />
-      </Button>
-      <Button
-        icon
-        className={s["social-button"]}
-        target="_blank"
-        href="https://www.instagram.com/adaptiff"
-      >
-        <Icon name="instagram" />
-      </Button>
-      <Button
-        icon
-        className={s["social-button"]}
-        target="_blank"
-        href="https://www.twitter.com/adaptiff_com"
-      >
-        <Icon name="twitter" />
-      </Button>
-      <Button
-        icon
-        className={s["social-button"]}
-        target="_blank"
-        href="https://t.me/adaptiff"
-      >
-        <Icon name="telegram plane" />
-      </Button>
-    </div>
+    {withSocial && (
+      <div className={s["social-buttons"]}>
+        <Button
+          icon
+          className={s["social-button"]}
+          target="_blank"
+          href="https://vk.com/adaptiff"
+        >
+          <Icon name="vk" />
+        </Button>
+        <Button
+          icon
+          className={s["social-button"]}
+          target="_blank"
+          href="https://www.instagram.com/adaptiff"
+        >
+          <Icon name="instagram" />
+        </Button>
+        <Button
+          icon
+          className={s["social-button"]}
+          target="_blank"
+          href="https://www.twitter.com/adaptiff_com"
+        >
+          <Icon name="twitter" />
+        </Button>
+        <Button
+          icon
+          className={s["social-button"]}
+          target="_blank"
+          href="https://t.me/adaptiff"
+        >
+          <Icon name="telegram plane" />
+        </Button>
+      </div>
+    )}
   </div>
 );
 SubscribeBlock.displayName = "SubscribeBlock";

@@ -527,7 +527,7 @@ class TheModal extends Component {
           <div
             className={classnames(s["modal-sidebar"], s["modal-right-sidebar"])}
           >
-            <Menu className={"tab-menu"} icon="labeled">
+            <Menu className={"tab-menu tabs-zone art-tabs-zone"} icon="labeled">
               <Menu.Item
                 active={this.state.configMode === "element"}
                 onClick={() => this.setState({ configMode: "element" })}

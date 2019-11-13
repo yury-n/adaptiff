@@ -7,6 +7,32 @@
   align-items: center;
 }
 
+.mini.root {
+  margin-top: 30px;
+}
+
+.mini .mailchimp-wrapper {
+  padding: 0 20px;
+}
+
+.mini .header {
+  font-size: 20px;
+}
+
+.mini .description {
+  margin-top: 10px;
+}
+
+.mini :global(#mce-EMAIL),
+.mini :global(#mc_embed_signup .button) {
+  font-size: 13px !important;
+}
+
+.mini :global(#mc_embed_signup .button) {
+  height: 43px !important;
+  line-height: 25px !important;
+}
+
 .header {
   font-weight: bold;
   font-size: 30px;

@@ -38,7 +38,7 @@ class MiniCard extends Component {
             mode && s[`${mode}-mode`],
             this.props.className
           )}
-          onClick={this.onClick}
+          onMouseDown={this.onClick}
           as="div"
           style={{ width: thumbWidth }}
         >

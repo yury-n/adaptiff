@@ -143,6 +143,7 @@ class Range extends Component {
     return (
       <>
         <div
+          data-key={this.props.configKey}
           ref={this.sliderWrapperRef}
           className={s["slider-wrapper"]}
           onMouseDown={this.onMouseDown}

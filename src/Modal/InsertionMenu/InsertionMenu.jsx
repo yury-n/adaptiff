@@ -6,6 +6,7 @@ import "./global.overrides.css";
 import s from "./InsertionMenu.module.css";
 import MiniCard from "../../MiniCard/MiniCard";
 import insertionPacks from "./insertionPacks";
+import SubscribeBlock from "../../SubscribeBlock/SubscribeBlock";
 
 export default React.memo(
   ({
@@ -47,7 +48,7 @@ export default React.memo(
         ));
     return (
       <div>
-        <Menu className={"tab-menu"} icon="labeled">
+        <Menu className={"tab-menu tabs-zone"} icon="labeled">
           <Menu.Item
             className={"tab-menu-item"}
             onClick={() => {
@@ -87,6 +88,7 @@ export default React.memo(
         </Menu>
         <div className={"below-tabs-zone"}>
           {activeItem === "object" && renderObjectsTab()}
+          <SubscribeBlock mini={true} withSocial={false} />
         </div>
       </div>
     );

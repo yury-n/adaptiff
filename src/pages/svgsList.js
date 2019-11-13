@@ -1,5 +1,6 @@
 import svgWithGradient from "../_adaptationConfigs/svgWithGradient";
 import svgWithSolidColor from "../_adaptationConfigs/svgWithSolidColor";
+import png from "../_adaptationConfigs/png";
 
 export const svgs = [
   {
@@ -1861,6 +1862,19 @@ export const svgs = [
       configValues: {
         palette: ["#C8E5FB", "#B0C5F8"]
       }
+    }
+  },
+  // 142
+  {
+    ...png,
+    pack: "blurredBalls",
+    thumb: "/thumbs/svgs/141.svg",
+    fileName: "svgs/142",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 850 / 850,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {}
     }
   }
 ];

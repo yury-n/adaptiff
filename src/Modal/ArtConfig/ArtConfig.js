@@ -98,6 +98,7 @@ export default React.memo(
               <Range
                 min={config.min}
                 max={config.max}
+                configKey={config.key}
                 value={configValues[config.key]}
                 onChange={value => setConfigValue(config.key, value)}
               />

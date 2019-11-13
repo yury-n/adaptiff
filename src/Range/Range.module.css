@@ -5,6 +5,19 @@
   z-index: 0;
 }
 
+.slider-wrapper[data-key="hue"] :global(.rc-slider-rail) {
+  background: linear-gradient(
+    to right,
+    #f1afa9,
+    #f2c69d,
+    #f3efb4,
+    #b3f1ce,
+    #b3c7f7,
+    #d0aaee,
+    #edbaf1
+  );
+}
+
 .slider {
   cursor: pointer;
 }
