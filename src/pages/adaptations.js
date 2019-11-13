@@ -2928,38 +2928,7 @@ export const allAdaptations = [
   // 72
   radialGradient,
   // 73
-  {
-    ...radialGradient,
-    author: "Freepik",
-    authorLink: "https://freepik.com",
-    title: "Radial gradient with ripples",
-    thumb: "/thumbs/73.png",
-    palettes: [
-      ["#5B2A86", "#360568", "#E5C3D1", "#613F75"],
-      ["#f3a930", "#e76779", "#c9eaff", "#e9e9f1"],
-      ["#7e2ec4", "#360568", "#00fffc", "#54fd8b"],
-      ["#9AD1D4", "#CCDBDC", "#007EA7", "#003249"],
-      ["#ffcdd3", "#dfb7c7", "#fbf7ff", "#6961ff"],
-      ["#16143c", "#1a1844", "#e96eff", "#6f00fb"]
-    ],
-    initState: {
-      size: { width: 726, height: 563 },
-      configValues: { palette: ["#3f0686", "#260057"] },
-      insertedItems: [
-        {
-          type: "object",
-          width: 727,
-          height: 565,
-          showIframe: true,
-          adaptation: svgs[54],
-          configValues: { palette: ["#fdf5d4", "#ff3ba6"], angle: 0 },
-          position: { left: 0, top: -0.5 },
-          id: 102,
-          rotation: 0
-        }
-      ]
-    }
-  },
+  {},
   // 74
   {
     ...linearGradient,
@@ -4928,6 +4897,130 @@ export const allAdaptations = [
           height: 380,
           position: { left: 368, top: 344 },
           text: "DNB & \nBEATS\nFESTIVAL"
+        }
+      ]
+    }
+  },
+  // 89
+  {
+    ...radialGradient,
+    thumb: "/thumbs/89.png",
+    initState: {
+      size: { width: 1200, height: 550 },
+      configValues: { palette: ["#820701", "#120807"] },
+      insertedItems: [
+        {
+          type: "object",
+          width: 1225,
+          height: 551,
+          showIframe: true,
+          adaptation: gradientWaves,
+          configValues: {
+            palette: ["#3c0301", "#080000"],
+            lines: 54,
+            amplituteX: 563,
+            amplituteY: 10,
+            smoothness: 34,
+            fill: false,
+            randomValues: []
+          },
+          position: { left: -7, top: 0.5 },
+          id: 202,
+          rotation: 0
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Inconsolata",
+            fontSize: 39,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#f1c031",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            isBold: true
+          },
+          id: 203,
+          width: 293,
+          height: 66,
+          position: { left: 449, top: 109 },
+          text: "npm Enterprise"
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Inconsolata",
+            fontSize: 24,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#f1c031",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            textAlign: "center"
+          },
+          id: 204,
+          width: 1112,
+          height: 104,
+          position: { left: 43, top: 212 },
+          text:
+            "You need to get quality products to market fast but you also need enterprise-grade security\nand compliance. Speed up development while also upgrading to the most advanced tooling in \nJavaScript, from the trusted authorities on JavaScript package management."
+        },
+        {
+          type: "object",
+          width: 324,
+          height: 61,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#6c3212", "#6c3212"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          position: { left: 453, top: 391.5 },
+          id: 206,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 324,
+          height: 61,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#f1c031", "#f1c031"],
+            direction: "custom_angle",
+            angle: 200
+          },
+          position: { left: 442, top: 381.5 },
+          id: 205,
+          rotation: 0
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Inconsolata",
+            fontSize: 22,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            isBold: true
+          },
+          id: 207,
+          width: 154.203125,
+          height: 46,
+          position: { left: 531, top: 389 },
+          text: "Learn more →"
         }
       ]
     }

@@ -1,5 +1,6 @@
 import linearGradient from "../_adaptationConfigs/linearGradient";
 import svgs from "./svgsList";
+import radialGradient from "../_adaptationConfigs/radialGradient";
 
 export default [
   // 0
@@ -500,6 +501,39 @@ export default [
           height: 73.67451154529307,
           position: { left: 610.9769094138544, top: 795.133214920071 },
           text: "autumn trees"
+        }
+      ]
+    }
+  },
+  // 5
+  {
+    ...radialGradient,
+    author: "Freepik",
+    authorLink: "https://freepik.com",
+    title: "Radial gradient with ripples",
+    thumb: "/thumbs/73.png",
+    palettes: [
+      ["#5B2A86", "#360568", "#E5C3D1", "#613F75"],
+      ["#f3a930", "#e76779", "#c9eaff", "#e9e9f1"],
+      ["#7e2ec4", "#360568", "#00fffc", "#54fd8b"],
+      ["#9AD1D4", "#CCDBDC", "#007EA7", "#003249"],
+      ["#ffcdd3", "#dfb7c7", "#fbf7ff", "#6961ff"],
+      ["#16143c", "#1a1844", "#e96eff", "#6f00fb"]
+    ],
+    initState: {
+      size: { width: 726, height: 563 },
+      configValues: { palette: ["#3f0686", "#260057"] },
+      insertedItems: [
+        {
+          type: "object",
+          width: 727,
+          height: 565,
+          showIframe: true,
+          adaptation: svgs[54],
+          configValues: { palette: ["#fdf5d4", "#ff3ba6"], angle: 0 },
+          position: { left: 0, top: -0.5 },
+          id: 102,
+          rotation: 0
         }
       ]
     }
