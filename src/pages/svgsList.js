@@ -1,6 +1,6 @@
 import svgWithGradient from "../_adaptationConfigs/svgWithGradient";
 import svgWithSolidColor from "../_adaptationConfigs/svgWithSolidColor";
-import png from "../_adaptationConfigs/png";
+import { childishDreams } from "./pngList";
 
 export const svgs = [
   {
@@ -1863,20 +1863,8 @@ export const svgs = [
         palette: ["#C8E5FB", "#B0C5F8"]
       }
     }
-  },
-  // 142
-  {
-    ...png,
-    pack: "blurredBalls",
-    thumb: "/thumbs/svgs/141.svg",
-    fileName: "svgs/142",
-    thumbBackgroundSize: "100%",
-    aspectRatio: 850 / 850,
-    initState: {
-      size: { width: 1000, height: 1000 },
-      configValues: {}
-    }
   }
+  // 142
 ];
 
 export default svgs;
@@ -1997,5 +1985,6 @@ export const allSvgPacks = {
   glitchyCircles,
   curves,
   paintWork,
-  blurredBalls
+  blurredBalls,
+  childishDreams
 };

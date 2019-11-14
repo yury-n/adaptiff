@@ -21,7 +21,7 @@ export default {
       type: "range",
       defaultValue: 100,
       min: 0,
-      max: 500
+      max: 300
     },
     {
       key: "brightness",

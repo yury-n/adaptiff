@@ -9,7 +9,6 @@ import {
   basicSvgs,
   particlesSvgs,
   paintWork,
-  // childishDreamsSvgs,
   // paintedShapes,
   curves,
   glitchy,
@@ -20,6 +19,7 @@ import {
   glitchyCircles,
   blurredBalls
 } from "../../pages/svgsList";
+import { childishDreams, abstractLines } from "../../pages/pngList";
 
 export default [
   {
@@ -63,6 +63,10 @@ export default [
     objects: [...particlesSvgs, unfilledMesh]
   },
   {
+    name: "Abstract Lines",
+    objects: abstractLines
+  },
+  {
     name: "Paint Work",
     objects: paintWork
   },
@@ -70,10 +74,6 @@ export default [
     name: "Basic",
     objects: [linearGradient, ...basicSvgs]
   },
-  // {
-  //   name: "Childish Dreams",
-  //   objects: childishDreamsSvgs
-  // },
   {
     name: "Generative",
     objects: [
@@ -85,5 +85,9 @@ export default [
       allAdaptations[45],
       blobmaker
     ]
+  },
+  {
+    name: "Childish Dreams",
+    objects: childishDreams
   }
 ];
