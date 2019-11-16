@@ -83,19 +83,18 @@ export default () => {
             />
           ))}
         </Card.Group>
-        {selectedTab === "featured" &&
-          (page + 1) * ITEMS_PER_CHUNK < all.length && (
-            <div className={s["load-more-wrapper"]}>
-              <Button
-                basic
-                color="black"
-                size="large"
-                onClick={() => setPage(page + 1)}
-              >
-                Load More
-              </Button>
-            </div>
-          )}
+        {(page + 1) * ITEMS_PER_CHUNK < all.length && (
+          <div className={s["load-more-wrapper"]}>
+            <Button
+              basic
+              color="black"
+              size="large"
+              onClick={() => setPage(page + 1)}
+            >
+              Load More
+            </Button>
+          </div>
+        )}
         <SubscribeBlock />
       </div>
       <Footer />

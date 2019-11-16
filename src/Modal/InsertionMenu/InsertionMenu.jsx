@@ -88,7 +88,9 @@ export default React.memo(
         </Menu>
         <div className={"below-tabs-zone"}>
           {activeItem === "object" && renderObjectsTab()}
-          <SubscribeBlock mini={true} withSocial={false} />
+          {activeItem === "object" && (
+            <SubscribeBlock mini={true} withSocial={false} />
+          )}
         </div>
       </div>
     );

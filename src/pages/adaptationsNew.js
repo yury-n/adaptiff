@@ -537,5 +537,143 @@ export default [
         }
       ]
     }
+  },
+  // 6
+  {
+    ...linearGradient,
+    thumb: "/thumbs/90.png",
+    initState: {
+      size: { width: 1280, height: 962 },
+      configValues: {
+        palette: ["#fceff6", "#ebf1ff"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 346.5981148243359,
+          height: 304.9185946872322,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#EABDD9", "#B0C5F8"], angle: 0 },
+          position: { left: 802.879177377892, top: 81.74807197943444 },
+          id: 508,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 52.64781491002571,
+          height: 51.550985432733505,
+          showIframe: true,
+          adaptation: svgs[138],
+          configValues: { palette: ["#4BBFD6", "#8456D7"], angle: 0 },
+          position: { left: 814.9443016281062, top: 122.33076263924593 },
+          id: 505,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 194.13881748071978,
+          height: 189.751499571551,
+          showIframe: true,
+          adaptation: svgs[139],
+          configValues: { palette: ["#fbda00", "#f91515"], angle: 0 },
+          position: { left: 23.033419023136247, top: 738.7489288774635 },
+          id: 507,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 823.7189374464439,
+          height: 686.6152527849185,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: {
+            palette: ["#ffffff", { r: 255, g: 255, b: 255, a: 0.7 }],
+            angle: 0
+          },
+          position: { left: -250.0771208226221, top: -258.26906598114823 },
+          id: 303,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 60.32562125107112,
+          height: 60.32562125107112,
+          showIframe: true,
+          adaptation: svgs[138],
+          configValues: { palette: ["#fffa34", "#539200"], angle: 0 },
+          position: { left: 409.1173950299914, top: 213.36760925449872 },
+          id: 506,
+          rotation: 0
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Poppins",
+            fontSize: 56,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 14,
+            isBold: true
+          },
+          id: 403,
+          position: { left: 140.942587832048, top: 323.77035132819196 },
+          width: 1085.929734361611,
+          height: 175.73264781491002,
+          text: "a simple design tool \nbased on packs of adaptive elements\n"
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Poppins",
+            fontSize: 39,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 16,
+            isBold: false
+          },
+          id: 404,
+          position: { left: 139.8457583547558, top: 529.9742930591259 },
+          width: 797.617823479006,
+          height: 142.82776349614394,
+          text:
+            "for music makers, for coders, for writers, \nand other creatives"
+        },
+        {
+          type: "object",
+          width: 584.6101113967437,
+          height: 495.7669237360754,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#ffffff", "#cbd8f9"], angle: 0 },
+          position: { left: 871.9794344473007, top: 586.2896315338475 },
+          id: 102,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 282.9820051413882,
+          height: 251.1739502999143,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#ffffff", "#cbd8f9"], angle: 0 },
+          position: { left: 691.0025706940874, top: 648.808911739503 },
+          id: 302,
+          rotation: 0
+        }
+      ]
+    }
   }
 ];

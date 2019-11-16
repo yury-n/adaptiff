@@ -117,7 +117,7 @@ export default React.memo(
         const moveableControl = window.document.querySelector(
           ".moveable-control"
         );
-        if (moveableControl) {
+        if (false && moveableControl) {
           moveableControl.setAttribute(
             "aria-label",
             macify("Rotate (Ctrl + Scroll)")
