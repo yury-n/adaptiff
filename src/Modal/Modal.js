@@ -301,7 +301,6 @@ class TheModal extends Component {
       captureConfig,
       iframeVersion,
       isPaused,
-      isPublic,
       isPreparingDownload,
       isLoadingIframe,
       activeInsertedItemIndex
@@ -434,17 +433,6 @@ class TheModal extends Component {
                     className={s["pause-button"]}
                   />
                 )}
-                <Button
-                  aria-label={!isPublic ? "Post as Public" : undefined}
-                  data-balloon-pos="down"
-                  icon="share alternate"
-                  className={
-                    s[
-                      isPublic ? "share-button-active" : "share-button-inactive"
-                    ]
-                  }
-                  onClick={this.toggleIsPublic}
-                />
                 <Button
                   title="Download"
                   loading={isPreparingDownload}

@@ -26,6 +26,7 @@ import tatters from "../_adaptationConfigs/tatters";
 // import cells from "../_adaptationConfigs/cells";
 // import fog from "../_adaptationConfigs/fog";
 import svgs from "./svgsList";
+import waterpipe from "../_adaptationConfigs/waterpipe";
 
 export const allAdaptationTypes = [
   linearGradient,
@@ -5024,8 +5025,23 @@ export const allAdaptations = [
         }
       ]
     }
-  }
+  },
   // 90
+  {
+    ...waterpipe,
+    id: 90,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#6d107e", "#f03358"],
+        opacity: 10,
+        smokeSize: 155,
+        lineWidth: 25,
+        numCircles: 1
+      },
+      insertedItems: []
+    }
+  }
   // { ...cells },
   // { ...fog },
 ];

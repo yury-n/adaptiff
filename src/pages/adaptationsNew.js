@@ -541,7 +541,7 @@ export default [
   // 6
   {
     ...linearGradient,
-    thumb: "/thumbs/90.png",
+    thumb: "/thumbs/6.png",
     initState: {
       size: { width: 1280, height: 962 },
       configValues: {

@@ -20,6 +20,7 @@ import {
   blurredBalls
 } from "../../pages/svgsList";
 import { childishDreams, abstractLines } from "../../pages/pngList";
+import waterpipe from "../../_adaptationConfigs/waterpipe";
 
 export default [
   {
@@ -77,6 +78,7 @@ export default [
   {
     name: "Generative",
     objects: [
+      waterpipe,
       allAdaptations[10],
       gradientWaves,
       trianglify,
