@@ -10,7 +10,7 @@ export default {
   fileName: "waterpipe",
   author: "dragdropsite",
   authorLink: "https://github.com/dragdropsite/waterpipe.js/",
-  thumb: "/thumbs/90.png",
+  thumb: "/thumbs/90.png?1",
   config: [
     {
       key: "palette",
