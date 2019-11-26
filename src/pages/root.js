@@ -8,7 +8,6 @@ import Footer from "../Footer/Footer";
 import SubscribeBlock from "../SubscribeBlock/SubscribeBlock";
 
 import backgroundsList from "./backgroundsList";
-import backgroundsListNew from "./backgroundsListNew";
 
 import s from "../App.module.css";
 
@@ -29,7 +28,7 @@ export default () => {
     localStorage.getItem("app.selectedStream") || "featured"
   );
   const [page, setPage] = useState(0);
-  const all = selectedTab === "featured" ? backgroundsList : backgroundsListNew;
+  const all = backgroundsList;
   const adaptations = all.slice(0, (page + 1) * ITEMS_PER_CHUNK);
   useEffect(() => {
     localStorage.setItem("app.selectedTab", selectedTab);
@@ -46,24 +45,26 @@ export default () => {
       <div
         className={classnames(s["main-content-area"], "restricted-width-area")}
       >
-        <div className={s["tabs"]}>
-          <Button.Group>
-            <Button
-              basic={selectedTab !== "featured"}
-              color="black"
-              onClick={() => setSelectedTab("featured")}
-            >
-              Featured
-            </Button>
-            <Button
-              basic={selectedTab !== "newest"}
-              color="black"
-              onClick={() => setSelectedTab("newest")}
-            >
-              Newest
-            </Button>
-          </Button.Group>
-        </div>
+        {false && (
+          <div className={s["tabs"]}>
+            <Button.Group>
+              <Button
+                basic={selectedTab !== "featured"}
+                color="black"
+                onClick={() => setSelectedTab("featured")}
+              >
+                Featured
+              </Button>
+              <Button
+                basic={selectedTab !== "newest"}
+                color="black"
+                onClick={() => setSelectedTab("newest")}
+              >
+                Newest
+              </Button>
+            </Button.Group>
+          </div>
+        )}
         <div className={s["filters"]}>
           <Checkbox label="generative" checked={true} />
           <Checkbox label="static" checked={true} />
