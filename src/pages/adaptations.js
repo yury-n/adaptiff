@@ -50,7 +50,8 @@ export const allAdaptationTypes = [
   voronoi,
   carpet,
   blank,
-  hedgehog
+  hedgehog,
+  waterpipe
   // cells,
   // fog
 ];
