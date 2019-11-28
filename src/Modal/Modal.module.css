@@ -1,5 +1,4 @@
 .the-modal :global(.modal-content.content) {
-  width: calc(100vw - 50px);
   height: calc(100vh - 80px);
 }
 
@@ -15,15 +14,6 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-}
-
-.close-area span {
-  display: none;
-  color: white;
-}
-
-.close-area:hover span {
-  display: inline;
 }
 
 .the-modal::before {
@@ -138,6 +128,42 @@
 }
 
 .share-button-active {
+}
+
+.navigation-button-prev {
+  left: 260px;
+}
+
+:global(.ui.basic.button).navigation-button:hover,
+:global(.ui.basic.button).navigation-button:active,
+:global(.ui.basic.button).navigation-button:focus {
+  background: #ffffff17 !important;
+}
+
+.navigation-button-next {
+  left: 986px;
+}
+
+.navigation-button-next span,
+.navigation-button-prev span {
+  font-weight: bold;
+  font-size: 21px;
+}
+
+.navigation-button-prev span {
+  margin-right: 5px;
+}
+
+.navigation-button-next span {
+  margin-left: 5px;
+}
+
+:global(.ui.basic.button).navigation-button {
+  position: absolute;
+  top: -43px;
+  color: white !important;
+  font-size: 16px !important;
+  z-index: 1;
 }
 
 .share-button-inactive,

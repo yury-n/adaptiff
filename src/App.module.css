@@ -115,6 +115,8 @@
 
 :global(.ui.basic.button).CTA-button {
   color: black !important;
+  box-shadow: none !important;
+  border-radius: 12px;
 }
 
 :global(.ui.basic.button):hover {

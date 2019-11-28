@@ -13,6 +13,11 @@
 
 .ui.active.modal {
   cursor: default;
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 20px;
+  top: 40px;
 }
 
 .ui.modal {

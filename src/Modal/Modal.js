@@ -326,9 +326,25 @@ class TheModal extends Component {
         className={s["the-modal"]}
       >
         <Modal.Content className="modal-content">
-          <div className={s["close-area"]} onClick={this.props.onClose}>
-            <span>close</span>
-          </div>
+          <Button
+            basic
+            className={classnames(
+              s["navigation-button"],
+              s["navigation-button-prev"]
+            )}
+          >
+            <span>←</span> prev
+          </Button>
+          <Button
+            basic
+            className={classnames(
+              s["navigation-button"],
+              s["navigation-button-next"]
+            )}
+          >
+            next <span>→</span>
+          </Button>
+          <div className={s["close-area"]} onClick={this.props.onClose}></div>
           <CollapsibleSiderBar
             insertImage={this.insertImage}
             insertText={this.insertText}

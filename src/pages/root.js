@@ -54,7 +54,7 @@ export default () => {
             purpose
           </div>
         </div>
-        <div className={s["quick-post-form"]}>
+        <div className={s["quick-post-form"]} style={{ display: "none" }}>
           <input
             className={s["quick-start-input"]}
             placeholder="Primary Text"
@@ -66,14 +66,14 @@ export default () => {
           ></textarea>
           <div className={s["quick-post-form-footer"]}>
             <Button icon className={s["font-style-button"]} basic>
-              Set Font Styles
+              Choose Font Styles
             </Button>
             <Button className={s["preview-button"]} size="big" color="black">
               Preview
             </Button>
           </div>
         </div>
-        <div className={s["get-started"]} style={{ display: "none" }}>
+        <div className={s["get-started"]}>
           <Button basic size="big" className={s["CTA-button"]}>
             Enter Your Text
           </Button>
