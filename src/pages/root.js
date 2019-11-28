@@ -6,7 +6,7 @@ import MiniCard from "../MiniCard/MiniCard";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SubscribeBlock from "../SubscribeBlock/SubscribeBlock";
-
+import PremiumCrown from "./PremiumCrown/PremiumCrown";
 import backgroundsList from "./backgroundsList";
 
 import s from "../App.module.css";
@@ -45,6 +45,104 @@ export default () => {
       <div
         className={classnames(s["main-content-area"], "restricted-width-area")}
       >
+        <div>
+          <div className={s["main-header"]}>
+            Unique adaptive designs for everyone
+          </div>
+          <div className={s["sub-header"]}>
+            transform and customize, remix and build upon the material for any
+            purpose
+          </div>
+        </div>
+        <div className={s["quick-post-form"]}>
+          <input
+            className={s["quick-start-input"]}
+            placeholder="Primary Text"
+          />
+          <textarea
+            className={s["quick-start-input"]}
+            placeholder="Secondary Text"
+            rows="3"
+          ></textarea>
+          <div className={s["quick-post-form-footer"]}>
+            <Button icon className={s["font-style-button"]} basic>
+              Set Font Styles
+            </Button>
+            <Button className={s["preview-button"]} size="big" color="black">
+              Preview
+            </Button>
+          </div>
+        </div>
+        <div className={s["get-started"]} style={{ display: "none" }}>
+          <Button basic size="big" className={s["CTA-button"]}>
+            Enter Your Text
+          </Button>
+          <div className={s["CTA-text"]}>or</div>
+          <div className={s["CTA-text"]}>
+            start by picking a background below
+          </div>
+        </div>
+        <div className={s["collection-header"]}>Artistic Smoke</div>
+        <div className={s["collection-wrapper"]}>
+          <div className={s["collection"]}>
+            <div
+              className={s["collection-thumb"]}
+              style={{ backgroundImage: "url(/thumbs/100.png)" }}
+            />
+            <div
+              className={s["collection-thumb"]}
+              style={{ backgroundImage: "url(/thumbs/99.png)" }}
+            />
+            <div
+              className={s["collection-thumb"]}
+              style={{ backgroundImage: "url(/thumbs/98.png)" }}
+            />
+            <div
+              className={s["collection-thumb"]}
+              style={{ backgroundImage: "url(/thumbs/90.png)" }}
+            />
+            <div
+              className={s["collection-thumb"]}
+              style={{ backgroundImage: "url(/thumbs/102.png)" }}
+            />
+            <div
+              className={s["collection-thumb"]}
+              style={{ backgroundImage: "url(/thumbs/101.png)" }}
+            />
+          </div>
+        </div>
+        <div className={s["collection-header"]}>
+          <PremiumCrown />
+          Rounded Fat Lines
+        </div>
+        <div className={s["collection-wrapper"]}>
+          <div className={s["collection"]}>
+            <div
+              className={s["collection-thumb"]}
+              style={{ backgroundImage: "url(/thumbs/74.png)" }}
+            />
+            <div
+              className={s["collection-thumb"]}
+              style={{ backgroundImage: "url(/thumbs/75.png)" }}
+            />
+            <div
+              className={s["collection-thumb"]}
+              style={{ backgroundImage: "url(/thumbs/79.png)" }}
+            />
+            <div
+              className={s["collection-thumb"]}
+              style={{ backgroundImage: "url(/thumbs/76.png)" }}
+            />
+            <div
+              className={s["collection-thumb"]}
+              style={{ backgroundImage: "url(/thumbs/80.png)" }}
+            />
+            <div
+              className={s["collection-thumb"]}
+              style={{ backgroundImage: "url(/thumbs/78.png)" }}
+            />
+          </div>
+        </div>
         {false && (
           <div className={s["tabs"]}>
             <Button.Group>

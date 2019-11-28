@@ -30,6 +30,7 @@ import waterpipe from "../_adaptationConfigs/waterpipe";
 
 export const allAdaptationTypes = [
   linearGradient,
+  radialGradient,
   trianglify,
   particles,
   perfectPurple,

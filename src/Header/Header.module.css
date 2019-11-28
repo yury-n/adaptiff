@@ -104,6 +104,7 @@
 
 .add-code-button {
   margin-left: 0px !important;
+  margin-right: 30px !important;
 }
 
 .submit-button {
@@ -119,6 +120,12 @@
 .submit-button:global(.ui.icon.button > .icon) {
   font-size: 11px;
   margin-right: 1px !important;
+}
+:global(.ui.basic.button).log-in-button {
+  border-radius: 7px !important;
+  padding-right: 18px !important;
+  padding-left: 18px !important;
+  color: black !important;
 }
 
 .submit-button-wrapper {
