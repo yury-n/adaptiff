@@ -1863,8 +1863,22 @@ export const svgs = [
         palette: ["#C8E5FB", "#B0C5F8"]
       }
     }
-  }
+  },
   // 142
+  {
+    ...svgWithGradient,
+    pack: "blurredBalls",
+    thumb: "/thumbs/svgs/141.svg",
+    fileName: "svgs/142",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 850 / 850,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#C8E5FB", "#B0C5F8"]
+      }
+    }
+  }
 ];
 
 export default svgs;
