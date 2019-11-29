@@ -24,8 +24,8 @@ export default () => (
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(44.951 27.502) rotate(90) scale(27.502 44.951)"
       >
-        <stop stop-color="#FAFF00" />
-        <stop offset="1" stop-color="orange" stop-opacity="0.63" />
+        <stop stopColor="#FAFF00" />
+        <stop offset="1" stopColor="orange" stopOpacity="0.63" />
       </radialGradient>
     </defs>
   </svg>

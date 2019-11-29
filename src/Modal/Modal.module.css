@@ -1,5 +1,5 @@
 .the-modal :global(.modal-content.content) {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 60px);
 }
 
 .close-area {
@@ -131,17 +131,19 @@
 }
 
 .navigation-button-prev {
-  left: 260px;
+  left: 279px;
 }
 
+:global(.ui.basic.button).navigation-button,
 :global(.ui.basic.button).navigation-button:hover,
 :global(.ui.basic.button).navigation-button:active,
 :global(.ui.basic.button).navigation-button:focus {
-  background: #ffffff17 !important;
+  border-radius: 0 !important;
+  background: #ffffff42 !important;
 }
 
-.navigation-button-next {
-  left: 986px;
+:global(.ui.basic.button).navigation-button-next {
+  right: 255px;
 }
 
 .navigation-button-next span,

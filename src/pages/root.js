@@ -6,8 +6,8 @@ import MiniCard from "../MiniCard/MiniCard";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SubscribeBlock from "../SubscribeBlock/SubscribeBlock";
-import PremiumCrown from "./PremiumCrown/PremiumCrown";
 import backgroundsList from "./backgroundsList";
+import Collection from "../Modal/Collection/Collection";
 
 import s from "../App.module.css";
 
@@ -82,67 +82,31 @@ export default () => {
             start by picking a background below
           </div>
         </div>
-        <div className={s["collection-header"]}>Artistic Smoke</div>
-        <div className={s["collection-wrapper"]}>
-          <div className={s["collection"]}>
-            <div
-              className={s["collection-thumb"]}
-              style={{ backgroundImage: "url(/thumbs/100.png)" }}
-            />
-            <div
-              className={s["collection-thumb"]}
-              style={{ backgroundImage: "url(/thumbs/99.png)" }}
-            />
-            <div
-              className={s["collection-thumb"]}
-              style={{ backgroundImage: "url(/thumbs/98.png)" }}
-            />
-            <div
-              className={s["collection-thumb"]}
-              style={{ backgroundImage: "url(/thumbs/90.png)" }}
-            />
-            <div
-              className={s["collection-thumb"]}
-              style={{ backgroundImage: "url(/thumbs/102.png)" }}
-            />
-            <div
-              className={s["collection-thumb"]}
-              style={{ backgroundImage: "url(/thumbs/101.png)" }}
-            />
-          </div>
-        </div>
-        <div className={s["collection-header"]}>
-          <PremiumCrown />
-          Rounded Fat Lines
-        </div>
-        <div className={s["collection-wrapper"]}>
-          <div className={s["collection"]}>
-            <div
-              className={s["collection-thumb"]}
-              style={{ backgroundImage: "url(/thumbs/74.png)" }}
-            />
-            <div
-              className={s["collection-thumb"]}
-              style={{ backgroundImage: "url(/thumbs/75.png)" }}
-            />
-            <div
-              className={s["collection-thumb"]}
-              style={{ backgroundImage: "url(/thumbs/79.png)" }}
-            />
-            <div
-              className={s["collection-thumb"]}
-              style={{ backgroundImage: "url(/thumbs/76.png)" }}
-            />
-            <div
-              className={s["collection-thumb"]}
-              style={{ backgroundImage: "url(/thumbs/80.png)" }}
-            />
-            <div
-              className={s["collection-thumb"]}
-              style={{ backgroundImage: "url(/thumbs/78.png)" }}
-            />
-          </div>
-        </div>
+        <Collection
+          title="Artistic Smoke"
+          author="yury"
+          items={[
+            { thumb: "/thumbs/100.png" },
+            { thumb: "/thumbs/99.png" },
+            { thumb: "/thumbs/98.png" },
+            { thumb: "/thumbs/90.png" },
+            { thumb: "/thumbs/102.png" },
+            { thumb: "/thumbs/101.png" }
+          ]}
+        />
+        <Collection
+          title="Rounded Fat Lines"
+          author="kate.only"
+          isPremium
+          items={[
+            { thumb: "/thumbs/74.png" },
+            { thumb: "/thumbs/75.png" },
+            { thumb: "/thumbs/79.png" },
+            { thumb: "/thumbs/76.png" },
+            { thumb: "/thumbs/80.png" },
+            { thumb: "/thumbs/78.png" }
+          ]}
+        />
         {false && (
           <div className={s["tabs"]}>
             <Button.Group>

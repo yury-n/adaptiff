@@ -115,16 +115,20 @@
 
 :global(.ui.basic.button).CTA-button {
   color: black !important;
-  box-shadow: none !important;
+  box-shadow: rgba(10, 31, 68, 0.15) 0px 10px 16px 0px !important;
+  background: #fff !important;
   border-radius: 12px;
 }
 
-:global(.ui.basic.button):hover {
-  background: transparent !important;
+:global(.ui.basic.button).CTA-button:hover {
+  background: #ffffffa3 !important;
+}
+
+:global(.ui.basic.button).CTA-button:active {
+  box-shadow: none !important;
 }
 
 .CTA-button {
-  box-shadow: none;
   border: 1px solid black !important;
   color: black !important;
   margin-bottom: 10px !important;
@@ -224,54 +228,4 @@
 
 .preview-button {
   width: 150px;
-}
-
-.collection-header {
-  width: 1130px;
-  margin: auto;
-  padding: 15px 36px;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: lowercase;
-  display: flex;
-  align-items: center;
-  height: 40px;
-}
-
-.collection-wrapper {
-  width: 1130px;
-  box-sizing: border-box;
-  padding: 24px 32px;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: inset 0 1px 4px 0px #bebebe78;
-  margin: auto;
-  margin-bottom: 40px;
-}
-
-.collection {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.collection-thumb {
-  width: 180px;
-  height: 180px;
-  flex-shrink: 0;
-  background-size: cover;
-  background-color: white;
-  box-shadow: rgba(10, 31, 68, 0.15) 0px 10px 16px 0px;
-  /* box-shadow: rgba(0, 12, 32, 0.04) 0px 0px 1px 0px,
-    rgba(10, 31, 68, 0.06) 0px 10px 16px 0px; */
-  border-radius: 10px;
-  margin-right: 24px;
-  cursor: pointer;
-  transition: 200ms;
-}
-
-.collection-thumb:hover {
-  transform: scale(1.05);
-  border-radius: 16px;
-  box-shadow: rgba(10, 31, 68, 0.18) 0px 4px 24px 0px;
 }

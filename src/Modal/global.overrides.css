@@ -4,6 +4,7 @@
 
 .ui.active.dimmer {
   z-index: 1002;
+  background: #000;
 }
 
 .ui.active.dimmer.inverted {
