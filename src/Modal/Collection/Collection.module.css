@@ -37,6 +37,10 @@
   );
 }
 
+.paddle-button.paddle-visible {
+  opacity: 0.5;
+}
+
 .collection-wrapper:hover .paddle-button.paddle-visible {
   opacity: 1;
   pointer-events: all;
@@ -47,12 +51,12 @@
   width: 1130px;
   margin: auto;
   padding: 15px 36px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
   text-transform: lowercase;
   display: flex;
   align-items: center;
-  height: 40px;
+  height: 42px;
 }
 
 .collection-author {
@@ -95,6 +99,7 @@
   overflow: hidden;
   display: flex;
   flex-wrap: nowrap;
+  scroll-behavior: smooth;
 }
 
 .inside-padding {

@@ -64,6 +64,9 @@ export default ({ title, author, items, isPremium }) => {
             s["paddle-button-prev"],
             (overflow === "left" || overflow === "both") && s["paddle-visible"]
           )}
+          onClick={() => {
+            contentRef.current.scrollLeft = 0;
+          }}
         >
           ←
         </div>
@@ -73,6 +76,9 @@ export default ({ title, author, items, isPremium }) => {
             s["paddle-button-next"],
             (overflow === "right" || overflow === "both") && s["paddle-visible"]
           )}
+          onClick={() => {
+            contentRef.current.scrollLeft = contentRef.current.scrollWidth;
+          }}
         >
           →
         </div>
