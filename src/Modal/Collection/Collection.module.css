@@ -124,3 +124,8 @@
   display: flex;
   flex-wrap: nowrap;
 }
+
+.premium-icon {
+  margin-right: 9px;
+  margin-left: -32px;
+}

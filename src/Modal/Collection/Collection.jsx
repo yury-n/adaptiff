@@ -51,7 +51,7 @@ export default ({ title, author, authorLink, items, isPremium }) => {
   return (
     <>
       <div className={s["collection-header"]}>
-        {isPremium && <PremiumCrown />}
+        {isPremium && <PremiumCrown className={s["premium-icon"]} />}
         {title}
         <span className={s["collection-author"]}>
           <span>by</span>{" "}
@@ -93,7 +93,12 @@ export default ({ title, author, authorLink, items, isPremium }) => {
         <div className={s["collection-scroll-wrapper"]} ref={contentRef}>
           <div className={s["inside-padding"]} />
           {items.map((item, index) => (
-            <CollectionMiniCard key={index} item={item} items={items} />
+            <CollectionMiniCard
+              key={index}
+              isPremium={isPremium}
+              item={item}
+              items={items}
+            />
           ))}
           <div className={s["inside-padding"]} />
         </div>

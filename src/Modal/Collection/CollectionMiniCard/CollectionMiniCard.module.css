@@ -1,3 +1,18 @@
+.premium-only-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  transition: 300ms;
+  z-index: 1;
+}
+
 .collection-thumb {
   position: relative;
   width: 180px;
@@ -27,4 +42,8 @@
   transform: scale(1.05);
   border-radius: 16px;
   box-shadow: rgba(10, 31, 68, 0.18) 0px 4px 24px 0px;
+}
+
+.collection-thumb:hover .premium-only-overlay {
+  opacity: 1;
 }
