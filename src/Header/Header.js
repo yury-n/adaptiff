@@ -95,13 +95,7 @@ class Header extends Component {
             >
               Contribute
             </Button>
-            <Button
-              icon
-              className={s["log-in-button"]}
-              target="_blank"
-              basic
-              href="https://docs.google.com/forms/d/e/1FAIpQLSddoo8_28sRF5Pt7AZae5wtTXPH18dNYFoD8kujnf7omcKaDQ/viewform"
-            >
+            <Button icon className={s["log-in-button"]} target="_blank" basic>
               Log In
             </Button>
             <div className={s["submit-button-wrapper"]}>

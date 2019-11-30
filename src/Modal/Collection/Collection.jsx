@@ -7,7 +7,7 @@ import s from "./Collection.module.css";
 
 const SCROLL_THROTTLE_TIMEOUT = 250;
 
-export default ({ title, author, items, isPremium }) => {
+export default ({ title, author, authorLink, items, isPremium }) => {
   const contentRef = useRef();
   const [overflow, setOverflow] = useState("");
 
@@ -53,7 +53,14 @@ export default ({ title, author, items, isPremium }) => {
         {isPremium && <PremiumCrown />}
         {title}
         <span className={s["collection-author"]}>
-          <span>by</span> {author}
+          <span>by</span>{" "}
+          {authorLink ? (
+            <a target="_blank" href={authorLink}>
+              {author}
+            </a>
+          ) : (
+            author
+          )}
         </span>
       </div>
       <div className={s["collection-wrapper"]}>
@@ -85,11 +92,9 @@ export default ({ title, author, items, isPremium }) => {
         <div className={s["collection-scroll-wrapper"]} ref={contentRef}>
           <div className={s["inside-padding"]} />
           {items.map((item, index) => (
-            <div
-              key={index}
-              className={s["collection-thumb"]}
-              style={{ backgroundImage: `url(${item.thumb})` }}
-            />
+            <div key={index} className={s["collection-thumb"]}>
+              <img loading="lazy" src={item.thumb} />
+            </div>
           ))}
           <div className={s["inside-padding"]} />
         </div>

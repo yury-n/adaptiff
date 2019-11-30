@@ -9,7 +9,6 @@ import s from "./MiniCard.module.css";
 class MiniCard extends Component {
   state = {
     showModal: false,
-    showGroupModal: false,
     isSelectingColor: false
   };
   constructor(props) {
@@ -18,62 +17,9 @@ class MiniCard extends Component {
     if (props.showGroupModal) this.state.showGroupModal = true;
   }
   render() {
-    const {
-      author,
-      authorLink,
-      title,
-      mode,
-      thumb,
-      thumbBackgroundSize,
-      thumbWidth,
-      groupAdaptations
-    } = this.props;
     return (
       <>
-        <Card
-          link={false}
-          className={classnames(
-            s["mini-card"],
-            groupAdaptations && s["mini-card-group"],
-            mode && s[`${mode}-mode`],
-            this.props.className
-          )}
-          onMouseDown={this.onClick}
-          as="div"
-          style={{ width: thumbWidth }}
-        >
-          <div className={s["mini-preview-wrapper"]}>
-            <div
-              className={s["mini-preview"]}
-              style={{
-                backgroundImage: `url("${thumb}")`,
-                backgroundSize: thumbBackgroundSize
-              }}
-            />
-          </div>
-          <Card.Content className={s["content"]}>
-            <div className={s["mini-title"]} title={title}>
-              {title}
-            </div>
-            <span className={s["mini-by-author"]}>
-              {mode === "hero" ? "background by" : "by"}
-            </span>
-            {authorLink ? (
-              <a
-                href={authorLink}
-                className={s["mini-author"]}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {author || "multiple authors"}
-              </a>
-            ) : (
-              <span className={s["mini-author"]}>
-                {author || "multiple authors"}
-              </span>
-            )}
-          </Card.Content>
-        </Card>
+        {this.renderCard()}
         {this.state.showModal && (
           <Modal
             onClose={this.closeModal}
@@ -86,23 +32,69 @@ class MiniCard extends Component {
             }
           />
         )}
-        {this.state.showGroupModal && (
-          <GroupModal
-            adaptations={groupAdaptations}
-            onClose={this.closeGroupModal}
-          />
-        )}
       </>
     );
   }
 
-  onClick = () => {
-    const { onClick, clickAndShowModal, groupAdaptations } = this.props;
+  renderCard = () => {
+    const {
+      author,
+      authorLink,
+      title,
+      mode,
+      thumb,
+      thumbBackgroundSize,
+      thumbWidth
+    } = this.props;
+    return (
+      <Card
+        link={false}
+        className={classnames(
+          s["mini-card"],
+          mode && s[`${mode}-mode`],
+          this.props.className
+        )}
+        onMouseDown={this.onClick}
+        as="div"
+        style={{ width: thumbWidth }}
+      >
+        <div className={s["mini-preview-wrapper"]}>
+          <div
+            className={s["mini-preview"]}
+            style={{
+              backgroundImage: `url("${thumb}")`,
+              backgroundSize: thumbBackgroundSize
+            }}
+          />
+        </div>
+        <Card.Content className={s["content"]}>
+          <div className={s["mini-title"]} title={title}>
+            {title}
+          </div>
+          <span className={s["mini-by-author"]}>
+            {mode === "hero" ? "background by" : "by"}
+          </span>
+          {authorLink ? (
+            <a
+              href={authorLink}
+              className={s["mini-author"]}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {author || "multiple authors"}
+            </a>
+          ) : (
+            <span className={s["mini-author"]}>
+              {author || "multiple authors"}
+            </span>
+          )}
+        </Card.Content>
+      </Card>
+    );
+  };
 
-    if (groupAdaptations) {
-      this.showGroupModal();
-      return;
-    }
+  onClick = () => {
+    const { onClick, clickAndShowModal } = this.props;
 
     if (clickAndShowModal) {
       onClick();
@@ -110,10 +102,6 @@ class MiniCard extends Component {
     } else {
       onClick ? onClick() : this.showModal();
     }
-  };
-
-  showGroupModal = () => {
-    this.setState({ showGroupModal: true });
   };
 
   closeGroupModal = () => {

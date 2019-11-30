@@ -46,6 +46,11 @@
   margin-right: 8px;
 }
 
+.tab-all {
+  width: 60px;
+  box-shadow: none !important;
+}
+
 .tabs {
   margin: auto;
   display: flex;
@@ -53,8 +58,13 @@
   margin-bottom: 40px;
 }
 
+.tabs :global(.ui.buttons) {
+  box-shadow: rgba(10, 31, 68, 0.15) 0px 10px 16px 0px !important;
+  border-radius: 20px;
+  background: white;
+}
+
 .tabs :global(.ui.black.button:first-child) {
-  font-size: 13px;
   padding-left: 20px !important;
   padding-right: 15px !important;
   border-top-left-radius: 20px !important;
@@ -74,8 +84,9 @@
 .tabs :global(.ui.basic.black.button) {
   border: 1px rgb(157, 157, 157) solid;
   box-shadow: none !important;
-  color: #5a5a5a !important;
-  font-weight: bold;
+  font-weight: normal;
+  color: black !important;
+  font-size: 15px;
 }
 
 .cards {
@@ -149,7 +160,7 @@
 
 .sub-header {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 60px;
   margin-top: 30px;
   font-size: 17px;
 }
@@ -185,7 +196,7 @@
 }
 
 .cards {
-  margin-top: 160px !important;
+  margin-top: 100px !important;
 }
 
 .quick-post-form {

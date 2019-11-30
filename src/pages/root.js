@@ -10,6 +10,7 @@ import backgroundsList from "./backgroundsList";
 import Collection from "../Modal/Collection/Collection";
 
 import s from "../App.module.css";
+import collections from "./collections";
 
 // const [isExpanded, setIsExpanded] = useState(false);
 // const [allCards, setAllCards] = useState(cards);
@@ -73,7 +74,7 @@ export default () => {
             </Button>
           </div>
         </div>
-        <div className={s["get-started"]}>
+        <div className={s["get-started"]} style={{ display: "none" }}>
           <Button basic size="big" className={s["CTA-button"]}>
             Enter Your Text
           </Button>
@@ -82,51 +83,35 @@ export default () => {
             start by picking a background below
           </div>
         </div>
-        <Collection
-          title="Artistic Smoke"
-          author="yury"
-          items={[
-            { thumb: "/thumbs/100.png" },
-            { thumb: "/thumbs/99.png" },
-            { thumb: "/thumbs/98.png" },
-            { thumb: "/thumbs/90.png" },
-            { thumb: "/thumbs/102.png" },
-            { thumb: "/thumbs/101.png" }
-          ]}
-        />
-        <Collection
-          title="Rounded Fat Lines"
-          author="kate.only"
-          isPremium
-          items={[
-            { thumb: "/thumbs/74.png" },
-            { thumb: "/thumbs/75.png" },
-            { thumb: "/thumbs/79.png" },
-            { thumb: "/thumbs/76.png" },
-            { thumb: "/thumbs/80.png" },
-            { thumb: "/thumbs/78.png" }
-          ]}
-        />
-        {false && (
-          <div className={s["tabs"]}>
-            <Button.Group>
-              <Button
-                basic={selectedTab !== "featured"}
-                color="black"
-                onClick={() => setSelectedTab("featured")}
-              >
-                Featured
-              </Button>
-              <Button
-                basic={selectedTab !== "newest"}
-                color="black"
-                onClick={() => setSelectedTab("newest")}
-              >
-                Newest
-              </Button>
-            </Button.Group>
-          </div>
-        )}
+        <div className={s["tabs"]}>
+          <Button.Group>
+            <Button
+              basic={selectedTab !== "featured"}
+              color="black"
+              onClick={() => setSelectedTab("featured")}
+              className={s["tab-all"]}
+            >
+              All
+            </Button>
+            <Button
+              basic={selectedTab !== "newest"}
+              color="black"
+              onClick={() => setSelectedTab("newest")}
+            >
+              Templates
+            </Button>
+            <Button
+              basic={selectedTab !== "newest"}
+              color="black"
+              onClick={() => setSelectedTab("newest")}
+            >
+              Backgrounds
+            </Button>
+          </Button.Group>
+        </div>
+        {collections.map((collection, index) => (
+          <Collection key={index} {...collection} />
+        ))}
         <div className={s["filters"]}>
           <Checkbox label="generative" checked={true} />
           <Checkbox label="static" checked={true} />
