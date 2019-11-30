@@ -56,7 +56,7 @@ export default ({ title, author, authorLink, items, isPremium }) => {
         <span className={s["collection-author"]}>
           <span>by</span>{" "}
           {authorLink ? (
-            <a target="_blank" href={authorLink}>
+            <a target="_blank" rel="noopener noreferrer" href={authorLink}>
               {author}
             </a>
           ) : (
@@ -93,7 +93,7 @@ export default ({ title, author, authorLink, items, isPremium }) => {
         <div className={s["collection-scroll-wrapper"]} ref={contentRef}>
           <div className={s["inside-padding"]} />
           {items.map((item, index) => (
-            <CollectionMiniCard key={index} {...item} items={items} />
+            <CollectionMiniCard key={index} item={item} items={items} />
           ))}
           <div className={s["inside-padding"]} />
         </div>

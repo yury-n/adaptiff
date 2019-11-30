@@ -332,6 +332,7 @@ class TheModal extends Component {
               s["navigation-button"],
               s["navigation-button-prev"]
             )}
+            onClick={this.props.onGoToPrevAdaptation}
           >
             <span>←</span> prev
           </Button>
@@ -341,6 +342,7 @@ class TheModal extends Component {
               s["navigation-button"],
               s["navigation-button-next"]
             )}
+            onClick={this.props.onGoToNextAdaptation}
           >
             next <span>→</span>
           </Button>

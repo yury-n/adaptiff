@@ -134,12 +134,15 @@
   left: 279px;
 }
 
-:global(.ui.basic.button).navigation-button,
+:global(.ui.basic.button).navigation-button {
+  border-radius: 0 !important;
+  background: #ffffff42 !important;
+}
+
 :global(.ui.basic.button).navigation-button:hover,
 :global(.ui.basic.button).navigation-button:active,
 :global(.ui.basic.button).navigation-button:focus {
-  border-radius: 0 !important;
-  background: #ffffff42 !important;
+  background: #ffffff2e !important;
 }
 
 :global(.ui.basic.button).navigation-button-next {
