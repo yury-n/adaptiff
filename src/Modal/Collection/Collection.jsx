@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import throttle from "lodash.throttle";
 import classnames from "classnames";
 import PremiumCrown from "../../pages/PremiumCrown/PremiumCrown";
+import CollectionMiniCard from "./CollectionMiniCard/CollectionMiniCard";
 
 import s from "./Collection.module.css";
 
@@ -92,9 +93,7 @@ export default ({ title, author, authorLink, items, isPremium }) => {
         <div className={s["collection-scroll-wrapper"]} ref={contentRef}>
           <div className={s["inside-padding"]} />
           {items.map((item, index) => (
-            <div key={index} className={s["collection-thumb"]}>
-              <img loading="lazy" src={item.thumb} />
-            </div>
+            <CollectionMiniCard key={index} {...item} items={items} />
           ))}
           <div className={s["inside-padding"]} />
         </div>

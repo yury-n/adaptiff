@@ -73,8 +73,6 @@
 
 .tabs :global(.ui.black.button:last-child) {
   font-size: 13px;
-  padding-left: 15px !important;
-  padding-right: 20px !important;
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
   border-top-right-radius: 20px !important;
@@ -82,7 +80,7 @@
 }
 
 .tabs :global(.ui.basic.black.button) {
-  border: 1px rgb(157, 157, 157) solid;
+  border: 1px rgb(232, 232, 232) solid;
   box-shadow: none !important;
   font-weight: normal;
   color: black !important;

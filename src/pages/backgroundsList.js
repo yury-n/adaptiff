@@ -1,7 +1,7 @@
 import { allAdaptations } from "./adaptations";
 
 export default [
-  [90, 98, 99, 100, 101, 102],
+  90,
   87,
   86,
   85,
@@ -10,7 +10,7 @@ export default [
   88,
   82,
   83,
-  [74, 75, 79, 76, 80, 78, 77, 81],
+  74,
   70,
   69,
   67,
@@ -81,12 +81,4 @@ export default [
   35,
   36,
   37
-].map(index => {
-  if (Array.isArray(index)) {
-    const firstInArray = index[0];
-    const adaptation = { ...allAdaptations[firstInArray] };
-    adaptation.groupAdaptations = index.map(i => allAdaptations[i]);
-    return adaptation;
-  }
-  return allAdaptations[index];
-});
+].map(index => allAdaptations[index]);
