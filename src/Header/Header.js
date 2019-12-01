@@ -4,9 +4,6 @@ import throttle from "lodash.throttle";
 import { Button, Icon } from "semantic-ui-react";
 
 import s from "./Header.module.css";
-import MiniCard from "../MiniCard/MiniCard";
-import { logStat } from "../_utils";
-import linearGradient from "../_adaptationConfigs/linearGradient";
 
 class Header extends Component {
   state = {
@@ -95,7 +92,13 @@ class Header extends Component {
             >
               Contribute
             </Button>
-            <Button icon className={s["log-in-button"]} target="_blank" basic>
+            <Button
+              icon
+              className={s["log-in-button"]}
+              basic
+              aria-label="Coming soon"
+              data-balloon-pos="down"
+            >
               Log In
             </Button>
             <div className={s["submit-button-wrapper"]}>
@@ -103,25 +106,11 @@ class Header extends Component {
                 color="black"
                 icon
                 className={s["submit-button"]}
-                target="_blank"
+                aria-label="Coming soon"
+                data-balloon-pos="down"
               >
                 Sign Up
               </Button>
-              <MiniCard
-                onClick={() => logStat("create")}
-                clickAndShowModal={true}
-                className={s["blank-card"]}
-                mode="thumb-only"
-                {...linearGradient}
-                initState={{
-                  size: { width: 1080, height: 1080 },
-                  configValues: {
-                    angle: 200,
-                    direction: "custom_angle",
-                    palette: ["#fceff6", "#ebf1ff"]
-                  }
-                }}
-              />
             </div>
           </div>
         </div>

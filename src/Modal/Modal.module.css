@@ -353,8 +353,7 @@
   overflow: auto;
 
   /* override below tab zone */
-  position: static;
-  margin-top: 105px;
+  margin-top: 30px;
 }
 
 .config-container > *:last-child {

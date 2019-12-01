@@ -103,7 +103,7 @@ class TheModal extends Component {
         ],
       activeInsertedItemIndex: null,
       highlightInsertedItemIndex: null,
-      configMode: "element" // | 'global'
+      configMode: props.palettes ? "global" : "element"
     };
     this.props.config.forEach(config => {
       state.configValues[config.key] =
@@ -1764,18 +1764,22 @@ class TheModal extends Component {
 const CollapsibleSiderBar = React.memo(
   ({ insertText, insertImage, insertObject, priorityObjectPack }) => {
     const [activeItem, setActiveItem] = useState(() => {
-      const activeItemFromStorage = localStorage.getItem(
-        "modal.insertionTabsActiveItem"
-      );
-      if (typeof activeItemFromStorage === "string") {
-        return activeItemFromStorage === "null" ? null : activeItemFromStorage;
-      } else {
-        return "object";
-      }
+      return null;
+      // const activeItemFromStorage = localStorage.getItem(
+      //   "modal.insertionTabsActiveItem"
+      // );
+      // if (typeof activeItemFromStorage === "string") {
+      //   return activeItemFromStorage === "null" ? null : activeItemFromStorage;
+      // } else {
+      //   if (priorityObjectPack) {
+      //     return "object";
+      //   }
+      //   return null;
+      // }
     });
     useEffect(() => {
       localStorage.setItem("modal.insertionTabsActiveItem", activeItem);
-    });
+    }, [activeItem]);
     const collapse = () => setActiveItem(null);
     return (
       <div
