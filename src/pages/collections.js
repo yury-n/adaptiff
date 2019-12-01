@@ -10,7 +10,6 @@ export default [
   {
     title: "rounded cut off lines",
     author: "kate.only",
-    isPremium: true,
     items: [74, 75, 79, 76, 80, 78, 77, 81].map(index => allAdaptations[index])
   }
 ];

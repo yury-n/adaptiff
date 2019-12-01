@@ -33,11 +33,12 @@
   width: 24px;
   height: 84px;
   margin-top: -42px;
-  right: -12px;
+  left: -12px;
   z-index: 100000;
   top: 50%;
   color: white;
   cursor: pointer;
+  transform: rotate(180deg);
 }
 
 .collapse-icon {
@@ -131,22 +132,32 @@
 }
 
 .navigation-button-prev {
-  left: 279px;
+  left: 260px;
 }
 
-:global(.ui.basic.button).navigation-button {
+:global(.ui.basic.button).navigation-button-prev {
+  background: #ffffff2b !important;
+}
+
+:global(.ui.basic.button).navigation-button-next {
   border-radius: 0 !important;
   background: #ffffff42 !important;
 }
 
-:global(.ui.basic.button).navigation-button:hover,
-:global(.ui.basic.button).navigation-button:active,
-:global(.ui.basic.button).navigation-button:focus {
+:global(.ui.basic.button).navigation-button-prev:hover,
+:global(.ui.basic.button).navigation-button-prev:active,
+:global(.ui.basic.button).navigation-button-prev:focus {
+  background: #ffffff24 !important;
+}
+
+:global(.ui.basic.button).navigation-button-next:hover,
+:global(.ui.basic.button).navigation-button-next:active,
+:global(.ui.basic.button).navigation-button-next:focus {
   background: #ffffff2e !important;
 }
 
 :global(.ui.basic.button).navigation-button-next {
-  right: 255px;
+  right: 276px;
 }
 
 .navigation-button-next span,
@@ -315,11 +326,15 @@
   background: #f7f7fa;
 }
 
+.modal-sidebar.is-collapsed :global(.tab-menu.tabs-zone) {
+  box-shadow: none !important;
+}
+
 .modal-sidebar.is-collapsed .sidebar-collapse-button {
   display: none;
 }
 
-.modal-left-sidebar {
+.modal-right-sidebar {
   width: 280px;
 }
 
@@ -331,16 +346,11 @@
   width: 100%;
 }
 
-.modal-right-sidebar {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
 .config-container {
   padding: 30px;
   padding-top: 0;
   padding-bottom: 0;
-  overflow: visible;
+  overflow: auto;
 
   /* override below tab zone */
   position: static;

@@ -287,24 +287,8 @@ class TheModal extends Component {
     return colorsFromState;
   };
   render() {
-    const {
-      fileName,
-      refreshIframe,
-      isPausable,
-      hasRandomness,
-      withCloseButton = true
-    } = this.props;
-    const {
-      canvasWidth,
-      canvasHeight,
-      insertedItems,
-      captureConfig,
-      iframeVersion,
-      isPaused,
-      isPreparingDownload,
-      isLoadingIframe,
-      activeInsertedItemIndex
-    } = this.state;
+    const { withCloseButton = true } = this.props;
+    const { iframeVersion } = this.state;
     const scaleToFullyFit = this.getScaleToFullyFit();
     if (
       scaleToFullyFit !== 1 &&
@@ -326,251 +310,281 @@ class TheModal extends Component {
         className={s["the-modal"]}
       >
         <Modal.Content className="modal-content">
-          <Button
-            basic
-            className={classnames(
-              s["navigation-button"],
-              s["navigation-button-prev"]
-            )}
-            onClick={this.props.onGoToPrevAdaptation}
-          >
-            <span>←</span> prev
-          </Button>
-          <Button
-            basic
-            className={classnames(
-              s["navigation-button"],
-              s["navigation-button-next"]
-            )}
-            onClick={this.props.onGoToNextAdaptation}
-          >
-            next <span>→</span>
-          </Button>
-          <div className={s["close-area"]} onClick={this.props.onClose}></div>
-          <CollapsibleSiderBar
-            insertImage={this.insertImage}
-            insertText={this.insertText}
-            insertObject={this.insertObject}
-            priorityObjectPack={this.props.objectPack}
-          />
-          <div
-            className={s["modal-central-area"]}
-            onClick={this.onModalRightSideClick}
-          >
-            <div className={s["config-over-preview"]}>
-              <div className={s["config-over-left-buttons"]}>
-                <Button.Group className={s["copy-paste-buttons"]}>
-                  <Button
-                    icon
-                    aria-label={macify("Copy (Ctrl + C)")}
-                    data-balloon-pos="down"
-                    onClick={this.copyActiveInsertedItem}
-                    disabled={activeInsertedItemIndex === null}
-                  >
-                    <Icon name="copy outline" />
-                  </Button>
-                  <Button
-                    icon
-                    aria-label={macify("Paste (Ctrl + P)")}
-                    data-balloon-pos="down"
-                    disabled={!this.bufferedInsertedItem}
-                    onClick={this.pasteActiveInsertedItem}
-                  >
-                    <Icon name="paste" />
-                  </Button>
-                </Button.Group>
-                {activeInsertedItemIndex !== null && (
-                  <>
-                    <Button.Group>
-                      <Button
-                        icon
-                        aria-label={macify("Bring to Front (Shift + ])")}
-                        data-balloon-pos="down"
-                        onClick={e => {
-                          this.bringActiveInsertedItemToFront();
-                          e.stopPropagation();
-                        }}
-                      >
-                        <Icon name="long arrow alternate up" />
-                      </Button>
-                      <Button
-                        icon
-                        aria-label={macify("Bring to Back (Shift + [)")}
-                        data-balloon-pos="down"
-                        onClick={e => {
-                          this.bringActiveInsertedItemToBack();
-                          e.stopPropagation();
-                        }}
-                      >
-                        <Icon name="long arrow alternate down" />
-                      </Button>
-                    </Button.Group>
-                    <Button
-                      icon
-                      aria-label="Remove (Backspace)"
-                      data-balloon-pos="down"
-                      onClick={this.removeActiveInsertedItem}
-                      className={s["remove-active-item-button"]}
-                    >
-                      <Icon name="remove" />
-                    </Button>
-                  </>
-                )}
-                {hasRandomness && (
-                  <Button
-                    title="Refresh"
-                    circular
-                    icon="refresh"
-                    onClick={this.refresh}
-                    className={s["refresh-button"]}
-                  />
-                )}
-              </div>
-              <div className={s["dimensions"]}>
-                <Input
-                  defaultValue={canvasWidth}
-                  className={s["dimension-input"]}
-                  onKeyUp={this.setStateOnEnter("canvasWidth")}
-                  onBlur={this.setStateOnBlur("canvasWidth")}
-                />
-                <span className={s["dimension-times"]}>&times;</span>
-                <Input
-                  defaultValue={canvasHeight}
-                  className={s["dimension-input"]}
-                  onKeyUp={this.setStateOnEnter("canvasHeight")}
-                  onBlur={this.setStateOnBlur("canvasHeight")}
-                />
-              </div>
-              <div className={s["config-over-right-buttons"]}>
-                {isPausable && (
-                  <Button
-                    title={isPaused ? "Unpause" : "Pause"}
-                    circular
-                    icon={isPaused ? "play" : "pause"}
-                    onClick={isPaused ? this.unpause : this.pause}
-                    className={s["pause-button"]}
-                  />
-                )}
-                <Button
-                  title="Download"
-                  loading={isPreparingDownload}
-                  onClick={this.download}
-                  className={s["download-button"]}
-                >
-                  <Icon name="download" />
-                  Download
-                </Button>
-              </div>
-            </div>
-            <div
-              ref={this.canvasWrapperRef}
+          {this.props.onGoToPrevAdaptation && (
+            <Button
+              basic
               className={classnames(
-                s["canvas-wrapper"],
-                "canvas-wrapper" /* global */,
-                this.state.highlightInsertedItemIndex !== null &&
-                  "has-highlighted-item" /* global */
+                s["navigation-button"],
+                s["navigation-button-prev"]
               )}
+              onClick={this.props.onGoToPrevAdaptation}
             >
-              {isLoadingIframe && (
-                <div className={s["spinner-box"]}>
-                  <div className={s["circle-border"]}>
-                    <div className={s["circle-core"]} />
-                  </div>
-                </div>
+              <span>←</span> prev
+            </Button>
+          )}
+          {this.props.onGoToNextAdaptation && (
+            <Button
+              basic
+              className={classnames(
+                s["navigation-button"],
+                s["navigation-button-next"]
               )}
-              <div
-                className={s["canvas"]}
-                style={{
-                  width: canvasWidth && canvasWidth * scaleToFullyFit,
-                  height: canvasHeight && canvasHeight * scaleToFullyFit
-                }}
-              >
-                <IframePreview
-                  showIframe
-                  version={refreshIframe ? iframeVersion : 1}
-                  fileName={fileName}
-                  ref={this.iframeRef}
-                  onLoad={this.onIframeLoad}
-                  className={s["iframe"]}
-                  width={canvasWidth}
-                  height={canvasHeight}
-                  scale={scaleToFullyFit}
-                />
-              </div>
-              <div
-                id="padding-overlay-left"
-                className={classnames(
-                  s["padding-overlay"],
-                  s["padding-overlay-left"]
-                )}
-              />
-              <div
-                id="padding-overlay-right"
-                className={classnames(
-                  s["padding-overlay"],
-                  s["padding-overlay-right"]
-                )}
-              />
-              <div
-                id="padding-overlay-top"
-                className={classnames(
-                  s["padding-overlay"],
-                  s["padding-overlay-top"]
-                )}
-              />
-              <div
-                id="padding-overlay-bottom"
-                className={classnames(
-                  s["padding-overlay"],
-                  s["padding-overlay-bottom"]
-                )}
-              />
-              {!isLoadingIframe &&
-                insertedItems.map(this.renderInsertedRnDItem)}
-              {captureConfig && this.renderCaptureFrame()}
-            </div>
-          </div>
-          <div
-            className={classnames(s["modal-sidebar"], s["modal-right-sidebar"])}
-          >
-            <Menu className={"tab-menu tabs-zone art-tabs-zone"} icon="labeled">
-              <Menu.Item
-                active={this.state.configMode === "element"}
-                onClick={() => this.setState({ configMode: "element" })}
-                className={"tab-menu-item"}
-              >
-                <Icon name="expand" />
-                <div>Element</div>
-              </Menu.Item>
-              <Menu.Item
-                className={"tab-menu-item"}
-                active={this.state.configMode === "global"}
-                onClick={() =>
-                  this.setState({
-                    configMode: "global",
-                    activeInsertedItemIndex: null
-                  })
-                }
-              >
-                <Icon name="globe" />
-                <div>Global</div>
-              </Menu.Item>
-            </Menu>
-            {/* {insertedItems.length > 0
-              ? this.renderLayers()
-              : this.renderTitleAndAuthor()} */}
-            <div
-              className={classnames(s["config-container"], "below-tabs-zone")}
+              onClick={this.props.onGoToNextAdaptation}
             >
-              {this.state.configMode === "element"
-                ? this.renderElementConfig()
-                : this.renderGlobalConfig()}
-            </div>
-          </div>
+              next <span>→</span>
+            </Button>
+          )}
+          <div className={s["close-area"]} onClick={this.props.onClose}></div>
+          {this.renderLeftSideBar()}
+          {this.renderCentralArea()}
+          {this.renderRightSideBar()}
         </Modal.Content>
       </Modal>
     );
   }
+
+  renderRightSideBar = () => {
+    return (
+      <CollapsibleSiderBar
+        insertImage={this.insertImage}
+        insertText={this.insertText}
+        insertObject={this.insertObject}
+        priorityObjectPack={this.props.objectPack}
+      />
+    );
+  };
+
+  renderCentralArea = () => {
+    const { fileName, refreshIframe, isPausable, hasRandomness } = this.props;
+    const {
+      canvasWidth,
+      canvasHeight,
+      insertedItems,
+      captureConfig,
+      iframeVersion,
+      isPaused,
+      isPreparingDownload,
+      isLoadingIframe,
+      activeInsertedItemIndex
+    } = this.state;
+    const scaleToFullyFit = this.getScaleToFullyFit();
+    return (
+      <div
+        className={s["modal-central-area"]}
+        onClick={this.onModalRightSideClick}
+      >
+        <div className={s["config-over-preview"]}>
+          <div className={s["config-over-left-buttons"]}>
+            <Button.Group className={s["copy-paste-buttons"]}>
+              <Button
+                icon
+                aria-label={macify("Copy (Ctrl + C)")}
+                data-balloon-pos="down"
+                onClick={this.copyActiveInsertedItem}
+                disabled={activeInsertedItemIndex === null}
+              >
+                <Icon name="copy outline" />
+              </Button>
+              <Button
+                icon
+                aria-label={macify("Paste (Ctrl + P)")}
+                data-balloon-pos="down"
+                disabled={!this.bufferedInsertedItem}
+                onClick={this.pasteActiveInsertedItem}
+              >
+                <Icon name="paste" />
+              </Button>
+            </Button.Group>
+            {activeInsertedItemIndex !== null && (
+              <>
+                <Button.Group>
+                  <Button
+                    icon
+                    aria-label={macify("Bring to Front (Shift + ])")}
+                    data-balloon-pos="down"
+                    onClick={e => {
+                      this.bringActiveInsertedItemToFront();
+                      e.stopPropagation();
+                    }}
+                  >
+                    <Icon name="long arrow alternate up" />
+                  </Button>
+                  <Button
+                    icon
+                    aria-label={macify("Bring to Back (Shift + [)")}
+                    data-balloon-pos="down"
+                    onClick={e => {
+                      this.bringActiveInsertedItemToBack();
+                      e.stopPropagation();
+                    }}
+                  >
+                    <Icon name="long arrow alternate down" />
+                  </Button>
+                </Button.Group>
+                <Button
+                  icon
+                  aria-label="Remove (Backspace)"
+                  data-balloon-pos="down"
+                  onClick={this.removeActiveInsertedItem}
+                  className={s["remove-active-item-button"]}
+                >
+                  <Icon name="remove" />
+                </Button>
+              </>
+            )}
+            {hasRandomness && (
+              <Button
+                title="Refresh"
+                circular
+                icon="refresh"
+                onClick={this.refresh}
+                className={s["refresh-button"]}
+              />
+            )}
+          </div>
+          <div className={s["dimensions"]}>
+            <Input
+              defaultValue={canvasWidth}
+              className={s["dimension-input"]}
+              onKeyUp={this.setStateOnEnter("canvasWidth")}
+              onBlur={this.setStateOnBlur("canvasWidth")}
+            />
+            <span className={s["dimension-times"]}>&times;</span>
+            <Input
+              defaultValue={canvasHeight}
+              className={s["dimension-input"]}
+              onKeyUp={this.setStateOnEnter("canvasHeight")}
+              onBlur={this.setStateOnBlur("canvasHeight")}
+            />
+          </div>
+          <div className={s["config-over-right-buttons"]}>
+            {isPausable && (
+              <Button
+                title={isPaused ? "Unpause" : "Pause"}
+                circular
+                icon={isPaused ? "play" : "pause"}
+                onClick={isPaused ? this.unpause : this.pause}
+                className={s["pause-button"]}
+              />
+            )}
+            <Button
+              title="Download"
+              loading={isPreparingDownload}
+              onClick={this.download}
+              className={s["download-button"]}
+            >
+              <Icon name="download" />
+              Download
+            </Button>
+          </div>
+        </div>
+        <div
+          ref={this.canvasWrapperRef}
+          className={classnames(
+            s["canvas-wrapper"],
+            "canvas-wrapper" /* global */,
+            this.state.highlightInsertedItemIndex !== null &&
+              "has-highlighted-item" /* global */
+          )}
+        >
+          {isLoadingIframe && (
+            <div className={s["spinner-box"]}>
+              <div className={s["circle-border"]}>
+                <div className={s["circle-core"]} />
+              </div>
+            </div>
+          )}
+          <div
+            className={s["canvas"]}
+            style={{
+              width: canvasWidth && canvasWidth * scaleToFullyFit,
+              height: canvasHeight && canvasHeight * scaleToFullyFit
+            }}
+          >
+            <IframePreview
+              showIframe
+              version={refreshIframe ? iframeVersion : 1}
+              fileName={fileName}
+              ref={this.iframeRef}
+              onLoad={this.onIframeLoad}
+              className={s["iframe"]}
+              width={canvasWidth}
+              height={canvasHeight}
+              scale={scaleToFullyFit}
+            />
+          </div>
+          <div
+            id="padding-overlay-left"
+            className={classnames(
+              s["padding-overlay"],
+              s["padding-overlay-left"]
+            )}
+          />
+          <div
+            id="padding-overlay-right"
+            className={classnames(
+              s["padding-overlay"],
+              s["padding-overlay-right"]
+            )}
+          />
+          <div
+            id="padding-overlay-top"
+            className={classnames(
+              s["padding-overlay"],
+              s["padding-overlay-top"]
+            )}
+          />
+          <div
+            id="padding-overlay-bottom"
+            className={classnames(
+              s["padding-overlay"],
+              s["padding-overlay-bottom"]
+            )}
+          />
+          {!isLoadingIframe && insertedItems.map(this.renderInsertedRnDItem)}
+          {captureConfig && this.renderCaptureFrame()}
+        </div>
+      </div>
+    );
+  };
+
+  renderLeftSideBar = () => {
+    return (
+      <div className={classnames(s["modal-sidebar"], s["modal-left-sidebar"])}>
+        <Menu className={"tab-menu tabs-zone art-tabs-zone"} icon="labeled">
+          <Menu.Item
+            active={this.state.configMode === "element"}
+            onClick={() => this.setState({ configMode: "element" })}
+            className={"tab-menu-item"}
+          >
+            <Icon name="expand" />
+            <div>Element</div>
+          </Menu.Item>
+          <Menu.Item
+            className={"tab-menu-item"}
+            active={this.state.configMode === "global"}
+            onClick={() =>
+              this.setState({
+                configMode: "global",
+                activeInsertedItemIndex: null
+              })
+            }
+          >
+            <Icon name="globe" />
+            <div>Global</div>
+          </Menu.Item>
+        </Menu>
+        {/* {insertedItems.length > 0
+              ? this.renderLayers()
+              : this.renderTitleAndAuthor()} */}
+        <div className={classnames(s["config-container"], "below-tabs-zone")}>
+          {this.state.configMode === "element"
+            ? this.renderElementConfig()
+            : this.renderGlobalConfig()}
+        </div>
+      </div>
+    );
+  };
 
   renderCaptureFrame = () => {
     const {
@@ -844,13 +858,15 @@ class TheModal extends Component {
 
   onStartSelectingColor = () => {
     this.isSelectingColor = true;
-    this.props.onStartSelectingColor();
+    const { onStartSelectingColor } = this.props;
+    onStartSelectingColor && onStartSelectingColor();
   };
 
   onStopSelectingColor = () => {
     setTimeout(() => {
       this.isSelectingColor = false;
-      this.props.onStopSelectingColor();
+      const { onStopSelectingColor } = this.props;
+      onStopSelectingColor && onStopSelectingColor();
     }, 100); // prevent onModalRightSideClick
   };
 
@@ -1765,7 +1781,7 @@ const CollapsibleSiderBar = React.memo(
       <div
         className={classnames(
           s["modal-sidebar"],
-          s["modal-left-sidebar"],
+          s["modal-right-sidebar"],
           activeItem === null && s["is-collapsed"]
         )}
       >

@@ -94,16 +94,16 @@ export default () => {
               All
             </Button>
             <Button
-              basic={selectedTab !== "newest"}
+              basic={selectedTab !== "templates"}
               color="black"
-              onClick={() => setSelectedTab("newest")}
+              onClick={() => setSelectedTab("templates")}
             >
               Templates
             </Button>
             <Button
-              basic={selectedTab !== "newest"}
+              basic={selectedTab !== "backgrounds"}
               color="black"
-              onClick={() => setSelectedTab("newest")}
+              onClick={() => setSelectedTab("backgrounds")}
             >
               Backgrounds
             </Button>
