@@ -25,9 +25,7 @@ import collections from "./collections";
 const ITEMS_PER_CHUNK = 25;
 
 export default () => {
-  const [selectedTab, setSelectedTab] = useState(
-    localStorage.getItem("app.selectedStream") || "featured"
-  );
+  const [selectedTab, setSelectedTab] = useState("templates");
   const [page, setPage] = useState(0);
   const all = backgroundsList;
   const adaptations = all.slice(0, (page + 1) * ITEMS_PER_CHUNK);
@@ -55,25 +53,6 @@ export default () => {
             purpose
           </div>
         </div>
-        <div className={s["quick-post-form"]} style={{ display: "none" }}>
-          <input
-            className={s["quick-start-input"]}
-            placeholder="Primary Text"
-          />
-          <textarea
-            className={s["quick-start-input"]}
-            placeholder="Secondary Text"
-            rows="3"
-          ></textarea>
-          <div className={s["quick-post-form-footer"]}>
-            <Button icon className={s["font-style-button"]} basic>
-              Choose Font Styles
-            </Button>
-            <Button className={s["preview-button"]} size="big" color="black">
-              Preview
-            </Button>
-          </div>
-        </div>
         <div className={s["get-started"]} style={{ display: "none" }}>
           <Button basic size="big" className={s["CTA-button"]}>
             Enter Your Text
@@ -85,14 +64,6 @@ export default () => {
         </div>
         <div className={s["tabs"]}>
           <Button.Group>
-            <Button
-              basic={selectedTab !== "featured"}
-              color="black"
-              onClick={() => setSelectedTab("featured")}
-              className={s["tab-all"]}
-            >
-              All
-            </Button>
             <Button
               basic={selectedTab !== "templates"}
               color="black"
@@ -108,6 +79,33 @@ export default () => {
               Backgrounds
             </Button>
           </Button.Group>
+        </div>
+        <div className={s["quick-post-form"]}>
+          <div className={s["preview-side"]}>
+            <div
+              className={s["preview"]}
+              style={{ backgroundImage: "url(/thumbs/big/1.png)" }}
+            />
+          </div>
+          <div className={s["form-side"]}>
+            <input
+              className={s["quick-start-input"]}
+              placeholder="Primary Text"
+            />
+            <textarea
+              className={s["quick-start-input"]}
+              placeholder="Secondary Text"
+              rows="3"
+            ></textarea>
+            <div className={s["quick-post-form-footer"]}>
+              <Button icon className={s["font-style-button"]} basic>
+                Choose Font Styles
+              </Button>
+              <Button className={s["preview-button"]} size="big" color="black">
+                Preview
+              </Button>
+            </div>
+          </div>
         </div>
         {collections.map((collection, index) => (
           <Collection key={index} {...collection} />

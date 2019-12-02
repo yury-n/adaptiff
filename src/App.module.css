@@ -197,12 +197,36 @@
 }
 
 .quick-post-form {
-  width: 440px;
+  width: 900px;
   margin: auto;
   padding: 50px 0;
   display: flex;
+  justify-content: space-between;
+}
+
+.preview-side {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview {
+  width: 400px;
+  height: 400px;
+  background-size: cover;
+}
+
+.form-side {
+  width: 400px;
+  display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.form-side > * {
+  flex-grow: 0;
 }
 
 .quick-post-form-footer {
