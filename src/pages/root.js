@@ -80,7 +80,154 @@ export default () => {
             </Button>
           </Button.Group>
         </div>
-        <div className={s["quick-post-form"]}>
+        <div className={s["layouts"]}>
+          <div className={classnames(s["layout"], s["layout-active"])}>
+            <div className={s["layout-active-frame"]} />
+            <div className={s["inner-layout"]}>
+              <div style={{ fontWeight: "bold" }}>Sample text sample</div>
+              <div
+                style={{
+                  padding: "0 13%",
+                  fontSize: "10px",
+                  lineHeight: "normal",
+                  marginTop: "5%"
+                }}
+              >
+                Sample text sample text sample text sample text sample text
+                sample
+              </div>
+            </div>
+          </div>
+          <div className={s["layout"]}>
+            <div className={s["inner-layout"]}>
+              <div style={{ fontWeight: "bold" }}>Sample text sample</div>
+              <div
+                style={{
+                  padding: "0 13%",
+                  fontSize: "10px",
+                  lineHeight: "normal",
+                  marginTop: "5%"
+                }}
+              >
+                Sample text sample text sample text sample text sample text
+                sample
+              </div>
+            </div>
+          </div>
+          <div className={s["layout"]}>
+            <div className={s["inner-layout"]}>
+              <div style={{ fontWeight: "bold" }}>Sample text sample</div>
+              <div
+                style={{
+                  padding: "0 13%",
+                  fontSize: "10px",
+                  lineHeight: "normal",
+                  marginTop: "5%"
+                }}
+              >
+                Sample text sample text sample text sample text sample text
+                sample
+              </div>
+            </div>
+          </div>
+          <div className={s["layout"]}>
+            <div className={s["inner-layout"]}>
+              <div style={{ fontWeight: "bold" }}>Sample text sample</div>
+              <div
+                style={{
+                  padding: "0 13%",
+                  fontSize: "10px",
+                  lineHeight: "normal",
+                  marginTop: "5%"
+                }}
+              >
+                Sample text sample text sample text sample text sample text
+                sample
+              </div>
+            </div>
+          </div>
+          <div className={s["layout"]}>
+            <div className={s["inner-layout"]}>
+              <div style={{ fontWeight: "bold" }}>Sample text sample</div>
+              <div
+                style={{
+                  padding: "0 13%",
+                  fontSize: "10px",
+                  lineHeight: "normal",
+                  marginTop: "5%"
+                }}
+              >
+                Sample text sample text sample text sample text sample text
+                sample
+              </div>
+            </div>
+          </div>
+          <div className={s["layout"]}>
+            <div className={s["inner-layout"]}>
+              <div style={{ fontWeight: "bold" }}>Sample text sample</div>
+              <div
+                style={{
+                  padding: "0 13%",
+                  fontSize: "10px",
+                  lineHeight: "normal",
+                  marginTop: "5%"
+                }}
+              >
+                Sample text sample text sample text sample text sample text
+                sample
+              </div>
+            </div>
+          </div>
+          <div className={s["layout"]}>
+            <div className={s["inner-layout"]}>
+              <div style={{ fontWeight: "bold" }}>Sample text sample</div>
+              <div
+                style={{
+                  padding: "0 13%",
+                  fontSize: "10px",
+                  lineHeight: "normal",
+                  marginTop: "5%"
+                }}
+              >
+                Sample text sample text sample text sample text sample text
+                sample
+              </div>
+            </div>
+          </div>
+          <div className={s["layout"]}>
+            <div className={s["inner-layout"]}>
+              <div style={{ fontWeight: "bold" }}>Sample text sample</div>
+              <div
+                style={{
+                  padding: "0 13%",
+                  fontSize: "10px",
+                  lineHeight: "normal",
+                  marginTop: "5%"
+                }}
+              >
+                Sample text sample text sample text sample text sample text
+                sample
+              </div>
+            </div>
+          </div>
+          <div className={s["layout"]}>
+            <div className={s["inner-layout"]}>
+              <div style={{ fontWeight: "bold" }}>Sample text sample</div>
+              <div
+                style={{
+                  padding: "0 13%",
+                  fontSize: "10px",
+                  lineHeight: "normal",
+                  marginTop: "5%"
+                }}
+              >
+                Sample text sample text sample text sample text sample text
+                sample
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={s["quick-post-form"]} style={{ display: "none" }}>
           <div className={s["preview-side"]}>
             <div
               className={s["preview"]}

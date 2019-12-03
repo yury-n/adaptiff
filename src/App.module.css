@@ -261,3 +261,51 @@
 .preview-button {
   width: 150px;
 }
+
+.layouts {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+  margin-top: 70px;
+}
+
+.layout {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  box-sizing: border-box;
+  box-shadow: rgba(10, 31, 68, 0.06) 0px 0px 10px 0px;
+  background: white;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.layout-active {
+  background: transparent;
+  box-shadow: none;
+}
+
+.layout-active-frame {
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  border: 1px solid #4a4a4a;
+  border-radius: 13px;
+  padding: 3px;
+}
+
+.inner-layout {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 180px;
+  height: 180px;
+  transform: scale(0.66);
+  transform-origin: left top;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
