@@ -44,7 +44,7 @@ export default () => {
       <div
         className={classnames(s["main-content-area"], "restricted-width-area")}
       >
-        <div>
+        <div style={{ display: "none" }}>
           <div className={s["main-header"]}>
             Unique adaptive designs for everyone
           </div>
