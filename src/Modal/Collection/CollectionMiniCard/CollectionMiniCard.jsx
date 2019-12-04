@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ModalGroup from "../../ModalGroup/ModalGroup";
 import PremiumCrown from "../../../pages/PremiumCrown/PremiumCrown";
+import Layout from "../../Layouts/Layout/Layout";
 
 import s from "./CollectionMiniCard.module.css";
 
@@ -15,6 +16,7 @@ export default ({ item, items, isPremium }) => {
           </div>
         )}
         <img loading="lazy" src={item.thumb} alt="" />
+        <Layout width={180} />
       </div>
       {showModal && (
         <ModalGroup

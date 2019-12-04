@@ -7,9 +7,19 @@ import s from "./InsertedText.module.css";
 
 export default React.memo(
   React.forwardRef(function InsertedText(
-    { initialValue, setHasCyrillic, config, scale },
+    {
+      id,
+      initialValue,
+      setHasCyrillic,
+      config,
+      scale,
+      isActive,
+      isEditable = true,
+      onClick
+    },
     ref
   ) {
+    let spanNode;
     let prevHasCyrillic = /[а-яА-ЯЁё]/.test(initialValue);
     const initialValueParts = initialValue ? initialValue.split(/\n/) : [];
     const initialValuePartsWithBRs = [];
@@ -29,8 +39,11 @@ export default React.memo(
 
     return (
       <span
-        ref={ref}
-        contentEditable={true}
+        ref={node => {
+          spanNode = node;
+          ref && ref(node);
+        }}
+        contentEditable={isEditable}
         onKeyUp={e => {
           const hasCyrillic = /[а-яА-ЯЁё]/.test(e.target.innerText);
           if (prevHasCyrillic !== hasCyrillic) {
@@ -38,8 +51,23 @@ export default React.memo(
           }
         }}
         suppressContentEditableWarning={true}
-        className={classnames(s["text"])}
+        className={classnames(s["text"], isActive && s["active"])}
+        onClick={e => {
+          if (isActive) {
+            e.stopPropagation();
+          }
+          const valueToLower = spanNode.innerText.toLowerCase();
+          if (
+            valueToLower.includes("sample") &&
+            valueToLower.includes("text")
+          ) {
+            document.execCommand("selectAll", false, null);
+          }
+          onClick && onClick(id);
+        }}
         style={{
+          position: "relative",
+          zIndex: "1000", // as RnDItem_moveable
           fontSize: `${config.fontSize * (scale || 1)}px`,
           fontFamily: config.fontFamily,
           color: config.color,

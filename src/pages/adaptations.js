@@ -2940,6 +2940,7 @@ export const allAdaptations = [
     author: "Abstract Geometry",
     thumb: "/thumbs/74.png?1",
     objectPack: "Round Shapes",
+    colorText: "#fff",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3071,26 +3072,6 @@ export const allAdaptations = [
           position: { left: -29.733570159857905, top: 577.4067495559503 },
           id: 406,
           rotation: 0
-        },
-        {
-          type: "text",
-          hasCyrillic: false,
-          configValues: {
-            fontFamily: "Roboto",
-            fontSize: 68,
-            padding: 100,
-            letterSpacing: 0,
-            color: "#ffffff",
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
-            borderWidth: 1,
-            isInline: false,
-            lineHeight: 16
-          },
-          id: 102,
-          width: 589.9955595026644,
-          height: 524.2340142095915,
-          position: { left: 236.9094138543517, top: 311.72291296625224 },
-          text: "NICE WAY\nTO SAY\nSOMETHING"
         }
       ]
     }

@@ -80,6 +80,7 @@ class ColorInput extends Component {
           onChange={this.onChange}
           labelPosition="left"
           value={colorObjToString(color)}
+          spellCheck={false}
         />
         {showColorPicker && (
           <div

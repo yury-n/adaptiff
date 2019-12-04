@@ -682,8 +682,11 @@ class TheModal extends Component {
     };
     switch (insertedItem.type) {
       case "text":
+        const InsertedTextComponent = insertedItem.isDraggable
+          ? InsertedTextDraggable
+          : InsertedText;
         return (
-          <InsertedTextDraggable
+          <InsertedTextComponent
             config={insertedItem.configValues}
             initialValue={insertedItem.text || "Some sample text"}
             setHasCyrillic={value =>
@@ -1143,16 +1146,13 @@ class TheModal extends Component {
     const { activeInsertedItemIndex, insertedItems } = this.state;
     this.moveInsertedItemToIndex(
       activeInsertedItemIndex,
-      Math.min(activeInsertedItemIndex + 1, insertedItems.length - 1)
+      insertedItems.length - 1
     );
   };
 
   bringActiveInsertedItemToBack = () => {
     const { activeInsertedItemIndex } = this.state;
-    this.moveInsertedItemToIndex(
-      activeInsertedItemIndex,
-      Math.max(activeInsertedItemIndex - 1, 0)
-    );
+    this.moveInsertedItemToIndex(activeInsertedItemIndex, 0);
   };
 
   moveInsertedItemToIndex = (insertedItemIndex, toIndex) => {
