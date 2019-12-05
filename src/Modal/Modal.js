@@ -688,7 +688,7 @@ class TheModal extends Component {
         return (
           <InsertedTextComponent
             config={insertedItem.configValues}
-            initialValue={insertedItem.text || "Some sample text"}
+            initialValue={insertedItem.text || ""}
             setHasCyrillic={value =>
               this.setTextConfigValue("hasCyrillic", value)
             }
@@ -762,7 +762,7 @@ class TheModal extends Component {
           <InsertedText
             key={insertedItem.id}
             config={insertedItem.configValues}
-            initialValue={insertedItem.text || "Some sample text"}
+            initialValue={insertedItem.text || ""}
             scale={scaleToFit}
           />
         );
@@ -1007,6 +1007,8 @@ class TheModal extends Component {
     this.insertItem({
       type: "text",
       hasCyrillic: false,
+      text: "Sample text sample",
+      isDraggable: true,
       configValues:
         lastinsertedItem && lastinsertedItem.type === "text"
           ? lastinsertedItem.configValues

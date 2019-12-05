@@ -3643,6 +3643,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/80.png",
+    textColor: "#fff",
     title: "Round shapes",
     author: "Abstract Geometry",
     objectPack: "Round Shapes",
@@ -3664,27 +3665,6 @@ export const allAdaptations = [
           position: { left: -55.588235294117645, top: 252.3529411764706 },
           id: 202,
           rotation: -90
-        },
-        {
-          type: "text",
-          hasCyrillic: false,
-          configValues: {
-            fontFamily: "Montserrat",
-            fontSize: 66,
-            padding: 100,
-            letterSpacing: 0,
-            color: "#ffffff",
-            backgroundColor: { r: 0, g: 0, b: 0, a: 0 },
-            borderWidth: 1,
-            isInline: false,
-            lineHeight: 15,
-            hasCyrillic: true
-          },
-          id: 102,
-          width: 577.3621323529412,
-          height: 597.2426470588235,
-          position: { left: 266.47058823529414, top: 238.23529411764707 },
-          text: "лик \nлуны \nбыл скрыт \nтенью"
         },
         {
           type: "object",
