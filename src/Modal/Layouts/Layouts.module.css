@@ -1,8 +1,6 @@
 .layouts {
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
-  margin-top: 70px;
 }
 
 .layout {
@@ -32,7 +30,9 @@
   box-shadow: none;
 }
 
-.layout-active-frame {
+.layout-active:before {
+  display: block;
+  content: "";
   position: absolute;
   left: -4px;
   top: -4px;

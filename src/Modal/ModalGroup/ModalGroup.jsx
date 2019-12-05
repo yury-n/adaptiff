@@ -1,9 +1,35 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Modal from "../Modal";
+import layouts from "../../pages/layouts";
+import { getSelectedLayout, getSelectedTab } from "../../selectors/page";
 
 export default ({ initItemIndex, items, onClose }) => {
   const [currentItemIndex, setCurrentItemIndex] = useState(initItemIndex);
-  console.log({ items });
+  const selectedLayout = useSelector(getSelectedLayout);
+  const selectedTab = useSelector(getSelectedTab);
+
+  const currentAdaptation = items[currentItemIndex];
+  let extraInsertedItems = [];
+  if (selectedTab === "templates") {
+    extraInsertedItems = layouts[selectedLayout].items.map(item => ({
+      ...item,
+      configValues: {
+        ...item.configValues,
+        color: currentAdaptation.textColor
+      }
+    }));
+  }
+  const currentAdaptationExtended = {
+    ...currentAdaptation,
+    initState: {
+      ...currentAdaptation.initState,
+      insertedItems: [
+        ...currentAdaptation.initState.insertedItems,
+        ...extraInsertedItems
+      ]
+    }
+  };
   return (
     <Modal
       key={currentItemIndex}
@@ -22,7 +48,7 @@ export default ({ initItemIndex, items, onClose }) => {
         setCurrentItemIndex(newIndex);
       }}
       onClose={onClose}
-      {...items[currentItemIndex]}
+      {...currentAdaptationExtended}
     />
   );
 };

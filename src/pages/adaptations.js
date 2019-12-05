@@ -2940,7 +2940,7 @@ export const allAdaptations = [
     author: "Abstract Geometry",
     thumb: "/thumbs/74.png?1",
     objectPack: "Round Shapes",
-    colorText: "#fff",
+    textColor: "#fff",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
