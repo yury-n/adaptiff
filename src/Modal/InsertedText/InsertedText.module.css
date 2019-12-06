@@ -9,6 +9,7 @@
   overflow: hidden;
 }
 
+.not-draggable:hover::before,
 .active::before {
   display: block;
   content: "";

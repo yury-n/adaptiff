@@ -9,6 +9,7 @@ export default React.memo(
   React.forwardRef(function InsertedText(
     {
       id,
+      isDraggable,
       initialValue,
       setHasCyrillic,
       config,
@@ -51,7 +52,11 @@ export default React.memo(
           }
         }}
         suppressContentEditableWarning={true}
-        className={classnames(s["text"], isActive && s["active"])}
+        className={classnames(
+          s["text"],
+          isActive && s["active"],
+          !isDraggable && s["not-draggable"]
+        )}
         onClick={e => {
           if (isActive) {
             e.stopPropagation();

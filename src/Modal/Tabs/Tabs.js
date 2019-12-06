@@ -15,14 +15,20 @@ export default () => {
         <Button
           basic={selectedTab !== "templates"}
           color="black"
-          onClick={() => dispatch(setSelectedTab("templates"))}
+          onClick={() => {
+            dispatch(setSelectedTab("templates"));
+            localStorage.setItem("app.page.selectedTab", "templates");
+          }}
         >
           Templates
         </Button>
         <Button
           basic={selectedTab !== "backgrounds"}
           color="black"
-          onClick={() => dispatch(setSelectedTab("backgrounds"))}
+          onClick={() => {
+            dispatch(setSelectedTab("backgrounds"));
+            localStorage.setItem("app.page.selectedTab", "backgrounds");
+          }}
         >
           Backgrounds
         </Button>

@@ -8,7 +8,7 @@ import { getSelectedLayout, getSelectedTab } from "../../selectors/page";
 import s from "./Layouts.module.css";
 import { setSelectedLayout } from "../../actions/page";
 
-export default () => {
+export default ({ className }) => {
   const dispatch = useDispatch();
   const selectedLayout = useSelector(getSelectedLayout);
   const selectedTab = useSelector(getSelectedTab);
@@ -18,7 +18,7 @@ export default () => {
   }
 
   return (
-    <div className={s["layouts"]}>
+    <div className={classnames(s["layouts"], className)}>
       {layouts.map((layout, index) => (
         <div
           key={index}
@@ -30,7 +30,7 @@ export default () => {
             dispatch(setSelectedLayout(index));
           }}
         >
-          <Layout layout={layout} width={120} />
+          <Layout layout={layout} width={140} />
         </div>
       ))}
     </div>

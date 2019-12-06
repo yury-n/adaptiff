@@ -48,7 +48,6 @@
 }
 
 .collection-header {
-  width: 1130px;
   margin: auto;
   padding: 15px 36px;
   font-size: 15px;
@@ -71,8 +70,7 @@
 
 .collection-wrapper {
   position: relative;
-  width: 1130px;
-  background: white;
+  width: 100%;
   border-radius: 12px;
   box-shadow: inset rgba(10, 31, 68, 0.1) 0px 4px 14px 0px;
   margin: auto;
@@ -103,7 +101,7 @@
 }
 
 .inside-padding {
-  width: 32px;
+  width: 28px;
   height: 100%;
   flex-shrink: 0;
 }

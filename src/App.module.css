@@ -1,8 +1,24 @@
 .main-content-area {
   min-height: calc(100vh - 116px /* header */ - 123px /* footer */);
   box-sizing: border-box;
-  padding: 60px 0;
+  padding: 60px 50px;
   padding-top: 20px;
+}
+
+.v2-layout {
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar {
+  width: 140px;
+  margin-right: 50px;
+  margin-top: -60px;
+}
+
+.collections {
+  margin-top: 40px;
+  width: calc(100% - 190px);
 }
 
 .load-more-wrapper {
@@ -44,10 +60,6 @@
 .subheader :global(i.icon) {
   color: #a6a6a6;
   margin-right: 8px;
-}
-
-.collections {
-  margin-top: 40px;
 }
 
 .tab-all {

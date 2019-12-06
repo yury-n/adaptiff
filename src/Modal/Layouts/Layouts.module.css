@@ -1,17 +1,19 @@
 .layouts {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  margin-right: 40px;
 }
 
 .layout {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   box-sizing: border-box;
-  box-shadow: rgba(10, 31, 68, 0.06) 0px 0px 10px 0px;
+  box-shadow: rgba(10, 31, 68, 0.15) 0px 10px 16px 0px;
   background: white;
   border-radius: 10px;
-  margin-right: 20px;
+  /* margin-right: 20px; */
+  margin-bottom: 20px;
   flex-shrink: 0;
   cursor: pointer;
   transition: 200ms;

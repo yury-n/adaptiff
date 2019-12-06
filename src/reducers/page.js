@@ -1,6 +1,6 @@
 const initialState = {
   selectedLayout: 0,
-  selectedTab: "templates"
+  selectedTab: localStorage.getItem("app.page.selectedTab") || "templates"
 };
 
 const setSelectedLayout = (state, action) => ({

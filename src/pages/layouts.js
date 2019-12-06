@@ -73,5 +73,72 @@ export default [
         text: "Sample text sample\ntext sample text sample"
       }
     ]
+  },
+  {
+    items: [
+      {
+        type: "text",
+        isDraggable: false,
+        isFromLayout: true,
+        hasCyrillic: false,
+        configValues: {
+          fontFamily: "Poppins",
+          fontSize: 54,
+          padding: 10,
+          letterSpacing: 0,
+          color: "#000",
+          backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+          borderWidth: 0,
+          isInline: false,
+          lineHeight: 12,
+          textAlign: "center",
+          isBold: false
+        },
+        id: 100,
+        text: "Sample text sample"
+      },
+      {
+        type: "text",
+        isDraggable: false,
+        isFromLayout: true,
+        hasCyrillic: false,
+        configValues: {
+          fontFamily: "Poppins",
+          fontSize: 72,
+          padding: 10,
+          letterSpacing: 0,
+          color: "#000",
+          backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+          borderWidth: 0,
+          isInline: false,
+          lineHeight: 12,
+          textAlign: "center",
+          isBold: true
+        },
+        id: 102,
+        text: "Sample text sample"
+      },
+      {
+        type: "text",
+        isDraggable: false,
+        isFromLayout: true,
+        hasCyrillic: false,
+        configValues: {
+          fontFamily: "Poppins",
+          fontSize: 54,
+          padding: 10,
+          letterSpacing: 0,
+          color: "#000",
+          backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+          borderWidth: 0,
+          isInline: false,
+          lineHeight: 12,
+          textAlign: "center",
+          isBold: false
+        },
+        id: 103,
+        text: "Sample text sample"
+      }
+    ]
   }
 ];

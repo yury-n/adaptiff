@@ -61,6 +61,7 @@ class ColorInput extends Component {
         noSpaceAboveForPicker = true;
       }
     }
+    const colorString = color ? colorObjToString(color) : "rgba(0, 0, 0, 0)";
     return (
       <div
         className={classnames(
@@ -71,7 +72,9 @@ class ColorInput extends Component {
       >
         <div
           className={classnames("ui", "label", s["color-swatch"])}
-          style={{ background: colorObjToString(color) }}
+          style={{
+            background: colorString
+          }}
           onClick={this.setInputFocus}
         />
         <Input
@@ -79,7 +82,7 @@ class ColorInput extends Component {
           onFocus={this.showColorPicker}
           onChange={this.onChange}
           labelPosition="left"
-          value={colorObjToString(color)}
+          value={colorString}
           spellCheck={false}
         />
         {showColorPicker && (

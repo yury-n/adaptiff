@@ -52,6 +52,15 @@ export default () => {
             "restricted-width-area"
           )}
         >
+          <Tabs />
+          <div className={s["v2-layout"]}>
+            <Layouts className={s["sidebar"]} />
+            <div className={s["collections"]}>
+              {collections.map((collection, index) => (
+                <Collection key={index} {...collection} />
+              ))}
+            </div>
+          </div>
           <div style={{ display: "none" }}>
             <div className={s["main-header"]}>
               Unique adaptive designs for everyone
@@ -70,8 +79,6 @@ export default () => {
               start by picking a background below
             </div>
           </div>
-          <Tabs />
-          <Layouts />
           <div className={s["quick-post-form"]} style={{ display: "none" }}>
             <div className={s["preview-side"]}>
               <div
@@ -102,11 +109,6 @@ export default () => {
                 </Button>
               </div>
             </div>
-          </div>
-          <div className={s["collections"]}>
-            {collections.map((collection, index) => (
-              <Collection key={index} {...collection} />
-            ))}
           </div>
           <div className={s["filters"]}>
             <Checkbox label="generative" checked={true} />
