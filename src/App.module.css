@@ -11,14 +11,14 @@
 }
 
 .sidebar {
-  width: 140px;
-  margin-right: 50px;
+  width: 170px;
+  margin-right: 40px;
   margin-top: -60px;
 }
 
 .collections {
   margin-top: 40px;
-  width: calc(100% - 190px);
+  width: calc(100% - 210px);
 }
 
 .filters {

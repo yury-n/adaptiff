@@ -8,7 +8,7 @@ import { getSelectedTab, getSelectedLayout } from "../../../selectors/page";
 import s from "./CollectionMiniCard.module.css";
 import layouts from "../../../pages/layouts";
 
-export default ({ item, items, isPremium }) => {
+export default ({ adaptation, adaptations, isPremium }) => {
   const [showModal, setShowModal] = useState(false);
   const selectedLayout = useSelector(getSelectedLayout);
   const selectedTab = useSelector(getSelectedTab);
@@ -20,20 +20,21 @@ export default ({ item, items, isPremium }) => {
             <PremiumCrown />
           </div>
         )}
-        <img loading="lazy" src={item.thumb} alt="" />
+        <img loading="lazy" src={adaptation.thumb} alt="" />
         {selectedTab === "templates" && (
           <Layout
             layout={layouts[selectedLayout]}
             width={180}
-            textColor={item.textColor}
+            textColor={adaptation.textColor}
+            textBackgroundColor={adaptation.textBackgroundColor}
           />
         )}
       </div>
       {showModal && (
         <ModalGroup
           onClose={() => setShowModal(false)}
-          initItemIndex={items.indexOf(item)}
-          items={items}
+          initadaptationIndex={adaptations.indexOf(adaptation)}
+          adaptations={adaptations}
         />
       )}
     </>

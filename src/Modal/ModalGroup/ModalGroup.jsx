@@ -4,19 +4,22 @@ import Modal from "../Modal";
 import layouts from "../../pages/layouts";
 import { getSelectedLayout, getSelectedTab } from "../../selectors/page";
 
-export default ({ initItemIndex, items, onClose }) => {
-  const [currentItemIndex, setCurrentItemIndex] = useState(initItemIndex);
+export default ({ initadaptationIndex, adaptations, onClose }) => {
+  const [currentItemIndex, setCurrentItemIndex] = useState(initadaptationIndex);
   const selectedLayout = useSelector(getSelectedLayout);
   const selectedTab = useSelector(getSelectedTab);
 
-  const currentAdaptation = items[currentItemIndex];
-  let extraInsertedItems = [];
+  const currentAdaptation = adaptations[currentItemIndex];
+  let extrainsertedItems = [];
   if (selectedTab === "templates") {
-    extraInsertedItems = layouts[selectedLayout].items.map(item => ({
+    extrainsertedItems = layouts[selectedLayout].items.map(item => ({
       ...item,
       configValues: {
         ...item.configValues,
-        color: currentAdaptation.textColor
+        color: currentAdaptation.textColor,
+        backgroundColor: item.withBackground
+          ? currentAdaptation.textBackgroundColor
+          : undefined
       }
     }));
   }
@@ -25,8 +28,10 @@ export default ({ initItemIndex, items, onClose }) => {
     initState: {
       ...currentAdaptation.initState,
       insertedItems: [
-        ...currentAdaptation.initState.insertedItems,
-        ...extraInsertedItems
+        ...(currentAdaptation.initState
+          ? currentAdaptation.initState.insertedItems || []
+          : []),
+        ...extrainsertedItems
       ]
     }
   };
@@ -36,13 +41,13 @@ export default ({ initItemIndex, items, onClose }) => {
       onGoToPrevAdaptation={() => {
         let newIndex = currentItemIndex - 1;
         if (newIndex < 0) {
-          newIndex = items.length - 1;
+          newIndex = adaptations.length - 1;
         }
         setCurrentItemIndex(newIndex);
       }}
       onGoToNextAdaptation={() => {
         let newIndex = currentItemIndex + 1;
-        if (newIndex > items.length - 1) {
+        if (newIndex > adaptations.length - 1) {
           newIndex = 0;
         }
         setCurrentItemIndex(newIndex);

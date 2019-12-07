@@ -76,8 +76,14 @@ export default React.memo(
           fontSize: `${config.fontSize * (scale || 1)}px`,
           fontFamily: config.fontFamily,
           color: config.color,
-          backgroundColor: colorObjToString(config.backgroundColor),
-          padding: `${config.padding * (scale || 1)}px`,
+          backgroundColor: config.backgroundColor
+            ? colorObjToString(config.backgroundColor)
+            : undefined,
+          padding: `${config.verticalPadding ||
+            config.padding * (scale || 1)}px ${config.horizontalPadding ||
+            config.padding * (scale || 1)}px ${config.verticalPadding ||
+            config.padding * (scale || 1)}px ${config.horizontalPadding ||
+            config.padding * (scale || 1)}px`,
           fontWeight: config.isBold ? "bold" : "normal",
           textDecoration: config.isUnderlined ? "underline" : "none",
           fontStyle: config.isItalic ? "italic" : undefined,
@@ -89,7 +95,9 @@ export default React.memo(
           borderColor: config.color,
           display: config.isInline ? "inline" : "block",
           lineHeight:
-            config.lineHeight !== undefined ? config.lineHeight / 10 : 1.1
+            config.lineHeight !== undefined ? config.lineHeight / 10 : 1.1,
+          marginTop: `${config.marginTop || 0}px`,
+          marginBottom: `${config.marginBottom || 0}px`
         }}
       >
         {initialValuePartsWithBRs}

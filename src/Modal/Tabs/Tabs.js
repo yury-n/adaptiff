@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from "classnames";
 import { useSelector, useDispatch } from "react-redux";
 import { getSelectedTab } from "../../selectors/page";
 import { setSelectedTab } from "../../actions/page";
@@ -10,7 +11,12 @@ export default () => {
   const dispatch = useDispatch();
   const selectedTab = useSelector(getSelectedTab);
   return (
-    <div className={s["tabs"]}>
+    <div
+      className={classnames(
+        s["tabs"],
+        selectedTab === "templates" && s["active-templates"]
+      )}
+    >
       <Button.Group>
         <Button
           basic={selectedTab !== "templates"}

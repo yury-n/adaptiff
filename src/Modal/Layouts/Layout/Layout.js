@@ -3,13 +3,19 @@ import InsertedText from "../../InsertedText/InsertedText";
 
 import s from "./Layout.module.css";
 
-export default ({ layout, width, textColor }) => (
+export default ({ layout, width, textColor, textBackgroundColor }) => (
   <div className={s["root"]} style={{ transform: `scale(${width / 1080})` }}>
-    {layout.items.map((item, index) => (
+    {layout.items.map((layoutItem, index) => (
       <InsertedText
         key={index}
-        config={{ ...item.configValues, color: textColor }}
-        initialValue={item.text}
+        config={{
+          ...layoutItem.configValues,
+          color: textColor,
+          backgroundColor: layoutItem.configValues.withBackground
+            ? textBackgroundColor || layoutItem.configValues.backgroundColor
+            : undefined
+        }}
+        initialValue={layoutItem.text}
       />
     ))}
   </div>

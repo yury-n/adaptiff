@@ -76,7 +76,7 @@ export default ({ title, author, authorLink, items, isPremium }) => {
             contentRef.current.scrollLeft = 0;
           }}
         >
-          ←
+          <span>←</span>
         </div>
         <div
           className={classnames(
@@ -88,7 +88,7 @@ export default ({ title, author, authorLink, items, isPremium }) => {
             contentRef.current.scrollLeft = contentRef.current.scrollWidth;
           }}
         >
-          →
+          <span>→</span>
         </div>
         <div className={s["collection-scroll-wrapper"]} ref={contentRef}>
           <div className={s["inside-padding"]} />
@@ -96,8 +96,8 @@ export default ({ title, author, authorLink, items, isPremium }) => {
             <CollectionMiniCard
               key={index}
               isPremium={isPremium}
-              item={item}
-              items={items}
+              adaptation={item}
+              adaptations={items}
             />
           ))}
           <div className={s["inside-padding"]} />

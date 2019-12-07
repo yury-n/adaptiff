@@ -64,16 +64,16 @@ class TheModal extends Component {
       configValues: {},
       iframeVersion: 0, // for props.config.refreshIframe = true
       // Check for custom properties first
-      canvasWidth:
-        initState.size.width ||
-        // do not persist until we have a flush button
-        // +localStorage.getItem("modal.canvasWidth") ||
-        undefined,
-      canvasHeight:
-        initState.size.height ||
-        // do not persist until we have a flush button
-        // +localStorage.getItem("modal.canvasHeight") ||
-        undefined,
+      canvasWidth: initState.size
+        ? initState.size.width
+        : // do not persist until we have a flush button
+          // +localStorage.getItem("modal.canvasWidth") ||
+          undefined,
+      canvasHeight: initState.size
+        ? initState.size.height
+        : // do not persist until we have a flush button
+          // +localStorage.getItem("modal.canvasHeight") ||
+          undefined,
       insertedItems:
         initState.insertedItems ||
         [
@@ -350,6 +350,7 @@ class TheModal extends Component {
         insertText={this.insertText}
         insertObject={this.insertObject}
         priorityObjectPack={this.props.objectPack}
+        onClick={this.onModalRightSideClick}
       />
     );
   };
@@ -1724,7 +1725,9 @@ class TheModal extends Component {
               height: this.state.canvasHeight
             },
             configValues: this.state.configValues,
-            insertedItems: capturedInsertedItems
+            insertedItems: capturedInsertedItems.filter(
+              item => !item.isFromLayout
+            )
           }
         })
           .slice(1)
@@ -1764,7 +1767,7 @@ class TheModal extends Component {
 }
 
 const CollapsibleSiderBar = React.memo(
-  ({ insertText, insertImage, insertObject, priorityObjectPack }) => {
+  ({ insertText, insertImage, insertObject, priorityObjectPack, onClick }) => {
     const [activeItem, setActiveItem] = useState(() => {
       return null;
       // const activeItemFromStorage = localStorage.getItem(
@@ -1790,6 +1793,7 @@ const CollapsibleSiderBar = React.memo(
           s["modal-right-sidebar"],
           activeItem === null && s["is-collapsed"]
         )}
+        onClick={onClick}
       >
         <InsertionMenu
           onInsertText={(...args) => {
