@@ -17,7 +17,7 @@ export default ({ initadaptationIndex, adaptations, onClose }) => {
       configValues: {
         ...item.configValues,
         color: currentAdaptation.textColor,
-        backgroundColor: item.withBackground
+        backgroundColor: item.configValues.withBackground
           ? currentAdaptation.textBackgroundColor
           : undefined
       }

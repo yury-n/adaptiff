@@ -2946,6 +2946,8 @@ export const allAdaptations = [
     thumb: "/thumbs/74.png?1",
     objectPack: "Round Shapes",
     textColor: "#fff",
+    textBackgroundColor: "rgba(61, 0, 129, 0.74)",
+    supportedLayout: ["background", 3, 4],
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3085,7 +3087,9 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/75.png",
-    textColor: "#63d1ff",
+    textColor: "#fff",
+    textBackgroundColor: "rgba(114, 33, 181, 0.4)",
+    supportedLayout: ["background", 0, 3, 4],
     title: "Round shapes",
     author: "Abstract Geometry",
     objectPack: "Round Shapes",
@@ -3304,6 +3308,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/77.png",
+    supportedLayout: ["background"],
     title: "Round shapes",
     author: "Abstract Geometry",
     objectPack: "Round Shapes",
@@ -3388,6 +3393,9 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/78.png",
+    textColor: "#fff",
+    textBackgroundColor: "rgba(22, 20, 60, 0.8)",
+    supportedLayout: ["background", 0, 1, 2, 4],
     title: "Round shapes",
     author: "Abstract Geometry",
     objectPack: "Round Shapes",
@@ -3499,27 +3507,6 @@ export const allAdaptations = [
           rotation: 134
         },
         {
-          type: "text",
-          hasCyrillic: false,
-          configValues: {
-            fontFamily: "Poppins",
-            fontSize: 89,
-            padding: 10,
-            letterSpacing: 0,
-            color: "#fdfdfd",
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
-            borderWidth: 0,
-            isInline: false,
-            lineHeight: 12,
-            isBold: true
-          },
-          id: 211,
-          width: 542.7297794117648,
-          height: 125.84558823529412,
-          position: { left: 271.0477941176471, top: 509.09007352941177 },
-          text: "Banner text"
-        },
-        {
           type: "object",
           width: 199.41176470588235,
           height: 95.29411764705883,
@@ -3548,6 +3535,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/79.png",
+    supportedLayout: ["background"],
     title: "Round shapes",
     author: "Abstract Geometry",
     objectPack: "Round Shapes",
@@ -3650,6 +3638,7 @@ export const allAdaptations = [
     ...linearGradient,
     thumb: "/thumbs/80.png",
     textColor: "#fff",
+    supportedLayout: ["background", 0, 1, 2, 3, 4],
     title: "Round shapes",
     author: "Abstract Geometry",
     objectPack: "Round Shapes",
@@ -3778,6 +3767,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/81.png",
+    textColor: "#fff",
     title: "Round shapes",
     author: "Abstract Geometry",
     objectPack: "Round Shapes",
@@ -4998,6 +4988,7 @@ export const allAdaptations = [
   // 90
   {
     ...waterpipe,
+    textBackgroundColor: "rgba(255, 255, 255, 0.7)",
     id: 90,
     initState: {
       size: { width: 1000, height: 1000 },
@@ -5689,6 +5680,7 @@ export const allAdaptations = [
     ...radialGradient,
     thumb: "/thumbs/98.png",
     textColor: "#fff",
+    textBackgroundColor: "rgba(255, 0, 0, 0.14)",
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: { palette: ["#440000", "#1f0000"] },
@@ -5717,6 +5709,8 @@ export const allAdaptations = [
   {
     ...waterpipe,
     thumb: "/thumbs/99.png",
+    textColor: "#000",
+    textBackgroundColor: "rgba(255, 255, 255, 0.8)",
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: {
@@ -5733,7 +5727,7 @@ export const allAdaptations = [
   {
     ...radialGradient,
     textColor: "#000",
-    textBackgroundColor: "rgba(255, 255, 255, 0.8)",
+    textBackgroundColor: "rgba(255, 255, 255, 0.7)",
     thumb: "/thumbs/100.png",
     initState: {
       size: { width: 1000, height: 1000 },
@@ -5938,6 +5932,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     textColor: "#000",
+    textBackgroundColor: "rgba(251, 194, 235, 0.44)",
     thumb: "/thumbs/107.png",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -5971,6 +5966,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     textColor: "#000",
+    textBackgroundColor: "rgba(255, 255, 255, 0.36)",
     thumb: "/thumbs/108.png",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -6004,6 +6000,8 @@ export const allAdaptations = [
   {
     ...linearGradient,
     textColor: "#fff",
+    textBackgroundColor: "rgba(61, 0, 129, 0.74)",
+    supportedLayout: [0, 1, 2],
     thumb: "/thumbs/109.png",
     initState: {
       size: { width: 1080, height: 1080 },

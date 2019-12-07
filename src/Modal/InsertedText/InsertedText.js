@@ -79,11 +79,11 @@ export default React.memo(
           backgroundColor: config.backgroundColor
             ? colorObjToString(config.backgroundColor)
             : undefined,
-          padding: `${config.verticalPadding ||
-            config.padding * (scale || 1)}px ${config.horizontalPadding ||
-            config.padding * (scale || 1)}px ${config.verticalPadding ||
-            config.padding * (scale || 1)}px ${config.horizontalPadding ||
-            config.padding * (scale || 1)}px`,
+          padding: `${(config.verticalPadding || config.padding) *
+            (scale || 1)}px ${(config.horizontalPadding || config.padding) *
+            (scale || 1)}px ${(config.verticalPadding || config.padding) *
+            (scale || 1)}px ${(config.horizontalPadding || config.padding) *
+            (scale || 1)}px`,
           fontWeight: config.isBold ? "bold" : "normal",
           textDecoration: config.isUnderlined ? "underline" : "none",
           fontStyle: config.isItalic ? "italic" : undefined,

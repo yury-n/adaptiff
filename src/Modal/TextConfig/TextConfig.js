@@ -87,13 +87,21 @@ export default React.memo(
           checked={!config.isInline}
           onChange={() => setConfigValue("isInline", !config.isInline)}
         /> */}
-        <label className="form-label">Padding</label>
+        <label className="form-label">Vertical Padding</label>
         <Range
           withRangeInputs={false}
           min={0}
-          max={50}
-          value={config.padding}
-          onChange={value => setConfigValue("padding", value)}
+          max={100}
+          value={config.verticalPadding || 10}
+          onChange={value => setConfigValue("verticalPadding", value)}
+        />
+        <label className="form-label">Horizontal Padding</label>
+        <Range
+          withRangeInputs={false}
+          min={0}
+          max={100}
+          value={config.horizontalPadding || 10}
+          onChange={value => setConfigValue("horizontalPadding", value)}
         />
         <label className="form-label">Line Height</label>
         <Range
