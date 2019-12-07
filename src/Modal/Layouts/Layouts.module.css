@@ -4,6 +4,12 @@
   margin-right: 40px;
 }
 
+.inner-wrapper {
+  position: fixed;
+  top: 160px;
+  bottom: 0px;
+}
+
 .layout {
   position: relative;
   width: 140px;

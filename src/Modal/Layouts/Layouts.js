@@ -19,20 +19,22 @@ export default ({ className }) => {
 
   return (
     <div className={classnames(s["layouts"], className)}>
-      {layouts.map((layout, index) => (
-        <div
-          key={index}
-          className={classnames(
-            s["layout"],
-            selectedLayout === index && s["layout-active"]
-          )}
-          onClick={() => {
-            dispatch(setSelectedLayout(index));
-          }}
-        >
-          <Layout layout={layout} width={140} />
-        </div>
-      ))}
+      <div className={s["inner-wrapper"]}>
+        {layouts.map((layout, index) => (
+          <div
+            key={index}
+            className={classnames(
+              s["layout"],
+              selectedLayout === index && s["layout-active"]
+            )}
+            onClick={() => {
+              dispatch(setSelectedLayout(index));
+            }}
+          >
+            <Layout layout={layout} width={140} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

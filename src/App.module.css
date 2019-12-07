@@ -21,18 +21,6 @@
   width: calc(100% - 190px);
 }
 
-.load-more-wrapper {
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
-  margin-bottom: 150px;
-}
-
-.load-more-wrapper > button {
-  width: 205px;
-}
-
 .filters {
   margin-bottom: 30px;
   padding-left: 60px;
@@ -46,29 +34,9 @@
   background: black !important;
 }
 
-.subheader {
-  position: relative;
-  width: 1100px;
-  margin: auto;
-  margin-bottom: 25px;
-  margin-top: -10px;
-  font-family: "Roboto", sans-serif !important;
-  font-size: 15px;
-  letter-spacing: 0.2px;
-}
-
-.subheader :global(i.icon) {
-  color: #a6a6a6;
-  margin-right: 8px;
-}
-
 .tab-all {
   width: 60px;
   box-shadow: none !important;
-}
-
-.cards {
-  margin-bottom: 50px;
 }
 
 .feedback-button {
@@ -170,10 +138,6 @@
   .App {
     padding-top: 90px;
   }
-}
-
-.cards {
-  margin-top: 100px !important;
 }
 
 .quick-post-form {

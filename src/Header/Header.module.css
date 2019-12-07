@@ -17,11 +17,8 @@
   transition: padding 200ms;
 }
 
-.minimized .header-inner {
-  padding: 20px 40px;
-}
-
 .logo {
+  margin-left: 13px;
   display: flex;
   align-items: center;
 }

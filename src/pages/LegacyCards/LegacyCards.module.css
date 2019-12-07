@@ -1,0 +1,19 @@
+.cards {
+  margin-bottom: 50px;
+}
+
+.cards {
+  margin-top: 100px !important;
+}
+
+.load-more-wrapper {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 150px;
+}
+
+.load-more-wrapper > button {
+  width: 205px;
+}
