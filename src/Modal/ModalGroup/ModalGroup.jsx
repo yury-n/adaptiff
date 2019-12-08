@@ -18,7 +18,8 @@ export default ({ initadaptationIndex, adaptations, onClose }) => {
         ...item.configValues,
         color: currentAdaptation.textColor,
         backgroundColor: item.configValues.withBackground
-          ? currentAdaptation.textBackgroundColor
+          ? currentAdaptation.textBackgroundColor ||
+            item.configValues.backgroundColor
           : undefined
       }
     }));

@@ -21,5 +21,11 @@ export default [
     items: [43, 16, 25, 103, 104, 105, 106, 107, 108].map(
       index => allAdaptations[index]
     )
+  },
+  {
+    title: "subtle waves",
+    author: "getwaves.io",
+    authorLink: "https://getwaves.io",
+    items: [84, 110, 111, 112, 113, 114].map(index => allAdaptations[index])
   }
 ];
