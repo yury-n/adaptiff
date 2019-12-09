@@ -246,9 +246,9 @@ export default [
   // 2
   subheaderHeaderSubheader,
   // 3
-  headerWithBackground,
+  headerWithBorder,
   // 4
-  headerWithBackgroundAndBorder,
+  headerWithBackground,
   // 5
-  headerWithBorder
+  headerWithBackgroundAndBorder
 ];

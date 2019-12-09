@@ -2,6 +2,22 @@ import { allAdaptations } from "./adaptations";
 
 export default [
   {
+    title: "Gradient Waves",
+    fileName: "gradient_waves",
+    author: "Fabio Ottaviani",
+    authorLink: "https://codepen.io/supah/",
+    items: [125, 126, 127, 128, 129, 130, 8, 62].map(
+      index => allAdaptations[index]
+    )
+  },
+  {
+    title: "blurred bubbles",
+    author: "yury-n",
+    items: [117, 118, 119, 120, 121, 122, 123, 124].map(
+      index => allAdaptations[index]
+    )
+  },
+  {
     title: "rounded cut off lines",
     author: "kate.only",
     items: [109, 75, 79, 76, 80, 78, 77, 81, 74].map(
@@ -26,6 +42,8 @@ export default [
     title: "subtle waves",
     author: "getwaves.io",
     authorLink: "https://getwaves.io",
-    items: [84, 110, 111, 112, 113, 114].map(index => allAdaptations[index])
+    items: [84, 110, 111, 112, 113, 114, 115, 116].map(
+      index => allAdaptations[index]
+    )
   }
 ];
