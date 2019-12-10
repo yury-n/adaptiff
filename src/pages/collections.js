@@ -2,8 +2,18 @@ import { allAdaptations } from "./adaptations";
 
 export default [
   {
+    title: "Glitchy elements",
+    author: "Anna Taran",
+    items: [137, 138, 139, 140, 141].map(index => allAdaptations[index])
+  },
+  {
+    title: "Gradient Bubbles",
+    author: "blobmaker",
+    authorLink: "https://www.blobmaker.app/",
+    items: [131, 132, 133, 134, 135, 136].map(index => allAdaptations[index])
+  },
+  {
     title: "Gradient Waves",
-    fileName: "gradient_waves",
     author: "Fabio Ottaviani",
     authorLink: "https://codepen.io/supah/",
     items: [125, 126, 127, 128, 129, 130, 8, 62].map(
