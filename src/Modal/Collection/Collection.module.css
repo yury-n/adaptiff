@@ -123,6 +123,7 @@
 }
 
 .inside-padding {
+  position: relative;
   width: 28px;
   height: 100%;
   flex-shrink: 0;

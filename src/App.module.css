@@ -140,68 +140,80 @@
   }
 }
 
-.quick-post-form {
-  width: 900px;
-  margin: auto;
-  padding: 50px 0;
-  display: flex;
-  justify-content: space-between;
+.quick-form {
+  padding: 22px;
+  border-radius: 22px;
+  background: #ffffff87;
+  backdrop-filter: blur(6px);
+  box-shadow: rgba(10, 31, 68, 0.16) 0px 2px 106px 0px !important;
+  position: fixed;
+  top: 194px;
+  left: 238px;
+  z-index: 1111;
+  width: 350px;
 }
 
-.preview-side {
-  width: 50%;
+.quick-form:hover .quick-form-close {
+  background: #ffffff87;
+  backdrop-filter: blur(6px);
+}
+
+.quick-form-close-wrapper {
+  position: absolute;
+  top: -45px;
+  right: -45px;
+  width: 65px;
+  height: 65px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.preview {
-  width: 400px;
-  height: 400px;
-  background-size: cover;
+.quick-form-close {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
-.form-side {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.quick-form-close svg {
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+}
+
+.quick-form::after {
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  left: -16px;
+  position: absolute;
+  top: 50%;
+  margin-top: -12px;
+  border-style: solid;
+  border-width: 12.5px 18px 12.5px 0;
+  border-color: transparent #fbfbfd transparent transparent;
 }
 
 .form-side > * {
   flex-grow: 0;
 }
 
-.quick-post-form-footer {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
 .quick-start-input {
+  position: relative;
   width: 100%;
   font-size: 18px;
   resize: none;
   margin-bottom: 20px;
 }
 
-:global(.ui.basic.button).font-style-button,
-.preview-button {
-  border-radius: 12px !important;
-  font-size: 14px !important;
-  padding: 14px 14px !important;
-}
-
-:global(.ui.basic.button).font-style-button:hover {
-  background: transparent !important;
-}
-
-:global(.ui.basic.button).font-style-button {
-  color: black !important;
-  width: 150px;
-}
-
-.preview-button {
-  width: 150px;
+.quick-start-input:last-child {
+  margin-bottom: 0;
 }

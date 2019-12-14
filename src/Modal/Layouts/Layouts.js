@@ -7,6 +7,7 @@ import { getSelectedLayout, getSelectedTab } from "../../selectors/page";
 
 import s from "./Layouts.module.css";
 import { setSelectedLayout } from "../../actions/page";
+import PencilIcon from "../../Icons/PencilIcon";
 
 export default ({ className }) => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ export default ({ className }) => {
             }}
           >
             <Layout layout={layout} width={140} />
+            {index === 1 && <PencilIcon />}
           </div>
         ))}
       </div>

@@ -12,6 +12,7 @@ import collections from "./collections";
 import Layouts from "../Modal/Layouts/Layouts";
 import Tabs from "../Modal/Tabs/Tabs";
 import LegacyCards from "./LegacyCards/LegacyCards";
+import ThinCloseIcon from "../Icons/ThinCloseIcon";
 
 import s from "../App.module.css";
 
@@ -27,6 +28,22 @@ export default () => {
           )}
         >
           <Tabs />
+          <div className={s["quick-form"]}>
+            <div className={s["quick-form-close-wrapper"]}>
+              <div className={s["quick-form-close"]}>
+                <ThinCloseIcon />
+              </div>
+            </div>
+            <input
+              className={s["quick-start-input"]}
+              placeholder="Type something"
+            />
+            {/* <textarea
+              className={s["quick-start-input"]}
+              placeholder="Secondary Text"
+              rows="3"
+            ></textarea> */}
+          </div>
           <div className={s["v2-layout"]}>
             <Layouts className={s["sidebar"]} />
             <div className={s["collections"]}>
@@ -51,37 +68,6 @@ export default () => {
             <div className={s["CTA-text"]}>or</div>
             <div className={s["CTA-text"]}>
               start by picking a background below
-            </div>
-          </div>
-          <div className={s["quick-post-form"]} style={{ display: "none" }}>
-            <div className={s["preview-side"]}>
-              <div
-                className={s["preview"]}
-                style={{ backgroundImage: "url(/thumbs/big/1.png)" }}
-              />
-            </div>
-            <div className={s["form-side"]}>
-              <input
-                className={s["quick-start-input"]}
-                placeholder="Primary Text"
-              />
-              <textarea
-                className={s["quick-start-input"]}
-                placeholder="Secondary Text"
-                rows="3"
-              ></textarea>
-              <div className={s["quick-post-form-footer"]}>
-                <Button icon className={s["font-style-button"]} basic>
-                  Choose Font Styles
-                </Button>
-                <Button
-                  className={s["preview-button"]}
-                  size="big"
-                  color="black"
-                >
-                  Preview
-                </Button>
-              </div>
             </div>
           </div>
           <div className={s["filters"]}>
