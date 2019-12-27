@@ -193,12 +193,12 @@
   content: "";
   width: 0;
   height: 0;
-  left: -16px;
+  left: -12px;
   position: absolute;
   top: 50%;
   margin-top: -12px;
   border-style: solid;
-  border-width: 12.5px 18px 12.5px 0;
+  border-width: 12.5px 12px 12.5px 0;
   border-color: transparent #fbfbfd transparent transparent;
 }
 
