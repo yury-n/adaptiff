@@ -11,28 +11,17 @@
 }
 
 .tabs :global(.ui.buttons) {
-  box-shadow: rgba(10, 31, 68, 0.15) 0px 10px 16px 0px !important;
+  box-shadow: rgba(10, 31, 68, 0.15) 0px 2px 16px 0px !important;
   border-radius: 20px;
   background: white;
 }
 
-.tabs :global(.ui.black.button:first-child) {
-  padding-left: 20px !important;
-  padding-right: 15px !important;
-  border-top-left-radius: 20px !important;
-  border-bottom-left-radius: 20px !important;
-}
-
-.tabs :global(.ui.black.button:last-child) {
-  font-size: 13px;
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-  border-top-right-radius: 20px !important;
-  border-bottom-right-radius: 20px !important;
+.tabs :global(.ui.black.button) {
+  border-radius: 20px !important;
 }
 
 .tabs :global(.ui.basic.black.button) {
-  border: 1px rgb(232, 232, 232) solid;
+  border: none !important;
   box-shadow: none !important;
   font-weight: normal;
   color: black !important;
