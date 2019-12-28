@@ -8635,6 +8635,356 @@ export const allAdaptations = [
         }
       ]
     }
+  },
+  // 142
+  {
+    ...linearGradient,
+    thumb: "/thumbs/142.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#ffb347", "#ffcc33"],
+        direction: "top",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 991.4236706689537,
+          height: 991.4236706689537,
+          showIframe: true,
+          adaptation: svgs[143],
+          configValues: { color: "#ffffff" },
+          position: { left: 5.145797598627787, top: 5.145797598627787 },
+          id: 202,
+          rotation: 0
+        }
+      ]
+    }
+  },
+  // 143
+  {
+    ...linearGradient,
+    thumb: "/thumbs/143.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#ffafcc", "#fdebde"],
+        direction: "right",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 1466.5523156089196,
+          height: 1310.4631217838767,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#9ebaf9", "#9ebaf9"], angle: 0 },
+          position: { left: 355.06003430531734, top: -576.3293310463122 },
+          id: 102,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 831.9039451114924,
+          height: 641.5094339622642,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#fdebde", "#fdebde"], angle: 0 },
+          position: { left: 61.749571183533455, top: -373.92795883361924 },
+          id: 103,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 991.4236706689537,
+          height: 991.4236706689537,
+          showIframe: true,
+          adaptation: svgs[143],
+          configValues: { color: "#ffffff" },
+          position: { left: 5.145797598627787, top: 5.145797598627787 },
+          id: 302,
+          rotation: 0
+        }
+      ]
+    }
+  },
+  // 144
+  {
+    ...linearGradient,
+    thumb: "/thumbs/144.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#ffafcc", "#fdebde"],
+        direction: "right",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 1466.5523156089196,
+          height: 1310.4631217838767,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#9ebaf9", "#9ebaf9"], angle: 0 },
+          position: { left: 355.06003430531734, top: -576.3293310463122 },
+          id: 102,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 831.9039451114924,
+          height: 641.5094339622642,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#fdebde", "#fdebde"], angle: 0 },
+          position: { left: 61.749571183533455, top: -373.92795883361924 },
+          id: 103,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 991.4236706689537,
+          height: 991.4236706689537,
+          showIframe: true,
+          adaptation: svgs[143],
+          configValues: { color: "#ffffff" },
+          position: { left: 5.145797598627787, top: 5.145797598627787 },
+          id: 302,
+          rotation: 0
+        }
+      ]
+    }
+  },
+  // 145
+  {
+    ...linearGradient,
+    thumb: "/thumbs/145.png",
+    textColor: "#ffffff",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#7216a1", "#a0f8d8"],
+        direction: "right",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 1466.5523156089196,
+          height: 1310.4631217838767,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#5c9cff", "#5c9cff"], angle: 0 },
+          position: { left: 355.06003430531734, top: -576.3293310463122 },
+          id: 202,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1246.998284734134,
+          height: 1080.6174957118353,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#ffffff", "#ffffff"], angle: 0 },
+          position: { left: 778.7307032590052, top: -255.57461406518013 },
+          id: 102,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1183.5334476843911,
+          height: 773.5849056603774,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#7216a1", "#7216a1"], angle: 0 },
+          position: { left: -183.5334476843911, top: -469.98284734133796 },
+          id: 203,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1457.975986277873,
+          height: 1391.080617495712,
+          showIframe: true,
+          adaptation: svgs[143],
+          configValues: { color: "#7216a1" },
+          position: { left: -711.835334476844, top: -658.6620926243568 },
+          id: 402,
+          rotation: 0
+        }
+      ]
+    }
+  },
+  // 146
+  {
+    ...linearGradient,
+    textColor: "#fff",
+    thumb: "/thumbs/146.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#484ea6", "#ffd800"],
+        direction: "right",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 1466.5523156089196,
+          height: 1310.4631217838767,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#033360", "#033360"], angle: 0 },
+          position: { left: 355.06003430531734, top: -576.3293310463122 },
+          id: 302,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1246.998284734134,
+          height: 1080.6174957118353,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#ffffff", "#ffffff"], angle: 0 },
+          position: { left: 778.7307032590052, top: -255.57461406518013 },
+          id: 202,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1183.5334476843911,
+          height: 773.5849056603774,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#606397", "#606397"], angle: 0 },
+          position: { left: -183.5334476843911, top: -469.98284734133796 },
+          id: 303,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 715.2658662092625,
+          height: 591.7667238421956,
+          showIframe: true,
+          adaptation: svgs[143],
+          configValues: { color: "#ffffff" },
+          position: { left: 535.1629502572899, top: 670.6689536878216 },
+          id: 502,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1111.492281303602,
+          height: 1039.451114922813,
+          showIframe: true,
+          adaptation: svgs[143],
+          configValues: { color: "#ffffff" },
+          position: { left: -72.04116638078902, top: -725.5574614065181 },
+          id: 102,
+          rotation: 0
+        }
+      ]
+    }
+  },
+  // 147
+  {
+    ...linearGradient,
+    thumb: "/thumbs/147.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#ffffff", "#e8e8e8"],
+        direction: "right",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 1465.1898734177214,
+          height: 1310.126582278481,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#c9ff8a", "#c9ff8a"], angle: 0 },
+          position: { left: 353.6392405063291, top: -575.9493670886076 },
+          id: 402,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1246.8354430379748,
+          height: 1079.113924050633,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#ffff", "#ffffff"], angle: 0 },
+          position: { left: -288.7658227848101, top: 156.64556962025316 },
+          id: 302,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1131.3291139240507,
+          height: 1056.9620253164558,
+          showIframe: true,
+          adaptation: svgs[143],
+          configValues: { color: "#000000" },
+          position: { left: 361.5506329113924, top: 694.620253164557 },
+          id: 602,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1131.3291139240507,
+          height: 1056.9620253164558,
+          showIframe: true,
+          adaptation: svgs[143],
+          configValues: { color: "#000000" },
+          position: { left: -469.1455696202532, top: -712.0253164556962 },
+          id: 102,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1465.1898734177214,
+          height: 1310.126582278481,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#c9ff8a", "#c9ff8a"], angle: 0 },
+          position: { left: -866.2974683544304, top: 411.3924050632911 },
+          id: 103,
+          rotation: 0
+        }
+      ]
+    }
+  },
+  // 148
+  {
+    ...linearGradient,
+    textColor: "#fff",
+    thumb: "/thumbs/148.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#000000", "#582b00"],
+        direction: "bottom",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 1401.8987341772151,
+          height: 1276.8987341772151,
+          showIframe: true,
+          adaptation: svgs[143],
+          configValues: { color: "#ed4300" },
+          position: { left: -198.5759493670886, top: 583.8607594936709 },
+          id: 302,
+          rotation: 0
+        }
+      ]
+    }
   }
   // { ...cells },
   // { ...fog },

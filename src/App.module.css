@@ -141,6 +141,7 @@
 }
 
 .quick-form {
+  display: none;
   padding: 22px;
   border-radius: 22px;
   background: #ffffff87;

@@ -12,13 +12,9 @@
 
       let background;
       if (direction === "custom_angle") {
-        background = `linear-gradient(${angle}deg, ${palette[0]}, ${
-          palette[1]
-        })`;
+        background = `linear-gradient(${angle}deg, ${palette.join(", ")})`;
       } else {
-        background = `linear-gradient(to ${direction}, ${palette[0]}, ${
-          palette[1]
-        })`;
+        background = `linear-gradient(to ${direction}, ${palette.join(", ")})`;
       }
       var preview = document.getElementById("preview");
       preview.style.background = background;

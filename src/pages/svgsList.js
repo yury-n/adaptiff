@@ -1878,6 +1878,21 @@ export const svgs = [
         palette: ["#C8E5FB", "#B0C5F8"]
       }
     }
+  },
+  // 143
+  {
+    ...svgWithSolidColor,
+    pack: "particlesSvgs",
+    thumb: "/thumbs/svgs/143.svg",
+    fileName: "svgs/143",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 850 / 850,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        color: "#000"
+      }
+    }
   }
 ];
 
@@ -1984,7 +1999,7 @@ export const childishDreamsSvgs = [
   22,
   23
 ].map(index => svgs[index]);
-export const particlesSvgs = [7, 8, 33, 36, 40].map(index => svgs[index]);
+export const particlesSvgs = [7, 8, 33, 36, 40, 143].map(index => svgs[index]);
 
 export const glitchyCircles = [131, 132, 133, 134, 135, 136].map(
   index => svgs[index]
@@ -2000,5 +2015,6 @@ export const allSvgPacks = {
   curves,
   paintWork,
   blurredBalls,
-  childishDreams
+  childishDreams,
+  particlesSvgs
 };

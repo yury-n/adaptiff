@@ -2,6 +2,13 @@ import { allAdaptations } from "./adaptations";
 
 export default [
   {
+    title: "Dots Forming 3D Ball",
+    author: "yury-n",
+    items: [148, 142, 143, 144, 145, 146, 147].map(
+      index => allAdaptations[index]
+    )
+  },
+  {
     title: "Glitchy elements",
     author: "Anna Taran",
     items: [137, 138, 139, 140, 141].map(index => allAdaptations[index])

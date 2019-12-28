@@ -8,7 +8,7 @@
     function aff_render(config) {
       let palette = config.palette;
 
-      let background = `radial-gradient(${palette[0]}, ${palette[1]})`;
+      let background = `radial-gradient(${palette.join(", ")})`;
       var preview = document.getElementById("preview");
       preview.style.background = background;
     }
