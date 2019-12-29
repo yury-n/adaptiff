@@ -2,8 +2,9 @@ const headerOnly = {
   items: [
     {
       type: "text",
-      isDraggable: false,
       isFromLayout: true,
+      layoutItemType: "header",
+      isDraggable: false,
       hasCyrillic: false,
       configValues: {
         fontFamily: "Poppins",
@@ -31,8 +32,9 @@ const headerWithBorder = {
   items: [
     {
       type: "text",
-      isDraggable: false,
       isFromLayout: true,
+      layoutItemType: "header",
+      isDraggable: false,
       hasCyrillic: false,
       configValues: {
         fontFamily: "Poppins",
@@ -61,8 +63,9 @@ const headerWithSubheader = {
   items: [
     {
       type: "text",
-      isDraggable: false,
       isFromLayout: true,
+      layoutItemType: "header",
+      isDraggable: false,
       hasCyrillic: false,
       configValues: {
         fontFamily: "Poppins",
@@ -85,6 +88,7 @@ const headerWithSubheader = {
       type: "text",
       isDraggable: false,
       isFromLayout: true,
+      layoutItemType: "subheader-multiline",
       hasCyrillic: false,
       configValues: {
         fontFamily: "Poppins",
@@ -112,6 +116,7 @@ const subheaderHeaderSubheader = {
       type: "text",
       isDraggable: false,
       isFromLayout: true,
+      layoutItemType: "subheader",
       hasCyrillic: false,
       configValues: {
         fontFamily: "Poppins",
@@ -133,6 +138,7 @@ const subheaderHeaderSubheader = {
       type: "text",
       isDraggable: false,
       isFromLayout: true,
+      layoutItemType: "header",
       hasCyrillic: false,
       configValues: {
         fontFamily: "Poppins",
@@ -156,6 +162,7 @@ const subheaderHeaderSubheader = {
       type: "text",
       isDraggable: false,
       isFromLayout: true,
+      layoutItemType: "subheader",
       hasCyrillic: false,
       configValues: {
         fontFamily: "Poppins",
@@ -182,6 +189,7 @@ const headerWithBackground = {
       type: "text",
       isDraggable: false,
       isFromLayout: true,
+      layoutItemType: "header",
       hasCyrillic: false,
       configValues: {
         fontFamily: "Poppins",
@@ -213,6 +221,7 @@ const headerWithBackgroundAndBorder = {
       type: "text",
       isDraggable: false,
       isFromLayout: true,
+      layoutItemType: "header",
       hasCyrillic: false,
       configValues: {
         fontFamily: "Poppins",

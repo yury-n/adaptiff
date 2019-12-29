@@ -9,10 +9,10 @@ import Footer from "../Footer/Footer";
 import SubscribeBlock from "../SubscribeBlock/SubscribeBlock";
 import Collection from "../Modal/Collection/Collection";
 import collections from "./collections";
-import Layouts from "../Modal/Layouts/Layouts";
+import Layouts from "../Layouts/Layouts";
 import Tabs from "../Modal/Tabs/Tabs";
 import LegacyCards from "./LegacyCards/LegacyCards";
-import ThinCloseIcon from "../Icons/ThinCloseIcon";
+import QuickForm from "../QuickForm/QuickForm";
 
 import s from "../App.module.css";
 
@@ -28,22 +28,7 @@ export default () => {
           )}
         >
           <Tabs />
-          <div className={s["quick-form"]}>
-            <div className={s["quick-form-close-wrapper"]}>
-              <div className={s["quick-form-close"]}>
-                <ThinCloseIcon />
-              </div>
-            </div>
-            <input
-              className={s["quick-start-input"]}
-              placeholder="Type something"
-            />
-            {/* <textarea
-              className={s["quick-start-input"]}
-              placeholder="Secondary Text"
-              rows="3"
-            ></textarea> */}
-          </div>
+          <QuickForm />
           <div className={s["v2-layout"]}>
             <Layouts className={s["sidebar"]} />
             <div className={s["collections"]}>

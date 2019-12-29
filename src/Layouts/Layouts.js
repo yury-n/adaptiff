@@ -2,17 +2,22 @@ import React from "react";
 import classnames from "classnames";
 import { useSelector, useDispatch } from "react-redux";
 import Layout from "./Layout/Layout";
-import layouts from "../../pages/layouts";
-import { getSelectedLayout, getSelectedTab } from "../../selectors/page";
+import layouts from "../pages/layouts";
+import {
+  getSelectedLayout,
+  getSelectedTab,
+  getIsQuickFormShown
+} from "../selectors/page";
 
 import s from "./Layouts.module.css";
-import { setSelectedLayout } from "../../actions/page";
-import PencilIcon from "../../Icons/PencilIcon";
+import { setSelectedLayout } from "../actions/page";
+import PencilIcon from "../Icons/PencilIcon";
 
 export default ({ className }) => {
   const dispatch = useDispatch();
   const selectedLayout = useSelector(getSelectedLayout);
   const selectedTab = useSelector(getSelectedTab);
+  const isQuickFormShown = useSelector(getIsQuickFormShown);
 
   if (selectedTab === "backgrounds") {
     return null;
@@ -33,7 +38,7 @@ export default ({ className }) => {
             }}
           >
             <Layout layout={layout} width={140} />
-            {index === 1 && <PencilIcon />}
+            {!isQuickFormShown && <PencilIcon className={s["edit-icon"]} />}
           </div>
         ))}
       </div>

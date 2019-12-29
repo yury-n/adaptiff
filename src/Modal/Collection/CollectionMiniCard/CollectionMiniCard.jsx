@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ModalGroup from "../../ModalGroup/ModalGroup";
 import PremiumCrown from "../../../pages/PremiumCrown/PremiumCrown";
-import Layout from "../../Layouts/Layout/Layout";
+import Layout from "../../../Layouts/Layout/Layout";
 import { getSelectedTab, getSelectedLayout } from "../../../selectors/page";
 
 import s from "./CollectionMiniCard.module.css";

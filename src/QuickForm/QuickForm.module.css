@@ -1,0 +1,102 @@
+.quick-form {
+  padding: 22px;
+  border-radius: 22px;
+  background: #ffffff87;
+  backdrop-filter: blur(6px);
+  box-shadow: rgba(10, 31, 68, 0.16) 0px 2px 106px 0px !important;
+  position: fixed;
+  transform: translateY(-50%);
+  top: 194px;
+  left: 238px;
+  z-index: 10;
+  width: 350px;
+}
+
+.quick-form:hover .quick-form-close {
+  background: #ffffff87;
+  backdrop-filter: blur(6px);
+}
+
+.quick-form-close-wrapper {
+  position: absolute;
+  top: -45px;
+  right: -45px;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quick-form-close {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.quick-form-close svg {
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+}
+
+.quick-form::after {
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  left: -12px;
+  position: absolute;
+  top: 50%;
+  margin-top: -12px;
+  border-style: solid;
+  border-width: 12.5px 12px 12.5px 0;
+  border-color: transparent #fbfbfd transparent transparent;
+}
+
+.quick-start-input + .quick-start-input {
+  margin-top: 18px;
+}
+
+.quick-start-input {
+  position: relative;
+  width: 100%;
+  font-size: 18px;
+  resize: none;
+  margin-bottom: 20px;
+}
+
+.quick-start-input:last-child {
+  margin-bottom: 0;
+}
+
+.quick-start-input {
+  margin: 0;
+  max-width: 100%;
+  flex: 1 0 auto;
+  outline: 0;
+  text-align: left;
+  line-height: 1.21428571em;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  padding: 0.67857143em 1em !important;
+  background: #fff !important;
+  border: 1px solid rgba(34, 36, 38, 0.15) !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+  border-radius: 12px !important;
+  -webkit-transition: box-shadow 0.1s ease, border-color 0.1s ease;
+  transition: box-shadow 0.1s ease, border-color 0.1s ease;
+  box-shadow: none !important;
+  border-color: rgba(34, 36, 38, 0.35) !important;
+  box-shadow: none !important;
+}
+
+.quick-start-input:focus {
+  border-color: black !important;
+}
