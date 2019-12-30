@@ -8,10 +8,10 @@ import {
   getSelectedTab,
   getIsQuickFormShown
 } from "../selectors/page";
+import { setSelectedLayout, setIsQuickFormShown } from "../actions/page";
+import PencilIcon from "../Icons/PencilIcon";
 
 import s from "./Layouts.module.css";
-import { setSelectedLayout } from "../actions/page";
-import PencilIcon from "../Icons/PencilIcon";
 
 export default ({ className }) => {
   const dispatch = useDispatch();
@@ -28,6 +28,7 @@ export default ({ className }) => {
       <div className={s["inner-wrapper"]}>
         {layouts.map((layout, index) => (
           <div
+            id={selectedLayout === index ? "active-layout" : undefined}
             key={index}
             className={classnames(
               s["layout"],
@@ -38,7 +39,15 @@ export default ({ className }) => {
             }}
           >
             <Layout layout={layout} width={140} />
-            {!isQuickFormShown && <PencilIcon className={s["edit-icon"]} />}
+            {!isQuickFormShown && (
+              <PencilIcon
+                className={s["edit-icon"]}
+                onClick={() => {
+                  dispatch(setIsQuickFormShown(true));
+                  // localStorage.removeItem("app.page.isQuickFormHidden");
+                }}
+              />
+            )}
           </div>
         ))}
       </div>

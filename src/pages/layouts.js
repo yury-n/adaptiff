@@ -23,7 +23,7 @@ const headerOnly = {
       width: 679.5733276157804,
       height: 190.4009433962264,
       position: { left: 202.84734133790735, top: 477.01543739279583 },
-      text: "Sample text sample\ntext sample"
+      text: "Sample header text\ntext sample"
     }
   ]
 };
@@ -54,7 +54,7 @@ const headerWithBorder = {
       width: 679.5733276157804,
       height: 190.4009433962264,
       position: { left: 202.84734133790735, top: 477.01543739279583 },
-      text: "Sample text sample\ntext sample"
+      text: "Sample header text"
     }
   ]
 };
@@ -82,7 +82,7 @@ const headerWithSubheader = {
         isBold: true
       },
       id: 1002,
-      text: "Sample text sample"
+      text: "Sample header text"
     },
     {
       type: "text",
@@ -105,7 +105,7 @@ const headerWithSubheader = {
       },
       id: 103,
       position: { left: 202.84734133790735, top: 477.01543739279583 },
-      text: "Sample text sample\ntext sample text sample"
+      text: "Sample subheader text\ntext sample text sample"
     }
   ]
 };
@@ -116,7 +116,7 @@ const subheaderHeaderSubheader = {
       type: "text",
       isDraggable: false,
       isFromLayout: true,
-      layoutItemType: "subheader",
+      layoutItemType: "text-above",
       hasCyrillic: false,
       configValues: {
         fontFamily: "Poppins",
@@ -132,7 +132,7 @@ const subheaderHeaderSubheader = {
         isBold: false
       },
       id: 1000,
-      text: "Sample text sample"
+      text: "Sample text above"
     },
     {
       type: "text",
@@ -156,13 +156,13 @@ const subheaderHeaderSubheader = {
         isBold: true
       },
       id: 1002,
-      text: "Sample text sample"
+      text: "Sample header text"
     },
     {
       type: "text",
       isDraggable: false,
       isFromLayout: true,
-      layoutItemType: "subheader",
+      layoutItemType: "text-below",
       hasCyrillic: false,
       configValues: {
         fontFamily: "Poppins",
@@ -178,7 +178,7 @@ const subheaderHeaderSubheader = {
         isBold: false
       },
       id: 1003,
-      text: "Sample text sample"
+      text: "Sample text below"
     }
   ]
 };
@@ -210,7 +210,7 @@ const headerWithBackground = {
       width: 679.5733276157804,
       height: 190.4009433962264,
       position: { left: 202.84734133790735, top: 477.01543739279583 },
-      text: "Sample text sample\ntext sample"
+      text: "Sample header text"
     }
   ]
 };
@@ -242,7 +242,7 @@ const headerWithBackgroundAndBorder = {
       width: 679.5733276157804,
       height: 190.4009433962264,
       position: { left: 202.84734133790735, top: 477.01543739279583 },
-      text: "Sample text sample\ntext sample"
+      text: "Sample header text"
     }
   ]
 };

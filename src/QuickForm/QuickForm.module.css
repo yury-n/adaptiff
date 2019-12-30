@@ -6,8 +6,9 @@
   box-shadow: rgba(10, 31, 68, 0.16) 0px 2px 106px 0px !important;
   position: fixed;
   transform: translateY(-50%);
-  top: 194px;
-  left: 238px;
+  top: -1000px;
+  left: -1000px;
+  margin-left: 31px;
   z-index: 10;
   width: 350px;
 }

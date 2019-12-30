@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import debounce from "lodash.debounce";
 import { useSelector, useDispatch } from "react-redux";
 import ThinCloseIcon from "../Icons/ThinCloseIcon";
@@ -18,6 +18,30 @@ export default () => {
   const selectedTab = useSelector(getSelectedTab);
   const selectedLayout = useSelector(getSelectedLayout);
 
+  const ref = useRef();
+
+  useEffect(() => {
+    if (selectedTab === "backgrounds") {
+      return;
+    }
+    const rect = document.body
+      .querySelector("#active-layout")
+      .getBoundingClientRect();
+    if (ref.current) {
+      ref.current.style.left = `${rect.right}px`;
+      ref.current.style.top = `${rect.top + rect.height / 2}px`;
+    }
+  }, [selectedTab, isQuickFormShown, selectedLayout]);
+
+  useEffect(() => {
+    if (ref.current) {
+      const input = ref.current.querySelector("input");
+      if (input) {
+        input.focus();
+      }
+    }
+  }, [selectedLayout, isQuickFormShown, selectedLayout]);
+
   if (!isQuickFormShown) {
     return null;
   }
@@ -28,16 +52,19 @@ export default () => {
 
   const layout = layouts[selectedLayout];
 
-  const throttledDispatch = debounce((field, value) => {
+  const debouncedDispatch = debounce((field, value) => {
     dispatch(setQuickFormFieldValue(field, value));
   }, 500);
 
   return (
-    <div className={s["quick-form"]}>
+    <div ref={ref} className={s["quick-form"]}>
       <div className={s["quick-form-close-wrapper"]}>
         <div
           className={s["quick-form-close"]}
-          onClick={() => dispatch(setIsQuickFormShown(false))}
+          onClick={() => {
+            localStorage.setItem("app.page.isQuickFormHidden", true);
+            dispatch(setIsQuickFormShown(false));
+          }}
         >
           <ThinCloseIcon />
         </div>
@@ -48,8 +75,11 @@ export default () => {
             <textarea
               key={index}
               className={s["quick-start-input"]}
-              placeholder="Secondary Text"
+              placeholder={item.text}
               rows="3"
+              onKeyUp={e => {
+                debouncedDispatch(item.layoutItemType, e.target.value);
+              }}
             ></textarea>
           );
         }
@@ -58,18 +88,13 @@ export default () => {
             key={index}
             autoFocus={index === 0}
             className={s["quick-start-input"]}
-            placeholder="Type something"
+            placeholder={selectedLayout === 0 ? "Type something" : item.text}
             onKeyUp={e => {
-              throttledDispatch(item.layoutItemType, e.target.value);
+              debouncedDispatch(item.layoutItemType, e.target.value);
             }}
           />
         );
       })}
-      {/* <textarea
-                className={s["quick-start-input"]}
-                placeholder="Secondary Text"
-                rows="3"
-              ></textarea> */}
     </div>
   );
 };

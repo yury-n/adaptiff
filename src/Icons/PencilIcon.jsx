@@ -1,11 +1,12 @@
 import React from "react";
 
-export default ({ className }) => (
+export default ({ className, onClick }) => (
   <svg
     className={className}
-    enable-background="new 0 0 32 32"
+    enableBackground="new 0 0 32 32"
     version="1.1"
     viewBox="0 0 32 32"
+    onClick={onClick}
   >
     <g>
       <g id="Guide" />
@@ -20,12 +21,12 @@ export default ({ className }) => (
             d="M22.2,7.6L8.8,21l-1.5,3.7l3.7-1.5L24.4,9.8c0.4-0.4,0.4-1,0-1.4      l-0.8-0.8C23.2,7.2,22.5,7.2,22.2,7.6z"
             fill="none"
             stroke="currentColor"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
           />
           <line
             fill="none"
             stroke="currentColor"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="11"
             x2="8.8"
             y1="23.2"

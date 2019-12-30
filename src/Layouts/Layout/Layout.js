@@ -26,8 +26,9 @@ export default ({ layout, width, textColor, textBackgroundColor }) => {
               : undefined
           }}
           initialValue={
-            thisLayoutIndex === selectedLayout && quickFormFieldValues["header"]
-              ? quickFormFieldValues["header"]
+            thisLayoutIndex === selectedLayout &&
+            quickFormFieldValues[layoutItem.layoutItemType]
+              ? quickFormFieldValues[layoutItem.layoutItemType]
               : layoutItem.text
           }
         />

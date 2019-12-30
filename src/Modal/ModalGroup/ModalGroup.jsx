@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Modal from "../Modal";
 import layouts from "../../pages/layouts";
-import { getSelectedLayout, getSelectedTab } from "../../selectors/page";
+import {
+  getSelectedLayout,
+  getSelectedTab,
+  getQuickFormFieldValues
+} from "../../selectors/page";
 
 export default ({ initadaptationIndex, adaptations, onClose }) => {
   const [currentItemIndex, setCurrentItemIndex] = useState(initadaptationIndex);
   const selectedLayout = useSelector(getSelectedLayout);
   const selectedTab = useSelector(getSelectedTab);
+  const quickFormFieldValues = useSelector(getQuickFormFieldValues);
 
   const currentAdaptation = adaptations[currentItemIndex];
   let extrainsertedItems = [];
@@ -21,7 +26,10 @@ export default ({ initadaptationIndex, adaptations, onClose }) => {
           ? currentAdaptation.textBackgroundColor ||
             item.configValues.backgroundColor
           : undefined
-      }
+      },
+      text: quickFormFieldValues[item.layoutItemType]
+        ? quickFormFieldValues[item.layoutItemType]
+        : item.text
     }));
   }
   const currentAdaptationExtended = {
