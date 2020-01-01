@@ -94,6 +94,7 @@ export default ({ title, author, authorLink, items, isPremium }) => {
           <div className={s["inside-padding"]} />
           {items.map((item, index) => (
             <CollectionMiniCard
+              showModal={true}
               key={index}
               isPremium={isPremium}
               adaptation={item}

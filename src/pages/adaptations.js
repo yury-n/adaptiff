@@ -8665,37 +8665,16 @@ export const allAdaptations = [
   // 143
   {
     ...linearGradient,
+    id: 143,
     thumb: "/thumbs/143.png",
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: {
-        palette: ["#ffafcc", "#fdebde"],
-        direction: "right",
+        palette: ["#feded5", "#c5f0f8"],
+        direction: "top",
         angle: 200
       },
       insertedItems: [
-        {
-          type: "object",
-          width: 1466.5523156089196,
-          height: 1310.4631217838767,
-          showIframe: true,
-          adaptation: svgs[140],
-          configValues: { palette: ["#9ebaf9", "#9ebaf9"], angle: 0 },
-          position: { left: 355.06003430531734, top: -576.3293310463122 },
-          id: 102,
-          rotation: 0
-        },
-        {
-          type: "object",
-          width: 831.9039451114924,
-          height: 641.5094339622642,
-          showIframe: true,
-          adaptation: svgs[140],
-          configValues: { palette: ["#fdebde", "#fdebde"], angle: 0 },
-          position: { left: 61.749571183533455, top: -373.92795883361924 },
-          id: 103,
-          rotation: 0
-        },
         {
           type: "object",
           width: 991.4236706689537,
@@ -8704,7 +8683,7 @@ export const allAdaptations = [
           adaptation: svgs[143],
           configValues: { color: "#ffffff" },
           position: { left: 5.145797598627787, top: 5.145797598627787 },
-          id: 302,
+          id: 202,
           rotation: 0
         }
       ]

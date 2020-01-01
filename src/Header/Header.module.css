@@ -48,7 +48,6 @@
     #9bffe400,
     #9bffe4bf
   );
-  filter: saturate(1.5);
   border-radius: 100%;
   overflow: hidden;
 }

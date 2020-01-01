@@ -5,7 +5,7 @@ import throttle from "lodash.throttle";
 import set from "lodash.set";
 import get from "lodash.get";
 import uniq from "lodash.uniq";
-import { Modal, Input, Button, Icon, Menu } from "semantic-ui-react";
+import { Modal, Input, Button, Icon, Menu, Dropdown } from "semantic-ui-react";
 import TextConfig from "./TextConfig/TextConfig";
 import ImageConfig from "./ImageConfig/ImageConfig";
 import InsertedText from "./InsertedText/InsertedText";
@@ -457,6 +457,35 @@ class TheModal extends Component {
               onKeyUp={this.setStateOnEnter("canvasHeight")}
               onBlur={this.setStateOnBlur("canvasHeight")}
             />
+            <Dropdown
+              floating
+              labeled
+              button
+              icon={
+                <Icon
+                  name="chevron down"
+                  size="small"
+                  className={s["dimension-icon"]}
+                />
+              }
+            >
+              <Dropdown.Menu className={s["dimension-menu"]} direction="left">
+                <Dropdown.Item description="4:3" text="Standard" />
+                <Dropdown.Item description="16:9" text="Wide" />
+                <Dropdown.Item description="1:1" text="Square" />
+                <Dropdown.Divider />
+                <Dropdown.Item
+                  description="1080×1080"
+                  text="Instagram Square"
+                />
+                <Dropdown.Item description="1080×1920" text="Instagram Story" />
+                <Dropdown.Item description="1280×720" text="Youtube Thumb" />
+                <Dropdown.Item description="940×788" text="Facebook Post" />
+                <Dropdown.Item description="850×315" text="Facebook Cover" />
+                <Dropdown.Item description="1024×512" text="Twitter Post" />
+                <Dropdown.Item description="1500×500" text="Twitter Header" />
+              </Dropdown.Menu>
+            </Dropdown>
           </div>
           <div className={s["config-over-right-buttons"]}>
             {isPausable && (

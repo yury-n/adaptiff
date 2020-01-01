@@ -8,6 +8,8 @@ import { getSelectedTab, getSelectedLayout } from "../../../selectors/page";
 import s from "./CollectionMiniCard.module.css";
 import layouts from "../../../pages/layouts";
 
+// (debugShowModal && adaptation.id === 143 &&
+
 export default ({ adaptation, adaptations, isPremium }) => {
   const [showModal, setShowModal] = useState(false);
   const selectedLayout = useSelector(getSelectedLayout);
