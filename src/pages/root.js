@@ -7,7 +7,7 @@ import store from "../store";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SubscribeBlock from "../SubscribeBlock/SubscribeBlock";
-import Collection from "../Modal/Collection/Collection";
+import Collection from "../Collection/Collection";
 import collections from "./collections";
 import Layouts from "../Layouts/Layouts";
 import Tabs from "../Modal/Tabs/Tabs";

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import throttle from "lodash.throttle";
 import classnames from "classnames";
-import PremiumCrown from "../../pages/PremiumCrown/PremiumCrown";
+import PremiumCrown from "../pages/PremiumCrown/PremiumCrown";
 import CollectionMiniCard from "./CollectionMiniCard/CollectionMiniCard";
 
 import s from "./Collection.module.css";

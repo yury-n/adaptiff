@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import ModalGroup from "../../ModalGroup/ModalGroup";
-import PremiumCrown from "../../../pages/PremiumCrown/PremiumCrown";
-import Layout from "../../../Layouts/Layout/Layout";
-import { getSelectedTab, getSelectedLayout } from "../../../selectors/page";
+import ModalGroup from "../../Modal/ModalGroup/ModalGroup";
+import PremiumCrown from "../../pages/PremiumCrown/PremiumCrown";
+import Layout from "../../Layouts/Layout/Layout";
+import { getSelectedTab, getSelectedLayout } from "../../selectors/page";
 
 import s from "./CollectionMiniCard.module.css";
-import layouts from "../../../pages/layouts";
+import layouts from "../../pages/layouts";
 
 // (debugShowModal && adaptation.id === 143 &&
 
@@ -32,7 +32,7 @@ export default ({ adaptation, adaptations, isPremium }) => {
           />
         )}
       </div>
-      {showModal && (
+      {(showModal || adaptation.id === 143) && (
         <ModalGroup
           onClose={() => setShowModal(false)}
           initadaptationIndex={adaptations.indexOf(adaptation)}
