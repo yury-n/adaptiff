@@ -56,6 +56,12 @@ export default [
     )
   },
   {
+    title: "Hedgehog",
+    author: "Kjetil Midtgarden Golid",
+    authorLink: "https://github.com/kgolid",
+    items: [151, 149, 150, 152, 153].map(index => allAdaptations[index])
+  },
+  {
     title: "subtle waves",
     author: "getwaves.io",
     authorLink: "https://getwaves.io",

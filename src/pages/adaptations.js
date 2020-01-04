@@ -8964,6 +8964,194 @@ export const allAdaptations = [
         }
       ]
     }
+  },
+  // 149
+  {
+    ...hedgehog,
+    thumb: "/thumbs/149.png",
+    textColor: "#fff",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        withBackground: true,
+        backgroundColor: "#105956",
+        strokeColor: { r: "66", g: "205", b: "166", a: "0.62" },
+        randomValues: [0.3390192027783483]
+      },
+      insertedItems: [
+        {
+          id: 303,
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Oswald",
+            fontSize: 73,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          width: 19.97231012658228,
+          height: 107.1242088607595,
+          position: { left: 530.0138449367089, top: 486.4378955696203 },
+          text: ""
+        }
+      ]
+    }
+  },
+  // 150
+  {
+    ...hedgehog,
+    thumb: "/thumbs/150.png",
+    textColor: "#fff",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        withBackground: true,
+        backgroundColor: "#212121",
+        strokeColor: "#ff2232",
+        randomValues: [0.3390192027783483]
+      },
+      insertedItems: [
+        {
+          id: 403,
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Oswald",
+            fontSize: 73,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          width: 19.972126929674097,
+          height: 107.03902229845625,
+          position: { left: 530.0139365351629, top: 486.48048885077185 },
+          text: ""
+        }
+      ]
+    }
+  },
+  // 151
+  {
+    ...hedgehog,
+    thumb: "/thumbs/151.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        withBackground: true,
+        backgroundColor: "#fdfdfd",
+        strokeColor: "#22ffd2",
+        randomValues: [0.3390192027783483]
+      },
+      insertedItems: [
+        {
+          id: 503,
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Oswald",
+            fontSize: 73,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          width: 19.972126929674097,
+          height: 107.03902229845625,
+          position: { left: 530.0139365351629, top: 486.48048885077185 },
+          text: ""
+        }
+      ]
+    }
+  },
+  // 152
+  {
+    ...hedgehog,
+    thumb: "/thumbs/152.png",
+    textColor: "#e0aa4f",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        withBackground: true,
+        backgroundColor: "#e0aa4f",
+        strokeColor: "#366a8a",
+        randomValues: [0.3390192027783483]
+      },
+      insertedItems: [
+        {
+          id: 603,
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Oswald",
+            fontSize: 73,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          width: 19.972126929674097,
+          height: 107.03902229845625,
+          position: { left: 530.0139365351629, top: 486.48048885077185 },
+          text: ""
+        }
+      ]
+    }
+  },
+  // 153
+  {
+    ...hedgehog,
+    thumb: "/thumbs/153.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        withBackground: true,
+        backgroundColor: "#bcd4ff",
+        strokeColor: { r: 255, g: 85, b: 203, a: 0.59 },
+        randomValues: [0.3390192027783483]
+      },
+      insertedItems: [
+        {
+          id: 603,
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Oswald",
+            fontSize: 73,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          width: 19.972126929674097,
+          height: 107.03902229845625,
+          position: { left: 530.0139365351629, top: 486.48048885077185 },
+          text: ""
+        }
+      ]
+    }
   }
   // { ...cells },
   // { ...fog },
