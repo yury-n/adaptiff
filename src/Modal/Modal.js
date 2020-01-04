@@ -217,12 +217,39 @@ class TheModal extends Component {
       (this.state.canvasWidth !== prevState.canvasWidth ||
         this.state.canvasHeight !== prevState.canvasHeight)
     ) {
+      const widthDelta = Math.abs(
+        this.state.canvasWidth - prevState.canvasWidth
+      );
+      const heightDelta = Math.abs(
+        this.state.canvasHeight - prevState.canvasHeight
+      );
+      let ratio;
+      if (widthDelta > heightDelta) {
+        ratio = this.state.canvasWidth / prevState.canvasWidth;
+      } else {
+        ratio = this.state.canvasHeight / prevState.canvasHeight;
+      }
+      const newCanvasWidthIfProportiallyScaled = prevState.canvasWidth * ratio;
+      const newCanvasHeightIfProportiallyScaled =
+        prevState.canvasHeight * ratio;
+
+      const extraWidth =
+        this.state.canvasWidth - newCanvasWidthIfProportiallyScaled;
+      const extraHeight =
+        this.state.canvasHeight - newCanvasHeightIfProportiallyScaled;
+
       const updatedInsertedItems = [...this.state.insertedItems].map(
         insertedItem => ({
           ...insertedItem,
+          width: insertedItem.width ? insertedItem.width * ratio : undefined,
+          height: insertedItem.width ? insertedItem.height * ratio : undefined,
           position: {
-            left: this.state.canvasWidth / 2,
-            top: this.state.canvasHeight / 2
+            left: insertedItem.position.left * ratio + extraWidth / 2,
+            top: insertedItem.position.top * ratio + extraHeight / 2
+          },
+          configValues: {
+            ...insertedItem.configValues,
+            fontSize: Math.round(insertedItem.configValues.fontSize * ratio)
           }
         })
       );

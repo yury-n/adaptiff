@@ -8,7 +8,7 @@ import { getSelectedTab, getSelectedLayout } from "../../selectors/page";
 import s from "./CollectionMiniCard.module.css";
 import layouts from "../../pages/layouts";
 
-// (debugShowModal && adaptation.id === 143 &&
+// || adaptation.id === 143
 
 export default ({ adaptation, adaptations, isPremium }) => {
   const [showModal, setShowModal] = useState(false);
@@ -32,7 +32,7 @@ export default ({ adaptation, adaptations, isPremium }) => {
           />
         )}
       </div>
-      {(showModal || adaptation.id === 143) && (
+      {showModal && (
         <ModalGroup
           onClose={() => setShowModal(false)}
           initadaptationIndex={adaptations.indexOf(adaptation)}

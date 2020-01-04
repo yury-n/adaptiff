@@ -7,7 +7,7 @@ export default ({ width, height, onChange }) => {
   return (
     <div key={`${width}+${height}`} className={s["dimensions"]}>
       <Input
-        key={width}
+        key={`w-${width}`}
         defaultValue={width}
         className={s["dimension-input"]}
         onKeyUp={e => {
@@ -21,7 +21,7 @@ export default ({ width, height, onChange }) => {
       />
       <span className={s["dimension-times"]}>&times;</span>
       <Input
-        key={height}
+        key={`h-${height}`}
         defaultValue={height}
         className={s["dimension-input"]}
         onKeyUp={e => {
