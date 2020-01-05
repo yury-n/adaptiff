@@ -1,6 +1,6 @@
 import svgWithGradient from "../_adaptationConfigs/svgWithGradient";
 import svgWithSolidColor from "../_adaptationConfigs/svgWithSolidColor";
-import { childishDreams } from "./pngList";
+import { childishDreams, splinters } from "./pngList";
 
 export const svgs = [
   {
@@ -1893,6 +1893,21 @@ export const svgs = [
         color: "#000"
       }
     }
+  },
+  // 144
+  {
+    ...svgWithSolidColor,
+    pack: "particlesSvgs",
+    thumb: "/thumbs/svgs/143.svg",
+    fileName: "svgs/143",
+    thumbBackgroundSize: "100%",
+    aspectRatio: 850 / 850,
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        color: "#000"
+      }
+    }
   }
 ];
 
@@ -2016,5 +2031,6 @@ export const allSvgPacks = {
   paintWork,
   blurredBalls,
   childishDreams,
-  particlesSvgs
+  particlesSvgs,
+  splinters
 };

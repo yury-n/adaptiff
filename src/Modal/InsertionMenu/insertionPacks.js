@@ -19,10 +19,14 @@ import {
   glitchyCircles,
   blurredBalls
 } from "../../pages/svgsList";
-import { childishDreams, abstractLines } from "../../pages/pngList";
+import { childishDreams, abstractLines, splinters } from "../../pages/pngList";
 import waterpipe from "../../_adaptationConfigs/waterpipe";
 
 export default [
+  {
+    name: "Splinters",
+    objects: splinters
+  },
   {
     name: "Blurred Bubbles",
     objects: blurredBalls
