@@ -10,15 +10,16 @@
   justify-content: center;
 }
 
-.sidebar {
-  width: 170px;
-  margin-right: 40px;
-  margin-top: -60px;
+.collections {
+  width: 960px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.collections {
-  margin-top: 40px;
-  width: calc(100% - 210px);
+.collections-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .filters {

@@ -1,55 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
-import throttle from "lodash.throttle";
+import React, { useState } from "react";
 import classnames from "classnames";
 import PremiumCrown from "../pages/PremiumCrown/PremiumCrown";
 import CollectionMiniCard from "./CollectionMiniCard/CollectionMiniCard";
+import { Icon } from "semantic-ui-react";
 
 import s from "./Collection.module.css";
 
-const SCROLL_THROTTLE_TIMEOUT = 250;
-
 export default ({ title, author, authorLink, items, isPremium }) => {
-  const contentRef = useRef();
-  const [overflow, setOverflow] = useState("");
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const updateOverflow = throttle(
-    () => {
-      let newOverflow = "";
+  const slicedItems = isExpanded ? items : items.slice(0, 4);
 
-      if (!contentRef.current) {
-        return newOverflow;
-      }
-
-      const contentRect = contentRef.current.getBoundingClientRect();
-      const scrollLeft = contentRef.current.scrollLeft;
-      const scrollWidth = contentRef.current.scrollWidth;
-      const scrollRight = scrollWidth - scrollLeft - contentRect.width;
-
-      if (scrollLeft && scrollRight) {
-        newOverflow = "both";
-      } else if (scrollLeft) {
-        newOverflow = "left";
-      } else if (scrollRight) {
-        newOverflow = "right";
-      }
-
-      if (newOverflow !== overflow) {
-        setOverflow(newOverflow);
-      }
-    },
-    SCROLL_THROTTLE_TIMEOUT,
-    { leading: true }
-  );
-
-  useEffect(() => {
-    updateOverflow();
-    contentRef.current.addEventListener("scroll", updateOverflow);
-    return () => {
-      contentRef.current.removeEventListener("scroll", updateOverflow);
-    };
-  }, []);
   return (
-    <>
+    <div className={s["collection-super-wrapper"]}>
       <div className={s["collection-header"]}>
         {isPremium && <PremiumCrown className={s["premium-icon"]} />}
         {title}
@@ -64,46 +27,32 @@ export default ({ title, author, authorLink, items, isPremium }) => {
           )}
         </span>
       </div>
-      <div className={s["collection-wrapper"]}>
+      <div
+        className={classnames(
+          s["collection-wrapper"],
+          isExpanded && s["is-expanded"]
+        )}
+      >
         <div className={s["collection-inner-shadow"]} />
-        <div
-          className={classnames(
-            s["paddle-button"],
-            s["paddle-button-prev"],
-            (overflow === "left" || overflow === "both") && s["paddle-visible"]
-          )}
-          onClick={() => {
-            contentRef.current.scrollLeft = 0;
-          }}
-        >
-          <span>←</span>
-        </div>
-        <div
-          className={classnames(
-            s["paddle-button"],
-            s["paddle-button-next"],
-            (overflow === "right" || overflow === "both") && s["paddle-visible"]
-          )}
-          onClick={() => {
-            contentRef.current.scrollLeft = contentRef.current.scrollWidth;
-          }}
-        >
-          <span>→</span>
-        </div>
-        <div className={s["collection-scroll-wrapper"]} ref={contentRef}>
-          <div className={s["inside-padding"]} />
-          {items.map((item, index) => (
-            <CollectionMiniCard
-              showModal={true}
-              key={index}
-              isPremium={isPremium}
-              adaptation={item}
-              adaptations={items}
-            />
-          ))}
-          <div className={s["inside-padding"]} />
-        </div>
+        {!isExpanded && (
+          <div
+            className={s["collect-view-all"]}
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            see all &nbsp;
+            <Icon name="chevron down" size="small" />
+          </div>
+        )}
+        {slicedItems.map((item, index) => (
+          <CollectionMiniCard
+            showModal={true}
+            key={index}
+            isPremium={isPremium}
+            adaptation={item}
+            adaptations={items}
+          />
+        ))}
       </div>
-    </>
+    </div>
   );
 };

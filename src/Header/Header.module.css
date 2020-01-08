@@ -127,7 +127,9 @@
 }
 :global(.ui.basic.button).log-in-button {
   border-radius: 7px !important;
-  box-shadow: none !important;
+  padding-right: 18px !important;
+  padding-left: 18px !important;
+  margin-left: 16px !important;
   color: black !important;
 }
 

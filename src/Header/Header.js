@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classnames from "classnames";
-import { Button, Icon } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 
 import s from "./Header.module.css";
 
@@ -22,7 +22,7 @@ class Header extends Component {
             </div>
           </a>
           <div className={s["header-buttons"]}>
-            <Button
+            {/* <Button
               icon
               className={s["social-button"]}
               target="_blank"
@@ -45,7 +45,7 @@ class Header extends Component {
               href="https://t.me/adaptiff"
             >
               <Icon name="telegram plane" />
-            </Button>
+            </Button> */}
             <Button
               icon
               className={s["contact-button"]}

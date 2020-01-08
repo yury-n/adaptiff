@@ -6,10 +6,6 @@
   margin-top: 60px;
 }
 
-.tabs.active-templates {
-  padding-left: 160px;
-}
-
 .tabs :global(.ui.buttons) {
   box-shadow: rgba(10, 31, 68, 0.15) 0px 2px 16px 0px !important;
   border-radius: 20px;

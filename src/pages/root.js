@@ -9,10 +9,8 @@ import Footer from "../Footer/Footer";
 import SubscribeBlock from "../SubscribeBlock/SubscribeBlock";
 import Collection from "../Collection/Collection";
 import collections from "./collections";
-import Layouts from "../Layouts/Layouts";
 import Tabs from "../Modal/Tabs/Tabs";
 import LegacyCards from "./LegacyCards/LegacyCards";
-import QuickForm from "../QuickForm/QuickForm";
 
 import s from "../App.module.css";
 
@@ -28,13 +26,18 @@ export default () => {
           )}
         >
           <Tabs />
-          <QuickForm />
           <div className={s["v2-layout"]}>
-            <Layouts className={s["sidebar"]} />
             <div className={s["collections"]}>
-              {collections.map((collection, index) => (
-                <Collection key={index} {...collection} />
-              ))}
+              <div className={s["collections-column"]}>
+                {collections.map((collection, index) =>
+                  index % 2 ? <Collection key={index} {...collection} /> : null
+                )}
+              </div>
+              <div className={s["collections-column"]}>
+                {collections.map((collection, index) =>
+                  index % 2 ? null : <Collection key={index} {...collection} />
+                )}
+              </div>
             </div>
           </div>
           <div style={{ display: "none" }}>
