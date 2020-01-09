@@ -2,22 +2,21 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Modal from "../Modal";
 import layouts from "../../pages/layouts";
-import {
-  getSelectedLayout,
-  getSelectedTab,
-  getQuickFormFieldValues
-} from "../../selectors/page";
+import { getSelectedTab } from "../../selectors/page";
 
 export default ({ initadaptationIndex, adaptations, onClose }) => {
   const [currentItemIndex, setCurrentItemIndex] = useState(initadaptationIndex);
-  const selectedLayout = useSelector(getSelectedLayout);
   const selectedTab = useSelector(getSelectedTab);
-  const quickFormFieldValues = useSelector(getQuickFormFieldValues);
 
   const currentAdaptation = adaptations[currentItemIndex];
-  let extrainsertedItems = [];
+
+  let extraInsertedItems = [];
   if (selectedTab === "templates") {
-    extrainsertedItems = layouts[selectedLayout].items.map(item => ({
+    const selectedLayout =
+      currentAdaptation.defaultLayout !== undefined
+        ? currentAdaptation.defaultLayout
+        : 0;
+    extraInsertedItems = layouts[selectedLayout].items.map(item => ({
       ...item,
       configValues: {
         ...item.configValues,
@@ -26,10 +25,7 @@ export default ({ initadaptationIndex, adaptations, onClose }) => {
           ? currentAdaptation.textBackgroundColor ||
             item.configValues.backgroundColor
           : undefined
-      },
-      text: quickFormFieldValues[item.layoutItemType]
-        ? quickFormFieldValues[item.layoutItemType]
-        : item.text
+      }
     }));
   }
   const currentAdaptationExtended = {
@@ -40,7 +36,7 @@ export default ({ initadaptationIndex, adaptations, onClose }) => {
         ...(currentAdaptation.initState
           ? currentAdaptation.initState.insertedItems || []
           : []),
-        ...extrainsertedItems
+        ...extraInsertedItems
       ]
     }
   };

@@ -425,41 +425,15 @@ class TheModal extends Component {
               </Button>
             </Button.Group>
             {activeInsertedItemIndex !== null && (
-              <>
-                <Button.Group>
-                  <Button
-                    icon
-                    aria-label={macify("Bring to Front (Shift + ])")}
-                    data-balloon-pos="down"
-                    onClick={e => {
-                      this.bringActiveInsertedItemToFront();
-                      e.stopPropagation();
-                    }}
-                  >
-                    <Icon name="long arrow alternate up" />
-                  </Button>
-                  <Button
-                    icon
-                    aria-label={macify("Bring to Back (Shift + [)")}
-                    data-balloon-pos="down"
-                    onClick={e => {
-                      this.bringActiveInsertedItemToBack();
-                      e.stopPropagation();
-                    }}
-                  >
-                    <Icon name="long arrow alternate down" />
-                  </Button>
-                </Button.Group>
-                <Button
-                  icon
-                  aria-label="Remove (Backspace)"
-                  data-balloon-pos="down"
-                  onClick={this.removeActiveInsertedItem}
-                  className={s["remove-active-item-button"]}
-                >
-                  <Icon name="remove" />
-                </Button>
-              </>
+              <Button
+                icon
+                aria-label="Remove (Backspace)"
+                data-balloon-pos="down"
+                onClick={this.removeActiveInsertedItem}
+                className={s["remove-active-item-button"]}
+              >
+                <Icon name="remove" />
+              </Button>
             )}
             {hasRandomness && (
               <Button
@@ -1122,6 +1096,10 @@ class TheModal extends Component {
     }
     newState.configMode = "element";
     this.setState(newState);
+
+    if (insertedItems.length - 1 !== index) {
+      this.moveInsertedItemToIndex(index, insertedItems.length - 1);
+    }
   };
 
   unsetActiveInsertedItemIndex = () => {
@@ -1161,19 +1139,6 @@ class TheModal extends Component {
       activeInsertedItemIndex: null
     });
     delete this.insertedItemsRefs[insertedItem.id];
-  };
-
-  bringActiveInsertedItemToFront = () => {
-    const { activeInsertedItemIndex, insertedItems } = this.state;
-    this.moveInsertedItemToIndex(
-      activeInsertedItemIndex,
-      insertedItems.length - 1
-    );
-  };
-
-  bringActiveInsertedItemToBack = () => {
-    const { activeInsertedItemIndex } = this.state;
-    this.moveInsertedItemToIndex(activeInsertedItemIndex, 0);
   };
 
   moveInsertedItemToIndex = (insertedItemIndex, toIndex) => {
@@ -1580,8 +1545,6 @@ class TheModal extends Component {
     const shiftKey = 16;
     const vKey = 86;
     const cKey = 67;
-    const leftBracket = 219;
-    const rightBracket = 221;
     if (e.target.tagName === "INPUT") {
       return;
     }
@@ -1596,22 +1559,6 @@ class TheModal extends Component {
     }
     if (this.ctrlDown && e.keyCode === vKey) {
       this.pasteActiveInsertedItem();
-    }
-    if (
-      this.shiftDown &&
-      e.keyCode === leftBracket &&
-      this.state.activeInsertedItemIndex !== null
-    ) {
-      this.bringActiveInsertedItemToBack();
-      e.preventDefault();
-    }
-    if (
-      this.shiftDown &&
-      e.keyCode === rightBracket &&
-      this.state.activeInsertedItemIndex !== null
-    ) {
-      this.bringActiveInsertedItemToFront();
-      e.preventDefault();
     }
   };
 

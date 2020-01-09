@@ -30,12 +30,12 @@ export default () => {
             <div className={s["collections"]}>
               <div className={s["collections-column"]}>
                 {collections.map((collection, index) =>
-                  index % 2 ? <Collection key={index} {...collection} /> : null
+                  index % 2 ? null : <Collection key={index} {...collection} />
                 )}
               </div>
               <div className={s["collections-column"]}>
                 {collections.map((collection, index) =>
-                  index % 2 ? null : <Collection key={index} {...collection} />
+                  index % 2 ? <Collection key={index} {...collection} /> : null
                 )}
               </div>
             </div>

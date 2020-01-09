@@ -37,9 +37,7 @@ export default [
   {
     title: "rounded cut off lines",
     author: "kate.only",
-    items: [109, 75, 79, 76, 80, 78, 77, 81, 74].map(
-      index => allAdaptations[index]
-    )
+    items: [109, 75, 79, 76, 80, 78, 81, 74].map(index => allAdaptations[index])
   },
   {
     title: "Artistic Smoke",
@@ -51,7 +49,7 @@ export default [
     title: "mesh noise",
     author: "Derek Morash",
     authorLink: "https://codepen.io/derekmorash/pen/VdgGXZ",
-    items: [43, 16, 25, 103, 104, 105, 106, 107, 108].map(
+    items: [43, 16, 25, 103, 104, 106, 107, 108].map(
       index => allAdaptations[index]
     )
   },

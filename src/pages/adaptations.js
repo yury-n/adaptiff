@@ -8639,6 +8639,7 @@ export const allAdaptations = [
   // 142
   {
     ...linearGradient,
+    defaultLayout: 0,
     thumb: "/thumbs/142.png",
     initState: {
       size: { width: 1000, height: 1000 },
@@ -8666,6 +8667,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     id: 143,
+    defaultLayout: 2,
     thumb: "/thumbs/143.png",
     initState: {
       size: { width: 1000, height: 1000 },
@@ -8941,6 +8943,7 @@ export const allAdaptations = [
   // 148
   {
     ...linearGradient,
+    defaultLayout: 1,
     textColor: "#fff",
     thumb: "/thumbs/148.png",
     initState: {
