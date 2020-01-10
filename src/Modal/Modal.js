@@ -425,15 +425,41 @@ class TheModal extends Component {
               </Button>
             </Button.Group>
             {activeInsertedItemIndex !== null && (
-              <Button
-                icon
-                aria-label="Remove (Backspace)"
-                data-balloon-pos="down"
-                onClick={this.removeActiveInsertedItem}
-                className={s["remove-active-item-button"]}
-              >
-                <Icon name="remove" />
-              </Button>
+              <>
+                <Button.Group>
+                  <Button
+                    icon
+                    aria-label={macify("Bring to Front (Shift + ])")}
+                    data-balloon-pos="down"
+                    onClick={e => {
+                      this.bringActiveInsertedItemToFront();
+                      e.stopPropagation();
+                    }}
+                  >
+                    <Icon name="long arrow alternate up" />
+                  </Button>
+                  <Button
+                    icon
+                    aria-label={macify("Bring to Back (Shift + [)")}
+                    data-balloon-pos="down"
+                    onClick={e => {
+                      this.bringActiveInsertedItemToBack();
+                      e.stopPropagation();
+                    }}
+                  >
+                    <Icon name="long arrow alternate down" />
+                  </Button>
+                </Button.Group>
+                <Button
+                  icon
+                  aria-label="Remove (Backspace)"
+                  data-balloon-pos="down"
+                  onClick={this.removeActiveInsertedItem}
+                  className={s["remove-active-item-button"]}
+                >
+                  <Icon name="remove" />
+                </Button>
+              </>
             )}
             {hasRandomness && (
               <Button
@@ -675,9 +701,10 @@ class TheModal extends Component {
     };
     switch (insertedItem.type) {
       case "text":
-        const InsertedTextComponent = insertedItem.isDraggable
-          ? InsertedTextDraggable
-          : InsertedText;
+        const InsertedTextComponent =
+          insertedItem.isDraggable === false
+            ? InsertedText
+            : InsertedTextDraggable;
         return (
           <InsertedTextComponent
             config={insertedItem.configValues}
@@ -1139,6 +1166,19 @@ class TheModal extends Component {
       activeInsertedItemIndex: null
     });
     delete this.insertedItemsRefs[insertedItem.id];
+  };
+
+  bringActiveInsertedItemToFront = () => {
+    const { activeInsertedItemIndex, insertedItems } = this.state;
+    this.moveInsertedItemToIndex(
+      activeInsertedItemIndex,
+      insertedItems.length - 1
+    );
+  };
+
+  bringActiveInsertedItemToBack = () => {
+    const { activeInsertedItemIndex } = this.state;
+    this.moveInsertedItemToIndex(activeInsertedItemIndex, 0);
   };
 
   moveInsertedItemToIndex = (insertedItemIndex, toIndex) => {
@@ -1682,9 +1722,7 @@ class TheModal extends Component {
               height: this.state.canvasHeight
             },
             configValues: this.state.configValues,
-            insertedItems: capturedInsertedItems.filter(
-              item => !item.isFromLayout
-            )
+            insertedItems: capturedInsertedItems
           }
         })
           .slice(1)

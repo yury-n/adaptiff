@@ -4,14 +4,14 @@ export default [
   {
     title: "Dots Forming 3D Ball",
     author: "yury-n",
-    items: [148, 142, 143, 144, 145, 146, 147].map(
+    items: [148, 142, 143, 144, 145, 146, 147, 156].map(
       index => allAdaptations[index]
     )
   },
   {
     title: "Glitchy elements",
     author: "Anna Taran",
-    items: [137, 138, 139, 140, 141].map(index => allAdaptations[index])
+    items: [137, 138, 139, 140, 141, 155].map(index => allAdaptations[index])
   },
   {
     title: "Gradient Bubbles",
@@ -57,7 +57,7 @@ export default [
     title: "Hedgehog",
     author: "Kjetil Midtgarden Golid",
     authorLink: "https://github.com/kgolid",
-    items: [151, 149, 150, 152, 153].map(index => allAdaptations[index])
+    items: [151, 149, 150, 152, 153, 154].map(index => allAdaptations[index])
   },
   {
     title: "subtle waves",

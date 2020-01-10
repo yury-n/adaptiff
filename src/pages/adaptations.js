@@ -766,6 +766,9 @@ export const allAdaptations = [
   {
     ...mesh,
     thumb: "/thumbs/b28.png",
+    defaultLayout: 4,
+    textColor: "#000",
+    textBackgroundColor: "rgba(255, 255, 255, 0.5)",
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: {
@@ -804,6 +807,7 @@ export const allAdaptations = [
   // 25
   {
     ...mesh,
+    defaultLayout: 1,
     textColor: "#ffcf2c",
     initState: { configValues: {}, size: { width: 1080, height: 1080 } }
   },
@@ -4971,7 +4975,9 @@ export const allAdaptations = [
   // 90
   {
     ...waterpipe,
-    textBackgroundColor: "rgba(255, 255, 255, 0.7)",
+    defaultLayout: 4,
+    textColor: "#000",
+    textBackgroundColor: "rgba(255, 255, 255, 0.3)",
     id: 90,
     initState: {
       size: { width: 1000, height: 1000 },
@@ -5692,6 +5698,7 @@ export const allAdaptations = [
   {
     ...waterpipe,
     thumb: "/thumbs/99.png",
+    defaultLayout: 4,
     textColor: "#000",
     textBackgroundColor: "rgba(255, 255, 255, 0.8)",
     initState: {
@@ -5709,8 +5716,9 @@ export const allAdaptations = [
   // 100
   {
     ...radialGradient,
+    defaultLayout: 4,
     textColor: "#000",
-    textBackgroundColor: "rgba(255, 255, 255, 0.7)",
+    textBackgroundColor: "rgba(255, 255, 255, 0.2)",
     thumb: "/thumbs/100.png",
     initState: {
       size: { width: 1000, height: 1000 },
@@ -5849,6 +5857,7 @@ export const allAdaptations = [
   {
     ...mesh,
     textColor: "#ffcf2c",
+    defaultLayout: 1,
     thumb: "/thumbs/103.png",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -5866,6 +5875,7 @@ export const allAdaptations = [
   {
     ...mesh,
     textColor: "#000",
+    defaultLayout: 2,
     thumb: "/thumbs/104.png",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -5901,6 +5911,9 @@ export const allAdaptations = [
     ...mesh,
     textColor: "#000",
     thumb: "/thumbs/106.png",
+    defaultLayout: 4,
+    textColor: "#000",
+    textBackgroundColor: "rgba(100, 200, 189, 0.5)",
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -5984,6 +5997,7 @@ export const allAdaptations = [
   // 109
   {
     ...linearGradient,
+    defaultLayout: 3,
     textColor: "#fff",
     textBackgroundColor: "rgba(61, 0, 129, 0.74)",
     supportedLayout: [0, 1, 2],
@@ -7670,6 +7684,7 @@ export const allAdaptations = [
   // 125
   {
     ...gradientWaves,
+    defaultLayout: 6,
     textColor: "#fff",
     thumb: "/thumbs/125.png",
     initState: {
@@ -7857,6 +7872,7 @@ export const allAdaptations = [
   {
     ...gradientBubbles,
     thumb: "/thumbs/133.png",
+    defaultLayout: 1,
     textColor: "#fff",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -7892,6 +7908,7 @@ export const allAdaptations = [
   {
     ...gradientBubbles,
     thumb: "/thumbs/134.png",
+    defaultLayout: 2,
     textBackgroundColor: "rgba(255, 255, 255, 0.28)",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -7930,6 +7947,7 @@ export const allAdaptations = [
   {
     ...gradientBubbles,
     thumb: "/thumbs/135.png",
+    defaultLayout: 1,
     textColor: "#fff",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -7984,6 +8002,7 @@ export const allAdaptations = [
   // 137
   {
     ...linearGradient,
+    defaultLayout: 1,
     thumb: "/thumbs/137.png",
     textColor: "#fff",
     title: "Glitchy elements",
@@ -8103,6 +8122,8 @@ export const allAdaptations = [
   // 138
   {
     ...linearGradient,
+    textColor: "#71495a",
+    defaultLayout: 3,
     thumb: "/thumbs/138.png",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -8230,6 +8251,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/139.png",
+    defaultLayout: 2,
     textColor: "#fff",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -8744,6 +8766,7 @@ export const allAdaptations = [
     ...linearGradient,
     thumb: "/thumbs/145.png",
     textColor: "#ffffff",
+    defaultLayout: 3,
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: {
@@ -8803,6 +8826,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     textColor: "#fff",
+    defaultLayout: 4,
     thumb: "/thumbs/146.png",
     initState: {
       size: { width: 1000, height: 1000 },
@@ -8874,6 +8898,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/147.png",
+    defaultLayout: 2,
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: {
@@ -9152,6 +9177,230 @@ export const allAdaptations = [
           height: 107.03902229845625,
           position: { left: 530.0139365351629, top: 486.48048885077185 },
           text: ""
+        }
+      ]
+    }
+  },
+  // 154
+  {
+    hedgehog,
+    thumb: "/thumbs/154.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        withBackground: true,
+        backgroundColor: "#fdfdfd",
+        strokeColor: { r: 84, g: 84, b: 84, a: 0.29 },
+        randomValues: [0.7507029493773505]
+      },
+      insertedItems: [
+        {
+          id: 603,
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Oswald",
+            fontSize: 73,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 249, g: 249, b: 249, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            hasCyrillic: true
+          },
+          width: 19.97231012658228,
+          height: 107.1242088607595,
+          position: { left: 530.0138449367089, top: 486.4378955696203 },
+          text: ""
+        }
+      ]
+    }
+  },
+  // 155
+  {
+    ...linearGradient,
+    thumb: "/thumbs/155.png",
+    defaultLayout: 3,
+    textColor: "#fff",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#ff81e5", "#b383ff"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 248.23327615780443,
+          height: 416.80960548885076,
+          showIframe: true,
+          adaptation: svgs[78],
+          configValues: { palette: ["#8940e4", "#be35ff"], angle: 0 },
+          position: { left: 689.1252144082332, top: -25.934819897084047 },
+          id: 303,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 248.23327615780443,
+          height: 372.34991423670664,
+          showIframe: true,
+          adaptation: svgs[78],
+          configValues: { palette: ["#8940e4", "#be35ff"], angle: 0 },
+          position: { left: 146.34648370497425, top: -42.60720411663807 },
+          id: 608,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 227.8559176672384,
+          height: 463.12178387650084,
+          showIframe: true,
+          adaptation: svgs[68],
+          configValues: { palette: ["#be35ff", "#8940e4"], angle: 0 },
+          position: { left: 490.9090909090909, top: 800.2744425385935 },
+          id: 402,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 537.221269296741,
+          height: 357.5300171526586,
+          showIframe: true,
+          adaptation: svgs[74],
+          configValues: { palette: ["#be35ff", "#8940e4"], angle: 0 },
+          position: { left: 546.483704974271, top: -38.90222984562607 },
+          id: 606,
+          rotation: 180
+        },
+        {
+          type: "object",
+          width: 398.2847341337907,
+          height: 364.93996569468266,
+          showIframe: true,
+          adaptation: svgs[76],
+          configValues: { palette: ["#8940e4", "#8940e4"], angle: 0 },
+          position: { left: -18.524871355060032, top: 40.75471698113207 },
+          id: 604,
+          rotation: -89
+        },
+        {
+          type: "object",
+          width: 227.8559176672384,
+          height: 463.12178387650084,
+          showIframe: true,
+          adaptation: svgs[68],
+          configValues: { palette: ["#8940e4", "#8940e4"], angle: 0 },
+          position: { left: -90.77186963979416, top: 548.336192109777 },
+          id: 603,
+          rotation: 89
+        },
+        {
+          type: "object",
+          width: 248.23327615780443,
+          height: 372.34991423670664,
+          showIframe: true,
+          adaptation: svgs[78],
+          configValues: { palette: ["#8940e4", "#be35ff"], angle: 0 },
+          position: { left: 424.21955403087475, top: -22.229845626072038 },
+          id: 302,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 248.23327615780443,
+          height: 353.82504288164665,
+          showIframe: true,
+          adaptation: svgs[77],
+          configValues: { palette: ["#8940e4", "#8940e4"], angle: 0 },
+          position: { left: -62.98456260720411, top: -57.4271012006861 },
+          id: 607,
+          rotation: 180
+        },
+        {
+          type: "object",
+          width: 537.221269296741,
+          height: 363.08747855917665,
+          showIframe: true,
+          adaptation: svgs[73],
+          configValues: { palette: ["#a155ff", "#7200ff"], angle: 0 },
+          position: { left: -196.36363636363635, top: 448.3018867924528 },
+          id: 602,
+          rotation: 90
+        },
+        {
+          type: "object",
+          width: 381.6123499142367,
+          height: 394.5797598627787,
+          showIframe: true,
+          adaptation: svgs[79],
+          configValues: { palette: ["#8940e4", "#8940e4"], angle: 0 },
+          position: { left: 357.5300171526586, top: 761.3722126929673 },
+          id: 202,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 198.21612349914236,
+          height: 407.5471698113207,
+          showIframe: true,
+          adaptation: svgs[72],
+          configValues: { palette: ["#be35ff", "#8940e4"], angle: 0 },
+          position: { left: 79.65694682675814, top: 768.7821612349913 },
+          id: 605,
+          rotation: 90
+        },
+        {
+          type: "object",
+          width: 381.6123499142367,
+          height: 394.5797598627787,
+          showIframe: true,
+          adaptation: svgs[79],
+          configValues: { palette: ["#8940e4", "#8940e4"], angle: 0 },
+          position: { left: 690.9777015437393, top: 731.7324185248713 },
+          id: 610,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 398.2847341337907,
+          height: 364.93996569468266,
+          showIframe: true,
+          adaptation: svgs[76],
+          configValues: { palette: ["#8940e4", "#8940e4"], angle: 0 },
+          position: { left: 837.3241852487134, top: 609.4682675814751 },
+          id: 203,
+          rotation: 89
+        }
+      ]
+    }
+  },
+  // 156
+  {
+    ...linearGradient,
+    textColor: "#f6a2ac",
+    thumb: "/thumbs/156.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#394151", "#03112b"],
+        direction: "bottom",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 991.4236706689537,
+          height: 991.4236706689537,
+          showIframe: true,
+          adaptation: svgs[143],
+          configValues: { color: "#364258" },
+          position: { left: 3.430531732418525, top: 5.145797598627787 },
+          id: 302,
+          rotation: 0
         }
       ]
     }
