@@ -259,6 +259,82 @@ goes here`,
   ]
 };
 
+const playfairDisplay = {
+  items: [
+    {
+      type: "text",
+      layoutItemType: "header",
+      hasCyrillic: false,
+      configValues: {
+        fontFamily: "Playfair Display",
+        fontSize: 72,
+        padding: 10,
+        letterSpacing: 0,
+        color: "#5c6e7b",
+        borderWidth: 0,
+        isInline: false,
+        lineHeight: 12,
+        textAlign: "center",
+        isBold: true
+      },
+      id: 1202,
+      width: 641.3116626065773,
+      height: 190.98964677222898,
+      position: { left: 223.21863580998783, top: 429.56227161997566 },
+      text: "Sample header text\ntext sample"
+    }
+  ]
+};
+
+const josefinSansWithSubheader = {
+  items: [
+    {
+      type: "text",
+      layoutItemType: "header",
+      hasCyrillic: false,
+      configValues: {
+        fontFamily: "Josefin Sans",
+        fontSize: 37,
+        padding: 10,
+        letterSpacing: 0,
+        color: "#5c6e7b",
+        borderWidth: 0,
+        isInline: false,
+        lineHeight: 10,
+        textAlign: "center",
+        isBold: false
+      },
+      id: 103,
+      width: 705.9546285018271,
+      height: 56.81181485992692,
+      position: { left: 175.8617539585871, top: 637.4063641900121 },
+      text: "Subheader sample text sample goes here"
+    },
+    {
+      type: "text",
+      layoutItemType: "header",
+      hasCyrillic: false,
+      configValues: {
+        fontFamily: "Josefin Sans",
+        fontSize: 72,
+        padding: 10,
+        letterSpacing: 0,
+        color: "#5c6e7b",
+        borderWidth: 0,
+        isInline: false,
+        lineHeight: 10,
+        textAlign: "center",
+        isBold: true
+      },
+      id: 1302,
+      width: 656.2134591961023,
+      height: 162.0493300852619,
+      position: { left: 206.1175395858709, top: 424.3003958587089 },
+      text: "Sample header text\ntext sample"
+    }
+  ]
+};
+
 export default [
   // 0
   headerOnly,
@@ -273,5 +349,9 @@ export default [
   // 5
   headerWithBackgroundAndBorder,
   // 6
-  weShouldAllBeDesigners
+  weShouldAllBeDesigners,
+  // 7
+  playfairDisplay,
+  // 8
+  josefinSansWithSubheader
 ];

@@ -34,7 +34,7 @@ export default ({ title, author, authorLink, items, isPremium }) => {
         )}
       >
         <div className={s["collection-inner-shadow"]} />
-        {!isExpanded && (
+        {!isExpanded && items.length > 4 && (
           <div
             className={s["collect-view-all"]}
             onClick={() => setIsExpanded(!isExpanded)}

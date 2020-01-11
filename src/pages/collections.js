@@ -2,6 +2,11 @@ import { allAdaptations } from "./adaptations";
 
 export default [
   {
+    title: "debris",
+    author: "ekaterina-ch",
+    items: [157, 158, 159, 160].map(index => allAdaptations[index])
+  },
+  {
     title: "Dots Forming 3D Ball",
     author: "yury-n",
     items: [148, 142, 143, 144, 145, 146, 147, 156].map(

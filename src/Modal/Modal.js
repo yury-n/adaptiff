@@ -1728,6 +1728,7 @@ class TheModal extends Component {
           .slice(1)
           .slice(0, -1)
           .replace(/"svgs\/(\w+)"/g, "svgs[$1]")
+          .replace(/"png_htmls\/(\w+)"/g, "pngs[$1]")
       );
       // return;
     }

@@ -23,8 +23,16 @@ export default ({ adaptation, adaptations, isPremium }) => {
             <PremiumCrown />
           </div>
         )}
-        <img loading="lazy" src={adaptation.thumb} alt="" />
-        {selectedTab === "templates" && (
+        <img
+          loading="lazy"
+          src={
+            selectedTab === "templates" && adaptation.layoutThumb
+              ? adaptation.layoutThumb
+              : adaptation.thumb
+          }
+          alt=""
+        />
+        {selectedTab === "templates" && !adaptation.layoutThumb && (
           <Layout
             layout={layouts[selectedLayout]}
             width={180}
