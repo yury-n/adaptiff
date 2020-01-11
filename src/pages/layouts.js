@@ -286,6 +286,53 @@ const playfairDisplay = {
   ]
 };
 
+const playfairDisplayWithSubheaderBottomLeft = {
+  items: [
+    {
+      type: "text",
+      layoutItemType: "subheader",
+      hasCyrillic: false,
+      configValues: {
+        fontFamily: "Playfair Display",
+        fontSize: 46,
+        padding: 10,
+        letterSpacing: 0,
+        borderWidth: 0,
+        isInline: false,
+        lineHeight: 10,
+        textAlign: "center",
+        isBold: false
+      },
+      id: 1303,
+      width: 855.6174957118353,
+      height: 64.43181818181817,
+      position: { left: 103.59455403087478, top: 906.010934819897 },
+      text: "Sample sub-header text goes here below"
+    },
+    {
+      type: "text",
+      layoutItemType: "header",
+      hasCyrillic: false,
+      configValues: {
+        fontFamily: "Playfair Display",
+        fontSize: 83,
+        padding: 10,
+        letterSpacing: 0,
+        borderWidth: 0,
+        isInline: false,
+        lineHeight: 13,
+        textAlign: "left",
+        isBold: true
+      },
+      id: 1302,
+      width: 572.8816466552315,
+      height: 234.86063464837048,
+      position: { left: 100.09219554030874, top: 623.0724699828473 },
+      text: "Sample header\ntext sample"
+    }
+  ]
+};
+
 const josefinSansWithSubheader = {
   items: [
     {
@@ -353,5 +400,7 @@ export default [
   // 7
   playfairDisplay,
   // 8
-  josefinSansWithSubheader
+  josefinSansWithSubheader,
+  // 9
+  playfairDisplayWithSubheaderBottomLeft
 ];
