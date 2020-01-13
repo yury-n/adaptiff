@@ -32,14 +32,16 @@ export default ({ adaptation, adaptations, isPremium }) => {
           }
           alt=""
         />
-        {selectedTab === "templates" && !adaptation.layoutThumb && (
-          <Layout
-            layout={layouts[selectedLayout]}
-            width={180}
-            textColor={adaptation.textColor}
-            textBackgroundColor={adaptation.textBackgroundColor}
-          />
-        )}
+        {selectedTab === "templates" &&
+          adaptation.defaultLayout !== undefined &&
+          !adaptation.layoutThumb && (
+            <Layout
+              layout={layouts[selectedLayout]}
+              width={180}
+              textColor={adaptation.textColor}
+              textBackgroundColor={adaptation.textBackgroundColor}
+            />
+          )}
       </div>
       {showModal && (
         <ModalGroup

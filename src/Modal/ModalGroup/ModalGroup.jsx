@@ -11,7 +11,10 @@ export default ({ initadaptationIndex, adaptations, onClose }) => {
   const currentAdaptation = adaptations[currentItemIndex];
 
   let extraInsertedItems = [];
-  if (selectedTab === "templates") {
+  if (
+    selectedTab === "templates" &&
+    currentAdaptation.defaultLayout !== undefined
+  ) {
     const selectedLayout =
       currentAdaptation.defaultLayout !== undefined
         ? currentAdaptation.defaultLayout

@@ -7,6 +7,19 @@ export default [
     items: [157, 158, 159, 160].map(index => allAdaptations[index])
   },
   {
+    title: "random mixes",
+    noBackgrounds: true,
+    items: [161, 87, 85, 88, 82, 70, 163, 89].map(
+      index => allAdaptations[index]
+    )
+  },
+  {
+    title: "Gradient Waves",
+    author: "Fabio Ottaviani",
+    authorLink: "https://codepen.io/supah/",
+    items: [162, 22, 164, 165].map(index => allAdaptations[index])
+  },
+  {
     title: "Dots Forming 3D Ball",
     author: "yury-n",
     items: [148, 142, 143, 144, 145, 146, 147, 156].map(

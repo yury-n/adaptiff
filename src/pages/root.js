@@ -3,12 +3,10 @@ import classnames from "classnames";
 import { Checkbox, Button } from "semantic-ui-react";
 import { Provider } from "react-redux";
 import store from "../store";
-
+import Collections from "../Collections/Collections";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SubscribeBlock from "../SubscribeBlock/SubscribeBlock";
-import Collection from "../Collection/Collection";
-import collections from "./collections";
 import Tabs from "../Modal/Tabs/Tabs";
 import LegacyCards from "./LegacyCards/LegacyCards";
 
@@ -26,20 +24,7 @@ export default () => {
           )}
         >
           <Tabs />
-          <div className={s["v2-layout"]}>
-            <div className={s["collections"]}>
-              <div className={s["collections-column"]}>
-                {collections.map((collection, index) =>
-                  index % 2 ? null : <Collection key={index} {...collection} />
-                )}
-              </div>
-              <div className={s["collections-column"]}>
-                {collections.map((collection, index) =>
-                  index % 2 ? <Collection key={index} {...collection} /> : null
-                )}
-              </div>
-            </div>
-          </div>
+          <Collections />
           <div style={{ display: "none" }}>
             <div className={s["main-header"]}>
               Unique adaptive designs for everyone

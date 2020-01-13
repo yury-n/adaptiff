@@ -623,6 +623,7 @@ export const allAdaptations = [
   {
     ...gradientWaves,
     thumb: "/thumbs/n13.png",
+    defaultLayout: 0,
     thumbBackgroundSize: "cover",
     textColor: "#fff",
     initState: {
@@ -796,7 +797,13 @@ export const allAdaptations = [
   // 21
   { ...particles, thumb: "/thumbs/b25.png" },
   // 22
-  { ...gradientWaves, thumb: "/thumbs/b27.png" },
+  {
+    ...gradientWaves,
+    textColor: "#fff",
+    defaultLayout: 0,
+    thumb: "/thumbs/b27.png",
+    initState: { configValues: {}, size: { width: 1000, height: 1000 } }
+  },
   // 23
   {
     ...gradientBubbles,
@@ -1224,6 +1231,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/n43.png",
+    defaultLayout: 0,
     textColor: "#fff",
     initState: {
       size: { width: 1000, height: 1000 },
@@ -2089,6 +2097,7 @@ export const allAdaptations = [
   {
     ...gradientWaves,
     thumb: "/thumbs/62.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -2953,7 +2962,7 @@ export const allAdaptations = [
     objectPack: "Round Shapes",
     textColor: "#fff",
     textBackgroundColor: "rgba(61, 0, 129, 0.74)",
-    supportedLayout: ["background", 3, 4],
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3095,7 +3104,7 @@ export const allAdaptations = [
     thumb: "/thumbs/75.png",
     textColor: "#fff",
     textBackgroundColor: "rgba(114, 33, 181, 0.4)",
-    supportedLayout: ["background", 0, 3, 4],
+    defaultLayout: 0,
     title: "Round shapes",
     author: "Abstract Geometry",
     objectPack: "Round Shapes",
@@ -3241,6 +3250,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/76.png",
+    defaultLayout: 0,
     title: "Round shapes",
     author: "Abstract Geometry",
     objectPack: "Round Shapes",
@@ -3401,7 +3411,7 @@ export const allAdaptations = [
     thumb: "/thumbs/78.png",
     textColor: "#fff",
     textBackgroundColor: "rgba(22, 20, 60, 0.8)",
-    supportedLayout: ["background", 0, 1, 2, 4],
+    defaultLayout: 0,
     title: "Round shapes",
     author: "Abstract Geometry",
     objectPack: "Round Shapes",
@@ -3545,6 +3555,7 @@ export const allAdaptations = [
     title: "Round shapes",
     author: "Abstract Geometry",
     objectPack: "Round Shapes",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -3644,7 +3655,7 @@ export const allAdaptations = [
     ...linearGradient,
     thumb: "/thumbs/80.png",
     textColor: "#fff",
-    supportedLayout: ["background", 0, 1, 2, 3, 4],
+    defaultLayout: 0,
     title: "Round shapes",
     author: "Abstract Geometry",
     objectPack: "Round Shapes",
@@ -3777,6 +3788,7 @@ export const allAdaptations = [
     title: "Round shapes",
     author: "Abstract Geometry",
     objectPack: "Round Shapes",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -4185,7 +4197,7 @@ export const allAdaptations = [
     thumb: "/thumbs/84.png",
     title: "subtle waves",
     textColor: "#000",
-    supportedLayout: ["background", 0, 1, 2, 3, 4],
+    defaultLayout: 0,
     id: 84,
     initState: {
       size: { width: 1080, height: 1080 },
@@ -5223,117 +5235,7 @@ export const allAdaptations = [
     }
   },
   // 93
-  {
-    ...linearGradient,
-    thumb: "/thumbs/93.png",
-    initState: {
-      size: { width: 1080, height: 1080 },
-      configValues: {
-        palette: ["#ffffff", "#ebf1ff"],
-        direction: "custom_angle",
-        angle: 200
-      },
-      insertedItems: [
-        {
-          type: "object",
-          width: 353,
-          height: 328,
-          showIframe: true,
-          adaptation: svgs[11],
-          configValues: { palette: ["#f7fba7", "#25e554"], angle: 0 },
-          position: { left: 200, top: 271.5 },
-          id: 102,
-          rotation: 0
-        },
-        {
-          type: "object",
-          width: 217,
-          height: 308,
-          showIframe: true,
-          adaptation: svgs[11],
-          configValues: { palette: ["#0869eb", "#25e554"], angle: 0 },
-          position: { left: 539, top: 316.5 },
-          id: 103,
-          rotation: 62
-        },
-        {
-          type: "text",
-          hasCyrillic: false,
-          configValues: {
-            fontFamily: "Roboto",
-            fontSize: 45,
-            padding: 29,
-            letterSpacing: 0,
-            color: "#000",
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0.5 },
-            borderWidth: 0,
-            isInline: false,
-            lineHeight: 9,
-            isBold: false,
-            isItalic: false
-          },
-          id: 104,
-          width: 293.78125,
-          height: 178,
-          position: { left: 249, top: 428 },
-          text: "BEST\nTRIANGLES\nCOMPANY"
-        },
-        {
-          type: "object",
-          width: 147,
-          height: 117,
-          showIframe: true,
-          adaptation: svgs[11],
-          configValues: { palette: ["#25e554", "#0869eb"], angle: 0 },
-          position: { left: 334, top: 705.5 },
-          id: 105,
-          rotation: 123
-        },
-        {
-          type: "text",
-          hasCyrillic: false,
-          configValues: {
-            fontFamily: "Roboto",
-            fontSize: 24,
-            padding: 10,
-            letterSpacing: 0,
-            color: "#000",
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0.5 },
-            borderWidth: 0,
-            isInline: false,
-            lineHeight: 12
-          },
-          id: 106,
-          width: 1177.609375,
-          height: 48,
-          position: { left: -93, top: 110 },
-          text:
-            "BESTTRIANGLESCOMPANYBESTTRIANGLESCOMPANYBESTTRIANGLECOMPANYBESTTRIANGLECOMPANY"
-        },
-        {
-          type: "text",
-          hasCyrillic: false,
-          configValues: {
-            fontFamily: "Roboto",
-            fontSize: 24,
-            padding: 10,
-            letterSpacing: 0,
-            color: "#000",
-            backgroundColor: { r: 255, g: 255, b: 255, a: 0.5 },
-            borderWidth: 0,
-            isInline: false,
-            lineHeight: 12
-          },
-          id: 110,
-          width: 1177.609375,
-          height: 48,
-          position: { left: -77, top: 972 },
-          text:
-            "BESTTRIANGLESCOMPANYBESTTRIANGLESCOMPANYBESTTRIANGLECOMPANYBESTTRIANGLECOMPANY"
-        }
-      ]
-    }
-  },
+  {},
   // 94
   {
     ...linearGradient,
@@ -5671,6 +5573,7 @@ export const allAdaptations = [
     thumb: "/thumbs/98.png",
     textColor: "#fff",
     textBackgroundColor: "rgba(255, 0, 0, 0.14)",
+    defaultLayout: 0,
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: { palette: ["#440000", "#1f0000"] },
@@ -5767,6 +5670,7 @@ export const allAdaptations = [
     ...radialGradient,
     thumb: "/thumbs/101.png",
     textColor: "#fff",
+    defaultLayout: 0,
     initState: {
       size: { width: 1000, height: 1000 },
       configValues: { palette: ["#ae65ff", "#3d0081"] },
@@ -5829,6 +5733,7 @@ export const allAdaptations = [
   {
     ...radialGradient,
     thumb: "/thumbs/102.png",
+    defaultLayout: 0,
     textColor: "#fff",
     initState: {
       size: { width: 1000, height: 1000 },
@@ -5931,6 +5836,7 @@ export const allAdaptations = [
     ...linearGradient,
     textColor: "#000",
     textBackgroundColor: "rgba(251, 194, 235, 0.44)",
+    defaultLayout: 0,
     thumb: "/thumbs/107.png",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -5965,6 +5871,7 @@ export const allAdaptations = [
     ...linearGradient,
     textColor: "#000",
     textBackgroundColor: "rgba(255, 255, 255, 0.36)",
+    defaultLayout: 0,
     thumb: "/thumbs/108.png",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -6142,6 +6049,7 @@ export const allAdaptations = [
     ...blank,
     textColor: "#000",
     thumb: "/thumbs/110.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: { transparent: false, color: "#ffffff" },
@@ -6236,6 +6144,7 @@ export const allAdaptations = [
     ...blank,
     textColor: "#000",
     thumb: "/thumbs/111.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: { transparent: false, color: "#ffffff" },
@@ -6354,6 +6263,7 @@ export const allAdaptations = [
   {
     ...blank,
     thumb: "/thumbs/112.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: { transparent: false, color: "#ffffff" },
@@ -6447,6 +6357,7 @@ export const allAdaptations = [
   {
     ...blank,
     thumb: "/thumbs/113.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: { transparent: false, color: "#ffffff" },
@@ -6541,6 +6452,7 @@ export const allAdaptations = [
     ...blank,
     textColor: "#fff",
     thumb: "/thumbs/114.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: { transparent: false, color: "#ffffff" },
@@ -6648,6 +6560,7 @@ export const allAdaptations = [
   {
     ...blank,
     thumb: "/thumbs/115.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: { transparent: false, color: "#ffffff" },
@@ -6766,6 +6679,7 @@ export const allAdaptations = [
   {
     ...blank,
     thumb: "/thumbs/116.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: { transparent: false, color: "#ffffff" },
@@ -6814,6 +6728,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/117.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -6909,6 +6824,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/118.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -7007,6 +6923,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/119.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -7105,6 +7022,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/120.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -7226,6 +7144,7 @@ export const allAdaptations = [
     ...linearGradient,
     textColor: "#fff",
     thumb: "/thumbs/121.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -7342,6 +7261,7 @@ export const allAdaptations = [
     ...linearGradient,
     textColor: "#fff",
     thumb: "/thumbs/122.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -7457,6 +7377,7 @@ export const allAdaptations = [
     ...linearGradient,
     textColor: "#fff",
     thumb: "/thumbs/123.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -7571,6 +7492,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/124.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -7707,6 +7629,7 @@ export const allAdaptations = [
     ...gradientWaves,
     textColor: "#fff",
     thumb: "/thumbs/126.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -7726,6 +7649,7 @@ export const allAdaptations = [
     ...gradientWaves,
     thumb: "/thumbs/127.png",
     textColor: "#fff",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -7744,6 +7668,7 @@ export const allAdaptations = [
   {
     ...gradientWaves,
     thumb: "/thumbs/128.png",
+    defaultLayout: 0,
     textColor: "#fff",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -7763,6 +7688,7 @@ export const allAdaptations = [
   {
     ...gradientWaves,
     thumb: "/thumbs/129.png",
+    defaultLayout: 0,
     textColor: "#fff",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -7782,6 +7708,7 @@ export const allAdaptations = [
   {
     ...gradientWaves,
     thumb: "/thumbs/130.png",
+    defaultLayout: 0,
     textColor: "#fff",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -7803,6 +7730,7 @@ export const allAdaptations = [
     thumb: "/thumbs/131.png",
     textColor: "#d7ff00",
     textBackgroundColor: "rgba(190, 227, 246, 0.26)",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -7841,6 +7769,7 @@ export const allAdaptations = [
     ...gradientBubbles,
     textColor: "#d7ff00",
     thumb: "/thumbs/132.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -7968,6 +7897,7 @@ export const allAdaptations = [
   {
     ...gradientBubbles,
     thumb: "/thumbs/136.png",
+    defaultLayout: 0,
     textColor: "#3c4604",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -8390,6 +8320,7 @@ export const allAdaptations = [
     ...linearGradient,
     thumb: "/thumbs/140.png",
     textColor: "#fff",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -8526,6 +8457,7 @@ export const allAdaptations = [
   {
     ...linearGradient,
     thumb: "/thumbs/141.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -8716,6 +8648,7 @@ export const allAdaptations = [
   // 144
   {
     ...linearGradient,
+    defaultLayout: 0,
     thumb: "/thumbs/144.png",
     initState: {
       size: { width: 1000, height: 1000 },
@@ -8997,6 +8930,7 @@ export const allAdaptations = [
   {
     ...hedgehog,
     thumb: "/thumbs/149.png",
+    defaultLayout: 0,
     textColor: "#fff",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -9035,6 +8969,7 @@ export const allAdaptations = [
   {
     ...hedgehog,
     thumb: "/thumbs/150.png",
+    defaultLayout: 0,
     textColor: "#fff",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -9073,6 +9008,7 @@ export const allAdaptations = [
   {
     ...hedgehog,
     thumb: "/thumbs/151.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -9110,6 +9046,7 @@ export const allAdaptations = [
   {
     ...hedgehog,
     thumb: "/thumbs/152.png",
+    defaultLayout: 0,
     textColor: "#e0aa4f",
     initState: {
       size: { width: 1080, height: 1080 },
@@ -9148,6 +9085,7 @@ export const allAdaptations = [
   {
     ...hedgehog,
     thumb: "/thumbs/153.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -9185,6 +9123,7 @@ export const allAdaptations = [
   {
     hedgehog,
     thumb: "/thumbs/154.png",
+    defaultLayout: 0,
     initState: {
       size: { width: 1080, height: 1080 },
       configValues: {
@@ -9381,6 +9320,7 @@ export const allAdaptations = [
   // 156
   {
     ...linearGradient,
+    defaultLayout: 0,
     textColor: "#f6a2ac",
     thumb: "/thumbs/156.png",
     initState: {
@@ -10703,6 +10643,353 @@ export const allAdaptations = [
           },
           position: { left: 710.0316455696203, top: 471.6455696202532 },
           id: 107,
+          rotation: 0
+        }
+      ]
+    }
+  },
+  // 161
+  {
+    ...linearGradient,
+    layoutThumb: "/thumbs/161L.png",
+    initState: {
+      size: { width: 1000, height: 1000 },
+      configValues: {
+        palette: ["#00e8f7", "#c700d2"],
+        direction: "bottom",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 305.3173241852487,
+          height: 219.5540308747856,
+          showIframe: true,
+          adaptation: svgs[24],
+          configValues: { palette: ["#71FFF5", "#BFFF86"], angle: 0 },
+          position: { left: 325.9005145797599, top: 689.5368782161236 },
+          id: 105,
+          rotation: 0
+        },
+        {
+          type: "text",
+          layoutItemType: "header",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Rubik Mono One",
+            fontSize: 71,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#eefd00",
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            textAlign: "center",
+            isBold: false
+          },
+          id: 1302,
+          text: "Sample header\ntext goes here",
+          width: 864.8424099485421,
+          height: 188.08962264150944,
+          position: { left: 68.82504288164667, top: 245.87264150943398 }
+        },
+        {
+          type: "object",
+          width: 181.81818181818184,
+          height: 185.24871355060034,
+          showIframe: true,
+          adaptation: svgs[122],
+          configValues: { palette: ["#fbfa00", "#98e5d9"], angle: 0 },
+          position: { left: 307.032590051458, top: 718.696397941681 },
+          id: 103,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 197.25557461406518,
+          height: 255.57461406518013,
+          showIframe: true,
+          adaptation: svgs[123],
+          configValues: { palette: ["#96FBC4", "#F9F586"], angle: 0 },
+          position: { left: 449.3996569468268, top: 672.3842195540309 },
+          id: 104,
+          rotation: 8
+        },
+        {
+          type: "text",
+          layoutItemType: "subheader-multiline",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Noto Sans",
+            fontSize: 43,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#fff",
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            textAlign: "center",
+            isBold: true,
+            hasCyrillic: true
+          },
+          id: 403,
+          position: { left: 184.0694682675815, top: 478.55917667238424 },
+          text: "sample text subheading below",
+          width: 637.9716981132076,
+          height: 71.45154373927959
+        }
+      ]
+    }
+  },
+  // 162
+  {
+    ...linearGradient,
+    thumb: "/thumbs/162.png",
+    layoutThumb: "/thumbs/162L.png",
+    defaultLayout: 9,
+    textColor: "#fff",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#bf1f00", "#3d0000"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          id: 400,
+          type: "object",
+          showIframe: true,
+          adaptation: gradientWaves,
+          width: 1083.704974271012,
+          height: 1081.852487135506,
+          position: { left: -3.7049742710120066, top: -3.7049742710120066 },
+          configValues: {
+            amplituteX: 60,
+            amplituteY: 60,
+            fill: false,
+            lines: 10,
+            palette: ["#e9db6d", "#c95c46"],
+            randomValues: [0.1329382981666447, 0.5229732095475299],
+            smoothness: 10,
+            fontSize: null
+          },
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 1624.6312178387648,
+          height: 1402.3327615780445,
+          showIframe: true,
+          adaptation: svgs[140],
+          configValues: { palette: ["#3d0000", "#3d0000"], angle: 0 },
+          position: { left: -542.7787307032589, top: 314.92281303602056 },
+          id: 103,
+          rotation: 0
+        }
+      ]
+    }
+  },
+  // 163
+  {
+    ...linearGradient,
+    layoutThumb: "/thumbs/163L.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#ffffff", "#ebf1ff"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 351.97255574614064,
+          height: 327.89022298456257,
+          showIframe: true,
+          adaptation: svgs[11],
+          configValues: { palette: ["#f7fba7", "#25e554"], angle: 0 },
+          position: { left: 244.52830188679243, top: 113.0017152658662 },
+          id: 202,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 351.97255574614064,
+          height: 327.89022298456257,
+          showIframe: true,
+          adaptation: svgs[11],
+          configValues: { palette: ["#f7fba7", "#25e554"], angle: 0 },
+          position: { left: 244.52830188679243, top: 113.0017152658662 },
+          id: 102,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 216.74099485420237,
+          height: 307.5128644939965,
+          showIframe: true,
+          adaptation: svgs[11],
+          configValues: { palette: ["#0869eb", "#25e554"], angle: 0 },
+          position: { left: 505.7289879931389, top: 109.29674099485419 },
+          id: 203,
+          rotation: 62
+        },
+        {
+          type: "object",
+          width: 146.34648370497425,
+          height: 116.7066895368782,
+          showIframe: true,
+          adaptation: svgs[11],
+          configValues: { palette: ["#25e554", "#0869eb"], angle: 0 },
+          position: { left: 259.3481989708405, top: 405.6946826758147 },
+          id: 205,
+          rotation: 120
+        },
+        {
+          type: "object",
+          width: 120.4116638078902,
+          height: 101.88679245283018,
+          showIframe: true,
+          adaptation: svgs[11],
+          configValues: { palette: ["#f7fba7", "#25e554"], angle: 0 },
+          position: { left: 678.0102915951971, top: 972.5557461406518 },
+          id: 103,
+          rotation: 0
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Roboto",
+            fontSize: 71,
+            padding: 29,
+            letterSpacing: 0,
+            color: "#000",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 14,
+            isBold: false,
+            isItalic: false
+          },
+          id: 204,
+          width: 437.2737993138936,
+          height: 450.6753859348199,
+          position: { left: 397.184819897084, top: 466.8846483704974 },
+          text: "SAMPLE\nTEXT\nNEXT TO\nA DRAWING"
+        },
+        {
+          type: "object",
+          width: 79.65694682675814,
+          height: 62.98456260720411,
+          showIframe: true,
+          adaptation: svgs[11],
+          configValues: { palette: ["#f7fba7", "#25e554"], angle: 0 },
+          position: { left: 114.8542024013722, top: 831.7667238421955 },
+          id: 105,
+          rotation: 0
+        },
+        {
+          type: "object",
+          width: 100.03430531732418,
+          height: 88.91938250428815,
+          showIframe: true,
+          adaptation: svgs[11],
+          configValues: { palette: ["#25e554", "#0869eb"], angle: 0 },
+          position: { left: 624.2881646655231, top: 968.8507718696397 },
+          id: 104,
+          rotation: 53
+        }
+      ]
+    }
+  },
+  // 164
+  {
+    ...linearGradient,
+    thumb: "/thumbs/164.png",
+    layoutThumb: "/thumbs/164L.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#0b0a21", "#1e1b57"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          id: 201,
+          type: "object",
+          showIframe: true,
+          adaptation: gradientWaves,
+          width: 1004.0480274442538,
+          height: 1000.3430531732417,
+          position: { left: 37.049742710120064, top: 42.60720411663807 },
+          configValues: {
+            amplituteX: 88,
+            amplituteY: 10,
+            fill: false,
+            lines: 67,
+            palette: ["#cf91f9", "#02d0ea"],
+            randomValues: [0.044420196340127394, 0.22911748347161964],
+            smoothness: 12,
+            fontSize: null
+          },
+          rotation: 0
+        },
+        {
+          id: 203,
+          type: "text",
+          position: { left: 172.25235849056602, top: 323.2590051457976 },
+          configValues: {
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            color: "#ffffff",
+            fontFamily: "Monoton",
+            fontSize: 150,
+            letterSpacing: 0,
+            padding: 10,
+            hasCyrillic: true
+          },
+          text: "SAMPLE\nBOLD\nTEXT",
+          width: 725.219768439108,
+          height: 514.586192109777
+        }
+      ]
+    }
+  },
+  // 165
+  {
+    ...linearGradient,
+    thumb: "/thumbs/165.png",
+    defaultLayout: 2,
+    textColor: "#fff",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#4c5c7e", "#77908b"],
+        direction: "custom_angle",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          id: 301,
+          type: "object",
+          showIframe: true,
+          adaptation: gradientWaves,
+          width: 1004.0480274442538,
+          height: 1000.3430531732417,
+          position: { left: 37.049742710120064, top: 42.60720411663807 },
+          configValues: {
+            amplituteX: 64,
+            amplituteY: 10,
+            fill: false,
+            lines: 27,
+            palette: ["#89b9b9", "#00e2ff"],
+            randomValues: [],
+            smoothness: 12,
+            fontSize: null
+          },
           rotation: 0
         }
       ]

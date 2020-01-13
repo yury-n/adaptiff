@@ -16,16 +16,18 @@ export default ({ title, author, authorLink, items, isPremium }) => {
       <div className={s["collection-header"]}>
         {isPremium && <PremiumCrown className={s["premium-icon"]} />}
         {title}
-        <span className={s["collection-author"]}>
-          <span>by</span>{" "}
-          {authorLink ? (
-            <a target="_blank" rel="noopener noreferrer" href={authorLink}>
-              {author}
-            </a>
-          ) : (
-            author
-          )}
-        </span>
+        {author && (
+          <span className={s["collection-author"]}>
+            <span>by</span>{" "}
+            {authorLink ? (
+              <a target="_blank" rel="noopener noreferrer" href={authorLink}>
+                {author}
+              </a>
+            ) : (
+              author
+            )}
+          </span>
+        )}
       </div>
       <div
         className={classnames(

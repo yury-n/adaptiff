@@ -1,0 +1,11 @@
+.collections {
+  width: 950px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.collections-column {
+  display: flex;
+  flex-direction: column;
+}

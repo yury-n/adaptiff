@@ -1765,18 +1765,14 @@ class TheModal extends Component {
 const CollapsibleSiderBar = React.memo(
   ({ insertText, insertImage, insertObject, priorityObjectPack, onClick }) => {
     const [activeItem, setActiveItem] = useState(() => {
-      return null;
-      // const activeItemFromStorage = localStorage.getItem(
-      //   "modal.insertionTabsActiveItem"
-      // );
-      // if (typeof activeItemFromStorage === "string") {
-      //   return activeItemFromStorage === "null" ? null : activeItemFromStorage;
-      // } else {
-      //   if (priorityObjectPack) {
-      //     return "object";
-      //   }
-      //   return null;
-      // }
+      const activeItemFromStorage = localStorage.getItem(
+        "modal.insertionTabsActiveItem"
+      );
+      if (typeof activeItemFromStorage === "string") {
+        return activeItemFromStorage === "null" ? null : activeItemFromStorage;
+      } else {
+        return "object";
+      }
     });
     useEffect(() => {
       localStorage.setItem("modal.insertionTabsActiveItem", activeItem);
