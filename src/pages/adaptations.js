@@ -10994,6 +10994,307 @@ export const allAdaptations = [
         }
       ]
     }
+  },
+  // 166
+  {
+    ...linearGradient,
+    layoutThumb: "/thumbs/166.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#013bd0", "#013bd0"],
+        direction: "bottom",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "object",
+          width: 957.7358490566037,
+          height: 646.5180102915951,
+          showIframe: true,
+          adaptation: linearGradient,
+          configValues: {
+            palette: ["#013bd0", "#2dd8fb"],
+            direction: "top",
+            angle: 308
+          },
+          position: { left: 135.23156089193824, top: 144.49399656946827 },
+          id: 202,
+          rotation: 0
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          text: "Some sample text \nsample text sample\nsome sample text",
+          isDraggable: true,
+          configValues: {
+            fontFamily: "Roboto Mono",
+            fontSize: 55,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            isBold: false,
+            hasCyrillic: true
+          },
+          id: 204,
+          width: 613.8968696397941,
+          height: 214.48327615780445,
+          position: { left: 241.74957118353342, top: 751.1835334476843 }
+        },
+        {
+          type: "text",
+          hasCyrillic: false,
+          text: "Sample text sample",
+          isDraggable: true,
+          configValues: {
+            fontFamily: "Roboto Mono",
+            fontSize: 67,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            isBold: true
+          },
+          id: 203,
+          width: 743.5420240137221,
+          height: 99.62907375643223,
+          position: { left: 239.89708404802744, top: 593.722126929674 }
+        }
+      ]
+    }
+  },
+  // 167
+  {
+    ...trianglify,
+    thumb: "/thumbs/167.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#ffebeb", "#fc6767", "#0081e7", "#ec008c"],
+        cell_size: 80,
+        variance: 100
+      },
+      insertedItems: [
+        {
+          id: 303,
+          type: "object",
+          width: 1072.590051457976,
+          height: 1074.442538593482,
+          showIframe: true,
+          adaptation: voronoi,
+          configValues: {
+            palette: ["#ffdaf4", "#fa5a5a", "#ef6034"],
+            filled: true,
+            lineWidth: 5,
+            minMaxRadius: [2, 3]
+          },
+          position: { left: 3.7049742710120066, top: 0 },
+          rotation: 0
+        }
+      ]
+    }
+  },
+  // 168
+  {
+    ...linearGradient,
+    layoutThumb: "/thumbs/168.png",
+    "initState":{"size":{"width":1080,"height":1080},"configValues":{"palette":["#fdedb2","#fdedb2"],"direction":"bottom","angle":200},"insertedItems":[{"type":"text","layoutItemType":"header","hasCyrillic":false,"configValues":{"fontFamily":"Ubuntu","fontSize":120,"padding":10,"letterSpacing":0,"color":"#d03641","borderWidth":0,"isInline":false,"lineHeight":12,"textAlign":"left","isBold":true},"id":1502,"text":"Designer for \nAesthetic Wisdom \nand Layout","width":1032.2984562607203,"height":447.8966552315608,"position":{"left":39.42324185248713,"top":318.8593481989708}},{"type":"text","layoutItemType":"header","hasCyrillic":false,"configValues":{"fontFamily":"Ubuntu","fontSize":52,"padding":10,"letterSpacing":0,"color":"#d03641","borderWidth":0,"isInline":false,"lineHeight":12,"textAlign":"left","isBold":true},"id":302,"text":"Pseudo Design Titles","width":511.3153945111492,"height":81.1042024013722,"position":{"left":48.68567753001715,"top":72.47855917667238}}]}
+  },
+  // 169
+  {
+    ...linearGradient,
+    thumb: "/thumbs/169.png",
+    "initState":{"size":{"width":1080,"height":1080},"configValues":{"palette":["#edb200","#edb200"],"direction":"bottom","angle":200},"insertedItems":[{"type":"text","layoutItemType":"header","hasCyrillic":false,"configValues":{"fontFamily":"Ubuntu","fontSize":120,"padding":10,"letterSpacing":0,"color":"#1a1d1b","borderWidth":0,"isInline":false,"lineHeight":12,"textAlign":"left","isBold":true},"id":1402,"text":"Designer for \nAesthetic Wisdom \nand Layout","width":1032.2984562607203,"height":447.8966552315608,"position":{"left":35.718267581475125,"top":315.15437392795883}},{"type":"text","layoutItemType":"header","hasCyrillic":false,"configValues":{"fontFamily":"Ubuntu","fontSize":52,"padding":10,"letterSpacing":0,"color":"#1a1d1b","borderWidth":0,"isInline":false,"lineHeight":12,"textAlign":"left","isBold":true},"id":202,"text":"Pseudo Design Titles","width":511.3153945111492,"height":81.1042024013722,"position":{"left":44.98070325900514,"top":68.77358490566037}}]}
+  },
+  // 170
+  {
+    ...linearGradient,
+    thumb: "/thumbs/170.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#13c37a", "#13c37a"],
+        direction: "bottom",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "text",
+          layoutItemType: "header",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Ubuntu",
+            fontSize: 120,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#521008",
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            textAlign: "left",
+            isBold: true
+          },
+          id: 1402,
+          text: "Designer for \nAesthetic Wisdom \nand Layout",
+          width: 1032.2984562607203,
+          height: 447.8966552315608,
+          position: { left: 35.718267581475125, top: 315.15437392795883 }
+        },
+        {
+          type: "text",
+          layoutItemType: "header",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Ubuntu",
+            fontSize: 52,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            textAlign: "left",
+            isBold: true
+          },
+          id: 202,
+          text: "Pseudo Design Titles",
+          width: 511.3153945111492,
+          height: 81.1042024013722,
+          position: { left: 44.98070325900514, top: 68.77358490566037 }
+        }
+      ]
+    }
+  },
+  // 171
+  {
+    ...linearGradient,
+    thumb: "/thumbs/171.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#fd6649", "#fd6649"],
+        direction: "bottom",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "text",
+          layoutItemType: "header",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Ubuntu",
+            fontSize: 120,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#266591",
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            textAlign: "left",
+            isBold: true
+          },
+          id: 1502,
+          text: "Designer for \nAesthetic Wisdom \nand Layout",
+          width: 1032.2984562607203,
+          height: 447.8966552315608,
+          position: { left: 39.42324185248713, top: 318.8593481989708 }
+        },
+        {
+          type: "text",
+          layoutItemType: "header",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Ubuntu",
+            fontSize: 52,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#ffffff",
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            textAlign: "left",
+            isBold: true
+          },
+          id: 302,
+          text: "Pseudo Design Titles",
+          width: 511.3153945111492,
+          height: 81.1042024013722,
+          position: { left: 48.68567753001715, top: 72.47855917667238 }
+        }
+      ]
+    }
+  },
+  // 172
+  {
+    ...linearGradient,
+    thumb: "/thumbs/172.png",
+    initState: {
+      size: { width: 1080, height: 1080 },
+      configValues: {
+        palette: ["#cd244a", "#cd244a"],
+        direction: "bottom",
+        angle: 200
+      },
+      insertedItems: [
+        {
+          type: "text",
+          layoutItemType: "header",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Ubuntu",
+            fontSize: 120,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#eac417",
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            textAlign: "left",
+            isBold: true
+          },
+          id: 1602,
+          text: "Designer for \nAesthetic Wisdom \nand Layout",
+          width: 1032.2984562607203,
+          height: 447.8966552315608,
+          position: { left: 43.128216123499136, top: 322.5643224699828 }
+        },
+        {
+          type: "text",
+          layoutItemType: "header",
+          hasCyrillic: false,
+          configValues: {
+            fontFamily: "Ubuntu",
+            fontSize: 52,
+            padding: 10,
+            letterSpacing: 0,
+            color: "#eac417",
+            borderWidth: 0,
+            isInline: false,
+            lineHeight: 12,
+            textAlign: "left",
+            isBold: true
+          },
+          id: 402,
+          text: "Pseudo Design Titles",
+          width: 511.3153945111492,
+          height: 81.1042024013722,
+          position: { left: 52.39065180102916, top: 76.18353344768438 }
+        }
+      ]
+    }
+  },
+  // 173
+  {
+    ...linearGradient,
+    thumb: "/thumbs/173.png",
+    "initState":{"size":{"width":1080,"height":1080},"configValues":{"palette":["#27292b","#27292b"],"direction":"bottom","angle":200},"insertedItems":[{"type":"text","layoutItemType":"header","hasCyrillic":false,"configValues":{"fontFamily":"Ubuntu","fontSize":120,"padding":10,"letterSpacing":0,"color":"#a546a7","borderWidth":0,"isInline":false,"lineHeight":12,"textAlign":"left","isBold":true},"id":1502,"text":"Designer for \nAesthetic Wisdom \nand Layout","width":1032.2984562607203,"height":447.8966552315608,"position":{"left":39.42324185248713,"top":318.8593481989708}},{"type":"text","layoutItemType":"header","hasCyrillic":false,"configValues":{"fontFamily":"Ubuntu","fontSize":52,"padding":10,"letterSpacing":0,"color":"#a546a7","borderWidth":0,"isInline":false,"lineHeight":12,"textAlign":"left","isBold":true},"id":302,"text":"Pseudo Design Titles","width":511.3153945111492,"height":81.1042024013722,"position":{"left":48.68567753001715,"top":72.47855917667238}}]}
   }
   // { ...cells },
   // { ...fog },

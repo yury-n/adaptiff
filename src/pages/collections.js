@@ -1,3 +1,4 @@
+import shuffle from "lodash.shuffle";
 import { allAdaptations } from "./adaptations";
 
 export default [
@@ -8,10 +9,18 @@ export default [
   },
   {
     title: "random mixes",
+    isRandomOne: true,
     noBackgrounds: true,
-    items: [161, 87, 85, 88, 82, 70, 163, 89].map(
+    items: shuffle([166, 161, 87, 85, 88, 82, 70, 163, 89, 5]).map(
       index => allAdaptations[index]
     )
+  },
+  {
+    title: "job titles",
+    author: "Xtian Miller",
+    authorLink: "https://codepen.io/supah/",
+    noBackgrounds: true,
+    items: [168, 169, 170, 171, 172, 173].map(index => allAdaptations[index])
   },
   {
     title: "Gradient Waves",
@@ -85,4 +94,10 @@ export default [
       index => allAdaptations[index]
     )
   }
+  // {
+  //   title: "trianglify",
+  //   author: "qrohlf",
+  //   authorLink: "https://qrohlf.com/",
+  //   items: [167].map(index => allAdaptations[index])
+  // }
 ];

@@ -6,7 +6,14 @@ import { Icon } from "semantic-ui-react";
 
 import s from "./Collection.module.css";
 
-export default ({ title, author, authorLink, items, isPremium }) => {
+export default ({
+  title,
+  author,
+  authorLink,
+  items,
+  isRandomOne,
+  isPremium
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const slicedItems = isExpanded ? items : items.slice(0, 4);
@@ -15,6 +22,7 @@ export default ({ title, author, authorLink, items, isPremium }) => {
     <div className={s["collection-super-wrapper"]}>
       <div className={s["collection-header"]}>
         {isPremium && <PremiumCrown className={s["premium-icon"]} />}
+        {isRandomOne && <Icon name="random" className={s["random-icon"]} />}
         {title}
         {author && (
           <span className={s["collection-author"]}>
@@ -32,7 +40,8 @@ export default ({ title, author, authorLink, items, isPremium }) => {
       <div
         className={classnames(
           s["collection-wrapper"],
-          isExpanded && s["is-expanded"]
+          isExpanded && s["is-expanded"],
+          isRandomOne && s["is-deep"]
         )}
       >
         <div className={s["collection-inner-shadow"]} />

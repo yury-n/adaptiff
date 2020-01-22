@@ -1124,9 +1124,9 @@ class TheModal extends Component {
     newState.configMode = "element";
     this.setState(newState);
 
-    if (insertedItems.length - 1 !== index) {
-      this.moveInsertedItemToIndex(index, insertedItems.length - 1);
-    }
+    // if (insertedItems.length - 1 !== index) {
+    //   this.moveInsertedItemToIndex(index, insertedItems.length - 1);
+    // }
   };
 
   unsetActiveInsertedItemIndex = () => {
