@@ -50,17 +50,10 @@ class Header extends Component {
               icon
               className={s["contact-button"]}
               target="_blank"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSddoo8_28sRF5Pt7AZae5wtTXPH18dNYFoD8kujnf7omcKaDQ/viewform"
+              href="https://background-generator.com"
             >
-              Contact
-            </Button>
-            <Button
-              icon
-              className={s["add-code-button"]}
-              target="_blank"
-              href="https://docs.google.com/forms/d/1UjRg1IMhTAwZSUelpORjsXjSUvWGXiHBRZ7cFDrlePA/viewform"
-            >
-              Contribute
+              <img src="/bg-favicon.png" className={s["contact-icon"]} alt="" />{" "}
+              SVG Background Generator
             </Button>
             <Button
               icon

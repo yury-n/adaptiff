@@ -51,11 +51,11 @@
   overflow: hidden;
 }
 .logo-symbol-block-2 {
-  width: 7px;
-  height: 18px;
+  width: 8px;
+  height: 21px;
   background: #00ff8f;
   position: absolute;
-  left: 29px;
+  left: 28px;
 }
 .logo-text {
   position: relative;
@@ -97,6 +97,7 @@
 
 .contact-button,
 .add-code-button {
+  position: relative;
   font-weight: 400 !important;
   margin-right: 15px !important;
   color: #0f0f0f !important;
@@ -104,6 +105,12 @@
   border: none !important;
   background: none !important;
   margin-left: 20px !important;
+}
+
+.contact-icon {
+  position: absolute;
+  width: 15px;
+  left: -12px;
 }
 
 .add-code-button {
