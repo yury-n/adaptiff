@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+/multi-backgrounds
+
 # testing
 /coverage
 
